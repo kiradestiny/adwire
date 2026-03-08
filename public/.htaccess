@@ -1,0 +1,305 @@
+# ======================================================================
+# | AdWire Website — Apache .htaccess                                  |
+# | Optimized for Next.js Static Export                                |
+# ======================================================================
+
+
+# ----------------------------------------------------------------------
+# | General Settings                                                   |
+# ----------------------------------------------------------------------
+
+# Prevent directory browsing; allow symbolic link following
+Options -Indexes +FollowSymLinks
+
+# Set default charset to UTF-8
+AddDefaultCharset UTF-8
+
+# Force UTF-8 for plain-text files
+<FilesMatch "\.(txt|md)$">
+    AddCharset UTF-8 .txt .md
+</FilesMatch>
+
+
+# ----------------------------------------------------------------------
+# | Custom Error Pages                                                 |
+# ----------------------------------------------------------------------
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+
+
+# ----------------------------------------------------------------------
+# | Rewrite Rules                                                      |
+# ----------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # ------------------------------------------------------------------
+    # [FIX #1] Force HTTPS — 必須啟用，否則 HSTS header 形同虛設
+    # ------------------------------------------------------------------
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # ------------------------------------------------------------------
+    # Force www (Optional — 視主機設定決定是否啟用)
+    # ------------------------------------------------------------------
+    # RewriteCond %{HTTP_HOST} !^www\. [NC]
+    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    # ------------------------------------------------------------------
+    # Next.js RSC Prefetch — 靜態導出環境修復
+    # 問題：Next.js App Router 的 <Link> 預取 RSC payload (.txt 檔)
+    #       靜態導出 + Apache 無法正確服務含 ?_rsc= 查詢的請求
+    #       → 產生 404 console 錯誤，影響 PageSpeed Best Practices 分數
+    #
+    # 修復策略（雙層防護）：
+    #   1. 如果 .txt 檔案存在    → 去除 ?_rsc= query 直接服務 (200 OK)
+    #   2. 如果 .txt 檔案不存在  → 返回空白 200 OK (使用 /rsc-ok.txt fallback)
+    # ------------------------------------------------------------------
+
+    # 層 1：RSC 檔案存在 — 去除 query string 直接服務
+    RewriteCond %{REQUEST_URI} !^/rsc-ok\.txt$ [NC]
+    RewriteCond %{QUERY_STRING} _rsc= [NC]
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ %{REQUEST_URI} [QSD,L]
+
+    # 層 2：RSC 檔案不存在 — 返回空白 200 OK（避免 404 console 錯誤）
+    RewriteCond %{REQUEST_URI} !^/rsc-ok\.txt$ [NC]
+    RewriteCond %{QUERY_STRING} _rsc= [NC]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ /rsc-ok.txt [L]
+
+    # ------------------------------------------------------------------
+    # Trailing Slash — 只對「無副檔名的純路徑」加 trailing slash
+    # 排除：
+    #   !-f               → 非真實檔案
+    #   !/$               → 尚未有 trailing slash
+    #   !\.php$           → 排除 PHP 腳本
+    #   !\.[a-zA-Z0-9]+$  → 排除所有帶副檔名的請求
+    #                        (防止 .js/.css/.json/.webp 等被錯誤加 slash)
+    # ------------------------------------------------------------------
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !/$
+    RewriteCond %{REQUEST_URI} !\.php$
+    RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]+$
+    RewriteRule ^(.*)$ /$1/ [L,R=301]
+
+    # ------------------------------------------------------------------
+    # Hide .html extension
+    # 外部請求 /page.html → 永久跳轉 /page/
+    # ------------------------------------------------------------------
+    RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+    RewriteRule ^ /%1/ [R=301,L]
+
+    # ------------------------------------------------------------------
+    # [FIX #2 & #3] Block access to hidden files & directories
+    #   修正：
+    #   - 補上 RewriteEngine On（已在 block 頂部）
+    #   - 移除 -f/-d 存在檢查 → 無論檔案是否存在都 block dotfile 存取
+    #   - 加上 [L] flag 防止繼續往下匹配
+    #   - 保留 /.well-known/ 例外（ACME/SSL 憑證驗證用）
+    # ------------------------------------------------------------------
+    RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+    RewriteRule "(^|/)\." - [F,L]
+
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# | Security Headers                                                   |
+# ----------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+
+    # Protect against clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Protect against MIME sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # [FIX #4] 移除已廢棄的 X-XSS-Protection
+    # Chrome/Edge 已移除此功能，舊版瀏覽器保留反而觸發 side-channel 風險
+    # Header always set X-XSS-Protection "1; mode=block"
+
+    # Strict Transport Security (HSTS) — 1 年有效期，含子網域
+    # preload 需已提交至 https://hstspreload.org/ 才有效
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions Policy
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+    # Cross-Origin-Opener-Policy
+    # same-origin-allow-popups：保留 target="_blank" 外部連結正常開啟
+    # （WhatsApp / 社交媒體分享）
+    Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+
+    # [FIX #5] Content-Security-Policy — 補上 media-src（網站有 .mp4 影片）
+    # 相容：GTM / GA4 / Microsoft Clarity / Google Fonts / WhatsApp / 影片
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://www.clarity.ms https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://region1.analytics.google.com https://www.clarity.ms https://c.clarity.ms; frame-src 'self' https://www.googletagmanager.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self';"
+
+    # [FIX #8] Vary: Accept-Encoding — CDN 及代理伺服器需要此標頭
+    # 以便正確區分並儲存壓縮/非壓縮版本
+    Header append Vary Accept-Encoding
+
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# | Compression — Brotli (優先) + Gzip (降級備援)                     |
+# ----------------------------------------------------------------------
+
+# [FIX #6] 優先使用 Brotli（比 Gzip 壓縮率高 20-26%）
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS \
+        application/atom+xml \
+        application/javascript \
+        application/json \
+        application/manifest+json \
+        application/rss+xml \
+        application/vnd.ms-fontobject \
+        application/x-font-ttf \
+        application/x-web-app-manifest+json \
+        application/xhtml+xml \
+        application/xml \
+        font/opentype \
+        font/woff \
+        font/woff2 \
+        image/svg+xml \
+        image/x-icon \
+        text/css \
+        text/html \
+        text/javascript \
+        text/plain \
+        text/x-component \
+        text/xml
+</IfModule>
+
+# Gzip 壓縮 — Brotli 不可用時的降級備援
+<IfModule mod_deflate.c>
+
+    # 修正被篡改的 Accept-Encoding 請求頭（老舊代理相容）
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+        </IfModule>
+    </IfModule>
+
+    # [FIX #9] 補上現代 MIME types：text/javascript, font/woff, font/woff2
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE \
+            application/atom+xml \
+            application/javascript \
+            application/json \
+            application/manifest+json \
+            application/rss+xml \
+            application/vnd.ms-fontobject \
+            application/x-font-ttf \
+            application/x-web-app-manifest+json \
+            application/xhtml+xml \
+            application/xml \
+            font/opentype \
+            font/woff \
+            font/woff2 \
+            image/svg+xml \
+            image/x-icon \
+            text/css \
+            text/html \
+            text/javascript \
+            text/plain \
+            text/x-component \
+            text/xml
+    </IfModule>
+
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# | Browser Caching (Expires + Cache-Control)                         |
+# ----------------------------------------------------------------------
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # CSS and JavaScript
+    ExpiresByType text/css                        "access plus 1 year"
+    ExpiresByType application/javascript          "access plus 1 year"
+    ExpiresByType application/x-javascript        "access plus 1 year"
+    ExpiresByType text/javascript                 "access plus 1 year"
+
+    # Images
+    ExpiresByType image/jpg                       "access plus 1 year"
+    ExpiresByType image/jpeg                      "access plus 1 year"
+    ExpiresByType image/gif                       "access plus 1 year"
+    ExpiresByType image/png                       "access plus 1 year"
+    ExpiresByType image/webp                      "access plus 1 year"
+    ExpiresByType image/avif                      "access plus 1 year"
+    ExpiresByType image/svg+xml                   "access plus 1 year"
+    ExpiresByType image/x-icon                    "access plus 1 year"
+
+    # Video
+    ExpiresByType video/mp4                       "access plus 1 year"
+    ExpiresByType video/webm                      "access plus 1 year"
+
+    # Fonts
+    ExpiresByType application/vnd.ms-fontobject   "access plus 1 year"
+    ExpiresByType application/x-font-ttf          "access plus 1 year"
+    ExpiresByType application/font-woff           "access plus 1 year"
+    ExpiresByType application/font-woff2          "access plus 1 year"
+    ExpiresByType font/woff                       "access plus 1 year"
+    ExpiresByType font/woff2                      "access plus 1 year"
+    ExpiresByType font/opentype                   "access plus 1 year"
+
+    # HTML（不快取，確保用戶看到最新版本）
+    ExpiresByType text/html                       "access plus 0 seconds"
+
+    # Data（API responses、XML 不快取）
+    ExpiresByType application/json                "access plus 0 seconds"
+    ExpiresByType application/xml                 "access plus 0 seconds"
+    ExpiresByType text/xml                        "access plus 0 seconds"
+</IfModule>
+
+# [FIX #7] 明確的 Cache-Control 標頭，搭配 mod_expires 使用
+# Next.js 靜態資源使用 content hash 命名，可安全設 immutable
+<IfModule mod_headers.c>
+
+    # _next/static/ 下的資源（JS/CSS 帶 hash）→ 永久快取 + immutable
+    <FilesMatch "\.(js|css|woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # 圖片與影片資源 → 永久快取
+    <FilesMatch "\.(webp|avif|jpg|jpeg|png|gif|svg|ico|mp4|webm)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # HTML → 不快取，確保取得最新頁面
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate"
+        Header set Pragma "no-cache"
+    </FilesMatch>
+
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# | File Access Protection                                             |
+# ----------------------------------------------------------------------
+
+# Block access to specific sensitive project files
+# （防止被直接訪問，即使這些檔案通常不在 public/ 目錄）
+<FilesMatch "^(package\.json|package-lock\.json|next\.config\.ts|tsconfig\.json|README\.md|LICENSE|\.env.*)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

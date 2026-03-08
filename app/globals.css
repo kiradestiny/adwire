@@ -1,0 +1,447 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 基礎設定 */
+html {
+  overflow-x: hidden; /* 防止任何元素水平溢位造成走位 */
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  overflow-x: hidden; /* 雙重保險：阻斷水平捲動 */
+}
+
+/* ============================================================
+   自定義工具類 (一定要放在 @tailwind utilities 之後)
+   ============================================================ */
+@layer utilities {
+  /* ── 動畫延遲 ── */
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-3000 { animation-delay: 3s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+  .animation-delay-5000 { animation-delay: 5s; }
+  .animation-delay-6000 { animation-delay: 6s; }
+
+  /* ── 原有 Frosted Glass ── */
+  .frosted-glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(100px) saturate(180%);
+    -webkit-backdrop-filter: blur(100px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+      0 8px 40px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateZ(0);
+  }
+
+  .frosted-glass-mobile {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark-frosted-glass {
+    background: rgba(10, 15, 20, 0.92);
+    backdrop-filter: blur(120px) saturate(160%) brightness(1.1);
+    -webkit-backdrop-filter: blur(120px) saturate(160%) brightness(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+      0 24px 60px 0 rgba(0, 0, 0, 0.6),
+      0 8px 20px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    transform: translateZ(0);
+  }
+
+  /* ════════════════════════════════════════════════
+     Navbar 專用玻璃效果 (不影響其他 component)
+     ════════════════════════════════════════════════ */
+
+  /* 頂部全寬 Navbar — 輕盈霧面玻璃 */
+  .navbar-glass {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.78) 0%,
+      rgba(255, 255, 255, 0.60) 100%
+    );
+    backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
+    -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.03);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.90),
+      0 1px 0 rgba(0, 0, 0, 0.05),
+      0 4px 28px rgba(0, 0, 0, 0.07);
+    transform: translateZ(0);
+  }
+
+  /* 捲動後膠囊 Navbar — 深色液態玻璃 */
+  .navbar-pill-glass {
+    background: linear-gradient(
+      135deg,
+      rgba(6, 12, 30, 0.82) 0%,
+      rgba(8, 16, 38, 0.76) 100%
+    );
+    backdrop-filter: blur(36px) saturate(200%) brightness(1.3);
+    -webkit-backdrop-filter: blur(36px) saturate(200%) brightness(1.3);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      inset 0 1.5px 0 rgba(255, 255, 255, 0.26),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.07),
+      inset 1px 0 0 rgba(255, 255, 255, 0.09),
+      inset -1px 0 0 rgba(255, 255, 255, 0.09),
+      0 24px 56px rgba(0, 0, 0, 0.50),
+      0 8px 24px rgba(0, 0, 0, 0.30),
+      0 2px 8px rgba(0, 0, 0, 0.20),
+      0 0 0 0.5px rgba(255, 255, 255, 0.07);
+    transform: translateZ(0);
+  }
+
+  /* Dropdown — 淺色主題 */
+  .navbar-dropdown-light {
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.02);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.02);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      0 16px 40px rgba(0, 0, 0, 0.10),
+      0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Dropdown — 深色主題 */
+  .navbar-dropdown-dark {
+    background: linear-gradient(
+      160deg,
+      rgba(6, 12, 30, 0.90) 0%,
+      rgba(8, 16, 38, 0.86) 100%
+    );
+    backdrop-filter: blur(36px) saturate(180%) brightness(1.25);
+    -webkit-backdrop-filter: blur(36px) saturate(180%) brightness(1.25);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.20),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+      0 20px 50px rgba(0, 0, 0, 0.52),
+      0 8px 20px rgba(0, 0, 0, 0.30);
+    /* ✅ 確保子元素預設白色文字，防止 Tailwind 類別未生成時 fallback 到黑色 */
+    color: rgba(255, 255, 255, 0.80);
+  }
+
+  /* ── 液態玻璃 (Liquid Glass) ── */
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.1);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.30),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+      inset 1px 0 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .liquid-glass-hover {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(32px) saturate(200%) brightness(1.15);
+    -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow:
+      0 16px 48px rgba(0, 0, 0, 0.30),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.40),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.10);
+  }
+
+  .liquid-glass-dark {
+    background: rgba(15, 20, 40, 0.55);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.40),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.20);
+  }
+
+  /* ── 動態漸層背景 ── */
+  .animated-gradient-bg {
+    background: linear-gradient(-45deg, #0f4c81, #1a3a6b, #2d1b69, #0f4c81, #1e3a5f);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+  }
+
+  .animated-gradient-hero {
+    background: linear-gradient(
+      135deg,
+      #060d1f 0%,
+      #0f1e3d 20%,
+      #0f4c81 40%,
+      #1a2a5e 60%,
+      #2d1b69 80%,
+      #060d1f 100%
+    );
+    background-size: 300% 300%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  /* ── 3D 卡片效果 ── */
+  .card-3d-wrapper {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+  }
+
+  .card-3d-shine {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-3d:hover .card-3d-shine {
+    opacity: 1;
+  }
+
+  /* ── Shimmer 載入效果 ── */
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+
+  /* ── 漸層文字 ── */
+  .gradient-text-gold {
+    background: linear-gradient(135deg, #f5a623 0%, #fcd34d 50%, #f5a623 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-blue {
+    background: linear-gradient(135deg, #60a5fa 0%, #a5b4fc 50%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ── 發光邊框 ── */
+  .glow-border-gold {
+    box-shadow:
+      0 0 0 1px rgba(245, 166, 35, 0.4),
+      0 0 20px rgba(245, 166, 35, 0.2),
+      inset 0 0 20px rgba(245, 166, 35, 0.05);
+  }
+
+  .glow-border-blue {
+    box-shadow:
+      0 0 0 1px rgba(96, 165, 250, 0.4),
+      0 0 20px rgba(96, 165, 250, 0.2),
+      inset 0 0 20px rgba(96, 165, 250, 0.05);
+  }
+
+  /* ── 視差容器 ── */
+  .parallax-container {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  /* ── 粒子光點 ── */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: cardFloat var(--duration, 6s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+
+  /* ── 數字增長效果容器 ── */
+  .stat-number {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  /* ── Portfolio Hero 特殊效果 ── */
+  .hero-mesh-gradient {
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(96, 165, 250, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 70% at 80% 20%, rgba(167, 139, 250, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 60% at 50% 80%, rgba(245, 166, 35, 0.08) 0%, transparent 60%);
+  }
+
+  /* ── Tag Pill 液態效果 ── */
+  .tag-pill {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+  }
+
+  .tag-pill:hover {
+    background: rgba(245, 166, 35, 0.20);
+    border-color: rgba(245, 166, 35, 0.40);
+  }
+
+  /* ── 進場動畫輔助 ── */
+  .opacity-0-init {
+    opacity: 0;
+  }
+}
+
+/* ── 全局 3D 渲染優化 ── */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.portfolio-hero-bg {
+  background-image:
+    radial-gradient(ellipse at 15% 50%, rgba(96, 165, 250, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 30%, rgba(167, 139, 250, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 90%, rgba(245, 166, 35, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #040c1e 0%, #0a1628 40%, #060d1f 100%);
+}
+
+/* ── Scrollbar 美化 (Portfolio 頁) ── */
+.portfolio-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+.portfolio-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 100px;
+}
+.portfolio-scroll::-webkit-scrollbar-thumb {
+  background: rgba(245, 166, 35, 0.5);
+  border-radius: 100px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   手機版效能優化 — 禁用高消耗動畫 & backdrop-filter
+   PageSpeed Mobile 修復項目：
+   ① 非合成動畫 (gradientShift/shimmer = background-position，非 GPU)
+   ② backdrop-filter 過多（手機 GPU 無法高效處理）
+   ③ 減少主執行緒工作 (5.8s → 目標 <3s)
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+  /* ── 1. 禁用 background-position 動畫（非 GPU 合成，強制每幀 CPU Paint）── */
+  .animated-gradient-hero {
+    animation: none !important;
+    background: linear-gradient(
+      135deg,
+      #060d1f 0%,
+      #0f1e3d 35%,
+      #0f4c81 65%,
+      #2d1b69 100%
+    );
+    background-size: 100% 100% !important;
+  }
+
+  .animated-gradient-bg {
+    animation: none !important;
+    background: linear-gradient(-45deg, #0f4c81, #1a3a6b, #2d1b69);
+    background-size: 100% 100% !important;
+  }
+
+  /* ── 2. 禁用 shimmer（background-position 動畫 = 非合成，強制 CPU Paint）── */
+  .shimmer-bg {
+    animation: none !important;
+    display: none;
+  }
+
+  /* ── 3. 移除 backdrop-filter（手機 GPU 效能瓶頸，PageSpeed 主執行緒過載主因）── */
+  .liquid-glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.10) !important;
+  }
+
+  .liquid-glass-hover {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+  }
+
+  .liquid-glass-dark {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(15, 20, 40, 0.70) !important;
+  }
+
+  .dark-frosted-glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(10, 15, 20, 0.95) !important;
+  }
+
+  .frosted-glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+  }
+
+  .frosted-glass-mobile {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.97) !important;
+  }
+
+  .navbar-glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.96) !important;
+  }
+
+  .navbar-pill-glass {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(6, 12, 30, 0.95) !important;
+  }
+
+  .navbar-dropdown-light {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+  }
+
+  .navbar-dropdown-dark {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(6, 12, 30, 0.98) !important;
+  }
+
+  .tag-pill {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  /* ── 4. 降低 Orb blur 強度（filter:blur 觸發新合成層，手機上代價極高）── */
+  /* Orbs 由 HeroSection.tsx 在手機版直接不渲染，此為 fallback */
+  .animate-orb-drift {
+    animation: none !important;
+    display: none !important;
+  }
+}
