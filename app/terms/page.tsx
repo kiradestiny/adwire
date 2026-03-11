@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "服務條款 (Terms of Service) | ADWire Agency",
   description: "ADWire Agency 的服務條款。使用本網站及服務即表示您同意遵守這些條款及細則。",
   alternates: {
-    canonical: "https://adwire.com.hk/terms",
+    canonical: "/terms",
   },
   openGraph: {
     title: "服務條款 (Terms of Service) | ADWire Agency",

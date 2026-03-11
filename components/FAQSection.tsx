@@ -56,32 +56,29 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
         <div className="space-y-3">
           {faqs.map((faq, index) => (
             <div
-              key={index}
-              className={`bg-white rounded-2xl shadow-sm border transition-all duration-300 overflow-hidden ${
-                openIndex === index
-                  ? "border-[#0f4c81]/30 shadow-md"
-                  : "border-gray-100 hover:border-gray-200"
-              }`}
-              itemScope
-              itemType="https://schema.org/Question"
-            >
-              {/* Question */}
-              <button
-                className="w-full flex items-center justify-between p-6 text-left group"
-                onClick={() => toggle(index)}
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
-              >
-                <span
-                  className={`font-semibold text-base md:text-lg pr-4 transition-colors duration-200 ${
+                  key={index}
+                  className={`bg-white rounded-2xl shadow-sm border transition-all duration-300 overflow-hidden ${
                     openIndex === index
-                      ? "text-[#0f4c81]"
-                      : "text-gray-800 group-hover:text-[#0f4c81]"
+                      ? "border-[#0f4c81]/30 shadow-md"
+                      : "border-gray-100 hover:border-gray-200"
                   }`}
-                  itemProp="name"
                 >
-                  {faq.question}
-                </span>
+                  {/* Question */}
+                  <button
+                    className="w-full flex items-center justify-between p-6 text-left group"
+                    onClick={() => toggle(index)}
+                    aria-expanded={openIndex === index}
+                    aria-controls={`faq-answer-${index}`}
+                  >
+                    <span
+                      className={`font-semibold text-base md:text-lg pr-4 transition-colors duration-200 ${
+                        openIndex === index
+                          ? "text-[#0f4c81]"
+                          : "text-gray-800 group-hover:text-[#0f4c81]"
+                      }`}
+                    >
+                      {faq.question}
+                    </span>
                 <div
                   className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
                     openIndex === index
@@ -105,16 +102,10 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
                     ? "max-h-[500px] opacity-100"
                     : "max-h-0 opacity-0"
                 } overflow-hidden`}
-                itemScope
-                itemType="https://schema.org/Answer"
-                itemProp="acceptedAnswer"
               >
                 <div className="px-6 pb-6">
                   <div className="border-t border-gray-100 pt-4">
-                    <p
-                      className="text-gray-600 leading-relaxed text-base"
-                      itemProp="text"
-                    >
+                    <p className="text-gray-600 leading-relaxed text-base">
                       {faq.answer}
                     </p>
                   </div>

@@ -123,24 +123,6 @@ function CaseStudyJsonLd({
         },
       ],
     },
-    // Review / Testimonial
-    review: {
-      "@type": "Review",
-      reviewBody: caseItem.testimonial.quote,
-      author: {
-        "@type": "Person",
-        name: caseItem.testimonial.author,
-        jobTitle: caseItem.testimonial.role,
-      },
-      itemReviewed: {
-        "@type": "Service",
-        name: caseItem.services.join("、"),
-        provider: {
-          "@type": "Organization",
-          name: "ADWire Agency",
-        },
-      },
-    },
   };
 
   return (

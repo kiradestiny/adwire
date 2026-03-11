@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     "數碼轉型"
   ],
   alternates: {
-    canonical: "https://adwire.com.hk/services/ai",
+    canonical: "/services/ai",
   },
   openGraph: {
     title: "AI 解決方案 | 企業智能轉型專家 | ADWire Agency",

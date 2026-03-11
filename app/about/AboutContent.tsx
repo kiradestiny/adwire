@@ -90,8 +90,6 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.06 }}
       className="border border-gray-200 rounded-2xl overflow-hidden bg-white hover:border-[#0f4c81]/30 transition-colors duration-200"
-      itemScope
-      itemType="https://schema.org/Question"
     >
       <button
         onClick={() => setOpen(!open)}
@@ -99,7 +97,6 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         aria-expanded={open}
       >
         <span
-          itemProp="name"
           className="text-base md:text-lg font-semibold text-[#0f4c81] group-hover:text-[#f5a623] transition-colors duration-200"
         >
           {q}
@@ -117,12 +114,8 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
-            itemScope
-            itemType="https://schema.org/Answer"
-            itemProp="acceptedAnswer"
           >
             <p
-              itemProp="text"
               className="px-6 pb-5 text-gray-600 leading-relaxed text-sm md:text-base border-t border-gray-100 pt-4"
             >
               {a}
@@ -475,8 +468,6 @@ export default function AboutContent() {
       {/* ── FAQ Section ── */}
       <section
         className="py-24 bg-white"
-        itemScope
-        itemType="https://schema.org/FAQPage"
         aria-label="常見問題 FAQ"
       >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">

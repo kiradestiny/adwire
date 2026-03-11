@@ -828,14 +828,13 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className="border border-gray-200 rounded-xl overflow-hidden bg-white hover:border-blue-200 transition-colors duration-200"
-      itemScope itemType="https://schema.org/Question"
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center px-5 py-4 text-left hover:bg-gray-50 transition-colors gap-4 group"
         aria-expanded={isOpen}
       >
-        <span itemProp="name" className="font-semibold text-[#0f4c81] text-sm md:text-base group-hover:text-blue-500 transition-colors duration-200">
+        <span className="font-semibold text-[#0f4c81] text-sm md:text-base group-hover:text-blue-500 transition-colors duration-200">
           {question}
         </span>
         <ChevronDown size={18} className={`text-gray-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-blue-500" : ""}`} />
@@ -849,9 +848,8 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
-            itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer"
           >
-            <p itemProp="text" className="px-5 pb-4 pt-3 text-gray-600 text-sm leading-relaxed border-t border-gray-100 bg-gray-50/50">
+            <p className="px-5 pb-4 pt-3 text-gray-600 text-sm leading-relaxed border-t border-gray-100 bg-gray-50/50">
               {answer}
             </p>
           </motion.div>

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "私隱政策 (Privacy Policy) | ADWire Agency",
   description: "ADWire Agency 的私隱政策。了解我們如何收集、使用及保護您的個人資料，保障您的私隱權益。",
   alternates: {
-    canonical: "https://adwire.com.hk/privacy",
+    canonical: "/privacy",
   },
   openGraph: {
     title: "私隱政策 (Privacy Policy) | ADWire Agency",

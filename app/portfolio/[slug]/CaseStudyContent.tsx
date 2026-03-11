@@ -400,8 +400,8 @@ function FaqAccordion({
           </p>
         </motion.div>
 
-        {/* 使用語意化 HTML 讓 Google 正確解析為 FAQPage */}
-        <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
+        {/* FAQ Accordion */}
+        <div className="space-y-3">
           {faqs.map((faq, i) => (
             <motion.div
               key={i}
@@ -409,9 +409,6 @@ function FaqAccordion({
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100"
-              itemScope
-              itemProp="mainEntity"
-              itemType="https://schema.org/Question"
             >
               {/* 問題 */}
               <button
@@ -421,7 +418,6 @@ function FaqAccordion({
               >
                 <span
                   className="font-bold text-sm sm:text-base text-gray-900 leading-snug"
-                  itemProp="name"
                 >
                   {faq.q}
                 </span>
@@ -444,14 +440,10 @@ function FaqAccordion({
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    itemScope
-                    itemProp="acceptedAnswer"
-                    itemType="https://schema.org/Answer"
                   >
                     <div
                       className="px-5 sm:px-6 pb-5 pt-2 border-t text-sm sm:text-base text-gray-600 leading-relaxed"
                       style={{ borderColor: `${accentColor}20` }}
-                      itemProp="text"
                     >
                       {faq.a}
                     </div>
