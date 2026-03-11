@@ -24,29 +24,64 @@ export const SERVICE_OPTIONS = [
   "其他合作",
 ] as const;
 
+const PHONE_DIGITS_REGEX = /^\d{8,15}$/;
+const CLIENT_SUBMIT_COOLDOWN_MS = 60_000;
+const MIN_FORM_FILL_MS = 4_000;
+const SUBMIT_COOLDOWN_STORAGE_KEY = "adwire_contact_submit_cooldown_until";
+
+const sanitizePhoneInput = (value: string) => value.replace(/\D/g, "").slice(0, 15);
+
 // ─── Per-field validators ─────────────────────────────────────────────────────
 const VALIDATORS: Record<string, (v: string) => string> = {
   name:  v => v.trim().length >= 2  ? "" : "請輸入姓名（最少 2 字）",
-  phone: v => /^[\d\s+\-()]{7,}$/.test(v.trim()) ? "" : "請輸入有效電話號碼（最少 8 位）",
+  phone: v => PHONE_DIGITS_REGEX.test(v.trim()) ? "" : "請輸入 8 至 15 位數字，不能包含空格或符號",
   email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? "" : "請輸入有效電郵地址",
 };
 
 type FormValues = {
   name: string; phone: string; email: string;
   service: string; message: string;
+  website: string; formStartedAt: string;
 };
+
+type VisibleFormField = "name" | "phone" | "email" | "service" | "message";
+
+const INITIAL_TOUCHED_STATE: Record<VisibleFormField, boolean> = {
+  name: false,
+  phone: false,
+  email: false,
+  service: false,
+  message: false,
+};
+
+const SUBMITTED_TOUCHED_STATE: Record<VisibleFormField, boolean> = {
+  name: true,
+  phone: true,
+  email: true,
+  service: true,
+  message: true,
+};
+
+const isVisibleField = (name: keyof FormValues): name is VisibleFormField => (
+  name === "name" ||
+  name === "phone" ||
+  name === "email" ||
+  name === "service" ||
+  name === "message"
+);
 
 // ─── FloatingInput ─────────────────────────────────────────────────────────────
 // Animated floating label + real-time validation feedback per field
 function FloatingInput({
-  id, name, type = "text", label, required, maxLength, autoComplete,
+  id, name, type = "text", label, required, maxLength, autoComplete, inputMode, pattern,
   value, onChange, onBlur, touched, error,
 }: {
-  id: string; name: string; type?: string; label: string;
+  id: string; name: keyof FormValues; type?: string; label: string;
   required?: boolean; maxLength?: number; autoComplete?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"]; pattern?: string;
   value: string; touched: boolean; error: string;
-  onChange: (name: string, value: string) => void;
-  onBlur:   (name: string, value: string) => void;
+  onChange: (name: keyof FormValues, value: string) => void;
+  onBlur:   (name: keyof FormValues, value: string) => void;
 }) {
   const hasValue = value.length > 0;
   const isValid  = touched && !error && hasValue;
@@ -68,6 +103,8 @@ function FloatingInput({
           required={required}
           maxLength={maxLength}
           autoComplete={autoComplete}
+          inputMode={inputMode}
+          pattern={pattern}
           value={value}
           placeholder=" "
           aria-required={required}
@@ -132,40 +169,116 @@ export default function ContactSection({ defaultService }: { defaultService?: st
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError]   = useState<string | null>(null);
   const [shake, setShake]               = useState(false);
+  const [cooldownUntil, setCooldownUntil] = useState<number | null>(null);
+  const [cooldownRemaining, setCooldownRemaining] = useState(0);
 
   const [values, setValues] = useState<FormValues>({
     name: "", phone: "", email: "",
     service: defaultService ?? SERVICE_OPTIONS[0],
     message: "",
+    website: "",
+    formStartedAt: "",
   });
-  const [touched, setTouched] = useState<Record<keyof FormValues, boolean>>({
-    name: false, phone: false, email: false, service: false, message: false,
-  });
+  const [touched, setTouched] = useState<Record<VisibleFormField, boolean>>(INITIAL_TOUCHED_STATE);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+    setValues(prev => ({ ...prev, formStartedAt: new Date().toISOString() }));
+
+    const storedCooldownUntil = Number(window.localStorage.getItem(SUBMIT_COOLDOWN_STORAGE_KEY) ?? "0");
+    if (Number.isFinite(storedCooldownUntil) && storedCooldownUntil > Date.now()) {
+      setCooldownUntil(storedCooldownUntil);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!cooldownUntil) {
+      setCooldownRemaining(0);
+      return;
+    }
+
+    const syncCooldown = () => {
+      const remainingMs = Math.max(0, cooldownUntil - Date.now());
+
+      if (remainingMs <= 0) {
+        setCooldownUntil(null);
+        setCooldownRemaining(0);
+        window.localStorage.removeItem(SUBMIT_COOLDOWN_STORAGE_KEY);
+        return;
+      }
+
+      setCooldownRemaining(Math.ceil(remainingMs / 1000));
+    };
+
+    syncCooldown();
+    const intervalId = window.setInterval(syncCooldown, 1000);
+
+    return () => window.clearInterval(intervalId);
+  }, [cooldownUntil]);
+
+  const startClientCooldown = useCallback((durationMs = CLIENT_SUBMIT_COOLDOWN_MS) => {
+    const nextCooldownUntil = Date.now() + durationMs;
+    setCooldownUntil(nextCooldownUntil);
+    window.localStorage.setItem(SUBMIT_COOLDOWN_STORAGE_KEY, String(nextCooldownUntil));
+  }, []);
 
   const triggerShake = () => {
     setShake(true);
     setTimeout(() => setShake(false), 600);
   };
 
-  const handleChange = useCallback((name: string, value: string) => {
-    setValues(prev => ({ ...prev, [name]: value }));
-    if (touched[name as keyof FormValues]) {
-      const validate = VALIDATORS[name];
-      if (validate) setErrors(prev => ({ ...prev, [name]: validate(value) }));
-    }
-  }, [touched]);
+  const handleChange = useCallback((name: keyof FormValues, value: string) => {
+    const nextValue = name === "phone" ? sanitizePhoneInput(value) : value;
 
-  const handleBlur = useCallback((name: string, value: string) => {
-    setTouched(prev => ({ ...prev, [name]: true }));
+    setValues(prev => ({ ...prev, [name]: nextValue }));
+
+    if (submitError) {
+      setSubmitError(null);
+    }
+
+    if (isVisibleField(name) && touched[name]) {
+      const validate = VALIDATORS[name];
+      if (validate) setErrors(prev => ({ ...prev, [name]: validate(nextValue) }));
+    }
+  }, [submitError, touched]);
+
+  const handleBlur = useCallback((name: keyof FormValues, value: string) => {
+    const nextValue = name === "phone" ? sanitizePhoneInput(value) : value;
+
+    if (isVisibleField(name)) {
+      setTouched(prev => ({ ...prev, [name]: true }));
+    }
+
+    if (nextValue !== value) {
+      setValues(prev => ({ ...prev, [name]: nextValue }));
+    }
+
     const validate = VALIDATORS[name];
-    if (validate) setErrors(prev => ({ ...prev, [name]: validate(value) }));
+    if (validate) setErrors(prev => ({ ...prev, [name]: validate(nextValue) }));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (cooldownRemaining > 0) {
+      setSubmitError(`提交過於頻繁，請於 ${cooldownRemaining} 秒後再試。`);
+      triggerShake();
+      return;
+    }
+
+    if (values.website.trim()) {
+      setSubmitError("提交驗證失敗，請稍後再試。");
+      triggerShake();
+      return;
+    }
+
+    const formStartedTimestamp = Date.parse(values.formStartedAt);
+    if (!Number.isFinite(formStartedTimestamp) || Date.now() - formStartedTimestamp < MIN_FORM_FILL_MS) {
+      setSubmitError("提交過快，請檢查資料後稍候幾秒再試。");
+      triggerShake();
+      return;
+    }
 
     // Validate all required fields upfront
     const newErrors: Record<string, string> = {};
@@ -173,8 +286,8 @@ export default function ContactSection({ defaultService }: { defaultService?: st
       const err = VALIDATORS[field]?.(values[field]) ?? "";
       if (err) newErrors[field] = err;
     });
-    setTouched({ name: true, phone: true, email: true, service: true, message: true });
-    setErrors(prev => ({ ...prev, ...newErrors }));
+    setTouched(SUBMITTED_TOUCHED_STATE);
+    setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
       triggerShake();
@@ -200,9 +313,14 @@ export default function ContactSection({ defaultService }: { defaultService?: st
       }
 
       if (response.ok && result.success) {
+        startClientCooldown();
         sessionStorage.setItem("adwire_form_submitted", "1");
         router.push("/thank-you/");
       } else {
+        if (response.status === 429) {
+          startClientCooldown();
+        }
+
         throw new Error(result.message || "發送失敗，請稍後再試。");
       }
     } catch (error: unknown) {
@@ -360,6 +478,18 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                 </div>
               ) : (
                 <>
+                  <input
+                    type="text"
+                    name="website"
+                    autoComplete="off"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    value={values.website}
+                    onChange={e => handleChange("website", e.target.value)}
+                    className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden opacity-0 pointer-events-none"
+                  />
+                  <input type="hidden" name="formStartedAt" value={values.formStartedAt} />
+
                   {/* Shake container — triggers on validation error or submit failure */}
                   <motion.div
                     animate={shake ? { x: [0, -7, 7, -5, 5, -3, 3, 0] } : { x: 0 }}
@@ -373,12 +503,15 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                         value={values.name} touched={touched.name} error={errors.name ?? ""}
                         onChange={handleChange} onBlur={handleBlur}
                       />
-                      <FloatingInput
-                        id="contact-phone" name="phone" type="tel" label="電話 Phone"
-                        required maxLength={30} autoComplete="tel"
-                        value={values.phone} touched={touched.phone} error={errors.phone ?? ""}
-                        onChange={handleChange} onBlur={handleBlur}
-                      />
+                      <div className="space-y-1">
+                        <FloatingInput
+                          id="contact-phone" name="phone" type="tel" label="電話 Phone"
+                          required maxLength={15} autoComplete="tel-national" inputMode="numeric" pattern="[0-9]{8,15}"
+                          value={values.phone} touched={touched.phone} error={errors.phone ?? ""}
+                          onChange={handleChange} onBlur={handleBlur}
+                        />
+                        <p className="text-xs text-gray-400 pl-1">請只輸入數字，不要加入空格、hyphen 或其他符號</p>
+                      </div>
                     </div>
 
                     <FloatingInput
@@ -464,7 +597,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                   {/* CTA Button */}
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || cooldownRemaining > 0}
                     className="w-full bg-[#f5a623] text-white font-bold py-4 rounded-xl
                       hover:bg-[#e09210] active:scale-[0.98] transition-all duration-200
                       flex items-center justify-center gap-2
@@ -475,6 +608,11 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                       <>
                         <Loader2 size={18} className="animate-spin" />
                         發送中...
+                      </>
+                    ) : cooldownRemaining > 0 ? (
+                      <>
+                        <Loader2 size={18} />
+                        請稍候 {cooldownRemaining} 秒
                       </>
                     ) : (
                       <>

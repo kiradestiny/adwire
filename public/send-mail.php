@@ -5,6 +5,8 @@
  * Security hardening:
  *   - CORS 限制為正式網域
  *   - 檔案式速率限制 (3 次 / 60 秒 / IP)
+ *   - 重複內容指紋攔截（10 分鐘內拒絕相同內容）
+ *   - Honeypot + 最低填表時間檢查
  *   - Email VALIDATE + header injection 防護
  *   - JSON 解析錯誤處理
  *   - 輸入長度限制
@@ -82,36 +84,118 @@ function sanitizeHeader(string $value): string
 }
 
 /**
- * [FIX #2] 檔案式速率限制：每個 IP 每 60 秒最多 3 次請求
+ * 確保暫存目錄存在
  */
-function checkRateLimit(string $ip): bool
+function ensureStorageDirectory(string $dir): void
 {
-    $rateDir = sys_get_temp_dir() . '/adwire_rate/';
-    if (!is_dir($rateDir)) {
-        mkdir($rateDir, 0700, true);
+    if (is_dir($dir)) {
+        return;
     }
 
-    $key    = $rateDir . md5($ip) . '.json';
-    $now    = time();
-    $window = 60;   // 時間窗口（秒）
-    $maxReq = 3;    // 每窗口允許最大請求數
+    if (!mkdir($dir, 0700, true) && !is_dir($dir)) {
+        jsonResponse(false, '伺服器暫時無法處理請求，請稍後再試。', 500);
+    }
+}
 
-    $data = ['count' => 0, 'start' => $now];
+/**
+ * 以鎖檔方式安全讀寫 JSON 暫存資料
+ */
+function mutateJsonStore(string $path, callable $callback)
+{
+    ensureStorageDirectory(dirname($path));
 
-    if (file_exists($key)) {
-        $stored = json_decode((string) file_get_contents($key), true);
-        if (is_array($stored) && ($now - $stored['start']) < $window) {
-            $data = $stored;
+    $handle = fopen($path, 'c+');
+    if ($handle === false) {
+        jsonResponse(false, '伺服器暫時無法處理請求，請稍後再試。', 500);
+    }
+
+    try {
+        if (!flock($handle, LOCK_EX)) {
+            jsonResponse(false, '伺服器暫時無法處理請求，請稍後再試。', 500);
+        }
+
+        rewind($handle);
+        $raw = stream_get_contents($handle);
+        $data = json_decode(($raw !== false && $raw !== '') ? $raw : '[]', true);
+        if (!is_array($data)) {
+            $data = [];
+        }
+
+        $result = call_user_func_array($callback, [&$data]);
+
+        rewind($handle);
+        ftruncate($handle, 0);
+        fwrite($handle, json_encode($data, JSON_UNESCAPED_UNICODE));
+        fflush($handle);
+        flock($handle, LOCK_UN);
+
+        return $result;
+    } finally {
+        fclose($handle);
+    }
+}
+
+/**
+ * 取得相對可信的客戶端 IP：優先 Cloudflare，否則使用 REMOTE_ADDR
+ * 不信任通用 HTTP_X_FORWARDED_FOR，避免被客戶端偽造繞過限流。
+ */
+function getClientIp(): string
+{
+    $candidates = [
+        $_SERVER['HTTP_CF_CONNECTING_IP'] ?? '',
+        $_SERVER['REMOTE_ADDR'] ?? '',
+    ];
+
+    foreach ($candidates as $candidate) {
+        $candidate = trim($candidate);
+        if ($candidate !== '' && filter_var($candidate, FILTER_VALIDATE_IP)) {
+            return $candidate;
         }
     }
 
-    if ($data['count'] >= $maxReq) {
-        return false; // 超過速率限制
-    }
+    return '0.0.0.0';
+}
 
-    $data['count']++;
-    file_put_contents($key, json_encode($data), LOCK_EX);
-    return true;
+/**
+ * [FIX #2] 檔案式速率限制：每個 key 於指定時間窗口內最多允許固定次數請求
+ */
+function checkRateLimit(string $namespace, string $subject, int $window, int $maxReq): bool
+{
+    $path = sys_get_temp_dir() . '/adwire_rate/' . $namespace . '/' . hash('sha256', $subject) . '.json';
+    $now = time();
+
+    return mutateJsonStore($path, static function (array &$data) use ($now, $window, $maxReq): bool {
+        $timestamps = array_values(array_filter(
+            $data['timestamps'] ?? [],
+            static fn($timestamp): bool => is_numeric($timestamp) && ($now - (int) $timestamp) < $window
+        ));
+
+        if (count($timestamps) >= $maxReq) {
+            $data = ['timestamps' => $timestamps];
+            return false;
+        }
+
+        $timestamps[] = $now;
+        $data = ['timestamps' => $timestamps];
+
+        return true;
+    });
+}
+
+/**
+ * 檢查短時間內是否重複提交完全相同的內容
+ */
+function hasRecentDuplicateFingerprint(string $fingerprint, int $window): bool
+{
+    $path = sys_get_temp_dir() . '/adwire_fingerprint/' . $fingerprint . '.json';
+    $now = time();
+
+    return mutateJsonStore($path, static function (array &$data) use ($now, $window): bool {
+        $lastSubmittedAt = (int)($data['last_submitted_at'] ?? 0);
+        $data = ['last_submitted_at' => $now];
+
+        return $lastSubmittedAt > 0 && ($now - $lastSubmittedAt) < $window;
+    });
 }
 
 
@@ -121,11 +205,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ── Rate Limit Check ──────────────────────────────────────────────────
-// [FIX #2] 取得客戶端 IP（考慮反向代理，但只取第一個以防偽造）
-$rawIp    = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
-$clientIp = trim(explode(',', $rawIp)[0]);
+// [FIX #2] 使用較可信的來源 IP，避免 X-Forwarded-For 被偽造
+$clientIp = getClientIp();
 
-if (!checkRateLimit($clientIp)) {
+if (!checkRateLimit('ip', $clientIp, 60, 3)) {
+    header('Retry-After: 60');
     jsonResponse(false, '提交過於頻繁，請稍後 60 秒再試。', 429);
 }
 
@@ -145,25 +229,42 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 
 // ── Input Sanitization ────────────────────────────────────────────────
 $name    = trim(htmlspecialchars(strip_tags((string)($input['name']    ?? '')), ENT_QUOTES, 'UTF-8'));
-$phone   = trim(preg_replace('/[^\d\s\+\-\(\)]/', '', (string)($input['phone'] ?? '')));
+$phone   = trim(preg_replace('/\D+/', '', (string)($input['phone'] ?? '')));
 $email   = trim((string)($input['email']   ?? ''));
 $service = trim(htmlspecialchars(strip_tags((string)($input['service'] ?? '')), ENT_QUOTES, 'UTF-8'));
 $message = trim(htmlspecialchars(strip_tags((string)($input['message'] ?? '')), ENT_QUOTES, 'UTF-8'));
+$website = trim((string)($input['website'] ?? ''));
+$formStartedAt = trim((string)($input['formStartedAt'] ?? ''));
 
 // [FIX #6] 長度限制
 if (mb_strlen($name, 'UTF-8') > 100) {
     jsonResponse(false, '姓名長度超出限制（最多 100 字）。', 400);
 }
-if (mb_strlen($phone, 'UTF-8') > 30) {
+if (mb_strlen($phone, 'UTF-8') > 15) {
     jsonResponse(false, '電話格式不正確。', 400);
 }
 if (mb_strlen($message, 'UTF-8') > 2000) {
     jsonResponse(false, '訊息長度超出限制（最多 2000 字）。', 400);
 }
 
+// ── Spam Guard ────────────────────────────────────────────────────────
+if ($website !== '') {
+    jsonResponse(false, '提交驗證失敗，請稍後再試。', 400);
+}
+
+$formStartedTimestamp = strtotime($formStartedAt);
+$now = time();
+if ($formStartedTimestamp === false || $formStartedTimestamp > ($now + 300) || ($now - $formStartedTimestamp) < 4) {
+    jsonResponse(false, '提交過快，請稍候幾秒後再試。', 400);
+}
+
 // ── Required Fields Validation ────────────────────────────────────────
 if (empty($name) || empty($phone) || empty($email)) {
     jsonResponse(false, '請填寫所有必填欄位。', 400);
+}
+
+if (!preg_match('/^\d{8,15}$/', $phone)) {
+    jsonResponse(false, '聯絡電話必須為 8 至 15 位數字，不能包含空格或符號。', 400);
 }
 
 // [FIX #3] 正確的 Email 驗證：先 validate 再 sanitize
@@ -188,6 +289,14 @@ $allowedServices = [
 ];
 if (!empty($service) && !in_array($service, $allowedServices, true)) {
     $service = '未指定'; // 非白名單值統一重置，不拒絕（保留 UX 容錯）
+}
+
+$fingerprintSource = mb_strtolower(implode('|', [$name, $phone, $email, $service, $message]), 'UTF-8');
+$submissionFingerprint = hash('sha256', $fingerprintSource);
+
+if (hasRecentDuplicateFingerprint($submissionFingerprint, 600)) {
+    header('Retry-After: 600');
+    jsonResponse(false, '相同內容已於短時間內提交，請勿重複送出。', 429);
 }
 
 // ── WhatsApp Phone Processing ─────────────────────────────────────────
