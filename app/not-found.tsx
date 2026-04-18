@@ -1,30 +1,18 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 import { Search, Home, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function NotFound() {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      window.open(`https://www.google.com/search?q=site:adwire.com.hk+${encodeURIComponent(searchQuery)}`, '_blank');
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
-      <main className="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-32">
+      <div className="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-32">
         <div className="max-w-2xl w-full text-center space-y-8">
           {/* 404 Graphic/Text */}
           <div className="space-y-4">
-            <h1 className="text-9xl font-bold text-[#0f4c81] opacity-10">404</h1>
+            <h1 className="text-9xl font-bold text-[#0f4c81] opacity-10" aria-hidden="true">404</h1>
             <div className="-mt-12">
               <h2 className="text-3xl md:text-4xl font-bold text-[#0f4c81] mb-4">
                 找不到頁面
@@ -35,14 +23,23 @@ export default function NotFound() {
             </div>
           </div>
 
-          {/* Search Bar */}
+          {/* Search Bar — 純 HTML form，無需 client-side JS */}
           <div className="max-w-md mx-auto w-full">
-            <form onSubmit={handleSearch} className="relative">
+            <form
+              action="https://www.google.com/search"
+              method="get"
+              target="_blank"
+              className="relative"
+            >
+              <input
+                type="hidden"
+                name="as_sitesearch"
+                defaultValue="adwire.com.hk"
+              />
               <input
                 type="text"
+                name="q"
                 placeholder="搜尋網站內容..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-5 py-3 pr-12 rounded-xl border border-gray-200 focus:border-[#0f4c81] focus:ring-2 focus:ring-[#0f4c81]/20 outline-none transition-all"
               />
               <button 
@@ -64,16 +61,16 @@ export default function NotFound() {
               <Home size={18} />
               返回首頁
             </Link>
-            <button 
-              onClick={() => window.history.back()}
+            <Link
+              href="/contact"
               className="flex items-center gap-2 px-6 py-3 bg-white text-gray-600 border border-gray-200 rounded-full font-medium hover:bg-gray-50 hover:text-[#0f4c81] hover:border-[#0f4c81] transition-all"
             >
               <ArrowLeft size={18} />
-              上一頁
-            </button>
+              聯絡我們
+            </Link>
           </div>
         </div>
-      </main>
+      </div>
 
       <Footer />
     </div>

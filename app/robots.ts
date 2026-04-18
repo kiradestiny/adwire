@@ -21,6 +21,8 @@ export default function robots(): MetadataRoute.Robots {
           '/_next/',
           // [FIX #5] 排除 PHP mailer 腳本
           '/send-mail.php',
+          // Admin 後台（不需要被搜尋引擎索引）
+          '/admin/',
         ],
       },
       // ------------------------------------------------------------------
@@ -31,12 +33,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'AdsBot-Google',
         allow: '/',
-        disallow: ['/thank-you/', '/_next/', '/send-mail.php'],
+        disallow: ['/thank-you/', '/_next/', '/send-mail.php', '/admin/'],
       },
       {
         userAgent: 'AdsBot-Google-Mobile',
         allow: '/',
-        disallow: ['/thank-you/', '/_next/', '/send-mail.php'],
+        disallow: ['/thank-you/', '/_next/', '/send-mail.php', '/admin/'],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

@@ -1,4 +1,5 @@
 // lib/blogData.ts
+import { WHATSAPP_NUMBER, WHATSAPP_DISPLAY, WHATSAPP_E164 } from "./site-config";
 
 export interface BlogPost {
   id: number;
@@ -12,6 +13,7 @@ export interface BlogPost {
   image?: string;
   content: string;
   tags: string[];
+  updatedAt?: string;  // ISO 8601 格式，來自 API 的 updated_at；fallback 數據無此欄位
 }
 
 export const blogPosts: BlogPost[] = [
@@ -232,7 +234,7 @@ export const blogPosts: BlogPost[] = [
           <h4 class="text-2xl font-bold mb-3">你的競爭對手已開始 AI 化——你呢？</h4>
           <p class="text-blue-100 mb-6 max-w-xl mx-auto text-sm leading-relaxed">ADWire 提供香港中小企最實用的 AI Solution 服務，從策略診斷、系統開發到員工培訓，全程支援你的 AI 轉型之路。立即預約免費業務診斷，了解 AI 如何為你的業務節省成本。</p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://wa.me/85295861027?text=Hello%20ADWire,%20我想查詢AI解決方案服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 預約免費診斷</a>
+            <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20ADWire,%20我想查詢AI解決方案服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 預約免費診斷</a>
             <a href="/services/ai" class="inline-block border border-white/40 text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors">了解 AI Solution 服務</a>
           </div>
         </div>
@@ -294,7 +296,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 的 AI Solution 服務跟其他 IT 公司有什麼分別？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">ADWire 的核心差異在於「懂業務的 AI 開發」——我們不只是技術公司，更是深度了解香港企業營銷和業務邏輯的 MarTech 代理商。我們的 AI 方案不是純粹的技術實作，而是從業務目標出發，確保每個 AI 功能都直接對應可量化的業績指標（節省成本、提升轉化率、增加收入）。服務超過 500 家香港企業的實戰經驗，讓我們避開大多數 AI 項目失敗的陷阱。聯絡我們：WhatsApp +852 9586 1027 | info@adwire.com.hk。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">ADWire 的核心差異在於「懂業務的 AI 開發」——我們不只是技術公司，更是深度了解香港企業營銷和業務邏輯的 MarTech 代理商。我們的 AI 方案不是純粹的技術實作，而是從業務目標出發，確保每個 AI 功能都直接對應可量化的業績指標（節省成本、提升轉化率、增加收入）。服務超過 500 家香港企業的實戰經驗，讓我們避開大多數 AI 項目失敗的陷阱。聯絡我們：WhatsApp ${WHATSAPP_DISPLAY} | info@adwire.com.hk。</p>
           </div>
         </div>
 
@@ -550,7 +552,7 @@ export const blogPosts: BlogPost[] = [
           <h4 class="text-2xl font-bold mb-3">ADWire：香港品牌進軍內地的一站式夥伴</h4>
           <p class="text-blue-100 mb-3 max-w-xl mx-auto text-sm leading-relaxed">ADWire 為香港品牌提供完整的內地數碼營銷服務，包括小紅書藍V認證及種草策略、抖音帶貨合作、微信公衆號管理、百度SEM及媒體新聞稿、微博KOL公關。我們同時了解香港品牌定位與內地平台規則，是難得的跨境一站式代理商。</p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://wa.me/85295861027?text=Hello%20ADWire,%20我想查詢內地市場服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 免費咨詢</a>
+            <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20ADWire,%20我想查詢內地市場服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 免費咨詢</a>
             <a href="/contact" class="inline-block border border-white/40 text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors">填表了解詳情</a>
           </div>
         </div>
@@ -612,7 +614,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 在內地市場服務包括什麼？可否提供一站式支援？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">ADWire 提供完整的內地市場數碼營銷服務，包括：小紅書企業藍V認證申請及帳號管理、種草策略及KOL/KOC合作資源；抖音企業號管理及達人帶貨對接；微信公衆號內容運營及廣告投放；百度SEM競價廣告及媒體新聞稿發布（虎嗅、36氪等）；微博KOL合作及話題行銷。我們同時熟悉香港品牌定位及內地平台規則，是真正的跨境一站式解決方案。聯絡方式：WhatsApp +852 9586 1027 或 info@adwire.com.hk。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">ADWire 提供完整的內地市場數碼營銷服務，包括：小紅書企業藍V認證申請及帳號管理、種草策略及KOL/KOC合作資源；抖音企業號管理及達人帶貨對接；微信公衆號內容運營及廣告投放；百度SEM競價廣告及媒體新聞稿發布（虎嗅、36氪等）；微博KOL合作及話題行銷。我們同時熟悉香港品牌定位及內地平台規則，是真正的跨境一站式解決方案。聯絡方式：WhatsApp ${WHATSAPP_DISPLAY} 或 info@adwire.com.hk。</p>
           </div>
         </div>
 
@@ -863,7 +865,7 @@ export const blogPosts: BlogPost[] = [
           <h4 class="text-2xl font-bold mb-3">想知道你嘅廣告費用係咪花對了地方？</h4>
           <p class="text-blue-100 mb-6 max-w-xl mx-auto text-sm leading-relaxed">ADWire 提供免費廣告帳戶診斷服務，識別浪費預算的原因，並根據你的行業及目標，制定 2026 年最適合的 Google + Meta 廣告策略。</p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://wa.me/85295861027?text=Hello%20ADWire,%20我想查詢廣告投放服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 申請免費診斷</a>
+            <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20ADWire,%20我想查詢廣告投放服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 申請免費診斷</a>
             <a href="/services/ads" class="inline-block border border-white/40 text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors">查看廣告代操服務</a>
           </div>
         </div>
@@ -925,7 +927,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 的廣告代操服務包括什麼？費用係幾多？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">ADWire 廣告代操服務包括：廣告策略制定、受眾研究及設定、廣告文案及素材建議、廣告帳戶設置及優化、A/B 測試、每週數據監察及每月報告。我們服務超過 500 家香港企業，管理廣告預算橫跨 FB、IG、Google、YouTube 及小紅書。費用視乎廣告預算規模及服務內容而定，歡迎 WhatsApp +852 9586 1027 免費查詢。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">ADWire 廣告代操服務包括：廣告策略制定、受眾研究及設定、廣告文案及素材建議、廣告帳戶設置及優化、A/B 測試、每週數據監察及每月報告。我們服務超過 500 家香港企業，管理廣告預算橫跨 FB、IG、Google、YouTube 及小紅書。費用視乎廣告預算規模及服務內容而定，歡迎 WhatsApp ${WHATSAPP_DISPLAY} 免費查詢。</p>
           </div>
         </div>
 
@@ -1231,7 +1233,7 @@ export const blogPosts: BlogPost[] = [
           <h4 class="text-2xl font-bold mb-3">唔知從何入手？ADWire 幫你做全面診斷</h4>
           <p class="text-blue-100 mb-6 max-w-xl mx-auto text-sm leading-relaxed">ADWire 係香港少數同時提供 <strong>SEO + GEO 雙軌優化</strong>的 MarTech 代理商。我們為你的網站做免費 SEO 健康診斷，找出排名下滑的真正原因，並制定針對 AI 搜尋的完整 GEO 策略。</p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="https://wa.me/85295861027?text=Hello%20ADWire,%20我想查詢SEO/GEO服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 免費咨詢</a>
+            <a href="https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20ADWire,%20我想查詢SEO/GEO服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 免費咨詢</a>
             <a href="/services/seo" class="inline-block border border-white/40 text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors">了解 SEO/GEO 服務詳情</a>
           </div>
         </div>
@@ -1251,7 +1253,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港 SEO 費用大概係幾多？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">香港 SEO 服務月費通常介乎 HK$3,000 至 HK$20,000，視乎關鍵字競爭程度、網站規模及所需服務內容而定。建議避免 HK$2,000 以下的「低價 SEO」，因為大多依賴黑帽技術，長期有被 Google 懲罰的風險。ADWire 提供透明報價，可 WhatsApp +852 9586 1027 免費查詢。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">香港 SEO 服務月費通常介乎 HK$3,000 至 HK$20,000，視乎關鍵字競爭程度、網站規模及所需服務內容而定。建議避免 HK$2,000 以下的「低價 SEO」，因為大多依賴黑帽技術，長期有被 Google 懲罰的風險。ADWire 提供透明報價，可 WhatsApp ${WHATSAPP_DISPLAY} 免費查詢。</p>
           </div>
         </div>
 
@@ -1293,7 +1295,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 的 SEO/GEO 服務包含哪些內容？費用係幾多？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">ADWire 的 SEO + GEO 雙軌服務包括：全面技術 SEO 審核及修復、關鍵字研究及內容策略、Schema.org 結構化數據部署、llms.txt 及 AI 引用優化、本地 SEO（Google Business Profile 優化、NAP 一致性）、月度排名追蹤報告，以及 GEO 表現監察。費用視乎網站規模及服務範圍而定，歡迎 WhatsApp +852 9586 1027 或電郵 info@adwire.com.hk 免費咨詢。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">ADWire 的 SEO + GEO 雙軌服務包括：全面技術 SEO 審核及修復、關鍵字研究及內容策略、Schema.org 結構化數據部署、llms.txt 及 AI 引用優化、本地 SEO（Google Business Profile 優化、NAP 一致性）、月度排名追蹤報告，以及 GEO 表現監察。費用視乎網站規模及服務範圍而定，歡迎 WhatsApp ${WHATSAPP_DISPLAY} 或電郵 info@adwire.com.hk 免費咨詢。</p>
           </div>
         </div>
 

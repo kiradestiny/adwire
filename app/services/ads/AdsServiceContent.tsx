@@ -5,9 +5,10 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  BarChart3, 
-  Target, 
+import { getWhatsAppUrl, WHATSAPP_E164 } from "@/lib/site-config";
+import {
+  BarChart3,
+  Target,
   MousePointer2, 
   Filter, 
   ArrowRight, 
@@ -40,7 +41,7 @@ import Link from "next/link";
 
 export default function AdsServiceContent() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
 
       {/* ── GEO 實體宣告（sr-only）── */}
@@ -50,7 +51,7 @@ export default function AdsServiceContent() {
           涵蓋 Meta（Facebook / Instagram）、Google Search（SEM）、YouTube 及 LinkedIn 廣告代操，
           平均廣告回報率（ROAS）達 8.5 倍，CPA 獲客成本降低 45%。
           代操費用：入門方案 HK$2,000/月起，進階方案 HK$6,000/月起。
-          聯絡：WhatsApp +852-9586-1027，電郵 info@adwire.com.hk。
+          聯絡：WhatsApp {WHATSAPP_E164}，電郵 info@adwire.com.hk。
         </p>
         <table>
           <caption>ADWire Agency 成效廣告代操服務方案比較</caption>
@@ -157,7 +158,7 @@ export default function AdsServiceContent() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire, 我想預約專業的廣告帳戶諮詢。")}`}
+                  href={getWhatsAppUrl("Hello ADWire, 我想預約專業的廣告帳戶諮詢。")}
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-[#f5a623] hover:bg-[#e09210] text-white font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-[#f5a623]/30 hover:-translate-y-0.5"
                 >
@@ -571,7 +572,7 @@ export default function AdsServiceContent() {
           <div className="mt-12 text-center">
             <p className="text-gray-500 mb-6">不確定哪個方案適合你？讓我們為你提供專業的廣告帳戶諮詢。</p>
             <a 
-              href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire, 我想預約專業的廣告帳戶諮詢。")}`}
+              href={getWhatsAppUrl("Hello ADWire, 我想預約專業的廣告帳戶諮詢。")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#0f4c81] text-white px-8 py-4 rounded-full font-bold hover:bg-[#0a355c] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
@@ -672,7 +673,7 @@ export default function AdsServiceContent() {
           <div className="mt-10 text-center">
             <p className="text-gray-500 mb-4 text-sm">仲有其他問題？</p>
             <a
-              href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire，我想查詢成效廣告投放服務。")}`}
+              href={getWhatsAppUrl("Hello ADWire，我想查詢成效廣告投放服務。")}
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#0f4c81] hover:bg-[#0a355c] text-white font-semibold px-6 py-3 rounded-full transition-colors"
             >
@@ -690,7 +691,7 @@ export default function AdsServiceContent() {
             立即預約專業諮詢，讓我們為你診斷現有廣告帳戶，找出流失的生意。
           </p>
           <a 
-            href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire, 我想預約專業的廣告帳戶諮詢。")}`}
+            href={getWhatsAppUrl("Hello ADWire, 我想預約專業的廣告帳戶諮詢。")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#f5a623] text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-[#e09612] transition-all shadow-lg"
@@ -702,7 +703,7 @@ export default function AdsServiceContent() {
 
       <ContactSection defaultService="成效廣告投放" />
       <Footer />
-    </main>
+    </div>
   );
 }
 
@@ -877,7 +878,7 @@ function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon,
 function PackageCard({ name, price, period, description, features, highlight, badge, whatsappMsg }: {
   name: string, price: string, period: string, description: string, features: string[], highlight: boolean, badge?: string, whatsappMsg?: string
 }) {
-  const whatsappUrl = `https://wa.me/85295861027?text=${encodeURIComponent(whatsappMsg || "")}`;
+  const whatsappUrl = getWhatsAppUrl(whatsappMsg || undefined);
 
   return (
     <motion.div

@@ -14,6 +14,7 @@ import {
   Globe,
   Cpu,
 } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/site-config";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface Particle {
@@ -333,7 +334,7 @@ export default function HeroSection() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: "0.6s", opacity: 0 }}>
               <Link
-                href="https://wa.me/85295861027?text=Hello%20ADWire,%20我想查詢Marketing服務"
+                href={getWhatsAppUrl("Hello ADWire, 我想查詢Marketing服務")}
                 aria-label="免費咨詢專家"
                 className="group relative px-8 py-4 bg-[#f5a623] text-white font-bold rounded-full overflow-hidden transition-all duration-300 flex items-center justify-center gap-2
                   hover:shadow-[0_0_32px_rgba(245,166,35,0.65),0_0_60px_rgba(245,166,35,0.25)]

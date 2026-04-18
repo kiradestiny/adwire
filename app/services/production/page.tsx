@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "商業攝影與製作 (Production) | ADWire Agency - 電影級質感",
   description: "提供企業宣傳片、活動錄影、商業攝影及後期製作服務。以電影級器材與專業團隊，為品牌打造無可取代的專業形象。",
   alternates: {
-    canonical: "/services/production",
+    canonical: "/services/production/",
   },
   openGraph: {
     title: "商業攝影與製作 (Production) | ADWire Agency",

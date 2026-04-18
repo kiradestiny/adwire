@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "私隱政策 (Privacy Policy) | ADWire Agency",
   description: "ADWire Agency 的私隱政策。了解我們如何收集、使用及保護您的個人資料，保障您的私隱權益。",
   alternates: {
-    canonical: "/privacy",
+    canonical: "/privacy/",
   },
   openGraph: {
     title: "私隱政策 (Privacy Policy) | ADWire Agency",
     description: "ADWire Agency 的私隱政策。了解我們如何收集、使用及保護您的個人資料。",
-    url: "https://adwire.com.hk/privacy",
+    url: "https://adwire.com.hk/privacy/",
     type: "website",
   },
   robots: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Header */}
@@ -98,6 +98,6 @@ export default function PrivacyPolicyPage() {
       </section>
 
       <Footer />
-    </main>
+    </div>
   );
 }

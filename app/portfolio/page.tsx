@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PortfolioContent from "./PortfolioContent";
+import { getSerializablePortfolioCases } from "@/lib/data-resolver";
 
 // ─── SEO Metadata ─────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -19,13 +20,13 @@ export const metadata: Metadata = {
     "數碼轉型案例",
   ],
   alternates: {
-    canonical: "/portfolio",
+    canonical: "/portfolio/",
   },
   openGraph: {
     title: "成功案例 Portfolio | ADWire Agency — 120+ 真實數據案例",
     description:
       "瀏覽 ADWire 120+ 個香港成功案例：KOL 爆紅短片、SEO 霸榜、自動化系統、高 ROAS 廣告。每個數字都是真實成果。",
-    url: "https://adwire.com.hk/portfolio",
+    url: "https://adwire.com.hk/portfolio/",
     type: "website",
     images: [
       {
@@ -52,7 +53,7 @@ function PortfolioJsonLd() {
     name: "成功案例 Portfolio — ADWire Agency",
     description:
       "ADWire Agency 的完整成功案例集。涵蓋 KOL 營銷、短視頻製作、SEO 優化、數碼廣告、自動化系統及 App 開發等多個行業的真實成效案例。",
-    url: "https://adwire.com.hk/portfolio",
+    url: "https://adwire.com.hk/portfolio/",
     publisher: {
       "@type": "Organization",
       name: "ADWire Agency",
@@ -82,7 +83,7 @@ function PortfolioJsonLd() {
           "@type": "ListItem",
           position: 2,
           name: "成功案例",
-          item: "https://adwire.com.hk/portfolio",
+          item: "https://adwire.com.hk/portfolio/",
         },
       ],
     },
@@ -106,11 +107,14 @@ function PortfolioJsonLd() {
 }
 
 // ─── Page Component ───────────────────────────────────────────
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  // Build Time 數據獲取（API 優先 + 本地 Fallback）
+  const cases = await getSerializablePortfolioCases();
+
   return (
     <>
       <PortfolioJsonLd />
-      <PortfolioContent />
+      <PortfolioContent cases={cases} />
     </>
   );
 }

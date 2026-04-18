@@ -5,10 +5,11 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Clock, Phone, ArrowUpRight, MessageSquare } from "lucide-react";
+import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
 
 export default function ContactContent() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
 
       {/* 1. Hero Header (簡約專業風) */}
@@ -73,13 +74,13 @@ export default function ContactContent() {
                   </div>
                   <div className="pt-1">
                                         <a 
-                    href="https://wa.me/85295861027" 
+                    href={getWhatsAppUrl()}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="hover:text-[#f5a623] transition-colors"
                     >
                      <p className="text-xs text-gray-400 uppercase tracking-wider">WhatsApp</p>
-                     <p className="font-medium">+852 9586 1027</p>
+                     <p className="font-medium">{WHATSAPP_DISPLAY}</p>
                      </a>
                   </div>
                 </div>
@@ -147,7 +148,7 @@ export default function ContactContent() {
       </section>
 
       <Footer />
-    </main>
+    </div>
   );
 }
 

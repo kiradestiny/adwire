@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AboutContent from "./AboutContent";
+import { WHATSAPP_E164 } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "關於 ADWire Agency | 香港 MarTech 數碼營銷代理 | SEO + AI 全棧團隊",
@@ -21,13 +22,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
   alternates: {
-    canonical: "/about",
+    canonical: "/about/",
   },
   openGraph: {
     title: "關於 ADWire Agency | 香港 MarTech 數碼營銷代理",
     description:
       "ADWire Agency 是香港領先的 MarTech 代理商，結合 10 年 SEO 經驗與全棧開發技術，提供數據驅動的全方位數碼營銷解決方案。",
-    url: "https://adwire.com.hk/about",
+    url: "https://adwire.com.hk/about/",
     siteName: "ADWire Agency",
     images: [
       {
@@ -78,7 +79,7 @@ const organizationSchema = {
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: "+852-9586-1027",
+      telephone: WHATSAPP_E164,
       contactType: "customer service",
       areaServed: "HK",
       availableLanguage: ["zh-Hant", "zh-Yue", "en"],
@@ -127,9 +128,9 @@ const organizationSchema = {
 const aboutPageSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "@id": "https://adwire.com.hk/about#webpage",
+  "@id": "https://adwire.com.hk/about/#webpage",
   name: "關於 ADWire Agency",
-  url: "https://adwire.com.hk/about",
+  url: "https://adwire.com.hk/about/",
   description:
     "了解 ADWire Agency 的公司故事、核心使命、專業團隊及服務理念。ADWire 是香港少數同時擁有 10 年 SEO 專家與全棧開發者的 MarTech 代理商。",
   inLanguage: ["zh-Hant", "en"],
@@ -155,7 +156,7 @@ const aboutPageSchema = {
         "@type": "ListItem",
         position: 2,
         name: "關於我們",
-        item: "https://adwire.com.hk/about",
+        item: "https://adwire.com.hk/about/",
       },
     ],
   },
@@ -202,7 +203,7 @@ const faqSchema = {
       name: "如何與 ADWire 開始合作？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "可透過以下方式聯絡 ADWire：(1) WhatsApp +852-9586-1027；(2) 電郵 info@adwire.com.hk；(3) 填寫網站聯絡表單。我們提供免費初步諮詢，了解您的業務需求後，會提供針對性的服務方案建議。",
+        text: `可透過以下方式聯絡 ADWire：(1) WhatsApp ${WHATSAPP_E164}；(2) 電郵 info@adwire.com.hk；(3) 填寫網站聯絡表單。我們提供免費初步諮詢，了解您的業務需求後，會提供針對性的服務方案建議。`,
       },
     },
     {

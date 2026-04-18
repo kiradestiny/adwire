@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import { motion, AnimatePresence } from "framer-motion";
+import { getWhatsAppUrl, WHATSAPP_E164 } from "@/lib/site-config";
 import {
   Search, Bot, TrendingUp, DollarSign, Globe, ChevronRight,
   BarChart, Check, ArrowRight, ChevronDown, MapPin, FileText, Cpu,
@@ -34,7 +35,7 @@ export default function SeoServiceContent() {
     },
     {
       question: "ADWire SEO / GEO 服務收費是多少？",
-      answer: "ADWire 分三個方案：基礎方案 HK$4,000/月（Technical SEO + 1–3頁優化）；專業方案 HK$6,000/月（含每月 4 篇文章 + Backlink + Local SEO）；企業方案度身定制（含 GEO 全面部署）。可 WhatsApp +852-9586-1027 免費諮詢。"
+      answer: `ADWire 分三個方案：基礎方案 HK$4,000/月（Technical SEO + 1–3頁優化）；專業方案 HK$6,000/月（含每月 4 篇文章 + Backlink + Local SEO）；企業方案度身定制（含 GEO 全面部署）。可 WhatsApp ${WHATSAPP_E164} 免費諮詢。`
     },
     {
       question: "我已經有落 Google Ads，仲需唔需要做 SEO？",
@@ -51,7 +52,7 @@ export default function SeoServiceContent() {
   ];
 
   return (
-    <main className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
 
       {/* 1. Hero Banner（全新設計）*/}
@@ -123,7 +124,7 @@ export default function SeoServiceContent() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire, 我想預約專業的 SEO / GEO 網站諮詢。")}`}
+                  href={getWhatsAppUrl("Hello ADWire, 我想預約專業的 SEO / GEO 網站諮詢。")}
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5"
                 >
@@ -528,7 +529,7 @@ export default function SeoServiceContent() {
           <div className="mt-12 text-center">
             <p className="text-gray-500 mb-6">不確定哪個方案適合你？讓我們為你提供專業的網站 SEO 諮詢。</p>
             <a 
-              href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire, 我想預約專業的 SEO 網站諮詢。")}`}
+              href={getWhatsAppUrl("Hello ADWire, 我想預約專業的 SEO 網站諮詢。")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#0f4c81] text-white px-8 py-4 rounded-full font-bold hover:bg-[#0a355c] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
@@ -699,7 +700,7 @@ export default function SeoServiceContent() {
               <p className="text-gray-300 leading-relaxed mb-4">GEO 不像廣告，可以即開即有效果。AI 需要時間「學習」你的品牌。<strong className="text-white"> 今天開始，最快也要 3–6 個月才能建立穩固的 AI 引用基礎。</strong>你的競爭對手越早開始，你就越難追趕。</p>
               <p className="text-[#f5a623] font-semibold text-sm">GEO 的先行者優勢是真實且持久的。</p>
             </div>
-            <a href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire，我想了解 GEO 優化服務。")}`}
+            <a href={getWhatsAppUrl("Hello ADWire，我想了解 GEO 優化服務。")}
               target="_blank" rel="noopener noreferrer"
               className="flex-shrink-0 inline-flex items-center gap-2 bg-[#f5a623] hover:bg-[#e09210] text-white font-bold px-6 py-3 rounded-full transition-colors text-sm whitespace-nowrap">
               立即部署 GEO <ArrowRight size={14} />
@@ -732,7 +733,7 @@ export default function SeoServiceContent() {
             立即預約專業網站 SEO 諮詢，讓我們找出阻礙你排名的原因。
           </p>
           <a 
-            href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire, 我想領取專業的 SEO 網站報告。")}`}
+            href={getWhatsAppUrl("Hello ADWire, 我想領取專業的 SEO 網站報告。")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e09612] transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
@@ -744,7 +745,7 @@ export default function SeoServiceContent() {
 
       <ContactSection defaultService="SEO/GEO 搜尋引擎優化" />
       <Footer />
-    </main>
+    </div>
   );
 }
 
@@ -886,7 +887,7 @@ function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon,
 function PackageCard({ name, price, period, description, features, highlight, badge, whatsappMsg }: {
   name: string, price: string, period: string, description: string, features: string[], highlight: boolean, badge?: string, whatsappMsg?: string
 }) {
-  const whatsappUrl = `https://wa.me/85295861027?text=${encodeURIComponent(whatsappMsg || "")}`;
+  const whatsappUrl = getWhatsAppUrl(whatsappMsg || undefined);
 
   return (
     <motion.div

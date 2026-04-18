@@ -32,6 +32,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# PHP admin config (contains credentials — use config.php.example as template)
+public/admin/includes/config.php
 
 # vercel
 .vercel

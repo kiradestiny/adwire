@@ -13,7 +13,7 @@ import { useState, useRef, useEffect } from "react";
 
 export default function VideoServiceContent() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white">
       <Navbar />
 
       {/* 1. Hero Banner: 暗黑電影感，強調「流量密碼」 */}
@@ -329,7 +329,7 @@ export default function VideoServiceContent() {
       <ContactSection defaultService="短視頻製作" />
       
       <Footer />
-    </main>
+    </div>
   );
 }
 

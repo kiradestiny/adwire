@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import { motion, AnimatePresence } from "framer-motion";
+import { getWhatsAppUrl, WHATSAPP_E164 } from "@/lib/site-config";
 import { Megaphone, Star, Users, TrendingUp, Search, Instagram, Facebook, Share2, MapPin, Heart, MessageCircle, CheckCircle2, BarChart3, Target, ChevronDown, ArrowRight, Check, Clock, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +13,7 @@ import { useState } from "react";
 
 export default function KolServiceContent() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* ── GEO 實體宣告（sr-only，AI 爬蟲可讀）── */}
@@ -22,7 +23,7 @@ export default function KolServiceContent() {
           涵蓋 Instagram、Facebook、小紅書（RED）及 Threads 平台的 KOL 配對，
           服務包括 AI 粉絲質量分析、內容策略監修及成效追蹤報告，
           從 Nano KOL（1K–10K粉絲）至 Mega KOL（100萬+粉絲）均有合作。
-          聯絡：WhatsApp +852-9586-1027，電郵 info@adwire.com.hk。
+          聯絡：WhatsApp {WHATSAPP_E164}，電郵 info@adwire.com.hk。
         </p>
         <table>
           <caption>ADWire Agency KOL 類型層級比較表（香港市場）</caption>
@@ -204,7 +205,7 @@ export default function KolServiceContent() {
 
           <div className="mt-8 text-center">
             <p className="text-gray-500 mb-4 text-sm">唔確定選哪個層級？我們提供免費 KOL 配對諮詢</p>
-            <a href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire，我想了解 KOL 配對方案。")}`} target="_blank" rel="noopener noreferrer"
+            <a href={getWhatsAppUrl("Hello ADWire，我想了解 KOL 配對方案。")} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#f5a623] hover:bg-[#e09210] text-white font-bold px-6 py-3 rounded-full transition-colors shadow-md hover:shadow-lg">
               免費 KOL 配對諮詢 <ArrowRight size={16} />
             </a>
@@ -508,7 +509,7 @@ export default function KolServiceContent() {
           </div>
           <div className="mt-10 text-center">
             <p className="text-gray-500 mb-4 text-sm">仲有其他問題？</p>
-            <a href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire，我想查詢 KOL 網紅營銷服務。")}`} target="_blank" rel="noopener noreferrer"
+            <a href={getWhatsAppUrl("Hello ADWire，我想查詢 KOL 網紅營銷服務。")} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#0f4c81] hover:bg-[#0a355c] text-white font-semibold px-6 py-3 rounded-full transition-colors">
               WhatsApp 直接問我們 <ArrowRight size={16} />
             </a>
@@ -519,7 +520,7 @@ export default function KolServiceContent() {
       <ContactSection defaultService="KOL 網紅營銷" />
 
       <Footer />
-    </main>
+    </div>
   );
 }
 

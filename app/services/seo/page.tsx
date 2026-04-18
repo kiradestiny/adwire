@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WHATSAPP_E164 } from "@/lib/site-config";
 import SeoServiceContent from "./SeoServiceContent";
 
 export const metadata: Metadata = {
@@ -24,13 +25,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
   alternates: {
-    canonical: "/services/seo",
+    canonical: "/services/seo/",
   },
   openGraph: {
     title: "SEO & GEO / AISO 優化 | ADWire Agency 香港",
     description:
       "同步優化 Google、ChatGPT、Perplexity、Gemini 等 AI 引擎排名，應對 Zero-Click 流量危機。香港專業 SEO + GEO 雙軌優化，基礎方案 HK$4,000/月起。",
-    url: "https://adwire.com.hk/services/seo",
+    url: "https://adwire.com.hk/services/seo/",
     siteName: "ADWire Agency",
     images: [
       {
@@ -56,12 +57,12 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://adwire.com.hk/services/seo#service",
+  "@id": "https://adwire.com.hk/services/seo/#service",
   name: "SEO 及 GEO 生成式引擎優化服務 (SEO & GEO / AISO)",
   alternateName: ["SEO Hong Kong", "GEO Optimization", "AISO", "AI Search Optimization Hong Kong"],
   description:
     "ADWire Agency 提供香港一站式 SEO 及 GEO（生成式引擎優化 / AISO）服務，同步提升 Google 自然搜尋排名及 ChatGPT、Perplexity、Gemini、Claude、Microsoft Copilot 等 AI 引擎的品牌引用率，應對 Zero-Click 搜尋流量下跌挑戰。",
-  url: "https://adwire.com.hk/services/seo",
+  url: "https://adwire.com.hk/services/seo/",
   image: "https://adwire.com.hk/portfolio/seo-ranking.webp",
   provider: {
     "@type": "Organization",
@@ -77,8 +78,8 @@ const serviceSchema = {
   category: "Digital Marketing",
   availableChannel: {
     "@type": "ServiceChannel",
-    serviceUrl: "https://adwire.com.hk/services/seo",
-    servicePhone: "+852-9586-1027",
+    serviceUrl: "https://adwire.com.hk/services/seo/",
+    servicePhone: WHATSAPP_E164,
     availableLanguage: ["zh-Hant", "zh-Yue", "en"],
   },
   offers: [
@@ -182,7 +183,7 @@ const faqSchema = {
       name: "ADWire SEO / GEO 服務香港收費是多少？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "ADWire SEO / GEO 服務分三個方案：基礎方案 HK$4,000/月（Technical SEO + 1–3頁優化）；專業方案 HK$6,000/月（含每月 4 篇 SEO 文章 + Backlink 建設 + Local SEO）；企業方案為度身定制（含 GEO 全面部署 + 電商 SEO + 品牌公關）。可 WhatsApp +852-9586-1027 免費諮詢。",
+        text: `ADWire SEO / GEO 服務分三個方案：基礎方案 HK$4,000/月（Technical SEO + 1–3頁優化）；專業方案 HK$6,000/月（含每月 4 篇 SEO 文章 + Backlink 建設 + Local SEO）；企業方案為度身定制（含 GEO 全面部署 + 電商 SEO + 品牌公關）。可 WhatsApp ${WHATSAPP_E164} 免費諮詢。`,
       },
     },
     {
@@ -209,8 +210,8 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "首頁", item: "https://adwire.com.hk" },
-    { "@type": "ListItem", position: 2, name: "服務", item: "https://adwire.com.hk/services" },
-    { "@type": "ListItem", position: 3, name: "SEO & GEO 優化", item: "https://adwire.com.hk/services/seo" },
+    { "@type": "ListItem", position: 2, name: "服務", item: "https://adwire.com.hk/services/" },
+    { "@type": "ListItem", position: 3, name: "SEO & GEO 優化", item: "https://adwire.com.hk/services/seo/" },
   ],
 };
 

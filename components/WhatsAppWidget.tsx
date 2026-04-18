@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { WHATSAPP_NUMBER, getWhatsAppUrl } from "@/lib/site-config";
 
 // ──────────────────────────────────────────────────────────────
 // WhatsAppWidget — framer-motion 已完全移除
@@ -27,7 +28,7 @@ export default function WhatsAppWidget() {
   }, []);
 
   // 根據當前頁面動態調整 WhatsApp 訊息內容
-  const phoneNumber = "85295861027";
+  const phoneNumber = WHATSAPP_NUMBER;
 
   const getWhatsAppMessage = (path: string): string => {
     if (path.includes("/services/kol"))        return "Hello ADWire, 我想了解更多關於 KOL 網紅營銷的服務！";

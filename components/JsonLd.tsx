@@ -1,3 +1,5 @@
+import { WHATSAPP_E164 } from "@/lib/site-config";
+
 export default function JsonLd() {
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -22,7 +24,7 @@ export default function JsonLd() {
     "contactPoint": [
       {
         "@type": "ContactPoint",
-        "telephone": "+852-9586-1027",
+        "telephone": WHATSAPP_E164,
         "contactType": "customer service",
         "contactOption": "TollFree",
         "areaServed": "HK",
@@ -69,7 +71,7 @@ export default function JsonLd() {
     "name": "ADWire Agency",
     "image": "https://adwire.com.hk/logo.png",
     "url": "https://adwire.com.hk",
-    "telephone": "+852-9586-1027",
+    "telephone": WHATSAPP_E164,
     "email": "info@adwire.com.hk",
     "priceRange": "$$",
     "currenciesAccepted": "HKD",
@@ -140,7 +142,7 @@ export default function JsonLd() {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://adwire.com.hk/blog?q={search_term_string}"
+        "urlTemplate": "https://adwire.com.hk/blog/?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -168,8 +170,8 @@ export default function JsonLd() {
         "@type": "HowToStep",
         "position": 1,
         "name": "免費初步諮詢",
-        "text": "通過 WhatsApp (+852 9586 1027) 或網站表格聯絡 ADWire，進行 15 分鐘免費業務診斷，了解您的痛點與目標。",
-        "url": "https://adwire.com.hk/contact"
+        "text": `通過 WhatsApp (${WHATSAPP_E164}) 或網站表格聯絡 ADWire，進行 15 分鐘免費業務診斷，了解您的痛點與目標。`,
+        "url": "https://adwire.com.hk/contact/"
       },
       {
         "@type": "HowToStep",
@@ -188,7 +190,7 @@ export default function JsonLd() {
         "position": 4,
         "name": "執行、優化與增長",
         "text": "精準執行、實時數據監測，持續優化轉化路徑，確保每一分預算都產生最大回報。",
-        "url": "https://adwire.com.hk/portfolio"
+        "url": "https://adwire.com.hk/portfolio/"
       }
     ]
   };
@@ -206,70 +208,70 @@ export default function JsonLd() {
         "position": 1,
         "name": "KOL 網紅營銷",
         "description": "精準配對香港及大灣區 KOL，打造真實口碑與病毒式傳播",
-        "url": "https://adwire.com.hk/services/kol"
+        "url": "https://adwire.com.hk/services/kol/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "短視頻製作",
         "description": "專業製作 Instagram Reels、TikTok 及 YouTube Shorts 爆款短片",
-        "url": "https://adwire.com.hk/services/video"
+        "url": "https://adwire.com.hk/services/video/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "SEO 與 GEO 優化",
         "description": "傳統 SEO + Generative Engine Optimization，讓品牌在 Google 及 ChatGPT 中都能被找到",
-        "url": "https://adwire.com.hk/services/seo"
+        "url": "https://adwire.com.hk/services/seo/"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "成效廣告投放",
         "description": "Facebook、Instagram、Google、YouTube 及小紅書精準廣告投放",
-        "url": "https://adwire.com.hk/services/ads"
+        "url": "https://adwire.com.hk/services/ads/"
       },
       {
         "@type": "ListItem",
         "position": 5,
         "name": "社交媒體管理",
         "description": "全平台社交帳號管理、內容創作及社群互動策略",
-        "url": "https://adwire.com.hk/services/social"
+        "url": "https://adwire.com.hk/services/social/"
       },
       {
         "@type": "ListItem",
         "position": 6,
         "name": "營銷自動化",
         "description": "WhatsApp 自動化、CRM 整合及 AI 驅動的業務流程自動化",
-        "url": "https://adwire.com.hk/services/automation"
+        "url": "https://adwire.com.hk/services/automation/"
       },
       {
         "@type": "ListItem",
         "position": 7,
         "name": "AI 解決方案",
         "description": "定制化 AI Agent、企業級 LLM 應用及 AI 工作流自動化",
-        "url": "https://adwire.com.hk/services/ai"
+        "url": "https://adwire.com.hk/services/ai/"
       },
       {
         "@type": "ListItem",
         "position": 8,
         "name": "網頁設計與開發",
         "description": "品牌網站、電商網店設計，注重 RWD 及轉化率優化",
-        "url": "https://adwire.com.hk/services/web"
+        "url": "https://adwire.com.hk/services/web/"
       },
       {
         "@type": "ListItem",
         "position": 9,
         "name": "企業系統開發",
         "description": "ERP、CRM、預訂系統等定制化企業管理系統開發",
-        "url": "https://adwire.com.hk/services/system"
+        "url": "https://adwire.com.hk/services/system/"
       },
       {
         "@type": "ListItem",
         "position": 10,
         "name": "商業攝影與視頻製作",
         "description": "專業產品攝影、企業形象片及宣傳視頻製作",
-        "url": "https://adwire.com.hk/services/production"
+        "url": "https://adwire.com.hk/services/production/"
       }
     ]
   };

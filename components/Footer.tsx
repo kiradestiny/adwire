@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Youtube, Linkedin, Bot } from "lucide-react"; // 引入 Social Icons
+import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
 
 export default function Footer() {
   return (
@@ -71,13 +72,13 @@ export default function Footer() {
             <li>葵芳新都會廣場 2 座 45 樓 4510 室</li>
             <li><a href="mailto:info@adwire.com.hk" className="hover:text-white transition-colors">info@adwire.com.hk</a></li>
             <li>
-              <a href="https://wa.me/85295861027" className="hover:text-[#25D366] transition-colors font-semibold">
-                +852 9586 1027 (WhatsApp)
+              <a href={getWhatsAppUrl()} className="hover:text-[#25D366] transition-colors font-semibold">
+                {WHATSAPP_DISPLAY} (WhatsApp)
               </a>
             </li>
             <li className="pt-4">
               <a 
-                href="https://wa.me/85295861027" 
+                href={getWhatsAppUrl()}
                 aria-label="立即 WhatsApp"
                 className="inline-block bg-[#25D366] text-white px-6 py-2 rounded-full font-bold hover:bg-[#20bd5a] transition-colors shadow-lg"
               >

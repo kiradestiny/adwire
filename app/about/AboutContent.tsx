@@ -10,6 +10,7 @@ import {
   MinusCircle, ChevronDown, Phone, MessageCircle, ArrowRight,
   TrendingUp, Building2, Clock, Star,
 } from "lucide-react";
+import { WHATSAPP_E164, WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -33,7 +34,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "如何與 ADWire 開始合作？",
-    a: "可透過以下方式聯絡 ADWire：(1) WhatsApp +852-9586-1027；(2) 電郵 info@adwire.com.hk；(3) 填寫網站聯絡表單。我們提供免費初步諮詢，了解您的業務需求後，會提供針對性的服務方案及報價。",
+    a: `可透過以下方式聯絡 ADWire：(1) WhatsApp ${WHATSAPP_E164}；(2) 電郵 info@adwire.com.hk；(3) 填寫網站聯絡表單。我們提供免費初步諮詢，了解您的業務需求後，會提供針對性的服務方案及報價。`,
   },
   {
     q: "ADWire 是否適合中小企業（SME）？",
@@ -130,7 +131,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
 // ─── Main Component ──────────────────────────────────────────────────────────
 export default function AboutContent() {
   return (
-    <main className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
 
       {/* ── Hero Header ── */}
@@ -199,7 +200,7 @@ export default function AboutContent() {
               adwire.com.hk
             </a>
             ，聯絡電話：
-            <a href="tel:+85295861027" itemProp="telephone" className="text-[#0f4c81] font-medium ml-1">+852-9586-1027</a>。
+            <a href={`tel:${WHATSAPP_E164}`} itemProp="telephone" className="text-[#0f4c81] font-medium ml-1">{WHATSAPP_E164}</a>。
           </p>
         </div>
       </section>
@@ -568,7 +569,7 @@ export default function AboutContent() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
-              href="https://wa.me/85295861027?text=你好，我想了解 ADWire 的服務"
+              href={getWhatsAppUrl("你好，我想了解 ADWire 的服務")}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b957] text-white font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
@@ -600,7 +601,7 @@ export default function AboutContent() {
 
       <ContactSection />
       <Footer />
-    </main>
+    </div>
   );
 }
 

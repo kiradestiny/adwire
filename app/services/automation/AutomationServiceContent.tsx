@@ -8,7 +8,7 @@ import { Bot, Zap, Clock, Database, MessageSquare, ShoppingCart, UserCheck, Arro
 
 export default function AutomationServiceContent() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* 1. Hero Banner: 未來科技感 */}
@@ -167,7 +167,7 @@ export default function AutomationServiceContent() {
 
       <ContactSection defaultService="營銷自動化系統" />
       <Footer />
-    </main>
+    </div>
   );
 }
 

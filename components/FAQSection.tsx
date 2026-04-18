@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import Link from "next/link";
+import { getWhatsAppUrl } from "@/lib/site-config";
 
 interface FAQItem {
   question: string;
@@ -125,7 +126,7 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              href="https://wa.me/85295861027?text=Hello%20ADWire,%20我有問題想查詢"
+              href={getWhatsAppUrl("Hello ADWire, 我有問題想查詢")}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-[#0f4c81] text-white font-bold rounded-full hover:bg-[#0d3d6a] transition-all shadow-md hover:shadow-blue-200 flex items-center justify-center gap-2"

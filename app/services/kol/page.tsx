@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WHATSAPP_E164 } from "@/lib/site-config";
 import KolServiceContent from "./KolServiceContent";
 
 export const metadata: Metadata = {
@@ -24,13 +25,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
   alternates: {
-    canonical: "/services/kol",
+    canonical: "/services/kol/",
   },
   openGraph: {
     title: "KOL 網紅營銷服務 | ADWire Agency 香港",
     description:
       "一站式 KOL 網紅配對及內容監修。涵蓋 IG、FB、小紅書及 Threads，AI 數據分析粉絲質量，確保廣告觸達真實潛在買家。",
-    url: "https://adwire.com.hk/services/kol",
+    url: "https://adwire.com.hk/services/kol/",
     siteName: "ADWire Agency",
     images: [
       {
@@ -56,12 +57,12 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://adwire.com.hk/services/kol#service",
+  "@id": "https://adwire.com.hk/services/kol/#service",
   name: "KOL 網紅營銷服務 (Influencer Marketing)",
   alternateName: "Influencer Marketing Hong Kong",
   description:
     "ADWire Agency 提供香港一站式 KOL 網紅營銷服務，包括 IG、Facebook、小紅書及 Threads 平台的 KOL 配對、AI 粉絲質量分析、內容策略監修及成效追蹤報告。服務涵蓋 Nano KOL 種草至 Mega KOL 品牌宣傳。",
-  url: "https://adwire.com.hk/services/kol",
+  url: "https://adwire.com.hk/services/kol/",
   image: "https://adwire.com.hk/services/kol/product.webp",
   provider: {
     "@type": "Organization",
@@ -78,8 +79,8 @@ const serviceSchema = {
   category: "Digital Marketing",
   availableChannel: {
     "@type": "ServiceChannel",
-    serviceUrl: "https://adwire.com.hk/services/kol",
-    servicePhone: "+852-9586-1027",
+    serviceUrl: "https://adwire.com.hk/services/kol/",
+    servicePhone: WHATSAPP_E164,
     availableLanguage: ["zh-Hant", "zh-Yue", "zh-Hans", "en"],
   },
   offers: [
@@ -194,8 +195,8 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "首頁", item: "https://adwire.com.hk" },
-    { "@type": "ListItem", position: 2, name: "服務", item: "https://adwire.com.hk/services" },
-    { "@type": "ListItem", position: 3, name: "KOL 網紅營銷", item: "https://adwire.com.hk/services/kol" },
+    { "@type": "ListItem", position: 2, name: "服務", item: "https://adwire.com.hk/services/" },
+    { "@type": "ListItem", position: 3, name: "KOL 網紅營銷", item: "https://adwire.com.hk/services/kol/" },
   ],
 };
 

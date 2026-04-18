@@ -13,14 +13,18 @@
  *   - Service 白名單驗證
  *   - OPTIONS preflight 支援
  *   - 不暴露 PHP 版本
+ *   - [NEW] Enquiry 記錄寫入 MySQL 數據庫
  */
 
 // ── Output Buffering ──────────────────────────────────────────────────
 ob_start();
 
+// ── 載入配置（提供 CORS_ORIGINS、MAIL_TO、MAIL_FROM 等常數）──────────────
+require_once __DIR__ . '/admin/includes/config.php';
+
 // ── Error Handling ────────────────────────────────────────────────────
 // [FIX #10] 關閉前端顯示，但保留 server-side log 以便排查
-error_reporting(E_ALL);
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 ini_set('display_errors', '0');
 ini_set('log_errors', '1');
 
@@ -28,10 +32,9 @@ ini_set('log_errors', '1');
 header('Content-Type: application/json; charset=utf-8');
 
 // [FIX #1] CORS：限制只允許正式網域，防止第三方盜用 mailer
-$allowedOrigins = [
-    'https://adwire.com.hk',
-    'https://www.adwire.com.hk',
-];
+$allowedOrigins = defined('CORS_ORIGINS') && !empty(CORS_ORIGINS)
+    ? array_map('trim', explode(',', CORS_ORIGINS))
+    : ['https://adwire.com.hk', 'https://www.adwire.com.hk'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
 if (!empty($origin)) {
@@ -157,9 +160,56 @@ function getClientIp(): string
 }
 
 /**
- * [FIX #2] 檔案式速率限制：每個 key 於指定時間窗口內最多允許固定次數請求
+ * [FIX #2] 資料庫式速率限制：每個 key 於指定時間窗口內最多允許固定次數請求
+ *
+ * 優先使用 MySQL 資料庫（在多實例環境下更可靠），
+ * 若資料庫不可用則自動降級為檔案式速率限制。
  */
 function checkRateLimit(string $namespace, string $subject, int $window, int $maxReq): bool
+{
+    // 嘗試使用資料庫式速率限制
+    try {
+        require_once __DIR__ . '/admin/includes/database.php';
+        $pdo = Database::getInstance();
+        $subjectHash = hash('sha256', $subject);
+        $now = time();
+        $windowStart = $now - $window;
+
+        // 清理過期記錄（每次檢查時順便清理，避免資料表膨脹）
+        $pdo->prepare('DELETE FROM rate_limits WHERE window_start < ?')
+            ->execute([$windowStart]);
+
+        // 計算當前窗口內的請求次數
+        $stmt = $pdo->prepare(
+            'SELECT SUM(request_count) AS total FROM rate_limits
+             WHERE namespace = ? AND subject_hash = ? AND window_start >= ?'
+        );
+        $stmt->execute([$namespace, $subjectHash, $windowStart]);
+        $total = (int) $stmt->fetchColumn();
+
+        if ($total >= $maxReq) {
+            return false;
+        }
+
+        // 記錄本次請求
+        $pdo->prepare(
+            'INSERT INTO rate_limits (namespace, subject_hash, window_start, request_count)
+             VALUES (?, ?, ?, 1)
+             ON DUPLICATE KEY UPDATE request_count = request_count + 1'
+        )->execute([$namespace, $subjectHash, $now]);
+
+        return true;
+    } catch (Exception $e) {
+        // 資料庫不可用時降級為檔案式速率限制
+        error_log('[ADWire] DB rate limit failed, falling back to file: ' . $e->getMessage());
+        return checkFileRateLimit($namespace, $subject, $window, $maxReq);
+    }
+}
+
+/**
+ * 檔案式速率限制（降級備用）
+ */
+function checkFileRateLimit(string $namespace, string $subject, int $window, int $maxReq): bool
 {
     $path = sys_get_temp_dir() . '/adwire_rate/' . $namespace . '/' . hash('sha256', $subject) . '.json';
     $now = time();
@@ -273,20 +323,15 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 $email = (string) filter_var($email, FILTER_SANITIZE_EMAIL);
 
-// [FIX #8] Service 白名單驗證（必須與前端 ContactSection.tsx SERVICE_OPTIONS 完全同步）
-$allowedServices = [
-    'AI 企業轉型方案',
-    'KOL 網紅營銷',
-    '短視頻製作',
-    '成效廣告投放',
-    '社交媒體管理',
-    'SEO/GEO 搜尋引擎優化',
-    '商業攝影與錄影',
-    '營銷自動化系統',
-    '網頁設計及優化',
-    '系統/APP開發',
-    '其他合作',
-];
+// [FIX #8] Service 白名單驗證 — 從 public/config/services.json 讀取（Single Source of Truth）
+// 前端 ContactSection.tsx 也從同一份 JSON 讀取，無需手動同步
+$servicesJsonPath = __DIR__ . '/config/services.json';
+$servicesJson = file_exists($servicesJsonPath)
+    ? json_decode(file_get_contents($servicesJsonPath), true)
+    : null;
+$allowedServices = is_array($servicesJson['services'] ?? null)
+    ? $servicesJson['services']
+    : ['其他合作']; // Fallback：JSON 不存在時至少保留一個選項
 if (!empty($service) && !in_array($service, $allowedServices, true)) {
     $service = '未指定'; // 非白名單值統一重置，不拒絕（保留 UX 容錯）
 }
@@ -305,8 +350,33 @@ if (strlen($waPhone) === 8) {
     $waPhone = '852' . $waPhone;
 }
 
+// ── [NEW] Save Enquiry to MySQL ───────────────────────────────────────
+// 將 Enquiry 記錄寫入數據庫，供 Admin Panel 查看
+// 即使數據庫寫入失敗，也不影響電郵發送
+try {
+    require_once __DIR__ . '/admin/includes/database.php';
+    $pdo = Database::getInstance();
+    $stmt = $pdo->prepare(
+        'INSERT INTO enquiries (name, phone, email, service, message, ip_address, user_agent, status)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+    );
+    $stmt->execute([
+        mb_substr($name, 0, 100),
+        mb_substr($phone, 0, 20),
+        mb_substr($email, 0, 200),
+        mb_substr($service, 0, 100),
+        $message,
+        mb_substr($clientIp, 0, 45),
+        mb_substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 500),
+        'new',
+    ]);
+} catch (Exception $dbEx) {
+    // 數據庫寫入失敗只記錄日誌，不中斷流程
+    error_log('[ADWire] Enquiry DB save failed: ' . $dbEx->getMessage());
+}
+
 // ── Build Email Content ───────────────────────────────────────────────
-$to = 'info@adwire.com.hk';
+$to = defined('MAIL_TO') && !empty(MAIL_TO) ? MAIL_TO : 'info@adwire.com.hk';
 
 // [FIX #4] 標頭注入防護：對所有用於 SMTP 標頭的值移除 CR/LF/NULL
 $safeSubject = sanitizeHeader("【新客戶查詢】{$name} - {$service}");
@@ -393,7 +463,8 @@ HTML;
 // [FIX #7] 不暴露 PHP 版本（X-Mailer 改為自定義標識）
 $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-$headers .= "From: ADWire Website <no-reply@adwire.com.hk>\r\n";
+$mailFrom = defined('MAIL_FROM') && !empty(MAIL_FROM) ? MAIL_FROM : 'no-reply@adwire.com.hk';
+$headers .= "From: ADWire Website <{$mailFrom}>\r\n";
 $headers .= "Reply-To: {$safeName} <{$safeEmail}>\r\n";
 $headers .= "X-Mailer: ADWire-Contact-Form\r\n";
 

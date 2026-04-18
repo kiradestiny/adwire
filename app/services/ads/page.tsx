@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WHATSAPP_E164 } from "@/lib/site-config";
 import AdsServiceContent from "./AdsServiceContent";
 
 export const metadata: Metadata = {
@@ -24,13 +25,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
   alternates: {
-    canonical: "/services/ads",
+    canonical: "/services/ads/",
   },
   openGraph: {
     title: "成效廣告投放 | ADWire Agency 香港 | Google / Meta Ads 代操",
     description:
       "專業 Google Ads、Meta（FB/IG）及 YouTube 廣告代操。A/B Testing + 精準受眾，平均 ROAS 8.5 倍，入門代操費 HK$2,000/月起。",
-    url: "https://adwire.com.hk/services/ads",
+    url: "https://adwire.com.hk/services/ads/",
     siteName: "ADWire Agency",
     images: [
       {
@@ -56,12 +57,12 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://adwire.com.hk/services/ads#service",
+  "@id": "https://adwire.com.hk/services/ads/#service",
   name: "成效廣告投放服務 (Performance Advertising)",
   alternateName: "Performance Marketing Hong Kong",
   description:
     "ADWire Agency 提供香港一站式成效廣告代操服務，涵蓋 Meta（Facebook/Instagram）、Google Search（SEM）、YouTube 及 LinkedIn 廣告。以數據驅動 A/B Testing 及精準受眾鎖定，平均廣告回報率（ROAS）達 8.5 倍，CPA 獲客成本降低 45%。",
-  url: "https://adwire.com.hk/services/ads",
+  url: "https://adwire.com.hk/services/ads/",
   image: "https://adwire.com.hk/portfolio/global-trade-ads.webp",
   provider: {
     "@type": "Organization",
@@ -77,8 +78,8 @@ const serviceSchema = {
   category: "Digital Marketing",
   availableChannel: {
     "@type": "ServiceChannel",
-    serviceUrl: "https://adwire.com.hk/services/ads",
-    servicePhone: "+852-9586-1027",
+    serviceUrl: "https://adwire.com.hk/services/ads/",
+    servicePhone: WHATSAPP_E164,
     availableLanguage: ["zh-Hant", "zh-Yue", "en"],
   },
   offers: [
@@ -209,8 +210,8 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "首頁", item: "https://adwire.com.hk" },
-    { "@type": "ListItem", position: 2, name: "服務", item: "https://adwire.com.hk/services" },
-    { "@type": "ListItem", position: 3, name: "成效廣告投放", item: "https://adwire.com.hk/services/ads" },
+    { "@type": "ListItem", position: 2, name: "服務", item: "https://adwire.com.hk/services/" },
+    { "@type": "ListItem", position: 3, name: "成效廣告投放", item: "https://adwire.com.hk/services/ads/" },
   ],
 };
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { WHATSAPP_E164 } from "@/lib/site-config";
 import SocialServiceContent from "./SocialServiceContent";
 
 export const metadata: Metadata = {
@@ -24,13 +25,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
   alternates: {
-    canonical: "/services/social",
+    canonical: "/services/social/",
   },
   openGraph: {
     title: "社交媒體代管服務 | ADWire Agency 香港",
     description:
       "一站式 IG / Facebook / LinkedIn / 小紅書代營運。由內容企劃、視覺設計到粉絲互動，助品牌建立強大社群護城河，將流量轉化為實際生意。",
-    url: "https://adwire.com.hk/services/social",
+    url: "https://adwire.com.hk/services/social/",
     siteName: "ADWire Agency",
     images: [
       {
@@ -57,12 +58,12 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://adwire.com.hk/services/social#service",
+  "@id": "https://adwire.com.hk/services/social/#service",
   name: "社交媒體代管服務 (Social Media Management)",
   alternateName: "Social Media Agency Hong Kong",
   description:
     "ADWire Agency 提供香港一站式社交媒體代管服務，涵蓋 Instagram、Facebook、LinkedIn 及小紅書代營運。服務包括每月內容企劃、視覺設計、Reels 短片製作、社群互動管理及數據分析報告，助品牌將社交媒體流量轉化為實際業績。",
-  url: "https://adwire.com.hk/services/social",
+  url: "https://adwire.com.hk/services/social/",
   image: "https://adwire.com.hk/services/kol/threads.webp",
   provider: {
     "@type": "Organization",
@@ -78,8 +79,8 @@ const serviceSchema = {
   category: "Digital Marketing",
   availableChannel: {
     "@type": "ServiceChannel",
-    serviceUrl: "https://adwire.com.hk/services/social",
-    servicePhone: "+852-9586-1027",
+    serviceUrl: "https://adwire.com.hk/services/social/",
+    servicePhone: WHATSAPP_E164,
     availableLanguage: ["zh-Hant", "zh-Yue", "en"],
   },
   offers: [
@@ -155,7 +156,7 @@ const faqSchema = {
       name: "香港社交媒體代管服務收費是多少？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "ADWire 社交媒體代管提供三個方案：基礎方案 HK$8,000/月（8–10 個 Feed Post）、進階方案 HK$15,000/月（12–15 個 Feed Post + 2 條 Reels）、及全方位方案（Custom 定制，包含 20+ Post 及 KOL 策劃）。可 WhatsApp +852-9586-1027 索取詳細報價。",
+        text: `ADWire 社交媒體代管提供三個方案：基礎方案 HK$8,000/月（8–10 個 Feed Post）、進階方案 HK$15,000/月（12–15 個 Feed Post + 2 條 Reels）、及全方位方案（Custom 定制，包含 20+ Post 及 KOL 策劃）。可 WhatsApp ${WHATSAPP_E164} 索取詳細報價。`,
       },
     },
     {
@@ -231,13 +232,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 2,
       name: "服務",
-      item: "https://adwire.com.hk/services",
+      item: "https://adwire.com.hk/services/",
     },
     {
       "@type": "ListItem",
       position: 3,
       name: "社交媒體代管",
-      item: "https://adwire.com.hk/services/social",
+      item: "https://adwire.com.hk/services/social/",
     },
   ],
 };

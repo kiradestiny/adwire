@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BlogContent from "./BlogContent";
+import { getBlogPosts } from "@/lib/data-resolver";
 import { blogPosts } from "@/lib/blogData";
 
 export const metadata: Metadata = {
@@ -22,13 +23,13 @@ export const metadata: Metadata = {
     "香港中小企行銷",
   ],
   alternates: {
-    canonical: "/blog",
+    canonical: "/blog/",
   },
   openGraph: {
     title: "增長洞察 Blog | ADWire Agency — MarTech、SEO、AI 營銷策略",
     description:
       "分享最前沿的 MarTech 趨勢、AI 工具應用、SEO 策略及數碼營銷乾貨。助你掌握流量密碼，提升業務增長。",
-    url: "https://adwire.com.hk/blog",
+    url: "https://adwire.com.hk/blog/",
     type: "website",
     images: [
       {
@@ -51,11 +52,11 @@ function BlogListSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "@id": "https://adwire.com.hk/blog",
+    "@id": "https://adwire.com.hk/blog/",
     "name": "ADWire Agency 增長洞察 Blog",
     "description":
       "分享最前沿的 MarTech 趨勢、AI 工具應用、SEO/GEO 策略及數碼營銷乾貨",
-    "url": "https://adwire.com.hk/blog",
+    "url": "https://adwire.com.hk/blog/",
     "inLanguage": "zh-HK",
     "publisher": {
       "@type": "Organization",
@@ -66,12 +67,12 @@ function BlogListSchema() {
         "url": "https://adwire.com.hk/logo.png",
       },
     },
-    "blogPost": blogPosts.map((post) => ({
+    "blogPost": blogPosts.map((post: { slug: string; title: string; excerpt: string; date: string; image?: string; tags: string[]; category: string }) => ({
       "@type": "BlogPosting",
-      "@id": `https://adwire.com.hk/blog/${post.slug}`,
+      "@id": `https://adwire.com.hk/blog/${post.slug}/`,
       "headline": post.title,
       "description": post.excerpt,
-      "url": `https://adwire.com.hk/blog/${post.slug}`,
+      "url": `https://adwire.com.hk/blog/${post.slug}/`,
       "datePublished": `${post.date}T09:00:00+08:00`,
       "image": post.image
         ? `https://adwire.com.hk${post.image}`
@@ -101,7 +102,7 @@ function BlogListSchema() {
         "@type": "ListItem",
         "position": 2,
         "name": "增長洞察 Blog",
-        "item": "https://adwire.com.hk/blog",
+        "item": "https://adwire.com.hk/blog/",
       },
     ],
   };
@@ -120,11 +121,14 @@ function BlogListSchema() {
   );
 }
 
-export default function BlogListingPage() {
+export default async function BlogListingPage() {
+  // Build Time 數據獲取（API 優先 + 本地 Fallback）
+  const posts = await getBlogPosts();
+
   return (
     <>
       <BlogListSchema />
-      <BlogContent />
+      <BlogContent posts={posts} />
     </>
   );
 }

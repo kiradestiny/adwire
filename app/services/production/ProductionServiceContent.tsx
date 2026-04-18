@@ -13,7 +13,7 @@ import { useState } from "react";
 
 export default function ProductionServiceContent() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white">
       <Navbar />
 
       {/* 1. Hero Banner: 電影級質感 */}
@@ -286,7 +286,7 @@ export default function ProductionServiceContent() {
 
       <ContactSection defaultService="商業攝影與錄影" />
       <Footer />
-    </main>
+    </div>
   );
 }
 

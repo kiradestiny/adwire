@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "營銷自動化 (Marketing Automation) | ADWire Agency - 24/7 智能獲客",
   description: "串接 WhatsApp API, CRM 及廣告系統。讓 AI Chatbot 自動回覆、自動追單、自動入數，大幅節省人手成本，提升成交率。",
   alternates: {
-    canonical: "/services/automation",
+    canonical: "/services/automation/",
   },
   openGraph: {
     title: "營銷自動化 (Marketing Automation) | ADWire Agency",

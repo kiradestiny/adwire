@@ -40,13 +40,13 @@ export default function WebServiceContent() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
       
       <ServiceJsonLd 
         name="網頁設計及系統開發 (Web Design & Development)"
         description="香港專業網頁設計公司，專注於 Next.js 高性能網站開發。結合 SEO 優化架構、極速加載與高轉換 UI/UX 設計，為您打造 24/7 自動獲客的企業官網、電商平台及 Landing Page。"
-        url="https://adwire.com.hk/services/web"
+        url="https://adwire.com.hk/services/web/"
         image="https://adwire.com.hk/portfolio/corporate-website.webp"
       />
       
@@ -534,7 +534,7 @@ export default function WebServiceContent() {
       {/* 6. CTA Section */}
       <ContactSection defaultService="網頁設計及優化" />
       <Footer />
-    </main>
+    </div>
   );
 }
 

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "ADWire 提供一站式影片製作服務，專精於 IG Reels、TikTok 短影音、企業形象片及產品廣告。從腳本策劃、專業拍攝到後期剪輯，助您抓住黃金 3 秒，引爆流量與轉換。",
   keywords: ["短影音製作", "Reels 拍攝", "TikTok 行銷", "企業宣傳片", "香港影片製作", "Video Production HK", "Viral Shorts"],
   alternates: {
-    canonical: "/services/video",
+    canonical: "/services/video/",
   },
   openGraph: {
     title: "專業短影音製作與影片行銷服務 | ADWire Agency",
@@ -49,7 +49,7 @@ export default function VideoServicePage() {
       <ServiceJsonLd 
         name="Video Production Service" 
         description="Professional video production services including viral shorts, corporate videos, and commercial ads."
-        url="https://adwire.com.hk/services/video"
+        url="https://adwire.com.hk/services/video/"
       />
       <FAQJsonLd faqs={faqs} />
       <VideoServiceContent />

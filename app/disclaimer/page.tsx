@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "免責聲明 (Disclaimer) | ADWire Agency",
   description: "ADWire Agency 的免責聲明。關於本網站資料的準確性、完整性及責任限制的說明。",
   alternates: {
-    canonical: "/disclaimer",
+    canonical: "/disclaimer/",
   },
   openGraph: {
     title: "免責聲明 (Disclaimer) | ADWire Agency",
     description: "ADWire Agency 的免責聲明。關於本網站資料的準確性、完整性及責任限制的說明。",
-    url: "https://adwire.com.hk/disclaimer",
+    url: "https://adwire.com.hk/disclaimer/",
     type: "website",
   },
   robots: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function DisclaimerPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Header */}
@@ -78,6 +78,6 @@ export default function DisclaimerPage() {
       </section>
 
       <Footer />
-    </main>
+    </div>
   );
 }

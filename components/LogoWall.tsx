@@ -2,54 +2,22 @@
 
 import { motion } from "framer-motion";
 
-export default function LogoWall() {
-const brands = [
-  // --- Tier 1: 國際巨頭 / 家喻戶曉 (International Giants) ---
-  "7-Eleven",
-  "Rakuten",         // 樂天
-  "The Ritz-Carlton",
-  "Kirin Ichiban",   // 麒麟一番搾
-  "Mister Donut",
-  "Matsuya",         // 松屋
-  "Miki House",      // 日本著名童裝
-
-  // --- Tier 2: 知名大企 / 地標品牌 (Large Enterprises & Landmarks) ---
-  "Kerry Hotel",     // 嘉里酒店
-  "Hotel ICON",      // 唯港薈
-  "義務工作發展局（AVS）", // 大型法定/非牟利機構
-  "HKWS",            // 香港潔淨水 (本地出名品牌)
-  "Organicmom",      // 商場常見童裝
-
-  // --- Tier 3: 成熟本地企業 / 行業名牌 (Established Local Brands) ---
-  "隨傳隨借",        // 財務公司 (有大型廣告)
-  "Nuva",            // 知名中菜廳 (位於酒店內)
-  "SurrFACE",        // 醫美 (較具規模)
-  "WISDOM",          // 專業融資/顧問
-  "Global32",        // 地產/物業相關
-  "Envirosafe",      // 環境安全科技
-  
-  // --- Tier 4: 中小企 / 專業服務 / Medical Beauty (SMEs & Niche Services) ---
-  // Beauty & Wellness
-  "Skinpro",
-  "Peko Beauty",
-  "MEDSKIN PLUS+",
-  "YOROKOBI Beauty",
-  "Meta Beauty Lab",
-  "All About Beaut",
-  "Wonder Lens",
-  "Barebooby",
-  
-  // Professional Services / Engineering / Creative
-  "永記渠務工程",
-  "N Creative",
-  "effect.",
-  "Eco Pro",
-  "H$ Credit",
-  "Quantum Matrix",
-  "KM. Fiber",
-  "千葉願",
-  "Sometimes lab"
+// 預設品牌列表（fallback，當後台數據不可用時使用）
+const DEFAULT_BRANDS = [
+  "7-Eleven", "Rakuten", "The Ritz-Carlton", "Kirin Ichiban", "Mister Donut",
+  "Matsuya", "Miki House", "Kerry Hotel", "Hotel ICON", "義務工作發展局（AVS）",
+  "HKWS", "Organicmom", "隨傳隨借", "Nuva", "SurrFACE", "WISDOM", "Global32",
+  "Envirosafe", "Skinpro", "Peko Beauty", "MEDSKIN PLUS+", "YOROKOBI Beauty",
+  "Meta Beauty Lab", "All About Beaut", "Wonder Lens", "Barebooby", "永記渠務工程",
+  "N Creative", "effect.", "Eco Pro", "H$ Credit", "Quantum Matrix", "KM. Fiber",
+  "千葉願", "Sometimes lab",
 ];
+
+interface LogoWallProps {
+  brands?: string[];
+}
+
+export default function LogoWall({ brands = DEFAULT_BRANDS }: LogoWallProps) {
 
   // 將品牌分成三行以優化顯示效果
   const row1 = brands.filter((_, i) => i % 3 === 0);

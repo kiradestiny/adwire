@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "服務條款 (Terms of Service) | ADWire Agency",
   description: "ADWire Agency 的服務條款。使用本網站及服務即表示您同意遵守這些條款及細則。",
   alternates: {
-    canonical: "/terms",
+    canonical: "/terms/",
   },
   openGraph: {
     title: "服務條款 (Terms of Service) | ADWire Agency",
     description: "ADWire Agency 的服務條款。使用本網站及服務即表示您同意遵守這些條款及細則。",
-    url: "https://adwire.com.hk/terms",
+    url: "https://adwire.com.hk/terms/",
     type: "website",
   },
   robots: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function TermsOfServicePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Header */}
@@ -88,6 +88,6 @@ export default function TermsOfServicePage() {
       </section>
 
       <Footer />
-    </main>
+    </div>
   );
 }

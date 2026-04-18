@@ -1,0 +1,113 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ADWire Website — GitHub Actions 自動部署工作流
+# ─────────────────────────────────────────────────────────────────────────────
+# 觸發條件：
+#   1. Push 到 main 分支（程式碼更新）
+#   2. Repository Dispatch 事件（後台「發佈更新」按鈕觸發）
+#
+# 需要在 GitHub Repo → Settings → Secrets and variables → Actions 中設定：
+#   - SITEGROUND_HOST      : SiteGround SSH 主機位址
+#   - SITEGROUND_USER      : SiteGround SSH 使用者名稱
+#   - SITEGROUND_SSH_KEY   : SiteGround SSH 私鑰（完整內容）
+#   - SITEGROUND_PATH      : 網站根目錄的絕對路徑（例如 /home/user/domains/adwire.com.hk/public_html）
+#   - NEXT_PUBLIC_API_URL  : Admin API 基礎 URL（例如 https://adwire.com.hk/admin/api）
+#   - ADMIN_API_KEY        : Admin API 認證 Key
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Build & Deploy to SiteGround
+
+on:
+  # 1. 程式碼推送到 main 分支時自動構建
+  push:
+    branches: [main]
+    paths:
+      # 只有這些目錄變更才觸發，避免不必要的構建
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'public/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'next.config.ts'
+      - 'tailwind.config.ts'
+      - 'tsconfig.json'
+      - 'postcss.config.mjs'
+
+  # 2. 後台「發佈更新」按鈕觸發（透過 GitHub API 發送 repository_dispatch）
+  repository_dispatch:
+    types: [rebuild]
+
+  # 3. 允許手動觸發
+  workflow_dispatch:
+
+# 避免同時多個部署衝突
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false  # 不取消正在進行的部署，排隊執行
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # ── 1. Checkout 程式碼 ──
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ── 2. 設定 Node.js ──
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # ── 3. 安裝依賴 ──
+      - name: Install dependencies
+        run: npm ci
+
+      # ── 4. Build Next.js 靜態網站 ──
+      #    環境變數在 Build Time 注入，用於從 Admin API 拉取最新數據
+      - name: Build Next.js static export
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          ADMIN_API_KEY: ${{ secrets.ADMIN_API_KEY }}
+        run: npm run build
+
+      # ── 5. 驗證構建產物 ──
+      - name: Verify build output
+        run: |
+          if [ ! -d "out" ]; then
+            echo "❌ Build failed: 'out' directory not found"
+            exit 1
+          fi
+          echo "✅ Build output verified"
+          echo "📊 Total files: $(find out -type f | wc -l)"
+          echo "📊 Total size: $(du -sh out | cut -f1)"
+
+      # ── 6. 部署到 SiteGround ──
+      #    使用 rsync over SSH，只傳輸變更的檔案
+      - name: Deploy to SiteGround via rsync
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete --exclude='admin' --exclude='crm' --exclude='.htaccess' --exclude='send-mail.php' --exclude='blog' --exclude='portfolio' --exclude='services' --exclude='system' --exclude='video'
+          path: out/
+          remote_path: ${{ secrets.SITEGROUND_PATH }}/
+          remote_host: ${{ secrets.SITEGROUND_HOST }}
+          remote_user: ${{ secrets.SITEGROUND_USER }}
+          remote_key: ${{ secrets.SITEGROUND_SSH_KEY }}
+
+      # ── 7. 部署完成通知 ──
+      - name: Deployment summary
+        run: |
+          echo "🚀 Deployment completed successfully!"
+          echo "📅 Time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "🔗 URL: https://adwire.com.hk"
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "📌 Triggered by: Admin Panel「發佈更新」"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            echo "📌 Triggered by: Git push to main"
+          else
+            echo "📌 Triggered by: Manual workflow dispatch"
+          fi

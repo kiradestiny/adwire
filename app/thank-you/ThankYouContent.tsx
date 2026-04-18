@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { CheckCircle, MessageCircle, Home } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/site-config";
 
 const REDIRECT_DELAY = 5; // 秒
 
@@ -48,7 +49,7 @@ export default function ThankYouContent() {
   }, [router]);
 
   return (
-    <main className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-16">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-16">
       <div className="max-w-xl w-full text-center">
 
         {/* [Fix #4] 進場動畫 */}
@@ -96,7 +97,7 @@ export default function ThankYouContent() {
                 返回首頁
               </Link>
               <a
-                href="https://wa.me/85295861027"
+                href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#25D366] text-white rounded-lg font-medium hover:bg-[#128C7E] transition-colors"
@@ -116,6 +117,6 @@ export default function ThankYouContent() {
         </motion.div>
 
       </div>
-    </main>
+    </div>
   );
 }

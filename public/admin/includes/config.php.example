@@ -1,0 +1,69 @@
+<?php
+/**
+ * ADWire Admin Panel — 配置文件範本
+ *
+ * ⚠️ 請複製此檔案為 config.php 並填入實際值：
+ *     cp config.php.example config.php
+ *
+ * ⚠️ config.php 已被 .gitignore 排除，不會進入版本控制
+ *
+ * 功能模組：
+ *   - 數據庫連線（PDO Singleton）
+ *   - Admin Panel 認證與 Session
+ *   - API Key（Build Time 數據拉取）
+ *   - GitHub Webhook（觸發重建）
+ *   - 郵件發送（send-mail.php）
+ *   - CORS 配置
+ *   - 審計日誌（admin_audit_log）
+ *   - 資料庫遷移（schema_migrations）
+ *   - 資料庫式速率限制（rate_limits）
+ *   - Health Check 端點（/admin/api/health.php）
+ */
+
+// ── 數據庫配置 ──────────────────────────────────────────────────────────
+// 在 SiteGround → Site Tools → MySQL 中建立數據庫和用戶後填入
+defined('DB_HOST')     || define('DB_HOST',     'localhost');
+defined('DB_NAME')     || define('DB_NAME',     'your_db_name_here');         // ← 改為你的數據庫名
+defined('DB_USER')     || define('DB_USER',     'your_db_user_here');         // ← 改為你的數據庫用戶名
+defined('DB_PASS')     || define('DB_PASS',     'your_db_password_here');     // ← 改為你的數據庫密碼
+defined('DB_CHARSET')  || define('DB_CHARSET',  'utf8mb4');
+
+// ── Admin Panel 配置 ────────────────────────────────────────────────────
+defined('ADMIN_URL')       || define('ADMIN_URL',       'https://adwire.com.hk/admin');
+defined('SITE_URL')        || define('SITE_URL',        'https://adwire.com.hk');
+defined('SESSION_NAME')    || define('SESSION_NAME',    'ADWIRE_ADMIN');
+defined('SESSION_LIFETIME')|| define('SESSION_LIFETIME', 7200);  // 2 小時
+
+// ── API 配置 ────────────────────────────────────────────────────────────
+// Build Time 拉取數據時需要帶上此 Key（同時需填入 .env.local 的 ADMIN_API_KEY 和 GitHub Secret）
+// 也用於 Health Check 端點驗證
+defined('ADMIN_API_KEY') || define('ADMIN_API_KEY', 'your_api_key_here');  // ← 生成方式：php -r "echo bin2hex(random_bytes(16));"
+
+// ── GitHub Webhook 配置 ─────────────────────────────────────────────────
+// 用於觸發 GitHub Actions 重建網站
+defined('GITHUB_TOKEN')  || define('GITHUB_TOKEN',  'your_github_pat_here');    // ← 你的 GitHub Personal Access Token
+defined('GITHUB_REPO')   || define('GITHUB_REPO',   'kiradestiny/adwire');      // ← 格式：用戶名/倉庫名
+
+// ── 郵件配置 ────────────────────────────────────────────────────────────
+defined('MAIL_TO')   || define('MAIL_TO',   'info@adwire.com.hk');       // ← 收件郵箱
+defined('MAIL_FROM') || define('MAIL_FROM', 'no-reply@adwire.com.hk');   // ← 寄件郵箱
+
+// ── CORS 配置 ───────────────────────────────────────────────────────────
+// 允許的來源域名（用於 send-mail.php 的 CORS 驗證）
+// 多個域名以逗號分隔
+defined('CORS_ORIGINS') || define('CORS_ORIGINS', 'https://adwire.com.hk,https://www.adwire.com.hk');
+
+// ── 上傳路徑配置 ────────────────────────────────────────────────────────
+// 圖片上傳的根目錄，留空則使用 $_SERVER['DOCUMENT_ROOT']
+defined('UPLOAD_ROOT') || define('UPLOAD_ROOT', '');
+
+// ── 安全配置 ────────────────────────────────────────────────────────────
+defined('BCRYPT_COST') || define('BCRYPT_COST', 12);
+
+// ── 時區 ────────────────────────────────────────────────────────────────
+date_default_timezone_set('Asia/Hong_Kong');
+
+// ── 錯誤處理 ────────────────────────────────────────────────────────────
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');

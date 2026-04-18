@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import { WHATSAPP_E164 } from "@/lib/site-config";
 
 const Services = dynamic(() => import("@/components/Services"));
 const LogoWall = dynamic(() => import("@/components/LogoWall"));
@@ -17,6 +18,7 @@ const ComparisonTable = dynamic(() => import("@/components/ComparisonTable"));
 
 import FAQJsonLd from "@/components/FAQJsonLd";
 import type { Metadata } from "next";
+import { getBrands, getBlogPosts, getSerializablePortfolioCases } from "@/lib/data-resolver";
 
 export const metadata: Metadata = {
   title: "ADWire Agency | 香港首選 AI 驅動 MarTech 代理 | AI Marketing & Growth",
@@ -59,7 +61,7 @@ const faqs = [
   {
     question: "如何開始與 ADWire 合作？流程是怎樣的？",
     answer:
-      "與 ADWire 合作非常簡單，只需四個步驟：①通過 WhatsApp (+852 9586 1027) 或網站聯絡表格與我們聯繫；②我們的專家團隊安排 15 分鐘免費業務診斷，了解您的需求與目標；③根據分析結果量身定制 MarTech 方案並確認合作細節；④正式執行，全程提供數據報告與優化建議。我們承諾 24 小時內回覆所有查詢。",
+      `與 ADWire 合作非常簡單，只需四個步驟：①通過 WhatsApp (${WHATSAPP_E164}) 或網站聯絡表格與我們聯繫；②我們的專家團隊安排 15 分鐘免費業務診斷，了解您的需求與目標；③根據分析結果量身定制 MarTech 方案並確認合作細節；④正式執行，全程提供數據報告與優化建議。我們承諾 24 小時內回覆所有查詢。`,
   },
   {
     question: "KOL 網紅營銷係點樣運作？如何確保找到適合的 KOL？",
@@ -108,9 +110,16 @@ const faqs = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  // ── Build Time 數據獲取（API 優先 + 本地 Fallback）──
+  const [brands, blogPostsData, portfolioCasesData] = await Promise.all([
+    getBrands(),
+    getBlogPosts(),
+    getSerializablePortfolioCases(),
+  ]);
+
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* ── Schema JSON-LD ── */}
       <FAQJsonLd faqs={faqs} />
 
@@ -121,7 +130,7 @@ export default function Home() {
       <HeroSection />
 
       {/* ── 客戶 Logo Wall ── */}
-      <LogoWall />
+      <LogoWall brands={brands} />
 
       {/* ── 服務介紹 ── */}
       <Services />
@@ -139,10 +148,10 @@ export default function Home() {
       <Testimonials />
 
       {/* ── 成功案例 ── */}
-      <Portfolio />
+      <Portfolio cases={portfolioCasesData} />
 
       {/* ── 增長洞察 Blog ── */}
-      <BlogSection />
+      <BlogSection posts={blogPostsData} />
 
       {/* ── FAQ Section（可視化 + Schema，觸發 Google Featured Snippet + AI 引用）── */}
       <FAQSection faqs={faqs} />
@@ -155,6 +164,6 @@ export default function Home() {
 
       {/* ── Footer ── */}
       <Footer />
-    </main>
+    </div>
   );
 }

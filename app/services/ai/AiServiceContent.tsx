@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { motion, AnimatePresence } from "framer-motion";
+import { getWhatsAppUrl } from "@/lib/site-config";
 import {
   AlertTriangle,
   ArrowRight,
@@ -197,7 +198,7 @@ export default function AiServiceContent() {
   }, [monthlyCost, automationRate, investment]);
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero Section */}
@@ -603,7 +604,7 @@ export default function AiServiceContent() {
               預約免費諮詢
             </a>
             <a
-              href="https://wa.me/85295861027?text=Hello%20ADWire,%20我想了解%20AI%20Solution"
+              href={getWhatsAppUrl("Hello ADWire, 我想了解 AI Solution")}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all"
@@ -616,7 +617,7 @@ export default function AiServiceContent() {
 
       <ContactSection defaultService="AI 企業轉型方案" />
       <Footer />
-    </main>
+    </div>
   );
 }
 

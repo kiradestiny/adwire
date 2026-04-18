@@ -9,20 +9,10 @@ import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
 // ─── Service Options ──────────────────────────────────────────────────────────
-// ⚠️ 修改此陣列時，必須同步更新 public/send-mail.php 的 $allowedServices 白名單
-export const SERVICE_OPTIONS = [
-  "AI 企業轉型方案",
-  "KOL 網紅營銷",
-  "短視頻製作",
-  "成效廣告投放",
-  "社交媒體管理",
-  "SEO/GEO 搜尋引擎優化",
-  "商業攝影與錄影",
-  "營銷自動化系統",
-  "網頁設計及優化",
-  "系統/APP開發",
-  "其他合作",
-] as const;
+// 服務選項統一由 public/config/services.json 管理（Single Source of Truth）
+// 前端和後端（send-mail.php）都從同一份 JSON 讀取，無需手動同步
+import { SERVICE_OPTIONS } from "@/lib/service-options";
+import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
 
 const PHONE_DIGITS_REGEX = /^\d{8,15}$/;
 const CLIENT_SUBMIT_COOLDOWN_MS = 60_000;
@@ -339,9 +329,9 @@ export default function ContactSection({ defaultService }: { defaultService?: st
 
   return (
     <section className="py-24 bg-[#0f4c81] text-white relative overflow-hidden" id="contact">
-      {/* Background blobs */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#f5a623] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" />
+      {/* Background blobs（裝飾性） */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-[#f5a623] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -383,13 +373,13 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                   <Phone size={20} />
                 </div>
                 <a
-                  href="https://wa.me/85295861027"
+                  href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#f5a623] transition-colors"
                 >
                   <p className="text-xs text-gray-400 uppercase tracking-wider">WhatsApp / Phone</p>
-                  <p className="font-semibold text-lg">+852 9586 1027</p>
+                  <p className="font-semibold text-lg">{WHATSAPP_DISPLAY}</p>
                 </a>
               </div>
 
@@ -427,8 +417,8 @@ export default function ContactSection({ defaultService }: { defaultService?: st
             viewport={{ once: true }}
             className="bg-white text-gray-900 rounded-3xl p-8 md:p-10 shadow-2xl relative"
           >
-            {/* Corner badge */}
-            <div className="absolute -top-4 -right-4 bg-[#f5a623] text-white px-4 py-2 rounded-lg font-bold shadow-lg transform rotate-3 hidden md:block text-sm">
+            {/* Corner badge（裝飾性） */}
+            <div className="absolute -top-4 -right-4 bg-[#f5a623] text-white px-4 py-2 rounded-lg font-bold shadow-lg transform rotate-3 hidden md:block text-sm" aria-hidden="true">
               限時免費諮詢
             </div>
 
@@ -455,6 +445,11 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                   {label}
                 </span>
               ))}
+            </div>
+
+            {/* aria-live 區域：表單驗證錯誤摘要，供螢幕閱讀器即時播報 */}
+            <div aria-live="polite" aria-atomic="true" className="sr-only">
+              {submitError ? `表單錯誤：${submitError}` : ""}
             </div>
 
             {/* Form */}

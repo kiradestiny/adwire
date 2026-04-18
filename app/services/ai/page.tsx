@@ -52,12 +52,12 @@ export const metadata: Metadata = {
     "數碼轉型"
   ],
   alternates: {
-    canonical: "/services/ai",
+    canonical: "/services/ai/",
   },
   openGraph: {
     title: "AI 解決方案 | 企業智能轉型專家 | ADWire Agency",
     description: "為香港 B2B 企業打造專屬 AI 解決方案。AI 客服、流程自動化、知識庫建設、私有化部署。助你解決人手短缺，提升效率高達 500%。",
-    url: "https://adwire.com.hk/services/ai",
+    url: "https://adwire.com.hk/services/ai/",
     siteName: "ADWire Agency",
     type: "website",
     locale: "zh_HK",
@@ -95,7 +95,7 @@ export default function AiServicePage() {
       <ServiceJsonLd
         name="AI 解決方案"
         description="專為香港 B2B 企業打造的 AI 解決方案，包括 AI 客服系統、智能流程自動化、企業知識庫及私有化 AI 部署服務。"
-        url="https://adwire.com.hk/services/ai"
+        url="https://adwire.com.hk/services/ai/"
       />
       
       {/* FAQ 結構化數據 */}

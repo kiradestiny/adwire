@@ -36,6 +36,12 @@ ErrorDocument 403 /404.html
     RewriteEngine On
     RewriteBase /
 
+    # ADWire CRM: 所有 /crm/* 請求交給子目錄處理（不進行根目錄 rewrite）
+    RewriteRule ^crm/ - [L]
+
+    # ADWire Admin: 所有 /admin/* 請求交給子目錄處理（PHP 後台，不進行根目錄 rewrite）
+    RewriteRule ^admin/ - [L]
+
     # ------------------------------------------------------------------
     # [FIX #1] Force HTTPS — 必須啟用，否則 HSTS header 形同虛設
     # ------------------------------------------------------------------

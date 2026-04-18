@@ -2,6 +2,7 @@
 
 import { Check, X, Minus, ArrowRight, Trophy } from "lucide-react";
 import Link from "next/link";
+import { WHATSAPP_DISPLAY, WHATSAPP_E164, getWhatsAppUrl } from "@/lib/site-config";
 
 type CellValue = "yes" | "no" | "partial" | string;
 
@@ -281,7 +282,7 @@ export default function ComparisonTable() {
                 </td>
                 <td className="px-4 py-4 text-center bg-amber-50/40 border-x border-amber-100">
                   <Link
-                    href="https://wa.me/85295861027?text=Hello%20ADWire,%20我想了解更多服務"
+                    href={getWhatsAppUrl("Hello ADWire, 我想了解更多服務")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 px-4 py-2 bg-[#0f4c81] text-white text-xs font-bold rounded-full hover:bg-[#0d3d6a] transition-colors whitespace-nowrap"
@@ -305,10 +306,10 @@ export default function ComparisonTable() {
             <span className="mt-1 inline-block">
               聯絡電話：
               <a
-                href="tel:+85295861027"
+                href={`tel:${WHATSAPP_E164}`}
                 className="font-bold text-[#0f4c81] hover:underline"
               >
-                +852 9586 1027
+                {WHATSAPP_DISPLAY}
               </a>{" "}
               ｜ Email：
               <a

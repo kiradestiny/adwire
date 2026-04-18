@@ -46,13 +46,13 @@ export default function SystemServiceContent() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
       
       <ServiceJsonLd 
         name="企業系統開發 (Enterprise System Development)"
         description="量身訂造企業級系統 (ERP/CRM/App)。自動化繁瑣流程，打通銷售、庫存與財務數據，助你實現真正的數碼轉型，提升效率300%。"
-        url="https://adwire.com.hk/services/system"
+        url="https://adwire.com.hk/services/system/"
         image="https://adwire.com.hk/system/CRM.webp"
       />
       
@@ -610,7 +610,7 @@ export default function SystemServiceContent() {
 
       <ContactSection defaultService="系統/APP開發" />
       <Footer />
-    </main>
+    </div>
   );
 }
 

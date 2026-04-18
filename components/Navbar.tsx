@@ -8,6 +8,7 @@ import {
   Facebook, Instagram, Linkedin, Send,
   Users, Star, TrendingUp, Zap,
 } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/site-config";
 
 /* ─────────────────────────────────────────────
    靜態資料（模組作用域，避免每次 render 重建）
@@ -25,8 +26,7 @@ const servicesLinks = [
   { name: "AI 解決方案",    href: "/services/ai",         emoji: "✨", badge: "新" },
 ];
 
-const waLink =
-  "https://wa.me/85295861027?text=Hello%20ADWire,%20我想查詢增長方案";
+const waLink = getWhatsAppUrl("Hello ADWire, 我想查詢增長方案");
 
 const socialLinks = [
   { href: "https://www.facebook.com/profile.php?id=61575126092859", label: "Facebook",  Icon: Facebook  },
@@ -201,8 +201,8 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
               transition-[opacity,transform] duration-200 ease-out
               ${dark ? "navbar-dropdown-dark" : "navbar-dropdown-light"}`}
           >
-            {/* 橋接區：讓滑鼠從 link 移到 dropdown 時不觸發 hover 離開 */}
-            <div className="absolute -top-3 left-0 w-full h-3 bg-transparent" />
+            {/* 橋接區：讓滑鼠從 link 移到 dropdown 時不觸發 hover 離開（裝飾性） */}
+            <div className="absolute -top-3 left-0 w-full h-3 bg-transparent" aria-hidden="true" />
 
             <div className="flex flex-col gap-0.5">
               {servicesLinks.map((link) => (
@@ -229,8 +229,8 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
         <NavLink href="/blog"      dark={dark}>增長洞察 Blog</NavLink>
         <NavLink href="/contact"   dark={dark}>聯絡我們</NavLink>
 
-        {/* 分隔線 */}
-        <div className={`h-5 w-px mx-1 ${dark ? "bg-white/15" : "bg-gray-200"}`} />
+        {/* 分隔線（裝飾性） */}
+        <div className={`h-5 w-px mx-1 ${dark ? "bg-white/15" : "bg-gray-200"}`} aria-hidden="true" />
 
         {/* 社交媒體 */}
         <div className="flex gap-0.5">
@@ -306,6 +306,8 @@ export default function Navbar() {
      inert 屬性同時做到：阻止子元素獲得焦點 + 阻止指針事件 + 從 AT 樹隱藏。  */
   const navARef = useRef<HTMLElement>(null);
   const navBRef = useRef<HTMLDivElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (navARef.current) {
@@ -328,6 +330,60 @@ export default function Navbar() {
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
+
+  /* ── Focus Trap：Mobile 選單開啟時，Tab 鍵無法逃出 Drawer ── */
+  useEffect(() => {
+    if (!isOpen) return;
+
+    // 聚焦到關閉按鈕
+    closeButtonRef.current?.focus();
+
+    const drawer = drawerRef.current;
+    if (!drawer) return;
+
+    const getFocusableElements = () =>
+      drawer.querySelectorAll<HTMLElement>(
+        'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+
+      const focusable = getFocusableElements();
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        // Shift+Tab：若在第一個元素，跳到最後一個
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        // Tab：若在最後一個元素，跳到第一個
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    // Escape 鍵關閉選單
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, [isOpen]);
 
   return (
@@ -398,6 +454,10 @@ export default function Navbar() {
           translateX — GPU-accelerated transform
          ══════════════════════════════════════════ */}
       <div
+        ref={drawerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="導航選單"
         className={`fixed top-0 right-0 bottom-0 z-[100] w-full max-w-sm lg:hidden flex flex-col
           bg-white shadow-2xl
           transition-transform duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)]
@@ -416,6 +476,7 @@ export default function Navbar() {
             />
           </Link>
           <button
+            ref={closeButtonRef}
             onClick={() => setIsOpen(false)}
             aria-label="關閉選單"
             className="w-9 h-9 flex items-center justify-center rounded-full

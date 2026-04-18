@@ -159,7 +159,7 @@ const process = [
 
 export default function ServicesContent() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero Banner - 增強版 */}
@@ -375,6 +375,6 @@ export default function ServicesContent() {
       <ContactSection />
       
       <Footer />
-    </main>
+    </div>
   );
 }

@@ -4,11 +4,14 @@ import { motion, useMotionValue, useTransform, useSpring, useInView } from "fram
 import { ArrowUpRight, ChevronRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useCallback } from "react";
-import { portfolioCases } from "@/lib/portfolioData";
+import { useRef, useCallback, useMemo } from "react";
+import { portfolioCases as fallbackCases, type PortfolioCase } from "@/lib/portfolioData";
+import type { SerializablePortfolioCase } from "@/lib/admin-types";
+import { toPortfolioCases } from "@/lib/admin-types";
 
-// 首頁只展示前 6 個案例
-const homeCases = portfolioCases.slice(0, 6);
+interface PortfolioProps {
+  cases?: SerializablePortfolioCase[];
+}
 
 /* ─────────────────────────────────────────────
    3D Card 微互動 Hook
@@ -47,7 +50,7 @@ function PortfolioCard({
   item,
   index,
 }: {
-  item: (typeof portfolioCases)[0];
+  item: PortfolioCase;
   index: number;
 }) {
   const { ref, springRotateX, springRotateY, handleMouseMove, handleMouseLeave } = use3DCard();
@@ -210,7 +213,14 @@ function PortfolioCard({
 /* ─────────────────────────────────────────────
    主 Section 元件
 ───────────────────────────────────────────── */
-export default function Portfolio() {
+export default function Portfolio({ cases }: PortfolioProps) {
+  // 使用傳入的 cases 或本地 fallback，首頁只展示前 6 個案例
+  const resolvedCases = useMemo<PortfolioCase[]>(() => {
+    if (cases && cases.length > 0) return toPortfolioCases(cases);
+    return fallbackCases;
+  }, [cases]);
+  const homeCases = resolvedCases.slice(0, 6);
+
   return (
     <section className="py-24 bg-gray-50" id="portfolio">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

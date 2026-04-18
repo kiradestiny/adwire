@@ -28,6 +28,9 @@ import {
   getRelatedCases,
 } from "@/lib/portfolioData";
 import { getExtendedData } from "@/lib/portfolioExtendedData";
+import type { SerializablePortfolioCase } from "@/lib/admin-types";
+import type { CaseExtendedData } from "@/lib/portfolioExtendedData";
+import { toPortfolioCase, toPortfolioCases } from "@/lib/admin-types";
 import { notFound } from "next/navigation";
 
 // ─── 數字滾動元件（修復版）────────────────────────────────────
@@ -293,7 +296,7 @@ function GeoSnapshotBox({
           <p className="text-gray-400 text-xs mt-3">
             來源：ADWire Agency 成功案例庫 ·{" "}
             <a
-              href="https://adwire.com.hk/portfolio"
+              href="https://adwire.com.hk/portfolio/"
               className="underline hover:text-gray-600 transition-colors"
             >
               adwire.com.hk/portfolio
@@ -459,15 +462,32 @@ function FaqAccordion({
 }
 
 // ─── 主元件 ─────────────────────────────────────────────────────
-// ✅ 只接收 slug（字串），避免 Server→Client 邊界傳遞不可序列化的 LucideIcon 函數
-export default function CaseStudyContent({ slug }: { slug: string }) {
-  // 在 Client Component 內部解析資料（portfolioData 是純 JS 模組，可在任何環境使用）
-  const caseItem = getCaseBySlug(slug);
+// ✅ 接收可序列化 props（SerializablePortfolioCase），避免 Server→Client 邊界傳遞 LucideIcon 函數
+// 如果未傳入 props，則 fallback 到本地硬編碼數據
+interface CaseStudyContentProps {
+  slug: string;
+  caseData?: SerializablePortfolioCase;
+  relatedCasesData?: SerializablePortfolioCase[];
+  extendedData?: CaseExtendedData;
+}
+
+export default function CaseStudyContent({ slug, caseData, relatedCasesData, extendedData }: CaseStudyContentProps) {
+  // 優先使用傳入的可序列化數據，fallback 到本地硬編碼數據
+  const caseItem: PortfolioCase | undefined = caseData
+    ? toPortfolioCase(caseData)
+    : getCaseBySlug(slug);
+
   if (!caseItem) {
     notFound();
   }
-  const relatedCases = getRelatedCases(caseItem.slug, 3);
-  const extended = getExtendedData(caseItem.slug); // SEO/GEO 擴展資料
+
+  const relatedCases: PortfolioCase[] = relatedCasesData && relatedCasesData.length > 0
+    ? toPortfolioCases(relatedCasesData)
+    : getRelatedCases(caseItem.slug, 3);
+
+  const extended: CaseExtendedData | undefined = extendedData
+    ? extendedData
+    : getExtendedData(caseItem.slug);
   const heroRef = useRef<HTMLElement>(null);
 
   // 視差效果
@@ -491,7 +511,7 @@ export default function CaseStudyContent({ slug }: { slug: string }) {
   }, [mouseX, mouseY]);
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
 
       {/* ═══════════════════════════════════════════════════════
@@ -927,7 +947,7 @@ export default function CaseStudyContent({ slug }: { slug: string }) {
         <ContactSection />
       </div>
       <Footer />
-    </main>
+    </div>
   );
 }
 

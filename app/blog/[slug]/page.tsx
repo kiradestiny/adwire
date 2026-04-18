@@ -1,4 +1,5 @@
-import { blogPosts } from "@/lib/blogData";
+import { blogPosts as fallbackPosts, type BlogPost } from "@/lib/blogData";
+import { getBlogPosts } from "@/lib/data-resolver";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
@@ -9,9 +10,11 @@ import { notFound } from "next/navigation";
 import ShareButton from "@/components/ShareButton";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { getWhatsAppUrl } from "@/lib/site-config";
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -22,7 +25,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const posts = await getBlogPosts();
+  const post = posts.find((p) => p.slug === slug);
 
   if (!post) {
     return { title: "文章未找到 | ADWire Blog" };
@@ -40,15 +44,15 @@ export async function generateMetadata({
     ],
     authors: [{ name: "ADWire Team", url: "https://www.linkedin.com/company/106715005/" }],
     alternates: {
-      canonical: `/blog/${post.slug}`,
+      canonical: `/blog/${post.slug}/`,
     },
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      url: `https://adwire.com.hk/blog/${post.slug}`,
+      url: `https://adwire.com.hk/blog/${post.slug}/`,
       type: "article",
       publishedTime: `${post.date}T09:00:00+08:00`,
-      modifiedTime: new Date().toISOString(),
+      modifiedTime: post.updatedAt || `${post.date}T09:00:00+08:00`,
       authors: ["ADWire Team"],
       section: post.category,
       tags: post.tags,
@@ -66,11 +70,11 @@ export async function generateMetadata({
 }
 
 // ─── Article + BreadcrumbList Schema ─────────────────────────────────────────
-function ArticleSchema({ post }: { post: (typeof blogPosts)[0] }) {
+function ArticleSchema({ post }: { post: BlogPost }) {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "@id": `https://adwire.com.hk/blog/${post.slug}`,
+    "@id": `https://adwire.com.hk/blog/${post.slug}/`,
     "headline": post.title,
     "description": post.excerpt,
     "image": {
@@ -82,7 +86,7 @@ function ArticleSchema({ post }: { post: (typeof blogPosts)[0] }) {
       "height": 630,
     },
     "datePublished": `${post.date}T09:00:00+08:00`,
-    "dateModified": `${post.date}T09:00:00+08:00`,
+    "dateModified": post.updatedAt || `${post.date}T09:00:00+08:00`,
     "author": {
       "@type": "Organization",
       "@id": "https://adwire.com.hk/#organization",
@@ -104,15 +108,15 @@ function ArticleSchema({ post }: { post: (typeof blogPosts)[0] }) {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://adwire.com.hk/blog/${post.slug}`,
+      "@id": `https://adwire.com.hk/blog/${post.slug}/`,
     },
-    "url": `https://adwire.com.hk/blog/${post.slug}`,
+    "url": `https://adwire.com.hk/blog/${post.slug}/`,
     "keywords": post.tags.join(", "),
     "articleSection": post.category,
     "inLanguage": "zh-HK",
     "isPartOf": {
       "@type": "Blog",
-      "@id": "https://adwire.com.hk/blog",
+      "@id": "https://adwire.com.hk/blog/",
       "name": "ADWire Agency 增長洞察 Blog",
     },
   };
@@ -131,13 +135,13 @@ function ArticleSchema({ post }: { post: (typeof blogPosts)[0] }) {
         "@type": "ListItem",
         "position": 2,
         "name": "增長洞察 Blog",
-        "item": "https://adwire.com.hk/blog",
+        "item": "https://adwire.com.hk/blog/",
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": post.title,
-        "item": `https://adwire.com.hk/blog/${post.slug}`,
+        "item": `https://adwire.com.hk/blog/${post.slug}/`,
       },
     ],
   };
@@ -162,20 +166,21 @@ export default async function BlogPost({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const allPosts = await getBlogPosts();
+  const post = allPosts.find((p) => p.slug === slug);
 
   if (!post) {
     return notFound();
   }
 
   // 獲取相關文章 (同分類，排除自己，取前 3 篇)
-  const relatedPosts = blogPosts
+  const relatedPosts = allPosts
     .filter((p) => p.category === post.category && p.id !== post.id)
     .slice(0, 3);
 
   // 如果相關文章少於 3 篇，補上其他分類的最新文章
   if (relatedPosts.length < 3) {
-    const otherPosts = blogPosts
+    const otherPosts = allPosts
       .filter(
         (p) => p.id !== post.id && !relatedPosts.find((rp) => rp.id === p.id)
       )
@@ -184,7 +189,7 @@ export default async function BlogPost({
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Article + BreadcrumbList JSON-LD Schemas */}
       <ArticleSchema post={post} />
 
@@ -333,7 +338,7 @@ export default async function BlogPost({
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
-                    href="https://wa.me/85295861027?text=Hello%20ADWire,%20我睇完你哋嘅Blog想查詢更多"
+                    href={getWhatsAppUrl("Hello ADWire, 我睇完你哋嘅Blog想查詢更多")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg"
@@ -475,7 +480,7 @@ export default async function BlogPost({
                   立即預約免費諮詢，讓我們為你的業務增長提供建議。
                 </p>
                 <Link
-                  href="https://wa.me/85295861027"
+                  href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full bg-[#f5a623] text-white py-3 rounded-xl font-bold hover:bg-[#e09612] transition-colors mb-3 text-sm"
@@ -496,6 +501,6 @@ export default async function BlogPost({
 
       <ContactSection />
       <Footer />
-    </main>
+    </div>
   );
 }

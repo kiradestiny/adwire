@@ -1,0 +1,35 @@
+# ======================================================================
+# | ADWire Admin Panel — .htaccess 保護規則                              |
+# | 保護 /admin/ 目錄下的所有 PHP 檔案                                      |
+# ======================================================================
+
+# 阻止直接存取 includes 目錄
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # 禁止直接存取 includes 目錄下的 PHP 檔案
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# 禁止目錄列表
+Options -Indexes
+
+# 阻止存取敏感檔案
+<FilesMatch "\.(sql|env|log|bak|swp)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# 阻止存取 config.php
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# 確保 PHP 檔案被正確處理
+<FilesMatch "\.php$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# 預設文件
+DirectoryIndex index.php

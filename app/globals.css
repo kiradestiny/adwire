@@ -5,6 +5,29 @@
 /* 基礎設定 */
 html {
   overflow-x: hidden; /* 防止任何元素水平溢位造成走位 */
+  scroll-behavior: smooth;
+}
+
+/* ── Skip-to-content（鍵盤導航必備）── */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: #0f4c81;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-to-content:focus {
+  top: 0;
+  outline: 3px solid #f5a623;
+  outline-offset: 2px;
 }
 
 body {

@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
-import { blogPosts } from "@/lib/blogData";
+import { blogPosts as fallbackPosts, type BlogPost } from "@/lib/blogData";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -19,7 +19,14 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
-export default function BlogContent() {
+interface BlogContentProps {
+  posts?: BlogPost[];
+}
+
+export default function BlogContent({ posts }: BlogContentProps) {
+  // 使用傳入的 posts 或本地 fallback
+  const blogPosts = posts || fallbackPosts;
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [email, setEmail] = useState("");
@@ -67,7 +74,7 @@ export default function BlogContent() {
   const isFiltering = selectedCategory !== "All" || searchQuery !== "";
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
 
       {/* ── Header ── */}
@@ -453,6 +460,6 @@ export default function BlogContent() {
 
       <ContactSection />
       <Footer />
-    </main>
+    </div>
   );
 }

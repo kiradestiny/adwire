@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import { motion, AnimatePresence } from "framer-motion";
+import { getWhatsAppUrl, WHATSAPP_E164 } from "@/lib/site-config";
 import {
   MessageCircle, Heart, Calendar, PenTool,
   BarChart2, Users, CheckCircle2, XCircle,
@@ -156,7 +157,7 @@ export default function SocialServiceContent() {
     : 3;
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* ── GEO 實體宣告（純 screen-reader，AI 爬蟲可讀，用戶不可見）── */}
@@ -165,7 +166,7 @@ export default function SocialServiceContent() {
           ADWire Agency 社交媒體代管服務是一項由 ADWire Agency（香港葵芳）提供的 Social Media Management 服務，
           管理平台包括 Instagram、Facebook、LinkedIn、小紅書及 Threads。服務內容涵蓋每月內容企劃、視覺設計、
           Reels 製作、社群互動管理及數據分析報告。基礎方案 HK$8,000/月起。
-          聯絡：WhatsApp +852-9586-1027，電郵 info@adwire.com.hk。
+          聯絡：WhatsApp {WHATSAPP_E164}，電郵 info@adwire.com.hk。
         </p>
         <table>
           <caption>ADWire Agency 社交媒體代管服務方案比較</caption>
@@ -255,7 +256,7 @@ export default function SocialServiceContent() {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire, 我想預約社交媒體代管服務諮詢。")}`}
+                  href={getWhatsAppUrl("Hello ADWire, 我想預約社交媒體代管服務諮詢。")}
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-pink-500/30 hover:-translate-y-0.5"
                 >
@@ -424,7 +425,7 @@ export default function SocialServiceContent() {
                   是進入大灣區市場的絕佳跳板。
                 </p>
                 <a
-                  href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire，我想了解小紅書代管及進內地市場的策略。")}`}
+                  href={getWhatsAppUrl("Hello ADWire，我想了解小紅書代管及進內地市場的策略。")}
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-white text-red-600 font-bold px-6 py-3 rounded-full hover:bg-red-50 transition-colors"
                 >
@@ -609,7 +610,7 @@ export default function SocialServiceContent() {
           </div>
           <div className="mt-12 text-center">
             <p className="text-gray-500 mb-6">不確定哪個方案適合你？讓我們的團隊為你度身訂造。</p>
-            <a href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire, 我想預約社交媒體管理諮詢。")}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#0f4c81] text-white px-8 py-4 rounded-full font-bold hover:bg-[#0a355c] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+            <a href={getWhatsAppUrl("Hello ADWire, 我想預約社交媒體管理諮詢。")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#0f4c81] text-white px-8 py-4 rounded-full font-bold hover:bg-[#0a355c] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
               專業諮詢 <ArrowRight size={20} />
             </a>
           </div>
@@ -683,7 +684,7 @@ export default function SocialServiceContent() {
           <div className="mt-10 text-center">
             <p className="text-gray-500 mb-4 text-sm">仲有其他問題？</p>
             <a
-              href={`https://wa.me/85295861027?text=${encodeURIComponent("Hello ADWire，我想查詢社交媒體代管服務。")}`}
+              href={getWhatsAppUrl("Hello ADWire，我想查詢社交媒體代管服務。")}
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#0f4c81] hover:bg-[#0a355c] text-white font-semibold px-6 py-3 rounded-full transition-colors duration-200"
             >
@@ -695,7 +696,7 @@ export default function SocialServiceContent() {
 
       <ContactSection defaultService="社交媒體管理" />
       <Footer />
-    </main>
+    </div>
   );
 }
 
@@ -796,7 +797,7 @@ function PlatformAccordion({
                   <h4 className={`text-xs font-bold uppercase tracking-wider ${platform.accent} mb-2`}>ADWire 代管策略</h4>
                   <p className="text-gray-700 text-sm leading-relaxed">{platform.approach}</p>
                   <a
-                    href={`https://wa.me/85295861027?text=${encodeURIComponent(`Hello ADWire，我想了解 ${platform.name} 代管服務。`)}`}
+                    href={getWhatsAppUrl(`Hello ADWire，我想了解 ${platform.name} 代管服務。`)}
                     target="_blank" rel="noopener noreferrer"
                     className={`inline-flex items-center gap-2 mt-4 bg-gradient-to-r ${platform.gradientClass} text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition-opacity shadow-sm`}
                   >
@@ -926,7 +927,7 @@ function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon,
 function PackageCard({ name, price, period, description, features, highlight, badge, whatsappMsg }: {
   name: string; price: string; period: string; description: string; features: string[]; highlight: boolean; badge?: string; whatsappMsg?: string;
 }) {
-  const whatsappUrl = `https://wa.me/85295861027?text=${encodeURIComponent(whatsappMsg || "")}`;
+  const whatsappUrl = getWhatsAppUrl(whatsappMsg || undefined);
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

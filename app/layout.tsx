@@ -97,6 +97,11 @@ export default function RootLayout({
             導致 PageSpeed "轉譯對齊要求" 警告，故移除 */}
       </head>
       <body className={`${lexend.className} antialiased`} suppressHydrationWarning={true}>
+        {/* Skip-to-content：鍵盤導航必備，Tab 鍵第一個聚焦元素 */}
+        <a href="#main-content" className="skip-to-content">
+          跳至主要內容
+        </a>
+
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -133,7 +138,9 @@ export default function RootLayout({
         {/* End Microsoft Clarity */}
 
         <JsonLd />
-        {children}
+        <main id="main-content">
+          {children}
+        </main>
         
         {/* 2. 放在這裡，就會浮在所有頁面之上 */}
         <WhatsAppWidget />

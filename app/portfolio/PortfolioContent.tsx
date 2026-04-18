@@ -11,7 +11,7 @@ import {
   useSpring,
   useInView,
 } from "framer-motion";
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -24,10 +24,16 @@ import {
   Zap,
 } from "lucide-react";
 import {
-  portfolioCases,
+  portfolioCases as fallbackCases,
   portfolioCategories,
-  getCasesByCategory,
+  type PortfolioCase,
 } from "@/lib/portfolioData";
+import type { SerializablePortfolioCase } from "@/lib/admin-types";
+import { toPortfolioCases } from "@/lib/admin-types";
+
+interface PortfolioContentProps {
+  cases?: SerializablePortfolioCase[];
+}
 
 // ─── Hero 統計數字 ───────────────────────────────────────────
 const heroStats = [
@@ -113,7 +119,7 @@ function PortfolioCard({
   item,
   index,
 }: {
-  item: (typeof portfolioCases)[0];
+  item: PortfolioCase;
   index: number;
 }) {
   const { ref, springRotateX, springRotateY, handleMouseMove, handleMouseLeave } = use3DCard();
@@ -276,9 +282,18 @@ function PortfolioCard({
 }
 
 // ─── 主元件 ─────────────────────────────────────────────────────
-export default function PortfolioContent() {
+export default function PortfolioContent({ cases }: PortfolioContentProps) {
+  // 使用傳入的 cases 或本地 fallback，並將 SerializablePortfolioCase 轉回 PortfolioCase
+  const resolvedCases = useMemo<PortfolioCase[]>(() => {
+    if (cases && cases.length > 0) return toPortfolioCases(cases);
+    return fallbackCases;
+  }, [cases]);
+
   const [activeCategory, setActiveCategory] = useState("All");
-  const filteredCases = getCasesByCategory(activeCategory);
+  const filteredCases = useMemo(() => {
+    if (activeCategory === "All") return resolvedCases;
+    return resolvedCases.filter((c) => c.category === activeCategory);
+  }, [activeCategory, resolvedCases]);
   const heroRef = useRef<HTMLElement>(null);
 
   // 滑鼠視差追蹤
@@ -304,7 +319,7 @@ export default function PortfolioContent() {
   }, [mouseX, mouseY]);
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
 
       {/* ═══════════════════════════════════════════════════════
@@ -468,7 +483,7 @@ export default function PortfolioContent() {
                     {cat.label}
                     {isActive && (
                       <span className="w-5 h-5 rounded-full bg-white/20 text-[10px] flex items-center justify-center font-bold">
-                        {getCasesByCategory(cat.id).length}
+                        {resolvedCases.filter((c) => cat.id === "All" || c.category === cat.id).length}
                       </span>
                     )}
                   </span>
@@ -583,6 +598,6 @@ export default function PortfolioContent() {
         <ContactSection />
       </div>
       <Footer />
-    </main>
+    </div>
   );
 }

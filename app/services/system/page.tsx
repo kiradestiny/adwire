@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "香港專業企業系統開發 ⭐ 提供 ERP、CRM、會員系統、預約系統、Mobile App 定制開發。自動化流程 ✓ 提升效率300% ✓ 銀行級安全 ✓ 全源碼交付。免費諮詢!",
   keywords: ["企業系統開發", "ERP系統", "CRM系統", "會員系統", "預約系統", "Mobile App開發", "企業數碼轉型", "系統定制開發", "香港系統開發", "進銷存系統", "客戶管理系統", "企業自動化", "AI功能開發"],
   alternates: {
-    canonical: "/services/system",
+    canonical: "/services/system/",
   },
   openGraph: {
     title: `【${currentYear}】企業系統開發 | ERP CRM App 定制 | 香港數碼轉型專家`,
