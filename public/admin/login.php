@@ -3,7 +3,10 @@
  * ADWire Admin Panel — 登入頁面
  */
 
+// 注意：helpers.php 提供 csrfField() / requireCsrf() / setFlash() 等函式，
+//       登入頁要用 csrfField()，所以必須載入（原本漏咗 → Call to undefined function）。
 require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/helpers.php';
 require_once __DIR__ . '/includes/audit-log.php';
 
 // 已登入則跳轉到 Dashboard

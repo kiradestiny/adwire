@@ -10,6 +10,9 @@
  *   $authUser = Auth::user();
  *   include __DIR__ . '/layout-header.php';
  */
+
+// 本檔用 e() 同 getFlash()（helpers.php）。自行載入，唔依賴 caller 嘅 include 次序。
+require_once __DIR__ . '/helpers.php';
 ?>
 <!DOCTYPE html>
 <html lang="zh-HK">
