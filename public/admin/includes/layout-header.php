@@ -157,11 +157,9 @@ require_once __DIR__ . '/helpers.php';
                     <i class="ti ti-users me-2"></i>帳號管理
                   </a>
                   <?php endif; ?>
-                  <?php if (Auth::can('migrate.run')): ?>
-                  <a href="<?= ADMIN_URL ?>/migrate.php" class="list-group-item list-group-item-action sidebar-link <?= ($currentPage ?? '') === 'migrate' ? 'active' : '' ?>">
-                    <i class="ti ti-database-cog me-2"></i>資料庫遷移
-                  </a>
-                  <?php endif; ?>
+                  <?php /* migrate.php 唔列入側邊欄：佢係舊嘅種子資料匯入腳本，
+                           重複執行會產生重複品牌（brands 表無 unique key）。仍保留
+                           migrate.run 權限閘門，只供超級管理員手動存取。 */ ?>
                 </div>
               </div>
             </div>
