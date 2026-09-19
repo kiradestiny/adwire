@@ -62,7 +62,7 @@ require_once __DIR__ . '/helpers.php';
                 <i class="ti ti-user-circle me-2"></i>我的帳號
               </a>
               <?php if (Auth::can('users.manage')): ?>
-              <a class="dropdown-item" href="<?= ADMIN_URL ?>/users.php">
+              <a class="dropdown-item" href="<?= ADMIN_URL ?>/accounts.php">
                 <i class="ti ti-users me-2"></i>帳號管理
               </a>
               <?php endif; ?>
@@ -153,7 +153,7 @@ require_once __DIR__ . '/helpers.php';
                     <i class="ti ti-user-circle me-2"></i>我的帳號
                   </a>
                   <?php if (Auth::can('users.manage')): ?>
-                  <a href="<?= ADMIN_URL ?>/users.php" class="list-group-item list-group-item-action sidebar-link <?= ($currentPage ?? '') === 'users' ? 'active' : '' ?>">
+                  <a href="<?= ADMIN_URL ?>/accounts.php" class="list-group-item list-group-item-action sidebar-link <?= ($currentPage ?? '') === 'users' ? 'active' : '' ?>">
                     <i class="ti ti-users me-2"></i>帳號管理
                   </a>
                   <?php endif; ?>

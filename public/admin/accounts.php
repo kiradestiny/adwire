@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    header('Location: ' . ADMIN_URL . '/users.php');
+    header('Location: ' . ADMIN_URL . '/accounts.php');
     exit;
 }
 
