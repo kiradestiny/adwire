@@ -76,6 +76,8 @@ if ($isEdit) {
 
 // 處理 POST 儲存
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // 伺服器端權限檢查（介面隱藏按鈕唔構成安全邊界）
+    Auth::requireCapability('content.edit');
     requireCsrf();
     try {
         $pdo->beginTransaction();
@@ -296,6 +298,7 @@ if (isset($errors) || $_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $pageTitle = $isEdit ? '編輯案例：' . truncate($case['title'] ?? '', 30) : '新增成功案例';
 $currentPage = 'portfolio';
+$bodyClass = 'content-page';
 include __DIR__ . '/includes/layout-header.php';
 ?>
 

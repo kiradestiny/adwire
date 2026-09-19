@@ -15,6 +15,8 @@ $pdo = Database::getInstance();
 
 // 處理 POST 請求
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // 伺服器端權限檢查（介面隱藏按鈕唔構成安全邊界）
+    Auth::requireCapability('content.edit');
     requireCsrf();
     $action = $_POST['action'] ?? '';
     $id = (int) ($_POST['id'] ?? 0);
@@ -86,6 +88,7 @@ $categories = $pdo->query(
 
 $pageTitle = '成功案例管理';
 $currentPage = 'portfolio';
+$bodyClass = 'content-page';
 include __DIR__ . '/includes/layout-header.php';
 ?>
 

@@ -72,6 +72,8 @@ $brands = [
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['confirm_migrate'])) {
+    // 伺服器端權限檢查（介面隱藏按鈕唔構成安全邊界）
+    Auth::requireCapability('migrate.run');
     requireCsrf();
     try {
         $pdo->beginTransaction();
@@ -136,6 +138,7 @@ $pendingCount = count(array_filter($availableMigrations, fn($m) => !in_array($m[
 
 $pageTitle = '數據遷移';
 $currentPage = 'dashboard';
+$bodyClass = 'content-page';
 include __DIR__ . '/includes/layout-header.php';
 ?>
 

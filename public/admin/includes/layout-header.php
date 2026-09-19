@@ -33,7 +33,7 @@ require_once __DIR__ . '/helpers.php';
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
   <link rel="stylesheet" href="/admin/assets/css/adwire-admin.css">
 </head>
-<body class="layout-fluid">
+<body class="layout-fluid role-<?= e(Auth::role()) ?> <?= e($bodyClass ?? '') ?>">
   <div class="page">
     
     <!-- Top Navbar -->
@@ -54,10 +54,19 @@ require_once __DIR__ . '/helpers.php';
               <span class="avatar avatar-sm bg-primary-lt"><?= mb_substr($authUser['display_name'] ?? 'A', 0, 1) ?></span>
               <div class="d-none d-xl-block ps-2">
                 <div><?= e($authUser['display_name'] ?? 'Admin') ?></div>
-                <div class="mt-1 small text-muted">管理員</div>
+                <div class="mt-1 small text-muted"><?= e(adw_role_label(Auth::role())) ?></div>
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+              <a class="dropdown-item" href="<?= ADMIN_URL ?>/profile.php">
+                <i class="ti ti-user-circle me-2"></i>我的帳號
+              </a>
+              <?php if (Auth::can('users.manage')): ?>
+              <a class="dropdown-item" href="<?= ADMIN_URL ?>/users.php">
+                <i class="ti ti-users me-2"></i>帳號管理
+              </a>
+              <?php endif; ?>
+              <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="<?= ADMIN_URL ?>/logout.php">
                 <i class="ti ti-logout me-2"></i>登出
               </a>
@@ -79,9 +88,11 @@ require_once __DIR__ . '/helpers.php';
                 <h2 class="page-title"><?= e($pageTitle) ?></h2>
               </div>
               <div class="col-auto ms-auto d-print-none">
+                <?php if (Auth::can('publish')): ?>
                 <button type="button" class="btn btn-adwire-accent" onclick="triggerRebuild()">
                   <i class="ti ti-rocket me-1"></i>發佈更新
                 </button>
+                <?php endif; ?>
               </div>
             </div>
           </div>
@@ -94,6 +105,16 @@ require_once __DIR__ . '/helpers.php';
             <i class="ti <?= $flash['type'] === 'success' ? 'ti-circle-check' : ($flash['type'] === 'error' ? 'ti-alert-triangle' : 'ti-info-circle') ?> me-1"></i>
             <?= e($flash['message']) ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+          <?php endif; ?>
+
+          <?php if (!Auth::can('content.edit')): ?>
+          <div class="alert alert-warning d-flex align-items-start" role="alert">
+            <i class="ti ti-eye me-2 mt-1"></i>
+            <div>
+              你嘅帳號角色係「<?= e(adw_role_label(Auth::role())) ?>」：<strong>可以查看所有內容，但唔可以修改</strong>。
+              如需編輯權限，請聯絡超級管理員。
+            </div>
           </div>
           <?php endif; ?>
 
@@ -124,6 +145,23 @@ require_once __DIR__ . '/helpers.php';
                   <a href="<?= ADMIN_URL ?>/portfolio.php" class="list-group-item list-group-item-action sidebar-link <?= ($currentPage ?? '') === 'portfolio' ? 'active' : '' ?>">
                     <i class="ti ti-briefcase me-2"></i>成功案例
                   </a>
+                </div>
+
+                <div class="mt-3 pt-3 border-top">
+                  <div class="px-3 pb-2 small text-secondary text-uppercase" style="letter-spacing:.06em;font-size:.7rem">系統</div>
+                  <a href="<?= ADMIN_URL ?>/profile.php" class="list-group-item list-group-item-action sidebar-link <?= ($currentPage ?? '') === 'profile' ? 'active' : '' ?>">
+                    <i class="ti ti-user-circle me-2"></i>我的帳號
+                  </a>
+                  <?php if (Auth::can('users.manage')): ?>
+                  <a href="<?= ADMIN_URL ?>/users.php" class="list-group-item list-group-item-action sidebar-link <?= ($currentPage ?? '') === 'users' ? 'active' : '' ?>">
+                    <i class="ti ti-users me-2"></i>帳號管理
+                  </a>
+                  <?php endif; ?>
+                  <?php if (Auth::can('migrate.run')): ?>
+                  <a href="<?= ADMIN_URL ?>/migrate.php" class="list-group-item list-group-item-action sidebar-link <?= ($currentPage ?? '') === 'migrate' ? 'active' : '' ?>">
+                    <i class="ti ti-database-cog me-2"></i>資料庫遷移
+                  </a>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>

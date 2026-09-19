@@ -15,6 +15,8 @@ $pdo = Database::getInstance();
 
 // 處理 POST 請求
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // 伺服器端權限檢查（介面隱藏按鈕唔構成安全邊界）
+    Auth::requireCapability('content.edit');
     requireCsrf();
     $action = $_POST['action'] ?? '';
 
@@ -118,6 +120,7 @@ $tierLabels = [
 
 $pageTitle = '品牌列表管理';
 $currentPage = 'brands';
+$bodyClass = 'content-page';
 include __DIR__ . '/includes/layout-header.php';
 ?>
 

@@ -17,6 +17,11 @@ if (!Auth::check()) {
     jsonResponse(['success' => false, 'message' => '未登入'], 401);
 }
 
+// 必須擁有「發佈」權限（viewer 角色唔可以觸發重新建置）
+if (!Auth::can('publish')) {
+    jsonResponse(['success' => false, 'message' => '權限不足：你嘅角色唔可以發佈更新'], 403);
+}
+
 // 只接受 POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     jsonResponse(['success' => false, 'message' => 'Method Not Allowed'], 405);

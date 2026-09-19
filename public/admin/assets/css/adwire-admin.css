@@ -340,3 +340,28 @@ body.login-page {
   .card-body { padding: 1rem; }
   .table > thead > tr > th, .table > tbody > tr > td { padding: .6rem .6rem; font-size: .88rem; }
 }
+
+/* ── 只讀模式（viewer 角色）─────────────────────────────────────────────
+   內容頁隱藏所有寫入控制。⚠️ 呢個只係介面層嘅 UX；
+   真正嘅安全邊界係伺服器端嘅 Auth::requireCapability()（所有 POST handler 都有）。 */
+.content-page.role-viewer form[method="POST"],
+.content-page.role-viewer .btn-adwire,
+.content-page.role-viewer .btn-adwire-accent,
+.content-page.role-viewer .btn-danger,
+.content-page.role-viewer .btn-outline-danger,
+.content-page.role-viewer .form-check-input {
+  display: none !important;
+}
+
+/* 角色徽章（頂部導覽） */
+.role-badge {
+  display: inline-block;
+  padding: .1rem .45rem;
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.role-badge.super_admin { background: rgba(245, 166, 35, .18); color: #8a5a00; }
+.role-badge.editor      { background: rgba(15, 76, 129, .12); color: var(--adw-blue); }
+.role-badge.viewer      { background: rgba(107, 124, 147, .15); color: #4a5b70; }

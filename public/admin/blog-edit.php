@@ -36,6 +36,8 @@ if ($isEdit) {
 
 // 處理 POST 儲存
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // 伺服器端權限檢查（介面隱藏按鈕唔構成安全邊界）
+    Auth::requireCapability('content.edit');
     requireCsrf();
     $slug = trim($_POST['slug'] ?? '');
     $title = trim($_POST['title'] ?? '');
@@ -142,6 +144,7 @@ $formData = [
 
 $pageTitle = $isEdit ? '編輯文章：' . truncate($post['title'], 30) : '新增文章';
 $currentPage = 'blog';
+$bodyClass = 'content-page';
 include __DIR__ . '/includes/layout-header.php';
 ?>
 

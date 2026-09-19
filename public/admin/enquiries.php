@@ -15,6 +15,8 @@ $pdo = Database::getInstance();
 
 // 處理狀態更新
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    // 伺服器端權限檢查（查詢處理屬於 enquiry.manage，唔係 content.edit）
+    Auth::requireCapability('enquiry.manage');
     requireCsrf();
     $action = $_POST['action'];
     $id = (int) ($_POST['id'] ?? 0);
@@ -105,6 +107,7 @@ $statusCounts = [
 
 $pageTitle = 'Enquiry 紀錄';
 $currentPage = 'enquiries';
+$bodyClass = 'content-page';
 include __DIR__ . '/includes/layout-header.php';
 ?>
 
