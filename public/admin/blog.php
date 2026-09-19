@@ -52,11 +52,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: ' . ADMIN_URL . '/blog.php');
         exit;
     }
+
+    // 批次操作
+    if ($action === 'bulk') {
+        $ids  = array_values(array_filter(array_map('intval', (array) ($_POST['ids'] ?? []))));
+        $mode = $_POST['mode'] ?? '';
+        if (!$ids || !in_array($mode, ['enable', 'disable', 'delete'], true)) {
+            setFlash('danger', '請先勾選文章，再揀操作');
+            header('Location: ' . ADMIN_URL . '/blog.php');
+            exit;
+        }
+        $ph = implode(',', array_fill(0, count($ids), '?'));
+        if ($mode === 'delete') {
+            $pdo->prepare("DELETE FROM blog_posts WHERE id IN ($ph)")->execute($ids);
+            AuditLog::record('bulk_delete', 'blog_post', 0, implode(',', $ids));
+            $msg = '已刪除 ' . count($ids) . ' 篇文章';
+        } else {
+            $v = $mode === 'enable' ? 1 : 0;
+            $pdo->prepare("UPDATE blog_posts SET is_active = ? WHERE id IN ($ph)")
+                ->execute(array_merge([$v], $ids));
+            AuditLog::record('bulk_' . $mode, 'blog_post', 0, implode(',', $ids));
+            $msg = ($mode === 'enable' ? '已發佈 ' : '已轉為草稿 ') . count($ids) . ' 篇文章';
+        }
+        setFlash('success', $msg);
+        header('Location: ' . ADMIN_URL . '/blog.php');
+        exit;
+    }
 }
 
 // 篩選
 $filterCategory = $_GET['category'] ?? '';
 $filterSearch = trim($_GET['search'] ?? '');
+$filterActive = (string) ($_GET['active'] ?? '');
 $page = max(1, (int) ($_GET['page'] ?? 1));
 $perPage = 15;
 $offset = ($page - 1) * $perPage;
@@ -74,6 +101,13 @@ if ($filterSearch) {
     $params[] = $searchTerm;
     $params[] = $searchTerm;
 }
+
+if ($filterActive !== '') {
+    $where[] = 'is_active = ?';
+    $params[] = (int) $filterActive;
+}
+
+$hasFilter = ($filterCategory !== '' || $filterSearch !== '' || $filterActive !== '');
 
 $whereClause = !empty($where) ? 'WHERE ' . implode(' AND ', $where) : '';
 
@@ -128,13 +162,46 @@ include __DIR__ . '/includes/layout-header.php';
                    placeholder="搜尋標題..." value="<?= e($filterSearch) ?>">
           </div>
           <div class="col-auto">
+            <select name="active" class="form-select form-select-sm" style="min-width:110px">
+              <option value="">全部狀態</option>
+              <option value="1" <?= $filterActive === '1' ? 'selected' : '' ?>>已發佈</option>
+              <option value="0" <?= $filterActive === '0' ? 'selected' : '' ?>>草稿</option>
+            </select>
+          </div>
+          <div class="col-auto">
             <button type="submit" class="btn btn-sm btn-outline-primary">
               <i class="ti ti-search"></i>
             </button>
           </div>
+          <?php if ($hasFilter): ?>
+          <div class="col-auto">
+            <a href="<?= ADMIN_URL ?>/blog.php" class="btn btn-sm btn-outline-secondary">清除</a>
+          </div>
+          <?php endif; ?>
         </form>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- 批次操作：獨立表單，行內 checkbox 用 HTML5 form= 屬性連過來 -->
+<div class="card mb-3">
+  <div class="card-body py-3">
+    <form id="bulk-form" method="POST" action="" class="d-flex flex-wrap gap-2 align-items-center">
+      <input type="hidden" name="action" value="bulk">
+      <?= csrfField() ?>
+      <span class="small text-secondary me-2"><i class="ti ti-checklist me-1"></i>批次操作（先勾選文章）</span>
+      <button type="submit" name="mode" value="enable" class="btn btn-sm btn-outline-success">
+        <i class="ti ti-eye me-1"></i>發佈
+      </button>
+      <button type="submit" name="mode" value="disable" class="btn btn-sm btn-outline-warning">
+        <i class="ti ti-eye-off me-1"></i>轉草稿
+      </button>
+      <button type="submit" name="mode" value="delete" class="btn btn-sm btn-outline-danger"
+              onclick="return confirm('確定刪除已勾選嘅文章？此動作無法復原。');">
+        <i class="ti ti-trash me-1"></i>刪除
+      </button>
+    </form>
   </div>
 </div>
 
@@ -158,12 +225,23 @@ include __DIR__ . '/includes/layout-header.php';
       <tbody>
         <?php if (empty($posts)): ?>
         <tr>
-          <td colspan="6" class="text-center text-muted py-4">暫無文章</td>
+          <td colspan="6" class="text-center py-4">
+            <?php if ($hasFilter): ?>
+              <i class="ti ti-search-off" style="font-size:1.8rem;color:#9aa9bd"></i>
+              <div class="text-secondary mt-2">冇符合條件嘅文章。</div>
+              <a href="<?= ADMIN_URL ?>/blog.php" class="btn btn-sm btn-outline-secondary mt-2">清除篩選</a>
+            <?php else: ?>
+              <i class="ti ti-article" style="font-size:1.8rem;color:#9aa9bd"></i>
+              <div class="text-secondary mt-2">尚未新增任何文章。</div>
+            <?php endif; ?>
+          </td>
         </tr>
         <?php else: ?>
         <?php foreach ($posts as $post): ?>
         <tr>
           <td>
+            <input type="checkbox" name="ids[]" value="<?= $post['id'] ?>" form="bulk-form"
+                   class="form-check-input bulk-check" title="選取此文章">
             <?php if ($post['is_active']): ?>
             <span class="badge bg-success">已發佈</span>
             <?php else: ?>

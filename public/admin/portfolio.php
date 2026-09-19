@@ -50,10 +50,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: ' . ADMIN_URL . '/portfolio.php');
         exit;
     }
+
+    // 拖拉排序（頁面內）
+    if ($action === 'reorder') {
+        $orders = json_decode($_POST['orders'] ?? '[]', true);
+        if (!is_array($orders)) {
+            jsonResponse(['success' => false, 'message' => '格式錯誤'], 400);
+        }
+        $pdo->beginTransaction();
+        try {
+            $stmt = $pdo->prepare('UPDATE portfolio_cases SET sort_order = ? WHERE id = ?');
+            foreach ($orders as $o) {
+                $oid = (int) ($o['id'] ?? 0);
+                if ($oid > 0) {
+                    $stmt->execute([(int) ($o['sort_order'] ?? 0), $oid]);
+                }
+            }
+            $pdo->commit();
+        } catch (Throwable $ex) {
+            $pdo->rollBack();
+            jsonResponse(['success' => false, 'message' => '儲存失敗'], 500);
+        }
+        jsonResponse(['success' => true]);
+    }
+
+    // 批次操作
+    if ($action === 'bulk') {
+        $ids  = array_values(array_filter(array_map('intval', (array) ($_POST['ids'] ?? []))));
+        $mode = $_POST['mode'] ?? '';
+        if (!$ids || !in_array($mode, ['enable', 'disable', 'delete'], true)) {
+            setFlash('danger', '請先勾選案例，再揀操作');
+            header('Location: ' . ADMIN_URL . '/portfolio.php');
+            exit;
+        }
+        $ph = implode(',', array_fill(0, count($ids), '?'));
+        if ($mode === 'delete') {
+            $pdo->prepare("DELETE FROM portfolio_cases WHERE id IN ($ph)")->execute($ids);
+            AuditLog::record('bulk_delete', 'portfolio_case', 0, implode(',', $ids));
+            $msg = '已刪除 ' . count($ids) . ' 個案例';
+        } else {
+            $v = $mode === 'enable' ? 1 : 0;
+            $pdo->prepare("UPDATE portfolio_cases SET is_active = ? WHERE id IN ($ph)")
+                ->execute(array_merge([$v], $ids));
+            AuditLog::record('bulk_' . $mode, 'portfolio_case', 0, implode(',', $ids));
+            $msg = ($mode === 'enable' ? '已發佈 ' : '已轉為草稿 ') . count($ids) . ' 個案例';
+        }
+        setFlash('success', $msg);
+        header('Location: ' . ADMIN_URL . '/portfolio.php');
+        exit;
+    }
 }
 
 // 篩選
 $filterCategory = $_GET['category'] ?? '';
+$filterSearch   = trim((string) ($_GET['search'] ?? ''));
+$filterActive   = (string) ($_GET['active'] ?? '');
 $page = max(1, (int) ($_GET['page'] ?? 1));
 $perPage = 15;
 $offset = ($page - 1) * $perPage;
@@ -65,6 +116,19 @@ if ($filterCategory) {
     $where[] = 'category = ?';
     $params[] = $filterCategory;
 }
+
+if ($filterSearch !== '') {
+    $where[] = '(title LIKE ? OR short_description LIKE ? OR industry LIKE ?)';
+    $like = '%' . $filterSearch . '%';
+    array_push($params, $like, $like, $like);
+}
+
+if ($filterActive !== '') {
+    $where[] = 'is_active = ?';
+    $params[] = (int) $filterActive;
+}
+
+$hasFilter = ($filterCategory !== '' || $filterSearch !== '' || $filterActive !== '');
 
 $whereClause = !empty($where) ? 'WHERE ' . implode(' AND ', $where) : '';
 
@@ -103,31 +167,67 @@ include __DIR__ . '/includes/layout-header.php';
       </div>
       <div class="col-auto">
         <form method="GET" action="" class="d-flex gap-2">
+          <input type="text" name="search" class="form-control form-control-sm"
+                 style="min-width:170px" placeholder="搜尋標題／行業…"
+                 value="<?= e($filterSearch) ?>">
           <select name="category" class="form-select form-select-sm" style="min-width:140px">
             <option value="">全部分類</option>
             <?php foreach ($categories as $cat): ?>
             <option value="<?= e($cat) ?>" <?= $filterCategory === $cat ? 'selected' : '' ?>><?= e($cat) ?></option>
             <?php endforeach; ?>
           </select>
+          <select name="active" class="form-select form-select-sm" style="min-width:110px">
+            <option value="">全部狀態</option>
+            <option value="1" <?= $filterActive === '1' ? 'selected' : '' ?>>已發佈</option>
+            <option value="0" <?= $filterActive === '0' ? 'selected' : '' ?>>草稿</option>
+          </select>
           <button type="submit" class="btn btn-sm btn-outline-primary">
             <i class="ti ti-search"></i>
           </button>
+          <?php if ($hasFilter): ?>
+          <a href="<?= ADMIN_URL ?>/portfolio.php" class="btn btn-sm btn-outline-secondary">清除</a>
+          <?php endif; ?>
         </form>
       </div>
     </div>
   </div>
 </div>
 
+<!-- 批次操作：獨立表單，行內 checkbox 用 HTML5 form= 屬性連過來 -->
+<div class="card mb-3">
+  <div class="card-body py-3">
+    <form id="bulk-form" method="POST" action="" class="d-flex flex-wrap gap-2 align-items-center">
+      <input type="hidden" name="action" value="bulk">
+      <?= csrfField() ?>
+      <span class="small text-secondary me-2"><i class="ti ti-checklist me-1"></i>批次操作（先勾選案例）</span>
+      <button type="submit" name="mode" value="enable" class="btn btn-sm btn-outline-success">
+        <i class="ti ti-eye me-1"></i>發佈
+      </button>
+      <button type="submit" name="mode" value="disable" class="btn btn-sm btn-outline-warning">
+        <i class="ti ti-eye-off me-1"></i>轉草稿
+      </button>
+      <button type="submit" name="mode" value="delete" class="btn btn-sm btn-outline-danger"
+              onclick="return confirm('確定刪除已勾選嘅案例？此動作無法復原。');">
+        <i class="ti ti-trash me-1"></i>刪除
+      </button>
+    </form>
+  </div>
+</div>
+
 <!-- 案例列表 -->
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">共 <?= $total ?> 個案例</h3>
+    <h3 class="card-title">共 <?= $total ?> 個案例<?= $hasFilter ? '（已篩選）' : '' ?>
+      <span id="sort-status" class="badge bg-secondary-lt ms-2 small">
+        <?= $hasFilter ? '篩選中唔可以拖拉排序' : '拖拉 ⠿ 可調整次序' ?>
+      </span>
+    </h3>
   </div>
   <div class="table-responsive">
     <table class="table table-vcenter card-table">
       <thead>
         <tr>
-          <th style="width:60px">排序</th>
+          <th style="width:150px">排序 / 選取</th>
           <th style="width:80px">狀態</th>
           <th>案例標題</th>
           <th style="width:120px">分類</th>
@@ -136,15 +236,29 @@ include __DIR__ . '/includes/layout-header.php';
           <th style="width:100px">操作</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody data-reorder="1" data-offset="<?= $offset ?>">
         <?php if (empty($cases)): ?>
         <tr>
-          <td colspan="7" class="text-center text-muted py-4">暫無案例</td>
+          <td colspan="7" class="text-center py-4">
+            <?php if ($hasFilter): ?>
+              <i class="ti ti-search-off" style="font-size:1.8rem;color:#9aa9bd"></i>
+              <div class="text-secondary mt-2">冇符合條件嘅案例。</div>
+              <a href="<?= ADMIN_URL ?>/portfolio.php" class="btn btn-sm btn-outline-secondary mt-2">清除篩選</a>
+            <?php else: ?>
+              <i class="ti ti-briefcase" style="font-size:1.8rem;color:#9aa9bd"></i>
+              <div class="text-secondary mt-2">尚未新增任何成功案例。</div>
+            <?php endif; ?>
+          </td>
         </tr>
         <?php else: ?>
         <?php foreach ($cases as $case): ?>
-        <tr>
-          <td class="text-muted"><?= $case['sort_order'] ?></td>
+        <tr data-id="<?= $case['id'] ?>">
+          <td class="text-muted">
+            <span class="drag-handle" title="<?= $hasFilter ? '篩選中唔可以拖拉排序' : '拖拉調整次序' ?>">⠿</span>
+            <input type="checkbox" name="ids[]" value="<?= $case['id'] ?>" form="bulk-form"
+                   class="form-check-input bulk-check" title="選取此案例">
+            <?= $case['sort_order'] ?>
+          </td>
           <td>
             <?php if ($case['is_active']): ?>
             <span class="badge bg-success">已發佈</span>
@@ -217,5 +331,73 @@ include __DIR__ . '/includes/layout-header.php';
   </div>
   <?php endif; ?>
 </div>
+
+<?php if (!$hasFilter && !empty($cases)): ?>
+<script>
+/* 拖拉排序：頁面內調整次序，放手即儲存（sort_order = 頁面 offset + 位置）。
+   送出用 fetch + FormData，layout-footer.php 會自動加 X-CSRF-Token。 */
+(function () {
+  var tb = document.querySelector('tbody[data-reorder]');
+  if (!tb) return;
+  var status = document.getElementById('sort-status');
+  var offset = parseInt(tb.dataset.offset || '0', 10);
+  var dragRow = null, saving = false;
+
+  Array.prototype.forEach.call(tb.querySelectorAll('tr[data-id]'), function (tr) {
+    tr.setAttribute('draggable', 'true');
+    tr.addEventListener('dragstart', function (e) {
+      dragRow = tr; tr.classList.add('adw-dragging');
+      e.dataTransfer.effectAllowed = 'move';
+      try { e.dataTransfer.setData('text/plain', tr.dataset.id); } catch (_) {}
+    });
+    tr.addEventListener('dragend', function () {
+      tr.classList.remove('adw-dragging'); dragRow = null;
+      setTimeout(save, 30);
+    });
+    tr.addEventListener('dragover', function (e) {
+      if (!dragRow || dragRow === tr) return;
+      e.preventDefault();
+      var rows = Array.prototype.slice.call(tb.querySelectorAll('tr[data-id]'));
+      var after = null;
+      for (var i = 0; i < rows.length; i++) {
+        if (rows[i] === dragRow) continue;
+        var rb = rows[i].getBoundingClientRect();
+        if (e.clientY < rb.top + rb.height / 2) { after = rows[i]; break; }
+      }
+      if (after) tb.insertBefore(dragRow, after); else tb.appendChild(dragRow);
+    });
+  });
+  tb.addEventListener('drop', function (e) { e.preventDefault(); });
+
+  function save() {
+    if (saving) return;
+    var rows = Array.prototype.slice.call(tb.querySelectorAll('tr[data-id]'));
+    if (!rows.length) return;
+    saving = true;
+    if (status) { status.textContent = '儲存中…'; status.className = 'badge bg-info-lt ms-2 small'; }
+    var fd = new FormData();
+    fd.append('action', 'reorder');
+    fd.append('orders', JSON.stringify(rows.map(function (r, i) {
+      return { id: Number(r.dataset.id), sort_order: offset + i };
+    })));
+    fetch(location.pathname, { method: 'POST', body: fd })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        var ok = res && res.success;
+        if (status) {
+          status.textContent = ok ? '✅ 排序已儲存' : '⚠️ 儲存失敗，請重新載入再試';
+          status.className = 'badge ms-2 small ' + (ok ? 'bg-success' : 'bg-danger');
+        }
+        saving = false;
+        if (ok) setTimeout(function () { location.reload(); }, 600);
+      })
+      .catch(function () {
+        if (status) { status.textContent = '⚠️ 儲存失敗'; status.className = 'badge bg-danger ms-2 small'; }
+        saving = false;
+      });
+  }
+})();
+</script>
+<?php endif; ?>
 
 <?php include __DIR__ . '/includes/layout-footer.php'; ?>
