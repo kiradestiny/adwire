@@ -128,6 +128,7 @@ include __DIR__ . '/includes/layout-header.php';
   <div class="card-body">
     <form method="POST" action="" class="row g-3 align-items-end">
       <input type="hidden" name="action" value="add">
+      <?= csrfField() ?>
       <div class="col-md-4">
         <label class="form-label">品牌名稱 *</label>
         <input type="text" name="name" class="form-control" placeholder="例如：7-Eleven" required maxlength="100">
@@ -184,6 +185,7 @@ include __DIR__ . '/includes/layout-header.php';
           <td>
             <form method="POST" action="" class="d-inline" style="width:60px">
               <input type="hidden" name="action" value="update">
+              <?= csrfField() ?>
               <input type="hidden" name="id" value="<?= $brand['id'] ?>">
               <input type="hidden" name="name" value="<?= e($brand['name']) ?>">
               <input type="hidden" name="tier" value="<?= $brand['tier'] ?>">
@@ -196,6 +198,7 @@ include __DIR__ . '/includes/layout-header.php';
           <td>
             <form method="POST" action="" class="d-flex gap-2 align-items-center">
               <input type="hidden" name="action" value="update">
+              <?= csrfField() ?>
               <input type="hidden" name="id" value="<?= $brand['id'] ?>">
               <input type="hidden" name="tier" value="<?= $brand['tier'] ?>">
               <input type="hidden" name="sort_order" value="<?= $brand['sort_order'] ?>">
@@ -210,6 +213,7 @@ include __DIR__ . '/includes/layout-header.php';
           <td>
             <form method="POST" action="" class="d-inline">
               <input type="hidden" name="action" value="update">
+              <?= csrfField() ?>
               <input type="hidden" name="id" value="<?= $brand['id'] ?>">
               <input type="hidden" name="name" value="<?= e($brand['name']) ?>">
               <input type="hidden" name="tier" value="<?= $brand['tier'] ?>">
@@ -227,6 +231,7 @@ include __DIR__ . '/includes/layout-header.php';
               <!-- 切換顯示/隱藏 -->
               <form method="POST" action="" class="d-inline">
                 <input type="hidden" name="action" value="update">
+                <?= csrfField() ?>
                 <input type="hidden" name="id" value="<?= $brand['id'] ?>">
                 <input type="hidden" name="name" value="<?= e($brand['name']) ?>">
                 <input type="hidden" name="tier" value="<?= $brand['tier'] ?>">
@@ -247,6 +252,7 @@ include __DIR__ . '/includes/layout-header.php';
               <form method="POST" action="" class="d-inline" 
                     onsubmit="return confirm('確定要刪除品牌「<?= e($brand['name']) ?>」嗎？')">
                 <input type="hidden" name="action" value="delete">
+                <?= csrfField() ?>
                 <input type="hidden" name="id" value="<?= $brand['id'] ?>">
                 <button type="submit" class="btn btn-outline-danger" title="刪除">
                   <i class="ti ti-trash"></i>

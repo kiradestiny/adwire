@@ -187,6 +187,7 @@ include __DIR__ . '/includes/layout-header.php';
               </a>
               <form method="POST" action="" class="d-inline">
                 <input type="hidden" name="action" value="toggle_active">
+                <?= csrfField() ?>
                 <input type="hidden" name="id" value="<?= $post['id'] ?>">
                 <button type="submit" class="btn btn-outline-<?= $post['is_active'] ? 'warning' : 'success' ?>" 
                         title="<?= $post['is_active'] ? '轉為草稿' : '發佈' ?>">
@@ -196,6 +197,7 @@ include __DIR__ . '/includes/layout-header.php';
               <form method="POST" action="" class="d-inline" 
                     onsubmit="return confirm('確定要刪除呢篇文章嗎？此操作不可撤銷。')">
                 <input type="hidden" name="action" value="delete">
+                <?= csrfField() ?>
                 <input type="hidden" name="id" value="<?= $post['id'] ?>">
                 <button type="submit" class="btn btn-outline-danger" title="刪除">
                   <i class="ti ti-trash"></i>

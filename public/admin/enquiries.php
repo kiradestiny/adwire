@@ -230,6 +230,7 @@ include __DIR__ . '/includes/layout-header.php';
     <div class="modal-content">
       <form method="POST" action="">
         <input type="hidden" name="action" value="update_status">
+        <?= csrfField() ?>
         <input type="hidden" name="id" id="modal-id">
         
         <div class="modal-header">

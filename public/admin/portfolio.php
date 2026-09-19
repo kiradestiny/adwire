@@ -170,6 +170,7 @@ include __DIR__ . '/includes/layout-header.php';
               </a>
               <form method="POST" action="" class="d-inline">
                 <input type="hidden" name="action" value="toggle_active">
+                <?= csrfField() ?>
                 <input type="hidden" name="id" value="<?= $case['id'] ?>">
                 <button type="submit" class="btn btn-outline-<?= $case['is_active'] ? 'warning' : 'success' ?>" 
                         title="<?= $case['is_active'] ? '轉為草稿' : '發佈' ?>">
@@ -179,6 +180,7 @@ include __DIR__ . '/includes/layout-header.php';
               <form method="POST" action="" class="d-inline" 
                     onsubmit="return confirm('確定要刪除呢個案例嗎？所有相關資料都會被刪除。')">
                 <input type="hidden" name="action" value="delete">
+                <?= csrfField() ?>
                 <input type="hidden" name="id" value="<?= $case['id'] ?>">
                 <button type="submit" class="btn btn-outline-danger" title="刪除">
                   <i class="ti ti-trash"></i>
