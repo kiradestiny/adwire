@@ -24,27 +24,14 @@ require_once __DIR__ . '/helpers.php';
   <!-- CSRF Token for AJAX requests -->
   <meta name="csrf-token" content="<?= e(generateCsrfToken()) ?>">
   
-  <!-- Tabler CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.2.0/dist/css/tabler.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
-  
-  <style>
-    :root {
-      --adwire-primary: #0f4c81;
-      --adwire-accent: #f5a623;
-    }
-    .navbar-brand { color: var(--adwire-primary) !important; font-weight: 700; }
-    .btn-adwire { background-color: var(--adwire-primary); color: #fff; border-color: var(--adwire-primary); }
-    .btn-adwire:hover { background-color: #0d3d6b; color: #fff; border-color: #0d3d6b; }
-    .btn-adwire-accent { background-color: var(--adwire-accent); color: #fff; border-color: var(--adwire-accent); }
-    .btn-adwire-accent:hover { background-color: #e09520; color: #fff; border-color: #e09520; }
-    .stat-number { font-size: 2rem; font-weight: 700; color: var(--adwire-primary); }
-    .badge-new { background-color: #e74c3c; }
-    .badge-read { background-color: #3498db; }
-    .badge-replied { background-color: #2ecc71; }
-    .badge-closed { background-color: #95a5a6; }
-    .sidebar-link.active { background-color: rgba(15,76,129,0.08); color: var(--adwire-primary); font-weight: 600; }
-  </style>
+  <!-- 樣式全部由本機載入：網站 .htaccess 嘅 CSP 只准 style-src 'self'
+       同 fonts.googleapis.com，用 cdn.jsdelivr.net 會被瀏覽器封鎖 → 後台會冇樣式。 -->
+  <link rel="stylesheet" href="/admin/assets/css/tabler.min.css">
+  <link rel="stylesheet" href="/admin/assets/css/tabler-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/admin/assets/css/adwire-admin.css">
 </head>
 <body class="layout-fluid">
   <div class="page">
@@ -56,7 +43,7 @@ require_once __DIR__ . '/helpers.php';
           <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-          <a href="<?= ADMIN_URL ?>/index.php">📊 ADWire Admin</a>
+          <a href="<?= ADMIN_URL ?>/index.php">ADWire Admin</a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
           <a href="<?= SITE_URL ?>" target="_blank" class="nav-link px-2" title="查看網站">
@@ -104,7 +91,7 @@ require_once __DIR__ . '/helpers.php';
           <?php $flash = getFlash(); ?>
           <?php if ($flash): ?>
           <div class="alert alert-<?= $flash['type'] === 'error' ? 'danger' : ($flash['type'] === 'success' ? 'success' : 'info') ?> alert-dismissible fade show" role="alert">
-            <strong><?= $flash['type'] === 'success' ? '✅' : ($flash['type'] === 'error' ? '❌' : 'ℹ️') ?></strong>
+            <i class="ti <?= $flash['type'] === 'success' ? 'ti-circle-check' : ($flash['type'] === 'error' ? 'ti-alert-triangle' : 'ti-info-circle') ?> me-1"></i>
             <?= e($flash['message']) ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
           </div>

@@ -305,13 +305,14 @@ include __DIR__ . '/includes/layout-header.php';
   </div>
 </form>
 
-<!-- TinyMCE -->
-<script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js"></script>
+<!-- TinyMCE（本機版本：CDN 會被網站 CSP 封鎖）-->
+<script src="/admin/assets/tinymce/tinymce.min.js"></script>
 <script>
 tinymce.init({
   selector: '#tinymce-editor',
+  base_url: '/admin/assets/tinymce',
   height: 600,
-  language: 'zh_TW',
+  language: 'zh_HK',
   branding: false,
   promotion: false,
   

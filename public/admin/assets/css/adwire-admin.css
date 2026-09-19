@@ -1,0 +1,342 @@
+/* ==========================================================================
+   ADWire Admin — 品牌樣式覆蓋層
+   --------------------------------------------------------------------------
+   配合 Tabler CSS 使用。所有色彩 / 字型 / 圓角跟返 adwire.com.hk 嘅品牌：
+
+     主藍 #0f4c81（深 #0d3d6b，亮 #1a6ab0）
+     金黃 #f5a623（深 #e09520）
+     深藍 #060d1f / #0a1628（網站背景色系）
+     字型 Lexend（同官網一致）
+
+   為何要本機化：網站 .htaccess 嘅 CSP 只准 style-src 'self' +
+   fonts.googleapis.com。原本後台由 cdn.jsdelivr.net 載入 CSS，
+   被 CSP 封鎖 → 後台完全冇樣式。改為本機載入即可解決，CSP 毋須放鬆。
+   ========================================================================== */
+
+:root {
+  --adw-blue:        #0f4c81;
+  --adw-blue-dark:   #0d3d6b;
+  --adw-blue-light:  #1a6ab0;
+  --adw-gold:        #f5a623;
+  --adw-gold-dark:   #e09520;
+  --adw-navy:        #060d1f;
+  --adw-navy-2:      #0a1628;
+  --adw-bg:          #f4f7fb;
+  --adw-ink:         #16233a;
+  --adw-muted:       #6b7c93;
+  --adw-border:      #e3e9f2;
+  --adw-radius:      14px;
+  --adw-radius-lg:   20px;
+  --adw-shadow:      0 1px 2px rgba(16, 35, 61, .04), 0 8px 24px rgba(16, 35, 61, .06);
+  --adw-shadow-lg:   0 2px 4px rgba(16, 35, 61, .05), 0 18px 48px rgba(16, 35, 61, .10);
+
+  /* 覆蓋 Tabler / Bootstrap 變數 */
+  --tblr-primary:               #0f4c81;
+  --tblr-primary-rgb:           15, 76, 129;
+  --tblr-body-bg:               #f4f7fb;
+  --tblr-body-color:            #16233a;
+  --tblr-body-font-family:      'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                                'PingFang HK', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+  --tblr-border-radius:         14px;
+  --tblr-border-radius-lg:      20px;
+  --tblr-font-sans-serif:       'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                                'PingFang HK', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+}
+
+/* ── 基本排版 ─────────────────────────────────────────────────────────── */
+body {
+  font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+               'PingFang HK', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+  background: var(--adw-bg);
+  color: var(--adw-ink);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .01em;
+}
+
+a { color: var(--adw-blue); }
+a:hover { color: var(--adw-blue-dark); }
+
+/* 官網嘅無障礙 focus 樣式：3px 金黃外框 */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible {
+  outline: 3px solid var(--adw-gold);
+  outline-offset: 2px;
+}
+
+/* ── 頂部導航（深藍 + 玻璃感，呼應官網 navbar）────────────────────────── */
+.navbar {
+  background: rgba(6, 13, 31, .96) !important;
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, .07);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .04), 0 6px 24px rgba(6, 13, 31, .18);
+  min-height: 60px;
+}
+
+.navbar-brand {
+  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: .04em;
+  font-size: 1.06rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.navbar-brand:hover { color: #fff !important; opacity: .9; }
+
+/* 品牌名後嘅金色重點 */
+.navbar-brand::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: .35rem;
+  border-radius: 50%;
+  background: var(--adw-gold);
+  box-shadow: 0 0 10px rgba(245, 166, 35, .8);
+  vertical-align: middle;
+}
+
+.navbar .nav-link,
+.navbar .btn-link,
+.navbar small,
+.navbar span { color: rgba(255, 255, 255, .82) !important; }
+
+.navbar .nav-link:hover { color: #fff !important; }
+
+/* 漢堡選單按鈕 */
+.navbar-toggler { color: #fff !important; border-color: rgba(255, 255, 255, .25) !important; }
+.navbar-toggler-icon { filter: invert(1) brightness(2); }
+
+/* ── 卡片 ─────────────────────────────────────────────────────────────── */
+.card {
+  border: 1px solid var(--adw-border);
+  border-radius: var(--adw-radius-lg);
+  box-shadow: var(--adw-shadow);
+  background: #fff;
+  overflow: hidden;
+}
+
+.card-header {
+  background: #fff;
+  border-bottom: 1px solid var(--adw-border);
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  color: var(--adw-ink);
+}
+
+.card-body { padding: 1.25rem; }
+.card-title { font-weight: 600; color: var(--adw-ink); }
+.card-md { max-width: 28rem; margin-left: auto; margin-right: auto; }
+
+/* 統計數字（儀表板） */
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--adw-blue);
+  letter-spacing: -.02em;
+}
+.stat-label, .text-secondary { color: var(--adw-muted) !important; }
+.stat-card .card-body { padding: 1.1rem 1.25rem; }
+
+/* ── 按鈕 ─────────────────────────────────────────────────────────────── */
+.btn {
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  transition: transform .12s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-adwire {
+  background-color: var(--adw-blue);
+  border-color: var(--adw-blue);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(15, 76, 129, .22);
+}
+.btn-adwire:hover, .btn-adwire:focus {
+  background-color: var(--adw-blue-dark);
+  border-color: var(--adw-blue-dark);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(15, 76, 129, .30);
+}
+
+.btn-adwire-accent {
+  background-color: var(--adw-gold);
+  border-color: var(--adw-gold);
+  color: #3a2a05;
+  box-shadow: 0 2px 8px rgba(245, 166, 35, .28);
+}
+.btn-adwire-accent:hover, .btn-adwire-accent:focus {
+  background-color: var(--adw-gold-dark);
+  border-color: var(--adw-gold-dark);
+  color: #3a2a05;
+  box-shadow: 0 4px 14px rgba(245, 166, 35, .38);
+}
+
+.btn-primary { background-color: var(--adw-blue); border-color: var(--adw-blue); }
+.btn-primary:hover, .btn-primary:focus { background-color: var(--adw-blue-dark); border-color: var(--adw-blue-dark); }
+
+.btn-outline-secondary {
+  border-color: var(--adw-border);
+  color: var(--adw-muted);
+}
+.btn-outline-secondary:hover {
+  background: #eef3fa;
+  border-color: #cfdcee;
+  color: var(--adw-blue);
+}
+
+/* ── 表單 ─────────────────────────────────────────────────────────────── */
+.form-label { font-weight: 500; color: var(--adw-ink); margin-bottom: .35rem; }
+
+.form-control, .form-select {
+  border: 1px solid var(--adw-border);
+  border-radius: 10px;
+  padding: .55rem .8rem;
+  color: var(--adw-ink);
+  background-color: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.form-control::placeholder { color: #9aa9bd; }
+.form-control:focus, .form-select:focus {
+  border-color: var(--adw-blue);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, .35);   /* 金黃 focus ring */
+  outline: none;
+}
+.form-text, .form-hint { color: var(--adw-muted); font-size: .82rem; }
+.form-check-input:checked { background-color: var(--adw-blue); border-color: var(--adw-blue); }
+
+/* ── 表格 ─────────────────────────────────────────────────────────────── */
+.table { color: var(--adw-ink); margin-bottom: 0; }
+.table > thead > tr > th {
+  background: #f7fafd;
+  border-bottom: 1px solid var(--adw-border);
+  font-weight: 600;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--adw-muted);
+  padding: .7rem .9rem;
+  white-space: nowrap;
+}
+.table > tbody > tr > td {
+  padding: .8rem .9rem;
+  border-bottom: 1px solid #f0f4f9;
+  vertical-align: middle;
+}
+.table > tbody > tr:hover > td { background: #fafcff; }
+.table-responsive { border-radius: var(--adw-radius); }
+
+/* ── 側邊欄 ───────────────────────────────────────────────────────────── */
+.sidebar, .navbar-vertical {
+  background: #fff;
+  border-right: 1px solid var(--adw-border);
+}
+.sidebar-link, .nav-link.sidebar-link {
+  color: var(--adw-muted);
+  border-radius: 10px;
+  margin: 2px 8px;
+  padding: .55rem .8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  text-decoration: none;
+  transition: background-color .15s ease, color .15s ease;
+}
+.sidebar-link:hover { background: #f1f6fc; color: var(--adw-blue); }
+.sidebar-link.active {
+  background: rgba(15, 76, 129, .08);
+  color: var(--adw-blue);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--adw-gold);
+}
+.sidebar-link i, .sidebar-link .ti { font-size: 1.1rem; }
+
+/* ── 提示 / 通知 ──────────────────────────────────────────────────────── */
+.alert {
+  border-radius: var(--adw-radius);
+  border: 1px solid transparent;
+  font-weight: 500;
+  box-shadow: var(--adw-shadow);
+}
+.alert-success { background: #e9f7ef; border-color: #bfe6d0; color: #16643c; }
+.alert-danger  { background: #fdecec; border-color: #f5c2c2; color: #99201c; }
+.alert-warning { background: #fff6e5; border-color: #ffe0ab; color: #8a5a00; }
+.alert-info    { background: #eaf2fb; border-color: #c3d9f2; color: var(--adw-blue-dark); }
+
+/* ── 徽章（查詢狀態）──────────────────────────────────────────────────── */
+.badge {
+  border-radius: 999px;
+  padding: .3rem .65rem;
+  font-weight: 600;
+  font-size: .74rem;
+  letter-spacing: .02em;
+}
+.badge-new     { background-color: var(--adw-gold); color: #3a2a05; }
+.badge-read    { background-color: #3498db; color: #fff; }
+.badge-replied { background-color: #2ecc71; color: #fff; }
+.badge-closed  { background-color: #95a5a6; color: #fff; }
+
+/* 通用 Tabler 色系微調 */
+.bg-primary, .bg-blue { background-color: var(--adw-blue) !important; }
+.text-primary { color: var(--adw-blue) !important; }
+
+/* ── 頁面標題 ─────────────────────────────────────────────────────────── */
+.page-title, .page-header .page-title { font-weight: 700; color: var(--adw-ink); letter-spacing: -.01em; }
+.page-pretitle { color: var(--adw-muted); text-transform: uppercase; letter-spacing: .06em; font-size: .72rem; }
+
+/* ── 登入頁 ───────────────────────────────────────────────────────────── */
+body.login-page {
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(15, 76, 129, .55), transparent 60%),
+    radial-gradient(900px 500px at 90% 110%, rgba(45, 27, 105, .45), transparent 60%),
+    linear-gradient(180deg, #060d1f 0%, #0a1628 45%, #060d1f 100%);
+  min-height: 100vh;
+}
+
+.login-page .card {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: #fff;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .45);
+  border-radius: 22px;
+}
+
+.login-page .card-body { padding: 2rem 2rem 1.75rem; }
+
+.login-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 1.5rem;
+}
+.login-logo .brand-mark {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .05em;
+}
+.login-logo .brand-mark .accent { color: var(--adw-gold); }
+.login-logo .brand-sub {
+  color: rgba(255, 255, 255, .62);
+  font-size: .82rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.login-card .h2, .login-page h2 { font-weight: 700; color: var(--adw-ink); }
+
+/* ── 響應式 ───────────────────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .stat-number { font-size: 1.75rem; }
+  .card-body { padding: 1rem; }
+  .table > thead > tr > th, .table > tbody > tr > td { padding: .6rem .6rem; font-size: .88rem; }
+}

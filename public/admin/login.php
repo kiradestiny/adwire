@@ -56,30 +56,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>登入 | ADWire Admin</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.2.0/dist/css/tabler.min.css">
-  <style>
-    :root { --adwire-primary: #0f4c81; --adwire-accent: #f5a623; }
-    .btn-adwire { background-color: var(--adwire-primary); color: #fff; border-color: var(--adwire-primary); }
-    .btn-adwire:hover { background-color: #0d3d6b; color: #fff; border-color: #0d3d6b; }
-  </style>
+  <!-- 本機樣式（CDN 會被網站 CSP 封鎖，見 layout-header.php 註解）-->
+  <link rel="stylesheet" href="/admin/assets/css/tabler.min.css">
+  <link rel="stylesheet" href="/admin/assets/css/tabler-icons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/admin/assets/css/adwire-admin.css">
 </head>
-<body class="d-flex flex-column">
+<body class="d-flex flex-column login-page">
   <div class="page page-center">
     <div class="container container-tight py-4">
-      <div class="text-center mb-4">
-        <h1 style="color: var(--adwire-primary); font-weight: 700;">📊 ADWire Admin</h1>
-        <p class="text-muted">網站內容管理後台</p>
+      <div class="login-logo">
+        <div class="brand-mark">ADWire <span class="accent">Admin</span></div>
+        <div class="brand-sub">Content Management</div>
       </div>
 
       <?php if ($error): ?>
       <div class="alert alert-danger">
-        <strong>❌</strong> <?= htmlspecialchars($error) ?>
+        <i class="ti ti-alert-triangle me-1"></i><?= htmlspecialchars($error) ?>
       </div>
       <?php endif; ?>
 
       <div class="card card-md">
         <div class="card-body">
-          <h2 class="h2 text-center mb-4">登入你的帳號</h2>
+          <h2 class="h2 text-center mb-4">登入帳號</h2>
           <form method="POST" action="">
             <?= csrfField() ?>
             <div class="mb-3">
@@ -103,6 +104,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.2.0/dist/js/tabler.min.js"></script>
+  <script src="/admin/assets/js/tabler.min.js"></script>
 </body>
 </html>

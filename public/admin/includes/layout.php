@@ -17,8 +17,9 @@
   <title><?= e($pageTitle ?? 'Admin') ?> | ADWire Admin</title>
   
   <!-- Tabler CSS (免費開源 Admin 模板) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.2.0/dist/css/tabler.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="/admin/assets/css/tabler.min.css">
+  <link rel="stylesheet" href="/admin/assets/css/tabler-icons.min.css">
+  <link rel="stylesheet" href="/admin/assets/css/adwire-admin.css">
   
   <style>
     /* 自訂品牌色 */

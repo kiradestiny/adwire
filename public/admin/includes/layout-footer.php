@@ -21,7 +21,7 @@
   </div><!-- /page -->
 
   <!-- Tabler JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.2.0/dist/js/tabler.min.js"></script>
+  <script src="/admin/assets/js/tabler.min.js"></script>
   
   <!-- CSRF 自動注入：為所有表單加入 CSRF Token，並為 fetch 請求加入 Header -->
   <script>
