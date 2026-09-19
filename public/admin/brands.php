@@ -103,12 +103,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         jsonResponse(['success' => false], 400);
     }
+
+    // 批次操作（啟用／停用／刪除）
+    if ($action === 'bulk') {
+        $ids  = array_values(array_filter(array_map('intval', (array) ($_POST['ids'] ?? []))));
+        $mode = (string) ($_POST['mode'] ?? '');
+        if (empty($ids)) {
+            setFlash('error', '請先勾選要處理嘅品牌');
+        } elseif ($mode === 'enable' || $mode === 'disable') {
+            $in = implode(',', array_fill(0, count($ids), '?'));
+            $pdo->prepare("UPDATE brands SET is_active = ? WHERE id IN ($in)")
+                ->execute(array_merge([$mode === 'enable' ? 1 : 0], $ids));
+            AuditLog::record('update', 'brand', null, '批次' . ($mode === 'enable' ? '啟用' : '停用'),
+                ['count' => count($ids), 'ids' => $ids]);
+            setFlash('success', '已' . ($mode === 'enable' ? '啟用' : '停用') . ' ' . count($ids) . ' 個品牌');
+        } elseif ($mode === 'delete') {
+            $in = implode(',', array_fill(0, count($ids), '?'));
+            $pdo->prepare("DELETE FROM brands WHERE id IN ($in)")->execute($ids);
+            AuditLog::record('delete', 'brand', null, '批次刪除', ['count' => count($ids), 'ids' => $ids]);
+            setFlash('success', '已刪除 ' . count($ids) . ' 個品牌');
+        } else {
+            setFlash('error', '唔支援嘅批次操作');
+        }
+        header('Location: ' . ADMIN_URL . '/brands.php');
+        exit;
+    }
 }
 
-// 取得所有品牌
-$brands = $pdo->query(
-    "SELECT * FROM brands ORDER BY tier ASC, sort_order ASC, id ASC"
-)->fetchAll();
+// ── 篩選（GET）────────────────────────────────────────────────────────────
+$search       = trim((string) ($_GET['search'] ?? ''));
+$filterTier   = trim((string) ($_GET['tier'] ?? ''));
+$filterActive = trim((string) ($_GET['active'] ?? ''));
+$hasFilter    = ($search !== '' || $filterTier !== '' || $filterActive !== '');
+
+$where  = [];
+$params = [];
+if ($search !== '') {
+    $where[]  = 'name LIKE ?';
+    $params[] = '%' . $search . '%';
+}
+if (in_array($filterTier, ['1', '2', '3', '4'], true)) {
+    $where[]  = 'tier = ?';
+    $params[] = (int) $filterTier;
+}
+if ($filterActive === '0' || $filterActive === '1') {
+    $where[]  = 'is_active = ?';
+    $params[] = (int) $filterActive;
+}
+
+// 取得品牌（套用篩選）
+$sql  = 'SELECT * FROM brands'
+      . ($where ? ' WHERE ' . implode(' AND ', $where) : '')
+      . ' ORDER BY tier ASC, sort_order ASC, id ASC';
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$brands = $stmt->fetchAll();
+
+$totalBrands = (int) $pdo->query('SELECT COUNT(*) FROM brands')->fetchColumn();
 
 // 按層級分組
 $tierLabels = [
@@ -164,6 +215,69 @@ include __DIR__ . '/includes/layout-header.php';
   </div>
 </div>
 
+<!-- 篩選 -->
+<div class="card mb-3">
+  <form method="GET" action="" class="card-body">
+    <div class="row g-2 align-items-end">
+      <div class="col-md-4">
+        <label class="form-label">搜尋品牌名稱</label>
+        <input type="text" name="search" class="form-control form-control-sm"
+               value="<?= e($search) ?>" placeholder="例如：Cafe、Beauty、7-Eleven">
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">層級</label>
+        <select name="tier" class="form-select form-select-sm">
+          <option value="">全部</option>
+          <?php foreach ($tierLabels as $t => $lbl): ?>
+          <option value="<?= $t ?>" <?= $filterTier === (string) $t ? 'selected' : '' ?>>Tier <?= $t ?></option>
+          <?php endforeach; ?>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">顯示狀態</label>
+        <select name="active" class="form-select form-select-sm">
+          <option value="">全部</option>
+          <option value="1" <?= $filterActive === '1' ? 'selected' : '' ?>>顯示中</option>
+          <option value="0" <?= $filterActive === '0' ? 'selected' : '' ?>>已隱藏</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-sm btn-adwire w-100"><i class="ti ti-search me-1"></i>搜尋</button>
+      </div>
+      <div class="col-md-2">
+        <a href="<?= ADMIN_URL ?>/brands.php" class="btn btn-sm btn-outline-secondary w-100">清除篩選</a>
+      </div>
+    </div>
+    <div class="mt-2 small text-secondary">
+      共 <strong><?= $totalBrands ?></strong> 個品牌<?= $hasFilter ? '，符合條件 <strong>' . count($brands) . '</strong> 個' : '' ?>
+      · <span id="sort-status" class="badge bg-secondary-lt">
+        <?= $hasFilter ? '篩選中唔可以拖拉排序' : '拖拉最左邊 ⠿ 可調整次序' ?>
+      </span>
+    </div>
+  </form>
+</div>
+
+<!-- 批次操作：獨立表單，行內 checkbox 用 HTML5 form= 屬性連過來（避免嵌套 form）-->
+<div class="card mb-3">
+  <div class="card-body py-3">
+    <form id="bulk-form" method="POST" action="" class="d-flex flex-wrap gap-2 align-items-center">
+      <input type="hidden" name="action" value="bulk">
+      <?= csrfField() ?>
+      <span class="small text-secondary me-2"><i class="ti ti-checklist me-1"></i>批次操作（先勾選品牌）</span>
+      <button type="submit" name="mode" value="enable" class="btn btn-sm btn-outline-success">
+        <i class="ti ti-eye me-1"></i>啟用
+      </button>
+      <button type="submit" name="mode" value="disable" class="btn btn-sm btn-outline-warning">
+        <i class="ti ti-eye-off me-1"></i>停用
+      </button>
+      <button type="submit" name="mode" value="delete" class="btn btn-sm btn-outline-danger"
+              onclick="return confirm('確定刪除已勾選嘅品牌？此動作無法復原。');">
+        <i class="ti ti-trash me-1"></i>刪除
+      </button>
+    </form>
+  </div>
+</div>
+
 <!-- 品牌列表 -->
 <?php foreach ([1, 2, 3, 4] as $tier): ?>
 <?php $tierBrands = array_filter($brands, fn($b) => (int)$b['tier'] === $tier); ?>
@@ -176,16 +290,19 @@ include __DIR__ . '/includes/layout-header.php';
     <table class="table table-vcenter card-table">
       <thead>
         <tr>
-          <th style="width:40px">排序</th>
+          <th style="width:150px">排序 / 選取</th>
           <th>品牌名稱</th>
           <th style="width:80px">顯示</th>
           <th style="width:120px">操作</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody data-tier="<?= $tier ?>">
         <?php foreach ($tierBrands as $brand): ?>
-        <tr>
+        <tr data-id="<?= $brand['id'] ?>">
           <td>
+            <span class="drag-handle" title="<?= $hasFilter ? '篩選中唔可以拖拉排序' : '拖拉調整次序' ?>">⠿</span>
+            <input type="checkbox" name="ids[]" value="<?= $brand['id'] ?>" form="bulk-form"
+                   class="form-check-input bulk-check" title="選取此品牌">
             <form method="POST" action="" class="d-inline" style="width:60px">
               <input type="hidden" name="action" value="update">
               <?= csrfField() ?>
@@ -274,10 +391,91 @@ include __DIR__ . '/includes/layout-header.php';
 
 <?php if (empty($brands)): ?>
 <div class="card">
-  <div class="card-body text-center text-muted py-5">
-    暫無品牌記錄。請使用上方表單新增品牌。
+  <div class="card-body text-center py-5">
+    <?php if ($hasFilter): ?>
+      <i class="ti ti-search-off" style="font-size:2rem;color:#9aa9bd"></i>
+      <p class="text-secondary mt-3 mb-2">冇符合條件嘅品牌。</p>
+      <a href="<?= ADMIN_URL ?>/brands.php" class="btn btn-sm btn-outline-secondary">清除篩選</a>
+    <?php else: ?>
+      <i class="ti ti-building" style="font-size:2rem;color:#9aa9bd"></i>
+      <p class="text-secondary mt-3 mb-0">尚未新增任何品牌。請使用上方表單新增。</p>
+    <?php endif; ?>
   </div>
 </div>
+<?php endif; ?>
+
+<?php if (!$hasFilter && !empty($brands)): ?>
+<script>
+/* 拖拉排序：同一個 tier（tbody）之內調整次序，放手即自動儲存。
+   送出用 fetch + FormData（layout-footer.php 會自動加 X-CSRF-Token）。 */
+(function () {
+  var tbodies = Array.prototype.slice.call(document.querySelectorAll('tbody[data-tier]'));
+  if (!tbodies.length) return;
+  var status = document.getElementById('sort-status');
+  var dragRow = null, saving = false;
+
+  tbodies.forEach(function (tb) {
+    Array.prototype.forEach.call(tb.querySelectorAll('tr[data-id]'), function (tr) {
+      tr.setAttribute('draggable', 'true');
+      tr.addEventListener('dragstart', function (e) {
+        dragRow = tr; tr.classList.add('adw-dragging');
+        e.dataTransfer.effectAllowed = 'move';
+        try { e.dataTransfer.setData('text/plain', tr.dataset.id); } catch (_) {}
+      });
+      tr.addEventListener('dragend', function () {
+        tr.classList.remove('adw-dragging'); dragRow = null;
+      });
+      tr.addEventListener('dragover', function (e) {
+        if (!dragRow || dragRow.parentNode !== tb || dragRow === tr) return;
+        e.preventDefault();
+        var rows = Array.prototype.slice.call(tb.querySelectorAll('tr[data-id]'));
+        var box = tr.getBoundingClientRect();
+        var after = null;
+        for (var i = 0; i < rows.length; i++) {
+          var r = rows[i];
+          if (r === dragRow) continue;
+          var rb = r.getBoundingClientRect();
+          if (e.clientY < rb.top + rb.height / 2) { after = r; break; }
+        }
+        if (after) tb.insertBefore(dragRow, after); else tb.appendChild(dragRow);
+      });
+    });
+    tb.addEventListener('drop', function (e) { e.preventDefault(); });
+  });
+
+  document.addEventListener('dragend', function () { save(); });
+
+  function save() {
+    if (saving) return;
+    var jobs = tbodies.map(function (tb) {
+      var rows = Array.prototype.slice.call(tb.querySelectorAll('tr[data-id]'));
+      if (!rows.length) return null;
+      return { tier: tb.dataset.tier, orders: rows.map(function (r, i) {
+        return { id: Number(r.dataset.id), sort_order: i };
+      }) };
+    }).filter(Boolean);
+    if (!jobs.length) return;
+    saving = true;
+    if (status) { status.textContent = '儲存中…'; status.className = 'badge bg-info-lt'; }
+    Promise.all(jobs.map(function (j) {
+      var fd = new FormData();
+      fd.append('action', 'reorder');
+      fd.append('orders', JSON.stringify(j.orders));
+      return fetch(location.pathname, { method: 'POST', body: fd })
+        .then(function (r) { return r.json(); })
+        .catch(function () { return { success: false }; });
+    })).then(function (res) {
+      var ok = res.every(function (r) { return r && r.success; });
+      if (status) {
+        status.textContent = ok ? '✅ 排序已儲存' : '⚠️ 儲存失敗，請重新載入再試';
+        status.className = 'badge ' + (ok ? 'bg-success' : 'bg-danger');
+      }
+      saving = false;
+      if (ok) setTimeout(function () { location.reload(); }, 600);
+    });
+  }
+})();
+</script>
 <?php endif; ?>
 
 <?php include __DIR__ . '/includes/layout-footer.php'; ?>

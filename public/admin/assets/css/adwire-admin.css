@@ -365,3 +365,27 @@ body.login-page {
 .role-badge.super_admin { background: rgba(245, 166, 35, .18); color: #8a5a00; }
 .role-badge.editor      { background: rgba(15, 76, 129, .12); color: var(--adw-blue); }
 .role-badge.viewer      { background: rgba(107, 124, 147, .15); color: #4a5b70; }
+
+/* ── 拖拉排序 ─────────────────────────────────────────────────────────── */
+.drag-handle {
+  cursor: grab;
+  color: #b6c2d2;
+  font-size: 1.05rem;
+  line-height: 1;
+  margin-right: .45rem;
+  user-select: none;
+  vertical-align: middle;
+}
+.drag-handle:active { cursor: grabbing; }
+tbody[data-tier] tr[data-id]:hover .drag-handle { color: var(--adw-blue); }
+tr.adw-dragging { opacity: .45; background: #eef5ff !important; }
+tr.adw-dragging > td { border-bottom-color: transparent; }
+
+/* 批次選取 checkbox 與拖拉把手對齊 */
+.bulk-check { margin-right: .5rem; vertical-align: middle; }
+
+/* 只讀模式：批次選取框一樣要隱藏（checkbox 位於 form 之外，唔受上面 form 規則影響） */
+.content-page.role-viewer input[name="ids[]"],
+.content-page.role-viewer .drag-handle {
+  display: none !important;
+}
