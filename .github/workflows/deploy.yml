@@ -54,13 +54,15 @@ jobs:
     steps:
       # ── 1. Checkout 程式碼 ──
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # ── 2. 設定 Node.js ──
+      #    用 Node 24（現行 LTS）。原本用 Node 20，但 Node 20 已於 2026-04 EOL，
+      #    而且 v4 actions 嘅 Node 20 runtime 已於 2026-09-16 從 runner 移除。
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
 
       # ── 3. 安裝依賴 ──
@@ -89,7 +91,7 @@ jobs:
       # ── 6. 部署到 SiteGround ──
       #    使用 rsync over SSH，只傳輸變更的檔案
       - name: Deploy to SiteGround via rsync
-        uses: burnett01/rsync-deployments@6.0.0
+        uses: burnett01/rsync-deployments@v9
         with:
           # 排除清單（每一項都係「唔可以由 build 產物覆蓋」嘅東西）：
           #   .well-known  → SSL/ACME 驗證 + 電郵自動設定 (Outlook/iOS) — 絕對不可刪
