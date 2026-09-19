@@ -94,15 +94,16 @@ jobs:
         uses: burnett01/rsync-deployments@v9
         with:
           # 排除清單（每一項都係「唔可以由 build 產物覆蓋」嘅東西）：
-          #   .well-known  → SSL/ACME 驗證 + 電郵自動設定 (Outlook/iOS) — 絕對不可刪
-          #   crm/         → ADWire CRM 獨立應用（97MB, 166 檔案）
-          #   .htaccess    → 伺服器安全標頭 / 重寫規則（HSTS、CSP 等）
-          #   send-mail.php→ 聯絡表單 POST 端點（線上運作中）
-          #   admin/       → PHP 內容後台
-          # 註：blog/ portfolio/ services/ system/ video/ 原本被排除，但經核對後
-          #     伺服器與 build 產物檔案集完全相同，排除只會令頁面改動無法發佈，
-          #     故已移除。若日後改由 CMS 寫入這些目錄，必須重新加入排除。
-          switches: -avzr --delete --exclude='.well-known' --exclude='crm' --exclude='.htaccess' --exclude='send-mail.php' --exclude='admin'
+          #   .well-known              → SSL/ACME 驗證 + 電郵自動設定 (Outlook/iOS) — 絕對不可刪
+          #   crm/                     → ADWire CRM 獨立應用（166 檔案）
+          #   .htaccess                → 伺服器安全標頭 / 重寫規則（HSTS、CSP 等）
+          #   send-mail.php            → 聯絡表單 POST 端點（線上運作中，伺服器版本為獨立版）
+          #   admin/includes/config.php→ 後台實際憑證（DB/API key），只在伺服器上存在，
+          #                              必須排除【上傳同刪除】，否則每次部署都會清走
+          # 註：admin/ 其餘檔案由 build 產物部署（PHP 後台程式碼，repo 內有 28 個檔案）。
+          #     blog/ portfolio/ services/ system/ video/ 原本被排除，但經核對後
+          #     伺服器與 build 產物檔案集完全相同，排除只會令頁面改動無法發佈，故已移除。
+          switches: -avzr --delete --exclude='.well-known' --exclude='crm' --exclude='.htaccess' --exclude='send-mail.php' --exclude='admin/includes/config.php'
           path: out/
           remote_path: ${{ secrets.SITEGROUND_PATH }}/
           remote_host: ${{ secrets.SITEGROUND_HOST }}
