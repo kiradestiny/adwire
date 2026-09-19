@@ -72,11 +72,27 @@ function requireCsrf(): void
     if (empty($token) || !verifyCsrfToken($token)) {
         http_response_code(403);
         error_log('[ADWire Admin] CSRF validation failed from IP: ' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown'));
-        die('安全驗證失敗，請重新提交表單。');
+        $back = htmlspecialchars($_SERVER['HTTP_REFERER'] ?? (ADMIN_URL . '/index.php'), ENT_QUOTES, 'UTF-8');
+        header('Content-Type: text/html; charset=utf-8');
+        die('<!DOCTYPE html><html lang="zh-HK"><head><meta charset="utf-8">'
+          . '<meta name="viewport" content="width=device-width, initial-scale=1">'
+          . '<title>安全驗證失敗</title></head>'
+          . '<body style="font-family:system-ui,\'PingFang HK\',\'Microsoft JhengHei\',sans-serif;'
+          . 'background:#f4f7fb;color:#16233a;display:flex;min-height:100vh;align-items:center;'
+          . 'justify-content:center;margin:0"><div style="background:#fff;border:1px solid #e3e9f2;'
+          . 'border-radius:20px;padding:2rem;max-width:26rem;box-shadow:0 18px 48px rgba(16,35,61,.1)">'
+          . '<h1 style="font-size:1.15rem;margin:0 0 .6rem">安全驗證失敗</h1>'
+          . '<p style="color:#6b7c93;margin:0 0 1.25rem;line-height:1.6">頁面已過期（可能係 Session 逾時，'
+          . '或者你喺同一版頁面連續提交咗多次）。請返回上一頁並重新載入，再試一次。</p>'
+          . '<a href="' . $back . '" style="display:inline-block;background:#0f4c81;color:#fff;'
+          . 'text-decoration:none;padding:.6rem 1.1rem;border-radius:10px;font-weight:600">返回並重新載入</a>'
+          . '</div></body></html>');
     }
 
-    // 驗證通過後重新生成 Token（防止重放攻擊）
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    // 注意：唔可以在每次驗證後輪換 CSRF token。
+    // 列表頁（例如 brands.php）一版有 6 個表單共享同一個 token；若 POST 一次就換 token，
+    // 之後再提交同一版頁面嘅第二個表單就會即時 403「安全驗證失敗」。
+    // Token 於登入時生成，Session 期間保持穩定。
 }
 
 /**
