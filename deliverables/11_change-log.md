@@ -311,6 +311,40 @@
 | Contact 新欄位 | 已在 client bundle 內（18 個 chunk），SSR 骨架後 hydration 顯示 |
 | 已移除聲稱掃描 | 全部 0 命中（ISO／PCI DSS 僅剩免責聲明文字 1 處） |
 
+---
+
+# 2026-09 追加（負責人指示「加返 GA4 代碼」）
+
+## CHG-019｜加入 Google Analytics 4（G-G93P7WNBSY）
+
+- Implementation: `app/layout.tsx`
+- 實作方式：使用 `next/script`（與現有 GTM、Clarity 一致的模式）
+  - 外部 `gtag.js`（`afterInteractive`）
+  - 內聯 `gtag('config', 'G-G93P7WNBSY', { send_page_view: true })`
+- 驗證: 51 頁全部載入 GA4；首頁、服務頁、Blog 文章頁均確認包含 Measurement ID
+- **⚠️ 必須注意（重複計算風險）**
+  - GA4 只能由一個途徑載入。目前寫法係「直接由網站載入 gtag.js」。
+  - 如果之後在 GTM 容器 `GTM-WLF36PTR` 內亦加入同一個 Measurement ID 的 GA4 標籤，
+    **`page_view` 會被計算兩次**，數據會失真。必須移除其中一邊。
+  - 驗證方法：GA4 → 報表 → 即時，同一時間只應出現一次瀏覽。
+- Status: DONE（程式碼已加入並通過 build；上線後需在 GA4 Realtime 確認收到數據）
+
+## CHG-020｜私隱政策補充分析工具披露
+
+- Implementation: `app/privacy/page.tsx`
+- 原因：原私隱政策完全沒有提及 Google Analytics、GTM、Clarity，只在「第三方服務供應商」一句籠統帶過。
+  加入 GA4 後，須明確披露實際使用的工具、收集什麼資料及 Cookie 設定方式。
+- 新增／修改:
+  - 「5. Cookie 及網站分析工具」— 逐項列明 Google Analytics 4、Google Tag Manager、Microsoft Clarity 及其用途
+  - 新增「6. 資料保留」— 查詢記錄保留安排及查閱／更正／刪除資料的聯絡方式
+  - 「最後更新日期」由 2025年1月1日 更新為 2026年9月20日
+  - Metadata／OG Description 補充分析工具及 Cookie 說明
+- Status: DONE
+- **待負責人確認**：如目標市場需要同意橫幅（Consent Banner）或 Consent Mode，需要另外實作；
+  現時的做法是「載入即收集」，適用於香港市場一般情況，但並非所有地區都足夠。
+
+---
+
 ## 回滾方法
 
 - 本批全部改動在 `feat/2026-site-optimization` 分支，`main` 未改動，正式站未受影響
