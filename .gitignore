@@ -43,3 +43,6 @@ public/admin/includes/config.php
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 本機預覽用（由 out/ 複製並補上扁平 RSC 快取檔名，不應提交）
+/preview-build/
