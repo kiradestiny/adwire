@@ -96,10 +96,17 @@ jobs:
       #      （例如新增 301 重定向）靜默地永遠不會生效 —— 規則語法正確、
       #      部署顯示成功、但舊網址繼續 404。現在改為可部署，並加上
       #      「備份 → 部署 → 驗證 → 失敗自動回滾」防護。
-      - name: Set up SSH agent
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SITEGROUND_SSH_KEY }}
+      # 注意：不可在此使用 webfactory/ssh-agent。
+      #   它會輸出 SSH_AUTH_SOCK／SSH_AGENT_PID，而 burnett01/rsync-deployments
+      #   以 Docker 容器執行並繼承這些環境變數 —— 容器內沒有該 socket，
+      #   於是 ssh-add 失敗並回報 "Error connecting to agent: No such file or directory"，
+      #   令整個 rsync 部署步驟失敗（2026-09 實測）。改用檔案式密鑰最簡單可靠。
+      - name: Prepare SSH key file
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SITEGROUND_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo '✅ SSH 密鑰已寫入 ~/.ssh/deploy_key'
 
       - name: Pre-flight — back up .htaccess and capture health baseline
         id: preflight
@@ -126,7 +133,8 @@ jobs:
 
           # 備份正式站 .htaccess（回滾點）
           BK="$SG_PATH/.htaccess.backup-$(date +%Y%m%d-%H%M%S)"
-          ssh -p 18765 -o StrictHostKeyChecking=accept-new "${SG_USER}@${SG_HOST}" \
+          ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
+            "${SG_USER}@${SG_HOST}" \
             "cp '$SG_PATH/.htaccess' '$BK' && ls -l '$BK'"
           echo "backup=$BK" >> "$GITHUB_OUTPUT"
           echo "已備份 .htaccess → $BK"
@@ -192,7 +200,8 @@ jobs:
           BASE='${{ steps.preflight.outputs.baseline }}'
           if [ "$FAIL" = "1" ] && [ "$BASE" = "200" ]; then
             echo "::error::部署後有頁面非 200，而部署前基準為 200 → 回滾 .htaccess"
-            ssh -p 18765 -o StrictHostKeyChecking=accept-new "${SG_USER}@${SG_HOST}" \
+            ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
+              "${SG_USER}@${SG_HOST}" \
               "cp '${{ steps.preflight.outputs.backup }}' '$SG_PATH/.htaccess' && echo ROLLED_BACK"
             sleep 3
             echo "回滾後首頁: $(curl -sS -o /dev/null -w '%{http_code}' --max-time 25 -A "$UA" https://adwire.com.hk/)"
