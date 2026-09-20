@@ -20,7 +20,10 @@
   - `.planning/2026-09-20-website-optimization-2026/task_plan.md`
   - `.planning/2026-09-20-website-optimization-2026/findings.md`
   - `.planning/2026-09-20-website-optimization-2026/progress.md`
-- No website source code or production system has been modified yet.
+- Crawled all 45 sitemap URLs read-only; all returned HTTP 200.
+  - Produced deliverables: 01 audit, 02 page inventory, 03 claims register, 04 IA/navigation, 05 per-page content review, 09 metadata map.
+  - Created branch `feat/2026-site-optimization`; committed audit deliverables (09d3cb5). Not pushed to main.
+  - No website source code, URL, page setting or production system has been modified.
 
 ### Phase 2: SEO/GEO, IA & Conversion Proposal
 

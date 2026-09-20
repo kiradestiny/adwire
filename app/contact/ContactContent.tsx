@@ -26,8 +26,8 @@ export default function ContactContent() {
               聯絡我們<span className="text-[#f5a623]">.</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              無論你想提升品牌流量，還是尋求技術轉型，<br/>
-              ADWire 團隊都準備好為你提供協助。
+              無論你想開發系統、導入 AI 自動化、<br className="hidden md:block"/>
+              還是改善搜尋能見度，都歡迎先講清楚需求。
             </p>
           </motion.div>
         </div>
@@ -69,8 +69,8 @@ export default function ContactContent() {
                     <a href="mailto:info@adwire.com.hk" className="text-[#0f4c81] font-semibold hover:text-[#f5a623] transition-colors">info@adwire.com.hk</a>
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400 uppercase tracking-wider">人才招聘</p>
-                    <a href="mailto:hr@adwire.com.hk" className="text-[#0f4c81] font-semibold hover:text-[#f5a623] transition-colors">hr@adwire.com.hk</a>
+                    <p className="text-xs text-gray-400 uppercase tracking-wider">項目查詢</p>
+                    <p className="text-[#0f4c81] font-semibold">請於下方表格選擇服務類別</p>
                   </div>
                   <div className="pt-1">
                                         <a 

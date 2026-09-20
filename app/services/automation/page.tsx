@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import AutomationServiceContent from "./AutomationServiceContent";
 
 export const metadata: Metadata = {
-  title: "營銷自動化 (Marketing Automation) | ADWire Agency - 24/7 智能獲客",
-  description: "串接 WhatsApp API, CRM 及廣告系統。讓 AI Chatbot 自動回覆、自動追單、自動入數，大幅節省人手成本，提升成交率。",
+  title: "企業工作流程自動化｜連接現有系統",
+  description: "將 Email、表格、Excel、報價、訂單及客戶跟進等重複工序自動化，並與 CRM／ERP 或現有系統整合。包含人工覆核、失敗重試、錯誤通知及監控日誌。",
   alternates: {
     canonical: "/services/automation/",
   },
   openGraph: {
-    title: "營銷自動化 (Marketing Automation) | ADWire Agency",
-    description: "串接 WhatsApp API, CRM 及廣告系統。讓 AI Chatbot 自動回覆、自動追單、自動入數。",
+    title: "企業工作流程自動化",
+    description: "將重複工序自動化並與 CRM／ERP 整合，包含人工覆核、失敗重試、錯誤通知及監控日誌。",
     images: [
       {
         url: "/portfolio/whatsapp-automation.webp",

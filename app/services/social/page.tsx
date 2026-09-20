@@ -3,9 +3,9 @@ import { WHATSAPP_E164 } from "@/lib/site-config";
 import SocialServiceContent from "./SocialServiceContent";
 
 export const metadata: Metadata = {
-  title: "社交媒體代管服務 | ADWire Agency 香港 | IG / Facebook / 小紅書 代營運",
+  title: "社交媒體代管服務｜IG・FB・小紅書",
   description:
-    "ADWire Agency 提供香港一站式社交媒體代管服務，涵蓋 Instagram、Facebook、LinkedIn、小紅書代營運。由內容企劃、視覺設計、Reels 短片製作到社群互動管理，基礎方案 HK$8,000/月起，助你將流量轉化為真實生意。",
+    "內容企劃、視覺設計、社群互動及數據分析的社交媒體代管服務，覆蓋 Instagram、Facebook、LinkedIn、小紅書及 Threads，並提供內容日曆及每月成效報告。",
   keywords: [
     "社交媒體代管香港",
     "Social Media Agency HK",
@@ -28,9 +28,8 @@ export const metadata: Metadata = {
     canonical: "/services/social/",
   },
   openGraph: {
-    title: "社交媒體代管服務 | ADWire Agency 香港",
-    description:
-      "一站式 IG / Facebook / LinkedIn / 小紅書代營運。由內容企劃、視覺設計到粉絲互動，助品牌建立強大社群護城河，將流量轉化為實際生意。",
+    title: "社交媒體代管服務",
+    description: "內容企劃、視覺設計、社群互動及數據分析，覆蓋 IG、Facebook、LinkedIn、小紅書及 Threads。",
     url: "https://adwire.com.hk/services/social/",
     siteName: "ADWire Agency",
     images: [

@@ -18,11 +18,11 @@ import { useState } from "react";
 const FAQ_ITEMS = [
   {
     q: "ADWire Agency 係咩公司？",
-    a: "ADWire Agency 是一間位於香港葵芳的 MarTech（Marketing Technology）數碼代理公司。我們結合 10 年以上 SEO 實戰經驗與全棧開發技術，為品牌提供數據驅動的全方位數碼營銷方案，包括 SEO/GEO 優化、KOL 網紅營銷、AI 自動化、Meta/Google 成效廣告及短視頻製作。",
+    a: "ADWire Agency Limited 以香港市場為主要業務背景，提供四條服務線：軟件開發（企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合）、AI 與自動化（AI 應用、企業知識庫、工作流程自動化）、SEO／GEO 搜尋優化，以及數碼營銷（成效廣告、社交媒體、短視頻、KOL 及攝影）。團隊由精簡核心成員及按項目協作的專業人才組成，按項目需要安排合適的執行組合。",
   },
   {
     q: "ADWire 與其他香港 Marketing Agency 有什麼分別？",
-    a: "ADWire 是香港市場少數同時擁有「10年資深 SEO 專家」與「全棧開發者（Full-stack Developer）」的代理商。傳統 Marketing Agency 做創意但不懂技術，IT 公司懂技術但不懂市場心理。ADWire 填補了這個缺口——我們既能做廣告投放、SEO 排名，同時能開發自動化系統、定製 CRM，以技術提升每一個營銷環節的效率。",
+    a: "ADWire 的團隊同時具備營銷、創意與技術開發經驗，可以從業務問題出發，一路處理需求整理、系統或內容方案、開發交付及成效量度。這種組合的好處是：客戶不需要在廣告公司與開發商之間來回協調，項目範圍、技術選項及維護安排可以在同一個團隊內一次講清楚。",
   },
   {
     q: "ADWire 提供哪些數碼營銷服務？",
@@ -64,11 +64,11 @@ const COMPARE_ROWS = [
 
 // ─── 數據統計 ────────────────────────────────────────────────────────────────
 const STATS = [
-  { value: "10年+", label: "SEO 實戰經驗", icon: TrendingUp, color: "text-blue-600 bg-blue-50" },
-  { value: "100+", label: "服務品牌數量", icon: Building2, color: "text-orange-600 bg-orange-50" },
-  { value: "3–5×", label: "平均廣告回報率", icon: LineChart, color: "text-green-600 bg-green-50" },
-  { value: "8", label: "核心服務項目", icon: Star, color: "text-purple-600 bg-purple-50" },
-  { value: "24hr", label: "客戶回應承諾", icon: Clock, color: "text-pink-600 bg-pink-50" },
+  { value: "500+", label: "服務客戶", icon: Building2, color: "text-orange-600 bg-orange-50" },
+  { value: "4", label: "主要業務線", icon: Star, color: "text-purple-600 bg-purple-50" },
+  { value: "16", label: "精選公開案例", icon: Award, color: "text-blue-600 bg-blue-50" },
+  { value: "328%", label: "平均 ROI 提升", icon: TrendingUp, color: "text-green-600 bg-green-50" },
+  { value: "98%", label: "客戶滿意度", icon: LineChart, color: "text-pink-600 bg-pink-50" },
   { value: "HK / GBA", label: "服務覆蓋範圍", icon: Users, color: "text-teal-600 bg-teal-50" },
 ];
 
@@ -192,9 +192,9 @@ export default function AboutContent() {
             <strong itemProp="name">ADWire Agency</strong> 是一間總部位於{" "}
             <span itemProp="addressLocality">香港葵芳</span>的{" "}
             <span itemProp="description">MarTech（Marketing Technology）數碼代理商</span>，
-            擁有逾 10 年 SEO 實戰經驗，提供 KOL 網紅營銷、AI 自動化、成效廣告（Meta / Google Ads）、
-            SEO/GEO 優化、短視頻製作及全棧系統開發共 8 大核心服務，
-            服務對象涵蓋香港及大灣區的中小企業與品牌。
+            提供軟件開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，
+            以及成效廣告、社交媒體、短視頻、KOL 及商業攝影等數碼營銷服務，
+            服務對象以香港企業及品牌為主。
             官方網站：
             <a href="https://adwire.com.hk" itemProp="url" className="text-[#0f4c81] font-medium underline-offset-2 underline ml-1">
               adwire.com.hk
@@ -286,7 +286,7 @@ export default function AboutContent() {
                   ADWire 就是為了填補這個缺口而生。
                 </p>
                 <p>
-                  我們是市場上極少數同時擁有<strong>「10年經驗 SEO 專家」</strong>與<strong>「全棧開發者 (Full-stack Developers)」</strong>的團隊。我們懂 Code，更懂生意。
+                  我們的團隊同時具備營銷、創意與技術開發經驗，可以從業務問題出發，一路處理需求整理、方案設計、開發交付及成效量度。由需求分析到上線後的持續改善，範圍與交付會事先講清楚。
                 </p>
               </div>
             </motion.div>
@@ -458,9 +458,9 @@ export default function AboutContent() {
             <p className="text-lg md:text-xl text-gray-500">我們不只是 Agency，更是你的增長顧問。</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <ExpertiseItem title="SEO 專家" exp="10年+ 經驗" desc="精通 Google 演算法與 GEO" icon={Target} color="bg-orange-100 text-orange-600" />
-            <ExpertiseItem title="全棧開發者" exp="Full Stack" desc="React / Next.js / Python" icon={Code2} color="bg-blue-100 text-blue-600" />
-            <ExpertiseItem title="廣告優化師" exp="ROI 導向" desc="Meta / Google Ads 認證" icon={LineChart} color="bg-green-100 text-green-600" />
+            <ExpertiseItem title="搜尋優化" exp="SEO / GEO" desc="技術 SEO、內容規劃及搜尋能見度量度" icon={Target} color="bg-orange-100 text-orange-600" />
+            <ExpertiseItem title="系統開發" exp="Web / App / API" desc="網站、內部系統、App 及 API 整合" icon={Code2} color="bg-blue-100 text-blue-600" />
+            <ExpertiseItem title="廣告優化" exp="成效導向" desc="Meta / Google / YouTube / LinkedIn Ads" icon={LineChart} color="bg-green-100 text-green-600" />
             <ExpertiseItem title="內容創作者" exp="Viral Content" desc="短視頻劇本與拍攝" icon={Award} color="bg-pink-100 text-pink-600" />
           </div>
         </div>

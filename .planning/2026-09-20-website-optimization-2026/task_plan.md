@@ -6,7 +6,7 @@ Audit and optimize adwire.com.hk for SEO/GEO, service-page conversion, clearer S
 
 ## Next Step
 
-Create a verified URL/content inventory and service-page SEO/CRO scorecard, using the approved PDF pricing as the source of truth for the SEO/GEO page.
+Confirm with the owner: (a) which Google account will own the new ADWire GA4 property and how GSC will be connected, (b) the single authoritative count for the 500+/150+/120+/100+ figures and the ROI wording (328% vs 3.8x). Then start Phase 2 layout work on the feature branch.
 
 ## Current Phase
 
@@ -19,8 +19,10 @@ Phase 1 — Baseline audit and approved-source capture
 - [x] Inspect repository architecture and deployment workflow
 - [x] Capture owner approvals and confirmed contact details
 - [x] Extract and review the 15-page SEO/GEO pricing PDF
-- [ ] Crawl all indexable pages and create URL/metadata/content inventory
-- [ ] Audit GA4/GSC access and establish baseline
+- [x] Crawl all indexable pages and create URL/metadata/content inventory (45 URLs)
+- [x] Produce service-page SEO/CRO scorecard and claims register
+- [x] Extract approved SEO/GEO pricing and commercial terms from the PDF
+- [ ] Audit GA4/GSC access and establish baseline (blocked: no ADWire property)
 - **Status:** in_progress
 
 ### Phase 2: SEO/GEO, IA & Conversion Proposal

@@ -272,7 +272,7 @@ export default function SystemServiceContent() {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">AI 智能系統整合</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  將生成式 AI (LLM) 融入企業流程。從自動化客服到智能數據分析，讓 AI 成為你的超級員工。
+                  將 AI 應用融入企業流程。由客服輔助到資料查詢及分析，並保留人工覆核環節。
                 </p>
                 <ul className="space-y-3 mb-8">
                   <FeatureItem text="企業專屬 AI 知識庫 (RAG 技術)" />
@@ -401,7 +401,7 @@ export default function SystemServiceContent() {
       <section className="py-16 bg-white border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            <TrustBadge icon={ShieldCheck} title="銀行級加密" desc="SSL & 數據加密" />
+            <TrustBadge icon={ShieldCheck} title="資料加密" desc="SSL/TLS 及加密存儲" />
             <TrustBadge icon={Gauge} title="99.9% Uptime" desc="高穩定性保證" />
             <TrustBadge icon={FileCode} title="源碼交付" desc="完整擁有權" />
             <TrustBadge icon={Star} title="80+ 成功案例" desc="各行業信賴" />
@@ -432,27 +432,27 @@ export default function SystemServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-[#0f4c81] mb-6">銀行級安全架構，守護企業核心資產</h2>
+              <h2 className="text-3xl font-bold text-[#0f4c81] mb-6">安全與可靠性安排，保護企業核心資料</h2>
               <p className="text-gray-600 mb-8 text-lg">
-                我們深知系統穩定性與數據安全對企業的重要性。ADWire 採用的技術標準確保你的系統 24/7 穩定運行，無懼任何安全威脅。
+                系統穩定性與資料安全會按實際需要設計。我們會說明採用的加密方式、權限設定、備份策略及監控安排，並講清楚第三方服務的依賴及限制。任何系統運作都取決於架構、維運及外部環境，因此我們不會作「無懼任何威脅」一類的絕對保證。
               </p>
               
               <div className="space-y-6">
                 <SecurityFeature 
                   title="多重數據加密" 
-                  desc="所有敏感資料均採用 AES-256 銀行級加密存儲，傳輸過程全程 SSL/TLS 加密。" 
+                  desc="傳輸過程採用 SSL/TLS 加密；敏感資料可按需要加密存儲，實際加密方式會按系統環境及要求確認。" 
                 />
                 <SecurityFeature 
                   title="自動化異地備份" 
-                  desc="每日自動進行增量備份，並存儲於多個地理位置的雲端伺服器，確保數據永不丟失。" 
+                  desc="按需要設定自動備份頻率及備份位置，並定期測試還原流程。備份策略會按資料量及復原目標確認。" 
                 />
                 <SecurityFeature 
                   title="高可用性架構 (High Availability)" 
-                  desc="基於 Docker & Kubernetes 的負載均衡架構，支持自動擴容，確保在高流量下依然流暢。" 
+                  desc="架構選項按項目需要評估，可包括負載均衡及橫向擴展設計，並配合監控及告警。" 
                 />
                 <SecurityFeature 
                   title="嚴格權限控管 (RBAC)" 
-                  desc="精細到按鈕級別的角色權限管理，完整記錄所有操作日誌，防止內部數據外洩。" 
+                  desc="按角色設定功能及資料層級的存取權限，並記錄操作日誌，方便稽核及追查。" 
                 />
               </div>
             </div>
@@ -503,7 +503,7 @@ export default function SystemServiceContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <WhyUsCard icon={Zap} title="懂生意的技術團隊" desc="我們結合 Marketing 思維與技術實力，確保系統不僅功能強大，更能真正解決業務問題，提升轉換率。" />
-            <WhyUsCard icon={ShieldCheck} title="銀行級安全標準" desc="採用最新的加密技術與雲端架構，確保數據安全、系統穩定，並符合 GDPR 等私隱法規。" />
+            <WhyUsCard icon={ShieldCheck} title="安全與權限安排" desc="按需求設定加密、權限、備份及日誌；私隱及合規要求會按實際情況與客戶確認。" />
             <WhyUsCard icon={Code2} title="全源碼交付" desc="拒絕被綁架。我們提供完整的源代碼 (Source Code) 與文檔，讓你擁有系統的完全控制權。" />
           </div>
         </div>

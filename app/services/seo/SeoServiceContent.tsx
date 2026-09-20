@@ -35,7 +35,7 @@ export default function SeoServiceContent() {
     },
     {
       question: "ADWire SEO / GEO 服務收費是多少？",
-      answer: `ADWire 分三個方案：基礎方案 HK$4,000/月（Technical SEO + 1–3頁優化）；專業方案 HK$6,000/月（含每月 4 篇文章 + Backlink + Local SEO）；企業方案度身定制（含 GEO 全面部署）。可 WhatsApp ${WHATSAPP_E164} 免費諮詢。`
+      answer: `ADWire 分三個方案（單一網站／單一市場，3 個月起，按月預繳）：Starter HK$5,800/月（15 個重點關鍵字、每月 2 篇內容、2 頁優化、每月成效報告）；Growth HK$9,800/月（30 個重點關鍵字、每月 4 篇內容、4 頁優化、GEO 可見度追蹤、月度策略檢視）；Premium HK$16,800/月（50 個重點關鍵字、每月 6 篇內容、6 頁優化、較深入技術支援）。費用不含廣告費、Hosting 及第三方工具；大型網站、多語言或大量 SKU 需另行報價。可 WhatsApp ${WHATSAPP_E164} 查詢。`
     },
     {
       question: "我已經有落 Google Ads，仲需唔需要做 SEO？",
@@ -47,7 +47,7 @@ export default function SeoServiceContent() {
     },
     {
       question: "ADWire 保證能上 Google 第一頁嗎？",
-      answer: "任何誠實的 SEO 公司都不會承諾「100% 保證第一頁」，因為 Google 演算法隨時在變。但 ADWire 憑藉 10 年以上 SEO 實戰經驗和正規白帽（White Hat）技術，我們有信心將核心關鍵字推向首頁，並大幅提升網站整體曝光與流量。"
+      answer: "不會，我們亦不會作任何排名保證，因為 Google 及 AI 平台的演算法並非供應商可控制。ADWire 的工作是按技術 SEO、關鍵字意圖、內容質素及網站結構逐項優化，並以曝光、點擊、索引健康及查詢轉換等可量度數據交代進度。實務上，基礎打好後約 3–6 個月開始見到較明顯的排名及流量變化，競爭激烈的行業需要更長時間。"
     }
   ];
 
@@ -94,15 +94,15 @@ export default function SeoServiceContent() {
                 <Search size={13} /> SEO + GEO / AISO Expert
               </span>
               <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-                不只上 Google 首頁<br />
+                SEO 打好 Google 基礎<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                  更要被所有 AI 推薦
+                  GEO 將曝光延伸到 AI 搜尋
                 </span>
               </h1>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                搜尋世界已經改變。今天的客人除了 Google，<br className="hidden md:block" />
-                更會問 <strong className="text-white">ChatGPT、Perplexity、Gemini、Claude</strong>。<br className="hidden md:block" />
-                如果你的品牌未被 AI 收錄，就相當於在全球最大的市場<span className="text-red-400 font-semibold">隱形</span>。
+                客人的搜尋習慣已經改變：除了 Google，<br className="hidden md:block" />
+                亦會直接問 <strong className="text-white">ChatGPT、Perplexity、Gemini、Google AI 搜尋</strong>。<br className="hidden md:block" />
+                品牌在 AI 回答中是否被提及，會影響客人<span className="text-red-400 font-semibold">有無機會見到你</span>。
               </p>
 
               {/* AI Engine Badges */}
@@ -148,19 +148,19 @@ export default function SeoServiceContent() {
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-emerald-600/20 rounded-3xl blur-xl" />
               <div className="bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl overflow-hidden shadow-2xl relative">
                 <div className="bg-white/5 border-b border-white/10 px-5 py-3 flex items-center justify-between">
-                  <span className="text-xs text-gray-400 font-mono">ADWire AI Coverage Tracker</span>
+                  <span className="text-xs text-gray-400 font-mono">AI 搜尋可見度量度項目（示意圖）</span>
                   <span className="flex items-center gap-1 text-xs text-emerald-400">
-                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" /> All Systems Active
+                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" /> 每月抽樣檢查
                   </span>
                 </div>
                 <div className="p-6 space-y-3">
                   {[
-                    { engine: "Google Search (SERP)", status: "首頁排名", color: "text-blue-400", statusColor: "bg-blue-500/20 text-blue-300", icon: "🔍" },
-                    { engine: "ChatGPT (GPT-4o)", status: "已被引用", color: "text-emerald-400", statusColor: "bg-emerald-500/20 text-emerald-300", icon: "🤖" },
-                    { engine: "Perplexity AI", status: "已被引用", color: "text-purple-400", statusColor: "bg-purple-500/20 text-purple-300", icon: "⚡" },
-                    { engine: "Google Gemini", status: "已優化", color: "text-yellow-400", statusColor: "bg-yellow-500/20 text-yellow-300", icon: "✨" },
-                    { engine: "Claude (Anthropic)", status: "已優化", color: "text-orange-400", statusColor: "bg-orange-500/20 text-orange-300", icon: "🧠" },
-                    { engine: "Microsoft Copilot", status: "已優化", color: "text-sky-400", statusColor: "bg-sky-500/20 text-sky-300", icon: "💡" },
+                    { engine: "Google Search（曝光／點擊／排名）", status: "Search Console 數據", color: "text-blue-400", statusColor: "bg-blue-500/20 text-blue-300", icon: "🔍" },
+                    { engine: "Google AI 搜尋（是否被提及）", status: "人工抽樣", color: "text-emerald-400", statusColor: "bg-emerald-500/20 text-emerald-300", icon: "🤖" },
+                    { engine: "ChatGPT／Perplexity（是否被引用）", status: "人工抽樣", color: "text-purple-400", statusColor: "bg-purple-500/20 text-purple-300", icon: "⚡" },
+                    { engine: "品牌搜尋量變化", status: "Search Console", color: "text-yellow-400", statusColor: "bg-yellow-500/20 text-yellow-300", icon: "✨" },
+                    { engine: "AI 導流 Referral", status: "GA4 Referral", color: "text-orange-400", statusColor: "bg-orange-500/20 text-orange-300", icon: "🧠" },
+                    { engine: "查詢轉換（表單／WhatsApp）", status: "GA4 事件", color: "text-sky-400", statusColor: "bg-sky-500/20 text-sky-300", icon: "💡" },
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -174,7 +174,7 @@ export default function SeoServiceContent() {
                         <span className="text-sm text-gray-200">{item.engine}</span>
                       </div>
                       <span className={`text-xs font-bold px-2 py-1 rounded-full ${item.statusColor}`}>
-                        ✓ {item.status}
+                        {item.status}
                       </span>
                     </motion.div>
                   ))}
@@ -281,12 +281,14 @@ export default function SeoServiceContent() {
             {/* 左邊：文字解釋 */}
             <div>
               <div className="inline-block bg-[#f5a623]/10 text-[#f5a623] font-bold px-3 py-1 rounded text-sm mb-4">
-                ADWire 獨家技術
+                SEO + GEO 雙軌
               </div>
               <h2 className="text-3xl font-bold text-[#0f4c81] mb-6">迎接搜尋新時代：<br/>SEO + GEO 全面覆蓋</h2>
               <p className="text-gray-500 mb-8 text-lg leading-relaxed">
-                傳統 Agency 只識做 Google 排名 (SEO)。<br/>
-                ADWire 領先市場，引入GEO (生成式引擎優化)技術。我們優化你的內容結構，確保當用戶問 ChatGPT、Perplexity 時，AI 會優先引用你的品牌作為答案。
+                傳統 SEO 針對 Google／Bing 自然搜尋，GEO 則針對 AI 問答搜尋。<br/>
+                我們會整理內容結構、令事實可被引用、強化品牌資訊一致性，<br/>
+                提高品牌被 AI 回答提及或引用的機會。惟 AI 平台的輸出由平台決定，
+                任何供應商都無法保證一定會被引用或推薦。
               </p>
               
               <div className="space-y-6">
@@ -319,11 +321,11 @@ export default function SeoServiceContent() {
                   <span className="text-sm font-bold text-gray-700">Google Search</span>
                 </div>
                 <div className="text-blue-600 text-lg font-medium hover:underline cursor-pointer">
-                  ADWire - 香港首選 AI 驅動 MarTech 代理
+                  ADWire｜軟件開發・AI 應用・SEO 增長方案
                 </div>
                 <div className="text-green-700 text-sm mb-1">https://adwire.com.hk</div>
                 <div className="text-gray-500 text-sm">
-                  專注 KOL 網紅營銷、短視頻製作及成效廣告。利用獨家 MarTech 技術...
+                  企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化...
                 </div>
               </motion.div>
 
@@ -338,13 +340,16 @@ export default function SeoServiceContent() {
                   <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
                     <Bot size={14} />
                   </div>
-                  <span className="text-sm font-bold text-gray-300">ChatGPT / Perplexity</span>
+                  <span className="text-sm font-bold text-gray-300">AI 問答搜尋（示意圖）</span>
                 </div>
                 <div className="text-sm text-gray-300 leading-relaxed">
-                  <span className="text-emerald-400 font-bold">Q: 香港邊間 Marketing Agency 最 tech？</span>
+                  <span className="text-emerald-400 font-bold">用戶問：某類服務香港有邊幾間可以做？</span>
                   <br/><br/>
-                  A: 根據網上資料及用戶評價，推薦 <span className="bg-emerald-500/20 text-emerald-300 px-1 rounded">ADWire Agency</span>。他們結合了傳統營銷與自動化技術，特別擅長...
+                  AI 回答時會引用它認為可信、可核實的資料來源。品牌要做的是令官方網站的服務範圍、案例、技術說明及公司資料清晰一致，讓 AI 有足夠依據辨識及引用。
                 </div>
+                <p className="text-[11px] text-gray-500 mt-4 leading-relaxed">
+                  上圖為說明用示意畫面，並非 ChatGPT、Perplexity 或 Google 的實際輸出，亦不代表任何平台推薦 ADWire。AI 平台輸出不可保證。
+                </p>
               </motion.div>
             </div>
 
@@ -465,64 +470,55 @@ export default function SeoServiceContent() {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">靈活方案，適合不同階段</h2>
-            <p className="text-gray-500">無論你是剛起步還是成熟企業，我們都有適合你的 SEO 方案</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">方案與交付範圍</h2>
+            <p className="text-gray-500">單一網站／單一市場為基準，3 個月起，按月預繳</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <PackageCard 
-              name="基礎方案"
-              price="HK$4,000"
+              name="Starter"
+              price="HK$5,800"
               period="/ 月"
-              description="適合剛起步的中小企"
+              description="適合剛開始做 SEO 的中小企"
               features={[
-                "Technical SEO 技術審計",
-                "優化 1-3 個目標頁面",
-                "關鍵字研究與佈局",
-                "Google Analytics 設定",
-                "月度排名報告"
+                "15 個重點關鍵字",
+                "每月 2 篇內容",
+                "每月 2 頁優化",
+                "每月成效報告"
               ]}
               highlight={false}
-              whatsappMsg="Hello ADWire, 我想查詢 SEO 優化的【基礎方案】(HK$4,000/月)。"
+              whatsappMsg="Hello ADWire, 我想查詢 SEO / GEO 的【Starter 方案】(HK$5,800/月)。"
             />
             <PackageCard 
-              name="專業方案"
-              price="HK$6,000"
+              name="Growth"
+              price="HK$9,800"
               period="/ 月"
-              description="最多客戶選擇"
+              description="想穩定增加曝光與查詢"
               features={[
-                "所有基礎方案服務",
-                "每月 4 篇 SEO 文章撰寫",
-                "Backlink 建設策略",
-                "Local SEO 優化",
-                "競爭對手分析",
-                "每週數據追蹤",
-                "專屬客戶經理"
+                "30 個重點關鍵字",
+                "每月 4 篇內容",
+                "每月 4 頁優化",
+                "GEO 可見度追蹤",
+                "月度策略檢視"
               ]}
               highlight={true}
-              badge="最受歡迎"
-              whatsappMsg="Hello ADWire, 我想查詢 SEO 優化的【專業方案】(HK$6,000/月)。"
+              badge="最推薦"
+              whatsappMsg="Hello ADWire, 我想查詢 SEO / GEO 的【Growth 方案】(HK$9,800/月)。"
             />
             <PackageCard 
-              name="企業方案"
-              price="Custom"
+              name="Premium"
+              price="HK$16,800"
               period="/ 月"
-              description="適合大型品牌"
+              description="競爭較高或想加快佈局"
               features={[
-                "所有專業方案服務",
-                "無限頁面優化",
-                "GEO (AI SEO) 優化",
-                "每月 6-8 篇 SEO 文章撰寫",
-                "Backlink 建設策略",
-                "Local SEO 優化",
-                "競爭對手分析",
-                "每週數據追蹤",
-                "專屬客戶經理",
-                "電商 SEO 專項服務",
-                "品牌公關與媒體合作"
+                "50 個重點關鍵字",
+                "每月 6 篇內容",
+                "每月 6 頁優化",
+                "較深入技術支援",
+                "更全面 SEO + GEO 佈局"
               ]}
               highlight={false}
-              whatsappMsg="Hello ADWire, 我想查詢 SEO 優化的【企業方案】(Custom)。"
+              whatsappMsg="Hello ADWire, 我想查詢 SEO / GEO 的【Premium 方案】(HK$16,800/月)。"
             />
           </div>
           

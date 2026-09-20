@@ -286,11 +286,11 @@ export default function AiServiceContent() {
                 ADWire AI 解決方案
               </h3>
               <ul className="space-y-6 relative z-10">
-                <SolutionItem title="AI 數碼員工 (Digital Workers)" desc="24/7 處理客服、文書及行政工作，成本僅人手 1/10。" />
-                <SolutionItem title="智能流程自動化 (IPA)" desc="自動處理單據、審批與跨系統同步，效率提升 500%。" />
-                <SolutionItem title="AI 商業智能分析" desc="整合 CRM/ERP 數據，提供即時預測與決策建議。" />
-                <SolutionItem title="AI 銷售技能" desc="Lead Scoring + 話術建議，提升成交率與回覆速度。" />
-                <SolutionItem title="私有化 AI 部署" desc="敏感數據只在內部網絡運行，合規安全零外洩。" />
+                <SolutionItem title="AI 應用開發" desc="按業務場景開發客服輔助、文件處理、資料查詢及草稿生成等應用。" />
+                <SolutionItem title="企業流程自動化" desc="處理單據、審批與跨系統同步，並設人工覆核、失敗重試及錯誤通知。" />
+                <SolutionItem title="企業知識庫 (RAG)" desc="整合內部文件及 CRM／ERP 資料，讓同事以自然語言查詢並附引用來源。" />
+                <SolutionItem title="AI Agent 及系統整合" desc="以 API 連接現有系統，按權限執行查詢、分類及通知等工作。" />
+                <SolutionItem title="部署選項" desc="按需求評估企業內部網絡、受控雲端或混合部署，並設定存取權限、日誌及資料保留期。" />
               </ul>
             </div>
           </div>

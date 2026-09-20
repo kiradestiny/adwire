@@ -4,15 +4,15 @@ import ServiceJsonLd from "@/components/ServiceJsonLd";
 import FAQJsonLd from "@/components/FAQJsonLd";
 
 export const metadata: Metadata = {
-  title: "專業短影音製作與影片行銷服務 | Reels, TikTok & 企業宣傳片 | ADWire",
-  description: "ADWire 提供一站式影片製作服務，專精於 IG Reels、TikTok 短影音、企業形象片及產品廣告。從腳本策劃、專業拍攝到後期剪輯，助您抓住黃金 3 秒，引爆流量與轉換。",
-  keywords: ["短影音製作", "Reels 拍攝", "TikTok 行銷", "企業宣傳片", "香港影片製作", "Video Production HK", "Viral Shorts"],
+  title: "短視頻製作｜Reels・宣傳片・廣告",
+  description: "短視頻、企業宣傳片、產品廣告及活動紀錄的策劃、拍攝及後期製作。列明腳本、拍攝日數、剪輯版本、字幕、平台比例及交片時間。",
+  keywords: ["短視頻製作", "Reels 拍攝", "短片拍攝", "企業宣傳片", "香港影片製作", "Video Production HK", "Viral Shorts"],
   alternates: {
     canonical: "/services/video/",
   },
   openGraph: {
-    title: "專業短影音製作與影片行銷服務 | ADWire Agency",
-    description: "ADWire 提供一站式影片製作服務，專精於 IG Reels、TikTok 短影音、企業形象片及產品廣告。",
+    title: "短視頻製作",
+    description: "短視頻、企業宣傳片、產品廣告及活動紀錄的策劃、拍攝及後期製作。",
     images: [
       {
         url: "/portfolio/cafe-reels.webp",

@@ -14,7 +14,7 @@ export default function JsonLd() {
       "width": 400,
       "height": 200
     },
-    "description": "ADWire Agency 是香港領先的 AI 驅動 MarTech 代理商，專注於 KOL 網紅營銷、短視頻製作、SEO/GEO 優化及成效廣告投放。服務超過500家企業，平均ROI提升328%。",
+    "description": "ADWire Agency Limited 提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻及 KOL 等數碼營銷服務，以香港市場為主。",
     "foundingDate": "2023",
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61575126092859",
@@ -49,19 +49,17 @@ export default function JsonLd() {
       "@type": "Country",
       "name": "Hong Kong"
     },
-    "numberOfEmployees": {
-      "@type": "QuantitativeValue",
-      "minValue": 10,
-      "maxValue": 50
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "128",
-      "reviewCount": "128"
-    }
+    // 註：已移除 numberOfEmployees（未經核准的團隊人數）及 aggregateRating
+    //（評分來源及評論數目未核實，Schema 只可標記真實可見內容）。
+    // 如要恢復 aggregateRating，需先提供真實評論平台、評論數目及對應頁面。
+    "knowsAbout": [
+      "Software Development",
+      "AI Application Development",
+      "Business Workflow Automation",
+      "Search Engine Optimization",
+      "Generative Engine Optimization",
+      "Digital Marketing"
+    ]
   };
 
   const localBusinessSchema = {
@@ -83,7 +81,7 @@ export default function JsonLd() {
       "addressRegion": "New Territories",
       "addressCountry": "HK"
     },
-    "description": "ADWire Agency 是香港領先的 AI 驅動 MarTech 代理商，專注於 KOL 網紅營銷、短視頻製作、SEO/GEO 優化及成效廣告投放。我們結合數據分析與自動化技術，助企業實現業績增長。",
+    "description": "ADWire Agency Limited 提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻及 KOL 等數碼營銷服務，以香港市場為主。",
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 22.3578,
@@ -133,7 +131,7 @@ export default function JsonLd() {
     "name": "ADWire Agency",
     "alternateName": "ADWire 香港數碼營銷代理",
     "url": "https://adwire.com.hk",
-    "description": "香港首選 AI 驅動 MarTech 代理——KOL 網紅營銷、短視頻製作、SEO/GEO 優化及成效廣告",
+    "description": "香港企業軟件開發、AI 應用與自動化、SEO／GEO 及數碼營銷方案",
     "inLanguage": ["zh-HK", "en-HK"],
     "publisher": {
       "@id": "https://adwire.com.hk/#organization"

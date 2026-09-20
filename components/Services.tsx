@@ -9,40 +9,66 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 
+/* 主要服務線（按新定位排序：Software → AI & Automation → SEO & GEO） */
 const coreServices = [
   {
-    icon: Megaphone,
-    title: "KOL 網紅營銷",
-    desc: "連結全港強大 KOL 網絡，精準配對目標客群，製造城中熱話。",
-    link: "/services/kol",
-    color: "bg-orange-500",
-    textColor: "text-orange-500",
-    bgLight: "bg-orange-50",
-    border: "border-orange-100"
-  },
-  {
-    icon: Smartphone,
-    title: "短視頻製作",
-    desc: "Reels / TikTok 劇本、拍攝、剪輯全包，抓住短片流量紅利。",
-    link: "/services/video",
+    icon: Code,
+    title: "Software Development",
+    desc: "企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合。由需求分析、Prototype、開發、測試到部署、文件及上線後維護。",
+    link: "/services/system",
     color: "bg-blue-500",
     textColor: "text-blue-500",
     bgLight: "bg-blue-50",
     border: "border-blue-100"
   },
   {
-    icon: BarChart3,
-    title: "成效廣告投放",
-    desc: "Facebook / Google Ads 數據優化，拒絕盲目燒錢，追求最高 ROI。",
-    link: "/services/ads",
-    color: "bg-green-500",
-    textColor: "text-green-500",
-    bgLight: "bg-green-50",
-    border: "border-green-100"
+    icon: Cpu,
+    title: "AI & Automation",
+    desc: "AI 應用、企業知識庫（RAG）、AI Agent 及工作流程自動化，並與 CRM／ERP 或現有系統整合。包含人工覆核、失敗重試及監控日誌。",
+    link: "/services/ai",
+    color: "bg-indigo-500",
+    textColor: "text-indigo-500",
+    bgLight: "bg-indigo-50",
+    border: "border-indigo-100"
+  },
+  {
+    icon: Search,
+    title: "SEO & GEO",
+    desc: "技術 SEO、關鍵字及搜尋意圖規劃、內容優化，並將搜尋曝光延伸到 AI 問答搜尋。以曝光、點擊、索引健康及查詢轉換作為量度指標。",
+    link: "/services/seo",
+    color: "bg-cyan-500",
+    textColor: "text-cyan-500",
+    bgLight: "bg-cyan-50",
+    border: "border-cyan-100"
   }
 ];
 
+/* Digital Marketing 及原有服務（全部保留） */
 const otherServices = [
+  {
+    icon: Megaphone,
+    title: "KOL 網紅營銷",
+    desc: "按品牌定位及預算配對 KOL 層級，由篩選、內容監修到成效追蹤。",
+    link: "/services/kol",
+    color: "text-orange-600",
+    bg: "bg-orange-100"
+  },
+  {
+    icon: Smartphone,
+    title: "短視頻製作",
+    desc: "劇本、拍攝及剪輯；列明腳本、拍攝日數、剪輯版本、字幕及交片時間。",
+    link: "/services/video",
+    color: "text-blue-600",
+    bg: "bg-blue-100"
+  },
+  {
+    icon: BarChart3,
+    title: "成效廣告投放",
+    desc: "Google、Meta、YouTube 及 LinkedIn 廣告策略與持續優化，服務費與媒體預算分開計算。",
+    link: "/services/ads",
+    color: "text-green-600",
+    bg: "bg-green-100"
+  },
   {
     icon: Share2,
     title: "社交媒體管理",
@@ -53,48 +79,24 @@ const otherServices = [
   },
   {
     icon: Bot,
-    title: "營銷自動化",
-    desc: "Chatbot 自動回覆、追單系統，24/7 自動做生意，節省客服成本。",
+    title: "企業流程自動化",
+    desc: "將重複工序自動化並連接現有系統，包含人工覆核、失敗重試及錯誤通知。",
     link: "/services/automation",
     color: "text-purple-600",
     bg: "bg-purple-100"
   },
   {
-    icon: Cpu,
-    title: "AI 解決方案",
-    desc: "定制化 AI Agent 與工作流自動化，將 AI 技術轉化為實際生產力。",
-    link: "/services/ai",
-    color: "text-indigo-600",
-    bg: "bg-indigo-100"
-  },
-  {
-    icon: Search,
-    title: "SEO 與 GEO",
-    desc: "提升 Google 排名，搶佔自然流量，讓客戶主動找到你。",
-    link: "/services/seo",
-    color: "text-cyan-600",
-    bg: "bg-cyan-100"
-  },
-  {
     icon: Globe,
-    title: "網頁設計",
-    desc: "高轉化 Landing Page 及品牌官網設計，提升品牌形象與信任度。",
+    title: "網頁設計及電商",
+    desc: "企業官網、電商網站及 Landing Page，按項目評估 CMS、WordPress／Shopify 或 Next.js／React。",
     link: "/services/web",
     color: "text-indigo-600",
     bg: "bg-indigo-100"
   },
   {
-    icon: Code,
-    title: "系統/APP開發",
-    desc: "定制化 CRM、ERP 或手機 App 開發，數碼化轉型提升營運效率。",
-    link: "/services/system",
-    color: "text-slate-600",
-    bg: "bg-slate-100"
-  },
-  {
     icon: Camera,
     title: "商業攝影",
-    desc: "專業產品攝影、活動花絮錄影，用高品質視覺說好品牌故事。",
+    desc: "企業宣傳片、活動錄影及產品攝影，列明拍攝時數、成品數量及使用權。",
     link: "/services/production",
     color: "text-rose-600",
     bg: "bg-rose-100"

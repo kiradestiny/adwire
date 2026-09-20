@@ -3,9 +3,9 @@ import { WHATSAPP_E164 } from "@/lib/site-config";
 import SeoServiceContent from "./SeoServiceContent";
 
 export const metadata: Metadata = {
-  title: "SEO & GEO / AISO 優化 | ADWire Agency 香港 | Google + ChatGPT + Perplexity 全面排名",
+  title: "SEO + GEO 企業搜尋增長方案",
   description:
-    "ADWire Agency 提供香港專業 SEO 及 GEO（生成式引擎優化 / AISO）服務。同步優化 Google、ChatGPT、Perplexity、Gemini、Claude 等 AI 引擎排名，對抗 Zero-Click 流量下跌。基礎方案 HK$4,000/月起。",
+    "SEO 打好 Google／Bing 自然搜尋基礎，GEO 將搜尋曝光延伸到 AI 問答搜尋。方案由每月 HK$5,800 起，列明關鍵字數量、文章篇數、頁面優化數量及每月報告。3 個月起，單一網站／單一市場為基準。",
   keywords: [
     "SEO 香港",
     "GEO 優化",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     canonical: "/services/seo/",
   },
   openGraph: {
-    title: "SEO & GEO / AISO 優化 | ADWire Agency 香港",
+    title: "SEO + GEO 企業搜尋增長方案",
     description:
-      "同步優化 Google、ChatGPT、Perplexity、Gemini 等 AI 引擎排名，應對 Zero-Click 流量危機。香港專業 SEO + GEO 雙軌優化，基礎方案 HK$4,000/月起。",
+      "SEO 打好 Google／Bing 自然搜尋基礎，GEO 將搜尋曝光延伸到 AI 問答搜尋。方案由每月 HK$5,800 起，交付內容及量度方式清晰列明。",
     url: "https://adwire.com.hk/services/seo/",
     siteName: "ADWire Agency",
     images: [
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SEO & GEO / AISO | ADWire Agency 香港",
-    description: "Google + ChatGPT + Perplexity 全面排名優化，應對 Zero-Click 危機，HK$4,000/月起。",
+    title: "SEO + GEO 企業搜尋增長方案",
+    description: "SEO 打好自然搜尋基礎，GEO 將曝光延伸到 AI 問答搜尋。HK$5,800/月起，交付清晰。",
     images: ["/portfolio/seo-ranking.webp"],
   },
 };
@@ -85,13 +85,13 @@ const serviceSchema = {
   offers: [
     {
       "@type": "Offer",
-      name: "SEO / GEO 基礎方案",
-      description: "適合剛起步的中小企。Technical SEO 審計、1–3個目標頁面優化、關鍵字研究、Google Analytics 設定及月度排名報告。",
-      price: "4000",
+      name: "Starter（入門方案）",
+      description: "適合剛開始做 SEO 的中小企。15 個重點關鍵字、每月 2 篇內容、每月 2 頁優化、每月成效報告。",
+      price: "5800",
       priceCurrency: "HKD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "4000",
+        price: "5800",
         priceCurrency: "HKD",
         unitText: "月",
       },
@@ -99,13 +99,13 @@ const serviceSchema = {
     },
     {
       "@type": "Offer",
-      name: "SEO / GEO 專業方案",
-      description: "最受客戶選擇。包含基礎方案所有服務，每月 4 篇 SEO 文章、Backlink 建設、Local SEO、競爭對手分析、每週追蹤及專屬客戶經理。",
-      price: "6000",
+      name: "Growth（增長方案）",
+      description: "最受客戶選擇。30 個重點關鍵字、每月 4 篇內容、每月 4 頁優化、GEO 可見度追蹤及月度策略檢視。",
+      price: "9800",
       priceCurrency: "HKD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "6000",
+        price: "9800",
         priceCurrency: "HKD",
         unitText: "月",
       },
@@ -113,9 +113,17 @@ const serviceSchema = {
     },
     {
       "@type": "Offer",
-      name: "SEO / GEO 企業方案",
-      description: "適合大型品牌。無限頁面優化、GEO（AI SEO）全面部署、每月 6–8 篇文章、Backlink 建設、電商 SEO 及品牌公關。",
-      itemOffered: { "@type": "Service", name: "SEO / GEO 企業方案" },
+      name: "Premium（旗艦方案）",
+      description: "適合競爭較高或希望加快佈局的品牌。50 個重點關鍵字、每月 6 篇內容、每月 6 頁優化、較深入技術支援及更全面 SEO + GEO 佈局。",
+      price: "16800",
+      priceCurrency: "HKD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: "16800",
+        priceCurrency: "HKD",
+        unitText: "月",
+      },
+      itemOffered: { "@type": "Service", name: "Premium（旗艦方案）" },
     },
   ],
   hasOfferCatalog: {
@@ -151,7 +159,7 @@ const faqSchema = {
       name: "什麼是 GEO（生成式引擎優化）？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "GEO（Generative Engine Optimization）又稱 AISO（AI Search Optimization），是針對 ChatGPT、Perplexity、Google Gemini、Claude、Microsoft Copilot 等 AI 引擎的優化策略。GEO 確保當用戶向 AI 詢問相關問題時，你的品牌會被 AI 引用為權威答案。與傳統 SEO 針對 Google 爬蟲不同，GEO 重視內容結構化、E-E-A-T 原則及事實的可引用性。",
+        text: "GEO（Generative Engine Optimization，生成式引擎優化）針對 ChatGPT、Perplexity、Google AI 搜尋等 AI 問答搜尋環境優化品牌能見度。GEO 的做法是令內容結構清晰、事實可被引用、品牌資訊在不同渠道保持一致，從而提高被 AI 回答提及或引用的機會。需要注意：AI 平台的輸出由平台決定，任何供應商都無法保證一定會被引用或推薦。",
       },
     },
     {
@@ -183,7 +191,7 @@ const faqSchema = {
       name: "ADWire SEO / GEO 服務香港收費是多少？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `ADWire SEO / GEO 服務分三個方案：基礎方案 HK$4,000/月（Technical SEO + 1–3頁優化）；專業方案 HK$6,000/月（含每月 4 篇 SEO 文章 + Backlink 建設 + Local SEO）；企業方案為度身定制（含 GEO 全面部署 + 電商 SEO + 品牌公關）。可 WhatsApp ${WHATSAPP_E164} 免費諮詢。`,
+        text: `ADWire SEO / GEO 服務分三個方案（單一網站／單一市場為基準，3 個月起，按月預繳）：Starter HK$5,800/月（15 個重點關鍵字、每月 2 篇內容、2 頁優化、每月成效報告）；Growth HK$9,800/月（30 個重點關鍵字、每月 4 篇內容、4 頁優化、GEO 可見度追蹤、月度策略檢視）；Premium HK$16,800/月（50 個重點關鍵字、每月 6 篇內容、6 頁優化、較深入技術支援）。費用不含廣告費、Hosting 及第三方工具；大型網站、多語言或大量 SKU 需另行報價。可 WhatsApp ${WHATSAPP_E164} 查詢。`,
       },
     },
     {
@@ -199,7 +207,7 @@ const faqSchema = {
       name: "ADWire 保證能上 Google 第一頁嗎？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "任何誠實的 SEO 公司都不會承諾「100% 保證第一頁」，因為 Google 演算法隨時在變。但 ADWire 憑藉 10 年以上 SEO 實戰經驗和正規白帽（White Hat）技術，我們有信心將核心關鍵字推向首頁，並大幅提升網站整體曝光與流量。我們以實際排名數據及流量增長作為成效憑證。",
+        text: "不會，我們亦不會作任何排名保證，因為 Google 及 AI 平台的演算法並非供應商可控制。ADWire 的工作是按技術 SEO、關鍵字意圖、內容質素及網站結構逐項優化，並以曝光、點擊、索引健康及查詢轉換等可量度數據向客戶交代進度。實務經驗上，基礎打好後約 3–6 個月開始見到較明顯的排名及流量變化，競爭激烈的行業需要更長時間。",
       },
     },
   ],

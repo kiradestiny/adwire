@@ -347,11 +347,11 @@ export default function ContactSection({ defaultService }: { defaultService?: st
               Ready to Grow?
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              準備好令你的品牌<br />
-              <span className="text-[#f5a623]">引爆流量？</span>
+              準備好開始<br />
+              <span className="text-[#f5a623]">你的項目了嗎？</span>
             </h2>
             <p className="text-gray-300 text-lg mb-6">
-              唔好再浪費預算係無效嘅廣告上面。立即預約 15 分鐘免費諮詢，讓我們為你診斷痛點，量身訂造增長方案。
+              講清楚你的需求，我們會安排合適的同事回覆可行的做法、範圍及報價方式。無論是軟件開發、AI 應用、流程自動化還是搜尋增長，都歡迎先談清楚再決定。
             </p>
 
             {/* Social proof badge */}
@@ -363,7 +363,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
               </div>
               <span className="text-sm text-white font-medium">
                 4.9 分 · 已服務{" "}
-                <span className="text-[#f5a623] font-bold">150+</span> 香港品牌
+                <span className="text-[#f5a623] font-bold">500+</span> 服務客戶
               </span>
             </div>
 
@@ -419,22 +419,21 @@ export default function ContactSection({ defaultService }: { defaultService?: st
           >
             {/* Corner badge（裝飾性） */}
             <div className="absolute -top-4 -right-4 bg-[#f5a623] text-white px-4 py-2 rounded-lg font-bold shadow-lg transform rotate-3 hidden md:block text-sm" aria-hidden="true">
-              限時免費諮詢
+              首次諮詢免費
             </div>
 
             <h3 className="text-2xl font-bold text-[#0f4c81] mb-1">
-              化繁為簡，定制最適合你的推廣策略
+              告訴我們你的項目需求
             </h3>
             <p className="text-gray-500 text-sm mb-5">
-              填寫表格，我們的專家將在{" "}
-              <span className="font-semibold text-[#0f4c81]">24 小時</span>內與您聯繫
+              填寫後我們會按服務類別安排合適同事跟進。
             </p>
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-2 mb-5 pb-5 border-b border-gray-100">
               {[
-                { Icon: Shield, label: "資料絕對保密",   cls: "text-green-500" },
-                { Icon: Zap,    label: "24 小時內回覆", cls: "text-amber-500" },
+                { Icon: Shield, label: "資料保密處理",   cls: "text-green-500" },
+                { Icon: Zap,    label: "營業時間內回覆", cls: "text-amber-500" },
                 { Icon: Gift,   label: "首次諮詢免費",  cls: "text-blue-500"  },
               ].map(({ Icon, label, cls }) => (
                 <span

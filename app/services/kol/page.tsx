@@ -3,9 +3,9 @@ import { WHATSAPP_E164 } from "@/lib/site-config";
 import KolServiceContent from "./KolServiceContent";
 
 export const metadata: Metadata = {
-  title: "KOL 網紅營銷服務 | ADWire Agency 香港 | Influencer Marketing 數據驅動配對",
+  title: "KOL 網紅營銷｜數據驅動配對",
   description:
-    "ADWire Agency 提供香港一站式 KOL 網紅營銷服務。涵蓋 Instagram、Facebook、小紅書及 Threads 網紅配對，從 Nano KOL 種草到 Mega KOL 品牌大使，AI 粉絲質量分析，確保每分預算轉化為真實銷量。",
+    "按品牌定位、受眾及預算配對 KOL 層級，由篩選、內容監修到觸及、互動及轉化追蹤。清楚說明不同層級 KOL 的分工與適用場景。",
   keywords: [
     "KOL 網紅營銷香港",
     "Influencer Marketing HK",
@@ -28,9 +28,8 @@ export const metadata: Metadata = {
     canonical: "/services/kol/",
   },
   openGraph: {
-    title: "KOL 網紅營銷服務 | ADWire Agency 香港",
-    description:
-      "一站式 KOL 網紅配對及內容監修。涵蓋 IG、FB、小紅書及 Threads，AI 數據分析粉絲質量，確保廣告觸達真實潛在買家。",
+    title: "KOL 網紅營銷",
+    description: "按品牌定位、受眾及預算配對 KOL 層級，由篩選、內容監修到成效追蹤。",
     url: "https://adwire.com.hk/services/kol/",
     siteName: "ADWire Agency",
     images: [

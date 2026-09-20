@@ -21,9 +21,9 @@ import type { Metadata } from "next";
 import { getBrands, getBlogPosts, getSerializablePortfolioCases } from "@/lib/data-resolver";
 
 export const metadata: Metadata = {
-  title: "ADWire Agency | 香港首選 AI 驅動 MarTech 代理 | AI Marketing & Growth",
+  title: { absolute: "ADWire Agency｜軟件開發・AI 應用・SEO 增長方案" },
   description:
-    "ADWire Agency 是香港領先的 AI MarTech 代理商，專注 KOL 網紅營銷、短視頻製作、SEO/GEO 優化及成效廣告。服務超過500家香港企業，平均ROI提升328%。立即免費諮詢。We provide AI-driven MarTech solutions for Hong Kong and GBA enterprises.",
+    "ADWire 提供企業網站及系統開發、AI 應用與工作流程自動化，以及 SEO／GEO 搜尋優化。由需求分析、開發部署到持續改善，協助香港企業處理實際營運與增長問題。",
   keywords: [
     "香港數碼營銷",
     "KOL 網紅營銷",
@@ -51,12 +51,12 @@ const faqs = [
   {
     question: "ADWire Agency 提供哪些數碼營銷服務？",
     answer:
-      "ADWire Agency 提供全方位 AI 驅動 MarTech 服務，包括：KOL 網紅營銷、短視頻製作（Reels / TikTok / YouTube Shorts）、SEO/GEO 搜尋引擎優化、Facebook 及 Google 成效廣告投放、社交媒體管理、WhatsApp 自動化、CRM/ERP 系統開發、AI 解決方案及商業攝影。香港少數能同時提供「爆款內容創作」與「複雜系統開發」的一站式代理商。",
+      "ADWire 提供四條主要服務線：Software Development（企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合）、AI & Automation（AI 應用、企業知識庫、工作流程自動化、系統整合）、SEO & GEO（技術 SEO、內容與關鍵字規劃、AI 搜尋能見度及成效量度），以及 Digital Marketing（Google／Meta 廣告、社交媒體代管、短視頻製作、KOL 網紅營銷及商業攝影）。可先到服務範疇頁按需求查看對應服務。",
   },
   {
     question: "什麼是 GEO (Generative Engine Optimization)？與 SEO 有何分別？",
     answer:
-      "GEO（Generative Engine Optimization）是針對 AI 搜索引擎（如 ChatGPT、Perplexity、Google AI Overview）的優化技術。傳統 SEO 目的是讓網站在 Google 搜尋結果頁面排名靠前；而 GEO 則旨在讓您的品牌成為 AI 生成答案中的首選推薦。GEO 的核心手法包括：結構化數據標記（Schema.org）、可引用的 FAQ 格式內容、權威的比較表格、llms.txt 文件以及 E-E-A-T（經驗、專業、權威、可信度）信號的強化。ADWire 是香港少數同時提供 SEO + GEO 雙軌優化的代理商。",
+      "GEO（Generative Engine Optimization，生成式引擎優化）針對 ChatGPT、Perplexity、Google AI 搜尋等 AI 問答環境優化品牌能見度，做法包括內容結構清晰、事實可被引用、結構化資料標記、品牌資訊在不同渠道保持一致，以及強化 E-E-A-T 訊號。傳統 SEO 目標是讓網站在 Google／Bing 自然搜尋結果取得曝光；GEO 是將同一批優質內容延伸到 AI 問答搜尋。兩者互補，GEO 不會取代 SEO。需要注意：AI 平台的輸出由平台決定，任何供應商都無法保證品牌一定會被提及或推薦。",
   },
   {
     question: "如何開始與 ADWire 合作？流程是怎樣的？",
@@ -91,7 +91,7 @@ const faqs = [
   {
     question: "ADWire 主要服務香港哪些行業？",
     answer:
-      "ADWire 服務香港各主要行業，包括：美容护肤 & 健康保健、餐飲 & 食品飲料、金融 & 保險、房地產、教育 & 培訓機構、零售 & 電商、科技 & SaaS 公司、酒店 & 旅遊、醫療 & 醫美，以及 B2B 企業服務。我們服務超過 500 家香港企業，從初創公司到跨國品牌均有成功案例可供參考。",
+      "ADWire 以香港市場為主，曾服務的行業包括美容及健康、餐飲、金融及保險、地產、教育、零售及電商、科技及 SaaS、酒店及旅遊、醫療及醫美，以及 B2B 企業服務。至今已服務超過 500 家客戶及品牌，公開精選案例 16 個，可在成功案例頁查看每個項目的實際工作範圍。",
   },
   {
     question: "如何評估數碼營銷方案的成效？有哪些關鍵指標？",
@@ -101,12 +101,12 @@ const faqs = [
   {
     question: "網頁設計或定制系統開發需要多長時間完成？",
     answer:
-      "項目時間因規模而異：品牌形象網站（5-10 頁）通常 2-4 週完成；電商網站（整合支付系統）約 4-8 週；定制 CRM / ERP 系統 / 預訂系統則需 6-16 週，視功能複雜度而定。ADWire 全程使用敏捷開發方法，在開發過程提供階段性預覽，確保最終成品符合您的業務需求。所有網站均採用 Next.js / React 技術棧，確保良好的 SEO 性能及手機體驗。",
+      "項目時間因規模而異：品牌形象網站一般 2-4 週；電商網站（整合支付系統）約 4-8 週；客製化 CRM／ERP 或預約系統則需 6-16 週，視功能複雜度而定。開發過程會提供階段性預覽，並在完成後交付文件及安排交接。技術選項按項目評估，可包括 CMS、WordPress／Shopify、Next.js／React 或其他合適方案，並非所有網站都必須使用同一技術。",
   },
   {
     question: "為什麼選擇 ADWire 而非其他香港廣告代理商？",
     answer:
-      "ADWire 的核心優勢在於「技術 + 創意」雙引擎：①香港少數同時具備 AI 技術開發與創意營銷能力的代理商；②SEO + GEO 雙軌優化，讓品牌被 Google 及 ChatGPT 同時推薦；③一站式服務，從 KOL 合作、廣告投放到系統開發，無需多家供應商；④數據驅動決策，所有策略均有數據支撐；⑤服務超過 500 家香港企業，平均 ROI 提升 328%；⑥本地化香港團隊，深諳本地市場文化與消費者心理。適合希望通過 AI 技術與創意內容實現業績突破的香港中小企及品牌。",
+      "ADWire 的特點是把業務理解、創意與技術放在同一個團隊處理：①可按需求由需求整理一路做到開發、上線及維護；②提供軟件開發、AI 與自動化、SEO／GEO 及數碼營銷四條服務線，減少客戶要在多間供應商之間協調；③交付範圍、技術選項及維護安排會事先講清楚，包括原始碼及帳戶歸屬；④所有成效以可量度的數據交代，不以無法核實的排名或成效作承諾；⑤至今已服務超過 500 家客戶及品牌。",
   },
 ];
 

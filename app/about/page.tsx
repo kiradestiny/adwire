@@ -3,9 +3,9 @@ import AboutContent from "./AboutContent";
 import { WHATSAPP_E164 } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "關於 ADWire Agency | 香港 MarTech 數碼營銷代理 | SEO + AI 全棧團隊",
+  title: "關於 ADWire｜軟件、AI 與數碼增長團隊",
   description:
-    "ADWire Agency 是香港領先的 MarTech 代理商，結合 10 年 SEO 專業經驗與全棧開發技術。提供 KOL 網紅營銷、SEO/GEO 優化、AI 自動化、成效廣告及短視頻製作服務。辦公室位於葵芳新都會廣場。",
+    "ADWire Agency Limited 以香港市場為主，提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 及數碼營銷服務。團隊由精簡核心成員及按項目協作的專業人才組成，按項目需要安排合適的執行組合。",
   keywords: [
     "ADWire Agency",
     "香港數碼營銷代理",
@@ -25,9 +25,8 @@ export const metadata: Metadata = {
     canonical: "/about/",
   },
   openGraph: {
-    title: "關於 ADWire Agency | 香港 MarTech 數碼營銷代理",
-    description:
-      "ADWire Agency 是香港領先的 MarTech 代理商，結合 10 年 SEO 經驗與全棧開發技術，提供數據驅動的全方位數碼營銷解決方案。",
+    title: "關於 ADWire",
+    description: "ADWire Agency Limited 以香港市場為主，提供軟件開發、AI 應用與自動化、SEO／GEO 及數碼營銷服務。",
     url: "https://adwire.com.hk/about/",
     siteName: "ADWire Agency",
     images: [
@@ -66,7 +65,7 @@ const organizationSchema = {
     height: 60,
   },
   description:
-    "ADWire Agency 是香港一間科技驅動的 MarTech（Marketing Technology）代理商，成立於香港，專注於 SEO/GEO 優化、KOL 網紅營銷、AI 自動化、成效廣告（Meta / Google Ads）及短視頻製作。團隊擁有 10 年以上 SEO 實戰經驗及全棧開發能力。",
+    "ADWire Agency Limited 以香港市場為主要業務背景，提供軟件開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻、KOL 及商業攝影等數碼營銷服務。團隊由精簡核心成員及按項目協作的專業人才組成。",
   foundingLocation: "Hong Kong",
   areaServed: ["Hong Kong", "Greater Bay Area", "Taiwan", "Southeast Asia"],
   address: {
@@ -132,7 +131,7 @@ const aboutPageSchema = {
   name: "關於 ADWire Agency",
   url: "https://adwire.com.hk/about/",
   description:
-    "了解 ADWire Agency 的公司故事、核心使命、專業團隊及服務理念。ADWire 是香港少數同時擁有 10 年 SEO 專家與全棧開發者的 MarTech 代理商。",
+    "了解 ADWire Agency Limited 的服務範圍、交付流程、團隊組成及合作方式，以及我們如何處理軟件開發、AI 自動化、SEO／GEO 及數碼營銷項目。",
   inLanguage: ["zh-Hant", "en"],
   isPartOf: {
     "@type": "WebSite",
@@ -171,7 +170,7 @@ const faqSchema = {
       name: "ADWire Agency 係咩公司？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "ADWire Agency 是一間位於香港葵芳的 MarTech（Marketing Technology）數碼代理公司。我們結合 10 年以上 SEO 實戰經驗與全棧開發技術，為品牌提供數據驅動的全方位數碼營銷方案，包括 SEO/GEO 優化、KOL 網紅營銷、AI 自動化、Meta/Google 成效廣告及短視頻製作。",
+        text: "ADWire Agency Limited 以香港市場為主要業務背景，提供軟件開發（企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合）、AI 與自動化（AI 應用、企業知識庫、工作流程自動化）、SEO／GEO 搜尋優化，以及數碼營銷（成效廣告、社交媒體、短視頻、KOL 及攝影）。實際工作範圍會按項目需要確認。",
       },
     },
     {
@@ -179,7 +178,7 @@ const faqSchema = {
       name: "ADWire 與其他香港 Marketing Agency 有什麼分別？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "ADWire 是香港市場少數同時擁有「10年製 SEO 專家」與「全棧開發者（Full-stack Developer）」的代理商。傳統 Marketing Agency 做創意但不懂技術，IT 公司懂技術但不懂市場心理。ADWire 填補了這個缺口——我們既能做廣告投放、SEO 排名，同時能開發自動化系統、定製 CRM，以技術提升每一個營銷環節的效率。",
+        text: "ADWire 的團隊同時具備營銷、創意與技術開發經驗，可以從業務問題出發，一路處理需求整理、方案設計、開發交付及成效量度。這種組合的好處是客戶不需要在廣告公司與開發商之間來回協調，項目範圍、技術選項、原始碼及帳戶歸屬、維護安排都可以在同一個團隊內一次講清楚。",
       },
     },
     {

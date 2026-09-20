@@ -15,9 +15,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://adwire.com.hk'
 
   // ── 上次重大更新日期 ────────────────────────────────────────────
-  const SITE_LAST_UPDATED     = '2026-02-28'  // 本次 SEO/GEO 優化、FAQ/對比表新增
-  const BLOG_LAST_UPDATED     = '2026-02-28'  // 新增 4 篇深度文章
-  const SERVICE_LAST_UPDATED  = '2026-02-28'  // 服務頁面 Schema 更新
+  const SITE_LAST_UPDATED     = '2026-09-20'  // 2026-09 網站定位及 SEO 優化批次
+  const BLOG_LAST_UPDATED     = '2026-09-20'  // 文章模板及內容更新
+  const SERVICE_LAST_UPDATED  = '2026-09-20'  // 服務頁面定位、交付內容及 Schema 更新
   const LEGAL_LAST_UPDATED    = '2025-01-01'  // 法律條款未變更
   const PORTFOLIO_LAST_UPDATED = '2025-02-15' // 作品集未有新增
 

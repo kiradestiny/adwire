@@ -21,7 +21,7 @@ export default function Footer() {
           </Link>
           <p className="text-gray-300 leading-relaxed">
             Wired for Impact.<br/>
-            香港首選 AI 驅動 MarTech 代理。結合內容流量與自動化技術，為品牌創造真實價值。
+            香港企業軟件、AI 應用、自動化與數碼增長方案。由需求分析到交付及持續改善，處理實際營運問題。
           </p>
           {/* Social Icons */}
           <div className="flex gap-4">

@@ -28,13 +28,13 @@ export default function AutomationServiceContent() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              請一個 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">24/7 不睡覺</span> 的超級員工<br/>
-              生意自動運轉
+              企業工作流程自動化<br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">減少重複工序，連接現有系統</span>
             </h1>
             
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-              告別繁瑣的手動操作 (Manual Work)。<br/>
-              我們幫你串接 WhatsApp, CRM 及廣告系統，讓 AI 自動回覆、自動追單、自動入數。
+              將 Email、表格、Excel、報價、訂單及客戶跟進等重複工序自動化。<br/>
+              依已配置的流程持續執行；出現異常時會通知真人接手，並保留完整日誌。
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -127,10 +127,10 @@ export default function AutomationServiceContent() {
                 <Check size={24} /> 營銷自動化系統
               </div>
               <ul className="space-y-4 text-gray-700">
-                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 秒回：0.1 秒即時回覆，24 小時全天候待命。</li>
-                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 準確：API 直接對接，100% 準確無誤。</li>
-                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 成本低：系統唔會放假，成本只需人工的 1/10。</li>
-                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 主動：設定時間自動追單 (e.g. 24小時後提佢比錢)。</li>
+                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 即時：新查詢進入後即時觸發流程，非辦公時間仍可先接收及分類。</li>
+                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 可追查：API 直接對接，每步執行都有日誌；資料來源或欄位有誤時會標示並通知負責同事。</li>
+                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 減少人手：把重複輸入及跟進工序交由系統處理，同事專注需要判斷的個案。</li>
+                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 主動跟進：按設定時間自動提醒客戶或同事（例如報價後 24 小時提醒）。</li>
               </ul>
             </div>
           </div>

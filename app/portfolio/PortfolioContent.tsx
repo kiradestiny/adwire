@@ -37,10 +37,10 @@ interface PortfolioContentProps {
 
 // ─── Hero 統計數字 ───────────────────────────────────────────
 const heroStats = [
-  { value: "150+", label: "成功案例", icon: Award },
-  { value: "98%", label: "客戶滿意度", icon: Sparkles },
-  { value: "3.8x", label: "平均 ROAS", icon: TrendingUp },
-  { value: "10年+", label: "行業經驗", icon: Zap },
+  { value: "16", label: "精選公開案例", icon: Award },
+  { value: "500+", label: "服務客戶", icon: Sparkles },
+  { value: "328%", label: "平均 ROI 提升", icon: TrendingUp },
+  { value: "98%", label: "客戶滿意度", icon: Zap },
 ];
 
 // ─── 背景光球配置 ────────────────────────────────────────────

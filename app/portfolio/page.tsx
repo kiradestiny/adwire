@@ -4,9 +4,9 @@ import { getSerializablePortfolioCases } from "@/lib/data-resolver";
 
 // ─── SEO Metadata ─────────────────────────────────────────────
 export const metadata: Metadata = {
-  title: "成功案例 Portfolio | ADWire Agency — 120+ 真實數據案例",
+  title: "成功案例｜系統・AI・SEO 實戰項目",
   description:
-    "瀏覽 ADWire 120+ 個香港成功案例：KOL 爆紅短片、SEO 霸榜、自動化系統、高 ROAS 廣告。每個數字都是真實成果，拒絕紙上談兵。",
+    "精選案例涵蓋系統及 CRM 開發、AI 與工作流程自動化、SEO／GEO 及整合數碼增長項目。每個案例列明 ADWire 的實際工作範圍、時期及已核實的技術與成效。",
   keywords: [
     "香港數碼營銷案例",
     "KOL 營銷成功案例",
@@ -23,9 +23,8 @@ export const metadata: Metadata = {
     canonical: "/portfolio/",
   },
   openGraph: {
-    title: "成功案例 Portfolio | ADWire Agency — 120+ 真實數據案例",
-    description:
-      "瀏覽 ADWire 120+ 個香港成功案例：KOL 爆紅短片、SEO 霸榜、自動化系統、高 ROAS 廣告。每個數字都是真實成果。",
+    title: "成功案例｜系統・AI・SEO 實戰項目",
+    description: "精選案例涵蓋系統及 CRM 開發、AI 與自動化、SEO／GEO 及整合數碼增長項目，列明實際工作範圍及成效。",
     url: "https://adwire.com.hk/portfolio/",
     type: "website",
     images: [

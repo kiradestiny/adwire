@@ -77,9 +77,9 @@ export default function KolServiceContent() {
             </span>
             
             <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
-              引爆社群口碑<br/>
+              用對的 KOL<br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5a623] to-pink-500">
-                將流量轉化為銷量
+                將口碑轉化為銷量
               </span>
             </h1>
             

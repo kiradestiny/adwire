@@ -93,7 +93,7 @@ function Orb({ color, className, style }: {
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const PAIN_POINTS = ["流量太貴？", "轉化太低？", "人手不足？", "生意難做？"];
+const PAIN_POINTS = ["系統太散？", "重複工序太多？", "搜尋曝光不足？", "回覆跟唔上？"];
 const PARTICLE_COLORS = ["#60a5fa", "#f5a623", "#a78bfa", "#34d399"];
 
 const STATS = [
@@ -298,24 +298,27 @@ export default function HeroSection() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400" />
               </span>
-              香港首選 AI 驅動 MarTech 代理
+              SOFTWARE · AI · DIGITAL GROWTH
             </div>
 
             {/* H1 — LCP 元素：不設 opacity:0 初始狀態，確保瀏覽器立即渲染計量
                 LCP 修復：移除 animationDelay + opacity:0 inline style，
                 讓 Google 爬蟲/PageSpeed 在首次 Paint 時即可測量此元素 */}
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.08]">
+            <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-6 leading-[1.12]">
               <span className="block gradient-text-blue">
-                AI 驅動營銷
+                將商業構思，
               </span>
               <span className="block text-white">
-                精準引爆業績增長
+                轉化為真正可運作的
+              </span>
+              <span className="block text-white">
+                數碼方案。
               </span>
             </h1>
 
             {/* Pain-point rotator */}
             <div className="h-12 mb-6 flex items-center gap-3 animate-fade-in-up" style={{ animationDelay: "0.4s", opacity: 0 }}>
-              <span className="text-2xl md:text-3xl text-gray-400">解決您的</span>
+              <span className="text-2xl md:text-3xl text-gray-400">常見問題：</span>
               <span key={textIndex} className="text-2xl md:text-3xl font-bold gradient-text-gold animate-fade-in">
                 {PAIN_POINTS[textIndex]}
               </span>
@@ -323,33 +326,33 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.5s", opacity: 0 }}>
-              ADWire 是香港領先的 MarTech 代理商，專注於{" "}
-              <strong className="text-white">KOL 網紅營銷</strong>、
-              <strong className="text-white">短視頻製作</strong>、
-              <strong className="text-white">SEO/GEO 優化</strong>及
-              <strong className="text-white">成效廣告</strong>。
-              結合 AI 技術與數據分析，助您以最低成本實現業績最大化。
+              ADWire 提供{" "}
+              <strong className="text-white">企業網站及系統開發</strong>、
+              <strong className="text-white">AI 應用與工作流程自動化</strong>，以及{" "}
+              <strong className="text-white">SEO／GEO 搜尋優化</strong>。
+              從需求分析、開發部署到持續改善，協助企業處理實際營運與增長問題。
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: "0.6s", opacity: 0 }}>
               <Link
-                href={getWhatsAppUrl("Hello ADWire, 我想查詢Marketing服務")}
-                aria-label="免費咨詢專家"
+                href="/contact"
+                prefetch={false}
+                aria-label="討論你的項目"
                 className="group relative px-8 py-4 bg-[#f5a623] text-white font-bold rounded-full overflow-hidden transition-all duration-300 flex items-center justify-center gap-2
                   hover:shadow-[0_0_32px_rgba(245,166,35,0.65),0_0_60px_rgba(245,166,35,0.25)]
                   hover:scale-[1.04] active:scale-[0.97]"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  免費咨詢專家
+                  討論你的項目
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
                 <span className="absolute inset-0 shimmer-bg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
 
               <Link
-                href="/portfolio"
-                aria-label="查看成功案例"
+                href="/services"
+                aria-label="探索服務方案"
                 prefetch={false}
                 className="group px-8 py-4 liquid-glass text-white font-bold rounded-full
                   border border-white/20 hover:border-white/40
@@ -357,14 +360,14 @@ export default function HeroSection() {
                   hover:shadow-[0_0_24px_rgba(255,255,255,0.08)]
                   hover:scale-[1.04] active:scale-[0.97]"
               >
-                查看成功案例
+                探索服務方案
                 <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
               </Link>
             </div>
 
             {/* Trust badges */}
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6 animate-fade-in-up" style={{ animationDelay: "0.7s", opacity: 0 }}>
-              {["數據透明", "ROI 導向", "AI 技術支援"].map((t) => (
+              {["需求先講清楚", "交付範圍明確", "上線後可維護"].map((t) => (
                 <div key={t} className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" />
                   <span className="text-sm text-gray-300">{t}</span>
@@ -442,7 +445,7 @@ export default function HeroSection() {
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                      <span className="text-xs text-gray-400 font-mono">ADWire Dashboard</span>
+                      <span className="text-xs text-gray-400 font-mono">ADWire Dashboard（示意圖）</span>
                     </div>
                   </div>
 
@@ -633,7 +636,7 @@ export default function HeroSection() {
                     <Zap size={17} />
                   </div>
                   <div>
-                    <div className="text-[10px] text-gray-400">自動化運行中</div>
+                    <div className="text-[10px] text-gray-400">依流程自動執行</div>
                     <div className="font-bold text-white text-sm leading-tight">24 / 7</div>
                   </div>
                 </div>
