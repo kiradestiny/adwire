@@ -42,11 +42,11 @@ Phase 1 — Baseline audit and approved-source capture
 - **Status:** complete
 
 ### Phase 4: Staging Implementation — Page Content
-- [ ] Upgrade thin service pages and pain-point sections
-- [ ] Rebuild SEO/GEO page using approved pricing and deliverables
-- [ ] Improve blog templates, article structure, authorship, citations and contextual CTAs
-- [ ] Update Contact/Project Enquiry flow
-- **Status:** pending
+- [x] Rebuild SEO/GEO page using approved pricing and deliverables
+- [x] Upgrade thin service pages (automation expanded, system hub, AI governance)
+- [x] Improve blog templates: TOC, author box, FAQ schema, internal links, mid-article CTA
+- [x] Update Contact/Project Enquiry flow with qualification fields
+- **Status:** complete
 
 ### Phase 5: QA, UAT & Production Release
 - [ ] Run lint/build and automated SEO/link checks
