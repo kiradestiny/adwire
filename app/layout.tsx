@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import WhatsAppWidget from "@/components/WhatsAppWidgetWrapper";
 import JsonLd from "@/components/JsonLd"; // <--- 引入 JsonLd
+import ConsentBanner from "@/components/ConsentBanner";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -95,6 +96,69 @@ export default function RootLayout({
             運行時不需要連接 fonts.googleapis.com / fonts.gstatic.com
             保留這些 preconnect 反而會觸發不必要的 DNS lookup + TCP 連接，
             導致 PageSpeed "轉譯對齊要求" 警告，故移除 */}
+
+        {/* ── Google Consent Mode v2 ──────────────────────────────────────────
+            必須在載入任何追蹤腳本「之前」執行，因此放在 <head> 直接內聯。
+
+            區域策略（配合實際客戶分佈）：
+              1) 歐盟／英國／瑞士（EEA／GB／CH）→ 一律預設「拒絕」，
+                 符合 Google Consent Mode v2 的硬性要求。
+              2) 其他地區（香港、大灣區、新加坡、台灣等）→ 允許匿名統計，
+                 但廣告類 Cookie 仍然預設拒絕。
+              3) 訪客透過 Cookie 通知表態後，由 ConsentBanner 呼叫
+                 gtag('consent','update',...) 覆寫；已表態者會在此還原。
+
+            ⚠️ 修改此段時，次序不可調換：region 專屬設定必須在一般設定之前。 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // 只執行一次。此 <script> 同時存在於靜態 HTML 及 React 序列化資料中，
+              // 加上防重複旗標可確保即使被執行兩次，亦不會重複發送 page_view。
+              if (!window.__adwireAnalyticsInit) {
+              window.__adwireAnalyticsInit = true;
+
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = window.gtag || gtag;
+              gtag('js', new Date());
+
+              // 1) 歐盟／英國／瑞士：全部預設拒絕
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                analytics_storage: 'denied',
+                region: ['EEA', 'GB', 'CH'],
+                wait_for_update: 500
+              });
+
+              // 2) 其他地區：允許匿名統計，廣告類仍預設拒絕
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                analytics_storage: 'granted',
+                wait_for_update: 500
+              });
+
+              // 3) 還原訪客先前的選擇
+              try {
+                var savedConsent = localStorage.getItem('adwire_consent_v1');
+                if (savedConsent === 'granted' || savedConsent === 'denied') {
+                  gtag('consent', 'update', {
+                    ad_storage: savedConsent,
+                    ad_user_data: savedConsent,
+                    ad_personalization: savedConsent,
+                    analytics_storage: savedConsent
+                  });
+                }
+              } catch (e) {}
+
+              gtag('config', 'G-G93P7WNBSY', { send_page_view: true });
+              }
+            `,
+          }}
+        />
       </head>
       <body className={`${lexend.className} antialiased`} suppressHydrationWarning={true}>
         {/* Skip-to-content：鍵盤導航必備，Tab 鍵第一個聚焦元素 */}
@@ -141,15 +205,8 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-G93P7WNBSY"
           strategy="afterInteractive"
         />
-        <Script id="ga4-config" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            window.gtag = window.gtag || gtag;
-            gtag('js', new Date());
-            gtag('config', 'G-G93P7WNBSY', { send_page_view: true });
-          `}
-        </Script>
+        {/* 註：gtag('config') 與 Consent Mode 預設值已在 <head> 執行，
+            此處只載入外部 gtag.js；不要再加第二個 config，否則會重複發送 page_view。 */}
         {/* End Google Analytics 4 */}
 
         {/* Microsoft Clarity */}
@@ -171,6 +228,9 @@ export default function RootLayout({
         
         {/* 2. 放在這裡，就會浮在所有頁面之上 */}
         <WhatsAppWidget />
+
+        {/* Cookie / Consent Mode 通知（所有頁面） */}
+        <ConsentBanner />
       </body>
     </html>
   );

@@ -122,7 +122,9 @@ class Migrations
                 'success' => true,
                 'message' => "✅ 遷移 {$migration['version']}（{$migration['name']}）已套用",
             ];
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
+            // 用 Throwable 而非 Exception：require 遷移檔案失敗時 PHP 8 會拋出 Error，
+            // catch (Exception) 接不到，會令整個遷移流程中斷而無法回滾。
             $pdo->rollBack();
             return [
                 'success' => false,

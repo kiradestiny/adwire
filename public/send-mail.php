@@ -199,9 +199,12 @@ function checkRateLimit(string $namespace, string $subject, int $window, int $ma
         )->execute([$namespace, $subjectHash, $now]);
 
         return true;
-    } catch (Exception $e) {
-        // 資料庫不可用時降級為檔案式速率限制
-        error_log('[ADWire] DB rate limit failed, falling back to file: ' . $e->getMessage());
+    } catch (Throwable $e) {
+        // ⚠️ 必須用 Throwable 而唔係 Exception：
+        //    PHP 8 的 require_once 失敗會拋出 Error（不是 Exception），
+        //    用 catch (Exception) 會接不到，導致整個表單回傳 500，
+        //    客人查詢會直接流失而不會降級。此處是表單可用性的最後防線。
+        error_log('[ADWire] DB rate limit failed, falling back to file: ' . get_class($e) . ': ' . $e->getMessage());
         return checkFileRateLimit($namespace, $subject, $window, $maxReq);
     }
 }
@@ -377,6 +380,13 @@ if (strlen($waPhone) === 8) {
 // ── [NEW] Save Enquiry to MySQL ───────────────────────────────────────
 // 將 Enquiry 記錄寫入數據庫，供 Admin Panel 查看
 // 即使數據庫寫入失敗，也不影響電郵發送
+//
+// ⚠️ Staging 保護：Staging 環境的 config.php 會 define('ADWIRE_STAGING', true)，
+//    此時跳過資料庫寫入，避免測試提交污染正式的 enquiries 記錄（CRM）。
+//    正式環境不會有此常數，行為完全不變。
+if (defined('ADWIRE_STAGING') && ADWIRE_STAGING) {
+    error_log('[ADWire][STAGING] DB write skipped for test enquiry.');
+} else {
 try {
     require_once __DIR__ . '/admin/includes/database.php';
     $pdo = Database::getInstance();
@@ -407,9 +417,10 @@ try {
         mb_substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 500),
         'new',
     ]);
-} catch (Exception $dbEx) {
-    // 數據庫寫入失敗只記錄日誌，不中斷流程
-    error_log('[ADWire] Enquiry DB save failed: ' . $dbEx->getMessage());
+} catch (Throwable $dbEx) {
+    // 數據庫寫入失敗只記錄日誌，不中斷流程（同樣需接得住 Error）
+    error_log('[ADWire] Enquiry DB save failed: ' . get_class($dbEx) . ': ' . $dbEx->getMessage());
+}
 }
 
 // ── Build Email Content ───────────────────────────────────────────────
@@ -417,7 +428,8 @@ $to = defined('MAIL_TO') && !empty(MAIL_TO) ? MAIL_TO : 'info@adwire.com.hk';
 
 // [FIX #4] 標頭注入防護：對所有用於 SMTP 標頭的值移除 CR/LF/NULL
 $subjectBudget = ($budget !== '' && $budget !== '未指定') ? " - {$budget}" : '';
-$safeSubject = sanitizeHeader("【新客戶查詢】{$name} - {$service}{$subjectBudget}");
+$stagingTag = (defined('ADWIRE_STAGING') && ADWIRE_STAGING) ? '[STAGING 測試] ' : '';
+$safeSubject = sanitizeHeader("{$stagingTag}【新客戶查詢】{$name} - {$service}{$subjectBudget}");
 $safeEmail   = sanitizeHeader($email);
 $safeName    = sanitizeHeader($name);
 

@@ -14,6 +14,15 @@ import { useRouter } from "next/navigation";
 import { SERVICE_OPTIONS } from "@/lib/service-options";
 import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
 
+/**
+ * 表單送出端點。
+ *
+ * 預設為網域根目錄的 /send-mail.php（正式站行為不變）。
+ * Staging 建置時會設定 NEXT_PUBLIC_FORM_ENDPOINT=/staging/send-mail.php，
+ * 避免 staging 的測試提交誤送到正式站的收件流程及 CRM。
+ */
+const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || "/send-mail.php";
+
 const PHONE_DIGITS_REGEX = /^\d{8,15}$/;
 const CLIENT_SUBMIT_COOLDOWN_MS = 60_000;
 const MIN_FORM_FILL_MS = 4_000;
@@ -333,7 +342,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
     setSubmitError(null);
 
     try {
-      const response = await fetch("/send-mail.php", {
+      const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),

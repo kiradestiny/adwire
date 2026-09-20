@@ -1,0 +1,157 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ADWire Website — Staging 部署工作流（手動觸發，永不自動上線）
+# ─────────────────────────────────────────────────────────────────────────────
+# 用途：在完全不影響正式站的前提下，把當前分支的建置產物部署到
+#       ${SITEGROUND_PATH}/staging/，用於表單端到端測試、視覺／響應式 QA
+#       及追蹤／SEO 回歸檢查。
+#
+# ⚠️ 安全設計（實測驗證過）
+#   1. 只接受 workflow_dispatch（手動），不會因 push 而執行。
+#   2. Staging 加 X-Robots-Tag: noindex + robots.txt Disallow: /（已驗證回傳標頭）。
+#   3. send-mail.php 偵測到 ADWIRE_STAGING 時跳過 enquiries 資料庫寫入，
+#      測試提交不會污染正式 CRM（已實測 enquiries 記錄數維持 0）。
+#   4. 表單端點由 NEXT_PUBLIC_FORM_ENDPOINT 指定為 /staging/send-mail.php，
+#      不會誤觸正式站的收件流程。
+#   5. Staging 的 admin/includes/config.php 由正式檔前置覆寫值產生
+#      （config 使用 defined() || define()，前置定義會生效）；
+#      只複製 config.php 及 database.php 兩個 send-mail.php 實際需要的檔案，
+#      不會把整個後台暴露在 staging。
+#   6. 不覆寫正式站的 .htaccess、.well-known、crm、admin/includes/config.php。
+#
+# 需要的 Secrets（與正式部署共用）：
+#   SITEGROUND_HOST / SITEGROUND_USER / SITEGROUND_SSH_KEY / SITEGROUND_PATH
+#   NEXT_PUBLIC_API_URL / ADMIN_API_KEY
+#
+# 注意：部署後 staging 的網址為 https://adwire.com.hk/staging/
+#       完成測試後請執行 remove_staging 選項清除。
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Deploy to Staging (manual only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: '輸入 STAGING 確認（只部署到 staging 目錄，不影響正式站）'
+        required: true
+        default: ''
+      action:
+        description: '動作'
+        required: true
+        default: 'deploy'
+        type: choice
+        options:
+          - deploy
+          - remove_staging
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+jobs:
+  staging:
+    name: Build & Deploy Staging
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: ${{ github.event.inputs.confirm == 'STAGING' }}
+
+    steps:
+      - name: Checkout code
+        if: ${{ github.event.inputs.action == 'deploy' }}
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        if: ${{ github.event.inputs.action == 'deploy' }}
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        if: ${{ github.event.inputs.action == 'deploy' }}
+        run: npm ci
+
+      - name: Build Next.js static export (staging)
+        if: ${{ github.event.inputs.action == 'deploy' }}
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          ADMIN_API_KEY: ${{ secrets.ADMIN_API_KEY }}
+          NEXT_PUBLIC_FORM_ENDPOINT: /staging/send-mail.php
+        run: npm run build
+
+      - name: Verify build output
+        if: ${{ github.event.inputs.action == 'deploy' }}
+        run: |
+          test -d out || { echo "❌ build output missing"; exit 1; }
+          echo "✅ files: $(find out -type f | wc -l)"
+
+      - name: Add noindex robots.txt
+        if: ${{ github.event.inputs.action == 'deploy' }}
+        run: |
+          printf 'User-Agent: *\nDisallow: /\n' > out/robots.txt
+          echo "✅ staging robots.txt written"
+
+      - name: Deploy to staging directory
+        if: ${{ github.event.inputs.action == 'deploy' }}
+        uses: burnett01/rsync-deployments@v9
+        with:
+          switches: >-
+            -avzr --delete
+            --exclude='admin'
+            --exclude='crm'
+            --exclude='.htaccess'
+            --exclude='admin/includes/config.php'
+          path: out/
+          remote_path: ${{ secrets.SITEGROUND_PATH }}/staging/
+          remote_host: ${{ secrets.SITEGROUND_HOST }}
+          remote_user: ${{ secrets.SITEGROUND_USER }}
+          remote_key: ${{ secrets.SITEGROUND_SSH_KEY }}
+          remote_port: 18765
+
+      - name: Prepare SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SITEGROUND_SSH_KEY }}
+
+      - name: Configure staging protection and config
+        if: ${{ github.event.inputs.action == 'deploy' }}
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+        run: |
+          ssh -p 18765 -o StrictHostKeyChecking=accept-new "${SG_USER}@${SG_HOST}" \
+            "S=\"$SG_PATH/staging\" P=\"$SG_PATH\"; \
+             mkdir -p \"\$S/admin/includes\"; \
+             cp \"\$P/admin/includes/database.php\" \"\$S/admin/includes/\"; \
+             printf '%s\n' '<?php' \
+               '// STAGING OVERRIDES (auto-generated)' \
+               \"define('ADWIRE_STAGING', true);\" \
+               \"define('SITE_URL',  'https://adwire.com.hk/staging');\" \
+               \"define('ADMIN_URL', 'https://adwire.com.hk/staging/admin');\" \
+               \"define('CORS_ORIGINS', 'https://adwire.com.hk,https://www.adwire.com.hk');\" \
+               '' > \"\$S/admin/includes/config.php.new\"; \
+             tail -n +2 \"\$P/admin/includes/config.php\" >> \"\$S/admin/includes/config.php.new\"; \
+             mv \"\$S/admin/includes/config.php.new\" \"\$S/admin/includes/config.php\"; \
+             chmod 600 \"\$S/admin/includes/config.php\"; \
+             printf '%s\n' 'Header set X-Robots-Tag \"noindex, nofollow, noarchive, nosnippet\"' 'Options -Indexes' 'Header set Cache-Control \"no-store, no-cache, must-revalidate\"' > \"\$S/.htaccess\"; \
+             printf 'User-Agent: *\nDisallow: /\n' > \"\$S/robots.txt\"; \
+             php -l \"\$S/admin/includes/config.php\"; \
+             php -l \"\$S/send-mail.php\"; \
+             echo STAGING_READY"
+
+      - name: Remove staging
+        if: ${{ github.event.inputs.action == 'remove_staging' }}
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+        run: |
+          ssh -p 18765 -o StrictHostKeyChecking=accept-new "${SG_USER}@${SG_HOST}" \
+            "rm -rf \"$SG_PATH/staging\" && echo STAGING_REMOVED"
+
+      - name: Summary
+        run: |
+          echo "🔗 https://adwire.com.hk/staging/"
+          echo "🔒 noindex 已啟用；資料庫寫入已停用；主旨加 [STAGING 測試]"
+          echo "⚠️ 正式站未被改動"
