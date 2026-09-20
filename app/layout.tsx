@@ -125,6 +125,33 @@ export default function RootLayout({
         </Script>
         {/* End Google Tag Manager */}
 
+        {/* ── Google Analytics 4 (gtag.js) ────────────────────────────────────
+            Measurement ID: G-G93P7WNBSY
+
+            ⚠️ 重要：GA4 只能由一個途徑載入，否則 page_view 會被計算兩次。
+              目前寫法：直接在網站載入 gtag.js。
+              如果你之後在 GTM 容器（GTM-WLF36PTR）內亦加入同一個
+              Measurement ID 的 GA4 設定標籤，必須先移除其中一邊。
+              驗證方法：GA4 → 報表 → 即時，同一時間只應出現一次瀏覽。
+
+            ⚠️ 私隱：GA4 會收集瀏覽行為資料，須在私隱政策中說明用途及
+              資料保留期。如加入 Consent Mode 或同意橫幅，此處需一併調整。  */}
+        <Script
+          id="ga4-gtag-js"
+          src="https://www.googletagmanager.com/gtag/js?id=G-G93P7WNBSY"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-config" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = window.gtag || gtag;
+            gtag('js', new Date());
+            gtag('config', 'G-G93P7WNBSY', { send_page_view: true });
+          `}
+        </Script>
+        {/* End Google Analytics 4 */}
+
         {/* Microsoft Clarity */}
         <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
