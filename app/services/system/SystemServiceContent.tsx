@@ -162,7 +162,7 @@ export default function SystemServiceContent() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatItem number="80+" label="企業系統項目" />
             <StatItem number="300%" label="平均效率提升" />
-            <StatItem number="99.9%" label="系統穩定性" />
+            <StatItem number="24/7" label="系統監控及告警" />
             <StatItem number="4-8週" label="平均交付時間" />
           </div>
         </div>
@@ -536,26 +536,24 @@ export default function SystemServiceContent() {
                     <ShieldCheck size={28} />
                   </div>
                   <div>
-                    <div className="text-white font-bold text-xl">安全合規認證</div>
-                    <div className="text-blue-400 text-sm">符合國際最高標準</div>
+                    <div className="text-white font-bold text-xl">安全及合規安排</div>
+                    <div className="text-blue-400 text-sm">按項目實際要求確認</div>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
-                  <ComplianceItem text="符合 GDPR 歐盟個人資料保護法" />
-                  <ComplianceItem text="符合 ISO 27001 資訊安全管理體系" />
-                  <ComplianceItem text="符合 PCI DSS 支付卡產業資料安全標準" />
-                  <ComplianceItem text="定期進行第三方滲透測試 (Penetration Test)" />
+                  <ComplianceItem text="可配合客戶的個人資料處理及保留要求（例如香港個人資料（私隱）條例）" />
+                  <ComplianceItem text="權限控管：按角色設定功能及資料層級的存取權，並記錄操作日誌" />
+                  <ComplianceItem text="傳輸加密（SSL/TLS），敏感資料可按需要加密存儲" />
+                  <ComplianceItem text="如項目涉及支付、醫療或受監管資料，會按實際情況與客戶及合資格顧問確認合規要求" />
                 </div>
-                
+
                 <div className="mt-8 pt-8 border-t border-slate-800">
-                  <div className="flex items-center justify-between text-white mb-2">
-                    <span className="text-sm">系統運行時間 (Uptime)</span>
-                    <span className="text-green-400 font-mono">99.99%</span>
-                  </div>
-                  <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                    <div className="w-[99.99%] h-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
-                  </div>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    ADWire 不會聲稱已取得 ISO 27001、PCI DSS 等認證，除非該項目確實已完成相關認證程序。
+                    如你的採購流程需要特定合規文件或第三者評估，我們會在方案階段確認是否能夠配合，
+                    並將相關責任及範圍寫入合約。
+                  </p>
                 </div>
               </div>
             </div>
