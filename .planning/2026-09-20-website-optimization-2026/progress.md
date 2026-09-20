@@ -35,7 +35,18 @@
 
 ### Phase 3: Staging Implementation — Layout & Foundations
 
-- **Status:** pending
+- **Status:** complete
+- Commit: c5c10b0 (Batch A) on branch feat/2026-site-optimization; main untouched
+- Actions taken:
+  - Fixed duplicated brand suffix across 45 page titles (was 40/45 affected).
+  - Repositioned homepage hero, service cards and CTAs to Software / AI / SEO.
+  - Regrouped navigation into four service lines; every existing service URL preserved.
+  - Unified approved figures (500+ clients, 328% ROI, 98%, 16 featured cases).
+  - Rewrote SEO/GEO page to approved PDF pricing and added commercial terms.
+  - Removed unverifiable guarantees, deprecated hr@ email and schema team size/rating.
+  - Updated sitemap lastModified and service-page metadata.
+- Verification: `next build` passes (51 pages); automated claim sweep returns 0 for all removed wording.
+- Blocked: GA4 property creation and GSC connection (browser tool unavailable; requires Google login by owner).
 
 ### Phase 4: Staging Implementation — Page Content
 

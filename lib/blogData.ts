@@ -24,6 +24,7 @@ export const blogPosts: BlogPost[] = [
     title: "2026 香港企業 AI 化完全指南：節省成本、提升效率、把握「全民 AI」時代機遇",
     excerpt: "香港政府財政預算案提出「全民 AI」計劃，AI 浪潮已勢不可擋。本文深入拆解香港企業 AI 化的 5 大痛點、8 大應用場景及實際成本節省數據，助你用最低風險踏出 AI 轉型第一步。",
     date: "2026-02-25",
+    updatedAt: "2026-09-20",
     category: "AI Technology",
     readTime: "9 min read",
     imageColor: "from-indigo-500 to-purple-600",
@@ -32,7 +33,7 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p class="lead text-xl text-gray-600 mb-8">「AI 係大企業嘅玩意，我一間中小企根本用唔起。」——呢個想法正在快速過時。2026 年，隨着香港政府「全民 AI」計劃推出、工具成本大幅下降，AI 已成為香港中小企最可負擔、回報最快的業務投資之一。問題不再是「你能否用 AI」，而是「你能否接受不用 AI」的競爭代價。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">🚀 AI 浪潮已到：2026 年全球與香港的 AI 大趨勢</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">AI 浪潮已到：2026 年全球與香港的 AI 大趨勢</h3>
 
       <p>2026 年的 AI 行業正在經歷一次前所未有的普及加速。不再是研究院或科技巨頭的專利，AI 工具已深入到每一個行業的日常運作：</p>
 
@@ -49,7 +50,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>「全民 AI」政策意義重大：政府不只提供資金支持，更釋放了明確信號——<strong>香港的未來業務競爭力將建立在 AI 能力之上</strong>。先行者優勢正在形成，而觀望者付出的等待代價，正是競爭對手累積的領先差距。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🏢 香港企業 AI 化的 8 大應用場景（附成本節省對比）</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">香港企業 AI 化的 8 大應用場景（附成本節省對比）</h3>
 
       <p>AI 應用不是抽象概念，以下是香港企業最常落地、成效最快的 8 個實際場景：</p>
 
@@ -122,7 +123,7 @@ export const blogPosts: BlogPost[] = [
         </table>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">⚠️ 香港企業 AI 化的 5 大痛點——你係咪都有這些顧慮？</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">香港企業 AI 化的 5 大痛點——你係咪都有這些顧慮？</h3>
 
       <div class="space-y-4 my-6">
         <div class="flex gap-4 p-5 bg-gray-50 rounded-xl border border-gray-200">
@@ -162,7 +163,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🤖 ADWire AI Solution 服務：從概念到落地的全程支援</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">ADWire AI Solution 服務：從概念到落地的全程支援</h3>
 
       <div class="grid md:grid-cols-3 gap-4 my-6">
         <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-5 rounded-xl border border-blue-100">
@@ -197,7 +198,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🎯 三步走：香港企業 AI 化的最低風險路徑</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">三步走：香港企業 AI 化的最低風險路徑</h3>
 
       <div class="bg-[#0f4c81]/5 border border-[#0f4c81]/20 p-6 rounded-xl my-6">
         <ol class="space-y-5 list-none">
@@ -240,7 +241,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">❓ 常見問題 FAQ</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
 
       <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
 
@@ -310,6 +311,7 @@ export const blogPosts: BlogPost[] = [
     title: "香港品牌進軍內地市場完全攻略：小紅書、抖音、微信、百度全平台實戰指南",
     excerpt: "想打入14億人口的內地市場？但唔知從何入手？本文深入拆解香港企業進軍內地的五大痛點，逐一解構小紅書種草、抖音帶貨、微信生態、百度搜尋及微博PR等主要渠道，助你制定零失誤的內地市場進入策略。",
     date: "2026-02-20",
+    updatedAt: "2026-09-20",
     category: "China Market",
     readTime: "10 min read",
     imageColor: "from-red-500 to-rose-600",
@@ -318,7 +320,7 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p class="lead text-xl text-gray-600 mb-8">「我哋試過自己開小紅書帳號，但資料全是繁體字，內容風格又唔對，發了十幾篇帖文連一百個贊都無。」——這是香港品牌初嘗內地市場最常遇到的挫折。14億人口的市場讓人心動，但不了解平台邏輯、文化差異和合規要求，卻會令你花了錢卻毫無成果。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">🎯 為什麼香港品牌必須認真佈局內地市場？</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為什麼香港品牌必須認真佈局內地市場？</h3>
 
       <p>內地消費者對「港牌」（香港品牌）有天然的好感與信任，尤其在美容護膚、食品保健、嬰幼兒產品、奢侈品等類別，「香港製造」或「香港品牌」往往被視為品質保証。加上近年大灣區融合加深、跨境電商政策持續放寬，香港品牌進入內地市場的門檻比以往低了很多。然而，機遇背後是截然不同的數碼生態：沒有 Google、沒有 Facebook、沒有 Instagram，取而代之的是一套完全獨立運作的平台矩陣。</p>
 
@@ -333,7 +335,7 @@ export const blogPosts: BlogPost[] = [
         </ul>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">⚠️ 香港企業進軍內地的五大痛點</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">香港企業進軍內地的五大痛點</h3>
 
       <div class="space-y-4 my-6">
         <div class="flex gap-4 p-5 bg-orange-50 rounded-xl border border-orange-100">
@@ -373,7 +375,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">📱 內地五大平台對比：哪個適合你？</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">內地五大平台對比：哪個適合你？</h3>
 
       <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
         <table class="w-full text-sm border-collapse">
@@ -433,13 +435,13 @@ export const blogPosts: BlogPost[] = [
         </table>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🌸 小紅書（RED）：香港品牌的內地「種草聖地」</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">小紅書（RED）：香港品牌的內地「種草聖地」</h3>
 
       <p>小紅書被內地年輕人稱為「種草平台」——用戶在此發現、分享、評測產品，形成強大的消費決策影響力。數據顯示，<strong>72% 的小紅書用戶在購買決策前會先搜尋小紅書</strong>，形成「先小紅書再購買」的消費習慣。</p>
 
       <div class="grid md:grid-cols-2 gap-4 my-6">
         <div class="bg-red-50 p-5 rounded-xl border border-red-100">
-          <h4 class="font-bold text-red-700 mb-3">🔵 藍V認證（官方企業帳號）</h4>
+          <h4 class="font-bold text-red-700 mb-3">藍V認證（官方企業帳號）</h4>
           <ul class="space-y-2 text-sm text-gray-700">
             <li class="flex items-start gap-2"><span class="text-red-500 font-bold">·</span><span>藍色V標識，代表官方品牌認證，提升 80% 用戶信任度</span></li>
             <li class="flex items-start gap-2"><span class="text-red-500 font-bold">·</span><span>可設定品牌主頁、官方商品連結、客服功能</span></li>
@@ -448,7 +450,7 @@ export const blogPosts: BlogPost[] = [
           </ul>
         </div>
         <div class="bg-pink-50 p-5 rounded-xl border border-pink-100">
-          <h4 class="font-bold text-pink-700 mb-3">🌱 種草策略：KOL vs KOC</h4>
+          <h4 class="font-bold text-pink-700 mb-3">種草策略：KOL vs KOC</h4>
           <ul class="space-y-2 text-sm text-gray-700">
             <li class="flex items-start gap-2"><span class="text-pink-500 font-bold">·</span><span><strong>KOL（百萬粉絲+）</strong>：品牌曝光，單次合作費用高</span></li>
             <li class="flex items-start gap-2"><span class="text-pink-500 font-bold">·</span><span><strong>KOC（素人達人，1萬-10萬粉）</strong>：真實性高，性價比最高，現時主流</span></li>
@@ -458,7 +460,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🎬 抖音：短視頻帶貨的無限可能</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">抖音：短視頻帶貨的無限可能</h3>
 
       <p>抖音的算法採用「去中心化」原則：<strong>內容質量決定流量，而非粉絲數量</strong>。一個零粉絲的帳號，一條優質短片同樣可以獲得千萬播放量。這對剛進入內地市場的香港品牌而言是巨大機遇。</p>
 
@@ -489,7 +491,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">💬 微信生態圈：內地品牌私域的核心基地</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">微信生態圈：內地品牌私域的核心基地</h3>
 
       <p>微信不只是通訊工具，更是一個完整的商業生態系統。<strong>超過 90% 的中國互聯網用戶每天使用微信</strong>，企業只要打通微信公衆號、視頻號、小程序三大組件，就能建立完整的「發現→瀏覽→購買→複購」閉環。</p>
 
@@ -511,7 +513,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🔍 百度：搜尋行銷與品牌公信力建設</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">百度：搜尋行銷與品牌公信力建設</h3>
 
       <p>百度佔中國搜尋市場約 <strong>70% 份額</strong>，是 B2B 企業、教育機構、醫療健康及旅遊品牌的必爭渠道。與 Google 不同，百度的品牌信任體系有其獨特邏輯：</p>
 
@@ -533,7 +535,7 @@ export const blogPosts: BlogPost[] = [
         </ul>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🐦 微博：熱搜行銷與KOL公關</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">微博：熱搜行銷與KOL公關</h3>
 
       <p>微博是內地最重要的 PR 及話題行銷平台。明星、KOL 的微博互動能引發廣泛的社會討論，「微博熱搜」是全中國最具影響力的實時輿論廣場。對於希望快速建立品牌知名度的香港企業，微博提供以下三種核心玩法：</p>
 
@@ -558,7 +560,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">❓ 常見問題 FAQ</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
 
       <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
 
@@ -628,6 +630,7 @@ export const blogPosts: BlogPost[] = [
     title: "2026 Google 同 Meta 廣告投放完全指南：AI 時代素材先行嘅制勝法則",
     excerpt: "廣告費年年飆升，ROAS 卻不斷下跌？本文深入拆解 2026 年 Google Performance Max 同 Meta Advantage+ 的最新 AI 趨勢，揭示「素材先行」策略如何幫香港企業以更低成本換取更高轉換率。",
     date: "2026-02-15",
+    updatedAt: "2026-09-20",
     category: "Ads Strategy",
     readTime: "9 min read",
     imageColor: "from-rose-500 to-orange-500",
@@ -636,7 +639,7 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p class="lead text-xl text-gray-600 mb-8">「同樣嘅廣告預算，以前可以帶嚟 300 個 Lead，依家只有 80 個。」——呢個係香港廣告主過去兩年最常出現嘅呻吟。廣告費用年年漲，效果卻年年低，問題並唔係你做錯咗咩，而係整個廣告投放邏輯已經徹底改變。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">⚡ 香港廣告主的真實痛點：錢花了，但去了哪裡？</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">香港廣告主的真實痛點：錢花了，但去了哪裡？</h3>
 
       <p>過去兩年，香港數碼廣告市場出現了幾個結構性變化，直接令廣告效益每況愈下：</p>
 
@@ -653,7 +656,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>好消息是：平台的 AI 能力同步升級，懂得善用 <strong>Google Performance Max</strong> 同 <strong>Meta Advantage+</strong> 的品牌，正在以更低成本取得比同行更好的成果。關鍵在於：你必須先理解兩大平台在 2026 年的根本邏輯轉變。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🔍 Google Ads vs Meta Ads：2026 年核心差異</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">Google Ads vs Meta Ads：2026 年核心差異</h3>
 
       <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
         <table class="w-full text-sm border-collapse">
@@ -703,12 +706,12 @@ export const blogPosts: BlogPost[] = [
         </table>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">📱 Meta 2026：素材先行（Creative-First）時代正式到來</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">Meta 2026：素材先行（Creative-First）時代正式到來</h3>
 
       <p>Meta 官方已明確表示：<strong>廣告素材（Creative）是新受眾定向工具。</strong>演算法將根據素材的內容和風格，自動找到最可能有反應的用戶——而不是靠廣告主手動設定興趣標籤。</p>
 
       <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl my-8">
-        <h4 class="font-bold text-blue-800 mb-3">🔑 Meta Advantage+ 核心機制</h4>
+        <h4 class="font-bold text-blue-800 mb-3">Meta Advantage+ 核心機制</h4>
         <p class="text-sm text-blue-900 mb-3"><strong>Advantage+ Audience</strong> 會先學習你的素材內容是什麼主題、風格、語氣，然後自動在 Meta 龐大的用戶庫中匹配最相關的潛在客戶。結果就是：<strong>一個能引起強烈共鳴的素材，比任何精準受眾設定都更有效。</strong></p>
         <ul class="list-disc pl-5 space-y-2 text-blue-900 text-sm">
           <li><strong>廣告組受眾設定</strong>建議直接使用「Advantage+ Audience」（原 Broad），讓 AI 自行決定</li>
@@ -742,7 +745,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🔍 Google 2026：Performance Max 同 AI Mode 改變廣告格局</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">Google 2026：Performance Max 同 AI Mode 改變廣告格局</h3>
 
       <p>Google 廣告正經歷十年來最大規模的產品重組。傳統的「搜尋廣告 + 展示廣告 + YouTube 廣告」各自獨立的時代已經過去，<strong>Performance Max（PMax）</strong> 代表了 Google 的全面 AI 化未來。</p>
 
@@ -808,7 +811,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">💰 2026 香港廣告預算分配建議</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">2026 香港廣告預算分配建議</h3>
 
       <p>根據 ADWire 服務香港 500+ 企業的實戰數據，以下是不同規模企業的最優廣告預算分配參考：</p>
 
@@ -871,7 +874,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">❓ 常見問題 FAQ</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
 
       <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
 
@@ -941,6 +944,7 @@ export const blogPosts: BlogPost[] = [
     title: "2026 香港 SEO 同 GEO 完全攻略：同時上 Google 同 ChatGPT 嘅實戰方法",
     excerpt: "流量斷崖式下跌？SEO 排名不動如山卻點擊率暴跌？本文深入拆解香港企業最易踩嘅 5 大 SEO 地雷，附上 GEO（生成式引擎優化）實戰手冊，手把手教你令品牌同時被 Google 同 ChatGPT 推薦。",
     date: "2026-02-01",
+    updatedAt: "2026-09-20",
     category: "SEO & AI",
     readTime: "9 min read",
     imageColor: "from-violet-600 to-indigo-700",
@@ -949,7 +953,7 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p class="lead text-xl text-gray-600 mb-8">「我哋每個月都喺 SEO 投資緊唔少，但最近發現 Google 開始喺搜尋結果頂部直接顯示 AI 答案，客人根本唔需要入我個網站……」呢個係香港越來越多老闆面對嘅困局。如果你都有同感，呢篇文章正正係為你而寫。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">⚡ 香港網站流量危機：你並唔孤單</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">香港網站流量危機：你並唔孤單</h3>
 
       <p>根據 <strong>SparkToro 2024</strong> 的研究，Google 搜尋的 <strong>Zero-Click 比率已達 65%</strong>——即每 100 次搜尋，有 65 次用戶睇完搜尋結果頁面就離開，根本唔會點擊任何網站。加上 ChatGPT、Perplexity、Google AI Overview 的急速普及，呢個數字只會繼續上升。</p>
 
@@ -966,7 +970,7 @@ export const blogPosts: BlogPost[] = [
         </ul>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🔍 SEO vs GEO：一次講清楚兩者有咩唔同</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">SEO vs GEO：一次講清楚兩者有咩唔同</h3>
 
       <p>好多香港老闆將 SEO 同 GEO 混為一談。其實兩者目標受眾完全唔同，策略亦大相徑庭：</p>
 
@@ -1058,13 +1062,13 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">✅ 2026 香港 SEO 技術核心清單（懶人包）</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">2026 香港 SEO 技術核心清單（懶人包）</h3>
 
       <p>無論你係自己做定外判比代理，以下係 2026 年香港企業必須達標的技術基準：</p>
 
       <div class="grid md:grid-cols-2 gap-4 my-6">
         <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
-          <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">🔧 技術 SEO 基礎</h4>
+          <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">技術 SEO 基礎</h4>
           <ul class="space-y-2 text-sm">
             <li class="flex items-start gap-2"><span class="text-green-500 font-bold">✓</span><span><strong>Core Web Vitals 達標</strong>——用 Google Search Console 定期監察</span></li>
             <li class="flex items-start gap-2"><span class="text-green-500 font-bold">✓</span><span><strong>Schema Markup</strong>——Organization、FAQ、Article、HowTo</span></li>
@@ -1074,7 +1078,7 @@ export const blogPosts: BlogPost[] = [
           </ul>
         </div>
         <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
-          <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">📝 內容 SEO 策略</h4>
+          <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">內容 SEO 策略</h4>
           <ul class="space-y-2 text-sm">
             <li class="flex items-start gap-2"><span class="text-blue-500 font-bold">✓</span><span><strong>搜尋意圖對齊</strong>——每頁只針對一個主要意圖</span></li>
             <li class="flex items-start gap-2"><span class="text-blue-500 font-bold">✓</span><span><strong>Topic Cluster 內容叢集</strong>——支柱頁面 + Blog 文章互連</span></li>
@@ -1085,7 +1089,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🤖 GEO 實戰：5 個讓 ChatGPT 引用你品牌的策略</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">GEO 實戰：5 個讓 ChatGPT 引用你品牌的策略</h3>
 
       <p>GEO 同傳統 SEO 的核心差異在於：你優化的對象是 AI 語言模型，而不是搜尋引擎爬蟲。以下 5 個策略是目前香港最有效的 GEO 方法：</p>
 
@@ -1137,7 +1141,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">💰 費用對比：SEO vs SEM vs GEO（香港市場實際參考）</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">費用對比：SEO vs SEM vs GEO（香港市場實際參考）</h3>
 
       <p>「做 SEO 係咪比 Google Ads 更划算？」是香港老闆最常問的問題。以下是三種策略的實際對比：</p>
 
@@ -1196,7 +1200,7 @@ export const blogPosts: BlogPost[] = [
 
       <p><strong>建議策略組合：SEO + GEO 同步進行，SEM 用於短期補充流量。</strong>長期而言，「自然搜尋（SEO）+ AI 搜尋（GEO）」的雙軌策略比單靠廣告更能建立可持續的業績增長。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🚀 立即行動：今天可以做的 3 個 SEO/GEO 改善</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">立即行動：今天可以做的 3 個 SEO/GEO 改善</h3>
 
       <div class="bg-[#0f4c81]/5 border border-[#0f4c81]/20 p-6 rounded-xl my-6">
         <ol class="space-y-5 list-none">
@@ -1239,7 +1243,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">❓ 常見問題 FAQ</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
 
       <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
 
@@ -1306,9 +1310,10 @@ export const blogPosts: BlogPost[] = [
   {
     id: 1,
     slug: "seo-vs-geo-2025",
-    title: "SEO 已死？迎接 GEO (生成式引擎優化) 新時代",
+    title: "SEO 已死？迎接 GEO 生成式引擎優化新時代（2026 更新）",
     excerpt: "當 ChatGPT 成為用戶搜尋的第一入口，傳統關鍵字堆砌已經失效。本文分析如何優化內容，讓你的品牌被 AI 優先推薦，解決流量斷崖式下跌的危機。",
     date: "2025-02-15",
+    updatedAt: "2026-09-20",
     category: "SEO & AI",
     readTime: "6 min read",
     imageColor: "from-blue-600 to-indigo-600",
@@ -1342,14 +1347,49 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <p>別等流量歸零才行動。現在就開始佈局 AI 搜尋時代。</p>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
+
+      <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">SEO 是否已經無用？還需要做嗎？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">仍然需要。SEO 處理的是 Google、Bing 等自然搜尋，目前依然是主要的免費流量來源。GEO 是把同一批內容延伸到 AI 問答搜尋，兩者是互補而非取代關係。實際上，內容結構清晰、事實可被引用，對 SEO 和 GEO 都有幫助。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">GEO 要多久才看到效果？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">內容結構及可引用性的調整通常在數週至數月內完成，但要視乎網站規模及內容數量。至於 AI 平台是否引用你的品牌，取決於平台本身的判斷，任何供應商都無法保證，因此我們的做法是持續以抽樣方式監測及調整。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">GEO 需要額外收費嗎？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">ADWire 的 SEO／GEO 方案中，Growth 及 Premium 已包含 GEO 可見度追蹤及監測。Starter 方案以技術 SEO、內容及頁面優化基礎為主，如需加入 GEO 項目可以另行加購。實際包含範圍會在報價時列明。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">怎樣量度 GEO 成效？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">我們會把三類數據分開列示，不會混為同一個指標：一、官方可得數據（例如 Search Console 的曝光、點擊及排名）；二、人工抽樣（指定問題在各 AI 平台回答中是否提及你的品牌）；三、GA4 中的 AI 導流 Referral。第三方工具的估算數字會另行標示來源。</p>
+          </div>
+        </div>
+
+      </div>
+
     `
   },
   {
     id: 2,
     slug: "short-video-marketing-guide",
-    title: "2025 短視頻流量密碼：為何你的 Reels 沒人看？",
+    title: "2026 短視頻流量密碼：為何你的 Reels 沒人看？",
     excerpt: "拍了幾十條片但 View 數不過千？拆解演算法背後的邏輯，教你用「黃金 3 秒」法則留住觀眾，將流量轉化為真實訂單。",
     date: "2025-02-10",
+    updatedAt: "2026-09-20",
     category: "Social Media",
     readTime: "5 min read",
     imageColor: "from-pink-500 to-rose-500",
@@ -1377,14 +1417,49 @@ export const blogPosts: BlogPost[] = [
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">ADWire 的短視頻策略</h3>
       <p>我們不只幫你剪片，我們幫你<strong>寫劇本</strong>。我們的團隊深入研究你的行業痛點，製作出既有流量又有轉換的內容矩陣。</p>
       <p>從腳本策劃、拍攝指導到後期剪輯，我們提供一站式服務，讓你的短視頻成為 24 小時工作的超級業務員。</p>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
+
+      <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">拍攝短視頻需要多少預算？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">視乎腳本複雜度、拍攝日數、剪輯版本數量及字幕語言要求。單次製作與月費套餐的價格結構不同，月費通常較划算。建議先說明用途及期望數量，我們會提供列明交付項目的報價。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">製作一條影片需要多長時間？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">一般短視頻（Reels／Shorts）由拍攝到完成約需 3–5 個工作天。較複雜的企業宣傳片或產品廣告通常需要 7–14 個工作天，視修改次數及後期特效需求而定。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">你們會提供腳本嗎？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">會。服務包含創意方向及分鏡腳本（Storyboard）。如果你已有初步想法或現有素材，我們會在這個基礎上優化，而不是重新製作。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">影片可以修改幾次？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">標準報價一般包含 2–3 次修改。流程是先出初剪供你確認方向，再按意見調整。超出標準次數的修改會另行報價，並在開始前先說明。</p>
+          </div>
+        </div>
+
+      </div>
+
     `
   },
   {
     id: 3,
     slug: "marketing-automation-roi",
-    title: "中小企救星：如何用 Automation 省下一個員工成本",
+    title: "中小企如何用自動化省下一個員工成本（2026 版）",
     excerpt: "經濟不景氣，慳錢就是賺錢。介紹 3 個即學即用的自動化場景，讓 AI 幫你 24/7 做客服，不再錯失任何一個潛在客戶。",
     date: "2025-02-01",
+    updatedAt: "2026-09-20",
     category: "Automation",
     readTime: "7 min read",
     imageColor: "from-orange-400 to-amber-500",
@@ -1418,14 +1493,49 @@ export const blogPosts: BlogPost[] = [
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">低成本，高回報</h3>
       <p>很多老闆以為「自動化」要幾十萬。其實，利用 Zapier 或 Make，配合我們專業的流程設計，幾千蚊就能打造強大的自動化系統。</p>
       <p>ADWire 幫你構建的不只是工具，是一套<strong>自動運轉的獲利系統</strong>。</p>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
+
+      <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">自動化項目大約需要多少預算？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">按流程數量及整合複雜度報價，沒有一個適用於所有企業的固定價格。一般流程是先做 Discovery 釐清現有流程及系統限制，再提供明確的範圍、報價及時間表。第三方平台訂閱及 API 用量費用另計。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">我現有的 CRM 或 ERP 可以連接嗎？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">取決於該系統是否提供 API、你的方案是否包含 API 權限，以及平台是否允許自動化存取。我們會在 Discovery 階段實測確認，如不可行會直接說明，不會先承諾後補救。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">流程出錯會不會影響客戶？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">設計時會加入失敗重試、錯誤通知及人工交接。高風險步驟（例如發出報價、確認訂單）通常設定為需要人手核准後才執行，系統不會自行對外發出未經確認的內容。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">上線之後由誰維護？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">可以交由 ADWire 按月維護及調整，也可以由你的團隊接手。原始碼及帳戶歸屬會在合約中清楚列明，交付時一併提供文件及交接安排。</p>
+          </div>
+        </div>
+
+      </div>
+
     `
   },
   {
     id: 4,
     slug: "high-converting-landing-page",
-    title: "網站好靚但無人買野？揭開高轉換率 Landing Page 的秘密",
+    title: "網站好靚但無生意？高轉換率 Landing Page 的實際做法",
     excerpt: "為什麼你的網站跳出率高達 80%？設計師追求美感，老闆追求轉換。本文教你如何平衡兩者，打造一部 24 小時不停歇的印鈔機。",
     date: "2025-01-28",
+    updatedAt: "2026-09-20",
     category: "Web Design",
     readTime: "6 min read",
     imageColor: "from-purple-600 to-fuchsia-600",
@@ -1459,14 +1569,49 @@ export const blogPosts: BlogPost[] = [
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">ADWire 的網站設計哲學</h3>
       <p>我們不只是設計師，我們是<strong>增長駭客</strong>。我們設計的每一個像素，都是為了提升轉換率。</p>
       <p>我們會為你進行 A/B Testing，用數據說話，持續優化頁面表現，確保你的廣告費每一分都花在刀口上。</p>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
+
+      <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">重新設計網站會不會影響現有 SEO 排名？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">可以控制在有限影響內，但需要事前準備：先做完整 URL inventory、保留現有可用 URL 及 canonical，如有必須更改的網址會做 1:1 301 重定向，並更新內部連結及 sitemap。改版前的流量及排名基準亦會先記錄，方便日後比較。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">轉換率優化要多久才見效？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">沒有固定時間表。通常會先處理明顯的結構問題，例如載入速度、主要訊息不清、CTA 位置及表單欄位過多；其後才逐項測試。實際改善幅度取決於現有流量規模及行業競爭程度。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">你們會做 A/B 測試嗎？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">會，但 A/B 測試需要足夠流量才有統計意義。如果流量不足以得出可靠結論，我們會先處理基本問題，而不是以未達顯著性的測試結果當作成效。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">網站會用什麼技術開發？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">按項目評估。內容為主或需要同事自行更新的網站，CMS、WordPress 或 Shopify 可能更合適；需要特定功能、複雜互動或與現有系統整合的項目，可以採用 Next.js／React 客製開發。我們會說明建議方案的取捨，而不是聲稱所有項目都必須使用同一種技術。</p>
+          </div>
+        </div>
+
+      </div>
+
     `
   },
   {
     id: 5,
     slug: "stop-wasting-ad-budget",
-    title: "FB/IG 廣告費貴到離譜？停止燒錢，3 招精準鎖定高價值客戶",
+    title: "FB/IG 廣告費越來越貴？3 個可量度的優化方向",
     excerpt: "廣告成效越來越差，CPA 越來越高？這不是平台的錯，是你的投放策略過時了。學會這 3 招，讓你的 ROAS 翻倍。",
     date: "2025-01-20",
+    updatedAt: "2026-09-20",
     category: "Ads Strategy",
     readTime: "5 min read",
     imageColor: "from-green-500 to-emerald-600",
@@ -1494,14 +1639,49 @@ export const blogPosts: BlogPost[] = [
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">ADWire 的廣告代操服務</h3>
       <p>我們不相信運氣，我們相信數據。我們的廣告團隊擁有管理過百萬預算的經驗，懂得如何在大數據時代精準捕獲你的潛在客戶。</p>
       <p>別再盲目燒錢了，讓我們幫你把廣告費變成投資，而不是開支。</p>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
+
+      <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">廣告代操費用是多少？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">ADWire 廣告代操分三個級別：入門方案 HK$2,000/月（單一平台）；進階方案 HK$6,000/月（Meta + Google 雙平台）；企業方案度身定制。代操服務費不包含廣告媒體費用（Media Buy），兩者分開計算。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">廣告需要多少媒體預算？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">一般建議每月最少 HK$5,000–8,000 媒體預算，以確保有足夠數據進行優化。預算越少，學習期越長，判斷成效所需的時間亦會增加。實際建議會按行業及目標調整。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">你們會保證特定的 ROAS 嗎？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">不會。ROAS 受行業、產品價格、市場競爭及季節性影響，任何供應商都無法保證特定數字。我們的做法是明確列出現有帳戶的基準數據，並以持續的實際數據交代進度。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">成效多久才見到？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">素材測試及受眾優化通常需要數週至數月，視行業競爭程度及預算規模而定。廣告帳戶本身的歷史數據及轉換追蹤是否正確設定，亦會直接影響見效速度。</p>
+          </div>
+        </div>
+
+      </div>
+
     `
   },
   {
     id: 6,
     slug: "custom-system-efficiency",
-    title: "Excel 檔案亂到崩潰？客製化系統如何幫你省下每週 10 小時",
+    title: "Excel 檔案亂到崩潰？客製化系統能省下多少時間",
     excerpt: "還在用 Google Sheets 管理幾百個客戶資料？資料重複、版本混亂、權限不清... 是時候升級你的數位大腦了。",
     date: "2025-01-15",
+    updatedAt: "2026-09-20",
     category: "System Dev",
     readTime: "5 min read",
     imageColor: "from-cyan-500 to-blue-500",
@@ -1530,6 +1710,40 @@ export const blogPosts: BlogPost[] = [
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">ADWire 的系統開發實力</h3>
       <p>我們開發過 CRM、ERP、庫存管理、預約系統等。我們不只寫 Code，更懂商業邏輯。我們會先梳理你的業務流程，再開發最適合你的工具。</p>
       <p>讓系統處理繁瑣，讓人專注於創造價值。</p>
+
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
+
+      <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">開發一個客製化系統需要多長時間？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">視乎複雜度。簡單的內部工具一般約 4–8 週；涉及多個部門流程或需要整合多個系統的項目可能需要 3–6 個月。我們會在報價階段提供時間表，並在開發過程中分段交付供你確認。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">現有的舊資料可以搬到新系統嗎？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">可以，但需要先評估資料質素。Excel 或舊系統的資料往往有重複、格式不一致或缺少必要欄位的情況，清理及整理的工作量會直接影響時間及費用，這部分會在方案階段一併說明。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">系統開發完成後，原始碼歸誰所有？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">客製化開發的原始碼及你付費購買的帳戶歸客戶所有，交付時會一併移交。第三方平台（例如雲端主機、短訊或電郵服務）的帳戶建議以客戶名義開立，避免日後更換供應商時出現交接困難。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">上線之後可以自行維護嗎？</h4>
+          <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
+            <p class="text-gray-600 text-sm" itemprop="text">可以。交付時會提供操作說明及必要技術文件，方便你的團隊或日後的供應商接手。如需 ADWire 持續維護及支援，可以按月安排，實際範圍及回應時間會在合約中列明。</p>
+          </div>
+        </div>
+
+      </div>
     `
   }
 ];

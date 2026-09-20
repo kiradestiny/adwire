@@ -106,9 +106,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogSitemap = blogPosts.map((post) => {
     const postYear = new Date(post.date).getFullYear()
     const isRecent = postYear >= 2026
+    // 以實際最後更新日為準（後台 updatedAt），無則用發佈日
+    const lastUpdated = post.updatedAt ? post.updatedAt.slice(0, 10) : post.date
     return {
       url: `${baseUrl}/blog/${post.slug}/`,
-      lastModified: new Date(post.date),
+      lastModified: new Date(lastUpdated),
       changeFrequency: 'monthly' as const,
       priority: isRecent ? 0.8 : 0.7,
     }

@@ -11,6 +11,18 @@ import ShareButton from "@/components/ShareButton";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getWhatsAppUrl } from "@/lib/site-config";
+import {
+  buildTocAndInjectIds,
+  extractFaqs,
+  getServiceLinks,
+  getLastUpdated,
+  isUpdated,
+  formatHkDate,
+  injectMidArticleCta,
+  ADWIRE_AUTHOR,
+  type TocItem,
+  type FaqItem,
+} from "@/lib/blog-enhance";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -33,15 +45,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | ADWire Agency Blog`,
+    // 品牌尾綴由 app/layout.tsx 的 title template 統一補上，避免重複
+    title: post.title,
     description: post.excerpt,
-    keywords: [
-      ...post.tags,
-      post.category,
-      "香港數碼營銷",
-      "ADWire Agency",
-      "MarTech 香港",
-    ],
+    keywords: [...post.tags, post.category, "香港數碼營銷", "ADWire Agency"],
     authors: [{ name: "ADWire Team", url: "https://www.linkedin.com/company/106715005/" }],
     alternates: {
       canonical: `/blog/${post.slug}/`,
@@ -90,8 +97,8 @@ function ArticleSchema({ post }: { post: BlogPost }) {
     "author": {
       "@type": "Organization",
       "@id": "https://adwire.com.hk/#organization",
-      "name": "ADWire Team",
-      "url": "https://www.linkedin.com/company/106715005/",
+      "name": "ADWire Agency Limited",
+      "url": "https://adwire.com.hk/about/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://adwire.com.hk/logo.png",
@@ -160,6 +167,122 @@ function ArticleSchema({ post }: { post: BlogPost }) {
   );
 }
 
+/* FAQPage Schema — 只由文章內已可見的 FAQ 區塊產生，不新增未顯示內容 */
+function FaqSchema({ faqs }: { faqs: FaqItem[] }) {
+  if (faqs.length === 0) return null;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+/* 文章目錄 — 改善可爬性及 AI 可引用性（長文適用） */
+function TableOfContents({ toc }: { toc: TocItem[] }) {
+  if (toc.length < 3) return null;
+  return (
+    <nav
+      aria-label="文章目錄"
+      className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mb-12"
+    >
+      <h2 className="text-sm font-bold text-[#0f4c81] uppercase tracking-wider mb-4">
+        文章目錄
+      </h2>
+      <ol className="space-y-2 text-sm">
+        {toc.map((item) => (
+          <li key={item.id} className={item.level === 3 ? "pl-5" : ""}>
+            <a
+              href={`#${item.id}`}
+              className="text-gray-600 hover:text-[#0f4c81] transition-colors leading-relaxed"
+            >
+              {item.level === 2 ? "" : "· "}
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+/* 作者資料框 — 提升 E-E-A-T */
+function AuthorBox() {
+  return (
+    <section className="bg-gray-50 border border-gray-100 rounded-2xl p-6 md:p-8 mb-12">
+      <div className="flex items-start gap-4">
+        <div className="w-12 h-12 rounded-full bg-[#0f4c81] text-white flex items-center justify-center font-bold shrink-0">
+          AW
+        </div>
+        <div>
+          <p className="font-bold text-[#0f4c81] mb-0.5">{ADWIRE_AUTHOR.name}</p>
+          <p className="text-xs text-gray-500 mb-3">{ADWIRE_AUTHOR.role}</p>
+          <p className="text-sm text-gray-600 leading-relaxed mb-4">
+            {ADWIRE_AUTHOR.bio}
+          </p>
+          <ul className="flex flex-wrap gap-2">
+            {ADWIRE_AUTHOR.expertise.map((item) => (
+              <li
+                key={item}
+                className="text-xs bg-white border border-gray-200 text-gray-600 px-3 py-1 rounded-full"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* 相關服務內部連結 — 把資訊型流量導向服務頁 */
+function RelatedServices({
+  links,
+}: {
+  links: { name: string; href: string; reason: string }[];
+}) {
+  if (links.length === 0) return null;
+  return (
+    <section className="border-t border-gray-100 pt-10 mb-12">
+      <h2 className="text-xl font-bold text-[#0f4c81] mb-6">相關服務</h2>
+      <ul className="space-y-3">
+        {links.map((link) => (
+          <li key={link.name}>
+            <Link
+              href={link.href}
+              prefetch={false}
+              className="group flex items-start gap-3 border border-gray-100 rounded-xl p-4 hover:border-[#0f4c81]/30 hover:bg-gray-50 transition-colors"
+            >
+              <ArrowRight
+                size={16}
+                className="text-[#f5a623] mt-1 shrink-0 group-hover:translate-x-1 transition-transform"
+              />
+              <span>
+                <span className="block font-semibold text-[#0f4c81]">
+                  {link.name}
+                </span>
+                <span className="block text-sm text-gray-500 mt-0.5">
+                  {link.reason}
+                </span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 export default async function BlogPost({
   params,
 }: {
@@ -188,10 +311,31 @@ export default async function BlogPost({
     relatedPosts.push(...otherPosts);
   }
 
+  // ── 模板結構強化 ──────────────────────────────────────────────────────────
+  // 1) 為 H2/H3 注入 anchor id 並同時產生目錄（提升可爬性及 AI 可引用性）
+  const { html: contentWithIds, toc } = buildTocAndInjectIds(post.content);
+  // 2) 由頁面上已可見的 FAQ 區塊抽取問答，用於 FAQPage Schema
+  const faqs = extractFaqs(post.content);
+  // 3) 依分類／標籤對應相關服務內部連結
+  const serviceLinks = getServiceLinks(post);
+  // 4) 中段上下文 CTA（在第 3 個 H2 之前插入，避免短文開頭即推銷）
+  const midArticleCta = `
+    <div class="my-10 rounded-2xl border border-[#0f4c81]/15 bg-[#0f4c81]/[0.04] p-6">
+      <p class="font-bold text-[#0f4c81] mb-2">想了解實際交付範圍及報價方式？</p>
+      <p class="text-gray-600 text-sm mb-4">可以先把你的需求講清楚，我們會回覆可行的做法、範圍、時間及收費方式，不需要一開始就決定合作。</p>
+      <a href="/contact" class="inline-block bg-[#0f4c81] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#0d4372] transition-colors">提交項目需求</a>
+    </div>
+  `;
+  const contentHtml = injectMidArticleCta(contentWithIds, midArticleCta, 2);
+  // 5) 最後更新日以文章資料為準（不可用「今日」假裝更新）
+  const lastUpdated = getLastUpdated(post);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Article + BreadcrumbList JSON-LD Schemas */}
       <ArticleSchema post={post} />
+      {/* FAQPage Schema（由文章內可見 FAQ 產生） */}
+      <FaqSchema faqs={faqs} />
 
       {/* 動態閱讀進度條（客戶端元件） */}
       <ReadingProgress />
@@ -258,19 +402,23 @@ export default async function BlogPost({
             {post.excerpt}
           </p>
 
-          <div className="flex flex-wrap items-center gap-6 text-gray-400 text-sm border-b border-gray-100 pb-8">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-gray-400 text-sm border-b border-gray-100 pb-8">
             <span className="flex items-center gap-2">
               <Calendar size={16} />
-              <time dateTime={post.date}>{post.date}</time>
+              發佈：<time dateTime={post.date}>{formatHkDate(post.date)}</time>
             </span>
+            {isUpdated(post) ? (
+              <span className="flex items-center gap-2">
+                <Clock size={16} />
+                最後更新：
+                <time dateTime={lastUpdated}>{formatHkDate(lastUpdated)}</time>
+              </span>
+            ) : null}
             <span className="flex items-center gap-2">
               <Clock size={16} /> {post.readTime}
             </span>
             <span className="flex items-center gap-2">
-              <User size={16} /> By ADWire Team
-            </span>
-            <span className="flex items-center gap-2">
-              <Clock size={16} /> Last Updated: {new Date().toLocaleDateString()}
+              <User size={16} /> 作者：{ADWIRE_AUTHOR.name}
             </span>
           </div>
         </div>
@@ -296,11 +444,20 @@ export default async function BlogPost({
               )}
             </div>
 
-            {/* 文章內容 */}
+            {/* 文章目錄（H2/H3 anchor）*/}
+            <TableOfContents toc={toc} />
+
+            {/* 文章內容（已注入 heading id、目錄 anchor 及中段 CTA）*/}
             <div
               className="prose prose-lg prose-blue max-w-none text-gray-600 mb-16"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
+
+            {/* 作者及專業背景（E-E-A-T）*/}
+            <AuthorBox />
+
+            {/* 相關服務內部連結 */}
+            <RelatedServices links={serviceLinks} />
 
             {/* 文章尾部 Tags */}
             <div className="flex flex-wrap gap-2 mb-10 border-t border-gray-100 pt-8">

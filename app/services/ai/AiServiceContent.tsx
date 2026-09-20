@@ -113,53 +113,79 @@ const faqItems = [
       "我們的 AI 解決方案適合各種規模的 B2B 企業，從 10 人的中小企到數百人的大型企業都適用。我們會根據企業實際需求及預算，量身定制最合適的方案。",
   },
   {
-    question: "AI 導入需要多長時間？投資回報期是多久？",
+    question: "AI 導入需要多長時間？",
     answer:
-      "基礎 AI 客服系統最快 4-6 週即可上線；較複雜的企業知識庫或流程自動化約需 1-3 個月。大部分客戶 3-6 個月內可回本。",
+      "基礎 AI 客服或文件處理應用最快 4-6 週可上線；較複雜的企業知識庫或 AI 結合流程自動化約需 1-3 個月。實際時間取決於資料是否齊備、權限是否已開通及需要人工覆核的環節數量，會在方案階段一併確認。我們不會預先保證回本期，而是提供估算的假設及日後量度方式。",
   },
   {
-    question: "數據安全如何保障？",
+    question: "數據安全及私隱如何處理？",
     answer:
-      "我們提供私有化部署及內部網絡運行方案，確保敏感資料不外流，同時遵守香港個人資料（私隱）條例及 GDPR。",
+      "資料處理方式會按需求及架構評估。可選包括企業內部網絡部署、受控雲端部署或混合模式，並按實際情況設定存取權限、日誌記錄、資料保留期，以及第三方模型 API 的使用範圍。任何部署方式的安全性都取決於架構設計、權限設定及日常操作，因此我們不會宣稱「零外洩」，而會逐項說明實際採用什麼措施，以及哪些部分依賴第三方平台。",
+  },
+  {
+    question: "AI 出錯（例如答錯或產生不存在的內容）怎辦？",
+    answer:
+      "這是生成式 AI 的固有限制，無法完全消除，只能透過設計降低影響：包括限制知識庫來源、要求附引用、設定信心門檻、在關鍵步驟加入人工覆核，以及記錄每次輸出方便追查。高風險場景（例如財務、醫療或法律相關回覆）不建議由 AI 直接對外輸出。",
+  },
+  {
+    question: "模型的 API 費用由誰支付？",
+    answer:
+      "AI 模型 API 費用一般由客戶直接支付給模型供應商，收費按用量計算，會在方案中說明預估用量及金額範圍。ADWire 的報價只包含開發、整合及服務費用，第三方訂閱及用量費用另行計算。",
+  },
+  {
+    question: "知識庫由誰維護？",
+    answer:
+      "上線時我們會交付知識庫的更新方式及操作說明。其後可由你的團隊按既有流程更新，亦可交由 ADWire 按月維護。文件格式雜亂或需要大量清理的個案，會在方案階段一併評估工作量。",
   },
   {
     question: "員工需要接受培訓嗎？",
     answer:
-      "系統介面設計簡單易用，一般 1-2 小時即可上手。我們亦提供完整培訓、使用手冊及持續支援。",
+      "需要基本操作說明。系統會盡量沿用你現有的工作流程及介面習慣，交付時提供操作文件及培訓安排。實際所需時間視使用場景而定，不會以「即學即用」一概而論。",
   },
   {
     question: "AI 會否取代人手？",
     answer:
-      "AI 主要處理重複性工作，釋放人力專注在高價值任務。我們推動人機協作，而非取代。",
+      "AI 主要處理重複性及需要快速檢索的工序，涉及判斷、例外處理及客戶關係的環節通常保留人工覆核。我們的設計目標是讓同事把時間放在需要判斷的工作，而不是完全取消人手。",
   },
   {
-    question: "ADWire 與其他供應商有何不同？",
+    question: "上線後可以自行接手或更換供應商嗎？",
     answer:
-      "ADWire 深耕香港 B2B 市場，擁有多行業成功案例，提供諮詢到落地的一站式方案，並可私有化部署確保安全。",
+      "可以。原始碼、知識庫內容及你付費購買的帳戶歸客戶所有，交付時會一併移交並提供文件。第三方平台帳戶建議以客戶名義開立，避免日後交接出現困難。",
+  },
+  {
+    question: "AI 的成效怎樣量度？",
+    answer:
+      "會按應用場景設定可量度的指標，例如回覆時間、處理量、人工覆核比率、錯誤比率及查詢轉換情況。我們會區分「系統數據」（例如工單數量）與「業務結果」（例如成交），避免以系統指標代替業務成效。",
   },
 ];
 
+/**
+ * 應用案例範圍示例
+ *
+ * ⚠️ 此處只描述項目範圍及做法。具體成效數字需經客戶同意後，
+ *    才在案例頁公開；未核實的數字不在此展示。
+ */
 const caseStudies = [
   {
     industry: "金融服務",
-    title: "AI 客服 + RAG 知識庫",
-    metric: "客服工單減少 62%",
+    title: "AI 客服輔助 + RAG 知識庫",
+    metric: "內部知識檢索",
     highlight:
-      "導入粵語 AI 客服與內部政策知識庫，平均回應時間從 3 小時縮短至 4 分鐘。",
+      "將內部政策及產品文件整理為可檢索的知識庫，客服查詢時先由系統提出建議答案及引用來源，再由同事確認後回覆。",
   },
   {
     industry: "物流與供應鏈",
-    title: "智能流程自動化",
-    metric: "營運效率提升 4.8 倍",
+    title: "文件處理及流程自動化",
+    metric: "單據欄位擷取",
     highlight:
-      "自動處理運單、對帳與報關文件，減少人手錯誤率 70%。",
+      "由運單及對帳文件擷取所需欄位，自動寫入指定系統；未能辨識或有疑問的個案會標示出來，交由同事核對。",
   },
   {
     industry: "專業服務",
-    title: "AI 銷售賦能系統",
-    metric: "成交率提升 35%",
+    title: "查詢分類及跟進提示",
+    metric: "查詢分流",
     highlight:
-      "自動評分潛在客戶並提供話術建議，縮短成交週期 28%。",
+      "按查詢內容分類並提示優先次序，協助同事決定跟進先後；系統只作提示，實際回覆仍由同事負責。",
   },
 ];
 
@@ -407,7 +433,7 @@ export default function AiServiceContent() {
             <AdvantageCard icon={Database} title="資料治理與 RAG" desc="建立高品質知識庫，確保 AI 回答準確、可追溯。" />
             <AdvantageCard icon={Lock} title="企業級安全" desc="私有化部署、權限控制、審計日誌，確保合規安全。" />
             <AdvantageCard icon={Gauge} title="效能優化" desc="針對回應速度與成本進行模型壓縮與調優。" />
-            <AdvantageCard icon={Headset} title="本地支援" desc="香港團隊提供本地化培訓、維護與持續優化。" />
+            <AdvantageCard icon={Headset} title="本地支援" desc="以香港市場為主，提供廣東話及中文書面語的溝通、培訓及維護安排。" />
             <AdvantageCard icon={LineChart} title="AI 成效追蹤" desc="提供 KPI Dashboard 追蹤 ROI、工時節省與銷售成效。" />
           </div>
         </div>
@@ -417,8 +443,11 @@ export default function AiServiceContent() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#0f4c81]">案例研究：AI 如何帶來真實成果</h2>
-            <p className="text-gray-500 mt-4">真實的業務場景、可量化的成果</p>
+            <h2 className="text-3xl font-bold text-[#0f4c81]">應用案例範圍示例</h2>
+            <p className="text-gray-500 mt-4 max-w-3xl mx-auto">
+              以下為工作範圍示例。具體成效數字會在取得客戶同意後於案例頁公開，
+              未經核實的數字不會在此展示。
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -436,12 +465,97 @@ export default function AiServiceContent() {
         </div>
       </section>
 
+      {/* 系統架構、部署及治理 */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">系統架構、部署及治理</h2>
+            <p className="text-gray-500 max-w-3xl mx-auto">
+              企業採用 AI 時，最需要問清楚的不是「用哪個模型」，而是「資料從哪裡來、誰可以存取、
+              出錯時怎樣處理」。以下為我們在方案階段會逐項確認的內容。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="bg-white border border-slate-100 rounded-2xl p-8">
+              <h3 className="font-bold text-[#0f4c81] mb-5">系統邊界及資料流</h3>
+              <ol className="space-y-4 text-sm text-gray-600">
+                <li className="flex gap-3">
+                  <span className="text-[#f5a623] font-bold shrink-0">1</span>
+                  <span><strong className="text-gray-800">資料來源</strong>：內部文件、知識庫、CRM／ERP 資料或客戶查詢，逐一確立來源及更新方式。</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#f5a623] font-bold shrink-0">2</span>
+                  <span><strong className="text-gray-800">處理方式</strong>：規則式處理與 AI 處理分開列明，說明哪些步驟由模型判斷。</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#f5a623] font-bold shrink-0">3</span>
+                  <span><strong className="text-gray-800">外部服務</strong>：如需使用第三方模型 API，會列明該供應商、傳送哪些資料及其資料政策注意事項。</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#f5a623] font-bold shrink-0">4</span>
+                  <span><strong className="text-gray-800">人工覆核</strong>：需要人手確認的步驟會標示出來，例如對外回覆、報價或涉及金額的動作。</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-[#f5a623] font-bold shrink-0">5</span>
+                  <span><strong className="text-gray-800">監控及日誌</strong>：記錄每次執行及輸出，方便日後追查及改善。</span>
+                </li>
+              </ol>
+            </div>
+
+            <div className="bg-white border border-slate-100 rounded-2xl p-8">
+              <h3 className="font-bold text-[#0f4c81] mb-5">部署選項（按需求評估）</h3>
+              <div className="space-y-5 text-sm">
+                <div>
+                  <p className="font-semibold text-gray-800 mb-1">企業內部網絡部署</p>
+                  <p className="text-gray-600 leading-relaxed">
+                    資料留在企業控制的環境內。適用於對資料流向有嚴格要求的機構，但需要相應的伺服器資源及技術支援能力。
+                  </p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-800 mb-1">受控雲端部署</p>
+                  <p className="text-gray-600 leading-relaxed">
+                    以雲端服務配合權限、加密及日誌設定。導入較快、維護成本較低，資料處理方式取決於所選雲端及模型供應商的條款。
+                  </p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-800 mb-1">混合模式</p>
+                  <p className="text-gray-600 leading-relaxed">
+                    敏感資料留在內部，其餘交由外部模型處理。實際劃分方式按資料敏感程度及業務需要決定。
+                  </p>
+                </div>
+              </div>
+              <p className="text-xs text-gray-500 mt-6 leading-relaxed">
+                不同客戶適合不同選項，我們不會假設所有項目都可以（或需要）私有化部署。
+                任何部署方式都不構成「零外洩」的保證 —— 資安取決於架構、權限設定、日常操作及第三方依賴。
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            {[
+              { title: "資料保留及刪除", desc: "確認各類資料的保留期、刪除方式，以及誰有權要求刪除。" },
+              { title: "錯誤及例外處理", desc: "設定失敗重試、異常通知及人工接手條件，避免系統靜靜地停下來。" },
+              { title: "服務範圍及交接", desc: "列明維護範圍、回應時間，以及原始碼、知識庫及帳戶的歸屬安排。" },
+            ].map((g) => (
+              <div key={g.title} className="bg-white border border-slate-100 rounded-2xl p-6">
+                <h3 className="font-bold text-[#0f4c81] mb-2">{g.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{g.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ROI Calculator */}
       <section className="py-24 bg-slate-50" id="roi">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#0f4c81]">ROI 計算器：估算你的 AI 回報</h2>
-            <p className="text-gray-500 mt-4">輸入你的現況成本，預估 AI 導入後的收益</p>
+            <h2 className="text-3xl font-bold text-[#0f4c81]">投資估算工具（示意）</h2>
+            <p className="text-gray-500 mt-4 max-w-3xl mx-auto">
+              以下為簡化估算，用來協助比較不同假設下的量級，並非成效保證。
+              實際結果取決於流程複雜度、資料質素、自動化比例及員工使用情況。
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -452,23 +566,38 @@ export default function AiServiceContent() {
 
               <div className="space-y-6">
                 <InputField
-                  label="目前每月人手成本 (HK$)"
+                  label="目前每月相關人手成本 (HK$)"
                   value={monthlyCost}
                   onChange={(value) => setMonthlyCost(value)}
                 />
+                <p className="text-xs text-gray-500 -mt-4 leading-relaxed">
+                  只計算會被此流程影響的工時成本，不是整間公司的薪酬總額。
+                </p>
+
                 <InputField
                   label="可自動化比例 (%)"
                   value={automationRate}
                   onChange={(value) => setAutomationRate(value)}
                 />
+                <p className="text-xs text-gray-500 -mt-4 leading-relaxed">
+                  指該流程中可以交由系統執行的部分。實務上很少達到 100%，因為通常需要保留人工覆核。
+                </p>
+
                 <InputField
-                  label="預計 AI 專案投資 (HK$)"
+                  label="預計專案投資 (HK$)"
                   value={investment}
                   onChange={(value) => setInvestment(value)}
                 />
+                <p className="text-xs text-gray-500 -mt-4 leading-relaxed">
+                  一次性開發費用。未包含第三方平台訂閱及 AI 模型 API 用量費用。
+                </p>
 
-                <div className="p-4 rounded-xl bg-blue-50 text-sm text-blue-700 border border-blue-100">
-                  <span className="font-semibold">提示：</span> 如果你不確定數字，使用預設值即可。ADWire 會在免費諮詢中為你提供詳細評估。
+                <div className="p-4 rounded-xl bg-blue-50 text-sm text-blue-700 border border-blue-100 leading-relaxed">
+                  <span className="font-semibold">計算方式：</span>
+                  每月節省 = 每月人手成本 × 可自動化比例；
+                  每年節省 = 每月節省 × 12；
+                  回本月份 = 專案投資 ÷ 每月節省；
+                  ROI = 每年節省 ÷ 專案投資 × 100%。
                 </div>
               </div>
             </div>
@@ -484,12 +613,17 @@ export default function AiServiceContent() {
                 <RoiMetric label="預估 ROI" value={`${roiData.roiPercent}%`} />
               </div>
 
+              <p className="text-xs text-blue-100/80 mt-6 leading-relaxed">
+                以上為簡化估算，假設可自動化比例立即生效，且未計入導入期間的過渡成本、培訓時間、
+                第三方訂閱及模型 API 用量費用。此工具只作初步參考，並非成效或回本保證。
+              </p>
+
               <div className="mt-8">
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 px-6 py-3 rounded-full font-bold hover:bg-blue-50 transition"
                 >
-                  預約免費 AI 診斷 <ArrowRight size={16} />
+                  提交 AI 項目需求 <ArrowRight size={16} />
                 </a>
               </div>
             </div>
@@ -593,11 +727,11 @@ export default function AiServiceContent() {
       <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sm text-blue-50 mb-6">
-            <AlertTriangle size={14} /> 只限本月 6 個免費 AI 診斷名額
+            <AlertTriangle size={14} /> 先講清楚需求，再決定是否合作
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">準備好為企業升級轉型？</h2>
           <p className="text-xl text-blue-100 mb-10">
-            立即預約免費 AI 諮詢，獲取專屬 ROI 報告與落地路線圖。
+            講清楚你的應用場景、現有系統及資料狀況，我們會回覆可行的範圍、風險及報價方式。
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="#contact" className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold hover:bg-blue-50 transition-all shadow-lg">

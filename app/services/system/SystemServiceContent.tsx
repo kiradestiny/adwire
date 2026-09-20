@@ -41,7 +41,31 @@ export default function SystemServiceContent() {
     },
     {
       question: "系統會提供培訓嗎？",
-      answer: "會的。我們會為你的團隊提供完整的系統培訓，包括操作手冊、視頻教學及現場培訓，確保員工能快速上手使用新系統。"
+      answer: "會的。交付時會提供操作說明文件及培訓安排，確保負責同事能自行處理日常操作。實際培訓方式（現場、線上或錄影）會在方案階段確認。"
+    },
+    {
+      question: "交付範圍包括什麼？",
+      answer: "報價會列明功能清單、頁面或模組數量、整合的第三方系統、測試範圍、上線安排及交付文件。範圍以外的功能屬於變更請求，會另行報價，不會在開發中途才追加收費。"
+    },
+    {
+      question: "原始碼、帳戶及資料歸誰所有？",
+      answer: "客製化開發的原始碼及你付費購買的帳戶歸客戶所有，交付時會一併移交。第三方平台（例如雲端主機、短訊或電郵服務）的帳戶建議由客戶名義開立，避免日後更換供應商時出現交接困難。相關安排會在合約中明確列明。"
+    },
+    {
+      question: "第三方或雲端服務費用由誰支付？",
+      answer: "主機、資料庫、短訊、電郵、AI 模型 API 等第三方費用一般由客戶直接支付給該供應商，我們會在方案中列出預估項目及金額範圍。ADWire 的報價只包含開發及服務費用。"
+    },
+    {
+      question: "怎樣驗收？如果驗收時發現問題怎辦？",
+      answer: "驗收會依據報價時確認的功能清單逐項測試，並提供 UAT 環境供你的同事實際操作。屬於範圍內的偏差會修正至符合驗收標準；如屬範圍變更，會先報價再進行。"
+    },
+    {
+      question: "上線後想加新功能，程序是怎樣的？",
+      answer: "新功能會視為獨立項目處理：先確認需求、提供報價及時間，再安排開發。已上線的系統會先做影響評估，重要改動會在測試環境驗證後才部署。"
+    },
+    {
+      question: "系統需要用到某一種技術嗎？",
+      answer: "不一定。技術選項會按項目評估，例如 CMS、WordPress／Shopify、Next.js／React 或其他方案，各有適用場景。我們會說明建議方案的取捨，而不是聲稱所有項目都必須使用同一種技術。"
     }
   ];
 
@@ -51,7 +75,7 @@ export default function SystemServiceContent() {
       
       <ServiceJsonLd 
         name="企業系統開發 (Enterprise System Development)"
-        description="量身訂造企業級系統 (ERP/CRM/App)。自動化繁瑣流程，打通銷售、庫存與財務數據，助你實現真正的數碼轉型，提升效率300%。"
+        description="企業網站、Web App、CRM／ERP 相關系統、手機 App 及 MVP 開發。由需求整理、Prototype、開發、API 整合到 QA／UAT、部署、文件及上線後維護，範圍與交付清晰列明。"
         url="https://adwire.com.hk/services/system/"
         image="https://adwire.com.hk/system/CRM.webp"
       />
@@ -402,9 +426,56 @@ export default function SystemServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
             <TrustBadge icon={ShieldCheck} title="資料加密" desc="SSL/TLS 及加密存儲" />
-            <TrustBadge icon={Gauge} title="99.9% Uptime" desc="高穩定性保證" />
-            <TrustBadge icon={FileCode} title="源碼交付" desc="完整擁有權" />
-            <TrustBadge icon={Star} title="80+ 成功案例" desc="各行業信賴" />
+            <TrustBadge icon={Gauge} title="監控及告警" desc="異常情況通知負責同事" />
+            <TrustBadge icon={FileCode} title="源碼交付" desc="合約列明擁有權" />
+            <TrustBadge icon={Star} title="500+ 服務客戶" desc="項目涵蓋多個行業" />
+          </div>
+        </div>
+      </section>
+
+      {/* 11b. 交付清單 (What We Deliver) */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">實際交付什麼</h2>
+            <p className="text-gray-500 max-w-3xl mx-auto">
+              報價時會列明以下項目，避免開發中途才發現範圍不一致。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "需求及功能清單", desc: "按業務流程整理功能、角色及使用場景，作為報價及驗收的依據。" },
+              { title: "介面及 Prototype", desc: "先確認畫面結構及操作流程，減少開發後期大幅修改。" },
+              { title: "系統開發", desc: "按確認範圍開發，分段交付並提供階段性預覽。" },
+              { title: "API 及系統整合", desc: "連接現有 CRM、ERP、會計、預約或網店系統；可行性會在方案階段實測確認。" },
+              { title: "測試及 UAT", desc: "提供測試環境供你的同事實際操作，逐項核對功能清單。" },
+              { title: "部署及設定", desc: "設定網域、SSL、權限及備份等上線所需項目。" },
+              { title: "文件及交接", desc: "交付操作說明、系統設定紀錄及必要技術文件，方便日後維護或更換供應商。" },
+              { title: "培訓安排", desc: "按需要安排操作培訓，讓負責同事能自行處理日常運作。" },
+              { title: "維護（選購）", desc: "可按月安排維護及支援；亦可由你的團隊接手，兩者都會在合約中講清楚。" },
+            ].map((d) => (
+              <div key={d.title} className="bg-white border border-gray-100 rounded-2xl p-6">
+                <h3 className="font-bold text-[#0f4c81] mb-2">{d.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{d.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 bg-white border border-gray-100 rounded-2xl p-8">
+            <h3 className="font-bold text-[#0f4c81] mb-4">技術選項按項目評估</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+              {[
+                { name: "CMS／WordPress／Shopify", desc: "適合內容為主、需要同事自行更新，或希望盡快上線的網站及網店。" },
+                { name: "Next.js／React 客製開發", desc: "適合需要特定功能、複雜互動或與現有系統整合的網站及 Web App。" },
+                { name: "其他方案", desc: "按現有系統、團隊能力及預算評估，必要時會建議沿用你已投資的平台。" },
+              ].map((t) => (
+                <div key={t.name}>
+                  <p className="font-semibold text-[#0f4c81] mb-1.5">{t.name}</p>
+                  <p className="text-gray-600 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -600,10 +671,10 @@ export default function SystemServiceContent() {
       {/* 18. CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">準備好升級你的企業系統了嗎？</h2>
-          <p className="text-xl text-blue-100 mb-10">立即預約免費諮詢，讓我們為你分析業務痛點，提供最佳解決方案。</p>
-          <a href="#contact" className="bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all shadow-xl inline-flex items-center gap-2">
-            立即開始 <ArrowRight size={20} />
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">準備好開始你的項目了嗎？</h2>
+          <p className="text-xl text-blue-100 mb-10">講清楚你的需求，我們會回覆可行的做法、範圍、時間及報價方式。</p>
+          <a href="/contact" className="bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all shadow-xl inline-flex items-center gap-2">
+            提交項目需求 <ArrowRight size={20} />
           </a>
         </div>
       </section>

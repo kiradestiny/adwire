@@ -33,11 +33,13 @@ Phase 1 — Baseline audit and approved-source capture
 - **Status:** pending
 
 ### Phase 3: Staging Implementation — Layout & Foundations
-- [ ] Create feature branch and safe staging workflow
-- [ ] Implement navigation, homepage and service-page layout system
-- [ ] Implement technical SEO, metadata, schema and internal-linking foundations
-- [ ] Preserve existing URLs and all marketing services
-- **Status:** pending
+- [x] Create feature branch and safe staging workflow (branch only; no staging host yet)
+- [x] Fix duplicated brand suffix in titles across all pages
+- [x] Implement navigation grouping into four service lines (all old URLs kept)
+- [x] Implement homepage positioning, service cards and CTA changes
+- [x] Implement metadata, schema and sitemap lastModified foundations
+- [x] Add lib/site-content.ts as the single source for approved figures and CTAs
+- **Status:** complete
 
 ### Phase 4: Staging Implementation — Page Content
 - [ ] Upgrade thin service pages and pain-point sections
