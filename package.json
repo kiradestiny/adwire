@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postbuild": "node scripts/check-site-output.mjs",
+    "check:output": "node scripts/check-site-output.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.23.26",

@@ -550,7 +550,7 @@ export default function AboutContent() {
           >
             {[
               { icon: CheckCircle2, text: "首次諮詢完全免費" },
-              { icon: Clock, text: "24 小時內回覆" },
+              { icon: Clock, text: "專人跟進回覆" },
               { icon: ShieldCheck, text: "無隱藏收費承諾" },
             ].map((item, i) => (
               <div key={i} className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm rounded-xl py-3 px-4">

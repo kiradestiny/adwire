@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "私隱政策 (Privacy Policy) | ADWire Agency",
+  title: "私隱政策 (Privacy Policy)",
   description: "ADWire Agency 的私隱政策：說明我們如何收集、使用及保護個人資料，包括網站分析工具（Google Analytics 4、Google Tag Manager、Microsoft Clarity）的用途及 Cookie 設定。",
   alternates: {
     canonical: "/privacy/",

@@ -256,7 +256,7 @@ export const blogPosts: BlogPost[] = [
             <p class="text-gray-700 text-sm">「包含 SEO」可以指「安裝了一個外掛」，也可以指「完成關鍵字研究、頁面標題與描述、網站結構與內部連結規劃」。要求對方書面列出實際會做哪些工序。</p>
           </div>
           <div class="border-l-4 border-red-400 bg-red-50/60 p-5 rounded-r-lg">
-            <p class="font-bold text-red-800 mb-1 text-sm">6. 承諾保證排名</p>
+            <p class="font-bold text-red-800 mb-1 text-sm">6. 不可接受的「保證排名」</p>
             <p class="text-gray-700 text-sm">沒有人可以保證 Google 排名或 AI 平台一定推薦。任何這類承諾都應該令你提高警覺 —— 合理的承諾是「流程與交付範圍」，不是「結果數字」。</p>
           </div>
           <div class="border-l-4 border-red-400 bg-red-50/60 p-5 rounded-r-lg">
@@ -1259,7 +1259,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: 7,
     slug: "hong-kong-seo-geo-guide-2026",
-    title: "2026 香港 SEO 同 GEO 完全攻略：同時上 Google 同 ChatGPT 嘅實戰方法",
+    title: "2026 香港 SEO 同 GEO 完全攻略：同時上 Google 同 ChatGPT",
     excerpt: "流量斷崖式下跌？SEO 排名不動如山卻點擊率暴跌？本文深入拆解香港企業最易踩嘅 5 大 SEO 地雷，附上 GEO（生成式引擎優化）實戰手冊，手把手教你令品牌同時被 Google 同 ChatGPT 推薦。",
     date: "2026-02-01",
     updatedAt: "2026-09-20",

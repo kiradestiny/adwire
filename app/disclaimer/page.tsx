@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "免責聲明 (Disclaimer) | ADWire Agency",
+  title: "免責聲明 (Disclaimer)",
   description: "ADWire Agency 的免責聲明。關於本網站資料的準確性、完整性及責任限制的說明。",
   alternates: {
     canonical: "/disclaimer/",

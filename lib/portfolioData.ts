@@ -109,7 +109,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["Reels", "TikTok", "F&B"],
     image: "/portfolio/cafe-reels.webp",
     alt: "隱世 Cafe 爆紅實錄 - KOL x 短視頻 成功案例 Hong Kong",
-    seoTitle: "隱世 Cafe 爆紅實錄 | Reels 短視頻 KOL 營銷 | ADWire Agency",
+    seoTitle: "隱世 Cafe 爆紅實錄 | Reels 短視頻 KOL 營銷",
     seoDescription:
       "深水埗隱世 Cafe 透過 3 條劇情 Reels + 5 位微網紅同步爆發，首週播放 180K+，每週新增 30+ 桌客源。全程預算低於 HK$5,000，ROI 超越傳統廣告 10 倍。",
   },
@@ -161,7 +161,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["Automation", "E-commerce", "Meta Ads"],
     image: "/portfolio/ecommerce-automation.webp",
     alt: "100%網店自動化 - Chatbot WhatsApp 自動化 電商 成功案例",
-    seoTitle: "網店 100% 自動化案例 | Chatbot + WhatsApp API | ADWire Agency",
+    seoTitle: "網店 100% 自動化案例 | Chatbot + WhatsApp API",
     seoDescription:
       "韓國童裝電商透過 ADWire Chatbot 自動化方案，節省 70% 客服工作量，廣告 ROAS 從 3.2x 提升至 5.8x，月訂單量突破 3,500+，全程零增加人手。",
   },
@@ -213,7 +213,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["SEO", "GEO", "Local Search"],
     image: "/portfolio/seo-ranking.webp",
     alt: "SEO GEO 霸榜 Google 排名 美容 貸款 金融 香港 成功案例",
-    seoTitle: "香港 SEO/GEO 排名案例 | 美容貸款金融行業 | ADWire Agency",
+    seoTitle: "香港 SEO/GEO 排名案例 | 美容貸款金融行業",
     seoDescription:
       "ADWire 為香港美容、貸款、外幣三大行業完成 SEO/GEO 全方位優化，3 個月自然流量增長 200%+，12 個目標關鍵字成功登頂 Google 首頁。",
   },
@@ -265,7 +265,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["Facebook Ads", "Beauty", "CRO"],
     image: "/portfolio/beauty-ads.webp",
     alt: "美妝新品發佈廣告 ROAS 800% Facebook Ads 成功案例 香港",
-    seoTitle: "美妝品牌廣告投放案例 ROAS 8x | Facebook Ads | ADWire Agency",
+    seoTitle: "美妝品牌廣告投放案例 ROAS 8x | Facebook Ads",
     seoDescription:
       "香港美妝新品上市，ADWire 透過 50+ 素材 A/B 測試框架，將 ROAS 從 2.1x 提升至 8x，用戶獲取成本降低 75%，首月銷售超標 220%。",
   },
@@ -317,7 +317,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["B2B", "Web Dev", "Branding"],
     image: "/portfolio/corporate-website.webp",
     alt: "大型企業官網升級 B2B 網站設計 Next.js 成功案例 香港",
-    seoTitle: "B2B 企業官網重建案例 | 詢盤提升 45% | ADWire Agency",
+    seoTitle: "B2B 企業官網重建案例 | 詢盤提升 45%",
     seoDescription:
       "香港製造業企業官網全面重建，ADWire 以 Next.js 打造高效 B2B 網站，月均詢盤量從 12 件增至 54 件，網站速度提升 5 倍，銷售週期縮短 30%。",
   },
@@ -368,7 +368,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["WhatsApp API", "Education", "CRM"],
     image: "/portfolio/whatsapp-automation.webp",
     alt: "WhatsApp 自動化系統 補習中心 教育 No-show 減少 香港 成功案例",
-    seoTitle: "WhatsApp 自動化案例 | No-show 率降低 68% | ADWire Agency",
+    seoTitle: "WhatsApp 自動化案例 | No-show 率降低 68%",
     seoDescription:
       "補習中心透過 ADWire WhatsApp Business API 自動化，訊息打開率達 95%，No-show 率降低 68%，每月挽回 HK$12,000 損失，行政時間節省 12 小時/週。",
   },
@@ -420,7 +420,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["React Native", "Startup", "App Dev"],
     image: "/portfolio/techstart-app.webp",
     alt: "Startup App MVP 開發 React Native iOS Android 香港 成功案例",
-    seoTitle: "初創 App MVP 開發案例 | 3 個月獲種子輪融資 | ADWire Agency",
+    seoTitle: "初創 App MVP 開發案例 | 3 個月獲種子輪融資",
     seoDescription:
       "香港初創 ADWire 以 React Native 在 3 個月內交付完整 O2O 配對平台，成功獲得 HK$250 萬種子輪融資，上線首月 1,200+ 真實用戶。",
   },
@@ -472,7 +472,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["Photography", "Luxury", "Branding"],
     image: "/portfolio/luxe-jewelry.webp",
     alt: "珠寶品牌商業攝影 奢華視覺 IG 互動率 香港 成功案例",
-    seoTitle: "珠寶品牌商業攝影案例 | IG 互動率 +60% | ADWire Agency",
+    seoTitle: "珠寶品牌商業攝影案例 | IG 互動率 +60%",
     seoDescription:
       "香港輕奢珠寶品牌 ADWire 專業商業攝影服務，交付 120+ 張高品質圖片，IG 互動率提升 60%，網店流量增加 85%，全面提升品牌奢華感。",
   },
@@ -524,7 +524,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["Local SEO", "Medical Beauty", "GEO"],
     image: "/portfolio/dr-beauty-seo.webp",
     alt: "醫美診所 Local SEO 排名第一 Google Business 香港 成功案例",
-    seoTitle: "醫美診所 Local SEO 案例 | Google 排名 No.1 | ADWire Agency",
+    seoTitle: "醫美診所 Local SEO 案例 | Google 排名 No.1",
     seoDescription:
       "旺角醫美診所透過 ADWire Local SEO/GEO 策略，4 個月達成 8 個核心關鍵字排名 No.1，月均自然問診增加 660%，廣告成本節省 40%。",
   },
@@ -576,7 +576,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["CRM", "FinTech", "Web App"],
     image: "/portfolio/loan-crm.webp",
     alt: "貸款 CRM 客戶管理系統 金融 合規 行政自動化 香港 成功案例",
-    seoTitle: "貸款 CRM 系統開發案例 | 行政時間節省 50% | ADWire Agency",
+    seoTitle: "貸款 CRM 系統開發案例 | 行政時間節省 50%",
     seoDescription:
       "香港放貸機構透過 ADWire 定制化 CRM 系統，行政時間節省 50%，審批週期從 3 天縮至 4 小時，逾期率下降 35%，全面符合香港放債人條例要求。",
   },
@@ -628,7 +628,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["Viral Video", "Foodie", "TikTok"],
     image: "/portfolio/yummy-food-reels.webp",
     alt: "美食短視頻 TikTok IG Reels 爆款 100K 觀看 香港 成功案例",
-    seoTitle: "美食短視頻爆款案例 | TikTok 380K 觀看 | ADWire Agency",
+    seoTitle: "美食短視頻爆款案例 | TikTok 380K 觀看",
     seoDescription:
       "香港本地醬料品牌透過 ADWire 短視頻策略，6 週製作 12 條 Reels，最高單片 380K 觀看，IG 粉絲增長 2771%，醬料銷量提升 280%。",
   },
@@ -680,7 +680,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["B2B Marketing", "LinkedIn", "Lead Gen"],
     image: "/portfolio/global-trade-ads.webp",
     alt: "B2B LinkedIn 廣告 自動化電郵 歐美開拓市場 國際貿易 香港 成功案例",
-    seoTitle: "B2B LinkedIn 廣告開拓歐美市場 | 月均 15+ 詢盤 | ADWire Agency",
+    seoTitle: "B2B LinkedIn 廣告開拓歐美市場 | 月均 15+ 詢盤",
     seoDescription:
       "香港出口商透過 ADWire LinkedIn Ads + 自動化電郵培育，12 週穩定獲取每月 15+ 高質 B2B 詢盤，成交合同 HK$80 萬，年化 ROI 超過 600%。",
   },
@@ -732,7 +732,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["Gemini API", "AI Tools", "Retail"],
     image: "/portfolio/techstart-app.webp",
     alt: "AI 辦公助手 Google Gemini 定制工具 零售業 效率提升 香港 成功案例",
-    seoTitle: "AI 辦公效率工具開發案例 | Google Gemini | ADWire Agency",
+    seoTitle: "AI 辦公效率工具開發案例 | Google Gemini",
     seoDescription:
       "香港零售商透過 ADWire Google Gemini AI 工具定制開發，三款工具節省 65% 行政時間、每週釋放 30+ 小時人力，庫存分析準確率大幅提升。",
   },
@@ -784,7 +784,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["小紅書", "KOL", "China Market"],
     image: "/portfolio/beauty-ads.webp",
     alt: "小紅書品牌種草 三層KOL矩陣 香港品牌內地市場 500萬曝光 成功案例",
-    seoTitle: "小紅書種草案例 | 港澳品牌打入內地市場 | ADWire Agency",
+    seoTitle: "小紅書種草案例 | 港澳品牌打入內地市場",
     seoDescription:
       "香港美妝品牌透過 ADWire 小紅書三層種草矩陣策略，3 個月筆記總曝光 500 萬+，品牌搜尋量增長 312%，官方帳號粉絲成長 2212%。",
   },
@@ -836,7 +836,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["小紅書廣告", "偽種草", "Health Food"],
     image: "/portfolio/ecommerce-automation.webp",
     alt: "小紅書信息流廣告 偽種草策略 ROAS 4.3x 健康食品 香港品牌 成功案例",
-    seoTitle: "小紅書廣告投放案例 ROAS 4.3x | 偽種草策略 | ADWire Agency",
+    seoTitle: "小紅書廣告投放案例 ROAS 4.3x | 偽種草策略",
     seoDescription:
       "健康食品品牌透過 ADWire 小紅書偽種草廣告策略，ROAS 從 1.8x 升至 4.3x，CPL 降低 66%，30+ 素材 A/B 測試找出平台爆款公式。",
   },
@@ -888,7 +888,7 @@ export const portfolioCases: PortfolioCase[] = [
     tags: ["百度 SEO", "WeChat", "China Market"],
     image: "/portfolio/seo-ranking.webp",
     alt: "百度SEO 微信公眾號 香港品牌內地曝光 赴港客群 成功案例",
-    seoTitle: "百度SEO + 內地曝光案例 | 香港品牌觸達內地客 | ADWire Agency",
+    seoTitle: "百度SEO + 內地曝光案例 | 香港品牌觸達內地客",
     seoDescription:
       "香港醫美診所透過 ADWire 百度 SEO + 微信公眾號策略，5 個月內地查詢增長 180%，6 個百度核心關鍵字登上首頁，成功開拓高消費內地赴港客群。",
   },
