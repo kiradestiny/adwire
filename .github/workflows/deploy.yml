@@ -120,7 +120,7 @@ jobs:
 
           BASE=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 25 -A "$UA" https://adwire.com.hk/ || echo 000)
           echo "baseline=$BASE" >> "$GITHUB_OUTPUT"
-          echo "部署前基準（首頁）: $BASE"
+          echo "部署前基準（首頁）: $BASE（200/202 = 正常；5xx/000 = 異常）"
 
           # 本機 .htaccess 語法自檢：IfModule 開合必須平衡
           OPEN=$(grep -c '<IfModule' out/.htaccess || true)
@@ -131,11 +131,12 @@ jobs:
             exit 1
           fi
 
-          # 備份正式站 .htaccess（回滾點）
-          BK="$SG_PATH/.htaccess.backup-$(date +%Y%m%d-%H%M%S)"
+          # 備份正式站 .htaccess（回滾點）。
+          # 必須放在 webroot 之外：放在 $SG_PATH 內會變成可被下載的檔案。
+          BK="$HOME/htaccess_backup-$(date +%Y%m%d-%H%M%S)"
           ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
             "${SG_USER}@${SG_HOST}" \
-            "cp '$SG_PATH/.htaccess' '$BK' && ls -l '$BK'"
+            "cp '$SG_PATH/.htaccess' $BK && ls -l $BK"
           echo "backup=$BK" >> "$GITHUB_OUTPUT"
           echo "已備份 .htaccess → $BK"
 
@@ -180,10 +181,15 @@ jobs:
         run: |
           UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
           FAIL=0
+          # 判定標準：只有 5xx（.htaccess 語法錯誤的徵狀）及連線失敗（000）
+          # 才算故障。SiteGround WAF 對非瀏覽器來源會回 HTTP 202 挑戰頁，
+          # 202 代表伺服器正常運作 —— 曾誤判為失敗，故明確排除。
           for p in / /contact/ /services/ /services/web/ /blog/ /privacy/ /portfolio/; do
             C=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 25 -A "$UA" "https://adwire.com.hk$p" || echo 000)
             printf '  %-18s %s\n' "$p" "$C"
-            [ "$C" = "200" ] || FAIL=1
+            case "$C" in
+              5*|000) FAIL=1 ;;
+            esac
           done
 
           # 若本次 build 帶有 legacy 301 規則，順便驗證重定向是否真的生效
@@ -198,8 +204,9 @@ jobs:
           fi
 
           BASE='${{ steps.preflight.outputs.baseline }}'
-          if [ "$FAIL" = "1" ] && [ "$BASE" = "200" ]; then
-            echo "::error::部署後有頁面非 200，而部署前基準為 200 → 回滾 .htaccess"
+          case "$BASE" in 5*|000) BASE_BAD=1 ;; *) BASE_BAD=0 ;; esac
+          if [ "$FAIL" = "1" ] && [ "$BASE_BAD" = "0" ]; then
+            echo "::error::部署後有頁面 5xx／連線失敗，而部署前基準正常 → 回滾 .htaccess"
             ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
               "${SG_USER}@${SG_HOST}" \
               "cp '${{ steps.preflight.outputs.backup }}' '$SG_PATH/.htaccess' && echo ROLLED_BACK"
@@ -208,7 +215,7 @@ jobs:
             exit 1
           fi
           if [ "$FAIL" = "1" ]; then
-            echo "::warning::部署後有頁面非 200，但部署前基準亦非 200（可能是 WAF 攔截而非網站故障），未回滾"
+            echo "::warning::部署後有頁面 5xx 或連線失敗，但部署前基準同樣異常（可能是 WAF 攔截而非網站故障），未回滾"
             exit 1
           fi
           echo "✅ 部署後驗證通過"
