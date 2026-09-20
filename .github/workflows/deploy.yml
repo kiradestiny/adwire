@@ -133,10 +133,16 @@ jobs:
 
           # 備份正式站 .htaccess（回滾點）。
           # 必須放在 webroot 之外：放在 $SG_PATH 內會變成可被下載的檔案。
-          BK="$HOME/htaccess_backup-$(date +%Y%m%d-%H%M%S)"
+          # 取得「遠端」家目錄。
+          # 不可以用本地 $HOME：那會展開成 runner 的路徑（/home/runner），
+          # 實測導致 cp 失敗：cannot create regular file '/home/runner/...'。
+          RHOME=$(ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
+            "${SG_USER}@${SG_HOST}" 'echo $HOME' 2>/dev/null | tr -d '\r' | tail -1)
+          echo "遠端家目錄: $RHOME"
+          BK="$RHOME/htaccess_backup-$(date +%Y%m%d-%H%M%S)"
           ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
             "${SG_USER}@${SG_HOST}" \
-            "cp '$SG_PATH/.htaccess' $BK && ls -l $BK"
+            "cp '$SG_PATH/.htaccess' '$BK' && ls -l '$BK'"
           echo "backup=$BK" >> "$GITHUB_OUTPUT"
           echo "已備份 .htaccess → $BK"
 
