@@ -88,7 +88,50 @@ jobs:
           echo "📊 Total files: $(find out -type f | wc -l)"
           echo "📊 Total size: $(du -sh out | cut -f1)"
 
-      # ── 6. 部署到 SiteGround ──
+      # ── 6. 部署前防護：備份 .htaccess + 健康基準 ──
+      #    為什麼需要這一步：
+      #      .htaccess 一旦語法錯誤，Apache 會對「全站」回傳 HTTP 500，是唯一
+      #      可以一次過令整個網站下線的檔案。
+      #      2026-09 之前這個檔案被 rsync --exclude 排除，導致 repo 內的改動
+      #      （例如新增 301 重定向）靜默地永遠不會生效 —— 規則語法正確、
+      #      部署顯示成功、但舊網址繼續 404。現在改為可部署，並加上
+      #      「備份 → 部署 → 驗證 → 失敗自動回滾」防護。
+      - name: Set up SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SITEGROUND_SSH_KEY }}
+
+      - name: Pre-flight — back up .htaccess and capture health baseline
+        id: preflight
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+        run: |
+          # 注意：裸 "Mozilla/5.0" 會被 SiteGround WAF 回 403，必須用完整瀏覽器 UA
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+
+          BASE=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 25 -A "$UA" https://adwire.com.hk/ || echo 000)
+          echo "baseline=$BASE" >> "$GITHUB_OUTPUT"
+          echo "部署前基準（首頁）: $BASE"
+
+          # 本機 .htaccess 語法自檢：IfModule 開合必須平衡
+          OPEN=$(grep -c '<IfModule' out/.htaccess || true)
+          CLOSE=$(grep -c '</IfModule>' out/.htaccess || true)
+          echo "out/.htaccess：IfModule 開=$OPEN 合=$CLOSE"
+          if [ "$OPEN" != "$CLOSE" ]; then
+            echo "::error::out/.htaccess 的 IfModule 標籤不平衡，中止部署以免全站 500"
+            exit 1
+          fi
+
+          # 備份正式站 .htaccess（回滾點）
+          BK="$SG_PATH/.htaccess.backup-$(date +%Y%m%d-%H%M%S)"
+          ssh -p 18765 -o StrictHostKeyChecking=accept-new "${SG_USER}@${SG_HOST}" \
+            "cp '$SG_PATH/.htaccess' '$BK' && ls -l '$BK'"
+          echo "backup=$BK" >> "$GITHUB_OUTPUT"
+          echo "已備份 .htaccess → $BK"
+
+      # ── 7. 部署到 SiteGround ──
       #    使用 rsync over SSH，只傳輸變更的檔案
       - name: Deploy to SiteGround via rsync
         uses: burnett01/rsync-deployments@v9
@@ -96,7 +139,10 @@ jobs:
           # 排除清單（每一項都係「唔可以由 build 產物覆蓋」嘅東西）：
           #   .well-known              → SSL/ACME 驗證 + 電郵自動設定 (Outlook/iOS) — 絕對不可刪
           #   crm/                     → ADWire CRM 獨立應用（166 檔案）
-          #   .htaccess                → 伺服器安全標頭 / 重寫規則（HSTS、CSP 等）
+          #   .htaccess                → 2026-09 起改為【由 build 產物部署】（原本被排除，導致
+          #                              repo 內的 301／重寫規則改動靜默地永不生效）。
+          #                              已加上部署前備份、IfModule 平衡自檢及部署後
+          #                              健康檢查 + 失敗自動回滾（見步驟 6 及 8）。
           #   send-mail.php            → 現由 build 產物部署（repo 版為改良版：讀 config.php、
           #                              用 config/services.json 白名單、DB 式速率限制，
           #                              並將 enquiry 寫入資料庫供後台查看）
@@ -105,7 +151,7 @@ jobs:
           # 註：admin/ 其餘檔案由 build 產物部署（PHP 後台程式碼，repo 內有 28 個檔案）。
           #     blog/ portfolio/ services/ system/ video/ 原本被排除，但經核對後
           #     伺服器與 build 產物檔案集完全相同，排除只會令頁面改動無法發佈，故已移除。
-          switches: -avzr --delete --exclude='.well-known' --exclude='crm' --exclude='.htaccess' --exclude='admin/includes/config.php'
+          switches: -avzr --delete --exclude='.well-known' --exclude='crm' --exclude='admin/includes/config.php'
           path: out/
           remote_path: ${{ secrets.SITEGROUND_PATH }}/
           remote_host: ${{ secrets.SITEGROUND_HOST }}
@@ -115,7 +161,50 @@ jobs:
           # burnett01/rsync-deployments 預設 remote_port=22，唔指定就會 timeout
           remote_port: 18765
 
-      # ── 7. 部署完成通知 ──
+      # ── 8. 部署後驗證 + 失敗自動回滾 ──
+      #    只在「部署前基準為 200 而部署後非 200」時回滾，避免 WAF 的 403
+      #    造成假警報（裸 Mozilla/5.0 會被 SiteGround WAF 攔，實測過）。
+      - name: Verify production and roll back .htaccess on failure
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+        run: |
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+          FAIL=0
+          for p in / /contact/ /services/ /services/web/ /blog/ /privacy/ /portfolio/; do
+            C=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 25 -A "$UA" "https://adwire.com.hk$p" || echo 000)
+            printf '  %-18s %s\n' "$p" "$C"
+            [ "$C" = "200" ] || FAIL=1
+          done
+
+          # 若本次 build 帶有 legacy 301 規則，順便驗證重定向是否真的生效
+          if grep -q 'kol推廣' out/.htaccess; then
+            LOC=$(curl -sS -o /dev/null -D - --max-time 25 -A "$UA" 'https://adwire.com.hk/short-video-marketing/' \
+                  | grep -i '^location:' | tr -d '\r' | awk '{print $2}')
+            echo "  301 檢查: /short-video-marketing/ -> $LOC"
+            case "$LOC" in
+              */services/video/) echo "  ✅ 301 生效" ;;
+              *) echo "  ️ 301 未如預期（可能係 CDN 快取，稍後再確認）" ;;
+            esac
+          fi
+
+          BASE='${{ steps.preflight.outputs.baseline }}'
+          if [ "$FAIL" = "1" ] && [ "$BASE" = "200" ]; then
+            echo "::error::部署後有頁面非 200，而部署前基準為 200 → 回滾 .htaccess"
+            ssh -p 18765 -o StrictHostKeyChecking=accept-new "${SG_USER}@${SG_HOST}" \
+              "cp '${{ steps.preflight.outputs.backup }}' '$SG_PATH/.htaccess' && echo ROLLED_BACK"
+            sleep 3
+            echo "回滾後首頁: $(curl -sS -o /dev/null -w '%{http_code}' --max-time 25 -A "$UA" https://adwire.com.hk/)"
+            exit 1
+          fi
+          if [ "$FAIL" = "1" ]; then
+            echo "::warning::部署後有頁面非 200，但部署前基準亦非 200（可能是 WAF 攔截而非網站故障），未回滾"
+            exit 1
+          fi
+          echo "✅ 部署後驗證通過"
+
+      # ── 9. 部署完成通知 ─
       - name: Deployment summary
         run: |
           echo "🚀 Deployment completed successfully!"
