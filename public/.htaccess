@@ -64,12 +64,15 @@ ErrorDocument 403 /404.html
     #       （KOL 頁 674 次 = 全站第 4 高、短片頁 293 次），但現在全部 404，
     #       搜尋資產白白流失。此區塊把舊網址 1:1 導向最相關的新頁面。
     # 位置：必須放在 trailing-slash 規則之前，否則會先被加斜線而多一跳。
-    # 編碼：%{REQUEST_URI} 是未解碼的原始字串，故中文路徑用 percent-encoding 比對。
+    # 編碼注意：mod_rewrite 在 per-directory（.htaccess）情境下，RewriteRule 的
+    #           pattern 是比對「已解碼」的路徑，所以中文路徑要用字面中文字，
+    #           不能用 percent-encoding（實測 percent-encoding 不會匹配 → 404）。
+    #           檔案必須以 UTF-8 儲存。
     # ------------------------------------------------------------------
     # 舊服務頁 → 新服務頁
-    RewriteRule ^kol%E6%8E%A8%E5%BB%A3-%E7%87%9F%E9%8A%B7-influencer-marketing/?$ /services/kol/ [R=301,L,NE]
-    RewriteRule ^short-video-marketing/?$                                          /services/video/ [R=301,L,NE]
-    RewriteRule ^%E5%85%A8%E8%83%BD-marketing-%E6%9C%8D%E5%8B%99/?$                /services/ [R=301,L,NE]
+    RewriteRule ^kol推廣-營銷-influencer-marketing/?$ /services/kol/ [R=301,L,NE]
+    RewriteRule ^short-video-marketing/?$             /services/video/ [R=301,L,NE]
+    RewriteRule ^全能-marketing-服務/?$                /services/ [R=301,L,NE]
     # 舊文章（無法逐一對應原本內容）→ blog 總覽；任何 /post-N/ 皆適用
     RewriteRule ^post-[0-9]+/?$                                                    /blog/ [R=301,L,NE]
     # 舊 WordPress 分類頁 → blog 總覽

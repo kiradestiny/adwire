@@ -110,3 +110,31 @@ ssh -i ~/.ssh/adwire_siteground_deploy -p 18765 \
   u2028-eijr8n97mqlx@ssh.adwire.com.hk \
   'rm -rf /home/u2028-eijr8n97mqlx/www/adwire.com.hk/public_html/staging'
 ```
+
+---
+
+## 8. 遺留網址 301 重定向測試（2026-09-21 新增）
+
+在 staging 以一個與 `public/.htaccess` 規則完全相同（只把 `RewriteBase` 及目標改為 `/staging/`）的 `.htaccess` 實測。
+
+| 舊網址 | 狀態 | 目標 | 最終 | 結果 |
+|---|---|---|---|---|
+| `/kol推廣-營銷-influencer-marketing/` | 301 | `/services/kol/` | 200 | ✅ |
+| `/short-video-marketing/` | 301 | `/services/video/` | 200 | ✅ |
+| `/全能-marketing-服務/` | 301 | `/services/` | 200 | ✅ |
+| `/post-1/` | 301 | `/blog/` | 200 | ✅ |
+| `/post-2/` | 301 | `/blog/` | 200 | ✅ |
+| `/post-3/` | 301 | `/blog/` | 200 | ✅ |
+| `/category/general/` | 301 | `/blog/` | 200 | ✅ |
+| `/privacy-policy/` | 301 | `/privacy/` | 200 | ✅ |
+| `/thankyou/` | 301 | `/contact/` | 200 | ✅ |
+
+**對照組（正常網址不得被重定向）：** `/`、`/services/`、`/services/kol/`、`/blog/`、`/privacy/`、`/contact/`、新文章 —— 全部直接 200 ✅
+
+### ⚠️ 過程中發現並修正的一個重要陷阱
+
+第一版把中文路徑寫成 percent-encoding（`^kol%E6%8E%A8...`），**實測不會匹配 → 舊網址繼續 404**。
+
+原因：**mod_rewrite 在 per-directory（`.htaccess`）情境下，`RewriteRule` 的 pattern 是比對「已解碼」的路徑**，因此中文必須用字面中文字（檔案以 UTF-8 儲存）。已用 A/B 測試（三種寫法配不同目標參數）確認，並在 `.htaccess` 加入警示註解。
+
+> 這個陷阱若不實測是發現不到的 —— 規則語法正確、Apache 不報錯、但靜靜地不生效。
