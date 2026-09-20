@@ -14,12 +14,41 @@ import { useRouter } from "next/navigation";
 import { SERVICE_OPTIONS } from "@/lib/service-options";
 import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
 
+/**
+ * 表單送出端點。
+ *
+ * 預設為網域根目錄的 /send-mail.php（正式站行為不變）。
+ * Staging 建置時會設定 NEXT_PUBLIC_FORM_ENDPOINT=/staging/send-mail.php，
+ * 避免 staging 的測試提交誤送到正式站的收件流程及 CRM。
+ */
+const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || "/send-mail.php";
+
 const PHONE_DIGITS_REGEX = /^\d{8,15}$/;
 const CLIENT_SUBMIT_COOLDOWN_MS = 60_000;
 const MIN_FORM_FILL_MS = 4_000;
 const SUBMIT_COOLDOWN_STORAGE_KEY = "adwire_contact_submit_cooldown_until";
 
 const sanitizePhoneInput = (value: string) => value.replace(/\D/g, "").slice(0, 15);
+
+// ─── 項目分流選項（用於預審，不影響現有服務白名單）────────────────────────────
+/** 預算區間 — 必須包含「尚未確定」，避免未定預算的查詢被排除 */
+const BUDGET_OPTIONS = [
+  "尚未確定",
+  "HK$10,000 以下",
+  "HK$10,000 – 30,000",
+  "HK$30,000 – 80,000",
+  "HK$80,000 – 200,000",
+  "HK$200,000 以上",
+] as const;
+
+/** 預計開始時間 */
+const TIMELINE_OPTIONS = [
+  "尚未確定",
+  "一個月內",
+  "一至三個月內",
+  "三個月以上",
+  "先了解，未決定時間",
+] as const;
 
 // ─── Per-field validators ─────────────────────────────────────────────────────
 const VALIDATORS: Record<string, (v: string) => string> = {
@@ -31,10 +60,24 @@ const VALIDATORS: Record<string, (v: string) => string> = {
 type FormValues = {
   name: string; phone: string; email: string;
   service: string; message: string;
+  /** 項目預審欄位（全部選填，用於加快分流及回覆） */
+  company: string;
+  companySite: string;
+  budget: string;
+  timeline: string;
+  systemInfo: string;
   website: string; formStartedAt: string;
 };
 
-type VisibleFormField = "name" | "phone" | "email" | "service" | "message";
+type VisibleFormField =
+  | "name" | "phone" | "email" | "service" | "message"
+  | "company" | "companySite" | "budget" | "timeline" | "systemInfo";
+
+const OPTIONAL_VISIBLE_FIELDS: VisibleFormField[] = [
+  "company", "companySite", "budget", "timeline", "systemInfo",
+];
+
+const REQUIRED_VISIBLE_FIELDS: VisibleFormField[] = ["name", "phone", "email"];
 
 const INITIAL_TOUCHED_STATE: Record<VisibleFormField, boolean> = {
   name: false,
@@ -42,6 +85,11 @@ const INITIAL_TOUCHED_STATE: Record<VisibleFormField, boolean> = {
   email: false,
   service: false,
   message: false,
+  company: false,
+  companySite: false,
+  budget: false,
+  timeline: false,
+  systemInfo: false,
 };
 
 const SUBMITTED_TOUCHED_STATE: Record<VisibleFormField, boolean> = {
@@ -50,15 +98,16 @@ const SUBMITTED_TOUCHED_STATE: Record<VisibleFormField, boolean> = {
   email: true,
   service: true,
   message: true,
+  company: true,
+  companySite: true,
+  budget: true,
+  timeline: true,
+  systemInfo: true,
 };
 
-const isVisibleField = (name: keyof FormValues): name is VisibleFormField => (
-  name === "name" ||
-  name === "phone" ||
-  name === "email" ||
-  name === "service" ||
-  name === "message"
-);
+const isVisibleField = (name: keyof FormValues): name is VisibleFormField =>
+  (REQUIRED_VISIBLE_FIELDS as string[]).includes(name) ||
+  (OPTIONAL_VISIBLE_FIELDS as string[]).includes(name);
 
 // ─── FloatingInput ─────────────────────────────────────────────────────────────
 // Animated floating label + real-time validation feedback per field
@@ -166,6 +215,11 @@ export default function ContactSection({ defaultService }: { defaultService?: st
     name: "", phone: "", email: "",
     service: defaultService ?? SERVICE_OPTIONS[0],
     message: "",
+    company: "",
+    companySite: "",
+    budget: BUDGET_OPTIONS[0],
+    timeline: TIMELINE_OPTIONS[0],
+    systemInfo: "",
     website: "",
     formStartedAt: "",
   });
@@ -288,7 +342,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
     setSubmitError(null);
 
     try {
-      const response = await fetch("/send-mail.php", {
+      const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -347,11 +401,11 @@ export default function ContactSection({ defaultService }: { defaultService?: st
               Ready to Grow?
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              準備好令你的品牌<br />
-              <span className="text-[#f5a623]">引爆流量？</span>
+              準備好開始<br />
+              <span className="text-[#f5a623]">你的項目了嗎？</span>
             </h2>
             <p className="text-gray-300 text-lg mb-6">
-              唔好再浪費預算係無效嘅廣告上面。立即預約 15 分鐘免費諮詢，讓我們為你診斷痛點，量身訂造增長方案。
+              講清楚你的需求，我們會安排合適的同事回覆可行的做法、範圍及報價方式。無論是軟件開發、AI 應用、流程自動化還是搜尋增長，都歡迎先談清楚再決定。
             </p>
 
             {/* Social proof badge */}
@@ -363,7 +417,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
               </div>
               <span className="text-sm text-white font-medium">
                 4.9 分 · 已服務{" "}
-                <span className="text-[#f5a623] font-bold">150+</span> 香港品牌
+                <span className="text-[#f5a623] font-bold">500+</span> 服務客戶
               </span>
             </div>
 
@@ -419,22 +473,21 @@ export default function ContactSection({ defaultService }: { defaultService?: st
           >
             {/* Corner badge（裝飾性） */}
             <div className="absolute -top-4 -right-4 bg-[#f5a623] text-white px-4 py-2 rounded-lg font-bold shadow-lg transform rotate-3 hidden md:block text-sm" aria-hidden="true">
-              限時免費諮詢
+              首次諮詢免費
             </div>
 
             <h3 className="text-2xl font-bold text-[#0f4c81] mb-1">
-              化繁為簡，定制最適合你的推廣策略
+              告訴我們你的項目需求
             </h3>
             <p className="text-gray-500 text-sm mb-5">
-              填寫表格，我們的專家將在{" "}
-              <span className="font-semibold text-[#0f4c81]">24 小時</span>內與您聯繫
+              填寫後我們會按服務類別安排合適同事跟進。
             </p>
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-2 mb-5 pb-5 border-b border-gray-100">
               {[
-                { Icon: Shield, label: "資料絕對保密",   cls: "text-green-500" },
-                { Icon: Zap,    label: "24 小時內回覆", cls: "text-amber-500" },
+                { Icon: Shield, label: "資料保密處理",   cls: "text-green-500" },
+                { Icon: Zap,    label: "營業時間內回覆", cls: "text-amber-500" },
                 { Icon: Gift,   label: "首次諮詢免費",  cls: "text-blue-500"  },
               ].map(({ Icon, label, cls }) => (
                 <span
@@ -516,6 +569,22 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                       onChange={handleChange} onBlur={handleBlur}
                     />
 
+                    {/* 公司／品牌（選填）*/}
+                    <FloatingInput
+                      id="contact-company" name="company" label="公司／品牌名稱 Company（選填）"
+                      maxLength={120} autoComplete="organization"
+                      value={values.company} touched={touched.company} error={errors.company ?? ""}
+                      onChange={handleChange} onBlur={handleBlur}
+                    />
+
+                    {/* 公司網站（選填）— 注意：honeypot 欄位名稱為 website，此欄位不同名 */}
+                    <FloatingInput
+                      id="contact-companysite" name="companySite" label="公司網站 Website（選填）"
+                      maxLength={200} autoComplete="url"
+                      value={values.companySite} touched={touched.companySite} error={errors.companySite ?? ""}
+                      onChange={handleChange} onBlur={handleBlur}
+                    />
+
                     {/* Service select */}
                     <div className="space-y-1">
                       <label
@@ -536,6 +605,59 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                         ))}
                       </select>
                     </div>
+
+                    {/* 預算區間 + 預計開始時間（項目預審）*/}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="contact-budget"
+                          className="block text-[10px] font-semibold text-gray-400 pl-1"
+                        >
+                          預算區間 Budget
+                          <span className="text-gray-300 font-normal ml-1">（未確定也可以）</span>
+                        </label>
+                        <select
+                          id="contact-budget"
+                          name="budget"
+                          value={values.budget}
+                          onChange={e => handleChange("budget", e.target.value)}
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f5a623] focus:ring-2 focus:ring-[#f5a623]/20 outline-none transition-all bg-gray-50 text-sm text-gray-700"
+                        >
+                          {BUDGET_OPTIONS.map(opt => (
+                            <option key={opt} value={opt}>{opt}</option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div className="space-y-1">
+                        <label
+                          htmlFor="contact-timeline"
+                          className="block text-[10px] font-semibold text-gray-400 pl-1"
+                        >
+                          預計開始時間 Timeline
+                          <span className="text-gray-300 font-normal ml-1">（選填）</span>
+                        </label>
+                        <select
+                          id="contact-timeline"
+                          name="timeline"
+                          value={values.timeline}
+                          onChange={e => handleChange("timeline", e.target.value)}
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f5a623] focus:ring-2 focus:ring-[#f5a623]/20 outline-none transition-all bg-gray-50 text-sm text-gray-700"
+                        >
+                          {TIMELINE_OPTIONS.map(opt => (
+                            <option key={opt} value={opt}>{opt}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* 現有系統或技術（選填）*/}
+                    <FloatingInput
+                      id="contact-system" name="systemInfo" label="現有系統或技術 Existing System（選填）"
+                      maxLength={200}
+                      value={values.systemInfo} touched={touched.systemInfo} error={errors.systemInfo ?? ""}
+                      onChange={handleChange} onBlur={handleBlur}
+                    />
 
                     {/* Message textarea + character counter */}
                     <div className="space-y-1">
@@ -612,14 +734,16 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                     ) : (
                       <>
                         <MessageCircle size={18} />
-                        立即預約免費諮詢 →
+                        提交項目需求 →
                       </>
                     )}
                   </button>
 
                   {/* Privacy micro-copy */}
-                  <p className="text-center text-xs text-gray-400 pt-1">
-                    🔒 你的資料受到嚴格保密，我們絕不轉發或出售個人資訊
+                  <p className="text-center text-xs text-gray-400 pt-1 leading-relaxed">
+                    你提供的資料只用於回覆本次查詢，不會轉發或出售。
+                    請勿在此表格輸入密碼、API Key 或其他高度敏感資料；
+                    如需提交項目文件，我們回覆時會提供安全的提交方式。
                   </p>
                 </>
               )}

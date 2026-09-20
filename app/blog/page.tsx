@@ -4,9 +4,9 @@ import { getBlogPosts } from "@/lib/data-resolver";
 import { blogPosts } from "@/lib/blogData";
 
 export const metadata: Metadata = {
-  title: "增長洞察 Blog | MarTech、SEO、KOL 及 AI 營銷策略",
+  title: "增長洞察｜系統・AI・SEO 實戰指南",
   description:
-    "ADWire Agency 分享最前沿的 MarTech 趨勢、AI 工具應用、SEO/GEO 策略、KOL 網紅營銷及廣告投放乾貨。助香港中小企掌握流量密碼，提升業務增長。",
+    "以業務問題為中心的文章：SEO 與 GEO 做法、系統開發與 MVP 流程、AI 自動化的前置準備、廣告投放與轉換優化。附作者背景、更新日期及引用來源。",
   keywords: [
     "香港數碼營銷 blog",
     "MarTech 趨勢",
@@ -26,9 +26,8 @@ export const metadata: Metadata = {
     canonical: "/blog/",
   },
   openGraph: {
-    title: "增長洞察 Blog | ADWire Agency — MarTech、SEO、AI 營銷策略",
-    description:
-      "分享最前沿的 MarTech 趨勢、AI 工具應用、SEO 策略及數碼營銷乾貨。助你掌握流量密碼，提升業務增長。",
+    title: "增長洞察｜系統・AI・SEO 實戰指南",
+    description: "SEO 與 GEO 做法、系統開發與 MVP 流程、AI 自動化前置準備、廣告投放與轉換優化。",
     url: "https://adwire.com.hk/blog/",
     type: "website",
     images: [

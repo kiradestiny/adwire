@@ -199,9 +199,12 @@ function checkRateLimit(string $namespace, string $subject, int $window, int $ma
         )->execute([$namespace, $subjectHash, $now]);
 
         return true;
-    } catch (Exception $e) {
-        // 資料庫不可用時降級為檔案式速率限制
-        error_log('[ADWire] DB rate limit failed, falling back to file: ' . $e->getMessage());
+    } catch (Throwable $e) {
+        // ⚠️ 必須用 Throwable 而唔係 Exception：
+        //    PHP 8 的 require_once 失敗會拋出 Error（不是 Exception），
+        //    用 catch (Exception) 會接不到，導致整個表單回傳 500，
+        //    客人查詢會直接流失而不會降級。此處是表單可用性的最後防線。
+        error_log('[ADWire] DB rate limit failed, falling back to file: ' . get_class($e) . ': ' . $e->getMessage());
         return checkFileRateLimit($namespace, $subject, $window, $maxReq);
     }
 }
@@ -286,6 +289,24 @@ $message = trim(htmlspecialchars(strip_tags((string)($input['message'] ?? '')), 
 $website = trim((string)($input['website'] ?? ''));
 $formStartedAt = trim((string)($input['formStartedAt'] ?? ''));
 
+// ── 項目預審欄位（全部選填，用於加快分流及回覆）────────────────────────
+// 注意：honeypot 欄位名稱為 website；客戶填寫的公司網站位於 companySite
+$company    = trim(htmlspecialchars(strip_tags((string)($input['company'] ?? '')), ENT_QUOTES, 'UTF-8'));
+$companySite = trim(htmlspecialchars(strip_tags((string)($input['companySite'] ?? '')), ENT_QUOTES, 'UTF-8'));
+$budget     = trim(htmlspecialchars(strip_tags((string)($input['budget'] ?? '')), ENT_QUOTES, 'UTF-8'));
+$timeline   = trim(htmlspecialchars(strip_tags((string)($input['timeline'] ?? '')), ENT_QUOTES, 'UTF-8'));
+$systemInfo = trim(htmlspecialchars(strip_tags((string)($input['systemInfo'] ?? '')), ENT_QUOTES, 'UTF-8'));
+
+$allowedBudgets = ['尚未確定', 'HK$10,000 以下', 'HK$10,000 – 30,000', 'HK$30,000 – 80,000', 'HK$80,000 – 200,000', 'HK$200,000 以上'];
+$allowedTimelines = ['尚未確定', '一個月內', '一至三個月內', '三個月以上', '先了解，未決定時間'];
+
+if ($budget !== '' && !in_array($budget, $allowedBudgets, true)) {
+    $budget = '未指定';
+}
+if ($timeline !== '' && !in_array($timeline, $allowedTimelines, true)) {
+    $timeline = '未指定';
+}
+
 // [FIX #6] 長度限制
 if (mb_strlen($name, 'UTF-8') > 100) {
     jsonResponse(false, '姓名長度超出限制（最多 100 字）。', 400);
@@ -295,6 +316,12 @@ if (mb_strlen($phone, 'UTF-8') > 15) {
 }
 if (mb_strlen($message, 'UTF-8') > 2000) {
     jsonResponse(false, '訊息長度超出限制（最多 2000 字）。', 400);
+}
+if (mb_strlen($company, 'UTF-8') > 120) {
+    jsonResponse(false, '公司名稱長度超出限制（最多 120 字）。', 400);
+}
+if (mb_strlen($companySite, 'UTF-8') > 200 || mb_strlen($systemInfo, 'UTF-8') > 200) {
+    jsonResponse(false, '欄位長度超出限制。', 400);
 }
 
 // ── Spam Guard ────────────────────────────────────────────────────────
@@ -353,6 +380,13 @@ if (strlen($waPhone) === 8) {
 // ── [NEW] Save Enquiry to MySQL ───────────────────────────────────────
 // 將 Enquiry 記錄寫入數據庫，供 Admin Panel 查看
 // 即使數據庫寫入失敗，也不影響電郵發送
+//
+// ⚠️ Staging 保護：Staging 環境的 config.php 會 define('ADWIRE_STAGING', true)，
+//    此時跳過資料庫寫入，避免測試提交污染正式的 enquiries 記錄（CRM）。
+//    正式環境不會有此常數，行為完全不變。
+if (defined('ADWIRE_STAGING') && ADWIRE_STAGING) {
+    error_log('[ADWire][STAGING] DB write skipped for test enquiry.');
+} else {
 try {
     require_once __DIR__ . '/admin/includes/database.php';
     $pdo = Database::getInstance();
@@ -360,31 +394,62 @@ try {
         'INSERT INTO enquiries (name, phone, email, service, message, ip_address, user_agent, status)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
     );
+    // 將項目預審欄位以結構化方式附加在訊息內（不需修改 enquiries 資料表結構）
+    $extrasLines = [];
+    if ($company !== '')    { $extrasLines[] = '公司／品牌：' . $company; }
+    if ($companySite !== ''){ $extrasLines[] = '公司網站：' . $companySite; }
+    if ($budget !== '')     { $extrasLines[] = '預算區間：' . $budget; }
+    if ($timeline !== '')   { $extrasLines[] = '預計開始：' . $timeline; }
+    if ($systemInfo !== '') { $extrasLines[] = '現有系統／技術：' . $systemInfo; }
+    $messageForDb = $message;
+    if (!empty($extrasLines)) {
+        $messageForDb = ($message !== '' ? $message . "\n\n" : '')
+            . "── 項目資料 ──\n" . implode("\n", $extrasLines);
+    }
+
     $stmt->execute([
         mb_substr($name, 0, 100),
         mb_substr($phone, 0, 20),
         mb_substr($email, 0, 200),
         mb_substr($service, 0, 100),
-        $message,
+        $messageForDb,
         mb_substr($clientIp, 0, 45),
         mb_substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 500),
         'new',
     ]);
-} catch (Exception $dbEx) {
-    // 數據庫寫入失敗只記錄日誌，不中斷流程
-    error_log('[ADWire] Enquiry DB save failed: ' . $dbEx->getMessage());
+} catch (Throwable $dbEx) {
+    // 數據庫寫入失敗只記錄日誌，不中斷流程（同樣需接得住 Error）
+    error_log('[ADWire] Enquiry DB save failed: ' . get_class($dbEx) . ': ' . $dbEx->getMessage());
+}
 }
 
 // ── Build Email Content ───────────────────────────────────────────────
 $to = defined('MAIL_TO') && !empty(MAIL_TO) ? MAIL_TO : 'info@adwire.com.hk';
 
 // [FIX #4] 標頭注入防護：對所有用於 SMTP 標頭的值移除 CR/LF/NULL
-$safeSubject = sanitizeHeader("【新客戶查詢】{$name} - {$service}");
+$subjectBudget = ($budget !== '' && $budget !== '未指定') ? " - {$budget}" : '';
+$stagingTag = (defined('ADWIRE_STAGING') && ADWIRE_STAGING) ? '[STAGING 測試] ' : '';
+$safeSubject = sanitizeHeader("{$stagingTag}【新客戶查詢】{$name} - {$service}{$subjectBudget}");
 $safeEmail   = sanitizeHeader($email);
 $safeName    = sanitizeHeader($name);
 
 $year = date('Y');
 $messageHtml = nl2br($message);
+
+// 項目預審欄位 → 電郵表格列（只顯示有填寫的欄位）
+$extraRows = '';
+$extraPairs = [
+    '公司／品牌'      => $company,
+    '公司網站'        => $companySite,
+    '預算區間'        => $budget,
+    '預計開始時間'    => $timeline,
+    '現有系統／技術'  => $systemInfo,
+];
+foreach ($extraPairs as $label => $val) {
+    if ($val === '' || $val === '未指定') { continue; }
+    $safeVal = nl2br($val);
+    $extraRows .= "<tr><td class=\"label\">{$label}</td><td class=\"value\">{$safeVal}</td></tr>";
+}
 
 $emailContent = <<<HTML
 <!DOCTYPE html>
@@ -434,8 +499,10 @@ $emailContent = <<<HTML
                     <td class="value"><a href="mailto:{$email}">{$email}</a></td>
                 </tr>
                 <tr>
-                    <td class="label">感興趣服務</td>
+                    <td class="label">服務類別</td>
                     <td class="value" style="color: #0f4c81; font-weight: bold;">{$service}</td>
+                </tr>
+                {$extraRows}
                 </tr>
             </table>
 

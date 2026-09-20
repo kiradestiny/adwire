@@ -43,16 +43,44 @@ ErrorDocument 403 /404.html
     RewriteRule ^admin/ - [L]
 
     # ------------------------------------------------------------------
+    # Force non-www — 統一主機名（2026-09 新增）
+    # 背景：www.adwire.com.hk 與 adwire.com.hk 兩者都回 200，同一份內容有兩個
+    #       可進入的網址；canonical 雖然已指向非 www，但 301 才是正規做法。
+    #       GSC 資源為 https://adwire.com.hk/（URL-prefix），故以非 www 為準。
+    # 注意：此規則同時處理 http://www 與 https://www，只需一跳（不是兩跳）。
+    # ------------------------------------------------------------------
+    RewriteCond %{HTTP_HOST} ^www\.adwire\.com\.hk$ [NC]
+    RewriteRule ^(.*)$ https://adwire.com.hk/$1 [R=301,L]
+
+    # ------------------------------------------------------------------
     # [FIX #1] Force HTTPS — 必須啟用，否則 HSTS header 形同虛設
     # ------------------------------------------------------------------
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # ------------------------------------------------------------------
-    # Force www (Optional — 視主機設定決定是否啟用)
+    # Legacy URL 301 Redirects — 2026-03 WordPress → Next.js 遷移補做
+    # 背景：遷移時沒有建立重定向，12 個月內這些舊網址仍持有真實曝光
+    #       （KOL 頁 674 次 = 全站第 4 高、短片頁 293 次），但現在全部 404，
+    #       搜尋資產白白流失。此區塊把舊網址 1:1 導向最相關的新頁面。
+    # 位置：必須放在 trailing-slash 規則之前，否則會先被加斜線而多一跳。
+    # 編碼注意：mod_rewrite 在 per-directory（.htaccess）情境下，RewriteRule 的
+    #           pattern 是比對「已解碼」的路徑，所以中文路徑要用字面中文字，
+    #           不能用 percent-encoding（實測 percent-encoding 不會匹配 → 404）。
+    #           檔案必須以 UTF-8 儲存。
     # ------------------------------------------------------------------
-    # RewriteCond %{HTTP_HOST} !^www\. [NC]
-    # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+    # 舊服務頁 → 新服務頁
+    RewriteRule ^kol推廣-營銷-influencer-marketing/?$ /services/kol/ [R=301,L,NE]
+    RewriteRule ^short-video-marketing/?$             /services/video/ [R=301,L,NE]
+    RewriteRule ^全能-marketing-服務/?$                /services/ [R=301,L,NE]
+    # 舊文章（無法逐一對應原本內容）→ blog 總覽；任何 /post-N/ 皆適用
+    RewriteRule ^post-[0-9]+/?$                                                    /blog/ [R=301,L,NE]
+    # 舊 WordPress 分類頁 → blog 總覽
+    RewriteRule ^category/[^/]+/?$                                                 /blog/ [R=301,L,NE]
+    # 舊法律頁 → 新私隱政策
+    RewriteRule ^privacy-policy/?$                                                 /privacy/ [R=301,L,NE]
+    # 舊感謝頁 → 聯絡頁（新 /thank-you/ 已被 robots.txt 排除，不宜作為重定向目標）
+    RewriteRule ^thankyou/?$                                                       /contact/ [R=301,L,NE]
 
     # ------------------------------------------------------------------
     # Next.js RSC Prefetch — 靜態導出環境修復

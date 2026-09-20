@@ -41,7 +41,31 @@ export default function SystemServiceContent() {
     },
     {
       question: "系統會提供培訓嗎？",
-      answer: "會的。我們會為你的團隊提供完整的系統培訓，包括操作手冊、視頻教學及現場培訓，確保員工能快速上手使用新系統。"
+      answer: "會的。交付時會提供操作說明文件及培訓安排，確保負責同事能自行處理日常操作。實際培訓方式（現場、線上或錄影）會在方案階段確認。"
+    },
+    {
+      question: "交付範圍包括什麼？",
+      answer: "報價會列明功能清單、頁面或模組數量、整合的第三方系統、測試範圍、上線安排及交付文件。範圍以外的功能屬於變更請求，會另行報價，不會在開發中途才追加收費。"
+    },
+    {
+      question: "原始碼、帳戶及資料歸誰所有？",
+      answer: "客製化開發的原始碼及你付費購買的帳戶歸客戶所有，交付時會一併移交。第三方平台（例如雲端主機、短訊或電郵服務）的帳戶建議由客戶名義開立，避免日後更換供應商時出現交接困難。相關安排會在合約中明確列明。"
+    },
+    {
+      question: "第三方或雲端服務費用由誰支付？",
+      answer: "主機、資料庫、短訊、電郵、AI 模型 API 等第三方費用一般由客戶直接支付給該供應商，我們會在方案中列出預估項目及金額範圍。ADWire 的報價只包含開發及服務費用。"
+    },
+    {
+      question: "怎樣驗收？如果驗收時發現問題怎辦？",
+      answer: "驗收會依據報價時確認的功能清單逐項測試，並提供 UAT 環境供你的同事實際操作。屬於範圍內的偏差會修正至符合驗收標準；如屬範圍變更，會先報價再進行。"
+    },
+    {
+      question: "上線後想加新功能，程序是怎樣的？",
+      answer: "新功能會視為獨立項目處理：先確認需求、提供報價及時間，再安排開發。已上線的系統會先做影響評估，重要改動會在測試環境驗證後才部署。"
+    },
+    {
+      question: "系統需要用到某一種技術嗎？",
+      answer: "不一定。技術選項會按項目評估，例如 CMS、WordPress／Shopify、Next.js／React 或其他方案，各有適用場景。我們會說明建議方案的取捨，而不是聲稱所有項目都必須使用同一種技術。"
     }
   ];
 
@@ -51,7 +75,7 @@ export default function SystemServiceContent() {
       
       <ServiceJsonLd 
         name="企業系統開發 (Enterprise System Development)"
-        description="量身訂造企業級系統 (ERP/CRM/App)。自動化繁瑣流程，打通銷售、庫存與財務數據，助你實現真正的數碼轉型，提升效率300%。"
+        description="企業網站、Web App、CRM／ERP 相關系統、手機 App 及 MVP 開發。由需求整理、Prototype、開發、API 整合到 QA／UAT、部署、文件及上線後維護，範圍與交付清晰列明。"
         url="https://adwire.com.hk/services/system/"
         image="https://adwire.com.hk/system/CRM.webp"
       />
@@ -138,7 +162,7 @@ export default function SystemServiceContent() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatItem number="80+" label="企業系統項目" />
             <StatItem number="300%" label="平均效率提升" />
-            <StatItem number="99.9%" label="系統穩定性" />
+            <StatItem number="24/7" label="系統監控及告警" />
             <StatItem number="4-8週" label="平均交付時間" />
           </div>
         </div>
@@ -272,7 +296,7 @@ export default function SystemServiceContent() {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">AI 智能系統整合</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  將生成式 AI (LLM) 融入企業流程。從自動化客服到智能數據分析，讓 AI 成為你的超級員工。
+                  將 AI 應用融入企業流程。由客服輔助到資料查詢及分析，並保留人工覆核環節。
                 </p>
                 <ul className="space-y-3 mb-8">
                   <FeatureItem text="企業專屬 AI 知識庫 (RAG 技術)" />
@@ -401,10 +425,57 @@ export default function SystemServiceContent() {
       <section className="py-16 bg-white border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            <TrustBadge icon={ShieldCheck} title="銀行級加密" desc="SSL & 數據加密" />
-            <TrustBadge icon={Gauge} title="99.9% Uptime" desc="高穩定性保證" />
-            <TrustBadge icon={FileCode} title="源碼交付" desc="完整擁有權" />
-            <TrustBadge icon={Star} title="80+ 成功案例" desc="各行業信賴" />
+            <TrustBadge icon={ShieldCheck} title="資料加密" desc="SSL/TLS 及加密存儲" />
+            <TrustBadge icon={Gauge} title="監控及告警" desc="異常情況通知負責同事" />
+            <TrustBadge icon={FileCode} title="源碼交付" desc="合約列明擁有權" />
+            <TrustBadge icon={Star} title="500+ 服務客戶" desc="項目涵蓋多個行業" />
+          </div>
+        </div>
+      </section>
+
+      {/* 11b. 交付清單 (What We Deliver) */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">實際交付什麼</h2>
+            <p className="text-gray-500 max-w-3xl mx-auto">
+              報價時會列明以下項目，避免開發中途才發現範圍不一致。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "需求及功能清單", desc: "按業務流程整理功能、角色及使用場景，作為報價及驗收的依據。" },
+              { title: "介面及 Prototype", desc: "先確認畫面結構及操作流程，減少開發後期大幅修改。" },
+              { title: "系統開發", desc: "按確認範圍開發，分段交付並提供階段性預覽。" },
+              { title: "API 及系統整合", desc: "連接現有 CRM、ERP、會計、預約或網店系統；可行性會在方案階段實測確認。" },
+              { title: "測試及 UAT", desc: "提供測試環境供你的同事實際操作，逐項核對功能清單。" },
+              { title: "部署及設定", desc: "設定網域、SSL、權限及備份等上線所需項目。" },
+              { title: "文件及交接", desc: "交付操作說明、系統設定紀錄及必要技術文件，方便日後維護或更換供應商。" },
+              { title: "培訓安排", desc: "按需要安排操作培訓，讓負責同事能自行處理日常運作。" },
+              { title: "維護（選購）", desc: "可按月安排維護及支援；亦可由你的團隊接手，兩者都會在合約中講清楚。" },
+            ].map((d) => (
+              <div key={d.title} className="bg-white border border-gray-100 rounded-2xl p-6">
+                <h3 className="font-bold text-[#0f4c81] mb-2">{d.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{d.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 bg-white border border-gray-100 rounded-2xl p-8">
+            <h3 className="font-bold text-[#0f4c81] mb-4">技術選項按項目評估</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+              {[
+                { name: "CMS／WordPress／Shopify", desc: "適合內容為主、需要同事自行更新，或希望盡快上線的網站及網店。" },
+                { name: "Next.js／React 客製開發", desc: "適合需要特定功能、複雜互動或與現有系統整合的網站及 Web App。" },
+                { name: "其他方案", desc: "按現有系統、團隊能力及預算評估，必要時會建議沿用你已投資的平台。" },
+              ].map((t) => (
+                <div key={t.name}>
+                  <p className="font-semibold text-[#0f4c81] mb-1.5">{t.name}</p>
+                  <p className="text-gray-600 leading-relaxed">{t.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -432,27 +503,27 @@ export default function SystemServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-[#0f4c81] mb-6">銀行級安全架構，守護企業核心資產</h2>
+              <h2 className="text-3xl font-bold text-[#0f4c81] mb-6">安全與可靠性安排，保護企業核心資料</h2>
               <p className="text-gray-600 mb-8 text-lg">
-                我們深知系統穩定性與數據安全對企業的重要性。ADWire 採用的技術標準確保你的系統 24/7 穩定運行，無懼任何安全威脅。
+                系統穩定性與資料安全會按實際需要設計。我們會說明採用的加密方式、權限設定、備份策略及監控安排，並講清楚第三方服務的依賴及限制。任何系統運作都取決於架構、維運及外部環境，因此我們不會作「無懼任何威脅」一類的絕對保證。
               </p>
               
               <div className="space-y-6">
                 <SecurityFeature 
                   title="多重數據加密" 
-                  desc="所有敏感資料均採用 AES-256 銀行級加密存儲，傳輸過程全程 SSL/TLS 加密。" 
+                  desc="傳輸過程採用 SSL/TLS 加密；敏感資料可按需要加密存儲，實際加密方式會按系統環境及要求確認。" 
                 />
                 <SecurityFeature 
                   title="自動化異地備份" 
-                  desc="每日自動進行增量備份，並存儲於多個地理位置的雲端伺服器，確保數據永不丟失。" 
+                  desc="按需要設定自動備份頻率及備份位置，並定期測試還原流程。備份策略會按資料量及復原目標確認。" 
                 />
                 <SecurityFeature 
                   title="高可用性架構 (High Availability)" 
-                  desc="基於 Docker & Kubernetes 的負載均衡架構，支持自動擴容，確保在高流量下依然流暢。" 
+                  desc="架構選項按項目需要評估，可包括負載均衡及橫向擴展設計，並配合監控及告警。" 
                 />
                 <SecurityFeature 
                   title="嚴格權限控管 (RBAC)" 
-                  desc="精細到按鈕級別的角色權限管理，完整記錄所有操作日誌，防止內部數據外洩。" 
+                  desc="按角色設定功能及資料層級的存取權限，並記錄操作日誌，方便稽核及追查。" 
                 />
               </div>
             </div>
@@ -465,26 +536,24 @@ export default function SystemServiceContent() {
                     <ShieldCheck size={28} />
                   </div>
                   <div>
-                    <div className="text-white font-bold text-xl">安全合規認證</div>
-                    <div className="text-blue-400 text-sm">符合國際最高標準</div>
+                    <div className="text-white font-bold text-xl">安全及合規安排</div>
+                    <div className="text-blue-400 text-sm">按項目實際要求確認</div>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
-                  <ComplianceItem text="符合 GDPR 歐盟個人資料保護法" />
-                  <ComplianceItem text="符合 ISO 27001 資訊安全管理體系" />
-                  <ComplianceItem text="符合 PCI DSS 支付卡產業資料安全標準" />
-                  <ComplianceItem text="定期進行第三方滲透測試 (Penetration Test)" />
+                  <ComplianceItem text="可配合客戶的個人資料處理及保留要求（例如香港個人資料（私隱）條例）" />
+                  <ComplianceItem text="權限控管：按角色設定功能及資料層級的存取權，並記錄操作日誌" />
+                  <ComplianceItem text="傳輸加密（SSL/TLS），敏感資料可按需要加密存儲" />
+                  <ComplianceItem text="如項目涉及支付、醫療或受監管資料，會按實際情況與客戶及合資格顧問確認合規要求" />
                 </div>
-                
+
                 <div className="mt-8 pt-8 border-t border-slate-800">
-                  <div className="flex items-center justify-between text-white mb-2">
-                    <span className="text-sm">系統運行時間 (Uptime)</span>
-                    <span className="text-green-400 font-mono">99.99%</span>
-                  </div>
-                  <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                    <div className="w-[99.99%] h-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
-                  </div>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    ADWire 不會聲稱已取得 ISO 27001、PCI DSS 等認證，除非該項目確實已完成相關認證程序。
+                    如你的採購流程需要特定合規文件或第三者評估，我們會在方案階段確認是否能夠配合，
+                    並將相關責任及範圍寫入合約。
+                  </p>
                 </div>
               </div>
             </div>
@@ -503,7 +572,7 @@ export default function SystemServiceContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <WhyUsCard icon={Zap} title="懂生意的技術團隊" desc="我們結合 Marketing 思維與技術實力，確保系統不僅功能強大，更能真正解決業務問題，提升轉換率。" />
-            <WhyUsCard icon={ShieldCheck} title="銀行級安全標準" desc="採用最新的加密技術與雲端架構，確保數據安全、系統穩定，並符合 GDPR 等私隱法規。" />
+            <WhyUsCard icon={ShieldCheck} title="安全與權限安排" desc="按需求設定加密、權限、備份及日誌；私隱及合規要求會按實際情況與客戶確認。" />
             <WhyUsCard icon={Code2} title="全源碼交付" desc="拒絕被綁架。我們提供完整的源代碼 (Source Code) 與文檔，讓你擁有系統的完全控制權。" />
           </div>
         </div>
@@ -600,10 +669,10 @@ export default function SystemServiceContent() {
       {/* 18. CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">準備好升級你的企業系統了嗎？</h2>
-          <p className="text-xl text-blue-100 mb-10">立即預約免費諮詢，讓我們為你分析業務痛點，提供最佳解決方案。</p>
-          <a href="#contact" className="bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all shadow-xl inline-flex items-center gap-2">
-            立即開始 <ArrowRight size={20} />
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">準備好開始你的項目了嗎？</h2>
+          <p className="text-xl text-blue-100 mb-10">講清楚你的需求，我們會回覆可行的做法、範圍、時間及報價方式。</p>
+          <a href="/contact" className="bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all shadow-xl inline-flex items-center gap-2">
+            提交項目需求 <ArrowRight size={20} />
           </a>
         </div>
       </section>

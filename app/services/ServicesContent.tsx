@@ -38,8 +38,8 @@ const painPoints = [
 // 服務數據
 const services = [
   {
-    category: "引爆流量 (Traffic & Awareness)",
-    description: "讓品牌被看見。我們利用內容力量，為你帶來海量潛在客戶。",
+    category: "Digital Marketing（原有服務）",
+    description: "廣告投放、社交媒體、短視頻、KOL 及攝影。所有原有服務頁面全部保留。",
     color: "bg-orange-50",
     borderColor: "border-orange-100",
     titleColor: "text-orange-600",

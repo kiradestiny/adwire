@@ -24,22 +24,25 @@ export default function AutomationServiceContent() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/50 bg-emerald-500/10 text-emerald-300 text-sm mb-8">
               <Bot size={14} />
-              Marketing Automation Expert
+              Business Workflow Automation
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              請一個 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">24/7 不睡覺</span> 的超級員工<br/>
-              生意自動運轉
+              企業工作流程自動化<br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">減少重複工序，連接現有系統</span>
             </h1>
             
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-              告別繁瑣的手動操作 (Manual Work)。<br/>
-              我們幫你串接 WhatsApp, CRM 及廣告系統，讓 AI 自動回覆、自動追單、自動入數。
+              將 Email、表格、Excel、報價、訂單及客戶跟進等重複工序自動化。<br/>
+              依已配置的流程持續執行；出現異常時會通知真人接手，並保留完整日誌。
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="#demo" className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-500 transition-all shadow-lg shadow-emerald-900/50 flex items-center justify-center gap-2">
-                <Zap size={18} /> 看自動化示範
+              <a href="/contact" className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-500 transition-all shadow-lg shadow-emerald-900/50 flex items-center justify-center gap-2">
+                <Zap size={18} /> 討論你的流程
+              </a>
+              <a href="#demo" className="bg-white/10 border border-white/25 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+                看流程如何運作
               </a>
             </div>
           </motion.div>
@@ -76,7 +79,7 @@ export default function AutomationServiceContent() {
               <WorkflowStep 
                 icon={Database} 
                 title="2. 自動入庫" 
-                desc="資料秒速同步至 Google Sheets / CRM" 
+                desc="自動寫入 CRM 或指定系統，只輸入一次" 
                 delay={0.5}
                 isAuto
               />
@@ -90,7 +93,7 @@ export default function AutomationServiceContent() {
               <WorkflowStep 
                 icon={ShoppingCart} 
                 title="4. 成功轉化" 
-                desc="顧問接手跟進，成交率提升 3 倍" 
+                desc="同事接手跟進，個案有記錄可追" 
                 delay={1.5}
                 isSuccess
               />
@@ -127,40 +130,256 @@ export default function AutomationServiceContent() {
                 <Check size={24} /> 營銷自動化系統
               </div>
               <ul className="space-y-4 text-gray-700">
-                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 秒回：0.1 秒即時回覆，24 小時全天候待命。</li>
-                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 準確：API 直接對接，100% 準確無誤。</li>
-                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 成本低：系統唔會放假，成本只需人工的 1/10。</li>
-                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 主動：設定時間自動追單 (e.g. 24小時後提佢比錢)。</li>
+                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 即時：新查詢進入後即時觸發流程，非辦公時間仍可先接收及分類。</li>
+                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 可追查：API 直接對接，每步執行都有日誌；資料來源或欄位有誤時會標示並通知負責同事。</li>
+                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 減少人手：把重複輸入及跟進工序交由系統處理，同事專注需要判斷的個案。</li>
+                <li className="flex gap-3"><span className="text-emerald-500">✅</span> 主動跟進：按設定時間自動提醒客戶或同事（例如報價後 24 小時提醒）。</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. 應用場景 (Use Cases) */}
+      {/* 4. 業務問題 (Business Problems) */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">日常營運中最常見的重複工序</h2>
+            <p className="text-gray-500 max-w-3xl mx-auto">
+              以下情況通常不需要「全盤數碼轉型」才能解決。多數企業可以先自動化一至兩條流程，
+              驗證效果後再擴展。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Email／Excel 之間複製資料", desc: "同一批資料要在 Email、Excel 及系統之間重複輸入，出錯後要找很久才知道錯在哪一步。" },
+              { title: "報價重複製作", desc: "每次報價都要重新整理項目、單價及條款，格式和版本容易不一致。" },
+              { title: "訂單及 Invoice 手動輸入", desc: "人手輸入單號、金額及客戶資料，月結時需要大量時間對數。" },
+              { title: "客戶漏跟進", desc: "查詢分散在 WhatsApp、電郵及表格，沒有統一記錄，跟進依賴個人記憶。" },
+              { title: "系統之間資料不同步", desc: "網店、CRM 及會計系統各自一份資料，數量及狀態不一致。" },
+              { title: "流程出錯只有事後才知道", desc: "沒有日誌及通知機制，問題通常由客戶先發現。" },
+            ].map((p) => (
+              <div key={p.title} className="border border-gray-100 rounded-2xl p-6 bg-gray-50/60">
+                <h3 className="font-bold text-[#0f4c81] mb-2">{p.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Before / After 代表流程 */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">一條流程的前後分別</h2>
+            <p className="text-gray-500">以「查詢進入 → 建檔 → 跟進」為例</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="border border-gray-200 rounded-2xl p-8 bg-white">
+              <div className="flex items-center gap-2 text-gray-500 font-bold mb-6">
+                <Clock size={18} /> 自動化之前
+              </div>
+              <ol className="space-y-4 text-sm text-gray-600">
+                <li>1. 客戶在表格或 WhatsApp 留下查詢</li>
+                <li>2. 同事手動複製到 Excel</li>
+                <li>3. 有空時再打開 CRM 輸入一次</li>
+                <li>4. 靠記憶或個人提醒跟進</li>
+                <li>5. 月底才由 Excel 統計成效</li>
+              </ol>
+            </div>
+
+            <div className="border-2 border-emerald-200 rounded-2xl p-8 bg-emerald-50/40">
+              <div className="flex items-center gap-2 text-emerald-700 font-bold mb-6">
+                <Zap size={18} /> 自動化之後
+              </div>
+              <div className="flex flex-wrap items-center gap-2 text-sm">
+                {[
+                  "Email／表格",
+                  "欄位擷取",
+                  "資料校驗",
+                  "CRM／ERP",
+                  "人工核准",
+                  "回覆／報告",
+                ].map((step, i) => (
+                  <span key={step} className="flex items-center gap-2">
+                    <span className="bg-white border border-emerald-200 text-emerald-800 rounded-lg px-3 py-1.5 font-medium">
+                      {step}
+                    </span>
+                    {i < 5 ? <ArrowRight size={14} className="text-emerald-400" /> : null}
+                  </span>
+                ))}
+              </div>
+              <p className="text-sm text-gray-600 mt-6 leading-relaxed">
+                資料只輸入一次，其餘步驟由系統執行。需要人工判斷的個案會標示出來，
+                由同事核准後才回覆客戶，避免系統自行發出不適當的內容。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. 應用場景 (Use Cases) */}
       <section className="py-24 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">三大皇牌自動化場景</h2>
-            <p className="text-gray-400">適合電商、教育、美容及 B2B 行業。</p>
+            <h2 className="text-3xl font-bold mb-4">常見自動化場景</h2>
+            <p className="text-gray-400">以下為流程設計示例，實際做法會按你的系統及權限確認。</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <ScenarioCard 
-              title="WhatsApp 棄單挽回" 
-              desc="當客人在網店加入購物車但未付款，系統會自動在 1 小時後發送 WhatsApp 提醒，並附上 5% 折扣碼。實測挽回率高達 20%。"
+              title="購物車未完成提醒" 
+              desc="客人加入購物車但未付款時，按設定時間自動發送提醒訊息。訊息內容、發送時機及頻率均由你確認，並可設定每位客人的發送上限。"
               tag="E-commerce"
             />
             <ScenarioCard 
-              title="試堂/預約自動提醒" 
-              desc="客人在系統預約後，自動發送確認 Email。並在活動前 24 小時及 1 小時發送 WhatsApp 溫馨提示，大幅減少 No-show (甩底) 率。"
+              title="預約／試堂自動提醒" 
+              desc="預約完成後自動發送確認，並在約定時間前再次提醒。提醒方式可選 Email、WhatsApp 或兩者並用，視乎你已具備的平台權限。"
               tag="Service / Education"
             />
             <ScenarioCard 
-              title="潛在客戶自動分流" 
-              desc="Chatbot 透過幾條問題 (e.g. 預算、需求) 自動篩選客戶。高質素的 Lead 會即時通知 Sales 跟進，低質素的則引導至 FAQ。"
-              tag="B2B / Real Estate"
+              title="查詢自動分流與跟進" 
+              desc="透過幾條問題收集預算、需求及時間表，按規則分流。個案會自動建立記錄並通知負責同事，避免只靠個人記憶跟進。"
+              tag="B2B / Professional Services"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* 7. 解決方案類型 */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">解決方案類型</h2>
+            <p className="text-gray-500">按流程的確定程度選擇，不同類型可以混合使用。</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { title: "規則式自動化 (Rule-based)", desc: "條件明確、結果可預期的流程，例如「收到表格 → 建立記錄 → 通知指定同事」。容易驗證及維護，通常優先處理。" },
+              { title: "AI 協助的流程 (AI-assisted)", desc: "適用於需要理解內容的步驟，例如從 Email 或文件中擷取欄位、把查詢分類、草擬回覆初稿。會加入人工覆核環節。" },
+              { title: "系統整合 (API Integration)", desc: "連接現有 CRM、ERP、會計或預約系統，避免同一份資料在多處重複輸入。需要相關系統的 API 權限。" },
+              { title: "通知與報告", desc: "按日／週／月自動產生摘要，讓負責人看到處理量、待跟進個案及異常記錄。" },
+            ].map((s) => (
+              <div key={s.title} className="border border-gray-100 rounded-2xl p-7 bg-gray-50/60">
+                <h3 className="font-bold text-[#0f4c81] mb-3">{s.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. 實作方式及例外處理 */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">實作方式及例外處理</h2>
+            <p className="text-gray-500 max-w-3xl mx-auto">
+              自動化最重要的不是「成功時如何運作」，而是「失敗時會發生什麼事」。
+              以下項目會在方案中一併確認。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "失敗重試", desc: "第三方系統暫時無回應時，按設定次數自動重試，避免資料遺失。" },
+              { title: "錯誤通知", desc: "連續失敗或異常情況會通知指定同事，而不是靜靜地停下來。" },
+              { title: "權限控制", desc: "每個流程只取得執行所需的最小權限，員工離職或轉職時可獨立撤銷。" },
+              { title: "人工交接", desc: "遇到無法判斷的個案（例如特殊折扣、投訴）會轉交真人處理。" },
+              { title: "監控及日誌", desc: "每次執行都留有記錄，可追查某筆資料在什麼時間被哪個步驟處理。" },
+              { title: "變更管理", desc: "流程修改前先確認影響範圍，重要改動會先在測試環境驗證。" },
+            ].map((e) => (
+              <div key={e.title} className="bg-white border border-gray-100 rounded-2xl p-6">
+                <h3 className="font-bold text-[#0f4c81] mb-2">{e.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{e.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 bg-white border border-gray-100 rounded-2xl p-8">
+            <h3 className="font-bold text-[#0f4c81] mb-4">可連接的系統</h3>
+            <p className="text-sm text-gray-600 leading-relaxed mb-4">
+              ADWire 可連接的範圍取決於對方系統有否提供 API、你所購買的方案是否包含 API 權限，
+              以及該平台是否允許自動化存取。因此我們會先在 Discovery 階段確認實際可行的範圍，
+              而不是預先承諾「任何系統都能接駁」。
+            </p>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              常見類型包括：WhatsApp Business API、網站表單、電郵、CRM、ERP／會計系統、
+              預約系統、網店平台及 Google Sheets／Drive。部分平台需要額外訂閱或申請權限，
+              相關費用由客戶直接支付給該平台。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. 收費模式 */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-[#0f4c81] mb-6">收費模式</h2>
+          <p className="text-gray-600 leading-relaxed mb-8">
+            自動化項目按流程數量及整合複雜度報價，沒有一個適用於所有企業的固定價格。
+            一般流程是：先做 Discovery 釐清現有流程及系統限制，再提供明確的範圍、報價及時間表。
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            {[
+              { step: "1", title: "Discovery", desc: "了解現有流程、系統、權限及人手安排，確立可自動化的範圍。" },
+              { step: "2", title: "方案及報價", desc: "提供流程圖、交付清單、時間表及報價方式（一次性開發及／或按月維護）。" },
+              { step: "3", title: "開發及上線", desc: "分段交付並提供測試環境，通過驗收後上線，並安排交接及文件。" },
+            ].map((s) => (
+              <div key={s.step} className="border border-gray-100 rounded-2xl p-6 bg-gray-50/60">
+                <div className="text-3xl font-bold text-[#0f4c81]/20 mb-2">{s.step}</div>
+                <h3 className="font-bold text-[#0f4c81] mb-2">{s.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. 常見問題 */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-[#0f4c81] mb-12 text-center">流程自動化常見問題</h2>
+          <div className="space-y-5">
+            {[
+              { q: "自動化之後，是否完全不需要人手處理？", a: "不是。規則明確的步驟可以交由系統執行，但涉及判斷、例外處理或客戶關係的環節通常保留人工覆核。實際設計會按你的業務風險決定哪些步驟必須由人確認。" },
+              { q: "現有的 CRM 或 ERP 可以連接嗎？", a: "取決於該系統是否提供 API、你的方案是否包含 API 權限，以及平台是否允許自動化存取。我們會在 Discovery 階段實測確認，再告知可行的整合方式；如不可行會直接說明，不會先承諾後補救。" },
+              { q: "流程出錯會不會影響客戶？", a: "設計時會加入失敗重試、錯誤通知及人工交接。高風險步驟（例如發出報價、確認訂單）通常設定為需要人手核准後才執行。" },
+              { q: "需要多長時間？", a: "單一流程一般 2–6 週；涉及多系統整合或需要處理歷史資料的項目會較長。實際時間會在確認範圍後一併提供。" },
+              { q: "資料會放在哪裡？", a: "資料存放及傳輸方式會按你的要求及所用平台的能力確認，包括誰可以存取、保留多久及是否需要日誌。我們會逐項說明實際安排，不會以「絕對安全」一類說法代替具體描述。" },
+              { q: "上線之後由誰維護？", a: "可以交由 ADWire 按需要維護（按月安排），也可以由你的團隊接手。原始碼及帳戶歸屬會在合約中清楚列明，並在交付時提供文件及交接安排。" },
+            ].map((f) => (
+              <details key={f.q} className="group border border-gray-200 rounded-2xl bg-white overflow-hidden">
+                <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none">
+                  <span className="font-bold text-[#0f4c81]">{f.q}</span>
+                  <span className="text-[#f5a623] text-xl group-open:rotate-45 transition-transform shrink-0">+</span>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 text-sm leading-relaxed">{f.a}</div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 11. 維護 CTA */}
+      <section className="py-16 bg-[#0f4c81] text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">上線之後，需要持續調整</h2>
+          <p className="text-blue-100 leading-relaxed mb-8 max-w-2xl mx-auto">
+            流程會隨業務改變。可以選擇由 ADWire 按需要維護及調整，
+            或由你的團隊接手 —— 兩者都會在合約中事先講清楚。
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/contact" className="bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors">
+              討論你的流程
+            </a>
+            <a href="/services/ai/" className="bg-white/10 border border-white/30 text-white px-8 py-3 rounded-full font-bold hover:bg-white/20 transition-colors">
+              了解 AI 應用及維護安排
+            </a>
           </div>
         </div>
       </section>

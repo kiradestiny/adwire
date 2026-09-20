@@ -32,8 +32,8 @@ export default function StatsSection() {
     {
       icon: Users,
       value: "500+",
-      label: "成功案例",
-      description: "服務超過500家企業",
+      label: "服務客戶",
+      description: "服務超過 500 家香港企業及品牌",
       color: "blue",
       gradient: "from-blue-500 to-blue-600"
     },
@@ -55,9 +55,9 @@ export default function StatsSection() {
     },
     {
       icon: Zap,
-      value: "24/7",
-      label: "AI 自動化",
-      description: "全天候智能系統運作",
+      value: "16",
+      label: "精選公開案例",
+      description: "涵蓋系統、AI、SEO 及營銷項目",
       color: "purple",
       gradient: "from-purple-500 to-purple-600"
     }

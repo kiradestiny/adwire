@@ -1,0 +1,35 @@
+claim_id,location,original_text,category,evidence_status,owner_confirmation,action,wording_decision
+C-001,Homepage / Navbar / JsonLd / FAQ,500+ 服務客戶,數字口徑,Owner-confirmed 2026-09-20,真實,KEEP 但需定義口徑,須明確標示為『服務客戶數』，並與 Portfolio 公開案例數分開表述
+C-002,Homepage Metadata / FAQ / JsonLd,500+ 成功案例,數字口徑,Owner-confirmed 2026-09-20,真實,REWRITE,『成功案例』與實際公開案例數（16）落差過大，建議統一改為『服務客戶 500+』，避免與 Portfolio 清單矛盾
+C-003,Homepage Stats / ComparisonTable / FAQ / JsonLd / Blog footer,328% 平均 ROI 提升,成效數字,Owner-confirmed 2026-09-20,真實,KEEP + 加註,須標示計算方式及量度期間；避免同時出現 3.8x 造成兩個 ROI 版本
+C-004,Homepage Stats / Portfolio / Navbar,98% 客戶滿意,成效數字,Owner-confirmed 2026-09-20,真實,KEEP + 加註,須說明計算基礎（問卷／回訪比例／期間）
+C-005,Navbar / Homepage trust stats,3.8x 平均 ROI,成效數字,Owner-confirmed 2026-09-20,真實,RESOLVE CONFLICT,與 328% 並存會令訪客混淆（3.8x＝380%）；建議全站只用一個 ROI 表述
+C-006,Contact 表單旁 / Portfolio Title,150+ 香港品牌 / 120+ 真實數據案例,數字口徑,Owner-confirmed 2026-09-20,真實,UNIFY,150+ 與 120+ 須統一為單一數字，並定義為『服務品牌數』
+C-007,About,100+ 服務品牌,數字口徑,Owner-confirmed 2026-09-20,真實,UNIFY,與 C-006 衝突；About 應與全站同一數字
+C-008,Contact 表單旁,4.9 分,評分,Owner-confirmed 2026-09-20,真實,KEEP + 加註,須標明評分來源（客戶回饋／平台評價）及樣本數
+C-009,About,10 年+,資歷,Owner-confirmed 2026-09-20,真實,REWRITE,公司約營運一年半；10 年屬成員個人經驗，必須分開描述
+C-010,AI 頁 / FAQ,45+ B2B AI 案例,數字口徑,Owner-confirmed 2026-09-20,真實,KEEP + 加註,須定義為 AI 相關項目數，並與 Portfolio 公開案例數區分
+C-011,AI 頁,私有化 AI 部署 合規安全零外洩,技術保證,未能作普遍保證,需改寫,REWRITE,改為：按需求評估部署方式、權限、日誌、資料保留及第三方依賴；不宣稱零外洩
+C-012,SEO 頁 H1 / FAQ / Title,被所有 AI 推薦 / 確保 AI 優先引用 / 被引用為權威答案,排名保證,平台輸出不可保證,需改寫,REWRITE,改為可量度描述：優化內容結構與品牌能見度，監測可觀察結果
+C-013,SEO 頁模擬畫面,ChatGPT (GPT-4o) 已被引用 / Perplexity 已被引用,示意畫面,非真實平台截圖,需加標示,REWRITE,加『示意』標註；不得當作 AI 平台推薦證據
+C-014,Web 頁,所有網站均採用 Next.js / React,技術綑綁,與實際交付彈性不符,需改寫,REWRITE,改為按項目評估 CMS／WordPress／Shopify／Next.js／React
+C-015,System 頁,系統 24/7 穩定運作，無懼任何安全威脅,絕對保證,未能作普遍保證,需改寫,REWRITE,改為描述實際架構、監控、備份及維護範圍
+C-016,System 頁,銀行級安全架構 / 銀行級安全標準,資歷保證,未有第三方認證證據,待確認,REWRITE,無認證證據前改為描述性措辭（加密、權限控管、備份、日誌）
+C-017,Automation 頁,24/7 不睡覺的超級員工,誇大措辭,—,需改寫,REWRITE,改為：依已配置流程持續執行，異常可通知真人處理
+C-018,Automation 頁,100% 準確 / 成交率 3 倍 / 20% 棄單挽回 / 0.1 秒,未核實成效,待提供,Pending,BLOCKED,未提供計算口徑前不保留；改為案例實際結果
+C-019,AI 頁 ROI 計算器,示例 ROI 及回本數字,示意工具,公式未公開,待確認,REWRITE,顯示輸入、公式、假設及『示意估算，非保證』並驗算
+C-020,AI 頁,成本僅人手 1/10 / 3–6 個月回本 / 500% 效率,成效保證,待提供,Partial,REWRITE,改為具體案例數據或落無數字描述
+C-021,Ads 頁,ROAS 從 2.1 提升至 8.5 / 獲客成本下降 45% / 每月新增 280+ 訂單,成效數字,Owner-confirmed 2026-09-20,真實,KEEP + 加註,須標明客戶行業、期間及計算來源；避免暗示適用於所有客戶
+C-022,Social 頁,IG 追蹤者 3 個月增長 500% / 每月訂座量提升 80% / IG Shop 月營業額破百萬,成效數字,Owner-confirmed 2026-09-20,真實,KEEP + 加註,須標明期間及客戶類型
+C-023,KOL 頁 / FAQ,"超過 1,000 位 KOL 合作資源庫",數字口徑,待確認,Pending,UNIFY,全站統一一個數字並定義（合作過／資源庫內）
+C-024,全站 CTA 共用區,準備好令你的品牌引爆流量？,語氣,—,需改寫,REWRITE,改為適用於軟件及營銷客戶：『討論你的項目』或『了解你的增長機會』
+C-025,Homepage Title / About,香港首選 / 領先市場,排名聲稱,無法核實,需刪除,REWRITE,改為描述實際服務：『香港企業軟件、AI 與數碼增長方案』
+C-026,System 頁客戶引言,王先生 連鎖零售集團 CEO：庫存準確率 75%→98%,客戶見證,待提供,Pending,BLOCKED,需姓名／職位／原話／授權；未核實不公開
+C-027,AI 頁客戶見證區,客戶引言及成效,客戶見證,待提供,Pending,BLOCKED,同上
+C-028,Portfolio 16 個案例,各案例成效數字（ROAS 8x、No-show -68%、詢盤 +45% 等）,案例數據,待逐個核實,Pending,BLOCKED,逐個補：項目角色、期間、實際範圍、量度來源、圖片及 Logo 授權
+C-029,Portfolio / LogoWall,客戶 Logo（34 個品牌）,商標,待提供授權清單,Pending,BLOCKED,逐個標示 ADWire 直接承接／分判合作／成員過往項目，並確認展示授權
+C-030,Contact 表單旁,24 小時內回覆 / 資料絕對保密 / 首次諮詢免費,服務承諾,待確認,Pending,REWRITE,只有真正能維持才保留；否則改為營業時間說明
+C-031,Contact 頁,hr@adwire.com.hk,已停用資料,Owner-confirmed 停用,需刪除,REWRITE,直接移除，只保留 info@adwire.com.hk
+C-032,博客文章,各項宏觀 AI／SEO 統計（60% zero-click、34% 流量跌幅、8 億月活等）,外部統計,未有出處,需加註,REWRITE,加官方來源連結；無法查證則刪除或改為定性描述
+C-033,Web 頁,每延遲 1 秒，轉換率下降 7%,外部統計,需來源,需加註,REWRITE,加來源；否則改為定性描述
+C-034,全站,500% / 328% / 98% 等數字同時出現於 Metadata、JSON-LD、Navbar、表單,一致性,—,需統一,REWRITE,建立單一資料來源（site-config 或中央常數），避免未來再次出現不一致

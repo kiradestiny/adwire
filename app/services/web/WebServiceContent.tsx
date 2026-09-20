@@ -94,7 +94,7 @@ export default function WebServiceContent() {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-green-500" />
-                  <span>99.9% Uptime 穩定性</span>
+                  <span>監控及告警設定</span>
                 </div>
               </div>
             </motion.div>

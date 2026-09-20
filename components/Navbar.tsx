@@ -13,18 +13,47 @@ import { getWhatsAppUrl } from "@/lib/site-config";
 /* ─────────────────────────────────────────────
    靜態資料（模組作用域，避免每次 render 重建）
 ───────────────────────────────────────────── */
-const servicesLinks = [
-  { name: "KOL 網紅營銷",   href: "/services/kol",        emoji: "🌟", badge: null },
-  { name: "短視頻製作",     href: "/services/video",      emoji: "🎬", badge: null },
-  { name: "成效廣告投放",   href: "/services/ads",        emoji: "📈", badge: "熱門" },
-  { name: "社交媒體管理",   href: "/services/social",     emoji: "📱", badge: null },
-  { name: "SEO 與 GEO",     href: "/services/seo",        emoji: "🔍", badge: "熱門" },
-  { name: "網頁設計",       href: "/services/web",        emoji: "🎨", badge: null },
-  { name: "系統/APP開發",   href: "/services/system",     emoji: "⚙️",  badge: null },
-  { name: "商業攝影",       href: "/services/production", emoji: "📷", badge: null },
-  { name: "營銷自動化",     href: "/services/automation", emoji: "🤖", badge: "新" },
-  { name: "AI 解決方案",    href: "/services/ai",         emoji: "✨", badge: "新" },
+/* 四大產品線分組（保留全部原有服務 URL，一個都沒有刪除） */
+const serviceGroups: {
+  group: string;
+  links: { name: string; href: string; emoji: string; badge: string | null }[];
+}[] = [
+  {
+    group: "Software Development",
+    links: [
+      { name: "系統及 App 開發",   href: "/services/system",     emoji: "⚙️",  badge: null },
+      { name: "網頁設計及電商",     href: "/services/web",        emoji: "🎨", badge: null },
+    ],
+  },
+  {
+    group: "AI & Automation",
+    links: [
+      { name: "AI 解決方案",        href: "/services/ai",         emoji: "✨", badge: "新" },
+      { name: "企業流程自動化",     href: "/services/automation", emoji: "🤖", badge: "新" },
+    ],
+  },
+  {
+    group: "SEO & GEO",
+    links: [
+      { name: "SEO 與 GEO 優化",    href: "/services/seo",        emoji: "🔍", badge: "重點" },
+    ],
+  },
+  {
+    group: "Digital Marketing",
+    links: [
+      { name: "成效廣告投放",       href: "/services/ads",        emoji: "📈", badge: null },
+      { name: "社交媒體管理",       href: "/services/social",     emoji: "📱", badge: null },
+      { name: "短視頻製作",         href: "/services/video",      emoji: "🎬", badge: null },
+      { name: "KOL 網紅營銷",       href: "/services/kol",        emoji: "🌟", badge: null },
+      { name: "商業攝影",           href: "/services/production", emoji: "📷", badge: null },
+    ],
+  },
 ];
+
+/* 供 Mobile 及舊有渲染使用的平坦清單 */
+const servicesLinks = serviceGroups.flatMap((g) =>
+  g.links.map((l) => ({ ...l, group: g.group }))
+);
 
 const waLink = getWhatsAppUrl("Hello ADWire, 我想查詢增長方案");
 
@@ -38,7 +67,7 @@ const socialLinks = [
 const trustStats = [
   { icon: Users,       value: "500+",  label: "服務客戶" },
   { icon: Star,        value: "98%",   label: "客戶滿意" },
-  { icon: TrendingUp,  value: "3.8x",  label: "平均 ROI" },
+  { icon: TrendingUp,  value: "328%",  label: "平均 ROI" },
 ];
 
 /* ─────────────────────────────────────────────
@@ -195,7 +224,7 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
               ✅ 只用 opacity + translateY（compositor only）
               ✅ pointer-events-none 防止隱藏時被點擊 */}
           <div
-            className={`absolute top-full left-1/2 -translate-x-1/2 w-60 rounded-2xl p-1.5 mt-2
+            className={`absolute top-full left-1/2 -translate-x-1/2 w-[640px] rounded-2xl p-3 mt-2
               opacity-0 pointer-events-none translate-y-2
               group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0
               transition-[opacity,transform] duration-200 ease-out
@@ -204,23 +233,50 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
             {/* 橋接區：讓滑鼠從 link 移到 dropdown 時不觸發 hover 離開（裝飾性） */}
             <div className="absolute -top-3 left-0 w-full h-3 bg-transparent" aria-hidden="true" />
 
-            <div className="flex flex-col gap-0.5">
-              {servicesLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  prefetch={false}
-                  className={`block px-3.5 py-2 text-sm rounded-xl transition-all duration-150
-                    hover:translate-x-0.5 ${
-                    dark
-                      ? "text-white/75 hover:text-white hover:bg-white/10"
-                      : "text-gray-600 hover:text-[#0f4c81] hover:bg-[#0f4c81]/[0.08]"
-                  }`}
-                >
-                  {link.name}
-                </Link>
+            {/* 四大產品線分組（所有原有服務連結全部保留） */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+              {serviceGroups.map((group) => (
+                <div key={group.group} className="flex flex-col gap-0.5">
+                  <span
+                    className={`px-3.5 pt-2 pb-1 text-[10px] font-bold tracking-wider uppercase ${
+                      dark ? "text-white/40" : "text-gray-400"
+                    }`}
+                  >
+                    {group.group}
+                  </span>
+                  {group.links.map((link) => (
+                    <Link
+                      key={link.href + link.name}
+                      href={link.href}
+                      prefetch={false}
+                      className={`flex items-center gap-2 px-3.5 py-2 text-sm rounded-xl transition-all duration-150
+                        hover:translate-x-0.5 ${
+                        dark
+                          ? "text-white/75 hover:text-white hover:bg-white/10"
+                          : "text-gray-600 hover:text-[#0f4c81] hover:bg-[#0f4c81]/[0.08]"
+                      }`}
+                    >
+                      <span className="text-base leading-none flex-shrink-0">{link.emoji}</span>
+                      <span>{link.name}</span>
+                    </Link>
+                  ))}
+                </div>
               ))}
             </div>
+
+            {/* 全部服務入口（保留 /services） */}
+            <Link
+              href="/services"
+              prefetch={false}
+              className={`mt-2 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold border border-dashed transition-colors ${
+                dark
+                  ? "border-white/25 text-white/70 hover:text-white hover:bg-white/10"
+                  : "border-[#0f4c81]/30 text-[#0f4c81] hover:bg-[#0f4c81]/[0.06]"
+              }`}
+            >
+              查看全部服務範疇
+              <ChevronRight size={13} />
+            </Link>
           </div>
         </div>
 
@@ -548,36 +604,45 @@ export default function Navbar() {
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="pb-2 px-2 grid grid-cols-2 gap-1.5 border-t border-gray-100 pt-2">
-                  {servicesLinks.map((link, i) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      style={{
-                        animationDelay: isOpen ? `${80 + i * 30}ms` : "0ms",
-                      }}
-                      className="relative flex items-center gap-2.5 px-3 py-3
-                        rounded-xl bg-gray-50/80 hover:bg-[#0f4c81]/[0.07]
-                        active:bg-[#0f4c81]/[0.12] active:scale-[0.97]
-                        transition-all duration-150 group"
-                    >
-                      <span className="text-xl leading-none flex-shrink-0">{link.emoji}</span>
-                      <span className="text-[13px] font-semibold text-gray-700
-                        group-hover:text-[#0f4c81] transition-colors duration-150 leading-tight">
-                        {link.name}
+                <div className="pb-2 px-2 border-t border-gray-100 pt-2 space-y-2">
+                  {serviceGroups.map((group, gi) => (
+                    <div key={group.group}>
+                      <span className="px-1 pb-1 block text-[10px] font-bold tracking-wider uppercase text-gray-400">
+                        {group.group}
                       </span>
-                      {link.badge && (
-                        <span className={`absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded-full
-                          text-[9px] font-bold leading-none
-                          ${link.badge === "新"
-                            ? "bg-[#f5a623] text-white"
-                            : "bg-[#0f4c81] text-white"
-                          }`}>
-                          {link.badge}
-                        </span>
-                      )}
-                    </Link>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        {group.links.map((link, i) => (
+                          <Link
+                            key={link.href + link.name}
+                            href={link.href}
+                            onClick={() => setIsOpen(false)}
+                            style={{
+                              animationDelay: isOpen ? `${80 + (gi * 3 + i) * 30}ms` : "0ms",
+                            }}
+                            className="relative flex items-center gap-2.5 px-3 py-3
+                              rounded-xl bg-gray-50/80 hover:bg-[#0f4c81]/[0.07]
+                              active:bg-[#0f4c81]/[0.12] active:scale-[0.97]
+                              transition-all duration-150 group"
+                          >
+                            <span className="text-xl leading-none flex-shrink-0">{link.emoji}</span>
+                            <span className="text-[13px] font-semibold text-gray-700
+                              group-hover:text-[#0f4c81] transition-colors duration-150 leading-tight">
+                              {link.name}
+                            </span>
+                            {link.badge && (
+                              <span className={`absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded-full
+                                text-[9px] font-bold leading-none
+                                ${link.badge === "新"
+                                  ? "bg-[#f5a623] text-white"
+                                  : "bg-[#0f4c81] text-white"
+                                }`}>
+                                {link.badge}
+                              </span>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
 
