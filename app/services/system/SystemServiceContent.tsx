@@ -368,7 +368,7 @@ export default function SystemServiceContent() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">客戶真實反饋</h2>
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">客戶真實回饋</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               從傳統模式到數碼化轉型，我們的客戶見證了系統帶來的實際效益。
             </p>

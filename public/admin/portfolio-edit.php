@@ -708,4 +708,12 @@ document.getElementById('add-ba')?.addEventListener('click', () => {
 document.addEventListener('click', e => { if (e.target.closest('.remove-ba')) e.target.closest('.ba-row')?.remove(); });
 </script>
 
+<script src="/admin/assets/js/content-check.js"></script>
+<script>
+  // 內容檢查：禁止字句 / 大陸用語 / 簡體字 —— 與 build 閘門同一份清單
+  document.addEventListener("DOMContentLoaded", function () {
+    ADWireContentCheck.attach({ fields: ['title','short_description','full_description','challenge','solution','outcome','geo_summary','seo_title','seo_description','alt','test_quote','tags','faq_q[]','faq_a[]'] });
+  });
+</script>
+
 <?php include __DIR__ . '/includes/layout-footer.php'; ?>

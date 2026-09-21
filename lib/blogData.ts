@@ -528,7 +528,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第七階段：調色、音效與交片</h4>
 
-        <p>最後階段處理畫面調色、配樂、音效設計、混音、字幕與最終輸出。字幕要配合不同平台的比例，同一條片可能需要 16:9、9:16、1:1 三個版本。輸出格式要按發佈渠道決定，例如社交媒體用 H.264 的 MP4，電視或大型屏幕播放可能需要較高碼率或指定格式。</p>
+        <p>最後階段處理畫面調色、配樂、音效設計、混音、字幕與最終輸出。字幕要配合不同平台的比例，同一條片可能需要 16:9、9:16、1:1 三個版本。輸出格式要按發佈渠道決定，例如社交媒體用 H.264 的 MP4，電視或大型螢幕播放可能需要較高碼率或指定格式。</p>
 
         <p>交付物：最終成品檔案、字幕檔、平台比例版本。客戶需要參與的部分是：確認最終版本、確認使用權範圍、安排素材存檔。</p>
 
@@ -588,7 +588,7 @@ export const blogPosts: BlogPost[] = [
 
         <p><strong>平台比例。</strong>是否包含 16:9、9:16、1:1 三個版本？不同比例可能需要重新構圖，不是單純裁切。</p>
 
-        <p><strong>交付格式。</strong>輸出格式與碼率是甚麼？是否需要電視或大型屏幕播放的指定格式？</p>
+        <p><strong>交付格式。</strong>輸出格式與碼率是甚麼？是否需要電視或大型螢幕播放的指定格式？</p>
 
         <p><strong>原始素材歸屬。</strong>原始拍攝素材是否交付給客戶？如果不交付，客戶日後能否索取？素材由誰保管、保管多久？</p>
 
@@ -650,7 +650,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">只做一條片而沒有分發計劃</h4>
 
-        <p>很多公司花錢做了一條企業宣傳片，放上網之後就沒有下文。企業影片的價值來自重複使用：一條片可以拆成多條社交媒體短片、可以作為付費廣告素材、可以在展會循環播放、可以嵌入銷售郵件。如果開拍之前已經想好分發渠道，拍攝時就可以一併拍攝直式版本的素材，邊際成本遠低於日後補拍。</p>
+        <p>很多公司花錢做了一條企業宣傳片，放上網之後就沒有下文。企業影片的價值來自重複使用：一條片可以拆成多條社交媒體短片、可以作為付費廣告素材、可以在展會循環播放、可以嵌入銷售電郵。如果開拍之前已經想好分發渠道，拍攝時就可以一併拍攝直式版本的素材，邊際成本遠低於日後補拍。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">忽略配樂與素材的版權</h4>
 
@@ -768,7 +768,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">3. 視覺設計</h4>
 
-        <p>包括圖片、短片封面、排版、字體與品牌色的統一。設計不只是「靚唔靚」，還包括在手機細屏幕上是否清晰、文字是否夠大、以及是否配合平台的比例要求（正方形、直向、橫向各有用途）。如果服務商的報價單寫「含設計」但無寫明修改次數，實務上很容易出現「來回改十次仍未定稿」的情況，交付時間就無得控制。</p>
+        <p>包括圖片、短片封面、排版、字體與品牌色的統一。設計不只是「靚唔靚」，還包括在手機細螢幕上是否清晰、文字是否夠大、以及是否配合平台的比例要求（正方形、直向、橫向各有用途）。如果服務商的報價單寫「含設計」但無寫明修改次數，實務上很容易出現「來回改十次仍未定稿」的情況，交付時間就無得控制。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">4. 社群互動：回覆留言與私訊</h4>
 
@@ -990,7 +990,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">數字</th><th class="text-left px-5 py-3 font-semibold">說明了甚麼</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">抖音本地生活服務 2025 年全年支付 GMV</td><td class="px-5 py-3">超過 8,500 億元人民幣</td><td class="px-5 py-3">同比增速 59%，市場規模已不是概念</td></tr><tr><td class="px-5 py-3">截至 2025 年末動銷門店累計</td><td class="px-5 py-3">1,519.8 萬家</td><td class="px-5 py-3">線下商家已大規模上線，競爭密度極高</td></tr><tr><td class="px-5 py-3">2025 年新增入駐商家</td><td class="px-5 py-3">399 萬家</td><td class="px-5 py-3">一年內新增的供給量已相當於一個大型市場</td></tr><tr><td class="px-5 py-3">一年內在平台經營的中小商家</td><td class="px-5 py-3">458 萬家</td><td class="px-5 py-3">中小商家是平台生態的主體，不是陪跑</td></tr><tr><td class="px-5 py-3">年銷售額超過百萬元的中小商家</td><td class="px-5 py-3">超過 2.2 萬家</td><td class="px-5 py-3">中小規模的商家確實做到可觀生意，不是只有大品牌有機會</td></tr><tr><td class="px-5 py-3">本地生活團購核銷率</td><td class="px-5 py-3">約 50%–60%</td><td class="px-5 py-3">賣出的券只有一半左右真正到店，GMV 不等於實際生意</td></tr><tr><td class="px-5 py-3">沒有專業短視頻運營團隊的本地生活中小商戶</td><td class="px-5 py-3">超過一半</td><td class="px-5 py-3">內容運營能力是普遍短板，也是外來專業團隊的切入點</td></tr></tbody></table></div>
 
-        <p class="text-gray-500 text-sm italic">來源：<a href="https://finance.sina.com.cn/stock/t/2026-02-25/doc-inhnzfcq5200783.shtml" target="_blank" rel="noopener">新浪財經（轉載雷峰網報導）</a>、<a href="https://column.iresearch.cn/b/202603/1024079.shtml" target="_blank" rel="noopener">艾瑞網專欄</a>、<a href="https://m.36kr.com/p/3787674617420806" target="_blank" rel="noopener">36氪</a>、<a href="https://www.jiemian.com/article/14291726.html" target="_blank" rel="noopener">界面新聞</a>、<a href="https://www.donews.com/article/detail/6378/97502.html" target="_blank" rel="noopener">DoNews</a></p>
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://finance.sina.com.cn/stock/t/2026-02-25/doc-inhnzfcq5200783.shtml" target="_blank" rel="noopener">新浪財經（轉載雷峰網報導）</a>、<a href="https://column.iresearch.cn/b/202603/1024079.shtml" target="_blank" rel="noopener">艾瑞網專欄</a>、<a href="https://m.36kr.com/p/3787674617420806" target="_blank" rel="noopener">36氪</a>、<a href="https://www.jiemian.com/article/14291726.html" target="_blank" rel="noopener">介面新聞</a>、<a href="https://www.donews.com/article/detail/6378/97502.html" target="_blank" rel="noopener">DoNews</a></p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">這些數字對香港品牌意味著甚麼</h4>
 
@@ -1044,7 +1044,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>「內容直接翻譯」同樣普遍。香港的文案通常假設讀者已經知道品牌是誰、價格帶在哪裡、為甚麼值得買。內地用戶沒有這些背景，需要從零建立理解。因此內容不只是換字體，而是換角度：從「我們有甚麼」改成「你有甚麼問題，我們怎樣解決」。這個轉換需要重寫，而不是翻譯。</p>
 
-        <p>「沒有承接渠道」往往是最隱形的一項，因為它不會出現在任何報表上。曝光數字漂亮、互動率正常，但查詢量長期偏低，通常不是內容問題，而是用戶看完之後不知道下一步該做甚麼。內地用戶習慣在微信生態內完成查詢與溝通，如果品牌只留了一個香港電話號碼，轉化率自然很低。</p>
+        <p>「沒有承接渠道」往往是最隱形的一項，因為它不會出現在任何報表上。曝光數字漂亮、互動率正常，但查詢量長期偏低，通常不是內容問題，而是用戶看完之後不知道下一步該做甚麼。內地用戶習慣在微信生態內完成查詢與溝通，如果品牌只留了一個香港電話號碼，轉換率自然很低。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、怎樣量度成效：三層數據，缺一層就會自欺</h3>
 
@@ -1365,13 +1365,13 @@ export const blogPosts: BlogPost[] = [
 
         <p>市面上大量標榜「AI Agent」的產品，實際上只是 AI 助理：需要人手逐句輸入、不能獨立運作、不會自己決定下一步。Gartner 把這種現象稱為 <strong>agentwashing</strong>，並指出最常見的誤解，正是把這類 AI assistants 稱為 agents（<a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025" target="_blank" rel="noopener">Gartner，2025-08-26</a>）。</p>
 
-        <p>對採購方而言，這不是名詞之爭，而是報價與期望管理的問題。一個只會按提示回覆的聊天機械人，與一個能自行讀取 CRM、比對條款、發出郵件、遇異常時停下來問人的系統，開發工時、維護責任與風險等級完全不是同一個量級。辨別方法很簡單：<strong>問供應商「這個系統在沒有人打字的情況下，會自己啟動下一步嗎？」</strong>如果答案是不會，那它就不是 Agent。</p>
+        <p>對採購方而言，這不是名詞之爭，而是報價與期望管理的問題。一個只會按提示回覆的聊天機械人，與一個能自行讀取 CRM、比對條款、發出電郵、遇異常時停下來問人的系統，開發工時、維護責任與風險等級完全不是同一個量級。辨別方法很簡單：<strong>問供應商「這個系統在沒有人打字的情況下，會自己啟動下一步嗎？」</strong>如果答案是不會，那它就不是 Agent。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、與 RPA 的分別：不是取代，是互補</h3>
 
         <p>RPA（機械人流程自動化）依預先定義的規則運作：畫面在哪個位置、按哪個按鈕、填哪一欄，全部寫死在流程裡。它的優點是穩定、可預測、易審計；缺點是遇到規則外的情況就卡住，介面一改就要重寫。</p>
 
-        <p>AI Agent 補上的正是這一段。UiPath 的說明指出，agent 負責推理、解讀與規劃，而 robots 與 API 負責執行，兩者是互補關係（<a href="https://www.uipath.com/community-blog/tutorials/harness-the-best-of-rpa-and-agentic-ai" target="_blank" rel="noopener">UiPath</a>）。在實務上，這意味著成熟的企業架構會是：Agent 讀懂一封格式混亂的供應商郵件、判斷屬於哪類採購、抽出關鍵欄位，然後交由既有的 RPA 流程把資料準確寫入 ERP。</p>
+        <p>AI Agent 補上的正是這一段。UiPath 的說明指出，agent 負責推理、解讀與規劃，而 robots 與 API 負責執行，兩者是互補關係（<a href="https://www.uipath.com/community-blog/tutorials/harness-the-best-of-rpa-and-agentic-ai" target="_blank" rel="noopener">UiPath</a>）。在實務上，這意味著成熟的企業架構會是：Agent 讀懂一封格式混亂的供應商電郵、判斷屬於哪類採購、抽出關鍵欄位，然後交由既有的 RPA 流程把資料準確寫入 ERP。</p>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">維度</th><th class="text-left px-5 py-3 font-semibold">聊天機械人</th><th class="text-left px-5 py-3 font-semibold">RPA</th><th class="text-left px-5 py-3 font-semibold">AI Agent</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">驅動方式</td><td class="px-5 py-3">人手逐句輸入</td><td class="px-5 py-3">預先定義規則</td><td class="px-5 py-3">模型推理與規劃</td></tr><tr><td class="px-5 py-3 font-semibold">流程路徑</td><td class="px-5 py-3">由對話決定</td><td class="px-5 py-3">寫死在流程內</td><td class="px-5 py-3">執行時動態決定</td></tr><tr><td class="px-5 py-3 font-semibold">處理非結構化輸入</td><td class="px-5 py-3">可理解但不行動</td><td class="px-5 py-3">弱，需先做格式整理</td><td class="px-5 py-3">可讀懂並轉為結構化資料</td></tr><tr><td class="px-5 py-3 font-semibold">異常處理</td><td class="px-5 py-3">交回人手</td><td class="px-5 py-3">流程中斷</td><td class="px-5 py-3">可嘗試重試或改道</td></tr><tr><td class="px-5 py-3 font-semibold">成本可預測性</td><td class="px-5 py-3">高</td><td class="px-5 py-3">高</td><td class="px-5 py-3">低，變數較多</td></tr></tbody></table></div>
 
@@ -1569,7 +1569,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>下表列出香港市場常見的幾個選項，價錢以各平台官方定價頁為準，查證日期為 2026-09-21。留意收費單位並不統一：有些按席位，有些按號碼，有些按訊息量。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">類型</th><th class="text-left px-5 py-3 font-semibold">公開定價（查證日期 2026-09-21）</th><th class="text-left px-5 py-3 font-semibold">備註</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Twilio</td><td class="px-5 py-3">用量計費</td><td class="px-5 py-3">每則處理費 US$0.005（收／發），另加 Meta 範本費</td><td class="px-5 py-3">適合有技術團隊自行開發的企業</td></tr><tr><td class="px-5 py-3">WATI</td><td class="px-5 py-3">SaaS</td><td class="px-5 py-3">Growth US$99／月、Pro US$249／月</td><td class="px-5 py-3">以 WhatsApp 為核心</td></tr><tr><td class="px-5 py-3">Respond.io</td><td class="px-5 py-3">SaaS</td><td class="px-5 py-3">Starter US$79／月、Growth US$159／月</td><td class="px-5 py-3">多渠道收件箱</td></tr><tr><td class="px-5 py-3">360dialog</td><td class="px-5 py-3">BSP</td><td class="px-5 py-3">€49／號碼／月起</td><td class="px-5 py-3">偏基礎建設，界面需自建</td></tr><tr><td class="px-5 py-3">Omnichat</td><td class="px-5 py-3">SaaS（香港）</td><td class="px-5 py-3">不公開價格，只可取得報價</td><td class="px-5 py-3">支援 WhatsApp、FB Messenger、Instagram、WeChat、LINE 及網站插件</td></tr><tr><td class="px-5 py-3">SleekFlow</td><td class="px-5 py-3">SaaS（香港）</td><td class="px-5 py-3">年繳 Pro US$109／月、Premium US$279／月；WhatsApp 號碼託管 US$15／月；一次性 Premium 設定 US$999</td><td class="px-5 py-3">整合 WhatsApp、FB、IG、網站、電郵、SMS</td></tr><tr><td class="px-5 py-3">HKT</td><td class="px-5 py-3">企業方案</td><td class="px-5 py-3">提供 GPT 客製 AI 聊天機械人，按需求報價</td><td class="px-5 py-3">不公開價格</td></tr></tbody></table></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">類型</th><th class="text-left px-5 py-3 font-semibold">公開定價（查證日期 2026-09-21）</th><th class="text-left px-5 py-3 font-semibold">備註</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Twilio</td><td class="px-5 py-3">用量計費</td><td class="px-5 py-3">每則處理費 US$0.005（收／發），另加 Meta 範本費</td><td class="px-5 py-3">適合有技術團隊自行開發的企業</td></tr><tr><td class="px-5 py-3">WATI</td><td class="px-5 py-3">SaaS</td><td class="px-5 py-3">Growth US$99／月、Pro US$249／月</td><td class="px-5 py-3">以 WhatsApp 為核心</td></tr><tr><td class="px-5 py-3">Respond.io</td><td class="px-5 py-3">SaaS</td><td class="px-5 py-3">Starter US$79／月、Growth US$159／月</td><td class="px-5 py-3">多渠道收件箱</td></tr><tr><td class="px-5 py-3">360dialog</td><td class="px-5 py-3">BSP</td><td class="px-5 py-3">€49／號碼／月起</td><td class="px-5 py-3">偏基礎建設，介面需自建</td></tr><tr><td class="px-5 py-3">Omnichat</td><td class="px-5 py-3">SaaS（香港）</td><td class="px-5 py-3">不公開價格，只可取得報價</td><td class="px-5 py-3">支援 WhatsApp、FB Messenger、Instagram、WeChat、LINE 及網站插件</td></tr><tr><td class="px-5 py-3">SleekFlow</td><td class="px-5 py-3">SaaS（香港）</td><td class="px-5 py-3">年繳 Pro US$109／月、Premium US$279／月；WhatsApp 號碼託管 US$15／月；一次性 Premium 設定 US$999</td><td class="px-5 py-3">整合 WhatsApp、FB、IG、網站、電郵、SMS</td></tr><tr><td class="px-5 py-3">HKT</td><td class="px-5 py-3">企業方案</td><td class="px-5 py-3">提供 GPT 客製 AI 聊天機械人，按需求報價</td><td class="px-5 py-3">不公開價格</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.twilio.com/en-us/whatsapp/pricing" target="_blank" rel="noopener">Twilio</a>、<a href="https://wati.io/pricing" target="_blank" rel="noopener">WATI</a>、<a href="https://respond.io/pricing" target="_blank" rel="noopener">Respond.io</a>、<a href="https://360dialog.com/pricing" target="_blank" rel="noopener">360dialog</a>、<a href="https://www.omnichat.ai/zh-hk/pricing/" target="_blank" rel="noopener">Omnichat</a>、<a href="https://sleekflow.io/zh-hk/pricing" target="_blank" rel="noopener">SleekFlow</a>、<a href="https://www.hkt-enterprise.com/tc/products-solutions/digital-technology/ai-and-robotics/solution/chatbots" target="_blank" rel="noopener">HKT Enterprise</a>，查證日期 2026-09-21。</p>
 
@@ -2197,7 +2197,7 @@ export const blogPosts: BlogPost[] = [
 
         <p><strong>聲稱與 Google 有特殊關係，或可以「優先提交」內容。</strong> Google 特別提醒要提防這類宣傳噱頭。既然 Google 已說明不會收受金錢改變排名，這類說法在邏輯上就站不住。</p>
 
-        <p><strong>不斷主動寄送推銷電郵。</strong> Google 直接寫：「請當心不斷主動寄送電子郵件給您的 SEO 公司、網路顧問或服務商」，並建議把這類有關搜尋引擎的垃圾郵件，視為「一夜見效」的減肥藥宣傳，務必保持懷疑。</p>
+        <p><strong>不斷主動寄送推銷電郵。</strong> Google 直接寫：「請當心不斷主動寄送電子電郵給您的 SEO 公司、網路顧問或服務商」，並建議把這類有關搜尋引擎的垃圾電郵，視為「一夜見效」的減肥藥宣傳，務必保持懷疑。</p>
 
         <p><strong>故作神秘、不願說明意圖。</strong> Google 建議對這類公司保持戒心，並強調如有任何不明白之處，都應該要求對方說明，因為<strong>你終究必須為受僱公司的一切行為負責</strong>。若對方可以透過 FTP 存取你的伺服器，他們應說明在你網站上所做的一切變更。</p>
 
@@ -2878,7 +2878,7 @@ export const blogPosts: BlogPost[] = [
 
         <p><strong>可以之後再加</strong>：錦上添花的功能。例如主題切換、複雜的權限分層、進階數據分析。</p>
 
-        <p>把清單寫下來、標明層級，並在合約中列明第一版的範圍，是控制成本最有效的一步。第一版上線、收到真實用戶反饋之後，才知道第二階段最值得做什麼。</p>
+        <p>把清單寫下來、標明層級，並在合約中列明第一版的範圍，是控制成本最有效的一步。第一版上線、收到真實用戶回饋之後，才知道第二階段最值得做什麼。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、開發流程：一個項目會經過哪些階段</h3>
 
@@ -2967,7 +2967,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">如何避免項目中途不斷加價？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">在開始前把功能分成三層：必須有、第二階段、可以之後再加。在合約中列明第一版的明確範圍，並約定如要加功能的計價方式。第一版上線、收到真實用戶反饋之後，才知道第二階段最值得做什麼，這樣既能控制成本，也不會做錯方向。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">在開始前把功能分成三層：必須有、第二階段、可以之後再加。在合約中列明第一版的明確範圍，並約定如要加功能的計價方式。第一版上線、收到真實用戶回饋之後，才知道第二階段最值得做什麼，這樣既能控制成本，也不會做錯方向。</p>
           </div>
         </div>
 
@@ -4012,7 +4012,7 @@ export const blogPosts: BlogPost[] = [
         <div class="bg-gradient-to-br from-purple-50 to-violet-50 p-5 rounded-xl border border-purple-100">
           <div class="text-3xl mb-3">⚙️</div>
           <h4 class="font-bold text-[#0f4c81] mb-2 text-sm">AI 工作流自動化</h4>
-          <p class="text-xs text-gray-600 leading-relaxed">利用 n8n、Make.com 及 AI API，將重複性工作流程完全自動化：資料錄入、報表生成、郵件跟進、多系統數據同步等，釋放員工時間聚焦高價值工作。</p>
+          <p class="text-xs text-gray-600 leading-relaxed">利用 n8n、Make.com 及 AI API，將重複性工作流程完全自動化：資料錄入、報表生成、電郵跟進、多系統數據同步等，釋放員工時間聚焦高價值工作。</p>
         </div>
         <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-100">
           <div class="text-3xl mb-3">🔒</div>
@@ -4135,7 +4135,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 的 AI Solution 服務跟其他 IT 公司有什麼分別？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">ADWire 的核心差異在於「懂業務的 AI 開發」——我們不只是技術公司，更是深度了解香港企業營運和業務邏輯的技術夥伴。我們的 AI 方案不是純粹的技術實作，而是從業務目標出發，確保每個 AI 功能都直接對應可量化的業績指標（節省成本、提升轉化率、增加收入）。服務超過 500 家香港企業的實戰經驗，讓我們避開大多數 AI 項目失敗的陷阱。聯絡我們：WhatsApp ${WHATSAPP_DISPLAY} | info@adwire.com.hk。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">ADWire 的核心差異在於「懂業務的 AI 開發」——我們不只是技術公司，更是深度了解香港企業營運和業務邏輯的技術夥伴。我們的 AI 方案不是純粹的技術實作，而是從業務目標出發，確保每個 AI 功能都直接對應可量化的業績指標（節省成本、提升轉換率、增加收入）。服務超過 500 家香港企業的實戰經驗，讓我們避開大多數 AI 項目失敗的陷阱。聯絡我們：WhatsApp ${WHATSAPP_DISPLAY} | info@adwire.com.hk。</p>
           </div>
         </div>
 
@@ -4300,7 +4300,7 @@ export const blogPosts: BlogPost[] = [
 
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">抖音：短視頻帶貨的無限可能</h3>
 
-      <p>抖音的算法採用「去中心化」原則：<strong>內容質素決定流量，而非粉絲數量</strong>。一個零粉絲的帳號，一條優質短片同樣可以獲得千萬播放量。這對剛進入內地市場的香港品牌而言是巨大機遇。</p>
+      <p>抖音的演算法採用「去中心化」原則：<strong>內容質素決定流量，而非粉絲數量</strong>。一個零粉絲的帳號，一條優質短片同樣可以獲得千萬播放量。這對剛進入內地市場的香港品牌而言是巨大機遇。</p>
 
       <div class="bg-gray-50 p-6 rounded-xl my-6 border border-gray-200">
         <h4 class="font-bold text-gray-800 mb-4">抖音品牌營銷三大玩法</h4>
@@ -4360,7 +4360,7 @@ export const blogPosts: BlogPost[] = [
         <ul class="space-y-3 text-sm text-blue-900">
           <li class="flex items-start gap-3">
             <span class="font-bold text-blue-600 flex-shrink-0">①</span>
-            <div><strong>百度推廣（SEM）</strong>——針對有搜尋意圖的用戶投放廣告，轉換率高但競爭激烈，需設定精準關鍵字及高質素落地頁。</div>
+            <div><strong>百度推廣（SEM）</strong>——針對有搜尋意圖的用戶投放廣告，轉換率高但競爭激烈，需設定精準關鍵字及高質素著陸頁。</div>
           </li>
           <li class="flex items-start gap-3">
             <span class="font-bold text-blue-600 flex-shrink-0">②</span>
@@ -4412,7 +4412,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">小紅書種草和抖音帶貨，哪個對香港品牌更適合？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">兩者定位不同，建議配合使用。小紅書适合建立品牌口碑和長期信任（「種草」階段），偏向圖文及生活感內容；抖音適合追求即時銷售轉化，通過短視頻和直播直接帶貨。建議先用小紅書種草建立認知，再配合抖音快速收割轉化。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">兩者定位不同，建議配合使用。小紅書適合建立品牌口碑和長期信任（「種草」階段），偏向圖文及生活感內容；抖音適合追求即時銷售轉化，通過短視頻和直播直接帶貨。建議先用小紅書種草建立認知，再配合抖音快速收割轉化。</p>
           </div>
         </div>
 
@@ -4610,7 +4610,7 @@ export const blogPosts: BlogPost[] = [
               <h4 class="font-bold text-[#0f4c81] mb-2">AI Max for Search：關鍵字定向的終結者</h4>
               <p class="text-sm text-gray-700 mb-3">2025 年 beta 推出的 <strong>AI Max for Search</strong> 是傳統關鍵字廣告的革命性升級。它會自動理解搜尋意圖，將廣告展示給「雖然搜尋關鍵字不完全匹配，但有購買意圖」的用戶。</p>
               <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
-                <li>自動配對最相關的落地頁（無需手動設定每個關鍵字的 final URL）</li>
+                <li>自動配對最相關的著陸頁（無需手動設定每個關鍵字的 final URL）</li>
                 <li>廣泛比對（Broad Match）+ Smart Bidding 組合，在 AI Max 下表現大幅超越精確比對</li>
                 <li>建議：搭配第一方數據（客戶名單）使用，精準控制 AI 的擴展方向</li>
               </ul>
@@ -4638,7 +4638,7 @@ export const blogPosts: BlogPost[] = [
             <div class="text-3xl flex-shrink-0">🌐</div>
             <div>
               <h4 class="font-bold text-[#0f4c81] mb-2">Google AI Mode：搜尋廣告的下一個形態</h4>
-              <p class="text-sm text-gray-700 mb-3">Google 正在 Search 結果中大幅擴展 <strong>AI Overview（原 SGE）</strong>，用戶在 AI 答案旁看到廣告的机率正在上升。廣告在 AI 搜尋時代如何顯示，是 2026 年最需要密切追蹤的變化。</p>
+              <p class="text-sm text-gray-700 mb-3">Google 正在 Search 結果中大幅擴展 <strong>AI Overview（原 SGE）</strong>，用戶在 AI 答案旁看到廣告的機率正在上升。廣告在 AI 搜尋時代如何顯示，是 2026 年最需要密切追蹤的變化。</p>
               <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
                 <li>目前 PMax 廣告有機會出現於 AI Overview 旁的廣告位</li>
                 <li>廣告文案需更自然、問答式，配合 AI 搜尋結果的語境</li>
@@ -4754,7 +4754,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">iOS 14 之後 Meta 廣告數據不準確，應該如何評估效果？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">建議使用多維度評估：①Meta Ads Manager 的「7-day click」歸因（比 28-day 更準確）；②Facebook Pixel + Conversions API（CAPI）雙軌設定，大幅改善服務器端歸因；③對比廣告期間與非廣告期間的實際銷售/詢問量；④使用 UTM 參數配合 Google Analytics 追蹤。純靠 Meta 後台的轉換數據會低估真實效果 30-60%。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">建議使用多維度評估：①Meta Ads Manager 的「7-day click」歸因（比 28-day 更準確）；②Facebook Pixel + Conversions API（CAPI）雙軌設定，大幅改善伺服器端歸因；③對比廣告期間與非廣告期間的實際銷售/詢問量；④使用 UTM 參數配合 Google Analytics 追蹤。純靠 Meta 後台的轉換數據會低估真實效果 30-60%。</p>
           </div>
         </div>
 

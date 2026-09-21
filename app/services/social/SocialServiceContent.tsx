@@ -381,7 +381,7 @@ export default function SocialServiceContent() {
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f4c81] mb-4">五大平台 · 全方位覆蓋</h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
-              不同平台有不同受眾、算法及內容策略。ADWire 針對每個平台制定專屬方案，確保你的品牌在每個渠道都能發揮最大效益。
+              不同平台有不同受眾、演算法及內容策略。ADWire 針對每個平台制定專屬方案，確保你的品牌在每個渠道都能發揮最大效益。
             </p>
           </motion.div>
 

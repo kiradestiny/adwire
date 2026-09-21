@@ -385,4 +385,12 @@ tinymce.init({
 });
 </script>
 
+<script src="/admin/assets/js/content-check.js"></script>
+<script>
+  // 內容檢查：禁止字句 / 大陸用語 / 簡體字 —— 與 build 閘門同一份清單
+  document.addEventListener("DOMContentLoaded", function () {
+    ADWireContentCheck.attach({ fields: ['title','excerpt','content','tags','category','read_time','slug'] });
+  });
+</script>
+
 <?php include __DIR__ . '/includes/layout-footer.php'; ?>

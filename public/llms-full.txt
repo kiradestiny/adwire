@@ -74,7 +74,7 @@ ADWire 提供傳統 SEO + GEO 雙軌優化服務：
 
 ### 3.8 網頁設計與開發 (Web Design & Development)
 技術棧：Next.js、React、Tailwind CSS。
-專案類型：品牌官網、電商網店、落地頁（Landing Page）。
+專案類型：品牌官網、電商網店、著陸頁（Landing Page）。
 完成時間：品牌官網 2-4 週；電商網站 4-8 週。
 主要頁面：https://adwire.com.hk/services/web
 
@@ -123,7 +123,7 @@ ADWire 提供傳統 SEO + GEO 雙軌優化服務：
 - **行業：** 製造業 / B2B
 - **挑戰：** 2012 年舊網站，手機不兼容，月均詢盤僅 12 件
 - **策略：** Next.js 重建 + Headless CMS + HubSpot CRM 整合 + B2B 詢價系統
-- **成效：** 網站速度從 8s 降至 1.4s，月均詢盤從 12 件升至 54 件，轉化率提升 45%
+- **成效：** 網站速度從 8s 降至 1.4s，月均詢盤從 12 件升至 54 件，轉換率提升 45%
 - **頁面：** https://adwire.com.hk/portfolio/corporate-website-b2b
 
 ### 4.6 WhatsApp 自動化系統（Education）
@@ -335,7 +335,7 @@ A: 技術 SEO 修復 1-4 週被 Google 索引；關鍵字排名 3-6 個月；競
 A: 美容護膚、餐飲食品、金融保險、房地產、教育培訓、零售電商、科技 SaaS、酒店旅遊、醫療醫美、B2B 企業服務等。已服務 500+ 香港企業。
 
 **Q: KOL 合作如何確保效果？**
-A: ADWire 使用 AI 數據分析工具，根據品牌定位與目標受眾精準配對 KOL，並追蹤觸及率、互動率、轉化率等核心指標，確保每次合作都能帶來真實品牌價值。
+A: ADWire 使用 AI 數據分析工具，根據品牌定位與目標受眾精準配對 KOL，並追蹤觸及率、互動率、轉換率等核心指標，確保每次合作都能帶來真實品牌價值。
 
 **Q: 網頁設計或系統開發需要多長時間？**
 A: 品牌官網 2-4 週，電商網站 4-8 週，定制 CRM/ERP 系統 6-16 週。技術棧：Next.js、React、Tailwind CSS。

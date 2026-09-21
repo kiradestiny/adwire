@@ -254,7 +254,7 @@ export default function JsonLd() {
         "@type": "ListItem",
         "position": 8,
         "name": "網頁設計與開發",
-        "description": "品牌網站、電商網店設計，注重 RWD 及轉化率優化",
+        "description": "品牌網站、電商網店設計，注重 RWD 及轉換率優化",
         "url": "https://adwire.com.hk/services/web/"
       },
       {

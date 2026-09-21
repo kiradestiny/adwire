@@ -105,7 +105,7 @@ const serviceSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "微信生態（公眾號、朋友圈廣告、微商城、企業微信）" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "微博運營與新聞稿公關" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "百度收錄優化與品牌搜尋結果管理" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "內地廣告投放（騰訊廣告、信息流）" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "內地廣告投放（騰訊廣告、資訊流）" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "內地 KOL／KOC／KOS 管理與合作" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "美團／大眾點評商戶開通與運營" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "高德地圖商家入駐與店鋪頁面運營" } },

@@ -389,3 +389,48 @@ tr.adw-dragging > td { border-bottom-color: transparent; }
 .content-page.role-viewer .drag-handle {
   display: none !important;
 }
+
+
+/* ─────────────────────────────────────────────────────────────
+   內容檢查面板 (content-check.js)
+   在後台編輯文章／案例時即時提示禁止字句、大陸用語及簡體字。
+   固定在右下角，可收起；顏色語意：紅＝必須修正、黃＝建議、綠＝通過。
+   ───────────────────────────────────────────────────────────── */
+.aw-cc-panel {
+  position: fixed; right: 18px; bottom: 18px; z-index: 1080;
+  width: 380px; max-width: calc(100vw - 36px);
+  background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(15, 76, 129, .18);
+  font-size: 13px; overflow: hidden;
+}
+.aw-cc-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; padding: 10px 14px; background: #0f4c81; color: #fff;
+}
+.aw-cc-title { font-weight: 700; font-size: 13px; }
+.aw-cc-title.aw-cc-bad  { color: #ffd9d9; }
+.aw-cc-title.aw-cc-warn { color: #ffe9b8; }
+.aw-cc-title.aw-cc-good { color: #c9f5d9; }
+.aw-cc-toggle {
+  background: rgba(255,255,255,.16); border: 0; color: #fff; cursor: pointer;
+  border-radius: 6px; padding: 3px 10px; font-size: 12px;
+}
+.aw-cc-toggle:hover { background: rgba(255,255,255,.28); }
+.aw-cc-body { max-height: 46vh; overflow-y: auto; padding: 10px 12px 14px; }
+.aw-cc-panel.aw-cc-collapsed .aw-cc-body { display: none; }
+.aw-cc-ok { color: #14663a; background: #eafaf0; border-radius: 8px; padding: 10px 12px; }
+.aw-cc-section-title {
+  font-weight: 700; margin: 10px 0 6px; padding-bottom: 4px;
+  border-bottom: 1px solid #eef2f7;
+}
+.aw-cc-section-title.aw-cc-bad  { color: #b42318; }
+.aw-cc-section-title.aw-cc-warn { color: #a15c00; }
+.aw-cc-item {
+  padding: 7px 9px; border-radius: 8px; margin-bottom: 6px; line-height: 1.5;
+}
+.aw-cc-item.aw-cc-bad  { background: #fef3f2; border-left: 3px solid #d92d20; }
+.aw-cc-item.aw-cc-warn { background: #fffaeb; border-left: 3px solid #f5a623; }
+.aw-cc-word { font-weight: 700; color: #0f4c81; }
+.aw-cc-fix  { color: #14663a; margin-left: 6px; font-weight: 600; }
+.aw-cc-ctx  { color: #667085; font-size: 11.5px; margin-top: 3px; word-break: break-all; }
+.aw-cc-field { color: #98a2b3; font-size: 11px; margin-top: 2px; }

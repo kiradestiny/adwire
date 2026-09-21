@@ -238,7 +238,7 @@ export default function WebServiceContent() {
             <TechCard 
               icon={MousePointerClick}
               title="高轉換 UI/UX 設計"
-              desc="基於用戶行為數據設計界面，優化導航路徑與 CTA 位置，確保訪客能以最短路徑轉化為你的客戶。"
+              desc="基於用戶行為數據設計介面，優化導航路徑與 CTA 位置，確保訪客能以最短路徑轉化為你的客戶。"
               tags={["CRO", "User Journey", "A/B Testing"]}
             />
           </div>

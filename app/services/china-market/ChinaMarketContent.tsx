@@ -153,10 +153,10 @@ const platforms = [
     id: "ads",
     icon: Target,
     name: "內地廣告投放",
-    tagline: "騰訊系與信息流廣告",
+    tagline: "騰訊系與資訊流廣告",
     items: [
       "騰訊廣告：微信朋友圈、公眾號廣告位",
-      "信息流廣告投放與素材測試",
+      "資訊流廣告投放與素材測試",
       "A／B 測試與投放優化",
       "每月廣告報告與數據分析",
     ],
@@ -186,7 +186,7 @@ const platforms = [
     tagline: "線下門店的內地「存在感」",
     items: [
       "美團／大眾點評商戶後台開通，取得官方經營權限",
-      "功能模組開通：門店主圖、官方影片、官方相冊、掌柜說、品牌故事",
+      "功能模組開通：門店主圖、官方影片、官方相冊、掌櫃說、品牌故事",
       "口碑管理與口碑分析、資訊維護、經營參謀",
       "特色活動、技師團隊、商家案例等模組設定",
       "團購方案上架與優化",
@@ -545,9 +545,9 @@ export default function ChinaMarketContent() {
               </p>
               <ul className="space-y-3 text-sm text-gray-700">
                 {[
-                  "社交媒體 + 電商平台 + KOL + 信息流廣告的資源整合",
+                  "社交媒體 + 電商平台 + KOL + 資訊流廣告的資源整合",
                   "品效合一的整體方案：品牌曝光與銷售轉化同時兼顧",
-                  "數據驅動決策：A／B 測試與轉化率優化",
+                  "數據驅動決策：A／B 測試與轉換率優化",
                   "跨平台受眾與訊息一致性管理",
                 ].map((x) => (
                   <li key={x} className="flex gap-3 leading-relaxed">
@@ -558,7 +558,7 @@ export default function ChinaMarketContent() {
               </ul>
               <div className="mt-6 pt-5 border-t border-gray-100">
                 <p className="text-xs text-gray-500 leading-relaxed">
-                  過往項目曾統籌香港品牌的年度內地營銷，全網曝光量超過 1,000 萬，轉化率提升約 300%。
+                  過往項目曾統籌香港品牌的年度內地營銷，全網曝光量超過 1,000 萬，轉換率提升約 300%。
                   此為過往個別項目的結果，並非對新項目的成效承諾。
                 </p>
               </div>

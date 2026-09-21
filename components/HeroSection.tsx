@@ -462,7 +462,7 @@ export default function HeroSection() {
                     <div className="bg-amber-500/10 border border-amber-500/20 p-4 rounded-2xl hover:bg-amber-500/18 transition-colors duration-200">
                       <div className="flex items-center gap-2 mb-2 text-amber-400">
                         <Zap size={17} />
-                        <span className="text-xs font-semibold uppercase tracking-wide">轉化率</span>
+                        <span className="text-xs font-semibold uppercase tracking-wide">轉換率</span>
                       </div>
                       <div className="text-3xl font-bold text-white">4.8%</div>
                       <div className="text-[11px] text-green-400 mt-1">↑ 行業均值 2x</div>

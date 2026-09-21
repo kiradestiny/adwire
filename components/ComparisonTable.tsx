@@ -277,7 +277,7 @@ export default function ComparisonTable() {
             <tfoot>
               <tr className="bg-gray-50 rounded-b-2xl">
                 <td className="px-6 py-4 text-gray-500 text-xs italic rounded-bl-2xl">
-                  * 數據基於市場調研及客戶反饋，僅供參考
+                  * 數據基於市場調研及客戶回饋，僅供參考
                 </td>
                 <td className="px-4 py-4 text-center bg-amber-50/40 border-x border-amber-100">
                   <Link

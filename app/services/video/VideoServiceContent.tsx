@@ -334,7 +334,7 @@ export default function VideoServiceContent() {
               icon={Smartphone}
               val="9:16"
               label="全屏沉浸體驗"
-              desc="在用戶手機屏幕上佔據主導視覺位置，資訊干擾最小。"
+              desc="在用戶手機螢幕上佔據主導視覺位置，資訊干擾最小。"
             />
             <StatCard 
               icon={Clock}
@@ -496,7 +496,7 @@ function PhoneMockup({ category, title, views, color = "bg-gray-900", videoSrc, 
       {/* 模擬劉海 */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-xl z-20" />
       
-      {/* 屏幕內容 */}
+      {/* 螢幕內容 */}
       <div className={`w-full h-full ${!videoSrc ? color : 'bg-black'} relative flex flex-col justify-end p-6 group`}>
         
         {/* Video Layer */}
