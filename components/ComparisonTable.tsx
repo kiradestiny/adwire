@@ -87,7 +87,7 @@ const rows: ComparisonRow[] = [
   },
   {
     feature: "平均 ROI 提升",
-    adwire: "328%+",
+    adwire: "328%",
     traditional: "不定",
     diy: "不定",
     highlight: true,
