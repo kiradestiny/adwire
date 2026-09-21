@@ -276,7 +276,7 @@ export default function AboutContent() {
                 <p>在成立 ADWire 之前，我們發現香港市場存在一個巨大的斷層：</p>
                 <div className="pl-6 border-l-4 border-gray-200 space-y-4 italic">
                   <p>
-                    傳統 Marketing Agency 擅長創意與文案，但往往對<strong>技術 (IT)</strong> 一竅不通，導致網站轉化率低，無法自動化；
+                    傳統 Marketing Agency 擅長創意與文案，但往往對<strong>技術 (IT)</strong> 一竅不通，導致網站轉換率低，無法自動化；
                   </p>
                   <p>
                     而 IT 公司雖然技術強大，卻不懂<strong>市場心理 (Psychology)</strong>，做出來的產品「好用但沒人買」。
