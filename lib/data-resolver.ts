@@ -22,6 +22,7 @@ import { blogPosts as fallbackBlogPosts, type BlogPost } from './blogData';
 import { portfolioCases as fallbackPortfolioCases, type PortfolioCase } from './portfolioData';
 import { portfolioExtendedData as fallbackExtendedData, type CaseExtendedData } from './portfolioExtendedData';
 import { ICON_MAP, DEFAULT_ICON } from './icon-map';
+import { normalizeSeoTitle } from './seo-title';
 import type { SerializablePortfolioCase } from './admin-types';
 
 // ── 品牌列表 ─────────────────────────────────────────────────────────────
@@ -78,7 +79,8 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
   const mapped: BlogPost[] = apiPosts.map((post) => ({
     id: post.id,
     slug: post.slug,
-    title: post.title,
+    // 後台標題可能已含品牌尾綴，而 layout template 會再加一次 → 先移除
+    title: normalizeSeoTitle(post.title),
     excerpt: post.excerpt,
     date: post.date,
     category: post.category,
@@ -159,7 +161,8 @@ export async function getSerializablePortfolioCases(): Promise<SerializablePortf
     tags: c.tags,
     image: c.image,
     alt: c.alt,
-    seoTitle: c.seoTitle,
+    // 同上：後台 seoTitle 可能已含品牌尾綴（曾見 16 頁重複），先移除
+    seoTitle: normalizeSeoTitle(c.seoTitle),
     seoDescription: c.seoDescription,
   }));
 
