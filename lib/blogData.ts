@@ -17,6 +17,234 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // ─── Article 13：香港政府 AI 及數碼轉型資助（目標：tvp 1,000 + 科技券 480 + 政府資助 590 + DTSPP 260 + 中小企資助 210 ≈ 2,540/月） ───
+  {
+    id: 13,
+    slug: "hong-kong-government-ai-digital-funding-2026",
+    title: "香港政府 AI 及數碼轉型資助 2026：科技券停辦後仍有甚麼可用？",
+    excerpt:
+      "科技券已於 2024 年底停辦，網上大量文章仍在教人申請。本文按官方一手資料整理 2026 年香港企業實際可用的資助渠道：BUD 專項基金（已涵蓋 AI 項目）、優化版數碼轉型支援先導計劃、RTTP 培訓資助，以及最容易令申請失敗的三個錯誤。",
+    date: "2026-09-21",
+    updatedAt: "2026-09-21",
+    category: "AI Technology",
+    readTime: "12 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/hong-kong-government-ai-digital-funding-2026.webp",
+    tags: ["政府資助", "科技券", "TVP", "BUD 專項基金", "數碼轉型", "中小企資助"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">香港政府支援中小企數碼轉型及人工智能的資助計劃，在 2024 至 2026 年間經歷了重大變動：最多人認識的「科技券」已經停辦，但同時有新的資金正準備推出。網上大量文章仍然教你申請一個已經停止接受的計劃。本文按官方一手資料，整理 2026 年香港企業實際可用的資助渠道。</p>
+
+        <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl my-8">
+          <p class="font-bold text-red-900 mb-2">最重要的一句話</p>
+          <p class="text-red-900 text-sm leading-relaxed">如果你在網上看到「科技券申請攻略」、「TVP 懶人包」，<strong>那些計劃已經停止接受新申請</strong>。任何仍然教你如何申請科技券的頁面，資料已經過時。本文第 1.1 節說明實際情況。</p>
+        </div>
+
+        <p class="text-gray-500 text-sm italic mb-8">資料查證日期：2026 年 9 月 21 日。所有金額及日期均附官方來源連結。政府資助政策會不時調整，正式申請前請以官方公布為準。本文不構成申請建議，個別項目的合資格性須由執行機構評定。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先講清楚：哪個計劃仍然開放？</h3>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-[#0f4c81] text-white">
+                <th class="text-left px-5 py-3 font-semibold">計劃</th>
+                <th class="text-left px-4 py-3 font-semibold">狀態</th>
+                <th class="text-left px-4 py-3 font-semibold">資助方式</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="px-5 py-3 font-semibold">科技券（TVP）</td>
+                <td class="px-4 py-3"><span class="inline-block px-2 py-0.5 rounded bg-red-100 text-red-700 text-xs font-semibold">已停辦</span></td>
+                <td class="px-4 py-3">2024 年 12 月 31 日後停止接受新申請</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-5 py-3 font-semibold">數碼轉型支援先導計劃（DTSPP）</td>
+                <td class="px-4 py-3"><span class="inline-block px-2 py-0.5 rounded bg-amber-100 text-amber-700 text-xs font-semibold">暫時截止</span></td>
+                <td class="px-4 py-3">優化版（加入 AI 及網絡安全）預計 2026 下半年推出</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-semibold">BUD 專項基金</td>
+                <td class="px-4 py-3"><span class="inline-block px-2 py-0.5 rounded bg-green-100 text-green-700 text-xs font-semibold">開放</span></td>
+                <td class="px-4 py-3">1:1 配對；已明確涵蓋 AI 項目</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-5 py-3 font-semibold">RTTP 再工業化及科技培訓計劃</td>
+                <td class="px-4 py-3"><span class="inline-block px-2 py-0.5 rounded bg-green-100 text-green-700 text-xs font-semibold">開放</span></td>
+                <td class="px-4 py-3">政府出資三分之二，用於員工科技培訓</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 font-semibold">全民 AI（AI for All）</td>
+                <td class="px-4 py-3"><span class="inline-block px-2 py-0.5 rounded bg-green-100 text-green-700 text-xs font-semibold">進行中</span></td>
+                <td class="px-4 py-3">培訓及推廣，並非現金資助</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1.1 科技券（TVP）：已於 2024 年底停辦</h4>
+
+        <p>創新科技署於 2024 年 12 月 13 日宣布，<strong>「科技券」在 2024 年 12 月 31 日後停止接受新申請</strong>。官方網站的通告至今仍然顯示這項安排。</p>
+
+        <p>科技券自 2016 年 11 月推出，以配對方式資助本地企業使用科技服務和方案，每個項目的資助額最高為核准項目總成本的 75%，每間企業累計上限為 HK$600,000。截至停辦前，計劃共批出 38,440 宗申請，資助總額約 HK$66 億，惠及約 35,805 家企業／機構，獲批項目主要涉及批發及零售（36%）、食肆及酒店（8%）、工程（7%）、個人護理服務（6%）及進出口貿易（5%）。</p>
+
+        <p>政府停止計劃的理由是：計劃已達至最初設立的目標，而多個政策局及部門近年已推出更具針對性的行業資助計劃。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a class="text-[#0f4c81] underline" href="https://www.info.gov.hk/gia/general/202412/13/P2024121300383.htm" target="_blank" rel="noopener">政府新聞公告（2024-12-13）</a>、<a class="text-[#0f4c81] underline" href="https://tvp.itf.gov.hk/zh-HK" target="_blank" rel="noopener">科技券官方網站</a>、<a class="text-[#0f4c81] underline" href="https://www.itib.gov.hk/zh-hk/legislative_council_business/questions/2025/pr_20250625.html" target="_blank" rel="noopener">立法會答覆（2025-06-25）</a></p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">對企業的實際影響</p>
+          <p class="text-blue-900 text-sm leading-relaxed">如果你的公司計劃在 2026 年做系統開發、網站或自動化項目，<strong>不能再把科技券列入資金計劃</strong>。以往不少香港企業習慣以科技券資助 75% 的系統開發成本，這個選項已經不存在，需要改用本文介紹的其他渠道，或直接以營運預算推行。</p>
+        </div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1.2 數碼轉型支援先導計劃（DTSPP）：暫時截止，但優化版即將推出</h4>
+
+        <p>數碼轉型支援先導計劃由數字政策辦公室提供資助、數碼港作為執行機構，以 <strong>1:1 配對模式</strong>（政府出一半、企業出一半）資助中小企採用<strong>現成的基礎數碼方案</strong>，資助上限為 HK$50,000。</p>
+
+        <p>原計劃針對餐飲、零售、旅遊及個人服務業，自 2024 年初推出以來反應熱烈，已向 8,799 家本港中小企批出資助（零售業 55%、餐飲業 34%、個人服務業 11%）。計劃已於 <strong>2025 年 5 月截止申請</strong>。</p>
+
+        <p><strong>重點是接下來會發生的事：</strong>政府已在 2025 年《施政報告》宣布優化先導計劃，<strong>加入人工智能及網絡安全數碼方案</strong>，預計需額外撥款 HK$3 億。財政司司長在 2026 年 7 月 19 日的網誌中表示，優化版計劃將於<strong>年內推出</strong>，支持中小企採用現成的 AI 方案。政府亦正考慮擴大計劃涵蓋的行業範圍。</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8">
+          <p class="font-bold text-amber-900 mb-2">值得留意的兩個限制</p>
+          <ul class="list-disc pl-5 space-y-2 text-amber-900 text-sm">
+            <li><strong>只資助「現成方案」，不資助訂製開發。</strong>官方說明資助對象是 ready-to-use 的基礎數碼方案，不是由顧問從零開始開發的系統或研究項目。如果你的需求是訂製系統，這個計劃未必適合。</li>
+            <li><strong>屬「先付後還」模式。</strong>企業需要先具備現金流支付方案供應商，之後才申請發放資助，不是預先墊款。</li>
+          </ul>
+        </div>
+
+        <p class="text-gray-500 text-sm italic">來源：<a class="text-[#0f4c81] underline" href="https://dtspp.cyberport.hk/zh-hk/" target="_blank" rel="noopener">數碼轉型支援先導計劃官方網站</a>、<a class="text-[#0f4c81] underline" href="https://www.itib.gov.hk/zh-hk/legislative_council_business/questions/2026/pr_20260225.html" target="_blank" rel="noopener">立法會答覆（2026-02-25）</a>、<a class="text-[#0f4c81] underline" href="https://www.news.gov.hk/chi/2026/07/20260719/20260719_111551_499.html" target="_blank" rel="noopener">財政司司長網誌（2026-07-19）</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1.3 BUD 專項基金：目前最適合 AI 項目，但有一個關鍵限制</h4>
+
+        <p>「發展品牌、升級轉型及拓展內銷市場的專項基金」（BUD 專項基金）是目前對科技項目最實用的資助渠道，而且政府已在 2026 年明確加入 AI 支援。</p>
+
+        <p><strong>2026 年的重要變化：</strong></p>
+
+        <ul class="list-disc pl-6 space-y-2 my-6 text-gray-700">
+          <li>政府於 <strong>2026 年 6 月中</strong>更新申請指引，明確指出可資助項目包括<strong>應用人工智能的措施</strong>。官方舉例：在公司網站開發 AI chatbot 功能以加強推廣、或採用 AI 確保生產線符合目標市場法規要求。</li>
+          <li>「申請易」（Easy BUD）每宗申請的資助上限，由 2026 年 6 月 15 日起由 HK$100,000 <strong>提升至 HK$150,000</strong>。</li>
+          <li>資助配對比例為 1（政府）：1（企業）。</li>
+          <li>「一般申請」資助上限為每宗 HK$800,000；每間企業累計上限 HK$700 萬。</li>
+          <li>資助地域範圍已擴大至 <strong>48 個經濟體</strong>（新增沙特阿拉伯、孟加拉、埃及、匈牙利、巴基斯坦、哈薩克、蒙古及巴西）。</li>
+          <li>「中小企業市場推廣基金」（SEMF）已於 <strong>2026 年 7 月併入</strong> BUD 專項基金。</li>
+        </ul>
+
+        <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl my-8">
+          <p class="font-bold text-red-900 mb-2">最容易令申請失敗的一點：地域要求</p>
+          <p class="text-red-900 text-sm leading-relaxed">BUD 專項基金的成立目的是協助香港企業<strong>開拓香港以外市場</strong>。資助範圍涵蓋 48 個已與香港簽署自貿協定及／或投資協定的經濟體。<strong>如果一間企業只服務香港本地客戶，即使 AI 項目本身質素很高，實際上也不符合資格。</strong>申請時需要說明項目與發展目標市場業務的直接關係。</p>
+        </div>
+
+        <p>另外要注意：BUD 專項基金的執行機構明確表示，<strong>並沒有委派或指定任何顧問服務公司</strong>提供收費申請服務。任何機構自稱獲執行機構認可或指定作推廣，均屬誤導。申請人可自行申請，或使用生產力局及「中小企資援組」的免費諮詢服務。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a class="text-[#0f4c81] underline" href="https://www.info.gov.hk/gia/general/202607/08/P2026070800534.htm" target="_blank" rel="noopener">政府新聞公告（2026-07-08）</a>、<a class="text-[#0f4c81] underline" href="https://www.info.gov.hk/gia/general/202604/01/P2026040100488.htm" target="_blank" rel="noopener">立法會答覆（2026-04-01）</a>、<a class="text-[#0f4c81] underline" href="https://fta.bud.hkpc.org/" target="_blank" rel="noopener">BUD 專項基金官方網站</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1.4 其他可用渠道</h4>
+
+        <div class="grid md:grid-cols-2 gap-5 my-8">
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <p class="font-bold text-[#0f4c81] mb-2">RTTP 再工業化及科技培訓計劃</p>
+            <p class="text-gray-600 text-sm leading-relaxed">資助企業安排員工接受科技培訓，政府出資三分之二，每間公司每年上限 HK$500,000。如果團隊需要學習使用 AI 工具或自動化平台，這是實際可用的渠道。</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <p class="font-bold text-[#0f4c81] mb-2">全民 AI（AI for All）</p>
+            <p class="text-gray-600 text-sm leading-relaxed">2026-27 年度《財政預算案》撥款 HK$5,000 萬推動。由生產力局營運的「AI with HKPC – Business Empowerment」於 2026 年 8 月 28 日啟動，為期兩年，提供生成式 AI 應用、跨行業 AI 應用課程及實作工作坊。<strong>提供培訓而非現金資助。</strong></p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <p class="font-bold text-[#0f4c81] mb-2">新型工業化精英企業培育計劃</p>
+            <p class="text-gray-600 text-sm leading-relaxed">2026 年 6 月推出，針對生命健康科技、人工智能及機械人、半導體及智能裝置、數碼化升級轉型等高增長領域，揀選並培育目標企業。</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <p class="font-bold text-[#0f4c81] mb-2">免費官方諮詢</p>
+            <p class="text-gray-600 text-sm leading-relaxed">生產力局及「中小企資援組」（SME ReachOut）提供免費一對一諮詢，解答申請疑問。另外「中小企連線」網站整合各項政府資助計劃資訊。</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、沒有資助，項目還值得做嗎？</h3>
+
+        <p>科技券停辦之後，不少香港企業的第一反應是「沒有資助就先不做」。這個判斷值得重新檢視，因為資助從來只是降低成本，不是決定項目是否值得做的理由。</p>
+
+        <p>更實際的評估方式是：<strong>這個工序現在每年消耗多少人手時間？</strong>香港一個全職員工的完全成本（薪金、強積金、福利、辦公空間）並不低。如果一項重複工序每週消耗 10 小時，一年就是約 500 小時。當自動化或系統化把這 500 小時釋放出來，回報的計算基礎是<strong>人力時間</strong>，而不是資助金額。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">一個實用的判斷順序</p>
+          <ol class="list-decimal pl-5 space-y-2 text-blue-900 text-sm">
+            <li>先找出最重複、最耗時的工序，估算每年投入的人手時間</li>
+            <li>判斷這個工序是否規則固定、資料結構化（可否自動化）</li>
+            <li>計算項目的實際成本與預期節省，看回收期是否合理</li>
+            <li><strong>最後才考慮有沒有資助可以降低成本</strong></li>
+          </ol>
+          <p class="text-blue-900 text-sm leading-relaxed mt-3">如果一個項目只有在拿到資助才成立，那通常代表它本身的回報並不吸引。</p>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、申請資助時最常見的三個錯誤</h3>
+
+        <div class="space-y-4 my-8">
+          <div class="bg-white border-l-4 border-red-400 p-5 rounded-r-xl shadow-sm">
+            <p class="font-bold text-gray-900 mb-1">1. 先買方案，後看資格</p>
+            <p class="text-gray-600 text-sm leading-relaxed">資助計劃各有明確的行業範圍、地域要求及項目性質限制。先簽約購買方案，才發現不符合資格，是最常見的損失。正確順序是先確認資格，再規劃項目。</p>
+          </div>
+          <div class="bg-white border-l-4 border-red-400 p-5 rounded-r-xl shadow-sm">
+            <p class="font-bold text-gray-900 mb-1">2. 把「訂製開發」當成「現成方案」</p>
+            <p class="text-gray-600 text-sm leading-relaxed">部分計劃（例如數碼轉型支援先導計劃）只資助現成的基礎數碼方案，不涵蓋從零開始的訂製開發。如果你的需求是為公司度身訂造系統，要先確認計劃是否涵蓋。</p>
+          </div>
+          <div class="bg-white border-l-4 border-red-400 p-5 rounded-r-xl shadow-sm">
+            <p class="font-bold text-gray-900 mb-1">3. 相信「保證成功」的顧問</p>
+            <p class="text-gray-600 text-sm leading-relaxed">BUD 專項基金的執行機構已明確聲明，沒有委派或指定任何收費顧問公司。任何聲稱「保證批出」的服務都值得懷疑。官方提供的諮詢服務是免費的。</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、常見問題</h3>
+
+        <div class="space-y-4 my-8">
+          <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">科技券真的完全停了嗎？會否重開？</p>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">根據創新科技署公告，科技券已於 2024 年 12 月 31 日後停止接受新申請，官方網站的通告至今仍然有效。政府當局的立場是計劃已達至最初設立的目標，並改以更具針對性的行業資助計劃取代。目前沒有公布重開的安排。如你看到任何聲稱科技券重開的消息，建議先到 tvp.itf.gov.hk 核實。</p>
+            </div>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">優化版數碼轉型支援先導計劃幾時推出？現在可以準備嗎？</p>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">政府目標是在 2026 年下半年諮詢立法會後推出優化版，額外撥款 HK$3 億，新增涵蓋人工智能及網絡安全方案。實際推出日期及申請細節尚未公布。企業現在可以做的是先釐清自己需要哪類 AI 方案，並了解原計劃的行業範圍（餐飲、零售、旅遊、個人服務），因為政府表示會考慮擴大涵蓋行業。推出時間以官方公布為準。</p>
+            </div>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">BUD 專項基金可以資助公司網站的 AI 功能嗎？</p>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但有條件。政府在 2026 年 6 月更新申請指引時，明確舉例說明可資助項目包括「在公司網站開發 AI chatbot 功能以加強推廣」。不過 BUD 專項基金的核心目的是協助企業開拓香港以外市場，因此項目必須與發展目標市場（48 個涵蓋經濟體）的業務有直接關係。純本地業務實際上不符合資格。</p>
+            </div>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">我的公司只做香港本地生意，有甚麼資助可用？</p>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">選擇相對有限。BUD 專項基金要求項目與境外市場有關；科技券已停辦；數碼轉型支援先導計劃原版涵蓋餐飲、零售、旅遊及個人服務四個行業，但已截止申請。純本地業務目前可以留意的是：優化版數碼轉型支援先導計劃（政府表示會考慮擴大行業範圍）、RTTP（如屬員工培訓），以及生產力局及中小企資援組提供的免費諮詢。建議直接向官方渠道查詢最新安排，不要依賴顧問公司的說法。</p>
+            </div>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">申請資助會否影響項目的技術選擇？</p>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">資助計劃一般不會指定技術方案，但會要求項目符合計劃的資助範圍、採購程序及預算合理性。實務上，資助申請所需的文件（項目建議書、預算明細、採購流程記錄）本身有助於把需求寫清楚。但不應該為了符合資助要求而選擇不合適的技術方案 —— 系統要長遠運作，技術決定應以實際需求為準。</p>
+            </div>
+          </div>
+          <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">沒有資助，中小企應該如何開始數碼化？</p>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議由一個具體、可量度的工序開始，而不是一次過推行大型系統。先找出最重複、最耗時的工序，估算每年投入的人手時間，再評估自動化或系統化的成本與回報。以小範圍試點驗證效果，確認可行後才擴大範圍。這個做法風險最低，而且不需要等待資助公布就可以開始。</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h3>
+
+        <p>2026 年香港的科技資助環境與兩三年前有很大分別：<strong>科技券已停辦，數碼轉型支援先導計劃正在優化，BUD 專項基金明確加入 AI 支援但要求境外市場關聯。</strong></p>
+
+        <p>對企業最實際的建議是：不要以「有沒有資助」作為是否推行系統項目的唯一判斷。先算清楚工序實際消耗的人手時間，評估項目的獨立回報，再看有沒有資助可以降低成本。這樣即使資助政策再變，你的決定依然成立。</p>
+
+        <p>如果網上看到的資助資訊沒有標明查證日期，或仍然教你申請科技券，那份資料大概已經過時。以官方網站及政府新聞公告為準，是最可靠的做法。</p>
+    `,
+  },
+
   // ─── Article 12：RPA 機械人流程自動化（2026-09｜目標關鍵字：rpa 1,900/月、機械人流程自動化）───
   {
     id: 12,
