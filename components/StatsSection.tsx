@@ -143,7 +143,7 @@ export default function StatsSection() {
             </div>
             <div className="text-xs text-gray-400 flex items-center gap-2">
               <div className="w-2 h-2 bg-[#f5a623] rounded-full"></div>
-              營銷自動化
+              企業流程自動化
             </div>
           </div>
         </div>

@@ -290,6 +290,47 @@ export default function SeoServiceContent() {
                 提高品牌被 AI 回答提及或引用的機會。惟 AI 平台的輸出由平台決定，
                 任何供應商都無法保證一定會被引用或推薦。
               </p>
+
+              {/* 表格：SEO / GEO / 兩者配合 —— 用真表格元件而非純視覺卡片，
+                  因為表格是 AI 搜尋最易擷取與引用的格式 */}
+              <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white mb-10">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-[#0f4c81] text-white">
+                      <th className="text-left px-5 py-4 font-semibold">項目</th>
+                      <th className="text-left px-5 py-4 font-semibold">傳統 SEO</th>
+                      <th className="text-left px-5 py-4 font-semibold">GEO（AI 搜尋優化）</th>
+                      <th className="text-left px-5 py-4 font-semibold">兩者配合的效果</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    <tr>
+                      <td className="px-5 py-4 font-semibold text-gray-800 align-top">面對的系統</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">Google、Bing 等搜尋引擎</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">ChatGPT、Perplexity、DeepSeek、AI Overviews</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">同一批內容同時服務兩種入口</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-4 font-semibold text-gray-800 align-top">核心工作</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">技術 SEO、關鍵字與搜尋意圖、內部連結</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">問題與答案結構、可引用的事實、來源標示</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">結構化內容對兩者都有用，不需分開寫兩套</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-4 font-semibold text-gray-800 align-top">量度方式</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">曝光、點擊、平均排名、品牌字搜尋量</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">在各平台手動查詢關鍵問題、觀察提及情況</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">搜尋數據為主，AI 提及情況為輔助觀察</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-4 font-semibold text-gray-800 align-top">能否保證結果</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">不能。Google 官方明確表示無人能保證排名</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">不能。輸出由 AI 平台決定</td>
+                      <td className="px-5 py-4 text-gray-600 align-top">我們不作任何保證，但會逐項說明做了甚麼</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               
               <div className="space-y-6">
                 <CompareRow 

@@ -91,7 +91,7 @@ function PortfolioJsonLd() {
       { "@type": "Thing", name: "短視頻製作" },
       { "@type": "Thing", name: "SEO 搜尋引擎優化" },
       { "@type": "Thing", name: "數碼廣告投放" },
-      { "@type": "Thing", name: "營銷自動化" },
+      { "@type": "Thing", name: "企業流程自動化及 RPA" },
       { "@type": "Thing", name: "網站開發" },
       { "@type": "Thing", name: "手機 App 開發" },
     ],

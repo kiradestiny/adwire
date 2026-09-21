@@ -47,7 +47,7 @@ SEO／GEO 搜尋優化，以及廣告、社交媒體、短視頻、KOL 及商業
 - **社交媒體管理：** https://adwire.com.hk/services/social
 - **成效廣告投放：** https://adwire.com.hk/services/ads
 - **SEO 與 GEO 優化：** https://adwire.com.hk/services/seo
-- **營銷自動化：** https://adwire.com.hk/services/automation
+- **企業流程自動化及 RPA：** https://adwire.com.hk/services/automation
 - **網頁設計：** https://adwire.com.hk/services/web
 - **系統開發：** https://adwire.com.hk/services/system
 - **AI 解決方案：** https://adwire.com.hk/services/ai
@@ -90,7 +90,7 @@ YouTube Ads、小紅書廣告。
 粉絲互動管理、月度數據報告。
 主要頁面：https://adwire.com.hk/services/social
 
-### 6. 營銷自動化 (Marketing Automation)
+### 6. 企業流程自動化及 RPA
 解決方案：WhatsApp Business API 自動化、CRM 整合、多平台數據大屏、
 自動回覆流程、潛在客戶跟進自動化。
 技術工具：Zapier、Make.com、定制開發。

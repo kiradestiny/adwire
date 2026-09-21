@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { CHINA_MARKET_FAQS } from "@/lib/service-faqs";
+import ServiceImage from "@/components/ServiceImage";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -304,7 +305,13 @@ export default function ChinaMarketContent() {
       </section>
 
       {/* 圖片位置：Hero 補充圖（負責人提供） */}
-      <ImagePlaceholder label="內地平台內容／帳號示意圖" hint="建議：小紅書或抖音帳號截圖（需遮蓋客戶資料）或平台 Logo 組合" />
+      <ServiceImage
+          src="/services/china-market/china-market-promotion-platforms.webp"
+          alt="中國市場推廣服務涵蓋的平台：小紅書、抖音、百度、微信公眾號、美團、大眾點評、高德地圖，以及 DeepSeek、豆包、Kimi 等內地 AI 平台"
+          caption="內地消費者的發現路徑分散在不同平台 —— 由小紅書的筆記搜尋、抖音的短視頻推送，到百度的品牌查證與美團的到店轉化，需要按品類與客群決定先做哪幾個。"
+          width={1600}
+          height={900}
+        />
 
       {/* 2. 痛點 */}
       <section className="py-24 bg-slate-50">
@@ -345,6 +352,13 @@ export default function ChinaMarketContent() {
             <p className="text-gray-500 max-w-3xl mx-auto">
               客戶通常是按「我想打邊個平台」思考，而不是按服務名稱。以下按平台分節說明實際交付內容。
             </p>
+<ServiceImage
+          src="/services/china-market/china-market-strategy-multi-channel-growth.webp"
+          alt="中國市場推廣策略規劃：香港品牌整合小紅書、抖音、微信、百度、美團、高德地圖及內地 AI 搜尋的全域增長方案"
+          caption="我們按客群、預算與產品特性決定先做哪一至兩個平台，而不是一次開齊全部渠道 —— 資源分散是內地推廣最常見的失敗原因。"
+          width={1600}
+          height={900}
+        />
           </div>
 
           <div className="space-y-8">
@@ -477,7 +491,13 @@ export default function ChinaMarketContent() {
       </section>
 
       {/* 圖片位置 */}
-      <ImagePlaceholder label="平台內容製作流程圖" hint="建議：內容由策劃到發佈的流程示意，或拍攝現場照" />
+      <ServiceImage
+          src="/services/china-market/china-market-content-production-workflow.webp"
+          alt="內地平台內容製作流程：由策略規劃、本地化改寫、拍攝、剪輯、發佈到成效報告"
+          caption="同一個內容工廠支援多個平台 —— 一次拍攝可同時產出小紅書圖文筆記、抖音豎屏短視頻及微信公眾號內容，邊際成本遠低於分開製作。"
+          width={1600}
+          height={900}
+        />
 
       {/* 4. 內容製作與代運營 */}
       <section className="py-24 bg-slate-50">
@@ -646,7 +666,13 @@ export default function ChinaMarketContent() {
       </section>
 
       {/* 圖片位置 */}
-      <ImagePlaceholder label="案例或成效截圖" hint="建議：平台後台數據截圖（需遮蓋客戶資料）或已授權的案例畫面" />
+      <ServiceImage
+          src="/services/china-market/china-market-performance-reporting-dashboard.webp"
+          alt="中國市場推廣成效報告：內容曝光、互動、收藏、KOL 合作表現及百度搜尋指數"
+          caption="內地推廣的成效要分三層看 —— 平台數據（曝光、互動）、搜尋數據（百度收錄、筆記搜尋曝光）與業務數據（查詢、成交、獲客成本）。平台數據不能當成生意成效。圖為報告結構示意。"
+          width={1600}
+          height={900}
+        />
 
       {/* 9. FAQ */}
       <section className="py-24 bg-slate-50">

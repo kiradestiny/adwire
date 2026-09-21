@@ -630,7 +630,7 @@ export default function SystemServiceContent() {
             <Link href="/services/automation" className="group bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
               <div className="flex items-center gap-3 mb-4">
                 <Zap className="text-blue-600" size={24} />
-                <h3 className="text-xl font-bold text-gray-900">營銷自動化</h3>
+                <h3 className="text-xl font-bold text-gray-900">企業流程自動化</h3>
               </div>
               <p className="text-gray-600 text-sm mb-4">自動化跟進潛在客戶，將系統數據轉化為實際銷售額。</p>
               <div className="flex items-center gap-2 text-blue-600 font-medium text-sm group-hover:gap-3 transition-all">

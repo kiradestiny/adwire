@@ -38,7 +38,7 @@ export default function WhatsAppWidget() {
     if (path.includes("/services/social"))     return "Hello ADWire, 我想了解更多關於社群媒體營銷的服務！";
     if (path.includes("/services/system"))     return "Hello ADWire, 我想了解更多關於系統開發與自動化的服務！";
     if (path.includes("/services/web"))        return "Hello ADWire, 我想了解更多關於網頁設計與開發的服務！";
-    if (path.includes("/services/automation")) return "Hello ADWire, 我想了解更多關於營銷自動化的服務！";
+    if (path.includes("/services/automation")) return "Hello ADWire, 我想了解更多關於企業流程自動化及 RPA 的服務！";
     if (path.includes("/services/production")) return "Hello ADWire, 我想了解更多關於內容製作的服務！";
     if (path.includes("/services/ai"))         return "Hello ADWire, 我想了解更多關於企業 AI Solution 服務！";
     if (path === "/services")                  return "Hello ADWire, 我想了解更多關於你們的各項 Marketing 服務！";

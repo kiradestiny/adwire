@@ -139,6 +139,61 @@ export default function VideoServiceContent() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">專為手機而生的豎屏影片製作</h2>
             <p className="text-gray-400 text-lg">符合現代用戶習慣的 9:16 豎屏美學。</p>
           </div>
+          {/* 表格：各平台影片規格 —— 客戶最常問「要拍幾長、要幾多個版本」 */}
+          <div className="overflow-x-auto rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm mt-16">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-white/10 text-white">
+                  <th className="text-left px-5 py-4 font-semibold">平台</th>
+                  <th className="text-left px-5 py-4 font-semibold">畫面比例</th>
+                  <th className="text-left px-5 py-4 font-semibold">建議片長</th>
+                  <th className="text-left px-5 py-4 font-semibold">主要用途</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5">
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">Instagram Reels</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">9:16 直式</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">15–60 秒</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">品牌曝光、產品示範、帶動互動</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">YouTube Shorts</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">9:16 直式</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">15–60 秒</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">借用 YouTube 搜尋流量</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">TikTok</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">9:16 直式</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">15–60 秒</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">快速測試題材，找出可複製的內容模式</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">小紅書</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">3:4 或 9:16</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">30–90 秒</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">筆記搜尋資產、產品種草</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">Facebook 動態</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">1:1 或 4:5</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">30–90 秒</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">付費廣告素材、較長的產品說明</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">官網／展會</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">16:9 橫式</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">60–180 秒</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">無聲播放亦能理解，需清楚字幕</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+            以上為一般建議，實際片長與比例會按內容主題、客群習慣及發佈渠道調整。一次拍攝可同時產出多個比例的素材，
+            做法與成本結構會在報價階段逐項說明。
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center">
             {/* Phone 1: 劇情類 */}

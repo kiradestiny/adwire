@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { HONG_KONG_MARKET_FAQS } from "@/lib/service-faqs";
+import ServiceImage from "@/components/ServiceImage";
 import { motion } from "framer-motion";
 import {
   AlertTriangle,
@@ -235,7 +236,13 @@ export default function HongKongMarketContent() {
       </section>
 
       {/* 圖片位置 */}
-      <ImagePlaceholder label="香港市場推廣情境圖" hint="建議：香港街景、商場或社交媒體內容示意（需無版權問題或自行拍攝）" />
+      <ServiceImage
+          src="/services/hong-kong-market/hong-kong-market-connect-skyline.webp"
+          alt="香港市場在地化推廣：協助內地及海外品牌連繫香港市場的本地化宣傳服務"
+          caption="香港市場規模不大，但消費者的語言習慣、媒體生態與合規要求與內地及海外都不同 —— 直接把原有文案搬過來，通常在香港行不通。"
+          width={1536}
+          height={512}
+        />
 
       {/* 2. 痛點 */}
       <section className="py-24 bg-slate-50">
@@ -276,6 +283,13 @@ export default function HongKongMarketContent() {
               繁體字與簡體字之間不只是字形的差異。以下是在香港做品牌內容時，
               最常見的用語落差 —— 每一項都會直接影響香港消費者對品牌的觀感。
             </p>
+<ServiceImage
+          src="/services/hong-kong-market/hong-kong-market-bigger-together.webp"
+          alt="香港品牌在地化推廣：為內地及海外品牌調整語言、內容與媒體策略以迎合香港市場"
+          caption="在地化不是把簡體字轉成繁體字，而是重新處理用語、價格表達、媒體選擇與合規要求。"
+          width={1536}
+          height={512}
+        />
           </div>
 
           <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
@@ -322,6 +336,13 @@ export default function HongKongMarketContent() {
             <p className="text-gray-500 max-w-2xl mx-auto">
               按品牌階段與目標客群，選擇合適的渠道組合。以下每一項都可以獨立委託。
             </p>
+<ServiceImage
+          src="/services/hong-kong-market/hong-kong-market-local-insight-ferry.webp"
+          alt="香港市場推廣組合：社交媒體、搜尋廣告、KOL 合作及本地媒體的整合策略"
+          caption="香港市場的推廣組合與內地不同 —— 主要入口是 Google、Instagram 與 Facebook，而不是百度與微信。"
+          width={1536}
+          height={512}
+        />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {channels.map((c, i) => {
@@ -363,6 +384,13 @@ export default function HongKongMarketContent() {
             <p className="text-gray-500 max-w-2xl mx-auto">
               品牌落地涉及的不只是宣傳物料，亦包括定價、客服與資料呈現方式的調整。
             </p>
+<ServiceImage
+          src="/services/hong-kong-market/hong-kong-connect-skyline-detail.webp"
+          alt="香港市場推廣交付流程：由市場洞察、策略規劃、執行到成效檢視"
+          caption="交付流程由市場洞察開始 —— 先了解香港客群的實際媒體習慣與消費行為，再決定投放渠道與內容方向。"
+          width={1536}
+          height={512}
+        />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {deliverables.map((d) => (
@@ -417,7 +445,13 @@ export default function HongKongMarketContent() {
       </section>
 
       {/* 圖片位置 */}
-      <ImagePlaceholder label="香港推廣執行情境" hint="建議：拍攝現場、活動現場或團隊工作照" />
+      <ServiceImage
+          src="/services/hong-kong-market/hong-kong-offline-activation-popup.webp"
+          alt="香港線下推廣活動：銅鑼灣街頭品牌快閃展示及產品體驗攤位"
+          caption="線上曝光與線下體驗同樣重要 —— 香港消費者習慣在社交平台看到品牌之後，親身到店或到活動現場確認，因此推廣組合要同時覆蓋兩個場景。"
+          width={1600}
+          height={900}
+        />
 
       {/* 7. 流程 */}
       <section className="py-24 bg-slate-50">
@@ -425,6 +459,13 @@ export default function HongKongMarketContent() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">交付流程</h2>
             <p className="text-gray-500">先確認品牌在香港應該呈現成什麼樣子，再決定投放。</p>
+<ServiceImage
+          src="/services/hong-kong-market/hong-kong-local-insight-ferry-detail.webp"
+          alt="香港市場推廣成效檢視：市場分析、受眾洞察、策略規劃及業務增長指標"
+          caption="成效以當初議定的指標衡量，並分開報告平台數據與業務數據，不用曝光數字代替生意成效。"
+          width={1536}
+          height={512}
+        />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {process.map((s) => (

@@ -128,7 +128,7 @@ export default function AutomationServiceContent() {
             <div className="border border-emerald-100 bg-emerald-50/30 rounded-2xl p-8 shadow-lg relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">ADWire 方案</div>
               <div className="flex items-center gap-3 mb-6 text-emerald-600 font-bold text-xl">
-                <Check size={24} /> 營銷自動化系統
+                <Check size={24} /> 企業流程自動化及 RPA
               </div>
               <ul className="space-y-4 text-gray-700">
                 <li className="flex gap-3"><span className="text-emerald-500">✅</span> 即時：新查詢進入後即時觸發流程，非辦公時間仍可先接收及分類。</li>
@@ -454,7 +454,7 @@ export default function AutomationServiceContent() {
         </div>
       </section>
 
-      <ContactSection defaultService="營銷自動化系統" />
+      <ContactSection defaultService="企業流程自動化及 RPA" />
       <Footer />
     </div>
   );

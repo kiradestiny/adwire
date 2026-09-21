@@ -104,6 +104,49 @@ export default function ProductionServiceContent() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">全場景製作服務</h2>
             <p className="text-gray-400 text-lg">無論是動態還是靜態，我們都能駕馭。</p>
           </div>
+          {/* 表格：製作類型與交付物 —— 採購時最需要知道「交付甚麼」 */}
+          <div className="overflow-x-auto rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm mt-16">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-white/10 text-white">
+                  <th className="text-left px-5 py-4 font-semibold">製作類型</th>
+                  <th className="text-left px-5 py-4 font-semibold">適用場景</th>
+                  <th className="text-left px-5 py-4 font-semibold">一般交付物</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5">
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">產品攝影</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">電商上架、產品頁、廣告素材</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">白底圖、情境圖、細節特寫、已修圖的成品檔案</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">企業宣傳片</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">官網首頁、公司簡介、展會循環播放</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">腳本與分鏡、完成影片、字幕檔、16:9／9:16 版本</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">活動攝錄</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">發佈會、週年晚宴、研討會、開幕禮</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">精華片段、完整紀錄（如需要）、社交媒體短片版本</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">人物及訪談拍攝</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">團隊介紹、專業形象照、Podcast 影片</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">已修圖照片、多機位影片、字幕與分段</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-white align-top">空間及店舖攝影</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">餐飲、零售、美容、辦公室</td>
+                  <td className="px-5 py-4 text-gray-300 align-top">環境照、細節照、可用於 Google 商家資料的尺寸版本</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-gray-500 text-xs mt-4 leading-relaxed">
+            報價會按拍攝日數、場景數量、出鏡人員、器材規格、後期複雜度、修改輪數及使用權範圍逐項列明。
+            我們不會只提供一個總數，因為只有逐項列明，你才可以在不同供應商之間作有意義的比較。
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ServiceCard 

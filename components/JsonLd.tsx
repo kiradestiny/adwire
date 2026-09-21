@@ -239,7 +239,7 @@ export default function JsonLd() {
       {
         "@type": "ListItem",
         "position": 6,
-        "name": "營銷自動化",
+        "name": "企業流程自動化及 RPA",
         "description": "WhatsApp 自動化、CRM 整合及 AI 驅動的業務流程自動化",
         "url": "https://adwire.com.hk/services/automation/"
       },
