@@ -17,6 +17,1114 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // ─── Article 23：小紅書推廣（小紅書推廣 140 + 小紅書代運營 40 CPC $31.64 + 小紅書營銷 20） ───
+  {
+    id: 23,
+    slug: "xiaohongshu-marketing-hong-kong-guide-2026",
+    title: "小紅書推廣攻略：香港品牌實戰指南 2026",
+    excerpt:
+      "小紅書值唔值得做？本文按新華網、華泰證券研報及行業白皮書的公開數據，拆解小紅書的用戶結構與「搜尋平台」本質，說明香港品牌在哪些品類有真實優勢、實際要做的六件事、選題研究的四步方法、預算分配的三個常見錯誤，以及甚麼情況下我們會建議你唔好做。",
+    date: "2026-09-21",
+    updatedAt: "2026-09-21",
+    category: "China Market",
+    readTime: "14 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/xiaohongshu-marketing-hong-kong-guide-2026.webp",
+    tags: ["小紅書", "小紅書推廣", "小紅書代運營", "內地推廣", "種草", "香港品牌"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">近年最多香港品牌問的一個問題是：「小紅書到底值唔值得做？」問的人通常已經聽過身邊有品牌靠小紅書打開內地市場，但同時又聽過有人做了一年毫無動靜。這篇文章不講願景，只講實際：小紅書的用戶結構、內容機制、香港品牌實際會遇到什麼、要投入多少、怎樣量度成效，以及什麼情況下我們會建議你唔好做。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，小紅書的核心是「搜尋」而不是「推送」——用戶主動搜尋產品與解決方案，因此內容的主題選擇比發文頻率重要。二，香港品牌在小紅書有一個真實優勢：內地用戶對「港貨」普遍存在品質信任。三，但這個優勢只對部分品類有效，美容、母嬰、家居、生活消費最明顯。四，帳號與內容基建一般需 3–6 週，自然流量成長通常要 3–6 個月才較穩定。五，成效要看搜尋曝光、收藏與查詢，唔係單看讚好數。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、小紅書是甚麼：一個「搜尋」平台，不是「推送」平台</h3>
+
+        <p>小紅書的官方標語是「3 億人的生活經驗，都在小紅書」。新華網在 2025 年 5 月的報導中，將它形容為「3 億月活用戶的『生活百科全書』和『消費決策場』」。</p>
+
+        <p>這兩個形容詞點出了關鍵：小紅書的用戶不是被動接收廣告，而是**主動搜尋**「XX 好用嗎」「XX 邊隻好」「XX 推薦」這類問題，然後在筆記中找答案。這與 Instagram 或 Facebook 的邏輯完全不同 —— 後者是內容推到你面前，前者是你去找內容。</p>
+
+        <p>對品牌的實際意義是：<strong>在小紅書，一篇寫對題目的筆記，可以在數個月後仍然持續帶來搜尋曝光；一篇只靠當日推流的筆記，過了熱度就消失。</strong>這也是為什麼小紅書的內容策略必須由「關鍵字與題目」開始，而不是由「今個月發幾多篇」開始。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">用戶結構：年輕、女性為主、消費力集中</h4>
+
+        <p>不同來源的數字略有差異，但方向一致。華泰證券的研報顯示小紅書月活約 2.6 億、女性用戶佔 67.8%、一線城市用戶集中度高、月消費超過 2,000 元人民幣的人群佔 47.3%，用戶日均使用時長約 49 分鐘。行業白皮書的數字則為月活 3.39 億、女性佔 71.98%。</p>
+
+        <p>把這些數字放在一起，可以得出一個實務結論：<strong>小紅書的用戶集中在一線與新一線城市的年輕女性，而且消費力偏高。</strong>如果你的產品或服務正是針對這群人，小紅書是有效渠道；如果目標客群是內地的中年男性或三四線城市，小紅書的效率會明顯較低。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">項目</th><th class="text-left px-5 py-3 font-semibold">華泰證券研報</th><th class="text-left px-5 py-3 font-semibold">行業白皮書</th><th class="text-left px-5 py-3 font-semibold">新華網報導</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">月活躍用戶</td><td class="px-5 py-3">約 2.6 億</td><td class="px-5 py-3">約 3.39 億</td><td class="px-5 py-3">3 億</td></tr><tr><td class="px-5 py-3">女性用戶佔比</td><td class="px-5 py-3">67.8%</td><td class="px-5 py-3">71.98%</td><td class="px-5 py-3">未列明</td></tr><tr><td class="px-5 py-3">用戶年齡</td><td class="px-5 py-3">未列明</td><td class="px-5 py-3">18–34 歲近 80%</td><td class="px-5 py-3">未列明</td></tr><tr><td class="px-5 py-3">日均使用時長</td><td class="px-5 py-3">約 49 分鐘</td><td class="px-5 py-3">未列明</td><td class="px-5 py-3">未列明</td></tr></tbody></table></div>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="http://www.news.cn/food/20250516/9fead12989c14425b2bb72ce2be7494a/c.html" target="_blank" rel="noopener">新華網（2025年5月）</a>、華泰證券研報（經三個皮匠報告轉載）、傳聲港行業白皮書（2026年2月）。<strong>各來源統計口徑與時間點不同，數字不可直接比較</strong>；此處並列是為了顯示區間，而非取用單一「官方數字」。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、香港品牌在小紅書的真實優勢與限制</h3>
+
+        <p>「港貨」在內地確實存在品質信任光環。這一點在小紅書的搜尋行為上表現得很直接 —— 用戶會主動搜尋「香港」「港版」「香港代購」這類字眼，背後是對來源的信任，而不是對價格的追求。</p>
+
+        <p>但這個優勢有清楚的邊界，講清楚比誇大更有用：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">品類</th><th class="text-left px-5 py-3 font-semibold">「港貨」優勢</th><th class="text-left px-5 py-3 font-semibold">原因</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">美容護膚</td><td class="px-5 py-3">明顯</td><td class="px-5 py-3">對成分、來源、正貨的信任度高</td></tr><tr><td class="px-5 py-3">母嬰用品</td><td class="px-5 py-3">明顯</td><td class="px-5 py-3">家長對安全標準最敏感，香港標準是加分項</td></tr><tr><td class="px-5 py-3">家居生活</td><td class="px-5 py-3">中等</td><td class="px-5 py-3">設計與品質有優勢，但內地本地品牌競爭激烈</td></tr><tr><td class="px-5 py-3">食品／健康</td><td class="px-5 py-3">中等</td><td class="px-5 py-3">信任度有優勢，但受進口與標籤規定限制</td></tr><tr><td class="px-5 py-3">餐飲／服務</td><td class="px-5 py-3">只在有內地門店時適用</td><td class="px-5 py-3">無實體店則無法承接到店流量</td></tr><tr><td class="px-5 py-3">B2B 服務</td><td class="px-5 py-3">有限</td><td class="px-5 py-3">小紅書用戶以消費決策為主，非採購決策</td></tr></tbody></table></div>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">一個要老實講的限制</p><p class="text-amber-900 text-sm leading-relaxed">如果你的產品是純 B2B、或目標客群是內地的中年男性、或沒有辦法解決內地的物流與售後，小紅書未必是第一步。我們在診斷階段會直接講出這一點，而不是先簽約再想辦法。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、實際要做的六件事</h3>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1. 帳號基建：專業號與企業認證</h4>
+        <p>個人號與專業號在功能上有實質差別：專業號可使用數據後台、投放工具、以及部分商業功能。開通需要企業資質文件，整個流程一般 1–2 週。這一步是前置條件，沒有完成後面的投放與數據都無法進行。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">2. 帳號定位：決定你講什麼、不講什麼</h4>
+        <p>小紅書帳號最常見的失敗原因是「什麼都講」。一個同時講美容、育兒、旅行的帳號，演算法無法判斷該推送給誰，用戶亦記不住你是做什麼的。<strong>定位不是口號，是內容主題的取捨。</strong>例如同樣是護膚品牌，可以定位為「成分黨實測」或「敏感肌日常」，兩者的選題、語氣、拍攝風格都不同。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">3. 選題：由搜尋字開始，不是由靈感開始</h4>
+        <p>這是小紅書與其他平台最大的操作差異。實際做法是：先找出目標客群會搜尋的問題（例如「香港 xx 推薦」「xx 好用嗎」「xx 平價替代」），再按這些問題設計筆記題目。這樣做出來的內容，即使即時流量不高，仍會在數個月內持續被搜尋到。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">4. 內容製作：封面與首圖決定生死</h4>
+        <p>小紅書的資訊流以圖為主。用戶在 1 秒內決定是否點開，決定的依據幾乎完全是封面。實務上，封面需要做到三件事：主體清楚、文字可讀、有明確的「你會得到什麼」的暗示。這一點與 Instagram 的「美感優先」不完全相同。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">5. 投放：薯條與聚光的分工</h4>
+        <p>小紅書的站內投放工具主要分兩類用途：<strong>薯條</strong>用於為單篇筆記加熱、測試內容表現；<strong>聚光</strong>用於較完整的投放規劃與人群定向。實務上建議先用薯條測試 3–5 篇筆記，找出哪一類題材的互動最好，才把預算集中到表現好的方向，而不是一開始就大額投放。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">6. KOC 配合：中小型創作者往往比頭部更有效</h4>
+        <p>在小紅書，「種草」的可信度與創作者的真實感高度相關。多位 Nano 或 Micro 層級的 KOC 同步發佈，通常比一位頭部 KOL 的單篇內容更能帶動搜尋量。原因是搜尋結果會顯示多篇相關筆記，形成「這個產品有人在講」的印象。KOL 與 KOC 的分工與報價，可參考我們的<a href="/blog/kol-marketing-hong-kong-guide-2026/">KOL 網紅營銷指南</a>。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、要投入多少：時間與預算的實際結構</h3>
+
+        <p>小紅書的成本主要由三部分組成，與「發幾多篇」的關係比一般人想像中小：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">成本項目</th><th class="text-left px-5 py-3 font-semibold">內容</th><th class="text-left px-5 py-3 font-semibold">說明</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">帳號與內容基建</td><td class="px-5 py-3">開通認證、定位、主題規劃、拍攝風格設定</td><td class="px-5 py-3">一次性投入，一般 3–6 週</td></tr><tr><td class="px-5 py-3 font-semibold">內容生產</td><td class="px-5 py-3">選題、文案、拍攝、修圖、發佈</td><td class="px-5 py-3">持續投入，成本與產量及製作要求掛鈎</td></tr><tr><td class="px-5 py-3 font-semibold">投放與 KOC</td><td class="px-5 py-3">薯條／聚光投放、KOC 合作費用</td><td class="px-5 py-3">浮動成本，按預算與目標調整</td></tr></tbody></table></div>
+
+        <p>我們不會在這裡列出一個「標準價」，因為合理預算取決於品類競爭程度、內容製作要求與投放規模，用一個籠統數字開始討論只會導致後期爭議。實際做法是在診斷階段按你的產品與目標城市，提出一個分階段的預算結構。</p>
+
+        <p>時間方面：<strong>帳號與內容基建一般 3–6 週；自然搜尋流量通常需要 3–6 個月才較穩定。</strong>廣告與薯條可在較短時間帶來曝光，但搜尋端的累積需要時間。任何聲稱短期內可達到特定曝光或成交數字的說法，都應該要求對方提供計算方法。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、成效怎樣量度</h3>
+
+        <p>小紅書的數據要分開三層看，混在一起就會得出錯誤結論：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">層級</th><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">反映什麼</th><th class="text-left px-5 py-3 font-semibold">局限</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">內容層</td><td class="px-5 py-3">曝光、點擊率、互動率</td><td class="px-5 py-3">內容是否切中題目</td><td class="px-5 py-3">互動高不等於有生意</td></tr><tr><td class="px-5 py-3 font-semibold">搜尋層</td><td class="px-5 py-3">筆記的搜尋曝光、收藏數</td><td class="px-5 py-3">是否累積成長期搜尋資產</td><td class="px-5 py-3">需在專業號後台觀察</td></tr><tr><td class="px-5 py-3 font-semibold">業務層</td><td class="px-5 py-3">查詢數、成交、客戶成本</td><td class="px-5 py-3">是否真正帶來生意</td><td class="px-5 py-3">需要追蹤配置才能歸因</td></tr></tbody></table></div>
+
+        <p><strong>收藏數</strong>在小紅書是特別值得留意的指標。用戶收藏一篇筆記，代表他打算之後再回來看 —— 這是「購買意圖」的間接訊號，比單純的讚好更有參考價值。</p>
+
+        <p>要留意的是，內地平台的數據後台與香港常用的 Google Analytics 體系不同，歸因方式亦有差異。把「平台數據」直接當成「業務成效」是最常見的誤讀。我們的做法是把平台數據與實際查詢數分開報告，並說明兩者之間的推論關係與限制。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、香港品牌常見的四個失敗原因</h3>
+
+        <p><strong>一、把 Instagram 的內容直接搬過去。</strong>小紅書的用戶期待「真實分享」的語氣，過度精緻的商業廣告感反而會被判斷為廣告而降低觸及。內容需要按內地語境重寫，不是翻譯。</p>
+
+        <p><strong>二、只做內容不解決承接。</strong>用戶在小紅書看到產品，下一步會去哪裡買？如果內地沒有購買渠道、沒有客服、沒有售後，流量只會流失。這一步必須在開始之前想清楚。</p>
+
+        <p><strong>三、沒有耐心。</strong>小紅書的搜尋資產需要累積。做了兩個月就停，等於放棄了前面累積的搜尋位置。</p>
+
+        <p><strong>四、選錯品類。</strong>如前述，部分品類在小紅書的效率天生較低。硬做的結果是投入與回報不成比例。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、選題研究：具體怎樣做</h3>
+
+        <p>這一節是整篇最實用的部分。小紅書的選題不是靠靈感，而是靠一個可以重複的流程。以下四步是我們實際使用的做法。</p>
+
+        <p><strong>第一步：列出客群的「問題句」。</strong>不是列產品名，而是列客群會問的問題。例如做護膚品，問題句會是「敏感肌可以用嗎」「夏天出油怎樣揀」「平價替代有咩選擇」。這些句子才是用戶實際會輸入搜尋框的內容。</p>
+
+        <p><strong>第二步：在小紅書搜尋欄實測。</strong>把問題句輸入小紅書的搜尋欄，觀察下拉建議（這些是平台按真實搜尋量提供的提示）。如果一個問題句有下拉建議，代表有真實搜尋需求；如果沒有，即使題目聽起來很吸引，也可能無人搜尋。</p>
+
+        <p><strong>第三步：看現有筆記的表現。</strong>搜尋結果中，哪些筆記的讚好與收藏明顯較高？把它們的題目結構、封面形式、內容長度記錄下來。這一步不是為了模仿，而是為了知道「這個題目目前的天花板在哪裡」。</p>
+
+        <p><strong>第四步：找出未被滿足的角度。</strong>如果現有筆記都在講「推薦」，你可以做「對比」；如果都在講「好處」，你可以做「不適合什麼人」。<strong>同一個搜尋字之下，角度差異比題目本身更能決定成效。</strong></p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">一個實務判斷標準</p><p class="text-blue-900 text-sm leading-relaxed">如果一個題目在搜尋欄有下拉建議，但現有筆記的最高收藏數仍然偏低，這通常是最值得做的題目 —— 有需求但未有好的答案。相反，如果題目有大量高收藏筆記，除非你有明顯更強的角度或素材，否則投入產出比會偏低。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、與其他內地渠道的分工</h3>
+
+        <p>小紅書很少單獨運作。實務上，多數品牌會用兩至三個渠道配合，各自負責不同的階段。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">渠道</th><th class="text-left px-5 py-3 font-semibold">在小紅書為主的組合中負責</th><th class="text-left px-5 py-3 font-semibold">時機</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">小紅書</td><td class="px-5 py-3">建立產品認知與搜尋資產</td><td class="px-5 py-3">第一階段</td></tr><tr><td class="px-5 py-3 font-semibold">抖音</td><td class="px-5 py-3">擴大觸及、短視頻展示、本地生活</td><td class="px-5 py-3">第二階段（如需更大流量）</td></tr><tr><td class="px-5 py-3 font-semibold">微信</td><td class="px-5 py-3">沉澱客戶、復購、客服</td><td class="px-5 py-3">第二階段（有查詢之後）</td></tr><tr><td class="px-5 py-3 font-semibold">百度</td><td class="px-5 py-3">品牌查證、長期搜尋可見度</td><td class="px-5 py-3">可與第一階段同步</td></tr><tr><td class="px-5 py-3 font-semibold">微博</td><td class="px-5 py-3">公關曝光、話題帶動</td><td class="px-5 py-3">有公關需求時</td></tr></tbody></table></div>
+
+        <p>這個分工的邏輯是：<strong>小紅書負責「讓人知道你」，微信負責「留住已認識你的人」。</strong>如果只有小紅書而沒有微信承接，查詢會散落在私訊與評論中，難以轉化為可跟進的客戶。這也是我們在方案階段會一併確認的部分。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、預算分配的三個常見錯誤</h3>
+
+        <p><strong>錯誤一：全部預算放在投放，沒有留預算做內容。</strong>投放可以把內容推給更多人，但無法令內容本身變得有說服力。如果筆記本身不夠好，投放只是把不夠好的內容放大。實務上，內容生產應該佔一個穩定比例，而不是投放有餘才做。</p>
+
+        <p><strong>錯誤二：一次做五個平台。</strong>同一筆預算分給五個平台，每個平台都做得淺。小紅書的搜尋資產需要持續累積，分散投入只會令每個平台都無法形成累積。我們一般建議先做一至兩個平台，做出可觀察的成績再擴展。</p>
+
+        <p><strong>錯誤三：只看曝光數字。</strong>曝光是最容易達到的指標，也是最容易令人誤判的指標。一萬次曝光如果全部來自不相關的用戶，實際價值可能低於一千次來自目標客群的曝光。因此月報應該同時包含互動率、搜尋曝光與查詢數。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、首 90 天的實際行動次序</h3>
+
+        <p>以下是一個常見的起步次序，實際會按品類與資源調整。重點是<strong>次序</strong>：先確認方向，再累積內容，最後才放大投放。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">階段</th><th class="text-left px-5 py-3 font-semibold">工作</th><th class="text-left px-5 py-3 font-semibold">完成標準</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">第 1–3 週</td><td class="px-5 py-3">帳號開通與認證、帳號定位、主題方向確認、選題研究</td><td class="px-5 py-3">有一份可執行的選題清單，每條題目都有搜尋依據</td></tr><tr><td class="px-5 py-3 font-semibold">第 4–8 週</td><td class="px-5 py-3">生產首批內容（不同題材各測試）、建立封面風格</td><td class="px-5 py-3">累積足夠樣本判斷哪類題材互動最好</td></tr><tr><td class="px-5 py-3 font-semibold">第 9–12 週</td><td class="px-5 py-3">用薯條測試表現最好的題材、開始 KOC 配合</td><td class="px-5 py-3">找出可複製的內容模式，而非單篇爆款</td></tr><tr><td class="px-5 py-3 font-semibold">第 13 週起</td><td class="px-5 py-3">把預算集中到已驗證的方向、開始觀察搜尋曝光成長</td><td class="px-5 py-3">搜尋端開始有穩定曝光，查詢可歸因</td></tr></tbody></table></div>
+
+        <p>要留意的是，<strong>第 1–8 週的目標不是「做出爆款」，而是「找出哪一類內容對你的客群有效」。</strong>把這個階段當成測試期，比一開始就追求曝光數字更實際。爆款有運氣成分，可複製的內容模式才是資產。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十一、常見問題</h3>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">小紅書推廣要幾長時間才見到效果？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">帳號與內容基建一般需 3–6 週（包括開通認證、定位與主題規劃）。自然搜尋流量通常需要 3–6 個月才較穩定，因為筆記需要時間累積搜尋權重。投放與薯條可在較短時間帶來曝光，但搜尋端的累積無法壓縮。我們不會預先承諾特定時間或成效數字。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">小紅書月活躍用戶有多少？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不同來源的數字有差異：新華網 2025 年 5 月報導為 3 億月活用戶；華泰證券研報顯示約 2.6 億；行業白皮書則為約 3.39 億。各來源統計口徑與時間點不同，數字不可直接比較。方向上一致的是：用戶以年輕女性為主（女性佔比 67.8%–72%），集中在一線及新一線城市，消費力偏高。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港品牌在小紅書有優勢嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">部分品類有。「港貨」在內地存在品質信任光環，在美容護膚、母嬰用品最明顯，家居生活與食品健康屬中等，餐飲服務則只適用於有內地門店的品牌，B2B 服務的優勢有限。原因是內地用戶對來源與安全標準的信任度較高。但這個優勢不會自動轉化為銷量，仍需要內容、承接渠道與持續投入配合。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">小紅書的內容可以照香港的文案翻譯過去嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不建議。小紅書用戶期待「真實分享」的語氣，而香港的廣告文案通常較直接、較商業化。直接翻譯除了語氣不符，用語亦會露餡（例如「影片」與「視頻」、「質素」與「質量」的差異）。實務做法是按內地語境重寫，而不是逐字轉換。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">薯條和聚光有甚麼分別？應該先用哪個？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">薯條主要用於為單篇筆記加熱、測試內容表現；聚光則用於較完整的投放規劃與人群定向。實務建議是先用薯條測試 3–5 篇不同題材的筆記，找出互動表現最好的方向，再把預算集中投放，而不是一開始就大額投入。這樣可以降低選錯題材的成本。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">甚麼情況下不應該做小紅書？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">三種情況：一是純 B2B 服務（小紅書用戶以消費決策為主，非採購決策）；二是目標客群為內地中年男性或三四線城市（與平台用戶結構不符）；三是無法解決內地的購買渠道、物流或售後（流量來了也無法承接）。這三種情況我們會在診斷階段直接說明，而不是先簽約再想辦法。</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十二、總結</h3>
+
+        <p>小紅書值不值得做，取決於三件事：你的品類是否屬於「港貨」有優勢的類別、你的目標客群是否與平台用戶結構吻合、以及你是否能解決內地的承接問題。三者都符合，小紅書是香港品牌進入內地市場效率較高的起點；有一項不符，就應該先考慮其他渠道。</p>
+
+        <p>操作上最需要記住的一點是：<strong>小紅書是搜尋平台，內容策略要由搜尋字開始。</strong>這也是為什麼我們的做法是先在診斷階段確認主題方向，再開始生產內容，而不是先決定一個月發幾多篇。</p>
+
+        <p>如果你正在考慮進入內地市場，可以參考我們的<a href="/services/china-market/">中國市場推廣服務</a>，了解小紅書以外的其他渠道（抖音、微信、百度、美團等）如何配合；亦可以看<a href="/blog/hong-kong-brand-china-market-guide-2026/">香港品牌進軍內地市場完全攻略</a>，了解五大渠道的整體分工。若你已經在做小紅書但成效未如理想，可以先做一次內容與搜尋表現的診斷，再決定調整方向。</p>
+    `,
+  },
+
+  // ─── Article 24（批次三） ───
+  {
+    id: 24,
+    slug: "kol-marketing-hong-kong-guide-2026",
+    title: "KOL 網紅營銷指南：香港中小企選型、報價與成效 2026",
+    excerpt:
+      "粉絲數係最弱嘅指標。本文拆解 Nano 到 Mega 五個層級的分工、三個第三方來源的香港 KOL 報價區間（並說明為何不可直接比較）、四個可實際核查的選人維度、KOL 與 KOC 與素人的組合策略、六個成效指標與三種歸因方法，以及六個最常見的失敗原因。",
+    date: "2026-09-21",
+    updatedAt: "2026-09-21",
+    category: "Digital Marketing",
+    readTime: "17 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/kol-marketing-hong-kong-guide-2026.webp",
+    tags: ["KOL", "網紅營銷", "KOC", "influencer marketing", "香港推廣", "社交媒體"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">KOL 推廣是香港中小企最常被問到、也最容易被做錯的一環。很多人一開始就問「邊個 KOL 最多粉絲」，但真正決定成效的，其實是受眾匹配度、互動質素、內容方向與歸因設計。這篇指南會由 KOL 層級講起，再到香港市場的報價區間、選人方法、KOC 與素人的分工、成效量度、常見失敗原因，最後附上完整合作流程與常見問題，讓你在落單之前已經知道自己買緊啲乜。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，粉絲數是最弱的指標，互動率與受眾地區、年齡、消費習慣才是關鍵。二，香港 KOL 收費由幾百元一帖到十幾萬元一帖都有，價格差異主要來自級別、平台、內容形式、使用權與獨家條款，唔同來源的口徑亦唔可以直接比較。三，中小企最務實的做法，通常是用多個 Nano 或 Micro KOL 組成組合，而不是把預算全押在一個大號。四，KOL 內容必須配合付費推廣，否則自然觸及會遠低於你的預期。五，一定要用優惠碼、專屬連結或 UTM 參數做歸因，否則你永遠唔會知道錢花得值唔值。六，我們不會作任何排名保證，成效取決於產品、市場、內容與執行，而不是買一個「名單」。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、KOL 層級與分工：Nano 到 Mega 各有用途</h3>
+
+        <p>KOL 分層沒有全球統一的官方標準，不同機構、平台與媒體的界線都有出入。以下是一套在香港市場最常用、亦最容易溝通的分層方式。重點唔在於記住數字，而在於理解每一層的「性價比曲線」：粉絲越多，觸及越廣，但互動率與可信度通常越低，單位成本越高。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">五個層級的基本定義</h4>
+
+        <p><strong>Nano（納米級，約 1,000 至 10,000 粉絲）</strong>：通常是真實朋友、街坊、興趣社群為主的帳號。互動率最高，粉絲關係最緊密，但觸及範圍有限。適合地區小店、餐飲、美容、親子、寵物等需要「真人真事」的類別。缺點是內容製作水平參差，需要較多溝通成本。</p>
+
+        <p><strong>Micro（微型，約 10,000 至 100,000 粉絲）</strong>：香港市場最活躍、供應最充足的一層，涵蓋大量生活、美妝、時裝、飲食、旅遊、健身帳號。互動率仍然可觀，內容質素較穩定，價格亦在中小企可承受範圍。這是最多人認為「最抵做」的一層，但同時競爭最激烈，需要靠篩選取勝。</p>
+
+        <p><strong>Mid-tier（中層，約 100,000 至 500,000 粉絲）</strong>：開始具備跨圈層的影響力，適合品牌推廣、季節性大型活動、新產品上市。互動率一般落在中低水平，但內容製作與專業度明顯較高，部分已有經理人或代理。價錢跳升幅度大，議價空間亦視乎檔期。</p>
+
+        <p><strong>Macro（宏觀，約 500,000 至 1,000,000 粉絲）</strong>：屬於半名人級別，多數有經紀安排，合作需要較長前置時間。適合需要短時間內製造大量曝光的項目，例如旗艦產品發佈、品牌重新定位。</p>
+
+        <p><strong>Mega／名人級（100 萬粉絲以上）</strong>：藝人、運動員、頭部 YouTuber。收費以「十萬」為單位起跳，通常按個別項目議價。對中小企而言，除非產品與該名人的形象高度契合，否則單位成本效益往往不及組合投放。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">層級</th><th class="text-left px-5 py-3 font-semibold">粉絲範圍</th><th class="text-left px-5 py-3 font-semibold">互動率傾向</th><th class="text-left px-5 py-3 font-semibold">適用場景</th><th class="text-left px-5 py-3 font-semibold">主要缺點</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Nano 納米</td><td class="px-5 py-3">1K – 10K</td><td class="px-5 py-3">最高</td><td class="px-5 py-3">地區小店、口碑、種草</td><td class="px-5 py-3">觸及有限、製作水平參差</td></tr><tr><td class="px-5 py-3">Micro 微型</td><td class="px-5 py-3">10K – 100K</td><td class="px-5 py-3">高</td><td class="px-5 py-3">新品試用、日常推廣</td><td class="px-5 py-3">供應多、需仔細篩選</td></tr><tr><td class="px-5 py-3">Mid-tier 中層</td><td class="px-5 py-3">100K – 500K</td><td class="px-5 py-3">中</td><td class="px-5 py-3">品牌推廣、季節活動</td><td class="px-5 py-3">價格跳升、檔期緊張</td></tr><tr><td class="px-5 py-3">Macro 宏觀</td><td class="px-5 py-3">500K – 1M</td><td class="px-5 py-3">偏低</td><td class="px-5 py-3">大型曝光、品牌重塑</td><td class="px-5 py-3">前置時間長、彈性低</td></tr><tr><td class="px-5 py-3">Mega 名人</td><td class="px-5 py-3">1M 以上</td><td class="px-5 py-3">低</td><td class="px-5 py-3">旗艦發佈、全城話題</td><td class="px-5 py-3">成本極高、中小企難回本</td></tr></tbody></table></div>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">粉絲多唔等於有效</p><p class="text-amber-900 text-sm leading-relaxed">一個 30 萬粉絲的帳號，如果受眾七成在台灣、東南亞或內地，對香港本地生意幾乎沒有幫助。同樣，一個 5 萬粉絲但互動率只有 0.5% 的帳號，實際觸及可能比一個 8,000 粉絲、互動率 8% 的 Nano 更低。粉絲數是入場券，唔係成績表。請記住：你買的是「觸及一群合適的人」，唔係「一個數字」。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、香港 KOL 報價：市場觀察數字與注意事項</h3>
+
+        <p>香港 KOL 收費沒有官方統計，市場上流通的數字全部來自第三方公開資料、代理經驗或媒體報導。以下整理三個不同來源的公開區間，方便你建立一個「大概概念」。請務必留意：<strong>以下全部是市場觀察數字，來自公開第三方資料，不同來源的粉絲分層口徑、平台假設、內容形式與時間點都唔同，不可直接橫向比較；這些亦不是 ADWire 的報價。</strong></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">來源一：Mr. Discovery（2025）靜態貼文報價參考</h4>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">網紅級別</th><th class="text-left px-5 py-3 font-semibold">追蹤人數</th><th class="text-left px-5 py-3 font-semibold">報價範圍（HK$／帖）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Nano</td><td class="px-5 py-3">1K – 10K</td><td class="px-5 py-3">$800 – $2,000</td></tr><tr><td class="px-5 py-3">Micro</td><td class="px-5 py-3">10K – 50K</td><td class="px-5 py-3">$2,500 – $8,000</td></tr><tr><td class="px-5 py-3">Mid</td><td class="px-5 py-3">50K – 200K</td><td class="px-5 py-3">$10,000 – $30,000</td></tr></tbody></table></div>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://www.mrdiscovery.co/zh/post/hong-kong-social-media-benchmarks-2025-ads-reels-influencer-campaigns" target="_blank" rel="noopener">Mr. Discovery｜香港社交媒體行銷指標 2025</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">來源二：WebSeoHK（2025）按平台劃分的微型 KOL 區間</h4>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">假設粉絲規模</th><th class="text-left px-5 py-3 font-semibold">報價範圍（HK$／帖）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">TikTok</td><td class="px-5 py-3">1 萬 – 10 萬</td><td class="px-5 py-3">$3,000 – $8,000</td></tr><tr><td class="px-5 py-3">Instagram</td><td class="px-5 py-3">1 萬 – 10 萬</td><td class="px-5 py-3">$4,000 – $10,000</td></tr><tr><td class="px-5 py-3">YouTube</td><td class="px-5 py-3">1 萬 – 10 萬</td><td class="px-5 py-3">$8,000 – $15,000</td></tr></tbody></table></div>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://webseohk.com/" target="_blank" rel="noopener">WebSeoHK｜香港數位行銷知識庫</a></p>
+
+        <p>從這個來源可以看出一件很重要的事：<strong>同一個粉絲規模，平台不同，價錢可以相差兩三倍</strong>。YouTube 長影片涉及拍攝、剪輯、燈光、腳本，製作成本高，但內容壽命長，影片有機會長期在 Google 搜尋中被看到；TikTok 與 Reels 短片製作快、單價較低，但內容生命週期短，需要靠投放延續。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">來源三：ADWire 服務頁公開的參考區間</h4>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">級別</th><th class="text-left px-5 py-3 font-semibold">粉絲範圍</th><th class="text-left px-5 py-3 font-semibold">參考區間（HK$／帖）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Nano KOL</td><td class="px-5 py-3">1K – 10K</td><td class="px-5 py-3">約 $500 – $3,000</td></tr><tr><td class="px-5 py-3">Micro KOL</td><td class="px-5 py-3">10K – 100K</td><td class="px-5 py-3">約 $3,000 – $15,000</td></tr><tr><td class="px-5 py-3">Mid-tier KOL</td><td class="px-5 py-3">100K – 500K</td><td class="px-5 py-3">約 $15,000 – $50,000</td></tr><tr><td class="px-5 py-3">Macro／Mega</td><td class="px-5 py-3">500K 以上</td><td class="px-5 py-3">按個別項目議價</td></tr></tbody></table></div>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="/services/kol/" target="_blank" rel="noopener">ADWire｜KOL 網紅營銷服務頁公開資料</a></p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">閱讀報價表之前必須知道的三件事</p><p class="text-amber-900 text-sm leading-relaxed">第一，三個來源的粉絲分層界線唔一樣（有來源把 50K 當 Micro，有來源把 100K 才當 Mid-tier），所以同一行數字唔代表同一批人。第二，報價假設的交付內容唔一樣：有的指一張靜態圖文，有的包含限時動態、Reels、Story 連結、多平台轉發。第三，時間點唔同，2025 年的數字在 2026 年未必仍然適用。要真正比較，唯一方法是要求對方列出「交付清單」，逐項對照。</p></div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">影響價格的五個變數</h4>
+
+        <p><strong>一、內容形式</strong>：靜態圖文最便宜，Reels 與短片較貴，YouTube 長影片最貴。限時動態通常只是貼文價格的三成至四成，但只有 24 小時曝光，適合搭配優惠碼做即時轉換。</p>
+
+        <p><strong>二、使用權</strong>：如果你想把 KOL 的內容放到自己的廣告帳號做付費推廣，這叫「白名單授權」或「內容二次使用」，通常要額外加錢，幅度可以相當可觀。唔講清楚就落廣告，可能構成侵權。</p>
+
+        <p><strong>三、獨家條款</strong>：要求 KOL 在指定期間內不接同類競品，等於買斷他的檔期，價格自然上升。</p>
+
+        <p><strong>四、檔期與急單</strong>：農曆新年、聖誕、母親節、雙十一等旺季，KOL 檔期緊張，議價空間收窄。急單通常沒有折扣。</p>
+
+        <p><strong>五、組合與長期合作</strong>：一次過簽多帖、或簽半年至一年的品牌大使合作，通常可爭取到一定折扣，但前提是你對該 KOL 的表現已有數據支持。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、如何選 KOL：四個可以實際檢查的維度</h3>
+
+        <p>選 KOL 唔應該靠感覺，亦唔應該只看粉絲數。以下四項，你都可以在 30 分鐘內自行核查，亦可以要求代理提供截圖或報表。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">維度一：受眾人口統計與品牌客群匹配度</h4>
+
+        <p>先問自己：我的客人是邊個年齡、性別、地區、消費水平？然後對照 KOL 的後台數據。Instagram 與 YouTube 的專業帳號可以看到受眾的性別比例、年齡分佈、主要城市。如果 KOL 的受眾有大量海外粉絲，而你的生意只做香港本地，就要重新考慮。這一步最容易被忽略，但往往是成敗分水嶺。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">維度二：互動率</h4>
+
+        <p>互動率的基本計法，是把讚好、留言、分享、收藏加起來，除以該帖的觸及人數或粉絲數。以粉絲數作分母的粗略計法較方便，但會被買粉嚴重扭曲，所以最好同時看「互動數與觸及數的比例」。實務上，香港 Nano 與 Micro 帳號的互動率一般較高，Mid-tier 以上較低。你可以抽查 KOL 最近十帖，計算平均值，並且留意有無某一帖的互動數字異常地高。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">維度三：粉絲真偽比例</h4>
+
+        <p>買粉、殭屍粉、互讚群組在香港並不罕見。檢查方法有幾個：一看留言質素，是否全是「nice」「good」或表情符號，有無真人對話；二看粉絲帳號的頭像與貼文數量，大量無頭像、零貼文的帳號是警號；三看讚好與粉絲數的比例，如果一萬粉絲但每帖只有幾十個讚，值得追問；四看成長曲線，若某段時間粉絲突然暴增然後停滯，通常有問題。坊間亦有第三方工具可以估算假粉比例，但結果僅供參考。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">維度四：以往商業帖的轉化表現</h4>
+
+        <p>直接問對方：過去半年做過哪些品牌合作？可否提供該次合作的數據？負責任的 KOL 或代理會提供部分數據，或至少提供公開的帖文連結讓你自己查看。如果對方只能提供曝光量而無法提供任何互動或點擊數據，你要有心理準備，這次合作只能當作品牌曝光，唔應該期待直接查詢。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">檢查項目</th><th class="text-left px-5 py-3 font-semibold">怎樣查</th><th class="text-left px-5 py-3 font-semibold">合格參考</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">受眾地區</td><td class="px-5 py-3">要求後台截圖或看留言語言</td><td class="px-5 py-3">主要受眾在香港</td></tr><tr><td class="px-5 py-3">受眾年齡性別</td><td class="px-5 py-3">後台 Insights</td><td class="px-5 py-3">與品牌客群重疊</td></tr><tr><td class="px-5 py-3">互動率</td><td class="px-5 py-3">抽查最近 10 帖計算平均</td><td class="px-5 py-3">視層級而定，重點是穩定</td></tr><tr><td class="px-5 py-3">留言質素</td><td class="px-5 py-3">閱讀留言內容</td><td class="px-5 py-3">有真人對話、有提問</td></tr><tr><td class="px-5 py-3">假粉跡象</td><td class="px-5 py-3">看粉絲頭像、成長曲線</td><td class="px-5 py-3">無異常暴增</td></tr><tr><td class="px-5 py-3">商業帖表現</td><td class="px-5 py-3">索取過去合作數據</td><td class="px-5 py-3">能提供互動或點擊數字</td></tr><tr><td class="px-5 py-3">內容風格</td><td class="px-5 py-3">看最近 10 帖</td><td class="px-5 py-3">與品牌調性一致</td></tr></tbody></table></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、KOL、KOC 與素人：三者分工與成本差異</h3>
+
+        <p>很多人把 KOL 與 KOC 混為一談，但兩者在預算分配上的角色完全唔同。KOL 是關鍵意見領袖，重點在影響力與曝光；KOC 是關鍵意見消費者，重點在真實使用體驗與說服力；素人則是純粹的普通用戶分享。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">類別</th><th class="text-left px-5 py-3 font-semibold">典型粉絲與身份</th><th class="text-left px-5 py-3 font-semibold">核心作用</th><th class="text-left px-5 py-3 font-semibold">相對成本</th><th class="text-left px-5 py-3 font-semibold">適用場景</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">KOL</td><td class="px-5 py-3">1 萬至數十萬粉絲</td><td class="px-5 py-3">曝光、話題、品牌信任</td><td class="px-5 py-3">高</td><td class="px-5 py-3">新品上市、品牌推廣</td></tr><tr><td class="px-5 py-3">KOC</td><td class="px-5 py-3">數千至一萬多粉絲</td><td class="px-5 py-3">真實試用、口碑種草</td><td class="px-5 py-3">中低</td><td class="px-5 py-3">轉換、評論區發酵</td></tr><tr><td class="px-5 py-3">素人</td><td class="px-5 py-3">幾百至幾千，多為真實用戶</td><td class="px-5 py-3">數量堆疊、搜尋結果佔位</td><td class="px-5 py-3">低（多為產品置換）</td><td class="px-5 py-3">小紅書筆記、Google 評論</td></tr></tbody></table></div>
+
+        <p>實務上的最佳組合，通常是「一個 Mid-tier 或 Micro KOL 打頭陣製造話題，配上一批 KOC 做真實體驗分享，再加一批素人在評論區與搜尋結果中形成密度」。因為當消費者被 KOL 吸引之後，下一步通常會自己去搜尋品牌名稱，看看有無其他人講過。如果搜尋結果只有品牌自己的宣傳，說服力會大打折扣；如果搜尋結果有大量第三方真實分享，轉換機會就高得多。</p>
+
+        <p>如果你的目標客群包含內地消費者或訪港旅客，小紅書的 KOC 種草策略就相當關鍵，可以參考我們另文整理的<a href="/blog/xiaohongshu-marketing-hong-kong-guide-2026/">小紅書推廣指南</a>，以及<a href="/services/china-market/">中國市場推廣服務</a>。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、成效量度：六個要看的指標與歸因難題</h3>
+
+        <p>KOL 推廣最常被誤解的一點，是以為它可以直接用廣告回報率的方式衡量。實際上，KOL 影響的是認知與信任，而這兩件事的轉換路徑通常很長：用戶今日看到帖文，可能兩星期後才搜尋品牌，一個月後才落單。這就是所謂的歸因困難。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">六個核心指標</h4>
+
+        <p><strong>觸及率</strong>：有多少獨立帳號看到內容。這比曝光次數更真實，因為同一人重複看到不會重複計算。</p>
+
+        <p><strong>觀看次數</strong>：影片類內容的主要指標，但要注意平台計算方式不同，有些平台看 3 秒就算一次，有些要看一半以上。跨平台比較意義不大。</p>
+
+        <p><strong>互動率</strong>：反映內容有無引起反應。互動率高的內容，通常值得再加付費推廣放大。</p>
+
+        <p><strong>點擊率</strong>：如果有放連結，就可以看到有多少人真的想進一步了解。這是從認知走向考慮的重要一步。</p>
+
+        <p><strong>網站流量</strong>：用 UTM 參數追蹤來自該 KOL 的流量，看停留時間、瀏覽頁數、跳出率，而不只是看人數。</p>
+
+        <p><strong>查詢與轉換</strong>：最終的落單、查詢、WhatsApp 對話、預約數量。這是唯一真正重要的指標，但需要歸因工具配合。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">歸因方法：三個實用做法</h4>
+
+        <p><strong>一、專屬優惠碼</strong>：每個 KOL 一個獨立優惠碼，用戶落單時輸入。這是最直接、最不易出錯的方法，缺點是會影響部分用戶的落單意願。</p>
+
+        <p><strong>二、專屬連結</strong>：用短連結或獨立登陸頁，配合 UTM 參數，這樣在 Google Analytics 4 就可以分開看到每個 KOL 帶來的流量與轉換。</p>
+
+        <p><strong>三、分時段對照</strong>：如果無法做技術歸因，就用時間對照法。記錄每個 KOL 的發佈時間，觀察發佈後 24 至 72 小時內網站流量、查詢量與品牌搜尋量的變化。這種方法不精確，但對於沒有電商系統的服務型生意仍然有參考價值。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">實務提醒</p><p class="text-blue-900 text-sm leading-relaxed">不要期望 KOL 帖文一出就即刻有大量訂單。香港消費者的決策路徑通常包括：看到帖文、搜尋品牌、看 Google 評論、比較幾間、再落單。所以 KOL 推廣通常要配合搜尋廣告、社交媒體內容、網站與 Google 商家資料，形成一條完整的路徑。這也是我們建議把 KOL 與<a href="/services/ads/">成效廣告投放</a>、<a href="/services/social/">社交媒體代管</a>一齊規劃的原因。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、六個常見失敗原因</h3>
+
+        <p><strong>一、只買粉絲數。</strong>把預算集中在最大號的 KOL，結果觸及一堆與產品無關的受眾，互動率低，查詢亦少。正確做法是先定義客群，再反推要找哪一層的 KOL。</p>
+
+        <p><strong>二、內容監修過度或完全放手。</strong>兩種極端都會失敗。過度監修會令內容變成廣告稿，用戶一眼看穿，互動率大跌；完全放手則可能出現與品牌定位不符的內容。務實做法是提供方向、必須出現的資訊、不可觸碰的紅線，然後讓 KOL 用自己的語言寫。</p>
+
+        <p><strong>三、完全沒有歸因設計。</strong>合作完之後只有一堆截圖與讚好數字，講唔出帶來幾多查詢。下一次預算就無從判斷。歸因設計必須在合作前做好，唔可以事後補救。</p>
+
+        <p><strong>四、選錯平台。</strong>你的客群是 45 歲以上、重視信任的行業，卻把預算全放在 TikTok，成效自然不理想。平台的用戶結構與內容形態，決定了它適合哪一種溝通方式。</p>
+
+        <p><strong>五、只做一次性推廣。</strong>KOL 的價值需要重複曝光才會累積。一個 KOL 講一次，用戶可能無印象；同一個 KOL 在三個月內講三次，加上其他 KOC 的分享，品牌才會真正進入用戶的考慮名單。長期合作通常亦可以爭取較好價錢。</p>
+
+        <p><strong>六、只做自然觸及，不做付費放大。</strong>現時社交平台的自然觸及普遍偏低，表現最好的 KOL 內容如果只用自然流量，等於浪費。把表現好的內容加上付費推廣，可以用相對合理的成本再放大一次，而且素材是真實內容，說服力通常比品牌自製廣告更高。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、KOL 合作流程：六個步驟</h3>
+
+        <p><strong>第一步：定義目標與客群。</strong>先寫清楚這次合作要達成什麼：是品牌曝光、新產品試用、還是直接查詢？目標客群是邊個年齡、地區、消費習慣？預算範圍多少？這一步寫得越具體，後面越省事。</p>
+
+        <p><strong>第二步：擬定 KOL 組合。</strong>根據目標與預算，決定用幾個 Nano、幾個 Micro、是否需要一個 Mid-tier 打頭陣。與其把全部預算押在一個大號，不如用組合分散風險，同時覆蓋更多不同社群。</p>
+
+        <p><strong>第三步：篩選與核實。</strong>按前述四個維度逐一檢查，包括受眾地區、互動率、假粉跡象、以往商業帖表現。這一步值得花時間，因為選錯人之後的所有成本都無法回收。</p>
+
+        <p><strong>第四步：報價與議價。</strong>要求對方列出交付清單：幾張圖、幾條片、是否包含限時動態、是否包含多平台轉發、使用權多久、是否獨家。逐項對照之後再議價，唔好只比較一個總數。</p>
+
+        <p><strong>第五步：簡報與內容監修。</strong>提供品牌資料、產品重點、必須出現的資訊、不可提及的內容、以及參考風格。設定清晰的審稿次數上限，避免無限修改拖垮雙方。</p>
+
+        <p><strong>第六步：發佈、放大與檢討。</strong>按約定時間發佈，同步開啟歸因追蹤。發佈後 48 至 72 小時檢視數據，挑出表現最好的內容加付費推廣。最後整理報告，包括觸及、互動、點擊、查詢，並記錄下次要改什麼。這份記錄就是你的內部資產。</p>
+
+        <p>如果你需要由選人、議價、簡報到成效報告的整體支援，可以參考我們的<a href="/services/kol/">KOL 網紅營銷服務</a>，我們有 1,000+ KOL 合作資源庫，會按你的客群與預算提供組合建議。若你需要同時製作產品素材、專業攝影或影片，亦可以配合<a href="/services/production/">商業攝影與影片製作</a>，讓 KOL 拿到的素材本身已經有質素。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h3>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港 KOL 收費大概幾多？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">香港 KOL 收費沒有官方統計，不同第三方來源的公開區間差異很大。以 2025 年的市場觀察數字為例，Nano（約 1K 至 10K 粉絲）大約每帖 HK$500 至 $3,000；Micro（約 10K 至 100K）大約 HK$3,000 至 $15,000；Mid-tier（約 100K 至 500K）大約 HK$15,000 至 $50,000；Macro 與名人級通常按個別項目議價。實際價錢會受平台、內容形式、使用權、獨家條款與檔期影響，同一個粉絲規模可以有兩三倍差距。這些數字來自公開第三方資料，口徑與時間點各異，不可直接比較，亦不是 ADWire 的報價。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">中小企應該選 Nano、Micro 還是 Mid-tier KOL？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">大部分香港中小企最務實的做法，是以 Micro 為主、Nano 為輔，組成一個組合。原因是 Micro 的互動率仍然可觀、內容質素較穩定、價格在可承受範圍，而 Nano 可以補足地區與小眾社群。Mid-tier 適合有明確品牌推廣目標、且預算較充裕的情況。選層級唔應該只看粉絲數，而應該先定義客群，再反推哪一層的受眾最貼近你的客人。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">怎樣分辨 KOL 有無買粉絲？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以從幾個方向檢查：一是留言質素，如果全部都是「nice」「good」或單一表情符號、沒有真人對話，要小心；二是粉絲帳號的完整度，大量無頭像、零貼文的帳號是警號；三是讚好與粉絲數的比例，如果粉絲很多但每帖讚好很少，值得追問；四是成長曲線，若某段時間粉絲突然暴增然後完全停滯，通常有問題。坊間亦有第三方工具估算假粉比例，但結果僅供參考，最好配合人工檢查。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">KOL 推廣和 KOC 推廣有什麼分別？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">KOL 是關鍵意見領袖，重點在影響力與曝光，粉絲量較大、成本較高，適合品牌推廣與新產品上市。KOC 是關鍵意見消費者，粉絲量較小但更貼近真實用戶，內容偏向使用體驗與種草，成本較低，適合帶動轉換與評論區討論。實務上兩者並非二選一，常見做法是用 KOL 製造話題，再用一批 KOC 做真實分享，形成口碑密度，令消費者在搜尋品牌時看到大量第三方內容。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">KOL 推廣的成效可以怎樣量度？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">主要看六個指標：觸及率、觀看次數、互動率、點擊率、網站流量、查詢與轉換。由於 KOL 影響的是認知與信任，轉換路徑通常較長，用戶看完帖文未必即刻落單，所以歸因設計很重要。實用做法有三種：一是給每個 KOL 一個專屬優惠碼；二是用專屬連結配合 UTM 參數，在 Google Analytics 4 分開追蹤；三是分時段對照法，記錄發佈後 24 至 72 小時的流量與查詢變化。三種方法可以並用，互相印證。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">KOL 內容可以直接用來落廣告嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">需要事先取得授權。KOL 發佈的原創內容，版權通常屬於創作者本人，如果你想把它放到品牌的廣告帳號做付費推廣，或作其他商業用途，一般需要額外購買使用權或白名單授權，費用會另計。常見做法是在合作報價階段就一併談清楚：內容可否二次使用、可用多久、可用於哪些渠道、是否包含付費放大。如果事前唔講清楚就用，可能構成侵權，亦會影響日後的合作關係。</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">結語：KOL 推廣的本質是「借別人的信任」</h3>
+
+        <p>KOL 推廣之所以有效，唔係因為它能夠在一夜之間帶來大量訂單，而係因為它讓你的品牌出現在一群已經被信任的人口中。消費者願意相信一個追蹤了很久的 Nano KOL 講的一句真心話，多過相信品牌自己寫的十句宣傳。這也是為什麼「只買粉絲數」幾乎注定失敗，而「選對一群合適的人、給他們足夠空間講真話、再用數據持續優化」通常會慢慢累積出成果。</p>
+
+        <p>對香港中小企而言，一個務實的起點是：先用一個不大的預算，試三至五個 Micro 與 Nano KOL，做好歸因設計，跑完一次完整流程，然後用真實數據決定下一步放大哪一個組合。這樣做的好處是風險可控，而且你會累積到屬於自己的 KOL 表現記錄，這是任何代理都無法直接給你的資產。</p>
+
+        <p>如果你希望有人幫你把這條路走順，包括 KOL 篩選、報價談判、內容簡報、歸因設定與成效報告，歡迎了解我們的<a href="/services/kol/">KOL 網紅營銷服務</a>，或者一併看看<a href="/services/social/">社交媒體代管</a>與<a href="/services/ads/">成效廣告投放</a>怎樣互相配合。</p>
+    `,
+  },
+
+  // ─── Article 25（批次三） ───
+  {
+    id: 25,
+    slug: "video-production-hong-kong-guide-2026",
+    title: "企業影片製作：香港公司點揀製作公司、報價與交付標準 2026",
+    excerpt:
+      "為甚麼同一條片，兩間公司報價相差三倍？本文由企業客戶角度出發，講清楚六種企業影片的類型與用途、七個製作階段各要交付甚麼、報價由哪些因素組成、一份可以直接拿去問三間公司的交付清單，以及怎樣分辨製作公司的真實能力。",
+    date: "2026-09-21",
+    updatedAt: "2026-09-21",
+    category: "Production",
+    readTime: "22 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/video-production-hong-kong-guide-2026.webp",
+    tags: ["企業影片", "影片製作", "宣傳片", "video production", "拍攝", "後期製作"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">香港企業每年都要為推廣、招聘、展會或社交媒體準備影片，但真正落手做的時候，很多公司才發現自己不知道應該問製作公司甚麼問題。報價為甚麼由一萬到幾十萬都有？為甚麼同一條片，兩間公司相差三倍價錢？交付之後為甚麼改一條字幕都要另外收費？這篇文章由企業客戶的角度出發，把企業影片製作的類型、流程、報價構成、交付標準，以及怎樣分辨一間製作公司是否可靠，一次過講清楚。看完之後，你應該有能力拿着同一份清單去問三間公司，然後比較它們的答案，而不是只比較價錢。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">企業影片沒有一個「標準價」。影響報價的因素包括拍攝日數、場景數量、演員、器材規格、動畫與特效、後期複雜度、修改輪數、使用權範圍，以及配樂版權。同樣是「一條三分鐘企業宣傳片」，只用一日室內拍攝、無演員、無動畫，與三日跨地點拍攝、有模特兒、有動畫特效，成本可以相差數倍。所以正確的做法不是問「一條片幾錢」，而是要求製作公司逐項列明交付內容，再比較每個項目的範圍。簽約之前，確認合約寫明修改輪數、使用權範圍與期限、原始素材歸屬，以及配樂授權方式。這四項沒有寫清楚的合約，日後最容易出現爭議。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為甚麼香港企業客戶特別容易在影片項目上失預算</h3>
+
+        <p>企業影片製作是一項服務，不是一件產品。服務的範圍可以無限伸縮，而客戶在開拍之前通常看不到成品，只能靠報價單和對方的作品集去判斷。這種資訊不對稱，是失預算的根源。</p>
+
+        <p>常見的情況是：客戶拿着一個預算去問價，製作公司為了接單，把範圍壓到最低，報一個看起來吸引的價錢；開拍之後客戶才發現，原本以為包含在內的動畫、字幕、多一個版本、多一輪修改，全部要另外加錢。最後結賬的金額，比最初報價高出不少，而且雙方都覺得對方不合理。</p>
+
+        <p>另一個極端是客戶只比較價錢，選了最便宜的一間，結果交回來的成品無論構圖、收音、剪接節奏都不合用，最後要重新找第二間公司再做一次，整體成本比一開始選一間報價中上的公司更高。影片是重複使用的資產，一條用得好的企業影片可以在官網、社交媒體、廣告、展會場合反覆使用兩三年，攤分下來每年的成本其實不高；一條質素不足的影片，除了浪費製作費，還要浪費團隊時間去協調重做。</p>
+
+        <p>要避開這兩個極端，客戶需要的不是更便宜的報價，而是一套可以逐項核對的清單。以下各節就是這套清單的組成部分。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、企業影片的類型與用途</h3>
+
+        <p>很多客戶一開始就說「我想做一條公司片」，但公司片其實可以指至少六種完全不同的東西，製作方式、片長、成本結構都不一樣。開會之前先確定你要的是哪一種，可以省下大量來回。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">企業宣傳片</h4>
+
+        <p>企業宣傳片是最常見的一類，用途是讓第一次接觸你公司的客戶、合作夥伴或求職者，在幾分鐘內理解你是做甚麼、有甚麼不同、為誰服務。這類影片通常放在官網首頁、公司簡介頁，或者展會攤位的循環播放。片長一般控制在 90 秒至 3 分鐘，超過 3 分鐘就需要非常強的敘事理由，否則觀眾會在網上中途離開。製作上通常需要品牌訪談、實景拍攝、部分訪談鏡頭，加上字幕與配樂。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">產品影片</h4>
+
+        <p>產品影片聚焦單一產品或服務，重點是功能示範與使用場景。片長通常 30 秒至 2 分鐘。這類影片對拍攝細節要求較高：產品的外觀、質感、操作步驟要清楚，燈光與收音要準確，否則觀眾看完仍然不知道產品怎樣用。如果產品是實物，通常需要安排產品拍攝與微距鏡頭；如果產品是軟件或服務，則需要螢幕錄影、介面動畫，或者情境重演。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">社交媒體短片</h4>
+
+        <p>社交媒體短片（Reels、Shorts、抖音、小紅書等平台的直式短片）與傳統企業影片是兩種不同的物種。它的片長通常 15 至 60 秒，頭三秒必須抓住注意力，字幕要夠大，因為大部分觀眾是靜音觀看。這類影片需要大量版本：同一個主題可能要做五條、十條，用不同的開場、不同的切入角度去測試。因此它的成本結構不在單條製作費，而在一次拍攝可以產出多少條可用的素材。這也是我們在<a href="/services/video/">短視頻製作</a>服務中與客戶討論最多的一點。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">活動紀錄</h4>
+
+        <p>活動紀錄用於發佈會、展會、研討會、週年晚宴、開幕典禮等場合。它的價值有兩重：一是當日的即時紀錄，二是活動之後可以剪成精華片段，在社交媒體和官網繼續使用。客戶需要決定的關鍵問題是「要完整紀錄，還是要精華片段」——兩者的拍攝機位數量、後期工作量完全不同。完整紀錄可能需要多機位、長時間連續拍攝，後期主要是整理與分段；精華片段則需要精準捕捉關鍵時刻，後期剪接與配樂的比重更高。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">訪問與 Podcast 影片</h4>
+
+        <p>人物訪問與 Podcast 影片近年在 B2B 市場越來越常見，因為它同時具備內容深度與信任感。這類影片的技術要求集中在收音與燈光：兩支或以上的收音麥克風、穩定的多機位、一致的燈光，因為訪問通常一次錄製 30 至 90 分鐘，任何一項不穩定都會令整段素材報廢。後期需要處理字幕、章節分段，如果要在 Podcast 平台同步發佈，還要處理純音頻版本的輸出。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">教學與培訓影片</h4>
+
+        <p>教學影片用於產品教學、內部培訓、客戶 onboarding。它的特點是內容會過時，所以客戶要考慮「未來要否自行更新」——如果內部同事需要自己補拍和剪接，拍攝時就應該採用可以複製的固定格式（固定機位、固定片頭、固定字幕樣式），並且要求交付原始素材和項目檔案。這類影片的片長彈性最大，由 2 分鐘的單一功能示範，到 20 分鐘的完整課程都有。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">影片類型</th><th class="text-left px-5 py-3 font-semibold">主要用途</th><th class="text-left px-5 py-3 font-semibold">常見片長</th><th class="text-left px-5 py-3 font-semibold">製作重點</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">企業宣傳片</td><td class="px-5 py-3">官網首頁、公司簡介、展會</td><td class="px-5 py-3">90 秒至 3 分鐘</td><td class="px-5 py-3">敘事結構、訪談、品牌一致性</td></tr><tr><td class="px-5 py-3">產品影片</td><td class="px-5 py-3">產品頁、銷售說明、電商</td><td class="px-5 py-3">30 秒至 2 分鐘</td><td class="px-5 py-3">細節燈光、功能示範清晰度</td></tr><tr><td class="px-5 py-3">社交媒體短片</td><td class="px-5 py-3">Reels、Shorts、小紅書</td><td class="px-5 py-3">15 至 60 秒</td><td class="px-5 py-3">頭三秒、字幕、批量版本</td></tr><tr><td class="px-5 py-3">活動紀錄</td><td class="px-5 py-3">發佈會、展會、晚宴</td><td class="px-5 py-3">精華 1 至 3 分鐘</td><td class="px-5 py-3">多機位、關鍵時刻捕捉</td></tr><tr><td class="px-5 py-3">訪問與 Podcast</td><td class="px-5 py-3">品牌信任、行業內容</td><td class="px-5 py-3">10 至 60 分鐘</td><td class="px-5 py-3">收音、燈光、字幕與分段</td></tr><tr><td class="px-5 py-3">教學與培訓</td><td class="px-5 py-3">客戶 onboarding、內部培訓</td><td class="px-5 py-3">2 至 20 分鐘</td><td class="px-5 py-3">可複製格式、素材歸屬</td></tr></tbody></table></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、影片製作的實際流程</h3>
+
+        <p>企業影片製作的流程，由決定要做這條片，到最後收到可以用的檔案，通常分為七個階段。每個階段都有明確的交付物，也有客戶必須參與的部分。客戶最常犯的錯誤，是在後期階段才第一次認真看片，那時候改動的代價最高。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第一階段：前期策劃（目標與訊息）</h4>
+
+        <p>這個階段要回答三個問題：這條影片給誰看、看完之後希望對方做甚麼、用甚麼訊息去推動這個行動。聽起來簡單，但很多項目失敗的根源就在這裡。客戶內部不同部門對「這條片想講甚麼」有不同答案，製作公司拍出來之後，每個部門都覺得不對。</p>
+
+        <p>交付物通常是：一份創意簡報或方向書，列明目標觀眾、核心訊息、影片長度、發佈渠道。客戶需要參與的部分是：提供內部共識，指定一個最終決策人。如果客戶內部有三個人都可以說「不行」，項目就會無限來回。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第二階段：腳本與分鏡</h4>
+
+        <p>腳本把核心訊息轉成具體的畫面與對白；分鏡則把腳本拆成一格一格的鏡頭，列明每個鏡頭的構圖、動作、場景、時長。分鏡是客戶第一次可以看到「這條片大約會是甚麼樣子」的階段，也是在這個階段改動最便宜。</p>
+
+        <p>交付物：腳本定稿、分鏡圖或鏡頭表。客戶需要參與的部分是：確認事實正確（產品名稱、數字、職銜、法律聲明），以及確認分鏡裡的場景在自己能力範圍內可以安排。很多項目到拍攝當日才發現某個場景進不去，就是因為分鏡確認時沒有問清楚。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第三階段：場地、選角與準備</h4>
+
+        <p>這個階段包括場地勘察、拍攝許可、演員或模特兒試鏡、服裝與道具準備、拍攝時間表。如果涉及公司同事出鏡，要提早通知對方檔期，並且安排簡單的鏡頭前準備。如果是真實客戶或真實用家出鏡，需要處理同意書。</p>
+
+        <p>交付物：拍攝時間表、場地清單、演員名單、器材清單。客戶需要參與的部分是：協調內部人員檔期、提供場地使用權限、確認任何涉及第三方場地的安排。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第四階段：拍攝</h4>
+
+        <p>拍攝日當天，製作團隊按時間表執行。客戶通常需要在場，或者至少安排一位有決策權的對接人，處理現場突發問題（例如天氣、場地限制、同事臨時缺席）。客戶不需要參與技術判斷，但需要在關鍵鏡頭完成時確認「這樣可以接受」。</p>
+
+        <p>交付物：拍攝完成，所有約定鏡頭都已入機。客戶需要參與的部分是：現場確認關鍵鏡頭、提供即時回饋、確保拍攝環境符合預期。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第五階段：初剪</h4>
+
+        <p>初剪把素材按腳本組合成一個完整版本，包括大致節奏、鏡頭順序、旁白與訪問的取捨。初剪版本通常還未有精細調色、未有最終配樂、字幕可能是臨時的。客戶看初剪時，重點應該放在結構和訊息，而不是畫面顏色或音效細節——那些是後面的階段。</p>
+
+        <p>交付物：初剪版本連結。客戶需要參與的部分是：在約定的回覆期內提交整合後的修改意見。這裡有一個實務建議：把不同部門的意見先內部整合成一份清單，再一次過提交。分開提交五輪零散意見，很容易用光合約規定的修改輪數。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第六階段：修改</h4>
+
+        <p>修改是客戶最關心的部分，也是最容易產生爭議的部分。合約應該寫明「包含幾輪修改」以及「一輪修改的定義是甚麼」。業界常見的做法是包含兩至三輪，每一輪是指客戶提交一次整合意見、製作方修改一次。超出範圍的重大改動（例如更改腳本結構、重拍某些鏡頭）通常不計入修改輪數，要另外報價。</p>
+
+        <p>交付物：修改後的版本。客戶需要參與的部分是：一次過提交整合意見、明確標示時間碼。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第七階段：調色、音效與交片</h4>
+
+        <p>最後階段處理畫面調色、配樂、音效設計、混音、字幕與最終輸出。字幕要配合不同平台的比例，同一條片可能需要 16:9、9:16、1:1 三個版本。輸出格式要按發佈渠道決定，例如社交媒體用 H.264 的 MP4，電視或大型屏幕播放可能需要較高碼率或指定格式。</p>
+
+        <p>交付物：最終成品檔案、字幕檔、平台比例版本。客戶需要參與的部分是：確認最終版本、確認使用權範圍、安排素材存檔。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">階段</th><th class="text-left px-5 py-3 font-semibold">交付物</th><th class="text-left px-5 py-3 font-semibold">客戶需要參與的部分</th><th class="text-left px-5 py-3 font-semibold">改動成本</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">前期策劃</td><td class="px-5 py-3">創意簡報、核心訊息</td><td class="px-5 py-3">內部共識、指定決策人</td><td class="px-5 py-3">低</td></tr><tr><td class="px-5 py-3">腳本與分鏡</td><td class="px-5 py-3">腳本定稿、分鏡圖</td><td class="px-5 py-3">確認事實、確認場景可行</td><td class="px-5 py-3">低</td></tr><tr><td class="px-5 py-3">場地與選角</td><td class="px-5 py-3">時間表、名單、器材清單</td><td class="px-5 py-3">協調檔期、提供場地權限</td><td class="px-5 py-3">中</td></tr><tr><td class="px-5 py-3">拍攝</td><td class="px-5 py-3">完成入機素材</td><td class="px-5 py-3">現場確認關鍵鏡頭</td><td class="px-5 py-3">高</td></tr><tr><td class="px-5 py-3">初剪</td><td class="px-5 py-3">初剪版本</td><td class="px-5 py-3">整合意見後一次提交</td><td class="px-5 py-3">中</td></tr><tr><td class="px-5 py-3">修改</td><td class="px-5 py-3">修改後版本</td><td class="px-5 py-3">標示時間碼的意見</td><td class="px-5 py-3">中至高</td></tr><tr><td class="px-5 py-3">調色音效與交片</td><td class="px-5 py-3">成品、字幕、多比例版本</td><td class="px-5 py-3">最終確認、存檔安排</td><td class="px-5 py-3">高</td></tr></tbody></table></div>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">越後期的改動越貴</p><p class="text-amber-900 text-sm leading-relaxed">影片製作的改動成本，由前期到後期是逐級上升的。在腳本階段改一句對白，成本接近零；在分鏡階段改一個場景，成本是重新準備；到拍攝完成之後才想改場景，就是重拍。所以前期策劃和分鏡確認花的時間，其實是在買保險。如果製作公司不願意花時間在前期，只想盡快開機，這是一個值得留意的訊號。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、報價構成的因素</h3>
+
+        <p>市面上並沒有一個可靠的公開標準價，因為每一條影片的範圍都不一樣。如果有人告訴你「企業宣傳片公價是多少」，那個數字多半只覆蓋了最基礎的範圍，或者已經把某些項目排除在外。與其找一個標準價，不如理解報價由哪些因素組成，然後要求製作公司逐項列明。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">影響成本的主要因素</h4>
+
+        <p><strong>拍攝日數。</strong>這是最直接的成本驅動因素。一日拍攝涉及團隊人力、器材租金、場地、交通、餐飲。兩日拍攝不是簡單的兩倍，因為還要加上額外的協調和準備時間，但如果總日數多，單日成本通常會下降。</p>
+
+        <p><strong>場景數量與地點。</strong>在同一個地點完成所有拍攝，與跨三、四個地點拍攝，成本差異很大。每次轉場都要搬運器材、重新佈光、重新收音。涉及離島或跨境拍攝，還要計算交通與住宿。</p>
+
+        <p><strong>演員、模特兒與素人。</strong>用公司同事出鏡的成本最低，但需要協調檔期，表現也較難控制。專業模特兒或演員涉及演出費、試鏡、造型，成本較高但效果穩定。如果需要真實客戶或真實用家出鏡，還涉及同意書與協調時間。</p>
+
+        <p><strong>器材規格。</strong>攝影機、鏡頭、燈光、收音、穩定器、航拍，每一項都有不同級別。這裡不需要盲目追求最高規格——重要的是器材是否配合內容需要。室內訪談用一套穩定的燈光和收音，效果可以比用高階攝影機但收音草率更好。客戶應該問的是「這個項目為甚麼需要這個器材」，而不是「你用幾多 K」。</p>
+
+        <p><strong>動畫與特效。</strong>動畫是成本彈性最大的一項。簡單的文字動態圖形（例如產品名稱飛入、數字滾動）與全 3D 產品動畫，工作量可以相差十幾倍。如果腳本需要動畫，應該要求製作公司分開列明動畫的種類、長度、複雜度，而不是把它包含在一個籠統的後期費用內。</p>
+
+        <p><strong>後期複雜度。</strong>包括剪接節奏、調色、去背、畫面修補、多版本輸出。單純的實拍剪接與需要大量合成、去背、特效的後期，工作量差異明顯。多語言字幕、多平台比例輸出，也會增加後期時間。</p>
+
+        <p><strong>修改輪數。</strong>修改輪數越多，後期投入的時間越多。合理的做法是合約寫明包含的輪數，以及超出之後的計費方式。</p>
+
+        <p><strong>使用權範圍與期限。</strong>這一項最容易被忽略，但影響可以很大。影片用在官網和自家社交媒體，與用在付費廣告、電視、戶外廣告，授權範圍完全不同。授權是永久，還是只限一年，價錢也不同。如果影片內有演員或模特兒，他們的演出授權通常也有期限和渠道限制。客戶應該要求合約清楚寫明：可以用在哪些渠道、可以用多久、期滿之後如何續期。</p>
+
+        <p><strong>配樂版權。</strong>配樂有三種常見來源：免版稅音樂庫、委託原創音樂、現成商業歌曲。免版稅音樂庫的成本最低，但要留意授權條款是否覆蓋廣告用途；委託原創音樂成本較高，但可以做到獨一無二；使用現成商業歌曲涉及唱片公司的同步授權，費用和審批時間都可能很高，而且在社交媒體上容易被平台的自動識別系統限制。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">成本因素</th><th class="text-left px-5 py-3 font-semibold">低範圍的典型情況</th><th class="text-left px-5 py-3 font-semibold">高範圍的典型情況</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">拍攝日數</td><td class="px-5 py-3">半日至一日</td><td class="px-5 py-3">三日或以上</td></tr><tr><td class="px-5 py-3">場景數量</td><td class="px-5 py-3">單一場地</td><td class="px-5 py-3">多個場地，需要轉場與許可</td></tr><tr><td class="px-5 py-3">出鏡人員</td><td class="px-5 py-3">公司同事</td><td class="px-5 py-3">專業模特兒或演員</td></tr><tr><td class="px-5 py-3">器材規格</td><td class="px-5 py-3">基本燈光與收音</td><td class="px-5 py-3">航拍、穩定器、多機位</td></tr><tr><td class="px-5 py-3">動畫與特效</td><td class="px-5 py-3">簡單文字動態</td><td class="px-5 py-3">3D 動畫或複雜合成</td></tr><tr><td class="px-5 py-3">後期複雜度</td><td class="px-5 py-3">單一版本實拍剪接</td><td class="px-5 py-3">多版本、多語言、去背修補</td></tr><tr><td class="px-5 py-3">修改輪數</td><td class="px-5 py-3">兩輪</td><td class="px-5 py-3">四輪以上或無限修改</td></tr><tr><td class="px-5 py-3">使用權範圍</td><td class="px-5 py-3">自家網站與社交媒體</td><td class="px-5 py-3">付費廣告、電視、戶外媒體</td></tr><tr><td class="px-5 py-3">配樂來源</td><td class="px-5 py-3">免版稅音樂庫</td><td class="px-5 py-3">委託原創音樂或商業歌曲授權</td></tr></tbody></table></div>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">要求逐項列明，不要接受一個總數</p><p class="text-amber-900 text-sm leading-relaxed">當你收到的報價只有一個總數，你無法判斷這個價錢是否合理，也無法在日後出現爭議時知道自己付了甚麼。合理的報價單應該至少分開列出：前期策劃、拍攝（日數與團隊）、器材、演員、後期剪接、動畫、配樂、字幕與版本輸出、使用權。如果製作公司不願意拆分，你可以要求它提供一份交付清單，把每一項的範圍寫清楚。願意拆分的公司，通常也比較願意在合約裡寫清楚使用權和修改輪數。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、交付標準清單</h3>
+
+        <p>以下清單可以直接拿去問製作公司。你不一定每一項都需要，但你需要知道每一項的答案，以及它是否包含在報價之內。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">製作前應該確認的事項</h4>
+
+        <p><strong>腳本確認。</strong>腳本由誰撰寫？客戶有幾輪修改機會？定稿由誰簽署？</p>
+
+        <p><strong>分鏡。</strong>是否提供分鏡圖或鏡頭表？分鏡是否包含場景、構圖、時長？</p>
+
+        <p><strong>拍攝日數與團隊規模。</strong>拍攝幾日？團隊有幾多人？誰負責收音、燈光、導演？</p>
+
+        <p><strong>場地與許可。</strong>場地由誰安排？涉及公共場所或第三方場地的拍攝許可，由誰申請、費用由誰承擔？</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">交付時應該確認的事項</h4>
+
+        <p><strong>剪輯版本數。</strong>交付幾多個剪輯版本？是否包含不同時長的版本（例如 3 分鐘版、60 秒版、15 秒版）？</p>
+
+        <p><strong>修改輪數。</strong>包含幾輪修改？一輪的定義是甚麼？超出之後如何計費？</p>
+
+        <p><strong>字幕。</strong>是否包含字幕？是硬字幕還是可編輯的字幕檔？中文與英文版本是否都包含？</p>
+
+        <p><strong>平台比例。</strong>是否包含 16:9、9:16、1:1 三個版本？不同比例可能需要重新構圖，不是單純裁切。</p>
+
+        <p><strong>交付格式。</strong>輸出格式與碼率是甚麼？是否需要電視或大型屏幕播放的指定格式？</p>
+
+        <p><strong>原始素材歸屬。</strong>原始拍攝素材是否交付給客戶？如果不交付，客戶日後能否索取？素材由誰保管、保管多久？</p>
+
+        <p><strong>使用權範圍與期限。</strong>可以用在哪些渠道？可以用多久？是否包含付費廣告投放？期滿如何續期？</p>
+
+        <p><strong>配樂授權。</strong>配樂來源是甚麼？授權是否覆蓋商業與廣告用途？是否需要在平台申報？</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">交付項目</th><th class="text-left px-5 py-3 font-semibold">應該問的問題</th><th class="text-left px-5 py-3 font-semibold">合約應該寫明</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">腳本</td><td class="px-5 py-3">由誰撰寫、有幾輪修改</td><td class="px-5 py-3">定稿確認方式</td></tr><tr><td class="px-5 py-3">分鏡</td><td class="px-5 py-3">是否提供、包含哪些內容</td><td class="px-5 py-3">分鏡確認即鎖定範圍</td></tr><tr><td class="px-5 py-3">拍攝</td><td class="px-5 py-3">日數、團隊、場地安排</td><td class="px-5 py-3">日數與超時安排</td></tr><tr><td class="px-5 py-3">剪輯版本</td><td class="px-5 py-3">幾個版本、幾個時長</td><td class="px-5 py-3">版本數量與規格</td></tr><tr><td class="px-5 py-3">修改</td><td class="px-5 py-3">幾輪、如何定義一輪</td><td class="px-5 py-3">輪數與超額計費</td></tr><tr><td class="px-5 py-3">字幕</td><td class="px-5 py-3">語言、硬字幕或檔案</td><td class="px-5 py-3">語言與格式</td></tr><tr><td class="px-5 py-3">平台比例</td><td class="px-5 py-3">是否包含三個比例</td><td class="px-5 py-3">輸出比例清單</td></tr><tr><td class="px-5 py-3">原始素材</td><td class="px-5 py-3">是否交付、保管多久</td><td class="px-5 py-3">素材歸屬與保管期</td></tr><tr><td class="px-5 py-3">使用權</td><td class="px-5 py-3">渠道、期限、廣告用途</td><td class="px-5 py-3">授權範圍與續期方式</td></tr><tr><td class="px-5 py-3">配樂</td><td class="px-5 py-3">來源、是否覆蓋廣告</td><td class="px-5 py-3">授權證明與責任歸屬</td></tr></tbody></table></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、如何分辨製作公司的能力</h3>
+
+        <p>作品集是客戶唯一可以在簽約前看到的證據，但作品集也是最容易被修飾的部分。以下是幾個可以實際檢查的方法，全部都不需要專業背景。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">看完整成品，不只看精華片段</h4>
+
+        <p>很多作品集只放 15 至 30 秒的剪輯精華，裡面全是最好看的鏡頭。精華片段無法反映一條片是否說得清一個訊息、是否有完整的敘事結構、字幕和音效是否處理得當。你可以要求對方提供兩至三條完整成品，最好是你所在行業或相近類型的項目。如果對方只能提供精華片段，這是一個訊號。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">看每條片的角色</h4>
+
+        <p>作品集裡每一條片，製作公司負責的是甚麼？是從策劃、拍攝到後期全包，還是只做剪輯，或者只提供器材？這個問題很重要，因為一間只做後期剪輯的公司，未必有能力處理前期策劃和現場拍攝；一間只做拍攝的公司，未必能提供完整的動畫和調色。你可以直接問：「這條片由策劃到交付，你們負責哪幾部分？」</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">看有沒有交付清單</h4>
+
+        <p>一間有制度的製作公司，通常會有一份標準的交付清單或服務範圍說明，列明每個項目包含甚麼。如果對方只能口頭回答，或者每次問到細節都要「問一問先」，日後出現爭議的機會較高。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">看合約是否寫明使用權</h4>
+
+        <p>使用權是企業影片最容易被忽略的一環。你可以直接問：「這條片我們可以用在付費廣告嗎？可以用多久？如果用演員，演員的授權期限是幾長？」如果對方對這些問題沒有清楚答案，或者說「一般都可以用」，你就要在合約裡自己寫清楚。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">看有沒有列明修改輪數</h4>
+
+        <p>合約有沒有寫明包含幾輪修改？一輪修改的定義是甚麼？超出之後如何計費？這三條問題的答案，決定了項目後期的實際成本。願意把這三條寫進合約的公司，通常對自己的流程有把握。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">看溝通方式與回覆節奏</h4>
+
+        <p>在報價階段，留意對方回覆問題的速度和具體程度。願意逐條回答你的問題、主動指出你沒有考慮到的環節（例如版權、場地許可、字幕格式），通常代表這間公司有實際做過類似項目。相反，如果對方只不斷催促你落單，對細節問題含糊其詞，就要謹慎。</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">一個實用的檢查動作</p><p class="text-amber-900 text-sm leading-relaxed">拿同一份交付清單去問三間公司，逐項對比它們的答案。你會發現，最便宜的報價通常在某些項目上是空白的，或者範圍寫得很模糊。對比清單之後，你比較的就不再是價錢，而是每一個價錢背後的實際範圍。這個動作大約花你半日時間，但可以省下日後幾個星期的爭議。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、常見問題與失敗原因</h3>
+
+        <p>以下幾種情況，是企業影片項目最常見的失敗模式。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">只比較價錢</h4>
+
+        <p>價錢是唯一可以量化的指標，所以客戶很自然會用它來做決定。但影片製作的報價，背後對應的是範圍。兩個價錢相差三倍的報價，可能一個包含三日拍攝和動畫，另一個只包含一日拍攝和基本剪接。只比較價錢，等於比較兩件不同的事。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">開拍前未定訊息</h4>
+
+        <p>客戶內部對「這條片要講甚麼」未有一致答案就開拍，結果是製作團隊拍了大量素材，卻沒有一條清晰的敘事線，剪出來的版本每個部門都不滿意。訊息應該在腳本階段就鎖定，並且由一位有決策權的人簽署確認。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">修改輪數不足</h4>
+
+        <p>合約只寫「包含修改」而沒有寫輪數，或者只寫一輪，結果是每一輪零散的意見都用光了額度，最後要為簡單的字幕改動另外付費。解決方法是：在合約寫明輪數，並且把內部意見整合後一次提交。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">使用權未寫清楚</h4>
+
+        <p>影片完成之後，客戶想用來投付費廣告，才發現合約只授權網上發佈，或者演員的授權期限只有半年。這類問題在簽約時處理，成本是零；在完成後處理，可能要重新談判甚至重拍。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">只做一條片而沒有分發計劃</h4>
+
+        <p>很多公司花錢做了一條企業宣傳片，放上網之後就沒有下文。企業影片的價值來自重複使用：一條片可以拆成多條社交媒體短片、可以作為付費廣告素材、可以在展會循環播放、可以嵌入銷售郵件。如果開拍之前已經想好分發渠道，拍攝時就可以一併拍攝直式版本的素材，邊際成本遠低於日後補拍。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">忽略配樂與素材的版權</h4>
+
+        <p>使用未經授權的音樂或素材，可能導致影片在社交平台上被限制，或者收到版權方的追討。企業帳號尤其容易受影響，因為平台的處理會影響整個帳號的發佈。開拍之前應該確認配樂來源，並且索取授權證明。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h3>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">企業影片製作大概需要多少時間？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">由確認方向到交付成品，一般需要四至八星期。前期策劃與腳本約一至兩星期，場地與選角準備一至兩星期，拍攝通常一至三日，後期剪接、修改、調色與音效約兩至三星期。如果涉及動畫、多語言版本或大量修改，時間會更長。實際時間表應在項目開始時由雙方書面確認。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">為甚麼不同製作公司的報價可以相差數倍？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">因為報價背後對應的範圍不同。拍攝日數、場景數量、出鏡人員、器材規格、動畫與特效、後期複雜度、修改輪數、使用權範圍、配樂來源，每一項都會影響成本。只比較總數，等於比較兩份範圍不同的報價。建議要求製作公司逐項列明交付內容，再逐項對比。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">企業宣傳片應該做幾長？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">官網與公司簡介用的企業宣傳片，一般控制在 90 秒至 3 分鐘。社交媒體短片則以 15 至 60 秒為主，因為觀眾的注意力集中在前幾秒。實務做法是同時製作不同時長的版本：一條 3 分鐘的完整版本放在官網，再由同一批素材剪出 60 秒和 15 秒版本，用於社交媒體與付費廣告。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">合約應該包含幾輪修改才算合理？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">業界常見的做法是包含兩至三輪修改。重要的是合約要寫明「一輪修改」的定義，例如是指客戶提交一次整合意見、製作方修改一次。超出範圍的重大改動，例如更改腳本結構或重拍鏡頭，通常不計入修改輪數，會另外報價。客戶一方最好先把內部意見整合成一份清單再提交。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">影片的使用權為甚麼要寫清楚？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">使用權決定了影片可以用在哪些渠道、可以用多久。用在自家網站和社交媒體，與用在付費廣告、電視或戶外媒體，授權範圍不同，價錢也不同。如果影片內有演員或模特兒，他們的演出授權通常也有期限和渠道限制。合約應該寫明可用渠道、期限、期滿之後的續期方式，以及配樂授權是否覆蓋廣告用途。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">原始拍攝素材會不會交回客戶？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">這一點應該在合約寫明。有些製作公司會把原始素材交付客戶，有些只交付成品，有些會保留素材一段時間供客戶索取。如果客戶預計日後需要自行剪輯或補拍，應該在簽約時要求交付原始素材，並確認保管期限和索取方式。素材體積通常很大，需要安排儲存空間與傳輸方式。</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、影片完成之後：與廣告及社交媒體的配合</h3>
+
+        <p>影片交付之後，真正的價值才開始產生。一條企業影片如果只用一次，攤分的成本很高；如果用得好，可以在不同渠道重複使用兩三年。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">作為付費廣告素材</h4>
+
+        <p>企業影片的素材可以直接用於成效廣告。實務上，廣告投放通常需要多個版本去測試不同開場、不同賣點、不同時長。如果拍攝時已經預留了直式素材和短版本，廣告測試的素材成本就會大幅下降。相關的投放策略可以參考我們的<a href="/services/ads/">成效廣告投放</a>服務。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">社交媒體日常內容</h4>
+
+        <p>一次企業拍攝可以產出大量社交媒體素材：花絮、訪問片段、產品細節、同事分享。這些素材如果配合固定的發佈節奏，可以維持專頁的活躍度。我們的<a href="/services/social/">社交媒體代管</a>服務，就是處理由素材到排程發佈的整個流程，相關做法在<a href="/blog/social-media-management-hong-kong-guide-2026/">社交媒體管理指南</a>中有較詳細的說明。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">官網與搜尋可見度</h4>
+
+        <p>影片放在官網，除了直接觀看，也可以增加頁面的停留時間。如果影片加上文字說明與結構化資料，對搜尋引擎理解頁面內容有幫助。影片本身不會直接提升排名，但影片所在的頁面如果內容完整、說明清楚，整體的頁面體驗會較好。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">展會與銷售場景</h4>
+
+        <p>展會攤位的循環播放、銷售會議的簡報、客戶 onboarding，都是企業影片的實際用途。這些場景對影片的要求不同：展會需要無聲也能理解，所以字幕和畫面訊息要夠清楚；銷售場景可以由銷售人員控制播放節奏，所以可以容納較長的版本。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">配合 KOL 與網紅內容</h4>
+
+        <p>如果品牌打算與 KOL 合作，企業影片的素材也可以作為 KOL 內容的參考或補充。品牌提供的官方素材、產品細節片段，可以讓 KOL 的內容更準確。相關安排可以參考<a href="/services/kol/">KOL 網紅營銷</a>服務，而整體的拍攝與製作需求，可以從<a href="/services/production/">商業攝影與影片製作</a>入手。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">結語：把清單帶去開會</h3>
+
+        <p>企業影片製作沒有一個可以照抄的標準答案。每一間公司的訊息、預算、分發渠道都不一樣，所以合理的做法是先定義範圍，再比較報價。</p>
+
+        <p>具體行動是這樣：先確定你要的是哪一種影片，寫下它的用途、片長、發佈渠道；然後把本文第四節的交付清單抄下來，拿同一份清單去問三間製作公司；收到回覆之後，逐項對比它們的範圍，而不是只看總數；簽約之前，確認合約寫明了修改輪數、使用權範圍與期限、原始素材歸屬、配樂授權這四項。</p>
+
+        <p>做好這幾步，你就不需要靠猜去判斷一間製作公司是否可靠，因為它的答案本身就是證據。如果你希望由策劃、拍攝到分發一次過處理，可以聯絡我們，我們會按你的實際需要逐項列明範圍，再提供報價。</p>
+
+    `,
+  },
+
+  // ─── Article 26（批次三） ───
+  {
+    id: 26,
+    slug: "social-media-management-hong-kong-guide-2026",
+    title: "社交媒體管理：香港企業外判代管服務點揀、月費與成效量度 2026",
+    excerpt:
+      "自己請人定外判？本文釐清社交媒體管理實際包括哪六項工作、外判與自聘的成本與風險對照、月費通常包含甚麼（附第三方平台公開市場數據）、香港五個平台的分工、虛榮指標與業務指標的分別，以及六項可檢查的選商方法。",
+    date: "2026-09-21",
+    updatedAt: "2026-09-21",
+    category: "Digital Marketing",
+    readTime: "16 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/social-media-management-hong-kong-guide-2026.webp",
+    tags: ["社交媒體管理", "代管服務", "社交媒體推廣", "小編", "內容企劃", "香港"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">香港好多企業都試過同一件事：請了一個同事專門做社交媒體，錢花了、時間花了，一年過去，專頁追蹤數升了一點，但查詢量幾乎無變。問題往往唔係「小編唔夠努力」，而係一開始就無釐清社交媒體管理實際上要做什麼、月費買到的究竟係邊幾項交付、以及成效應該用什麼指標去睇。這篇文章用採購角度寫，幫你在比較代管服務商時，知道要問什麼、要核對什麼、要寫入合約什麼。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">社交媒體管理不是「幫你出帖」這麼簡單，它同時包含內容企劃、視覺設計、社群互動、數據分析與廣告配合五個環節，任何一環缺失，成效都會大打折扣。香港市場上第三方平台觀察到的月費大致分三檔（約 HK$3,000、HK$7,500、HK$12,000），但價錢高低本身唔代表什麼，真正要比的是「這個價錢包幾多個帖、幾多個平台、包唔包回覆留言、包唔包廣告管理」。成效方面，追蹤數與讚好屬於虛榮指標，唔可以單獨作為續約或加預算的依據；真正要看的是觸及、互動率、網站點擊與查詢數。如果只有一項要記住：要求服務商把交付清單逐項寫入合約，包括帖子數量、平台數量、修改次數與回覆留言的處理方式。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先釐清：社交媒體管理到底包括什麼</h3>
+
+        <p>在香港，「社交媒體管理」這個詞被用得極闊。有人用它指「幫我出帖」，有人用它指「全權代管包括廣告」，亦有人用它指「請個人返嚟坐喺公司回覆留言」。範圍唔講清楚，報價就無得比。以下把工作拆成六項，並寫明每一項實際上要花的工夫。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1. 日常發文與排程</h4>
+
+        <p>看似最簡單的一項，實際上包括：擬定發文時間表、準備素材、寫 caption、加上標籤、排程或手動發佈、發佈後檢查是否成功上線、處理突發的熱話或節日借勢。如果一個月要出 12 至 20 個帖，橫跨兩至三個平台，單是「複製內容去唔同平台再各自調整格式」就已經是一份兼職工作量。平台演算法對格式有偏好，同一個帖直接搬去另一個平台，效果通常會差一截，所以「一稿多投」唔等於省工夫，只係把工夫轉移到成效損失上。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">2. 內容企劃</h4>
+
+        <p>內容企劃係決定「講什麼、為誰講、幾時講」的工作。它需要理解你的業務、客群痛點、競爭對手在做什麼，再排出一個月的內容主題分佈。沒有企劃的專頁，通常會出現三種症狀：內容全部係產品硬銷、主題重複、或者跟風跟到與品牌無關。企劃工作唔會直接出現在專頁上，但它決定了其餘五項工作的方向，也是分辨「代管服務」與「代客出帖」最實際的一條線。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">3. 視覺設計</h4>
+
+        <p>包括圖片、短片封面、排版、字體與品牌色的統一。設計不只是「靚唔靚」，還包括在手機細屏幕上是否清晰、文字是否夠大、以及是否配合平台的比例要求（正方形、直向、橫向各有用途）。如果服務商的報價單寫「含設計」但無寫明修改次數，實務上很容易出現「來回改十次仍未定稿」的情況，交付時間就無得控制。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">4. 社群互動：回覆留言與私訊</h4>
+
+        <p>這一項最常被低估。回覆留言與私訊不只是「有禮貌地答問題」，還包括：過濾廣告與惡意留言、把查詢分流到正確的同事或分店、記錄常見問題以便日後做內容、以及在負評出現時判斷應該公開回覆還是轉私下處理。對做生意來說，私訊往往是查詢轉化的第一站，回覆速度與回覆質素直接影響落單機會。這裡要留意：任何服務商都唔應該在合約上承諾特定的回覆時限，因為實際回覆速度取決於你提供的產品資訊、授權範圍與內部審批流程；合理的做法是約定「在什麼時段內由誰負責查看訊息」，而不是寫一個無法長期履行的承諾。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">5. 數據分析與報告</h4>
+
+        <p>每個月需要整理：追蹤數變化、觸及人數、互動率、貼文表現排名、網站點擊、以及查詢來源。報告的價值唔在於「數字多」，而在於「下個月會改什麼」。如果一份報告只有追蹤數與讚好數，它其實幫唔到你做任何決定。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">6. 廣告配合</h4>
+
+        <p>自然觸及在香港已經相當有限，內容做得再好，唔配合付費推廣，新客群很難接觸到。廣告配合包括：把表現好的自然帖轉為付費推廣、設定受眾、管理預算、以及把廣告帶來的查詢與自然流量分開記錄。這一項通常是獨立收費項目，所以比較報價時必須問清楚「月費包唔包廣告管理」。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">工作項目</th><th class="text-left px-5 py-3 font-semibold">每月實際工作量（以 12 個帖、2 個平台估算）</th><th class="text-left px-5 py-3 font-semibold">缺少時的常見後果</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">日常發文與排程</td><td class="px-5 py-3">約 8 至 16 小時</td><td class="px-5 py-3">發文斷斷續續，演算法觸及下滑</td></tr><tr><td class="px-5 py-3">內容企劃</td><td class="px-5 py-3">約 4 至 8 小時</td><td class="px-5 py-3">內容重複、只賣產品，客群流失</td></tr><tr><td class="px-5 py-3">視覺設計</td><td class="px-5 py-3">約 10 至 20 小時</td><td class="px-5 py-3">版面雜亂，專業感下降</td></tr><tr><td class="px-5 py-3">社群互動</td><td class="px-5 py-3">約 10 至 30 小時（視查詢量）</td><td class="px-5 py-3">查詢無人跟，直接損失生意</td></tr><tr><td class="px-5 py-3">數據分析與報告</td><td class="px-5 py-3">約 3 至 6 小時</td><td class="px-5 py-3">無從判斷什麼內容有效</td></tr><tr><td class="px-5 py-3">廣告配合</td><td class="px-5 py-3">約 4 至 10 小時</td><td class="px-5 py-3">觸及只限現有追蹤者，增長停滯</td></tr></tbody></table></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、自己請人 vs 外判：成本與風險對照</h3>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">自己請人的帳面成本</h4>
+
+        <p>請一位負責社交媒體的同事，月薪之外還要計強積金供款、年假、公眾假期、病假、培訓時間，以及招聘本身的成本（刊登職位、篩選、面試）。更關鍵的是「管理成本」：你需要有人分派工作、審批內容、檢查進度，這些時間通常落在老闆或市場部主管身上，但很少被計入成本。此外，一個人離職，專頁的節奏就會斷，重新招聘與交接又要再花一至兩個月。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">自己請人的隱藏成本</h4>
+
+        <p>社交媒體管理需要的是複合技能：文案、設計、影片剪輯、數據解讀、廣告操作。請一位設計師，他做唔到文案與廣告；請一位文案，他做唔到設計。要覆蓋全部環節，通常要兩至三個人，成本即刻倍升。另一個隱藏成本是「單一視角」：同一個人長期做同一個專頁，容易陷入內容慣性，創意衰減，而外部團隊因為同時處理多個行業，通常能帶來跨行業的觀察。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">外判的市場月費區間</h4>
+
+        <p>以下是第三方平台公開資料所見的市場觀察，屬於市場參考而非官方統計。不同公司服務範圍差異很大，價格必須連同交付內容一併比較，單看月費高低沒有意義。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">月費檔次（市場觀察）</th><th class="text-left px-5 py-3 font-semibold">常見交付範圍</th><th class="text-left px-5 py-3 font-semibold">適合什麼情況</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">約 HK$3,000／月</td><td class="px-5 py-3">基本發文，設計與文案可能較簡單，平台數目通常限一至兩個</td><td class="px-5 py-3">剛開始經營專頁，需要穩定出帖節奏</td></tr><tr><td class="px-5 py-3">約 HK$7,500／月</td><td class="px-5 py-3">內容企劃、設計、文案、基本社群互動與月報</td><td class="px-5 py-3">已有一定客群，需要系統化內容與互動</td></tr><tr><td class="px-5 py-3">約 HK$12,000／月</td><td class="px-5 py-3">多平台、影片內容、廣告配合、較完整的數據報告</td><td class="px-5 py-3">多平台經營、有推廣預算、需要整合內容與廣告</td></tr><tr><td class="px-5 py-3">HK$4,000／月（個別服務商公開價）</td><td class="px-5 py-3">每月 12 個帖子，含設計與文案</td><td class="px-5 py-3">想以固定帖量控制成本</td></tr></tbody></table></div>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://www.pro360.com.hk/" target="_blank" rel="noopener">PRO360 香港服務收費參考</a>（第三方配對平台的公開收費資料，屬市場觀察，非官方統計）</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">比較報價時最常出錯的地方</p><p class="text-amber-900 text-sm leading-relaxed">同一個「HK$5,000 一個月」，A 公司包 8 個帖、1 個平台、唔包回覆留言；B 公司包 16 個帖、3 個平台、包回覆留言與月報。兩個價錢一樣，實際交付差一倍以上。所以唔可以只比較月費數字，必須把交付清單逐項並排比較，包括帖子數量、平台數量、設計與修改次數、回覆留言的範圍、報告內容、以及廣告管理是否另計。任何唔肯把這些寫入合約的報價，都值得重新考慮。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、月費通常包含什麼？逐項列明</h3>
+
+        <p>以下是社交媒體代管服務常見的收費項目。你可以在比較報價時，直接把這張表當作核對清單，逐項問清楚「包定唔包、包幾多」。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">收費項目</th><th class="text-left px-5 py-3 font-semibold">要問清楚的細節</th><th class="text-left px-5 py-3 font-semibold">常見計法</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">帖子數量</td><td class="px-5 py-3">係「帖子」定「帖文＋限時動態」？限時動態算唔算？</td><td class="px-5 py-3">按每月帖數分級</td></tr><tr><td class="px-5 py-3">平台數量</td><td class="px-5 py-3">同一內容發去多個平台，係唔係每個平台都重新調整格式？</td><td class="px-5 py-3">第 2、3 個平台通常加費</td></tr><tr><td class="px-5 py-3">設計</td><td class="px-5 py-3">包幾多張圖？修改次數上限幾多？原稿檔會唔會交回？</td><td class="px-5 py-3">通常按帖數包，額外設計另計</td></tr><tr><td class="px-5 py-3">文案</td><td class="px-5 py-3">係中文定中英雙語？Hashtag 研究包唔包？</td><td class="px-5 py-3">一般包含在帖費內</td></tr><tr><td class="px-5 py-3">回覆留言與私訊</td><td class="px-5 py-3">邊個時段負責？複雜產品問題由誰答？負評處理流程？</td><td class="px-5 py-3">部分服務商列為附加項</td></tr><tr><td class="px-5 py-3">數據報告</td><td class="px-5 py-3">月報還是雙週報？包含哪些指標？有無建議事項？</td><td class="px-5 py-3">通常月報，深度分析另計</td></tr><tr><td class="px-5 py-3">廣告管理</td><td class="px-5 py-3">管理費係固定月費定按廣告支出百分比？廣告費本身另計？</td><td class="px-5 py-3">常見為廣告費之外的服務費</td></tr><tr><td class="px-5 py-3">拍攝與影片</td><td class="px-5 py-3">上門拍攝次數？剪輯長度？字幕與封面包唔包？</td><td class="px-5 py-3">按次或按條計，屬高階項目</td></tr></tbody></table></div>
+
+        <p>建議你要求服務商把上述每一項寫入合約或報價單，特別是「帖子數量」、「平台數量」與「修改次數」三項。這三項是日後爭議最常見的來源。同時建議在合約中寫明素材與原稿的擁有權，以及合約結束後專頁帳號與內容的交接安排，避免日後轉換服務商時出現資料拿唔返的情況。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、香港五個平台的分工</h3>
+
+        <p>香港的數碼環境有幾個已核實的基礎事實：用戶日常通訊以 WhatsApp 為主，社交平台以 Instagram 與 Facebook 為主，而搜尋入口則以 Google 為主。這意味著社交媒體的角色通常不是「直接完成交易」，而是「被搜尋到、被信任、再引導去 WhatsApp 或網站完成查詢」。理解這一點，才唔會把資源錯配。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://datareportal.com/reports/digital-2024-hong-kong" target="_blank" rel="noopener">DataReportal：Digital 2024 Hong Kong</a></p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">主要客群</th><th class="text-left px-5 py-3 font-semibold">內容形式</th><th class="text-left px-5 py-3 font-semibold">適用場景</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Instagram</td><td class="px-5 py-3">年輕至中產客群，視覺導向消費</td><td class="px-5 py-3">圖片、Reels、限時動態</td><td class="px-5 py-3">美容、餐飲、零售、生活服務建立品牌感</td></tr><tr><td class="px-5 py-3">Facebook</td><td class="px-5 py-3">較成熟的用戶群，地區與興趣社群活躍</td><td class="px-5 py-3">圖文帖、影片、社團互動</td><td class="px-5 py-3">本地服務、B2C 推廣、活動報名、廣告投放</td></tr><tr><td class="px-5 py-3">Threads</td><td class="px-5 py-3">習慣文字互動的用戶</td><td class="px-5 py-3">短文字、對話式帖文</td><td class="px-5 py-3">建立品牌語氣、即時回應行業話題</td></tr><tr><td class="px-5 py-3">LinkedIn</td><td class="px-5 py-3">B2B 決策者、專業人士、招聘對象</td><td class="px-5 py-3">專業觀點、案例分享、公司動態</td><td class="px-5 py-3">B2B 開發、建立專業形象、人才招募</td></tr><tr><td class="px-5 py-3">小紅書</td><td class="px-5 py-3">內地用戶及來港旅客，重視真實體驗分享</td><td class="px-5 py-3">圖文筆記、探店與體驗分享</td><td class="px-5 py-3">吸納旅客與跨境客群，配合中國市場推廣</td></tr></tbody></table></div>
+
+        <p>資源有限時，順序建議係：先做好 Instagram 與 Facebook（覆蓋面最廣），再加一個符合你客群的第三平台。B2B 業務應該把重心放在 LinkedIn；做旅客或跨境生意的，小紅書與中國市場渠道值得優先考慮。想了解跨境客群的內容策略，可以參考我們的<a href="/services/china-market/">中國市場推廣服務</a>；如果希望透過有影響力的人去建立信任，可配合<a href="/services/kol/">KOL 網紅推廣服務</a>，並先讀<a href="/blog/kol-marketing-hong-kong-guide-2026/">KOL 推廣指南</a>了解合作模式與報價結構。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、成效怎樣量度：分清虛榮指標與業務指標</h3>
+
+        <p>社交媒體最容易出現的報告陷阱，係把「追蹤數」與「讚好數」當成主要成果。這兩個數字有個共同特性：它們會上升，但唔一定同生意有關。追蹤數可以靠抽獎活動短期推高，讚好數可以靠討好式內容換取，但兩者都唔代表有人準備向你查詢或落單。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">虛榮指標 vs 業務指標</h4>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標類型</th><th class="text-left px-5 py-3 font-semibold">例子</th><th class="text-left px-5 py-3 font-semibold">為什麼唔可以單獨使用</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">虛榮指標</td><td class="px-5 py-3">追蹤數、讚好數、帖文數</td><td class="px-5 py-3">可以被非目標客群推高，與查詢無必然關係</td></tr><tr><td class="px-5 py-3">過程指標</td><td class="px-5 py-3">觸及人數、互動率、儲存與分享次數</td><td class="px-5 py-3">反映內容是否被看見，但未反映商業意圖</td></tr><tr><td class="px-5 py-3">業務指標</td><td class="px-5 py-3">網站點擊、WhatsApp 查詢數、表單提交、到店或落單數</td><td class="px-5 py-3">需要與內部系統配合記錄，但最能支撐決策</td></tr></tbody></table></div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">為什麼讚好數不能單獨作為成效依據</h4>
+
+        <p>原因有三。第一，讚好唔需要成本，也不代表購買意圖，一個帖可以有大量讚好而零查詢。第二，讚好數字受發文時間、內容類型與平台推播影響，波動大，單月比較沒有意義。第三，若把讚好當作 KPI，內容團隊自然會傾向製作容易取讚的內容，而這類內容通常與產品資訊或轉化路徑無關。</p>
+
+        <p>比較合理的做法是建立「三層報告」：上層是業務指標（查詢與轉化），中層是過程指標（觸及與互動率），下層才是虛榮指標。每月的討論重點應該放在「哪一類內容帶來最多查詢」，而不是「這個月多了幾多個讚」。要讓業務指標可量度，最實際的方法是在帖文與專頁中加入可追蹤的連結，並使用獨立連結去分辨社交媒體、廣告與搜尋三個來源。若果你同時投放付費廣告，可以把社交內容與<a href="/services/ads/">成效廣告投放服務</a>配合，把表現好的自然內容轉為付費推廣，並分別記錄兩邊帶來的查詢，這樣才能判斷預算應該加在內容還是廣告上。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">實務提醒</p><p class="text-blue-900 text-sm leading-relaxed">如果服務商在提案階段就主動問你「查詢之後由誰跟進、用什麼渠道記錄」，這通常代表他理解社交媒體在生意流程中的位置。相反，若整份提案只講觸及與追蹤目標，而無提及查詢如何進入你的銷售流程，就要格外謹慎。社交媒體的成效，很大程度取決於你內部有沒有接得住查詢的人與流程。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、如何選擇代管服務商：六個可檢查的地方</h3>
+
+        <p>以下是六項你可以直接檢查的項目。它們不需要專業知識，只需要你在會面時逐項追問。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1. 交付清單是否具體</h4>
+
+        <p>「每月發文、設計、報告」屬於模糊描述。具體的寫法是「每月 12 個帖、2 個平台、每個帖包 2 張圖與 1 次修改、每月 1 份報告」。如果對方唔願意把數字寫落報價單，日後就無從核對。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">2. 報告包含什麼</h4>
+
+        <p>要求看一份範例報告（可遮蔽客戶資料）。留意它是否包含觸及、互動率、帖文排名、網站點擊與下月建議。只有截圖與讚好數的報告，通常代表團隊沒有在做分析工作。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">3. 內容是否原創</h4>
+
+        <p>問清楚設計素材來源：係自家設計、購買授權圖庫，還是直接使用網上圖片。使用未授權素材會為你的品牌帶來法律風險，這一點值得在合約中明確要求對方保證素材授權。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">4. 有沒有實際案例</h4>
+
+        <p>要求對方說明「做過什麼行業、遇到什麼問題、用了什麼方法」。注意對方是否只提供截圖而無法解釋策略思路。案例唔需要透露客戶名稱，但策略思路應該講得清楚。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">5. 回覆留言是否包含</h4>
+
+        <p>這是查詢轉化的關鍵環節，卻最常被列為附加項。要問清楚：邊個時段負責查看訊息、複雜問題如何轉交、負評與惡意留言的處理原則。同時要建立內部流程，確保你這邊能及時提供產品資訊，因為服務商無法回答他唔知道的細節。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">6. 合約是否寫明帖子數量與修改次數</h4>
+
+        <p>這兩項是履約爭議最常見的來源。另外建議寫明：內容審批流程與截止時間、素材與原稿擁有權、合約期與終止通知期、以及合約結束後帳號與內容的交接方式。如果服務內容涉及影片製作，可一併參考<a href="/services/video/">短視頻製作服務</a>，了解影片類項目的交付方式與計價邏輯，方便把兩種服務的報價放在同一基礎上比較。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見失敗原因</h3>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1. 只比較月費，唔比較交付</h4>
+
+        <p>最常見的一項。低價方案往往以削減帖數、平台數或互動服務來達成，結果是「省了錢但無成效」，最終要重新找服務商，成本更高。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">2. 無內容策略，只有發文</h4>
+
+        <p>沒有企劃的專頁會出現主題散亂、內容重複、與客群脫節的問題。發文數量達標，但內容無法累積品牌認知，也無法支撐搜尋與口碑。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">3. 報告只有讚好數</h4>
+
+        <p>如果每月的檢討只圍繞讚好與追蹤數，團隊自然會把資源放在容易取讚的內容上，而唔會處理查詢轉化與產品訊息傳遞這些更難但更有價值的工作。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">4. 平台選錯</h4>
+
+        <p>B2B 業務把全部資源放在 Instagram，或本地零售只做 LinkedIn，都是常見錯配。應該先確認客群在哪裡，再分配內容與預算，而不是每個平台都開一個帳號然後全部半死不活。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">5. 無廣告配合，只靠自然觸及</h4>
+
+        <p>自然觸及在香港的覆蓋有限，若完全唔投放推廣，新客群很難接觸到你。內容與廣告應該互相配合：先用自然內容測試題材，再把表現好的內容轉為付費推廣。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">6. 內部無接單流程</h4>
+
+        <p>社交媒體帶來查詢，但如果無人負責回覆、報價與跟進，成效就停在最後一步。建議在開始代管之前，先定好「查詢由誰接、用什麼渠道記錄、幾時回覆」的內部流程。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h3>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">社交媒體管理月費大概幾多？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">根據第三方配對平台的公開收費資料，香港社交媒體管理的月費大致分為約 HK$3,000、HK$7,500 與 HK$12,000 三個檔次，亦有個別服務商公開每月 HK$4,000、包含 12 個帖子與設計文案的方案。這些屬市場觀察而非官方統計，實際價格取決於帖子數量、平台數量、是否包含回覆留言與廣告管理。比較時必須把交付清單一併對照，單看月費數字沒有意義。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">外判社交媒體管理，同自己請人比較，邊個抵？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">要視乎你的內容量與內部能力。自己請人除了薪酬，還要計強積金、假期、招聘與管理時間，以及離職帶來的節奏中斷風險；而且社交媒體需要文案、設計、影片、數據與廣告等複合技能，一個人通常無法全部覆蓋。外判的好處是可以一次取得多項技能，並按需要調整規模；缺點是產品細節需要你提供，且需要清晰的內部對接流程。內容需求穩定且涉及大量產品知識的行業，常見做法是內部負責產品資訊與審批，外部負責企劃、設計、發文與數據。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">社交媒體代管服務通常包唔包回覆留言與私訊？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">唔一定，這是最常見的收費分界線。有些方案包含基本回覆，有些列為附加項目，亦有部分只負責發文而唔處理訊息。由於私訊往往是查詢轉化的第一站，建議在報價階段就問清楚：邊個時段負責查看、複雜問題如何轉交、負評與惡意留言的處理原則。同時要留意，服務商無法回答他唔知道的產品細節，所以內部必須有提供資訊與最終決策的人。合約上宜約定由誰在什麼時段負責查看訊息，而唔應該寫上具體的回覆時限承諾。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">成效應該用什麼指標去量度？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議分三層。業務指標包括網站點擊、WhatsApp 或電話查詢數、表單提交與落單數，最能支撐決策；過程指標包括觸及人數、互動率、儲存與分享次數，用來判斷內容是否被看見；虛榮指標包括追蹤數與讚好數，只適合作為參考。讚好數唔可以單獨作為成效依據，因為它唔代表購買意圖，容易被非目標客群推高，而且會引導團隊製作容易取讚但與生意無關的內容。要讓業務指標可量度，需要在帖文加入可追蹤連結，並分開記錄社交媒體、廣告與搜尋三個來源。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港企業應該做邊幾個社交平台？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">香港用戶日常通訊以 WhatsApp 為主，社交平台以 Instagram 與 Facebook 為主，搜尋入口以 Google 為主。因此一般企業建議先做好 Instagram 與 Facebook，再加一個符合客群的第三平台。B2B 或專業服務應把重心放在 LinkedIn；做旅客或跨境生意的，小紅書值得優先考慮；想以文字建立品牌語氣與即時互動的，可以加入 Threads。資源有限時，寧願把兩個平台做好，也唔好五個平台都半死不活。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">簽約時應該要求寫明什麼條款？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議至少寫明六項：每月帖子數量與平台數量；每個帖包含的設計數量與修改次數上限；回覆留言與私訊的處理範圍；每月報告包含的指標；廣告管理是否包含在月費內、廣告費本身如何計算；以及素材與原稿的擁有權、合約期與終止通知期、合約結束後帳號與內容的交接安排。把這六項寫入合約，日後出現爭議時就有明確依據，也方便你公平地比較不同服務商的報價。</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">結語：把社交媒體當成流程，而唔係一次性任務</h3>
+
+        <p>香港企業在 Google 上通常會用「社交媒體管理」、「社交媒體營銷」或「社交媒體推廣」去搜尋相關服務，但這幾個詞其實指向同一件事的不同側面：管理是日常工作，營銷與推廣則偏向策略與付費投放。無論你用邊個詞搜尋，最終要解決的問題都一樣——如何用有限資源，穩定地把內容送到對的客群面前，並把查詢接住。</p>
+
+        <p>社交媒體管理之所以容易失望，通常唔係因為團隊能力問題，而係因為採購與管理方式有缺口：交付範圍無寫清楚、成效指標定錯、內部無人接查詢、平台選擇與客群錯配。只要把這四件事處理好，社交媒體就會由「每月要交數的開支」變成可持續的客戶來源。</p>
+
+        <p>ADWire Agency 是香港的數碼推廣及軟件開發公司，累計服務超過 500 個客戶，社交媒體代管與社交媒體推廣是我們的核心服務之一。我們的<a href="/services/social/">社交媒體代管服務</a>會把交付清單、報告指標與回覆留言的安排逐項列明，方便你在同一基礎上與其他報價比較。如果你同時需要付費推廣、內容製作或跨境客群開發，可以一併考慮<a href="/services/ads/">成效廣告投放</a>、<a href="/services/video/">短視頻製作</a>、<a href="/services/kol/">KOL 網紅推廣</a>與<a href="/services/china-market/">中國市場推廣</a>，並參考<a href="/blog/kol-marketing-hong-kong-guide-2026/">KOL 推廣指南</a>了解合作與計價的常見結構。</p>
+
+        <p>最後一句實務建議：在簽任何合約之前，先寫好你自己的「一個月內容日曆」與「查詢接單流程」。當你清楚知道自己要什麼、由誰接得住，任何服務商的提案都會變得容易評估，而唔會再出現「出咗好多帖但無生意」的結果。</p>
+
+    `,
+  },
+
+  // ─── Article 27（批次三） ───
+  {
+    id: 27,
+    slug: "china-market-strategy-hong-kong-2026",
+    title: "中國市場推廣：香港品牌進入內地的策略與資源分配指南 2026",
+    excerpt:
+      "唔係「一次開齊五個平台」。本文聚焦進入次序與資源分配：抖音本地生活 8,500 億 GMV 與 50–60% 核銷率代表甚麼、五個平台的「適合與不適合」判斷表、四筆預算的結構與最常見的錯誤、六個失敗原因、三層成效量度，以及政府資助的現實限制。",
+    date: "2026-09-21",
+    updatedAt: "2026-09-21",
+    category: "China Market",
+    readTime: "18 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/china-market-strategy-hong-kong-2026.webp",
+    tags: ["中國市場推廣", "內地推廣", "抖音推廣", "微信營銷", "大灣區", "資源分配"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">香港品牌要進入內地市場，第一個要回答的問題通常不是「做邊個平台」，而是「我的客群在甚麼情況下會想起我」。前者是資源分配問題，後者是策略問題，而大部分推廣預算浪費在後者還沒有答案就開始執行。本篇不逐一介紹小紅書、抖音、微信、微博、百度的玩法，而是集中講進入次序、預算結構、常見失敗原因，以及怎樣量度成效。如果你想要各平台的完整操作攻略，可以先看我們的<a href="/blog/hong-kong-brand-china-market-guide-2026/">中國市場全平台指南</a>；本篇是它的姊妹篇，講的是「怎樣分配」。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">內地推廣不是「一次開齊五個平台」的遊戲，而是按客群與品類選一個主平台，用三至六個月驗證內容與承接流程是否行得通，再決定要不要加第二個平台。預算必須分成四筆：內容生產、投放、KOC／KOL、平台開戶與基建；把全部預算押在投放，結果通常是有曝光但沒有說服力。平台數據（曝光、互動）不能當作業務成效，必須同時看搜尋數據與查詢量、成交量、獲客成本。最後一點最容易被忽略：沒有一個平台對所有品類都有效，選錯品類比選錯平台更致命。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、選平台的標準不是「最多人用」，而是「客群在哪裡被發現」</h3>
+
+        <p>很多香港品牌第一次接觸內地推廣時，會把內地當成一個市場來看待。實際上它是幾十個城市市場的組合，每個城市的消費習慣、價格敏感度、內容偏好都不一樣。深圳的客群與成都的客群，對同一個品牌的接受程度可以相差很遠。因此「內地推廣」這個詞本身就需要拆開來處理：先決定城市，再決定平台，最後才決定內容形態。</p>
+
+        <p>第二個常見誤解，是把內地平台的運作邏輯當成 Facebook 或 Instagram 的延伸。內地平台的演算法與流量分配方式不同，內容生命周期不同，用戶對廣告的容忍度也不同。同一套素材在香港跑得通，在內地未必有人看完。這不是翻譯問題，是內容結構問題。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">主動搜尋與被動推送，決定你要做內容還是做投放</h4>
+
+        <p>所有內地平台可以簡化成兩種發現路徑。第一種是用戶主動搜尋：他心裡已經有一個需求，去搜關鍵字，然後比較。第二種是被動推送：用戶本來沒有打算消費，刷到一條內容被勾起興趣，然後落單。這兩種路徑對品牌的要求完全相反。</p>
+
+        <p>主動搜尋為主的平台，需要的是「搜尋資產」：關鍵字佈局、標題寫法、筆記數量、口碑內容沉澱。投放可以加速，但沒有內容沉澱，投放一停就歸零。被動推送為主的平台，需要的是「內容產能」：持續產出可看性高的影片，配合投放放大器。沒有產能，投放只是在買一次性曝光。</p>
+
+        <p>香港品牌還有一個內地品牌沒有的難題：品牌認知度接近零。內地消費者對一個陌生品牌的預設態度是懷疑，而不是好奇。因此第三方內容（KOC、達人、真實用戶分享）的角色，比品牌自己講的話重要得多。這一點直接影響預算分配，稍後第四節會詳細講。</p>
+
+        <p>所以選平台的第一條問題是：我的客人會不會主動搜尋我這個品類？第二條是：我有沒有能力持續產出內容？兩條問題的答案，決定了你應該先做搜尋型平台還是推送型平台。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、內地平台的實際規模：一組值得細看的數字</h3>
+
+        <p>在討論策略之前，先看一組已核實的市場數據。抖音本地生活服務是目前內地內容平台商業化最活躍的板塊之一，它的規模與結構，很能反映香港品牌將會面對的環境。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">數字</th><th class="text-left px-5 py-3 font-semibold">說明了甚麼</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">抖音本地生活服務 2025 年全年支付 GMV</td><td class="px-5 py-3">超過 8,500 億元人民幣</td><td class="px-5 py-3">同比增速 59%，市場規模已不是概念</td></tr><tr><td class="px-5 py-3">截至 2025 年末動銷門店累計</td><td class="px-5 py-3">1,519.8 萬家</td><td class="px-5 py-3">線下商家已大規模上線，競爭密度極高</td></tr><tr><td class="px-5 py-3">2025 年新增入駐商家</td><td class="px-5 py-3">399 萬家</td><td class="px-5 py-3">一年內新增的供給量已相當於一個大型市場</td></tr><tr><td class="px-5 py-3">一年內在平台經營的中小商家</td><td class="px-5 py-3">458 萬家</td><td class="px-5 py-3">中小商家是平台生態的主體，不是陪跑</td></tr><tr><td class="px-5 py-3">年銷售額超過百萬元的中小商家</td><td class="px-5 py-3">超過 2.2 萬家</td><td class="px-5 py-3">中小規模的商家確實做到可觀生意，不是只有大品牌有機會</td></tr><tr><td class="px-5 py-3">本地生活團購核銷率</td><td class="px-5 py-3">約 50%–60%</td><td class="px-5 py-3">賣出的券只有一半左右真正到店，GMV 不等於實際生意</td></tr><tr><td class="px-5 py-3">沒有專業短視頻運營團隊的本地生活中小商戶</td><td class="px-5 py-3">超過一半</td><td class="px-5 py-3">內容運營能力是普遍短板，也是外來專業團隊的切入點</td></tr></tbody></table></div>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://finance.sina.com.cn/stock/t/2026-02-25/doc-inhnzfcq5200783.shtml" target="_blank" rel="noopener">新浪財經（轉載雷峰網報導）</a>、<a href="https://column.iresearch.cn/b/202603/1024079.shtml" target="_blank" rel="noopener">艾瑞網專欄</a>、<a href="https://m.36kr.com/p/3787674617420806" target="_blank" rel="noopener">36氪</a>、<a href="https://www.jiemian.com/article/14291726.html" target="_blank" rel="noopener">界面新聞</a>、<a href="https://www.donews.com/article/detail/6378/97502.html" target="_blank" rel="noopener">DoNews</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">這些數字對香港品牌意味著甚麼</h4>
+
+        <p>第一，市場規模是真的。8,500 億元人民幣的年支付 GMV，代表內地消費者已經習慣在內容平台上完成本地服務交易，而不是只在傳統電商平台購物。這對香港品牌是一個重要的判斷依據：內地消費者的購物入口已經改變，如果品牌只在傳統渠道出現，就會錯過主要的發現場景。</p>
+
+        <p>第二，中小商戶普遍缺乏內容運營能力。超過一半的本地生活中小商戶沒有專業的短視頻運營團隊，這意味著平台的內容供給仍然以「隨手拍」為主。對於有能力系統化產出內容的團隊來說，這是相對明顯的機會：不是流量不夠，而是優質內容不夠。</p>
+
+        <p>第三，核銷率偏低是必須預先設計的風險。約 50%–60% 的核銷率，代表每賣出 100 元的團購券，只有 50 至 60 元真正轉化為到店消費。剩下的是退款、忘記使用、或者買了但沒有去。如果你的商業模式假設「賣出券就等於生意」，這個假設會在現金流上出問題。合理的做法是在商品設計階段就考慮核銷期長短、預約流程、到店體驗，而不是等到核銷率難看才補救。</p>
+
+        <p>第四，中小商家確實有機會。超過 2.2 萬個中小商家年銷售額超過百萬元，說明這不是只有大型連鎖品牌才能參與的市場。對於資源有限的香港品牌，這個數字比總量更有參考價值。</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">數字使用提醒</p><p class="text-amber-900 text-sm leading-relaxed">以上數字來自媒體報導與第三方研究機構，並非官方統計數據，不同來源的統計口徑可能不同，同一指標在不同報導中亦可能出現差異。引用時應以原始報導為準，並理解這些數字反映的是趨勢與量級，而不是精確的會計數字。核銷率一項來自券商研報測算，屬於估算值而非平台公佈數據。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、五個平台的選擇邏輯：連「不適合」都要寫清楚</h3>
+
+        <p>這一節不會介紹平台功能，而是提供一張判斷表。重點在最後兩欄：如果你的情況落在「較不適合」那一欄，就應該把預算放到別處，而不是硬做。這一欄通常是推廣公司不會主動講的部分。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">用戶行為</th><th class="text-left px-5 py-3 font-semibold">較適合的品類</th><th class="text-left px-5 py-3 font-semibold">較不適合的情況</th><th class="text-left px-5 py-3 font-semibold">典型用途</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">小紅書</td><td class="px-5 py-3">主動搜尋為主，兼有推薦</td><td class="px-5 py-3">美妝護膚、母嬰、家居、穿搭、旅遊、生活服務、裝修</td><td class="px-5 py-3">客群年齡層偏高、需要短期內大量曝光、純低價促銷導向的品類</td><td class="px-5 py-3">建立搜尋資產與口碑，累積可被反覆搜到的內容</td></tr><tr><td class="px-5 py-3 font-semibold">抖音</td><td class="px-5 py-3">被動推送為主，兼有搜尋</td><td class="px-5 py-3">餐飲、本地生活服務、日用品、食品、平價服飾、連鎖品牌</td><td class="px-5 py-3">高單價且決策期長的專業服務、B2B 業務、需要深度解釋的產品</td><td class="px-5 py-3">快速取得曝光、帶動到店與直播成交</td></tr><tr><td class="px-5 py-3 font-semibold">微信</td><td class="px-5 py-3">私域，已有客戶關係</td><td class="px-5 py-3">已有客戶基礎、需要復購、需要一對一服務、客單價較高</td><td class="px-5 py-3">獲取完全陌生的新客——它本身不是發現渠道</td><td class="px-5 py-3">承接、復購、客服、社群經營</td></tr><tr><td class="px-5 py-3 font-semibold">微博</td><td class="px-5 py-3">公關與話題擴散</td><td class="px-5 py-3">品牌事件、代言合作、需要輿論熱度的議題</td><td class="px-5 py-3">需要直接成交、需要精準客群、預算有限的小型項目</td><td class="px-5 py-3">品牌公告、話題擴散、危機溝通</td></tr><tr><td class="px-5 py-3 font-semibold">百度</td><td class="px-5 py-3">主動搜尋，品牌查證</td><td class="px-5 py-3">B2B、專業服務、教育、醫療、需要被查證的品牌</td><td class="px-5 py-3">純衝動型消費品、以年輕女性為主的品類、需要內容種草的產品</td><td class="px-5 py-3">承接已有搜尋需求，建立品牌可信度</td></tr></tbody></table></div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">為甚麼「不適合」那一欄最重要</h4>
+
+        <p>大部分品牌做內地推廣失敗，不是因為選的平台完全錯，而是因為把平台放在錯的位置。例如把微信當成獲客渠道：微信的價值在於已有關係的維護與復購，它不負責讓陌生人認識你。如果品牌在內地還沒有客戶基礎，就先投入微信，等於在空房間裡開派對。</p>
+
+        <p>另一個常見錯位，是把抖音當成品牌教育渠道。抖音的用戶處於「被動接收」狀態，注意力極短。要用一條十五秒的影片解釋一個需要五分鐘才講得清的專業服務，成功率很低。這類產品更適合在小紅書或百度承接搜尋需求，因為那裡的用戶本身已經在主動找答案。</p>
+
+        <p>反過來，如果你的品類是價格敏感、決策快、視覺吸引力強的消費品，硬要做深度內容也是一種浪費。應該把資源放在能快速起量的推送型渠道，用短影片直接展示產品與價格。平台的選擇應該跟著品類走，而不是跟著「哪個平台聽起來最紅」走。小紅書的具體做法可以參考我們的<a href="/blog/xiaohongshu-marketing-hong-kong-guide-2026/">小紅書推廣指南</a>。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、預算分配：四筆錢，缺一筆都會拖慢進度</h3>
+
+        <p>關於預算，最常被問的問題是「一個月要幾錢」。這個問題沒有單一答案，因為它取決於品類、城市、目標與競爭密度。但預算的結構是相對穩定的，通常可以分成四筆。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">預算類別</th><th class="text-left px-5 py-3 font-semibold">包含甚麼</th><th class="text-left px-5 py-3 font-semibold">缺少了會出現甚麼問題</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">內容生產</td><td class="px-5 py-3">影片拍攝與剪輯、圖文設計、腳本、內地語境改寫、素材測試版本</td><td class="px-5 py-3">有曝光但沒有說服力，投放買回來的流量看完即走，不會記住品牌</td></tr><tr><td class="px-5 py-3 font-semibold">投放</td><td class="px-5 py-3">平台廣告、資訊流、搜尋廣告、本地推廣工具、直播投流</td><td class="px-5 py-3">自然流量起步極慢，優質內容沒有加速器，錯過最佳時間窗口</td></tr><tr><td class="px-5 py-3 font-semibold">KOC／KOL</td><td class="px-5 py-3">達人探店、產品試用、素人分享、內容授權二次使用</td><td class="px-5 py-3">品牌認知度接近零時，只有品牌自己在說話，可信度不足</td></tr><tr><td class="px-5 py-3 font-semibold">平台開戶與基建</td><td class="px-5 py-3">企業號認證、店舖頁、客服工具、承接渠道（微信、客服系統、小程式）</td><td class="px-5 py-3">有人查詢但無人接住，查詢在幾分鐘內流失，前面三筆錢一齊白花</td></tr></tbody></table></div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">最常見的錯誤：把預算全部放在投放</h4>
+
+        <p>這是最常見、也最貴的錯誤。原因很簡單：投放的成效最容易看見。今天花錢，明天就看到曝光數字上升，後天就有互動報表，管理層容易交代。內容生產的成效慢、難以量化、而且需要先投入才有素材可以投。</p>
+
+        <p>結果就是：品牌用大量預算買曝光，但買回來的流量看到的是沒有針對性、沒有說服力的內容。用戶看了一眼就滑走，不會產生查詢，更不會落單。下一輪預算又繼續買曝光，形成一個花錢但沒有累積的循環。</p>
+
+        <p>合理的次序應該是先做內容，再用投放放大已經驗證有效的內容。具體來說，先用小額預算測試三至五條不同方向的素材，找出互動率與完播率明顯較好的版本，然後才把主要投放預算放在這些版本上。這樣投放是在放大一個已經證明有效的東西，而不是在賭一個未知的東西。</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">不要問「一個月幾錢」</p><p class="text-amber-900 text-sm leading-relaxed">任何直接給你單一月費數字的報價，都值得先問清楚包含甚麼。同樣的月費，可能包含拍攝但不包含剪輯，可能包含投放代操作但不包含廣告費本身，可能包含 KOC 對接但不包含達人費用。報價前應該先確認：內容產出的數量與形式、投放預算是否獨立計算、達人費用由誰承擔、平台開戶與認證費用是否另計、以及月費對應的可交付成果是甚麼。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、六個最常見的失敗原因</h3>
+
+        <p>以下六項是香港品牌進入內地市場時反覆出現的問題。它們通常不是單獨出現，而是同時發生，互相放大。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">失敗原因</th><th class="text-left px-5 py-3 font-semibold">表面現象</th><th class="text-left px-5 py-3 font-semibold">較合理的做法</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">一次做五個平台</td><td class="px-5 py-3">每個平台都開了號，但每個都只有零星更新，沒有一個做起來</td><td class="px-5 py-3">先集中做一個主平台，做到有穩定查詢量，再考慮加第二個</td></tr><tr><td class="px-5 py-3 font-semibold">內容直接翻譯</td><td class="px-5 py-3">把香港的文案直譯成簡體字發出去，互動率極低</td><td class="px-5 py-3">按內地用戶的語境重新寫，包括選題、用詞、價格表達方式</td></tr><tr><td class="px-5 py-3 font-semibold">沒有承接渠道</td><td class="px-5 py-3">曝光與互動數字不錯，但沒有查詢，或者查詢了但沒有回覆</td><td class="px-5 py-3">上線前先建好查詢入口與回覆流程，並指定負責人與回覆時限</td></tr><tr><td class="px-5 py-3 font-semibold">只看曝光數字</td><td class="px-5 py-3">每月報表都是播放量與粉絲增長，但生意沒有變化</td><td class="px-5 py-3">把查詢量、查詢成本、成交量列為主要匯報指標，平台數據只作過程參考</td></tr><tr><td class="px-5 py-3 font-semibold">選錯品類切入</td><td class="px-5 py-3">投放成本明顯高於同行，互動率長期偏低</td><td class="px-5 py-3">先選品牌有相對優勢、內地競爭尚未飽和的品類切入，而不是全線推出</td></tr><tr><td class="px-5 py-3 font-semibold">沒有耐心</td><td class="px-5 py-3">做了兩個月沒有明顯成效，就換平台、換方向、換團隊</td><td class="px-5 py-3">設定一個合理的驗證期，在期內保持方向一致，只在內容層面做優化</td></tr></tbody></table></div>
+
+        <p>其中「一次做五個平台」是最常見的起手式錯誤。品牌通常以為多開幾個渠道等於多幾個機會，但實際上每個平台的內容邏輯、發佈節奏、演算法偏好都不一樣。五個平台各分到兩成資源，等於五個都不夠資源做到起量。資源分散的直接後果是每個平台的帳號都處於「半死不活」的狀態，既沒有自然流量，投放也沒有效益。</p>
+
+        <p>「內容直接翻譯」同樣普遍。香港的文案通常假設讀者已經知道品牌是誰、價格帶在哪裡、為甚麼值得買。內地用戶沒有這些背景，需要從零建立理解。因此內容不只是換字體，而是換角度：從「我們有甚麼」改成「你有甚麼問題，我們怎樣解決」。這個轉換需要重寫，而不是翻譯。</p>
+
+        <p>「沒有承接渠道」往往是最隱形的一項，因為它不會出現在任何報表上。曝光數字漂亮、互動率正常，但查詢量長期偏低，通常不是內容問題，而是用戶看完之後不知道下一步該做甚麼。內地用戶習慣在微信生態內完成查詢與溝通，如果品牌只留了一個香港電話號碼，轉化率自然很低。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、怎樣量度成效：三層數據，缺一層就會自欺</h3>
+
+        <p>內地推廣的成效量度應該分成三層，由淺入深。最常見的問題是停在第一層，然後用第一層的數字去推論業務成效，這是報表上最容易出現的落差。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">層次</th><th class="text-left px-5 py-3 font-semibold">看甚麼指標</th><th class="text-left px-5 py-3 font-semibold">可以回答的問題</th><th class="text-left px-5 py-3 font-semibold">不可以回答的問題</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">平台數據</td><td class="px-5 py-3">曝光量、互動率、完播率、收藏、粉絲增長、直播觀看時長</td><td class="px-5 py-3">內容有沒有被看見、素材之間哪個方向較受歡迎</td><td class="px-5 py-3">有沒有人因此想買、這些人有沒有消費能力</td></tr><tr><td class="px-5 py-3 font-semibold">搜尋數據</td><td class="px-5 py-3">百度收錄數量與品牌字搜尋量、筆記與影片的搜尋曝光、關鍵字排名趨勢</td><td class="px-5 py-3">有沒有人主動找這個品牌或品類、搜尋需求有沒有累積</td><td class="px-5 py-3">找到之後有沒有成交、成交的成本是多少</td></tr><tr><td class="px-5 py-3 font-semibold">業務數據</td><td class="px-5 py-3">查詢量、每次查詢成本、成交量、客單價、獲客成本、回購情況</td><td class="px-5 py-3">生意有沒有增長、增長是否可持續、成本結構是否合理</td><td class="px-5 py-3">為甚麼增長或下跌——這需要回到上面兩層找原因</td></tr></tbody></table></div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">為甚麼不能用平台數據代替業務成效</h4>
+
+        <p>平台數據是過程指標，業務數據是結果指標。兩者的關係不是等號。一條影片有一百萬次播放，可能帶來零個查詢；一條只有五千次播放的內容，如果觸及的是精準客群，可能帶來二十個查詢。用播放量去判斷成效，會讓團隊把資源投放在「容易爆但沒有轉化」的內容方向上。</p>
+
+        <p>搜尋數據是最容易被忽略、但最有長期價值的一層。曝光會隨投放停止而消失，搜尋資產不會。筆記數量、品牌字搜尋量、百度收錄，這些都是會累積的資產。當有人開始主動搜尋你的品牌名稱，代表推廣已經從「買曝光」進入「建立認知」的階段，這是預算效益開始改善的訊號。</p>
+
+        <p>業務數據則需要與推廣數據對齊時間軸。內容在三月發佈，查詢可能集中在四月到五月，成交可能在六月。如果只看當月的推廣數據與當月的成交數據，很容易誤判成效。合理的做法是設定清晰的追蹤方式，例如在查詢入口加入來源標記，讓每一筆查詢都能追溯到具體平台與內容方向。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、政府資助：可以降低試錯成本，但不是保證</h3>
+
+        <p>香港企業拓展內地市場時，部分推廣相關開支可能符合政府資助計劃的申請範圍。對中小企業而言，資助的實際意義不只是金額，而是降低了第一次試錯的成本，讓品牌可以用較低的風險驗證一個新市場。</p>
+
+        <p>不過資助有幾個現實限制需要預先理解。第一，申請需要時間，通常不能即時配合推廣計劃的啟動時間，因此推廣預算與資助時間表需要分開規劃。第二，資助範圍通常有明確界定，並非所有開支都符合資格，內容製作、投放、參展、平台開戶等項目的處理方式各不相同。第三，申請需要提交相應的單據與證明文件，如果推廣執行時沒有保留完整記錄，後續申請會遇到困難。</p>
+
+        <p>因此比較穩妥的做法，是在推廣計劃開始前就先了解資助的申請條件與所需文件，並在執行過程中按資助要求保存記錄，而不是事後才補救。相關計劃的種類、資格與申請流程，可以參考我們的<a href="/blog/hong-kong-government-ai-digital-funding-2026/">香港政府資助與數碼轉型計劃指南</a>。</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">資助申請重要聲明</p><p class="text-amber-900 text-sm leading-relaxed">所有資助申請均由相關政府部門審批，審批結果不受任何第三方影響，亦不保證申請成功。各計劃的資格要求、資助範圍、資助上限與截止日期會不時調整，申請前必須以政府官方公佈的最新資料為準。任何聲稱可以確保申請獲批的說法都不可信。建議直接查閱官方網站或向相關部門查詢，並在推廣計劃執行期間保留完整的開支記錄與證明文件。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h3>
+
+        <div class="space-y-4">
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港品牌進入內地市場，第一步應該做邊個平台？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">取決於你的客群會不會主動搜尋這個品類。如果客人會主動找答案（例如美妝、家居、旅遊、專業服務），應該先做以搜尋為主的平台，累積可被反覆搜到的內容。如果品類靠視覺與價格快速打動人（例如餐飲、日用品、平價服飾），則適合先做推送型平台。較常見的錯誤是同時開五個平台，結果每個都不夠資源做起來。建議先集中做一個主平台，做到有穩定查詢量再擴展。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">內地推廣的預算應該怎樣分配？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">預算通常分四筆：內容生產、投放、KOC／KOL、平台開戶與基建。沒有一個固定的比例適合所有品牌，因為品類與競爭密度差異很大。但結構上四筆都不能缺：缺內容，投放買回來的流量留不住；缺投放，優質內容沒有加速器；缺 KOC／KOL，品牌認知度低時可信度不足；缺基建，查詢來了沒有人接住。最常見的錯誤是把絕大部分預算放在投放，忽視內容生產。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">抖音推廣適合所有香港品牌嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。抖音以被動推送為主，用戶注意力短，適合決策快、視覺吸引力強、價格表達清晰的品類，例如餐飲、本地生活服務、日用品與平價消費品。對於需要較長時間解釋的高單價專業服務或 B2B 業務，抖音未必是最有效的起點，這類產品更適合在主動搜尋為主的平台承接需求。另外，抖音本地生活團購的核銷率約為 50%–60%，代表賣出團購券並不等於實際到店消費，設計商品與承接流程時必須把這一點納入考慮。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">微信推廣與小紅書推廣，應該先做邊個？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">要看品牌在內地是否已經有客戶基礎。微信的價值在於私域經營，包括復購、客服、社群與一對一溝通，它本身不是讓陌生人認識你的渠道。如果品牌在內地還沒有客戶，先做微信的效益會很低。小紅書則以主動搜尋為主，適合用來累積搜尋資產與口碑內容，是較常見的第一步。兩者的關係其實是前後端：小紅書負責被發現，微信負責承接與復購。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">為甚麼抖音團購的核銷率會偏低？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">主要原因是購買行為由內容觸發，屬於衝動型消費，用戶未必有即時的到店計劃。加上部分用戶同時購買多張不同商家的券，實際到店的比例自然下降。另外，核銷期過長、預約流程複雜、到店體驗與內容描述有落差，都會拉低核銷率。相對而言，以搜尋為主的平台用戶本身有明確需求，核銷率通常較高。品牌可以透過縮短核銷期、簡化預約流程、在內容中清楚說明使用條件來改善。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">內地推廣的成效要幾耐才看得到？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">要分開看兩類指標。平台數據通常在一至兩週內就有反應，可以用來判斷內容方向是否有效。搜尋資產與業務數據則需要較長時間累積，一般需要持續數月的穩定產出才會形成可觀察的趨勢。實際時間取決於品類競爭程度、內容產能、投放規模與承接流程的效率。建議在第一個月就把追蹤方式設定好，讓每一筆查詢都能追溯到具體平台與內容，否則後期很難判斷哪些投入真正有效。</p>
+          </div>
+        </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">結語：策略的本質是取捨</h3>
+
+        <p>內地推廣最難的部分不是執行，而是取捨。資源有限，市場很大，甚麼都做的結果通常是甚麼都做不成。真正有效的進入策略，是清楚知道自己為甚麼先做這一個平台、為甚麼暫時不做另外幾個，並且在驗證期內保持方向一致。</p>
+
+        <p>如果你希望有人幫你按品類與預算規劃具體的進入次序與資源分配，可以了解我們的<a href="/services/china-market/">中國市場推廣服務</a>。如果你的第一步是在小紅書建立搜尋資產，我們的<a href="/services/kol/">KOL 與網紅推廣服務</a>可以協助對接與內容規劃。如果你的品牌方向相反，是內地品牌要進入香港市場，可以參考我們的<a href="/services/hong-kong-market/">香港市場推廣服務</a>。</p>
+
+    `,
+  },
+
   // ─── Article 14：AI 減低人手及營運成本（ai 工具 1,300 + ai 應用 170 + 數碼轉型 70 + 企業 ai 80） ───
   {
     id: 14,

@@ -71,9 +71,11 @@ def main():
 
     p = os.path.join(REPO, 'lib', 'blogData.ts')
     s = open(p, encoding='utf-8').read()
-    if meta['slug'] in s:
+    if re.search(r'^\s{4}slug:\s*"' + re.escape(meta['slug']) + r'"', s, re.M):
         print(f'⚠️ {meta["slug"]} 已存在，跳過')
         return
+    # 注意：不可用 `slug in s` 判斷 —— 其他文章的內鏈也會包含該 slug 字串，
+    # 會造成假陽性而靜默跳過插入。必須比對「行首縮排 4 格的 entry」。
     anchor = 'export const blogPosts: BlogPost[] = [\n'
     assert anchor in s, '搵唔到插入點'
     s = s.replace(anchor, anchor + entry, 1)
