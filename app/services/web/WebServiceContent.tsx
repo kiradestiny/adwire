@@ -169,10 +169,14 @@ export default function WebServiceContent() {
       <section className="py-16 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <StatItem number="300%" label="平均轉換率提升" />
-            <StatItem number="90+" label="Google PageSpeed 分數" />
-            <StatItem number="150+" label="成功交付項目" />
-            <StatItem number="< 2s" label="平均首屏加載" />
+            {/* 2026-09：原本為「300% 平均轉換率提升／90+ PageSpeed／150+ 交付項目／
+                <2s 首屏」等成效承諾 —— 結果數字無法為個別項目事先保證，亦與已統一的
+                「500+ 服務客戶」口徑衝突。改為列出「一定會交付什麼」：這些本身就是
+                可核實的交付內容，對客戶亦更有用。 */}
+            <StatItem number="100%" label="源代碼交付・完整擁有權" />
+            <StatItem number="GA4 + GTM" label="轉換追蹤埋設" />
+            <StatItem number="規劃階段" label="同步處理 SEO 架構" />
+            <StatItem number="3 種裝置" label="手機／平板／桌面測試" />
           </div>
         </div>
       </section>
@@ -391,10 +395,10 @@ export default function WebServiceContent() {
       <section className="py-16 bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            <TrustBadge icon={Globe} title="原生 SEO 架構" desc="提升搜尋排名" />
-            <TrustBadge icon={Gauge} title="PageSpeed 保證" desc="90+ 分數承諾" />
+            <TrustBadge icon={Globe} title="SEO 架構" desc="由規劃階段建立" />
+            <TrustBadge icon={Gauge} title="效能目標" desc="交付時附實測報告" />
             <TrustBadge icon={CheckCircle2} title="源代碼交付" desc="完整擁有權" />
-            <TrustBadge icon={Users} title="150+ 成功案例" desc="各行業信賴" />
+            <TrustBadge icon={Users} title="500+ 服務客戶" desc="跨行業項目經驗" />
           </div>
         </div>
       </section>
@@ -442,7 +446,7 @@ export default function WebServiceContent() {
                 </h3>
                 <ul className="space-y-4">
                   {[
-                    "Google PageSpeed 分數 > 90 (Desktop)",
+                    "PageSpeed 效能目標（Desktop 90+，交付時附實測報告）",
                     "全站 HTTPS SSL 安全加密",
                     "符合 WCAG 無障礙網頁標準",
                     "完整的 SEO Meta Tags 配置",
