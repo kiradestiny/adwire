@@ -416,7 +416,7 @@ export default function AdsServiceContent() {
               icon={Search}
               color="orange"
               title="Google Search (SEM)"
-              desc="被動攔截。當客戶主動搜尋你的服務時 (如「通渠」、「會計」)，確保你的網站出現在第一位。轉化意欲最高。"
+              desc="被動攔截。當客戶主動搜尋你的服務時 (如「通渠」、「會計」)，協助你的網站在相關搜尋中取得曝光。轉化意欲最高。"
               features={["關鍵字競價策略", "Google Shopping 購物廣告", "高意向客戶攔截"]}
             />
 

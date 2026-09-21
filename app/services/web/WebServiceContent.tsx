@@ -27,7 +27,7 @@ export default function WebServiceContent() {
     },
     {
       question: "網站上線後，我能自己修改內容嗎？",
-      answer: "絕對可以。我們會為你配置易用的 Headless CMS (如 Strapi 或 WordPress)，你會擁有獨立的管理員帳號，可以隨時登入修改文字、更換圖片、發佈文章或管理產品，完全無需懂得寫程式。"
+      answer: "可以。我們會為你配置易用的 Headless CMS (如 Strapi 或 WordPress)，你會擁有獨立的管理員帳號，可以隨時登入修改文字、更換圖片、發佈文章或管理產品，完全無需懂得寫程式。"
     },
     {
       question: "你們會負責網站的 SEO 嗎？",
@@ -196,7 +196,7 @@ export default function WebServiceContent() {
             <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
               <div className="text-cyan-400 mb-4 font-bold text-xl">01. 加載太慢</div>
               <h3 className="text-xl font-bold mb-4">每延遲 1 秒，轉換率下降 7%</h3>
-              <p className="text-gray-400 text-sm">我們使用 Next.js 靜態生成技術，確保你的網站在任何設備上都能秒開，留住每一位潛在客戶。</p>
+              <p className="text-gray-400 text-sm">我們使用 Next.js 靜態生成技術，為網站提供快速的載入表現。</p>
             </div>
             <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
               <div className="text-cyan-400 mb-4 font-bold text-xl">02. 信任感不足</div>
@@ -218,7 +218,7 @@ export default function WebServiceContent() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">技術決定勝負</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              在 2025 年，網站速度與架構直接影響 Google 排名與廣告成本。我們採用最前沿的技術棧，確保你的網站在起跑線就領先對手。
+              網站速度與架構會影響使用者體驗與轉換表現。我們採用現代化的技術棧，並以實測數據說明實際改善幅度。
             </p>
           </div>
 

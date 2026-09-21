@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import AutomationServiceContent from "./AutomationServiceContent";
+import FAQJsonLd from "@/components/FAQJsonLd";
+import { AUTOMATION_FAQS } from "@/lib/service-faqs";
 
 export const metadata: Metadata = {
   title: "企業流程自動化及 RPA｜連接現有系統",
@@ -22,5 +24,10 @@ export const metadata: Metadata = {
 };
 
 export default function AutomationServicePage() {
-  return <AutomationServiceContent />;
+  return (
+    <>
+      <FAQJsonLd faqs={AUTOMATION_FAQS} />
+      <AutomationServiceContent />
+    </>
+  );
 }

@@ -137,7 +137,7 @@ export default function ContactContent() {
             />
             <FAQItem 
               q="如果不確定自己適合哪種推廣，可以諮詢嗎？" 
-              a="絕對可以。我們提供 15 分鐘免費初步諮詢。我們的顧問會先了解你的業務性質、目標與預算，再建議最適合的方案 (例如 B2B 可能適合 LinkedIn/SEO，而 B2C 則適合 Reels/KOL)。" 
+              a="可以。我們提供 15 分鐘免費初步諮詢。我們的顧問會先了解你的業務性質、目標與預算，再建議最適合的方案 (例如 B2B 可能適合 LinkedIn/SEO，而 B2C 則適合 Reels/KOL)。" 
             />
             <FAQItem 
               q="項目開始後，我會收到什麼報告？" 

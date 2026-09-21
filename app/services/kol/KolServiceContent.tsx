@@ -496,7 +496,7 @@ export default function KolServiceContent() {
           </div>
           <div className="space-y-3">
             {[
-              { q: "香港 KOL 合作費用是多少？", a: "香港 KOL 費用因層級差異甚大：Nano KOL（1K–10K粉絲）約 HK$500–3,000/帖；Micro KOL（10K–100K）約 HK$3,000–15,000；Mid-tier KOL 約 HK$15,000–50,000；Macro / Mega KOL 則按個別議價。ADWire 根據預算制定最高 ROI 的 KOL 組合方案。" },
+              { q: "香港 KOL 合作費用是多少？", a: "香港 KOL 費用因層級差異甚大：Nano KOL（1K–10K粉絲）約 HK$500–3,000/帖；Micro KOL（10K–100K）約 HK$3,000–15,000；Mid-tier KOL 約 HK$15,000–50,000；Macro / Mega KOL 則按個別議價。ADWire 根據預算及目標配置合適的 KOL 組合。" },
               { q: "如何選擇適合品牌的 KOL？", a: "選擇 KOL 不能只看粉絲數。重要指標包括：(1) 受眾人口統計與品牌目標客群匹配度；(2) 互動率（Engagement Rate）；(3) 粉絲真偽比例；(4) 過往商業合作的轉化表現。ADWire 使用 AI 工具分析所有指標，為品牌配對最合適的 KOL。" },
               { q: "ADWire 提供哪些 KOL 合作形式？", a: "三大合作形式：(1) Nano KOL 大規模種草 —— 10–100位素人同步發佈，建立有機口碑；(2) 大型品牌宣傳 —— 頭部 KOL 高質感內容，瞬間提升知名度；(3) 線下活動出席 —— KOL 探店、剪綵，製造熱鬧現場氣氛。" },
               { q: "小紅書 KOL 與 Instagram KOL 有什麼分別？", a: "小紅書 KOL 主要觸達中國內地及海外華人（月活 3 億，以內地年輕女性為主），適合香港品牌進入大灣區市場。IG KOL 主要觸達香港本地及全球受眾，視覺化內容吸引力強。兩者組合使用效果最佳。" },

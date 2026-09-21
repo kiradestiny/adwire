@@ -2943,7 +2943,7 @@ export const blogPosts: BlogPost[] = [
             <div class="flex-shrink-0 w-9 h-9 bg-[#f5a623] text-white rounded-full flex items-center justify-center font-bold">2</div>
             <div>
               <strong class="text-[#0f4c81] block mb-1">小規模試點（2-4 週）</strong>
-              <p class="text-sm text-gray-600">選擇 1-2 個最高 ROI 的場景先做試點，用真實業務數據驗證效果。試點成功率高是因為我們會先做充分的需求確認，確保方案貼近實際業務流程而非紙上談兵。</p>
+              <p class="text-sm text-gray-600">選擇 1-2 個預期回報最高的場景先做試點，用真實業務數據驗證效果。試點成功率高是因為我們會先做充分的需求確認，確保方案貼近實際業務流程而非紙上談兵。</p>
             </div>
           </li>
           <li class="flex gap-4">
@@ -2992,7 +2992,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">AI 客服機器人可以處理廣東話嗎？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">可以。現代大型語言模型（如 GPT-4、Claude、Gemini）均具備良好的廣東話理解及生成能力，可以理解廣東話口語輸入並以廣東話或繁體中文回覆。ADWire 開發的 AI 客服系統會針對你的業務詞彙和常見問題進行訓練，確保回覆準確且符合品牌語氣。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">可以。現代大型語言模型（如 GPT、Claude、Gemini）均具備良好的廣東話理解及生成能力，可以理解廣東話口語輸入並以廣東話或繁體中文回覆。ADWire 開發的 AI 客服系統會針對你的業務詞彙和常見問題進行訓練，確保回覆準確且符合品牌語氣。</p>
           </div>
         </div>
 

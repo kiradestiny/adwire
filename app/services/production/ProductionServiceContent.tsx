@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { PRODUCTION_FAQS } from "@/lib/service-faqs";
 import ContactSection from "@/components/ContactSection";
 import { motion } from "framer-motion";
 import { 
@@ -41,7 +42,7 @@ export default function ProductionServiceContent() {
             <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
               在這個「視覺為王」的時代，平庸的影像無法打動人心。<br className="hidden md:block"/>
               我們提供從創意策劃到後期製作的一站式服務，<br className="hidden md:block"/>
-              以電影級質感，為你的品牌建立無可取代的專業形象。
+              以專業製作水準，為你的品牌建立清晰的視覺形象。
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-6">
@@ -197,11 +198,11 @@ export default function ProductionServiceContent() {
               <span className="text-[#f5a623] font-bold tracking-wider uppercase text-sm">Our Gears</span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">工欲善其事，<br/>必先利其器。</h2>
               <p className="text-gray-400 mb-8 text-lg leading-relaxed">
-                我們深知器材對畫質的重要性。ADWire 投入過百萬購置電影級攝影器材，確保你的影片擁有 4K 甚至 8K 的極致畫質。
+                我們深知器材對畫質的影響。ADWire 採用專業級攝影器材，按項目需要提供 4K 或以上的拍攝規格。
               </p>
               
               <div className="space-y-6">
-                <GearItem title="Cinema Cameras" desc="Sony FX6 / A7S3, RED Komodo - 電影級畫質" />
+                <GearItem title="Cinema Cameras" desc="Sony FX6 / A7S3, RED Komodo" />
                 <GearItem title="Professional Lighting" desc="Aputure 600D / Nova - 營造層次豐富的燈光" />
                 <GearItem title="Audio & Stabilization" desc="DJI Ronin 穩定器 / Rode 專業收音 - 畫面如絲般順滑" />
                 <GearItem title="Aerial Drone" desc="DJI Mavic 3 Cine - Apple ProRes 航拍畫質" />
@@ -264,22 +265,9 @@ export default function ProductionServiceContent() {
           </div>
           
           <div className="space-y-4">
-            <FAQItem 
-              question="拍攝需要提前多久預約？" 
-              answer="建議至少提前 2-3 週預約，以便我們有充足的時間進行前期策劃、場地協調和團隊調度。如果是大型活動或旺季，建議提前 1 個月以上。"
-            />
-            <FAQItem 
-              question="你們提供化妝師和模特兒嗎？" 
-              answer="可以的。我們有長期合作的專業化妝師 (MUA) 和模特兒經紀公司，可以根據你的品牌風格和預算代為安排。"
-            />
-            <FAQItem 
-              question="拍攝後的照片/影片版權歸誰？" 
-              answer="成品的商業使用權歸客戶所有。我們通常會保留將作品用於自身作品集展示的權利，如有特殊保密需求，可簽署 NDA (保密協議)。"
-            />
-            <FAQItem 
-              question="如果我不滿意初剪，可以修改嗎？" 
-              answer="當然。我們的標準報價通常包含 2-3 輪的免費修改 (Review Rounds)。我們會先提供 A-Copy，收集意見後進行調整，確保成品符合預期。"
-            />
+            {PRODUCTION_FAQS.map((f) => (
+              <FAQItem key={f.question} question={f.question} answer={f.answer} />
+            ))}
           </div>
         </div>
       </section>

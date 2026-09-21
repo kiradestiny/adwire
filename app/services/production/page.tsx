@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import ProductionServiceContent from "./ProductionServiceContent";
+import FAQJsonLd from "@/components/FAQJsonLd";
+import { PRODUCTION_FAQS } from "@/lib/service-faqs";
 
 export const metadata: Metadata = {
   title: "商業攝影與影片製作｜企業宣傳片",
@@ -22,5 +24,10 @@ export const metadata: Metadata = {
 };
 
 export default function ProductionServicePage() {
-  return <ProductionServiceContent />;
+  return (
+    <>
+      <FAQJsonLd faqs={PRODUCTION_FAQS} />
+      <ProductionServiceContent />
+    </>
+  );
 }

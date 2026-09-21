@@ -177,7 +177,7 @@ export const portfolioCases: PortfolioCase[] = [
     duration: "3 個月",
     services: ["SEO 技術優化", "GEO 地區優化", "內容策略", "網站重建", "Google Business"],
     shortDescription:
-      "為傳統行業進行數碼轉型。重新編寫高速度網站，配合長尾關鍵字策略，成功霸佔 Google 首頁頭三位。",
+      "為傳統行業進行數碼轉型。重新編寫高速度網站，配合長尾關鍵字策略，成功打入 Google 首頁前列。",
     fullDescription:
       "三個不同行業的本地服務業客戶（美容診所、私人貸款、外幣兌換），面對共同困境：業務完全仰賴口耳相傳，Google 搜尋曝光接近零，競爭對手佔據首頁。ADWire 為三個客戶制訂「行業度身訂造」SEO/GEO 策略，在競爭激烈的本地服務市場成功取得頭三位排名。",
     challenge:

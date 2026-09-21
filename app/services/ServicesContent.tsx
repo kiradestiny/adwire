@@ -10,6 +10,7 @@ import {
   Cpu
 } from "lucide-react";
 import Link from "next/link";
+import { SERVICES_OVERVIEW_FAQS } from "@/lib/service-faqs";
 
 // 痛點數據
 const painPoints = [
@@ -38,8 +39,8 @@ const painPoints = [
 // 服務數據
 const services = [
   {
-    category: "Digital Marketing（原有服務）",
-    description: "廣告投放、社交媒體、短視頻、KOL 及攝影。所有原有服務頁面全部保留。",
+    category: "Digital Marketing",
+    description: "廣告投放、社交媒體、短視頻、KOL 及攝影。適合需要內容、曝光及廣告成效的品牌。",
     color: "bg-orange-50",
     borderColor: "border-orange-100",
     titleColor: "text-orange-600",
@@ -89,7 +90,7 @@ const services = [
         id: "automation",
         title: "營銷自動化 (Marketing Automation)",
         icon: Bot,
-        content: "這是 ADWire 的核心技術優勢。我們幫你串接 WhatsApp API、CRM 及 Email 系統。當廣告帶來查詢時，AI Chatbot 立即秒回、自動追單，大幅節省客服人手成本，提升成交率。",
+        content: "這是 ADWire 的核心技術優勢。我們幫你串接 WhatsApp API、CRM 及 Email 系統。當廣告帶來查詢時，AI Chatbot 即時回覆、自動跟進，減少客服重複工序所佔的人力。",
         features: ["WhatsApp Chatbot", "自動追單系統", "CRM 客戶管理", "Zapier / Make 流程自動化"],
         link: "/services/automation"
       },
@@ -114,7 +115,7 @@ const services = [
         id: "seo",
         title: "SEO 與 GEO 優化",
         icon: Search,
-        content: "唔再靠估。我們幫你霸佔 Google 搜尋結果首頁。更引入前瞻性的 GEO (Generative Engine Optimization)，確保你的品牌能被 ChatGPT、Perplexity 等 AI 搜尋引擎優先推薦。",
+        content: "唔再靠估。我們協助你改善 Google 搜尋結果的排名位置。更引入前瞻性的 GEO (Generative Engine Optimization)，按 Google 官方指引調整內容結構，提高品牌在 AI 回答中被提及或引用的機會。注意：AI 平台輸出由平台決定，任何供應商都無法保證。",
         features: ["關鍵字策略研究", "On-page / Off-page SEO", "AI 搜尋推薦優化", "技術結構調整"],
         link: "/services/seo"
       },
@@ -148,7 +149,7 @@ const process = [
   {
     step: "02",
     title: "執行與優化 (Execution & Optimization)",
-    desc: "快速部署營銷活動與技術系統。透過實時數據監測，我們不斷進行 A/B 測試與優化，確保成效最大化。"
+    desc: "快速部署營銷活動與技術系統。透過實時數據監測，我們持續進行 A/B 測試，按數據調整投放策略。"
   },
   {
     step: "03",
@@ -367,6 +368,31 @@ export default function ServicesContent() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 常見問題
+          ⚠️ 內容來自 lib/service-faqs.ts 的 SERVICES_OVERVIEW_FAQS，
+             與 page.tsx 輸出的 FAQPage Schema 是同一個來源。
+             Google 要求 FAQ 結構化資料必須對應頁面實際可見內容，
+             因此這裡的畫面與 schema 不可能出現不一致。 */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">常見問題</h2>
+            <p className="text-gray-500">關於服務範圍、報價方式及合作流程，你可能想知道的事</p>
+          </div>
+          <div className="space-y-4">
+            {SERVICES_OVERVIEW_FAQS.map((f) => (
+              <details key={f.question} className="group border border-gray-200 rounded-2xl bg-white overflow-hidden">
+                <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none">
+                  <span className="font-bold text-[#0f4c81]">{f.question}</span>
+                  <span className="text-[#f5a623] text-xl group-open:rotate-45 transition-transform shrink-0">+</span>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 text-sm leading-relaxed">{f.answer}</div>
+              </details>
+            ))}
           </div>
         </div>
       </section>

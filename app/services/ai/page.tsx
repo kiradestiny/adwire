@@ -2,34 +2,7 @@ import type { Metadata } from "next";
 import AiServiceContent from "./AiServiceContent";
 import ServiceJsonLd from "@/components/ServiceJsonLd";
 import FAQJsonLd from "@/components/FAQJsonLd";
-
-// SEO 優化的 FAQ 數據
-const aiFaqs = [
-  {
-    question: "AI 解決方案適合甚麼規模的企業？",
-    answer: "我們的 AI 解決方案適合各種規模的 B2B 企業，從 10 人的中小企到數百人的大型企業都適用。我們會根據企業實際需求及預算，量身定制最合適的方案，由基礎的 AI 客服機器人到企業級私有化部署都可以提供。"
-  },
-  {
-    question: "AI 導入需要多長時間？成效何時可以看到？",
-    answer: "基礎的 AI 客服系統最快 4-6 週可上線，較複雜的企業知識庫或流程自動化約需 2-3 個月。實際回報視使用場景、資料質素及流程複雜度而定；我們會在方案階段提供估算假設及量度方式，不會預先保證回本期。"
-  },
-  {
-    question: "使用 AI 會否導致數據洩漏？",
-    answer: "資料處理方式會按需求及架構評估。可選包括企業內部網絡部署、受控雲端部署或混合模式，並按實際情況設定存取權限、日誌記錄、資料保留期及第三方模型 API 的使用範圍。任何部署方式的安全性都取決於架構設計、權限設定及日常操作，因此我們不會宣稱「零外洩」，而會逐項說明實際採用什麼措施。"
-  },
-  {
-    question: "員工是否需要接受培訓才能使用 AI 系統？",
-    answer: "我們的 AI 系統設計以用戶友善為核心，大多數功能員工可在 1-2 小時內上手。同時，我們會提供完整的培訓課程、使用手冊及持續的技術支援，確保團隊能夠充分發揮 AI 的價值。"
-  },
-  {
-    question: "AI 可以取代全部人手嗎？",
-    answer: "AI 的定位是協助而非完全取代人手。AI 能處理 80% 以上的重複性工作，讓員工專注於需要創意、判斷力及人際互動的高價值任務。我們的目標是人機協作，提升整體生產力而非裁員。"
-  },
-  {
-    question: "ADWire 的 AI 服務與其他供應商有何不同？",
-    answer: "ADWire 專注於香港 B2B 市場，我們的優勢包括：1) 深入了解本地商業環境及廣東話語境；2) 提供從諮詢到落地的一站式服務；3) 具備多個行業的成功案例及實戰經驗；4) 重視數據安全，提供私有化部署選項。"
-  }
-];
+import { AI_FAQS } from "@/lib/service-faqs";
 
 export const metadata: Metadata = {
   title: "企業 AI 應用開發與系統整合",
@@ -99,7 +72,7 @@ export default function AiServicePage() {
       />
       
       {/* FAQ 結構化數據 */}
-      <FAQJsonLd faqs={aiFaqs} />
+      <FAQJsonLd faqs={AI_FAQS} />
       
       {/* 頁面內容 */}
       <AiServiceContent />

@@ -23,7 +23,7 @@ export default function SeoServiceContent() {
     },
     {
       question: "什麼是 GEO（生成式引擎優化）/ AISO？",
-      answer: "GEO（Generative Engine Optimization）又稱 AISO（AI Search Optimization），是針對 ChatGPT、Perplexity、Google Gemini、Claude、Microsoft Copilot 等 AI 引擎的優化策略。GEO 確保當用戶向 AI 詢問相關問題時，你的品牌會被 AI 引用為權威答案，而非競爭對手。"
+      answer: "GEO（Generative Engine Optimization）又稱 AISO（AI Search Optimization），是針對 ChatGPT、Perplexity、Google Gemini、Claude、Microsoft Copilot 等 AI 引擎的優化策略。目標是提高品牌在 AI 回答中被提及或引用的機會。惟 AI 平台的輸出由平台決定，任何供應商都無法保證一定會被引用或推薦。"
     },
     {
       question: "什麼是 Zero-Click 搜尋？為什麼會影響我的網站流量？",
@@ -39,7 +39,7 @@ export default function SeoServiceContent() {
     },
     {
       question: "我已經有落 Google Ads，仲需唔需要做 SEO？",
-      answer: "絕對需要。廣告是「租」流量，一停錢就停流量；SEO 是「置業」，建立長期資產。更重要的是，廣告無法幫你進入 AI 引擎的推薦——只有 GEO 優化才能做到。SEO + Ads 雙管齊下能霸佔搜尋結果版面，效果最佳。"
+      answer: "絕對需要。廣告是「租」流量，一停錢就停流量；SEO 是「置業」，建立長期資產。更重要的是，廣告無法幫你進入 AI 引擎的推薦——只有 GEO 優化才能做到。SEO + Ads 雙管齊下能覆蓋更廣的搜尋結果版面，效果更佳。"
     },
     {
       question: "ChatGPT 和 Perplexity 如何決定推薦哪個品牌？",
@@ -180,7 +180,7 @@ export default function SeoServiceContent() {
                   ))}
                 </div>
                 <div className="px-6 pb-4 text-center">
-                  <p className="text-xs text-gray-500">ADWire 幫你在所有 AI 引擎建立可信、可引用的品牌存在</p>
+                  <p className="text-xs text-gray-500">ADWire 協助你在主要 AI 搜尋平台建立可信、可引用的品牌內容</p>
                 </div>
               </div>
 
@@ -392,7 +392,7 @@ export default function SeoServiceContent() {
             <DetailServiceCard 
               icon={MapPin}
               title="Local SEO 本地搜尋優化"
-              desc="抓緊身邊客源。優化 Google Business Profile (前稱 Google My Business)，確保當附近用戶搜尋相關服務時，你的店舖會出現在地圖首位。"
+              desc="抓緊身邊客源。優化 Google Business Profile (前稱 Google My Business)，協助你的店舖在本地搜尋中更容易被附近用戶找到。"
               features={["Google 地圖排名優化", "商家檔案管理", "本地引用 (Local Citations)", "客戶評論管理"]}
               color="orange"
             />
@@ -577,7 +577,7 @@ export default function SeoServiceContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <RelatedServiceCard 
               title="Google Ads"
-              desc="SEO + SEM 雙管齊下，霸佔搜尋結果"
+              desc="SEO + SEM 雙管齊下，覆蓋更多搜尋版面"
               link="/services/ads"
               icon="📢"
             />
@@ -606,7 +606,7 @@ export default function SeoServiceContent() {
       {/* 11. 數據承諾 */}
       <section className="py-20 bg-[#0f4c81] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-8">SEO 是長遠投資，回報是指數級的</h2>
+          <h2 className="text-3xl font-bold mb-8">SEO 是長遠投資，成效會逐步累積</h2>
           <div className="grid grid-cols-3 gap-8 border-t border-white/20 pt-8">
             <div>
               <div className="text-4xl font-bold text-[#f5a623] mb-2">3-6</div>

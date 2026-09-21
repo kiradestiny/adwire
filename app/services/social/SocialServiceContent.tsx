@@ -366,7 +366,7 @@ export default function SocialServiceContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard icon={PenTool} title="內容企劃 (Content)" desc="拒絕流水帳。我們撰寫有共鳴的文案，結合時事熱話 (Trend Jacking)，讓你的 Post 更有話題性。" />
             <FeatureCard icon={Users} title="視覺設計 (Design)" desc="美感是基本。製作統一風格的 Feed 圖、Reels 封面及 Story 素材，提升品牌質感。" />
-            <FeatureCard icon={MessageCircle} title="社群管理 (Community)" desc="秒回是關鍵。代你回覆 Inbox 及留言，解決客人疑問，將查詢轉化為訂單。" />
+            <FeatureCard icon={MessageCircle} title="社群管理 (Community)" desc="回覆速度是關鍵。代你回覆 Inbox 及留言，解決客人疑問，將查詢轉化為訂單。" />
             <FeatureCard icon={BarChart2} title="數據分析 (Analytics)" desc="每月提供 Insight Report，分析最佳內容，持續優化策略，確保預算花得其所。" />
           </div>
         </div>
@@ -538,7 +538,7 @@ export default function SocialServiceContent() {
                   <p className="text-gray-700 text-sm">請問呢個產品敏感肌用唔用得？同埋送貨要幾耐？🤔</p>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }} className="bg-[#0f4c81] text-white p-4 rounded-2xl rounded-tr-none max-w-sm ml-auto shadow-lg">
-                  <p className="text-sm">Hello! 👋 絕對可以呀，我哋成分好溫和～<br />現貨大約 2-3 日就會送到上門 🚚。而家仲有 9 折優惠添，要唔要 send 條 link 俾你？</p>
+                  <p className="text-sm">Hello! 👋 可以呀，我哋成分好溫和～<br />現貨大約 2-3 日就會送到上門 🚚。而家仲有 9 折優惠添，要唔要 send 條 link 俾你？</p>
                 </motion.div>
                 <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 1.5 }} className="bg-white p-4 rounded-2xl rounded-tl-none max-w-sm mr-auto flex items-center gap-2 shadow-sm border border-gray-100">
                   <Heart size={16} className="text-red-500 fill-current" />

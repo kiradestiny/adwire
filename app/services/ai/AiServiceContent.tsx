@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { getWhatsAppUrl } from "@/lib/site-config";
+import { AI_FAQS } from "@/lib/service-faqs";
 import {
   AlertTriangle,
   ArrowRight,
@@ -58,8 +59,8 @@ const aiModels = [
     icon: FileText,
   },
   {
-    name: "Llama 3.1",
-    provider: "Meta",
+    name: "開源模型",
+    provider: "Llama / Mistral 等",
     strength: "私有化部署、成本效益",
     useCase: "內部知識庫、敏感數據處理",
     icon: Server,
@@ -103,59 +104,6 @@ const technicalTerms = [
     term: "Vector Database",
     definition: "向量資料庫，高效儲存和檢索企業知識。",
     icon: Database,
-  },
-];
-
-const faqItems = [
-  {
-    question: "AI 解決方案適合甚麼規模的企業？",
-    answer:
-      "我們的 AI 解決方案適合各種規模的 B2B 企業，從 10 人的中小企到數百人的大型企業都適用。我們會根據企業實際需求及預算，量身定制最合適的方案。",
-  },
-  {
-    question: "AI 導入需要多長時間？",
-    answer:
-      "基礎 AI 客服或文件處理應用最快 4-6 週可上線；較複雜的企業知識庫或 AI 結合流程自動化約需 1-3 個月。實際時間取決於資料是否齊備、權限是否已開通及需要人工覆核的環節數量，會在方案階段一併確認。我們不會預先保證回本期，而是提供估算的假設及日後量度方式。",
-  },
-  {
-    question: "數據安全及私隱如何處理？",
-    answer:
-      "資料處理方式會按需求及架構評估。可選包括企業內部網絡部署、受控雲端部署或混合模式，並按實際情況設定存取權限、日誌記錄、資料保留期，以及第三方模型 API 的使用範圍。任何部署方式的安全性都取決於架構設計、權限設定及日常操作，因此我們不會宣稱「零外洩」，而會逐項說明實際採用什麼措施，以及哪些部分依賴第三方平台。",
-  },
-  {
-    question: "AI 出錯（例如答錯或產生不存在的內容）怎辦？",
-    answer:
-      "這是生成式 AI 的固有限制，無法完全消除，只能透過設計降低影響：包括限制知識庫來源、要求附引用、設定信心門檻、在關鍵步驟加入人工覆核，以及記錄每次輸出方便追查。高風險場景（例如財務、醫療或法律相關回覆）不建議由 AI 直接對外輸出。",
-  },
-  {
-    question: "模型的 API 費用由誰支付？",
-    answer:
-      "AI 模型 API 費用一般由客戶直接支付給模型供應商，收費按用量計算，會在方案中說明預估用量及金額範圍。ADWire 的報價只包含開發、整合及服務費用，第三方訂閱及用量費用另行計算。",
-  },
-  {
-    question: "知識庫由誰維護？",
-    answer:
-      "上線時我們會交付知識庫的更新方式及操作說明。其後可由你的團隊按既有流程更新，亦可交由 ADWire 按月維護。文件格式雜亂或需要大量清理的個案，會在方案階段一併評估工作量。",
-  },
-  {
-    question: "員工需要接受培訓嗎？",
-    answer:
-      "需要基本操作說明。系統會盡量沿用你現有的工作流程及介面習慣，交付時提供操作文件及培訓安排。實際所需時間視使用場景而定，不會以「即學即用」一概而論。",
-  },
-  {
-    question: "AI 會否取代人手？",
-    answer:
-      "AI 主要處理重複性及需要快速檢索的工序，涉及判斷、例外處理及客戶關係的環節通常保留人工覆核。我們的設計目標是讓同事把時間放在需要判斷的工作，而不是完全取消人手。",
-  },
-  {
-    question: "上線後可以自行接手或更換供應商嗎？",
-    answer:
-      "可以。原始碼、知識庫內容及你付費購買的帳戶歸客戶所有，交付時會一併移交並提供文件。第三方平台帳戶建議以客戶名義開立，避免日後交接出現困難。",
-  },
-  {
-    question: "AI 的成效怎樣量度？",
-    answer:
-      "會按應用場景設定可量度的指標，例如回覆時間、處理量、人工覆核比率、錯誤比率及查詢轉換情況。我們會區分「系統數據」（例如工單數量）與「業務結果」（例如成交），避免以系統指標代替業務成效。",
   },
 ];
 
@@ -429,7 +377,7 @@ export default function AiServiceContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <AdvantageCard icon={Brain} title="多模型策略" desc="支援 GPT-4、Claude、Llama 及私有模型，根據場景選擇最佳方案。" />
+            <AdvantageCard icon={Brain} title="多模型策略" desc="按場景選用合適的大型語言模型，包括商用 API 及開源模型，並評估成本、資料處理方式及準確度。" />
             <AdvantageCard icon={Database} title="資料治理與 RAG" desc="建立高品質知識庫，確保 AI 回答準確、可追溯。" />
             <AdvantageCard icon={Lock} title="企業級安全" desc="權限控制與審計日誌；部署方式按資料敏感度及業務需要評估。" />
             <AdvantageCard icon={Gauge} title="效能優化" desc="針對回應速度與成本進行模型壓縮與調優。" />
@@ -682,7 +630,7 @@ export default function AiServiceContent() {
           </div>
 
           <div className="space-y-4">
-            {faqItems.map((item, index) => (
+            {AI_FAQS.map((item, index) => (
               <motion.div
                 key={item.question}
                 initial={{ opacity: 0, y: 10 }}

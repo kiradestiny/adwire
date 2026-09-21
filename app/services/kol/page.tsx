@@ -127,7 +127,7 @@ const faqSchema = {
       name: "香港 KOL 合作費用是多少？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "香港 KOL 合作費用因層級差異甚大：Nano KOL（1K–10K粉絲）約 HK$500–3,000/帖；Micro KOL（10K–100K）約 HK$3,000–15,000；Mid-tier KOL（100K–500K）約 HK$15,000–50,000；Macro / Mega KOL 則按個別議價。ADWire 提供完整 KOL 配對方案，並根據預算制定最高 ROI 組合。",
+        text: "香港 KOL 合作費用因層級差異甚大：Nano KOL（1K–10K粉絲）約 HK$500–3,000/帖；Micro KOL（10K–100K）約 HK$3,000–15,000；Mid-tier KOL（100K–500K）約 HK$15,000–50,000；Macro / Mega KOL 則按個別議價。ADWire 提供完整 KOL 配對方案，並根據預算及目標配置合適的 KOL 組合。",
       },
     },
     {

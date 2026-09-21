@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { AUTOMATION_FAQS } from "@/lib/service-faqs";
 import ContactSection from "@/components/ContactSection";
 import { motion } from "framer-motion";
 import { Bot, Zap, Clock, Database, MessageSquare, ShoppingCart, UserCheck, ArrowRight, Check, X } from "lucide-react";
@@ -421,20 +422,13 @@ export default function AutomationServiceContent() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-[#0f4c81] mb-12 text-center">流程自動化常見問題</h2>
           <div className="space-y-5">
-            {[
-              { q: "自動化之後，是否完全不需要人手處理？", a: "不是。規則明確的步驟可以交由系統執行，但涉及判斷、例外處理或客戶關係的環節通常保留人工覆核。實際設計會按你的業務風險決定哪些步驟必須由人確認。" },
-              { q: "現有的 CRM 或 ERP 可以連接嗎？", a: "取決於該系統是否提供 API、你的方案是否包含 API 權限，以及平台是否允許自動化存取。我們會在 Discovery 階段實測確認，再告知可行的整合方式；如不可行會直接說明，不會先承諾後補救。" },
-              { q: "流程出錯會不會影響客戶？", a: "設計時會加入失敗重試、錯誤通知及人工交接。高風險步驟（例如發出報價、確認訂單）通常設定為需要人手核准後才執行。" },
-              { q: "需要多長時間？", a: "單一流程一般 2–6 週；涉及多系統整合或需要處理歷史資料的項目會較長。實際時間會在確認範圍後一併提供。" },
-              { q: "資料會放在哪裡？", a: "資料存放及傳輸方式會按你的要求及所用平台的能力確認，包括誰可以存取、保留多久及是否需要日誌。我們會逐項說明實際安排，不會以「絕對安全」一類說法代替具體描述。" },
-              { q: "上線之後由誰維護？", a: "可以交由 ADWire 按需要維護（按月安排），也可以由你的團隊接手。原始碼及帳戶歸屬會在合約中清楚列明，並在交付時提供文件及交接安排。" },
-            ].map((f) => (
-              <details key={f.q} className="group border border-gray-200 rounded-2xl bg-white overflow-hidden">
+            {AUTOMATION_FAQS.map((f) => (
+              <details key={f.question} className="group border border-gray-200 rounded-2xl bg-white overflow-hidden">
                 <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none">
-                  <span className="font-bold text-[#0f4c81]">{f.q}</span>
+                  <span className="font-bold text-[#0f4c81]">{f.question}</span>
                   <span className="text-[#f5a623] text-xl group-open:rotate-45 transition-transform shrink-0">+</span>
                 </summary>
-                <div className="px-6 pb-6 text-gray-600 text-sm leading-relaxed">{f.a}</div>
+                <div className="px-6 pb-6 text-gray-600 text-sm leading-relaxed">{f.answer}</div>
               </details>
             ))}
           </div>

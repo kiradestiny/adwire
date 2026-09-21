@@ -106,7 +106,7 @@ export const SERVICE_LINES: ServiceLine[] = [
   {
     key: "marketing",
     name: "Digital Marketing",
-    audience: "需要內容、曝光及廣告成效的品牌（原有服務，全部保留）",
+    audience: "需要內容、曝光及廣告成效的品牌",
     href: "/services/ads/",
     children: [
       { name: "成效廣告投放", href: "/services/ads/" },

@@ -29,7 +29,7 @@ export default function SystemServiceContent() {
     },
     {
       question: "我可以將現有的舊數據遷移到新系統嗎？",
-      answer: "絕對可以。我們的數據工程師會協助你清洗、整理並遷移舊系統或 Excel 中的數據，確保業務無縫銜接。"
+      answer: "可以。我們的數據工程師會協助你清洗、整理並遷移舊系統或 Excel 中的數據，並在遷移前後核對紀錄。"
     },
     {
       question: "系統支持多語言和多貨幣嗎？",
@@ -354,7 +354,7 @@ export default function SystemServiceContent() {
                 <tbody className="divide-y divide-gray-200">
                   <ComparisonRow item="業務契合度" custom="100% 根據流程量身訂造" saas="需修改業務流程去適應軟件" customBetter={true} />
                   <ComparisonRow item="數據擁有權" custom="完全擁有源代碼與數據" saas="數據存放在第三方平台" customBetter={true} />
-                  <ComparisonRow item="功能擴展性" custom="無限擴展，隨業務增長升級" saas="受限於平台功能模組" customBetter={true} />
+                  <ComparisonRow item="功能擴展性" custom="可按業務增長分階段擴展" saas="受限於平台功能模組" customBetter={true} />
                   <ComparisonRow item="長期成本" custom="一次性開發，無月費負擔" saas="按用戶數或功能收費，長期昂貴" customBetter={true} />
                   <ComparisonRow item="系統整合" custom="輕鬆對接現有 API 與硬體" saas="整合難度高或需額外付費" customBetter={true} />
                 </tbody>
@@ -583,7 +583,7 @@ export default function SystemServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">現代化技術架構</h2>
-            <p className="text-gray-500">使用主流、高效、可擴展的技術棧，確保系統十年不過時。</p>
+            <p className="text-gray-500">使用主流、可擴展的技術棧，並在交付時說明日後的升級及維護安排。</p>
           </div>
 
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">

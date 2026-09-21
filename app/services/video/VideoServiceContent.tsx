@@ -279,7 +279,7 @@ export default function VideoServiceContent() {
               icon={Smartphone}
               val="9:16"
               label="全屏沉浸體驗"
-              desc="霸佔用戶手機屏幕，資訊干擾最小，轉化率比傳統橫片高 2 倍。"
+              desc="在用戶手機屏幕上佔據主導視覺位置，資訊干擾最小。"
             />
             <StatCard 
               icon={Clock}

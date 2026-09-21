@@ -57,10 +57,12 @@ const servicesLinks = serviceGroups.flatMap((g) =>
 
 const waLink = getWhatsAppUrl("Hello ADWire, 我想查詢增長方案");
 
+/* ⚠️ LinkedIn 必須用公開公司頁。曾誤用 /admin/dashboard/（管理後台），
+   客人點擊會撞登入牆 —— 2026-09-21 修正（Footer 同樣已修）。 */
 const socialLinks = [
   { href: "https://www.facebook.com/profile.php?id=61575126092859", label: "Facebook",  Icon: Facebook  },
   { href: "https://www.instagram.com/adwire_official/",             label: "Instagram", Icon: Instagram },
-  { href: "https://www.linkedin.com/company/106715005/admin/dashboard/", label: "LinkedIn", Icon: Linkedin },
+  { href: "https://www.linkedin.com/company/106715005/", label: "LinkedIn", Icon: Linkedin },
 ];
 
 /* 社會認同數字 */

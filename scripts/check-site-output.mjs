@@ -73,6 +73,28 @@ const FORBIDDEN_PHRASES = [
   "香港首選",
   "香港領先",
   "領先市場",
+  // 2026-09-21 服務頁審計（deliverables/22）：以下均為閘門原先漏檢的字句。
+  // 加入後必須同時修正文案，否則 build 會失敗 —— 這正是閘門的用途。
+  "優先推薦",       // 服務總覽：「確保品牌能被 ChatGPT…優先推薦」
+  "霸佔",           // 服務總覽：「霸佔 Google 搜尋結果首頁」
+  "秒回",           // 服務總覽：「AI Chatbot 立即秒回」
+  "權威答案",       // SEO：「確保品牌會被 AI 引用為權威答案」
+  "指數級",         // SEO：「SEO 是長遠投資，回報是指數級的」
+  "所有 AI 引擎",   // SEO：「幫你在所有 AI 引擎建立…品牌存在」
+  "地圖首位",       // SEO：「確保店舖會出現在地圖首位」
+  "無限擴展",       // 系統：「無限擴展，隨業務增長升級」
+  "十年不過時",     // 系統：「確保系統十年不過時」
+  "無縫銜接",       // 系統：「確保業務無縫銜接」
+  "絕對可以",       // 系統 FAQ：「絕對可以」
+  "秒開",           // 網頁：「任何設備上都能秒開」
+  "領先對手",       // 網頁：「確保你的網站在起跑線就領先對手」
+  "最高 ROI",       // KOL：「根據預算制定最高 ROI 的組合方案」
+  "投入過百萬",     // 製作：「投入過百萬購置…器材」
+  "電影級",         // 製作：「電影級攝影器材」
+  "成效最大化",     // 服務總覽：「確保成效最大化」
+  "GPT-4",          // AI：過時模型名稱（Brief §6 PAGE-04 指定要審核）
+  "Llama 3.1",      // AI：2024 年 7 月產品，已過時
+  "出現在第一位",   // 廣告：「確保你的網站出現在第一位」
 ];
 
 /**
@@ -163,6 +185,9 @@ function selftest() {
     "避免相信香港首選這類自我排名說法。",
     // 真實案例：後台 blog id=14 content 的句子（否定語境，必須放行）
     "③避免相信「保證排名第一」的承諾（Google 明確表示無代理能保證排名）",
+    // 正確討論「優先推薦」：文章在告誡讀者不要相信
+    "任何聲稱確保被 AI 優先推薦的說法，都應該提防。",
+    "避免相信「保證排名第一位」這類承諾。",
   ];
   let bad = 0;
   console.log("閘門自我測試");
@@ -195,6 +220,24 @@ function walk(dir) {
     const p = join(dir, name);
     if (statSync(p).isDirectory()) out.push(...walk(p));
     else if (name === "index.html") out.push(p);
+  }
+  return out;
+}
+
+/**
+ * 純文字檔（llms.txt / llms-full.txt）亦要掃禁止字句。
+ *
+ * 為何需要（2026-09-21 發現）：閘門原本只掃 index.html，因此
+ * public/llms-full.txt 內一段舊文章摘要「讓你的品牌被 AI 優先推薦」
+ * 一直未被攔到 —— 而該句在網站正文早已移除。這類檔案同樣會被
+ * AI 系統及搜尋引擎讀取，屬對外內容，不應有例外。
+ */
+function textFiles(dir) {
+  const out = [];
+  for (const name of readdirSync(dir)) {
+    const p = join(dir, name);
+    if (statSync(p).isDirectory()) out.push(...textFiles(p));
+    else if (name.endsWith(".txt")) out.push(p);
   }
   return out;
 }
@@ -273,7 +316,16 @@ function main() {
   const files = walk(OUT);
   for (const f of files) checkPage(f, inSitemap);
 
-  console.log(`\n出街前閘門（檢查 ${files.length} 頁，sitemap ${inSitemap ? inSitemap.size : "?"} 頁）`);
+  // 純文字檔只做禁止字句檢查（無 Title／canonical／H1 等結構）
+  const txts = textFiles(OUT);
+  for (const f of txts) {
+    const rel = "/" + relative(OUT, f).replace(/\\/g, "/");
+    for (const { phrase, window } of detectForbidden(readFileSync(f, "utf8"))) {
+      errors.push(`${rel} 出現禁止字句「${phrase}」：…${window}…`);
+    }
+  }
+
+  console.log(`\n出街前閘門（檢查 ${files.length} 頁 + ${txts.length} 個純文字檔，sitemap ${inSitemap ? inSitemap.size : "?"} 頁）`);
   console.log("─".repeat(64));
 
   if (warnings.length) {
