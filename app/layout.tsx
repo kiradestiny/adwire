@@ -103,8 +103,8 @@ export default function RootLayout({
             區域策略（配合實際客戶分佈）：
               1) 歐盟／英國／瑞士（EEA／GB／CH）→ 一律預設「拒絕」，
                  符合 Google Consent Mode v2 的硬性要求。
-              2) 其他地區（香港、大灣區、新加坡、台灣等）→ 允許匿名統計，
-                 但廣告類 Cookie 仍然預設拒絕。
+              2) 其他地區（香港、大灣區、新加坡、台灣等）→ 全部預設「允許」。
+                 香港 PDPO 不要求 cookie opt-in；訪客仍可透過同意橫幅拒絕。
               3) 訪客透過 Cookie 通知表態後，由 ConsentBanner 呼叫
                  gtag('consent','update',...) 覆寫；已表態者會在此還原。
 
@@ -132,11 +132,17 @@ export default function RootLayout({
                 wait_for_update: 500
               });
 
-              // 2) 其他地區：允許匿名統計，廣告類仍預設拒絕
+              // 2) 其他地區（含香港）：預設全部允許
+              //    香港 PDPO 不要求 cookie opt-in；新加坡／台灣等亦只需告知。
+              //    訪客仍可透過同意橫幅（ConsentBanner.tsx）選擇拒絕，
+              //    選擇會以 gtag('consent','update') 覆蓋此預設值。
+              //    ⚠️ 2026-09-21 修正：原本此處 ads 類誤設 denied，與
+              //       ConsentBanner 文件所述「其他地區預設 granted」不符，
+              //       導致香港訪客（主要市場）轉換只能靠建模推算。
               gtag('consent', 'default', {
-                ad_storage: 'denied',
-                ad_user_data: 'denied',
-                ad_personalization: 'denied',
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted',
                 analytics_storage: 'granted',
                 wait_for_update: 500
               });
