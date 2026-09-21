@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postbuild": "node scripts/check-site-output.mjs",
+    "postbuild": "node scripts/check-site-output.mjs --selftest && node scripts/check-site-output.mjs",
     "check:output": "node scripts/check-site-output.mjs"
   },
   "dependencies": {

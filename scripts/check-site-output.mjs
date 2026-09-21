@@ -24,7 +24,8 @@
  *
  * 用法：
  *   node scripts/check-site-output.mjs
- *   node scripts/check-site-output.mjs --strict   # WARN 亦視為失敗
+ *   node scripts/check-site-output.mjs --strict     # WARN 亦視為失敗
+ *   node scripts/check-site-output.mjs --selftest   # 只跑否定語境偵測的自我測試
  *
  * 已接上 package.json 的 postbuild，故 `npm run build` 會自動執行。
  */
@@ -77,14 +78,114 @@ const FORBIDDEN_PHRASES = [
 /**
  * 否定語境標記。若禁止字句附近出現這些詞，代表是在告誡讀者不要相信，
  * 屬於正確內容（我們自己的文章就是這樣寫），故放行。
+ *
+ * 設計原則（2026-09-21 修正）：
+ *   1. 只收「多字」否定詞。曾經用裸「不」「無」做標記，結果 /about/ 的
+ *      「24 小時內回覆」因為後面緊接「無隱藏收費」而被放行（假陰性），
+ *      即真正的違規字句反而漏檢。裸字一律不收。
+ *   2. 必須對稱檢查。Google 官方警告的句式是「如果有人向您保證能排名
+ *      第一位，建議您另請高明」——否定詞在**後面**。只檢查字句前方
+ *      會令正確引用被誤判為違規（Article 19 就是這個情況）。
+ *   3. 引號內一律放行。字句被「」包住代表作者是在「討論」這個說法，
+ *      而不是向讀者「主張」它。
  */
-const NEGATION_MARKERS = ["不", "避免", "沒有人", "無", "拒絕", "勿", "非", "切勿", "不要", "不能"];
+const NEGATION_MARKERS = [
+  // 直接否定（多字詞，覆蓋「我們不會這樣做」類表述）
+  "不保證", "不會保證", "無法保證", "不能保證", "不可保證",
+  "不成立", "不可信", "不可能", "不會", "並非", "不是", "拒絕",
+  "沒有", "沒有人", "沒法", "無需", "不用",
+  // 告誡語：作者明顯站在讀者一方提醒
+  "避免", "切勿", "不要", "提防", "當心", "警惕", "戒心",
+  "停手", "另請高明", "質疑", "可信嗎", "騙", "誤導", "誇大", "虛假",
+  // 引述官方：在講「別人怎麼說」，不是自己主張
+  "原文", "引述", "官方文件", "官方指引", "點名", "這樣寫",
+];
+
+/** 判斷某位置的禁止字句是否被中文引號包住（代表是在討論該說法）。 */
+function isQuoted(text, idx) {
+  const before = text.slice(0, idx);
+  const open = (before.match(/[「『]/g) || []).length;
+  const close = (before.match(/[」』]/g) || []).length;
+  return open > close;
+}
 
 /** 已核准的對外數字（其他數字列為 WARN 供人覆核）。 */
 const APPROVED_STATS = new Set(["500+", "328%", "98%", "4.9", "45+", "16", "100%", "24/7"]);
 
 const errors = [];
 const warnings = [];
+
+/**
+ * 偵測一段純文字中的禁止字句，回傳真正違規（非正確討論）的清單。
+ * 抽成獨立函數，是為了可以用 --selftest 對固定測試案例驗證，
+ * 確保每次調整否定語境規則之後，仍然攔得到真正的違規字句。
+ */
+function detectForbidden(text) {
+  const found = [];
+  for (const phrase of FORBIDDEN_PHRASES) {
+    let from = 0;
+    for (;;) {
+      const i = text.indexOf(phrase, from);
+      if (i < 0) break;
+      // 判斷是否屬於「正確討論」而非「自我主張」：
+      //   a) 被中文引號包住 → 作者在討論這個說法
+      //   b) 前後 60 字內出現否定／告誡／引述標記
+      // 曾只檢查前 12 字，令 Google 官方句式「…保證能排名第一位，建議您
+      // 另請高明」被誤判為違規，故改為對稱窗口。
+      const window = text.slice(Math.max(0, i - 60), i + phrase.length + 60);
+      const negated =
+        isQuoted(text, i) || NEGATION_MARKERS.some((m) => window.includes(m));
+      if (!negated) found.push({ phrase, window: window.trim() });
+      from = i + phrase.length;
+    }
+  }
+  return found;
+}
+
+/**
+ * --selftest：對固定案例驗證偵測邏輯。
+ * MUST_FLAG 是真正要向讀者主張保證的字句；MUST_PASS 是正確的告誡／引述用法。
+ * 任何一項不符預期即 exit 1（CI 或本機都可執行）。
+ */
+function selftest() {
+  const MUST_FLAG = [
+    "我們提供 SEO 服務，保證排名第一，讓你生意倍增。",
+    "選擇 ADWire，保證排名首頁，效果看得見。",
+    "我們的方案確保優先引用，AI 一定會推薦你。",
+    "本公司是香港首選的數碼營銷公司。",
+  ];
+  const MUST_PASS = [
+    "沒有人可以保證能在 Google 上排名第一。",
+    "這也解釋了為何「保證排名」在技術上不可能成立。",
+    "SEO 公司保證排名第一，可信嗎？",
+    "Google 原文這樣寫：「如果有人向您保證能讓網站在搜尋結果中的排名攀升到第一位，建議您另請高明。」",
+    "如對方聲稱確保優先引用，應提高警惕。",
+    "避免相信香港首選這類自我排名說法。",
+  ];
+  let bad = 0;
+  console.log("閘門自我測試");
+  console.log("─".repeat(64));
+  for (const t of MUST_FLAG) {
+    const hit = detectForbidden(t);
+    const ok = hit.length > 0;
+    if (!ok) bad++;
+    console.log(`${ok ? "✅" : "❌"} 應攔截：${t}`);
+    if (!ok) console.log("      漏檢！這是假陰性，真違規會流出街。");
+  }
+  for (const t of MUST_PASS) {
+    const hit = detectForbidden(t);
+    const ok = hit.length === 0;
+    if (!ok) bad++;
+    console.log(`${ok ? "✅" : "❌"} 應放行：${t}`);
+    if (!ok) console.log(`      誤判為違規：${hit.map((h) => h.phrase).join("、")}`);
+  }
+  if (bad) {
+    console.log(`\n❌ 自我測試失敗 ${bad} 項。否定語境規則有問題，不可當作閘門使用。`);
+    process.exit(1);
+  }
+  console.log(`\n✅ 自我測試通過（${MUST_FLAG.length} 攔截 / ${MUST_PASS.length} 放行）。`);
+  process.exit(0);
+}
 
 function walk(dir) {
   const out = [];
@@ -149,22 +250,8 @@ function checkPage(file, inSitemap) {
 
   // ── 3. 禁止字句：否定語境自動放行 ──────────────────────────────
   const text = visibleText(html);
-  for (const phrase of FORBIDDEN_PHRASES) {
-    let from = 0;
-    for (;;) {
-      const i = text.indexOf(phrase, from);
-      if (i < 0) break;
-      // 否定語境只看「字句前面 12 字」。
-      // 曾經取 ±45 字窗口，結果 /about/ 的「24 小時內回覆」因為後面緊接
-      // 「無隱藏收費」而被誤判為否定語境（假陰性），所以收窄範圍。
-      const before = text.slice(Math.max(0, i - 12), i);
-      const window = text.slice(Math.max(0, i - 45), i + phrase.length + 45);
-      const negated = NEGATION_MARKERS.some((m) => before.includes(m));
-      if (!negated) {
-        errors.push(`${page} 出現禁止字句「${phrase}」：…${window.trim()}…`);
-      }
-      from = i + phrase.length;
-    }
+  for (const { phrase, window } of detectForbidden(text)) {
+    errors.push(`${page} 出現禁止字句「${phrase}」：…${window}…`);
   }
 
   // ── 4. 未核准數字 → WARN，按數字歸類避免洗版 ──────────────────
@@ -173,6 +260,8 @@ function checkPage(file, inSitemap) {
 }
 
 function main() {
+  if (process.argv.includes("--selftest")) selftest();
+
   if (!existsSync(OUT)) {
     console.error(`❌ 找不到 ${OUT}/ —— 請先執行 next build`);
     process.exit(1);
