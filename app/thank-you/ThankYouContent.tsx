@@ -23,15 +23,28 @@ export default function ThankYouContent() {
     // 讀取後立即清除，防止重新整理後仍可停留
     sessionStorage.removeItem("adwire_form_submitted");
 
-    // [Fix #1] GA4 / GTM 轉換追蹤事件
-    // 觸發 generate_lead 事件，Google Ads 及 GA4 均可讀取此 dataLayer push
-    if (typeof window !== "undefined" && Array.isArray((window as any).dataLayer)) {
-      (window as any).dataLayer.push({
-        event: "generate_lead",
-        event_category: "Contact Form",
-        event_label: "Thank You Page",
-      });
-    }
+    // ── GA4 / GTM：推送 generate_lead 事件（供 GA4 報表及 GTM 使用）──────────
+        if (typeof window !== "undefined" && Array.isArray((window as any).dataLayer)) {
+          (window as any).dataLayer.push({
+            event: "generate_lead",
+            event_category: "Contact Form",
+            event_label: "Thank You Page",
+          });
+        }
+
+        // ── Google Ads 轉換：直接由網站觸發，唔靠 GTM trigger ────────────────────
+        // 為何要直接觸發：
+        //   GTM 容器（GTM-WLF36PTR）內「A Lead Form」嘅轉換 trigger 綁定於
+        //   gtm.js（即完整頁面載入）＋ 路徑含 /thank-you。
+        //   但本站使用 Next.js 客戶端跳轉（router.push），唔會再 fire gtm.js，
+        //   導致「A Lead Form」轉換長期零記錄。
+        //   gtag.js 於 app/layout.tsx 載入（id=AW-16621944778）。
+        // Conversion label 對應 conversion action id 7089503181（A Lead Form）。
+        if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+          (window as any).gtag("event", "conversion", {
+            send_to: "AW-16621944778/m2HhCM33xLQaEMr_-vU9",
+          });
+        }
 
     // [Fix #3] 自動跳轉倒計時（10 秒後返回首頁）
     const timer = setInterval(() => {

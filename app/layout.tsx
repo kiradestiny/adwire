@@ -155,6 +155,11 @@ export default function RootLayout({
               } catch (e) {}
 
               gtag('config', 'G-G93P7WNBSY', { send_page_view: true });
+
+              // Google Ads 轉換追蹤（AW-16621944778 = 智本信貸帳戶，本 campaign 所用）
+              // 必須在此 config，否則 thank-you 頁無法 fire 轉換。
+              // ⚠️ 此 config 只影響 Ads，不會產生 GA4 page_view，故不會重複計算。
+              gtag('config', 'AW-16621944778');
               }
             `,
           }}
@@ -206,8 +211,18 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         {/* 註：gtag('config') 與 Consent Mode 預設值已在 <head> 執行，
-            此處只載入外部 gtag.js；不要再加第二個 config，否則會重複發送 page_view。 */}
+            此處只載入外部 gtag.js；不要再加第二個 GA4 config，否則會重複發送 page_view。 */}
         {/* End Google Analytics 4 */}
+
+        {/* ── Google Ads 轉換追蹤用嘅 gtag.js（AW-16621944778）─────────────
+            由 Google Ads 轉換動作提供嘅官方 snippet 載入。
+            只負責 Ads 轉換，不含 GA4 config，故不會造成 page_view 重複。 */}
+        <Script
+          id="aw-gtag-js"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16621944778"
+          strategy="afterInteractive"
+        />
+        {/* End Google Ads gtag.js */}
 
         {/* Microsoft Clarity */}
         <Script id="microsoft-clarity" strategy="lazyOnload">
