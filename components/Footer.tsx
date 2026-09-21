@@ -47,6 +47,13 @@ const SERVICE_GROUPS: { group: string; links: { name: string; href: string }[] }
     links: [{ name: "SEO 與 GEO 優化", href: "/services/seo" }],
   },
   {
+    group: "Cross-border Marketing",
+    links: [
+      { name: "中國市場推廣", href: "/services/china-market" },
+      { name: "香港市場在地化推廣", href: "/services/hong-kong-market" },
+    ],
+  },
+  {
     group: "Digital Marketing",
     links: [
       { name: "成效廣告投放", href: "/services/ads" },

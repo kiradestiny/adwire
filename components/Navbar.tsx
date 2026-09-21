@@ -39,6 +39,13 @@ const serviceGroups: {
     ],
   },
   {
+    group: "Cross-border Marketing",
+    links: [
+      { name: "中國市場推廣",       href: "/services/china-market",     emoji: "🌏", badge: "新" },
+      { name: "香港市場在地化推廣", href: "/services/hong-kong-market", emoji: "🏙️", badge: "新" },
+    ],
+  },
+  {
     group: "Digital Marketing",
     links: [
       { name: "成效廣告投放",       href: "/services/ads",        emoji: "📈", badge: null },

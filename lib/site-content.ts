@@ -104,6 +104,16 @@ export const SERVICE_LINES: ServiceLine[] = [
     ],
   },
   {
+    key: "crossborder",
+    name: "Cross-border Marketing",
+    audience: "想進入內地市場的香港品牌，或想進入香港市場的內地及海外品牌",
+    href: "/services/china-market/",
+    children: [
+      { name: "中國市場推廣（香港品牌進內地）", href: "/services/china-market/" },
+      { name: "香港市場在地化推廣（內地品牌來港）", href: "/services/hong-kong-market/" },
+    ],
+  },
+  {
     key: "marketing",
     name: "Digital Marketing",
     audience: "需要內容、曝光及廣告成效的品牌",
