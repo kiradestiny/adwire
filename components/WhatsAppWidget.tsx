@@ -35,12 +35,14 @@ export default function WhatsAppWidget() {
     if (path.includes("/services/ads"))        return "Hello ADWire, 我想了解更多關於成效廣告投放的服務！";
     if (path.includes("/services/video"))      return "Hello ADWire, 我想了解更多關於短視頻製作的服務！";
     if (path.includes("/services/seo"))        return "Hello ADWire, 我想了解更多關於 SEO/GEO 搜尋優化的服務！";
-    if (path.includes("/services/social"))     return "Hello ADWire, 我想了解更多關於社群媒體營銷的服務！";
+    if (path.includes("/services/social"))     return "Hello ADWire, 我想了解更多關於社交媒體管理的服務！";
     if (path.includes("/services/system"))     return "Hello ADWire, 我想了解更多關於系統開發與自動化的服務！";
     if (path.includes("/services/web"))        return "Hello ADWire, 我想了解更多關於網頁設計與開發的服務！";
     if (path.includes("/services/automation")) return "Hello ADWire, 我想了解更多關於企業流程自動化及 RPA 的服務！";
     if (path.includes("/services/production")) return "Hello ADWire, 我想了解更多關於內容製作的服務！";
     if (path.includes("/services/ai"))         return "Hello ADWire, 我想了解更多關於企業 AI Solution 服務！";
+    if (path.includes("/services/china-market"))         return "Hello ADWire, 我想了解中國市場推廣（小紅書／抖音／微信／百度）的服務！";
+    if (path.includes("/services/hong-kong-market"))         return "Hello ADWire, 我想了解香港市場在地化推廣的服務！";
     if (path === "/services")                  return "Hello ADWire, 我想了解更多關於你們的各項 Marketing 服務！";
     if (path.includes("/portfolio"))           return "Hello ADWire, 我看了你們的案例，想了解更多相關服務！";
     if (path.includes("/blog"))                return "Hello ADWire, 我正在閱讀你們的文章，想了解更多！";

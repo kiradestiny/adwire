@@ -215,11 +215,21 @@ const SERVICE_LINK_MAP: { match: RegExp; links: ServiceLink[] }[] = [
     ],
   },
   {
-    match: /China Market|內地|小紅書|抖音|百度/i,
+    match: /China Market|內地|小紅書|抖音|百度|微信|美團|大眾點評/i,
     links: [
+      { name: "中國市場推廣服務", href: "/services/china-market/", reason: "本文討論的內地平台推廣範圍、內容分工及量度方式" },
       { name: "社交媒體代管服務", href: "/services/social/", reason: "內地平台營運及內容企劃的實際工作" },
       { name: "成效廣告投放服務", href: "/services/ads/", reason: "內地平台的付費投放與量度方式" },
       { name: "KOL 網紅營銷", href: "/services/kol/", reason: "內地 KOC／KOL 合作的配對及內容監修" },
+    ],
+  },
+
+  {
+    match: /Hong Kong Market|香港市場|在地化|來港|進入香港|本地化/i,
+    links: [
+      { name: "香港市場在地化推廣服務", href: "/services/hong-kong-market/", reason: "本文討論的本地化範圍、用語差異及推廣組合" },
+      { name: "社交媒體代管服務", href: "/services/social/", reason: "香港市場的社交平台內容企劃及日常營運" },
+      { name: "KOL 網紅營銷", href: "/services/kol/", reason: "本地 KOL／KOC 的配對、報價及成效歸因" },
     ],
   },
   {

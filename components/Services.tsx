@@ -1,25 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Megaphone, Smartphone, BarChart3, Bot, Globe, 
+import {
+  Megaphone, Smartphone, BarChart3, Bot, Globe,
   Search, Code, Camera, Share2, ArrowRight, ChevronDown,
-  Cpu
+  Cpu, MapPin, Building2
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
-/* 主要服務線（按新定位排序：Software → AI & Automation → SEO & GEO） */
+/* 主要服務線（按新定位排序：SEO & GEO → AI & Automation → Software）
+   為何 SEO 行先：負責人指示「主要都係想做返 SEO、AI 搜尋等等嘅工作為主」，
+   與 /services/ 服務總覽的排序保持一致。 */
 const coreServices = [
   {
-    icon: Code,
-    title: "Software Development",
-    desc: "企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合。由需求分析、Prototype、開發、測試到部署、文件及上線後維護。",
-    link: "/services/system",
-    color: "bg-blue-500",
-    textColor: "text-blue-500",
-    bgLight: "bg-blue-50",
-    border: "border-blue-100"
+    icon: Search,
+    title: "SEO & GEO",
+    desc: "技術 SEO、關鍵字及搜尋意圖規劃、內容優化，並將搜尋曝光延伸到 AI 問答搜尋。以曝光、點擊、索引健康及查詢轉換作為量度指標。",
+    link: "/services/seo",
+    color: "bg-cyan-500",
+    textColor: "text-cyan-500",
+    bgLight: "bg-cyan-50",
+    border: "border-cyan-100"
   },
   {
     icon: Cpu,
@@ -32,14 +34,14 @@ const coreServices = [
     border: "border-indigo-100"
   },
   {
-    icon: Search,
-    title: "SEO & GEO",
-    desc: "技術 SEO、關鍵字及搜尋意圖規劃、內容優化，並將搜尋曝光延伸到 AI 問答搜尋。以曝光、點擊、索引健康及查詢轉換作為量度指標。",
-    link: "/services/seo",
-    color: "bg-cyan-500",
-    textColor: "text-cyan-500",
-    bgLight: "bg-cyan-50",
-    border: "border-cyan-100"
+    icon: Code,
+    title: "Software Development",
+    desc: "企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合。由需求分析、Prototype、開發、測試到部署、文件及上線後維護。",
+    link: "/services/system",
+    color: "bg-blue-500",
+    textColor: "text-blue-500",
+    bgLight: "bg-blue-50",
+    border: "border-blue-100"
   }
 ];
 
@@ -100,6 +102,22 @@ const otherServices = [
     link: "/services/production",
     color: "text-rose-600",
     bg: "bg-rose-100"
+  },
+  {
+    icon: MapPin,
+    title: "中國市場推廣",
+    desc: "香港品牌進入內地：小紅書、抖音、微信、微博、百度，以及美團／大眾點評／高德地圖與內地 AI 平台（DeepSeek、豆包、Kimi）的可見度。",
+    link: "/services/china-market",
+    color: "text-red-600",
+    bg: "bg-red-100"
+  },
+  {
+    icon: Building2,
+    title: "香港市場在地化推廣",
+    desc: "內地及海外品牌來港：由用語轉換、內容重寫到媒體與 KOL 選擇，用香港的語言與文化落地，而不是把原有文案直接搬過來。",
+    link: "/services/hong-kong-market",
+    color: "text-teal-600",
+    bg: "bg-teal-100"
   }
 ];
 
@@ -150,7 +168,7 @@ export default function Services() {
             transition={{ delay: 0.2 }}
             className="text-gray-500 text-lg max-w-2xl mx-auto"
           >
-            從流量取得、內容製作到技術開發，我們提供一站式服務，助你突破增長瓶頸。
+            以 SEO 及 AI 搜尋可見度為核心，配合網站開發、AI 應用、內容製作與跨境市場推廣，助你在客戶搜尋的那一刻出現。
           </motion.p>
         </div>
 

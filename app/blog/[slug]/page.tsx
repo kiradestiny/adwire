@@ -613,6 +613,8 @@ export default async function BlogPost({
                     { href: "/services/kol", label: "KOL 網紅營銷" },
                     { href: "/services/automation", label: "自動化流程設計" },
                     { href: "/services/web", label: "高轉換網頁設計" },
+                    { href: "/services/china-market", label: "中國市場推廣" },
+                    { href: "/services/hong-kong-market", label: "香港市場在地化推廣" },
                   ].map(({ href, label }) => (
                     <li key={href}>
                       <Link
