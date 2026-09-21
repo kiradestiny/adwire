@@ -128,6 +128,58 @@
 
 ---
 
+---
+
+## 6. 上線後覆核再發現的兩處（已修）
+
+### 6.1 後台其他表也有大陸用語
+
+首次掃描只查了 `blog_posts` 與 `portfolio_cases`。上線後 SSH 覆核仍見 `/about/` 有「轉化率」，於是掃描**全部 43 個表**：
+
+| 表 | 欄位 | 內容 | 處理 |
+|---|---|---|---|
+| `portfolio_before_after` | `label` | 詢盤轉化率 | ✅ 已改（先備份） |
+| `portfolio_metrics` | `label` | 詢盤轉化率 | ✅ 已改（先備份） |
+| `portfolio_steps` | `description` | 收集反饋 | ✅ 已改（先備份） |
+| `quotation_items` | `description` | 轉化率優化／Conversion Rate | ❌ **不改** |
+
+**為何不改 `quotation_items`：** 那是**已發給客戶的真實報價單**，屬業務記錄，不是網站公開內容。改動會令已發出的報價與系統記錄不一致。如你希望統一用語，請明確指示。
+
+備份：`~/db_backups/backup_hkcn2_*.json`（3 個檔）
+
+### 6.2 `app/about/AboutContent.tsx`（我的掃描工具有 bug）
+
+`/about/` 仍顯示「轉化率」，但我的掃描報告「0 殘留」。
+
+**根因：** 我的掃描腳本用 substring 判斷跳過目錄：
+
+```
+SKIP = {'.git','node_modules','.next','out','preview-build'}
+if 'out' in root: 跳過
+```
+
+而 **`"out" in "app\\about"` 係 True**（"about" 含 "out"）→ **`app/about/` 一直被自己跳過**。
+
+已改用**路徑元件比對**（`set(relpath.split(os.sep)) & SKIP`）重掃全站，確認其餘檔案乾淨。
+
+### 6.3 `deliverables/` 內的字不改
+
+重掃後 `deliverables/` 仍有「反饋／轉化率／信息流」及簡體字。這些是**歷史審計記錄**及 **GSC 原始數據匯出**（`seo-data/*.json` 含用戶實際輸入的簡體搜尋查詢）。不是網站內容，**不應改動**。
+
+---
+
+## 7. 最終正式站驗證（零殘留）
+
+| 檢查項 | 結果 |
+|---|---|
+| 服務器／反饋／轉化率／落地頁／机率／掌柜／演演算法 | **0 檔** ✅ |
+| HK Market「質量」對照表（故意保留） | 1 檔 ✅ |
+| 後台禁字殘留（霸佔／最高 ROI／GPT-4） | **0** ✅ |
+| 後台檢查器 4 個檔案 | 全部在線上 ✅ |
+| blog 文章 / sitemap / 服務頁表格 / 圖片 | 27 / 64 / 12-12 / 21 ✅ |
+
+---
+
 ## 5. 待負責人決定
 
 **🟡「短視頻」一詞** —— 這是全站最大範圍的大陸用語，出現在 Navbar 標籤、Footer、首頁關鍵字、多個服務頁及文章（合計 50+ 處）。
