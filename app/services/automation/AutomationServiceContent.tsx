@@ -72,7 +72,7 @@ export default function AutomationServiceContent() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
               <WorkflowStep 
                 icon={UserCheck} 
-                title="1. 獲取名單" 
+                title="1. 取得名單" 
                 desc="客人在 FB/IG 填寫 Lead Form" 
                 delay={0}
               />

@@ -135,7 +135,7 @@ const ADVANTAGES = [
   },
 ];
 
-// ── SVG Sparkline 路徑（表達業績切線上升感）
+// ── SVG Sparkline 路徑（表達業績切網上升感）
 const SPARK_LINE =
   "M0,88 C25,85 35,78 55,74 C75,70 85,76 108,65 C130,54 140,58 162,46 C184,34 194,42 215,32 C236,22 248,15 268,10 C282,7 292,5 300,4";
 const SPARK_FILL = `${SPARK_LINE} L300,100 L0,100 Z`;

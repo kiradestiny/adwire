@@ -41,7 +41,7 @@ export default function SystemServiceContent() {
     },
     {
       question: "系統會提供培訓嗎？",
-      answer: "會的。交付時會提供操作說明文件及培訓安排，確保負責同事能自行處理日常操作。實際培訓方式（現場、線上或錄影）會在方案階段確認。"
+      answer: "會的。交付時會提供操作說明文件及培訓安排，確保負責同事能自行處理日常操作。實際培訓方式（現場、網上或錄影）會在方案階段確認。"
     },
     {
       question: "交付範圍包括什麼？",
@@ -49,7 +49,7 @@ export default function SystemServiceContent() {
     },
     {
       question: "原始碼、帳戶及資料歸誰所有？",
-      answer: "客製化開發的原始碼及你付費購買的帳戶歸客戶所有，交付時會一併移交。第三方平台（例如雲端主機、短訊或電郵服務）的帳戶建議由客戶名義開立，避免日後更換供應商時出現交接困難。相關安排會在合約中明確列明。"
+      answer: "訂造開發的原始碼及你付費購買的帳戶歸客戶所有，交付時會一併移交。第三方平台（例如雲端主機、短訊或電郵服務）的帳戶建議由客戶名義開立，避免日後更換供應商時出現交接困難。相關安排會在合約中明確列明。"
     },
     {
       question: "第三方或雲端服務費用由誰支付？",
@@ -147,8 +147,8 @@ export default function SystemServiceContent() {
                   <TrendingUp size={24} />
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 font-bold">效率提升</div>
-                  <div className="text-xl font-bold">+300%</div>
+                  <div className="text-xs text-gray-500 font-bold">交付內容</div>
+                  <div className="text-xl font-bold">原始碼</div>
                 </div>
               </div>
             </motion.div>
@@ -160,10 +160,10 @@ export default function SystemServiceContent() {
       <section className="py-16 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <StatItem number="80+" label="企業系統項目" />
-            <StatItem number="300%" label="平均效率提升" />
-            <StatItem number="24/7" label="系統監控及告警" />
-            <StatItem number="4-8週" label="平均交付時間" />
+            <StatItem number="原始碼" label="交付及完整擁有權" />
+            <StatItem number="按範圍" label="分階段交付及驗收" />
+            <StatItem number="監控" label="上線後監控及告警設定" />
+            <StatItem number="UAT" label="上線前逐項驗收" />
           </div>
         </div>
       </section>
@@ -335,9 +335,9 @@ export default function SystemServiceContent() {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">為什麼選擇客製化開發？</h2>
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">為什麼選擇訂造開發？</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              現成軟體雖然便宜，但往往難以完全契合你的業務流程。客製化系統能為你創造長期的競爭優勢。
+              現成軟件雖然便宜，但往往難以完全契合你的業務流程。度身訂造系統能為你創造長期的競爭優勢。
             </p>
           </div>
 
@@ -347,12 +347,12 @@ export default function SystemServiceContent() {
                 <thead className="bg-slate-900 text-white">
                   <tr>
                     <th className="py-4 px-6 text-left font-bold">比較項目</th>
-                    <th className="py-4 px-6 text-center font-bold">ADWire 客製化系統</th>
-                    <th className="py-4 px-6 text-center font-bold">現成套版軟體 (SaaS)</th>
+                    <th className="py-4 px-6 text-center font-bold">ADWire 度身訂造系統</th>
+                    <th className="py-4 px-6 text-center font-bold">現成套版軟件 (SaaS)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  <ComparisonRow item="業務契合度" custom="100% 根據流程量身訂造" saas="需修改業務流程去適應軟體" customBetter={true} />
+                  <ComparisonRow item="業務契合度" custom="100% 根據流程量身訂造" saas="需修改業務流程去適應軟件" customBetter={true} />
                   <ComparisonRow item="數據擁有權" custom="完全擁有源代碼與數據" saas="數據存放在第三方平台" customBetter={true} />
                   <ComparisonRow item="功能擴展性" custom="無限擴展，隨業務增長升級" saas="受限於平台功能模組" customBetter={true} />
                   <ComparisonRow item="長期成本" custom="一次性開發，無月費負擔" saas="按用戶數或功能收費，長期昂貴" customBetter={true} />
@@ -388,15 +388,15 @@ export default function SystemServiceContent() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">系統化的實際效益</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              投資企業系統不是成本，而是提升競爭力的戰略投資。以下是客戶平均獲得的實際效益。
+              投資企業系統是長期基建。以下是導入系統後通常會處理到的營運問題。
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <BenefitCard icon={TrendingUp} percentage="+300%" title="工作效率提升" desc="自動化重複性工作，員工專注高價值任務" />
-            <BenefitCard icon={Users} percentage="+40%" title="客戶回購率" desc="精準營銷與會員管理提升顧客忠誠度" />
-            <BenefitCard icon={Database} percentage="98%" title="數據準確率" desc="消除人手錯誤，實時數據同步" />
-            <BenefitCard icon={Briefcase} percentage="-50%" title="營運成本降低" desc="減少重複工作與錯誤成本" />
+            <BenefitCard icon={TrendingUp} percentage="流程自動化" title="取代重複人手工序" desc="把重複工序交由系統處理，員工專注高價值任務" />
+            <BenefitCard icon={Users} percentage="會員系統" title="客戶資料集中管理" desc="記錄互動與購買紀錄，支援回購跟進" />
+            <BenefitCard icon={Database} percentage="單一來源" title="消除重複與版本混亂" desc="所有部門讀取同一份即時數據" />
+            <BenefitCard icon={Briefcase} percentage="權限管理" title="按角色分配存取權" desc="誰可以看、可以改，清楚可追溯" />
           </div>
         </div>
       </section>
@@ -415,7 +415,7 @@ export default function SystemServiceContent() {
             <IndustryCard title="零售與電商" desc="進銷存系統、會員積分、多渠道訂單整合" example="連鎖零售店實施 ERP 後，庫存週轉率提升 60%" />
             <IndustryCard title="美容與健身" desc="預約管理、會員制度、課程套餐系統" example="美容中心使用 CRM 後，客戶回購率從 25% 升至 65%" />
             <IndustryCard title="餐飲與酒店" desc="訂座系統、庫存管理、POS 整合" example="餐廳集團通過系統整合，減少 30% 食材浪費" />
-            <IndustryCard title="製造與物流" desc="生產排程、供應鏈管理、質量追蹤" example="製造商實施 MES 系統後，生產效率提升 45%" />
+            <IndustryCard title="製造與物流" desc="生產排程、供應鏈管理、質素追蹤" example="製造商實施 MES 系統後，生產效率提升 45%" />
           </div>
         </div>
       </section>
@@ -486,7 +486,7 @@ export default function SystemServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">嚴謹的系統開發流程</h2>
-            <p className="text-slate-400">確保項目準時、高質量交付的標準化路徑。</p>
+            <p className="text-slate-400">確保項目準時、高質素交付的標準化路徑。</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -643,7 +643,7 @@ export default function SystemServiceContent() {
                 <TrendingUp className="text-blue-600" size={24} />
                 <h3 className="text-xl font-bold text-gray-900">SEO 搜尋引擎優化</h3>
               </div>
-              <p className="text-gray-600 text-sm mb-4">提升系統門戶或官網的搜尋排名，獲取更多高質量的 B2B 詢盤。</p>
+              <p className="text-gray-600 text-sm mb-4">提升系統門戶或官網的搜尋排名，取得更多高質素的 B2B 詢盤。</p>
               <div className="flex items-center gap-2 text-blue-600 font-medium text-sm group-hover:gap-3 transition-all">
                 了解更多 <ArrowRight size={16} />
               </div>

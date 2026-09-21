@@ -149,7 +149,7 @@ export default function ProductionServiceContent() {
       <section className="py-24 bg-[#0a0a0a] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">荷里活級製作流程</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">專業製作流程</h2>
             <p className="text-gray-400 text-lg">嚴謹的流程，是品質的保證。</p>
           </div>
 
@@ -201,7 +201,7 @@ export default function ProductionServiceContent() {
               </p>
               
               <div className="space-y-6">
-                <GearItem title="Cinema Cameras" desc="Sony FX6 / A7S3, RED Komodo - 電影感畫質保證" />
+                <GearItem title="Cinema Cameras" desc="Sony FX6 / A7S3, RED Komodo - 電影級畫質" />
                 <GearItem title="Professional Lighting" desc="Aputure 600D / Nova - 營造層次豐富的燈光" />
                 <GearItem title="Audio & Stabilization" desc="DJI Ronin 穩定器 / Rode 專業收音 - 畫面如絲般順滑" />
                 <GearItem title="Aerial Drone" desc="DJI Mavic 3 Cine - Apple ProRes 航拍畫質" />

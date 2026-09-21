@@ -71,7 +71,7 @@ export const blogPosts: BlogPost[] = [
                 <td class="px-4 py-3 text-gray-500 text-xs">Toby（整合逾 150,000 份報價）</td>
               </tr>
               <tr class="border-b border-gray-100">
-                <td class="px-5 py-3 font-medium text-gray-700">客製化企業網站</td>
+                <td class="px-5 py-3 font-medium text-gray-700">訂造企業網站</td>
                 <td class="px-4 py-3 text-gray-600">30,000 – 100,000</td>
                 <td class="px-4 py-3 text-gray-500 text-xs">LearnMore 香港網頁設計價錢</td>
               </tr>
@@ -98,7 +98,7 @@ export const blogPosts: BlogPost[] = [
               <tr class="border-b border-gray-100"><td class="px-5 py-3 text-gray-700">首頁</td><td class="px-4 py-3 text-gray-600">2,600 – 7,200</td></tr>
               <tr class="bg-gray-50 border-b border-gray-100"><td class="px-5 py-3 text-gray-700">動態首頁（含動畫效果）</td><td class="px-4 py-3 text-gray-600">5,400 – 12,000</td></tr>
               <tr class="border-b border-gray-100"><td class="px-5 py-3 text-gray-700">內頁（套用模板）</td><td class="px-4 py-3 text-gray-600">1,900 – 3,000 / 頁</td></tr>
-              <tr class="bg-gray-50 border-b border-gray-100"><td class="px-5 py-3 text-gray-700">內頁（客製化設計）</td><td class="px-4 py-3 text-gray-600">2,400 – 5,400 / 頁</td></tr>
+              <tr class="bg-gray-50 border-b border-gray-100"><td class="px-5 py-3 text-gray-700">內頁（訂造設計）</td><td class="px-4 py-3 text-gray-600">2,400 – 5,400 / 頁</td></tr>
               <tr class="border-b border-gray-100"><td class="px-5 py-3 text-gray-700">手機版響應式設計</td><td class="px-4 py-3 text-gray-600">設計費的 50% – 80%</td></tr>
               <tr class="bg-gray-50 border-b border-gray-100"><td class="px-5 py-3 text-gray-700">額外語言版本</td><td class="px-4 py-3 text-gray-600">設計費的 40% – 60%</td></tr>
               <tr><td class="px-5 py-3 text-gray-700">網站圖示（每個）</td><td class="px-4 py-3 text-gray-600">400 – 1,000</td></tr>
@@ -124,9 +124,9 @@ export const blogPosts: BlogPost[] = [
             <p class="text-gray-600 text-sm leading-relaxed"><strong>限制：</strong>版面結構由模板決定，你的業務流程要遷就模板，而不是反過來。SEO 結構通常未經規劃，而且大量同業可能使用同一套模板。</p>
           </div>
           <div class="border-2 border-[#0f4c81] rounded-xl p-6 bg-blue-50/40">
-            <p class="font-bold text-[#0f4c81] mb-2">第二層：按需求客製化（約 HK$30,000 – HK$100,000）</p>
+            <p class="font-bold text-[#0f4c81] mb-2">第二層：按需求度身訂造（約 HK$30,000 – HK$100,000）</p>
             <p class="text-gray-600 text-sm leading-relaxed mb-3">先了解你的業務目標、客戶決策過程與競爭環境，再決定網站結構、內容與功能。設計是為你的品牌與客戶而做。</p>
-            <p class="text-gray-600 text-sm leading-relaxed"><strong>差別：</strong>報價包含了「規劃」這個工序 —— 而規劃才是決定網站能否帶來生意的部分。香港市場上，這個層級的報價差異最大，因為「客製化」的定義很闊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed"><strong>差別：</strong>報價包含了「規劃」這個工序 —— 而規劃才是決定網站能否帶來生意的部分。香港市場上，這個層級的報價差異最大，因為「度身訂造」的定義很闊。</p>
           </div>
           <div class="border border-gray-200 rounded-xl p-6">
             <p class="font-bold text-[#0f4c81] mb-2">第三層：複雜系統整合（HK$80,000 – HK$200,000 以上）</p>
@@ -148,7 +148,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>誰負責內容與 SEO。</strong>這一點最常被忽略：如果報價<strong>不包含</strong>關鍵字規劃、頁面標題與描述、網站結構與內部連結，那你買到的是一個「漂亮但沒有人找得到」的網站。</li>
         </ol>
 
-        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、模板、客製化、自己建站：如何選？</h3>
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、模板、度身訂造、自己建站：如何選？</h3>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
           <table class="w-full text-sm border-collapse">
@@ -156,7 +156,7 @@ export const blogPosts: BlogPost[] = [
               <tr class="bg-[#0f4c81] text-white">
                 <th class="text-left px-5 py-3 font-semibold">考慮因素</th>
                 <th class="text-center px-4 py-3 font-semibold">模板套餐</th>
-                <th class="text-center px-4 py-3 font-semibold bg-[#f5a623]">客製化開發</th>
+                <th class="text-center px-4 py-3 font-semibold bg-[#f5a623]">訂造開發</th>
                 <th class="text-center px-4 py-3 font-semibold">自己建站工具</th>
               </tr>
             </thead>
@@ -164,7 +164,7 @@ export const blogPosts: BlogPost[] = [
               <tr class="border-b border-gray-100">
                 <td class="px-5 py-3 font-medium text-gray-700">適合誰</td>
                 <td class="px-4 py-3 text-center text-gray-600 text-xs">純展示、預算極有限</td>
-                <td class="px-4 py-3 text-center text-gray-700 text-xs font-medium">靠網站獲取客戶、有明確業務目標</td>
+                <td class="px-4 py-3 text-center text-gray-700 text-xs font-medium">靠網站取得客戶、有明確業務目標</td>
                 <td class="px-4 py-3 text-center text-gray-600 text-xs">有時間自己動手、需求簡單</td>
               </tr>
               <tr class="bg-gray-50 border-b border-gray-100">
@@ -191,7 +191,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-r-xl my-8">
           <p class="font-bold text-yellow-800 mb-2">💡 一個實用的判斷方法</p>
-          <p class="text-yellow-900 text-sm leading-relaxed">問自己：<strong>「網站是我獲取客戶的主要渠道，還是只是數碼名片？」</strong>如果是前者，把預算放在能帶來查詢的結構與內容上，而不是最多的頁數或最花俏的動畫。如果是後者，模板方案已經足夠。</p>
+          <p class="text-yellow-900 text-sm leading-relaxed">問自己：<strong>「網站是我取得客戶的主要渠道，還是只是數碼名片？」</strong>如果是前者，把預算放在能帶來查詢的結構與內容上，而不是最多的頁數或最花俏的動畫。如果是後者，模板方案已經足夠。</p>
         </div>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、香港網頁設計的標準流程（7 個階段）</h3>
@@ -402,7 +402,7 @@ export const blogPosts: BlogPost[] = [
               <td class="px-3 py-3 text-center text-green-600 font-bold bg-green-50">節省 85% 處理時間</td>
             </tr>
             <tr class="border-b border-gray-100">
-              <td class="px-4 py-3 font-medium text-gray-700">AI 行銷內容創作</td>
+              <td class="px-4 py-3 font-medium text-gray-700">AI 營銷內容創作</td>
               <td class="px-3 py-3 text-center text-gray-600">文案人員每篇文章 2-4 小時</td>
               <td class="px-3 py-3 text-center text-gray-600">AI 輔助，10-20 分鐘完成初稿</td>
               <td class="px-3 py-3 text-center text-green-600 font-bold bg-green-50">效率提升 5-8 倍</td>
@@ -428,7 +428,7 @@ export const blogPosts: BlogPost[] = [
             <tr class="border-b border-gray-100">
               <td class="px-4 py-3 font-medium text-gray-700">WhatsApp AI 自動跟進</td>
               <td class="px-3 py-3 text-center text-gray-600">Sales 人工追蹤每個 Lead</td>
-              <td class="px-3 py-3 text-center text-gray-600">AI 自動發送個性化跟進訊息</td>
+              <td class="px-3 py-3 text-center text-gray-600">AI 自動發送個人化跟進訊息</td>
               <td class="px-3 py-3 text-center text-green-600 font-bold bg-green-50">成交率提升 25-35%</td>
             </tr>
             <tr class="bg-gray-50">
@@ -594,14 +594,14 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">我的業務規模很小（少於 10 人），AI 化是否值得？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">小規模企業往往是 AI 化受益最大的——因為每個人要身兼數職，AI 工具可以成倍放大每個人的工作效率。建議從低成本、高效益的工具入手：AI 文案生成工具（如 ChatGPT Business）月費約 HK$160-200，可大幅提升行銷內容產出效率；WhatsApp chatbot 可 24/7 回覆客戶查詢，讓小團隊也能提供大企業級的客戶服務體驗。ADWire 的小企業 AI 啟動包可在 HK$10,000 內完成基礎 AI 化。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">小規模企業往往是 AI 化受益最大的——因為每個人要身兼數職，AI 工具可以成倍放大每個人的工作效率。建議從低成本、高效益的工具入手：AI 文案生成工具（如 ChatGPT Business）月費約 HK$160-200，可大幅提升營銷內容產出效率；WhatsApp chatbot 可 24/7 回覆客戶查詢，讓小團隊也能提供大企業級的客戶服務體驗。ADWire 的小企業 AI 啟動包可在 HK$10,000 內完成基礎 AI 化。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">AI 工具（如 ChatGPT）同 AI 系統開發有什麼分別？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">使用現成 AI 工具（如 ChatGPT、Copilot）屬於「通用型 AI 應用」，操作簡單但無法深度融入業務流程，也無法訓練在你的特定數據上。定制化 AI 系統開發則是將 AI 能力直接嵌入你的業務系統——連接你的 CRM、接受你的客戶查詢、基於你的產品知識庫回答——實現真正的 AI 原生業務流程。ADWire 同時提供兩種類型的支援，幫助企業由基礎工具使用進階到業務深度整合。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">使用現成 AI 工具（如 ChatGPT、Copilot）屬於「通用型 AI 應用」，操作簡單但無法深度融入業務流程，也無法訓練在你的特定數據上。度身訂造 AI 系統開發則是將 AI 能力直接嵌入你的業務系統——連接你的 CRM、接受你的客戶查詢、基於你的產品知識庫回答——實現真正的 AI 原生業務流程。ADWire 同時提供兩種類型的支援，幫助企業由基礎工具使用進階到業務深度整合。</p>
           </div>
         </div>
 
@@ -615,7 +615,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 的 AI Solution 服務跟其他 IT 公司有什麼分別？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">ADWire 的核心差異在於「懂業務的 AI 開發」——我們不只是技術公司，更是深度了解香港企業營銷和業務邏輯的 MarTech 代理商。我們的 AI 方案不是純粹的技術實作，而是從業務目標出發，確保每個 AI 功能都直接對應可量化的業績指標（節省成本、提升轉化率、增加收入）。服務超過 500 家香港企業的實戰經驗，讓我們避開大多數 AI 項目失敗的陷阱。聯絡我們：WhatsApp ${WHATSAPP_DISPLAY} | info@adwire.com.hk。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">ADWire 的核心差異在於「懂業務的 AI 開發」——我們不只是技術公司，更是深度了解香港企業營運和業務邏輯的技術夥伴。我們的 AI 方案不是純粹的技術實作，而是從業務目標出發，確保每個 AI 功能都直接對應可量化的業績指標（節省成本、提升轉化率、增加收入）。服務超過 500 家香港企業的實戰經驗，讓我們避開大多數 AI 項目失敗的陷阱。聯絡我們：WhatsApp ${WHATSAPP_DISPLAY} | info@adwire.com.hk。</p>
           </div>
         </div>
 
@@ -638,7 +638,7 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p class="lead text-xl text-gray-600 mb-8">「我哋試過自己開小紅書帳號，但資料全是繁體字，內容風格又唔對，發了十幾篇帖文連一百個贊都無。」——這是香港品牌初嘗內地市場最常遇到的挫折。14億人口的市場讓人心動，但不了解平台邏輯、文化差異和合規要求，卻會令你花了錢卻毫無成果。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為什麼香港品牌必須認真佈局內地市場？</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為什麼香港品牌必須認真部署內地市場？</h3>
 
       <p>內地消費者對「港牌」（香港品牌）有天然的好感與信任，尤其在美容護膚、食品保健、嬰幼兒產品、奢侈品等類別，「香港製造」或「香港品牌」往往被視為品質保証。加上近年大灣區融合加深、跨境電商政策持續放寬，香港品牌進入內地市場的門檻比以往低了很多。然而，機遇背後是截然不同的數碼生態：沒有 Google、沒有 Facebook、沒有 Instagram，取而代之的是一套完全獨立運作的平台矩陣。</p>
 
@@ -747,7 +747,7 @@ export const blogPosts: BlogPost[] = [
               <td class="px-3 py-3 text-center text-gray-600 whitespace-nowrap">5.8億 MAU</td>
               <td class="px-3 py-3 text-center text-gray-600">年輕人、KOL粉絲</td>
               <td class="px-3 py-3 text-center text-gray-600">娛樂、時尚、快消品</td>
-              <td class="px-3 py-3 text-center text-gray-600">熱搜行銷 + KOL合作 + 品牌PR</td>
+              <td class="px-3 py-3 text-center text-gray-600">熱搜營銷 + KOL合作 + 品牌PR</td>
             </tr>
           </tbody>
         </table>
@@ -763,7 +763,7 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2 text-sm text-gray-700">
             <li class="flex items-start gap-2"><span class="text-red-500 font-bold">·</span><span>藍色V標識，代表官方品牌認證，提升 80% 用戶信任度</span></li>
             <li class="flex items-start gap-2"><span class="text-red-500 font-bold">·</span><span>可設定品牌主頁、官方商品連結、客服功能</span></li>
-            <li class="flex items-start gap-2"><span class="text-red-500 font-bold">·</span><span>投放信息流廣告（薯條推廣）必備條件</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500 font-bold">·</span><span>投放資訊流廣告（薯條推廣）必備條件</span></li>
             <li class="flex items-start gap-2"><span class="text-red-500 font-bold">·</span><span>需提供品牌商標証書及企業資質文件</span></li>
           </ul>
         </div>
@@ -773,14 +773,14 @@ export const blogPosts: BlogPost[] = [
             <li class="flex items-start gap-2"><span class="text-pink-500 font-bold">·</span><span><strong>KOL（百萬粉絲+）</strong>：品牌曝光，單次合作費用高</span></li>
             <li class="flex items-start gap-2"><span class="text-pink-500 font-bold">·</span><span><strong>KOC（素人達人，1萬-10萬粉）</strong>：真實性高，性價比最高，現時主流</span></li>
             <li class="flex items-start gap-2"><span class="text-pink-500 font-bold">·</span><span>「鋪量種草」策略：同時合作 20-50 個 KOC 比合作 1 個大KOL更有效</span></li>
-            <li class="flex items-start gap-2"><span class="text-pink-500 font-bold">·</span><span>小紅書 SEO：關鍵詞植入筆記標題，讓筆記在搜尋中長期曝光</span></li>
+            <li class="flex items-start gap-2"><span class="text-pink-500 font-bold">·</span><span>小紅書 SEO：關鍵字植入筆記標題，讓筆記在搜尋中長期曝光</span></li>
           </ul>
         </div>
       </div>
 
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">抖音：短視頻帶貨的無限可能</h3>
 
-      <p>抖音的算法採用「去中心化」原則：<strong>內容質量決定流量，而非粉絲數量</strong>。一個零粉絲的帳號，一條優質短片同樣可以獲得千萬播放量。這對剛進入內地市場的香港品牌而言是巨大機遇。</p>
+      <p>抖音的算法採用「去中心化」原則：<strong>內容質素決定流量，而非粉絲數量</strong>。一個零粉絲的帳號，一條優質短片同樣可以獲得千萬播放量。這對剛進入內地市場的香港品牌而言是巨大機遇。</p>
 
       <div class="bg-gray-50 p-6 rounded-xl my-6 border border-gray-200">
         <h4 class="font-bold text-gray-800 mb-4">抖音品牌營銷三大玩法</h4>
@@ -802,7 +802,7 @@ export const blogPosts: BlogPost[] = [
           <div class="flex gap-4">
             <div class="flex-shrink-0 w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
             <div>
-              <strong class="text-gray-800 block mb-1">信息流廣告（DOU+/巨量引擎）</strong>
+              <strong class="text-gray-800 block mb-1">資訊流廣告（DOU+/巨量引擎）</strong>
               <p class="text-sm text-gray-600">利用抖音廣告系統精準投放，可針對年齡、地域、興趣及行為定向。素材建議以 15-30 秒的「場景化種草」風格為主，避免過度廣告感的內容。</p>
             </div>
           </div>
@@ -811,18 +811,18 @@ export const blogPosts: BlogPost[] = [
 
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">微信生態圈：內地品牌私域的核心基地</h3>
 
-      <p>微信不只是通訊工具，更是一個完整的商業生態系統。<strong>超過 90% 的中國互聯網用戶每天使用微信</strong>，企業只要打通微信公衆號、視頻號、小程序三大組件，就能建立完整的「發現→瀏覽→購買→複購」閉環。</p>
+      <p>微信不只是通訊工具，更是一個完整的商業生態系統。<strong>超過 90% 的中國互聯網用戶每天使用微信</strong>，企業只要打通微信公衆號、影片號、小程序三大組件，就能建立完整的「發現→瀏覽→購買→複購」閉環。</p>
 
       <div class="grid md:grid-cols-3 gap-4 my-6">
         <div class="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
           <div class="text-3xl mb-2">📰</div>
           <h4 class="font-bold text-green-700 mb-2 text-sm">微信公衆號</h4>
-          <p class="text-xs text-gray-600">深度內容發布、品牌故事、促銷通知、客戶訂閱。建議每週更新 1-2 篇高質量圖文，積累忠實粉絲。</p>
+          <p class="text-xs text-gray-600">深度內容發布、品牌故事、促銷通知、客戶訂閱。建議每週更新 1-2 篇高質素圖文，積累忠實粉絲。</p>
         </div>
         <div class="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
           <div class="text-3xl mb-2">🎥</div>
-          <h4 class="font-bold text-green-700 mb-2 text-sm">微信視頻號</h4>
-          <p class="text-xs text-gray-600">微信內的短視頻平台，流量不及抖音但用戶質量高、年齡層偏大。適合品質感內容和直播帶貨，獲客成本相對較低。</p>
+          <h4 class="font-bold text-green-700 mb-2 text-sm">微信影片號</h4>
+          <p class="text-xs text-gray-600">微信內的短視頻平台，流量不及抖音但用戶質素高、年齡層偏大。適合品質感內容和直播帶貨，獲客成本相對較低。</p>
         </div>
         <div class="bg-green-50 p-4 rounded-xl border border-green-100 text-center">
           <div class="text-3xl mb-2">📲</div>
@@ -831,7 +831,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">百度：搜尋行銷與品牌公信力建設</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">百度：搜尋營銷與品牌公信力建設</h3>
 
       <p>百度佔中國搜尋市場約 <strong>70% 份額</strong>，是 B2B 企業、教育機構、醫療健康及旅遊品牌的必爭渠道。與 Google 不同，百度的品牌信任體系有其獨特邏輯：</p>
 
@@ -840,7 +840,7 @@ export const blogPosts: BlogPost[] = [
         <ul class="space-y-3 text-sm text-blue-900">
           <li class="flex items-start gap-3">
             <span class="font-bold text-blue-600 flex-shrink-0">①</span>
-            <div><strong>百度推廣（SEM）</strong>——針對有搜尋意圖的用戶投放廣告，轉換率高但競爭激烈，需設定精準關鍵字及高質量落地頁。</div>
+            <div><strong>百度推廣（SEM）</strong>——針對有搜尋意圖的用戶投放廣告，轉換率高但競爭激烈，需設定精準關鍵字及高質素落地頁。</div>
           </li>
           <li class="flex items-start gap-3">
             <span class="font-bold text-blue-600 flex-shrink-0">②</span>
@@ -853,14 +853,14 @@ export const blogPosts: BlogPost[] = [
         </ul>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">微博：熱搜行銷與KOL公關</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">微博：熱搜營銷與KOL公關</h3>
 
-      <p>微博是內地最重要的 PR 及話題行銷平台。明星、KOL 的微博互動能引發廣泛的社會討論，「微博熱搜」是全中國最具影響力的實時輿論廣場。對於希望快速建立品牌知名度的香港企業，微博提供以下三種核心玩法：</p>
+      <p>微博是內地最重要的 PR 及話題營銷平台。明星、KOL 的微博互動能引發廣泛的社會討論，「微博熱搜」是全中國最具影響力的實時輿論廣場。對於希望快速建立品牌知名度的香港企業，微博提供以下三種核心玩法：</p>
 
       <ul class="list-disc pl-6 space-y-3 my-6 text-gray-700">
         <li><strong>品牌超話（超級話題）</strong>：建立品牌專屬的粉絲社區，聚集忠實用戶，配合粉絲福利活動提升活躍度</li>
-        <li><strong>KOL聯合推廣</strong>：與微博頭部時尚、生活類博主合作，通過試用評測、開箱視頻等形式觸達精準受眾</li>
-        <li><strong>熱搜話題製造</strong>：針對重要節點（如新品發佈、節假日促銷）策劃有話題性的事件行銷，爭取自然熱搜曝光</li>
+        <li><strong>KOL聯合推廣</strong>：與微博頭部時尚、生活類博主合作，通過試用評測、開箱影片等形式觸達精準受眾</li>
+        <li><strong>熱搜話題製造</strong>：針對重要節點（如新品發佈、節假日促銷）策劃有話題性的事件營銷，爭取自然熱搜曝光</li>
       </ul>
 
       <div class="bg-gradient-to-br from-[#0f4c81] to-[#1a5f9a] rounded-2xl p-8 text-white text-center my-10 relative overflow-hidden">
@@ -899,7 +899,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">進軍內地市場需要多少預算？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">視乎策略而定。最低起步方案：每月 HK$15,000-30,000，可覆蓋小紅書基礎種草（KOC合作）+ 微信公衆號維護。中等規模方案：HK$50,000-150,000/月，可同時運作小紅書、抖音及百度 SEM。全平台佈局則需 HK$200,000+/月。建議香港企業先以 3-6 個月預算測試 1-2 個核心平台，驗證效果後再擴大投入。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">視乎策略而定。最低起步方案：每月 HK$15,000-30,000，可覆蓋小紅書基礎種草（KOC合作）+ 微信公衆號維護。中等規模方案：HK$50,000-150,000/月，可同時運作小紅書、抖音及百度 SEM。全平台部署則需 HK$200,000+/月。建議香港企業先以 3-6 個月預算測試 1-2 個核心平台，驗證效果後再擴大投入。</p>
           </div>
         </div>
 
@@ -934,7 +934,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 在內地市場服務包括什麼？可否提供一站式支援？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">ADWire 提供完整的內地市場數碼營銷服務，包括：小紅書企業藍V認證申請及帳號管理、種草策略及KOL/KOC合作資源；抖音企業號管理及達人帶貨對接；微信公衆號內容運營及廣告投放；百度SEM競價廣告及媒體新聞稿發布（虎嗅、36氪等）；微博KOL合作及話題行銷。我們同時熟悉香港品牌定位及內地平台規則，是真正的跨境一站式解決方案。聯絡方式：WhatsApp ${WHATSAPP_DISPLAY} 或 info@adwire.com.hk。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">ADWire 提供完整的內地市場數碼營銷服務，包括：小紅書企業藍V認證申請及帳號管理、種草策略及KOL/KOC合作資源；抖音企業號管理及達人帶貨對接；微信公衆號內容運營及廣告投放；百度SEM競價廣告及媒體新聞稿發布（虎嗅、36氪等）；微博KOL合作及話題營銷。我們同時熟悉香港品牌定位及內地平台規則，是真正的跨境一站式解決方案。聯絡方式：WhatsApp ${WHATSAPP_DISPLAY} 或 info@adwire.com.hk。</p>
           </div>
         </div>
 
@@ -966,7 +966,7 @@ export const blogPosts: BlogPost[] = [
         <ul class="list-disc pl-5 space-y-2 text-red-900 text-sm">
           <li>Facebook/Instagram <strong>CPM 三年累計漲幅超過 40%</strong>，部分行業高達 60%</li>
           <li><strong>iOS 14+ 隱私限制</strong>導致 Meta 廣告歸因數據嚴重失真，平均低報轉換 30-60%</li>
-          <li>Google <strong>三方 Cookie 加速淘汰</strong>，傳統再行銷受眾縮水</li>
+          <li>Google <strong>三方 Cookie 加速淘汰</strong>，傳統再營銷受眾縮水</li>
           <li>香港用戶 <strong>廣告盲區（Ad Blindness）加劇</strong>，重複素材令互動率持續下跌</li>
           <li><strong>73% 廣告主</strong>仍用 2021 年前的受眾設定邏輯，已嚴重過時</li>
         </ul>
@@ -1004,7 +1004,7 @@ export const blogPosts: BlogPost[] = [
             <tr class="bg-gray-50 border-b border-gray-100">
               <td class="px-5 py-3 font-medium text-gray-700">最關鍵成功因素</td>
               <td class="px-4 py-3 text-center text-gray-700 font-medium">優質素材 + 第一方數據 + 出價策略</td>
-              <td class="px-4 py-3 text-center text-gray-700 font-medium"><strong>素材質量</strong>（創意 = 新受眾定向）</td>
+              <td class="px-4 py-3 text-center text-gray-700 font-medium"><strong>素材質素</strong>（創意 = 新受眾定向）</td>
             </tr>
             <tr class="border-b border-gray-100">
               <td class="px-5 py-3 font-medium text-gray-700">適合目標</td>
@@ -1018,7 +1018,7 @@ export const blogPosts: BlogPost[] = [
             </tr>
             <tr>
               <td class="px-5 py-3 font-medium text-gray-700">最推薦組合</td>
-              <td class="px-4 py-3 text-center text-gray-600" colspan="2">✅ <strong>兩者同時使用</strong>——Google 捕捉高意圖需求，Meta 建立品牌認知及再行銷</td>
+              <td class="px-4 py-3 text-center text-gray-600" colspan="2">✅ <strong>兩者同時使用</strong>——Google 捕捉高意圖需求，Meta 建立品牌認知及再營銷</td>
             </tr>
           </tbody>
         </table>
@@ -1105,7 +1105,7 @@ export const blogPosts: BlogPost[] = [
               <h4 class="font-bold text-[#0f4c81] mb-2">Demand Gen：影片時代的 Google 廣告</h4>
               <p class="text-sm text-gray-700 mb-3"><strong>Demand Gen</strong>（需求開發廣告）取代舊有的 Discovery 廣告，覆蓋 <strong>YouTube Shorts + YouTube 主頁 + Gmail + Discover Feed</strong>，是 Google 對 Meta 上漏斗廣告的直接競爭。</p>
               <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
-                <li>最適合：品牌認知建立、新品推廣、再行銷已看過 YouTube 影片的用戶</li>
+                <li>最適合：品牌認知建立、新品推廣、再營銷已看過 YouTube 影片的用戶</li>
                 <li>接受 9:16 豎屏 Shorts 廣告素材，與 Meta Reels 廣告素材可共用</li>
                 <li>「Similar Audience」（類似受眾）功能在 Demand Gen 中仍有效，是罕有的例外</li>
               </ul>
@@ -1157,7 +1157,7 @@ export const blogPosts: BlogPost[] = [
               <td class="px-4 py-3 text-center text-gray-600">HK$8,000–30,000</td>
               <td class="px-4 py-3 text-center text-gray-600">40%</td>
               <td class="px-4 py-3 text-center text-gray-600">60%</td>
-              <td class="px-4 py-3 text-center text-gray-600 text-xs">Google Search 捕捉高意圖，Meta 做認知+再行銷</td>
+              <td class="px-4 py-3 text-center text-gray-600 text-xs">Google Search 捕捉高意圖，Meta 做認知+再營銷</td>
             </tr>
             <tr class="border-b border-gray-100">
               <td class="px-5 py-3 font-medium text-gray-700">成長型品牌</td>
@@ -1241,7 +1241,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">廣告投放是否需要配合 KOL 合作才能有更好效果？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">KOL 合作與廣告投放可形成強大協同效應。常見策略是：先讓 KOL 發布真實體驗貼文（建立信任和社交證明），再將 KOL 素材用作廣告素材投放（降低 CPM，因 UGC 風格廣告更受平台演算法青睞）。ADWire 提供 KOL 合作 + 廣告投放一站式服務，確保素材創作和廣告策略無縫配合。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">KOL 合作與廣告投放可形成強大協同效應。常見策略是：先讓 KOL 發布真實體驗帖文（建立信任和社交證明），再將 KOL 素材用作廣告素材投放（降低 CPM，因 UGC 風格廣告更受平台演算法青睞）。ADWire 提供 KOL 合作 + 廣告投放一站式服務，確保素材創作和廣告策略無縫配合。</p>
           </div>
         </div>
 
@@ -1283,7 +1283,7 @@ export const blogPosts: BlogPost[] = [
           <li>Google 搜尋 <strong>Zero-Click 比率達 65%</strong>，且持續上升（SparkToro 2024）</li>
           <li>香港 ChatGPT 月活躍用戶增長超過 <strong>120%</strong>（2023→2025年）</li>
           <li>Google AI Overview 香港覆蓋率預計 2026 年底達 <strong>80%+</strong></li>
-          <li><strong>73% 香港中小企</strong>未有正式 SEO 策略，更鮮有 GEO 佈局</li>
+          <li><strong>73% 香港中小企</strong>未有正式 SEO 策略，更鮮有 GEO 部署</li>
           <li>香港手機搜尋比例高達 <strong>87%</strong>，Mobile-first 優化至關重要</li>
         </ul>
       </div>
@@ -1453,7 +1453,7 @@ export const blogPosts: BlogPost[] = [
             <div class="text-3xl flex-shrink-0">📰</div>
             <div>
               <h4 class="font-bold text-[#0f4c81] mb-2">策略五：發布原創研究及行業數據</h4>
-              <p class="text-sm text-gray-700">AI 引擎無法生成原創數據。如果你是行業第一個發布「香港中小企數碼營銷調研報告」的品牌，ChatGPT 回答相關問題時便唯有引用你的數據。定期發布行業白皮書、客戶調研結果，是 GEO 最強的長期競爭護城河。</p>
+              <p class="text-sm text-gray-700">AI 引擎無法生成原創數據。如果你是行業第一個發布「香港中小企數碼營銷調研報告」的品牌，ChatGPT 回答相關問題時便唯有引用你的數據。定期發布行業白皮書、客戶調研結果，是 GEO 最持久的長期競爭優勢。</p>
             </div>
           </div>
         </div>
@@ -1568,7 +1568,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">SEO 同 GEO 係咪一定要同時做？可唔可以只做其中一個？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">建議兩者同步進行。SEO 負責傳統 Google 排名，保障現有自然流量；GEO 則針對 ChatGPT、Perplexity、Google AI Overview 等 AI 搜尋引擎，開拓新興流量渠道。單做 SEO 的風險是流量被 AI 搜尋侵蝕；單做 GEO 則基礎薄弱，難以建立長期權威。兩者相輔相成，共同構成 2026 年最完整的搜尋行銷策略。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">建議兩者同步進行。SEO 負責傳統 Google 排名，保障現有自然流量；GEO 則針對 ChatGPT、Perplexity、Google AI Overview 等 AI 搜尋引擎，開拓新興流量渠道。單做 SEO 的風險是流量被 AI 搜尋侵蝕；單做 GEO 則基礎薄弱，難以建立長期權威。兩者相輔相成，共同構成 2026 年最完整的搜尋營銷策略。</p>
           </div>
         </div>
 
@@ -1629,7 +1629,7 @@ export const blogPosts: BlogPost[] = [
     id: 1,
     slug: "seo-vs-geo-2025",
     title: "SEO 已死？迎接 GEO 生成式引擎優化新時代（2026 更新）",
-    excerpt: "當 ChatGPT 成為用戶搜尋的第一入口，傳統關鍵字堆砌已經失效。本文分析如何優化內容，讓你的品牌被 AI 優先推薦，解決流量斷崖式下跌的危機。",
+    excerpt: "當 ChatGPT 成為愈來愈多人的搜尋入口，單靠關鍵字堆砌已經不足。本文分析 AI 搜尋對內容策略的實際影響，以及如何調整內容結構回應這種轉變。",
     date: "2025-02-15",
     updatedAt: "2026-09-20",
     category: "SEO & AI",
@@ -1656,7 +1656,7 @@ export const blogPosts: BlogPost[] = [
         </ul>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">ADWire 如何幫你佈局 GEO？</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">ADWire 如何幫你部署 GEO？</h3>
       <p>我們不只做關鍵字排名，更幫你建立<strong>品牌權威性 (Brand Authority)</strong>。我們的 SEO 2.0 服務包括：</p>
       <ul class="list-disc pl-6 space-y-2 mb-6">
         <li>針對 AI 訓練數據的內容優化</li>
@@ -1664,7 +1664,7 @@ export const blogPosts: BlogPost[] = [
         <li>技術性 SEO 修復，確保 AI 爬蟲暢通無阻</li>
       </ul>
 
-      <p>別等流量歸零才行動。現在就開始佈局 AI 搜尋時代。</p>
+      <p>別等流量歸零才行動。現在就開始為 AI 搜尋時代作好準備。</p>
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-6">常見問題 FAQ</h3>
 
       <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
@@ -1714,13 +1714,13 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/short-video-marketing-guide.webp",
     tags: ["Video", "Social", "Conversion"],
     content: `
-      <p class="lead text-xl text-gray-600 mb-8">你是否花了大錢請人拍片、剪片，結果發布後只有幾百個 View，而且大部分還是自己員工看的？這種「自嗨式」行銷是中小企最常見的錢坑。</p>
+      <p class="lead text-xl text-gray-600 mb-8">你是否花了大錢請人拍片、剪片，結果發布後只有幾百個 View，而且大部分還是自己員工看的？這種「自嗨式」營銷是中小企最常見的錢坑。</p>
 
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：有 View 無 Conversion 的死局</h3>
       <p>很多品牌追求爆款，拍搞笑、跳舞影片。沒錯，View 數可能很高，但這些觀眾是你的精準客戶嗎？他們看完笑完就滑走，對你的產品毫無印象。</p>
       <p><strong>虛榮指標 (Vanity Metrics) 救不了你的生意。</strong>你需要的是能帶貨的內容。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">破局：黃金 3 秒與痛點行銷</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">破局：黃金 3 秒與痛點營銷</h3>
       <p>用戶滑過一條片的時間只有 0.5 秒。如果你的頭 3 秒還在展示 Logo 或說廢話，你就輸了。</p>
       
       <div class="bg-pink-50 p-6 rounded-xl border-l-4 border-pink-500 my-8">
@@ -1942,7 +1942,7 @@ export const blogPosts: BlogPost[] = [
       <p>很多商家還在用「興趣標籤」來投放廣告。但現在興趣標籤越來越不準，你以為投給了「喜歡咖啡的人」，其實投給了「曾經不小心點過咖啡圖片的人」。</p>
       <p>結果就是：點擊率低、轉換成本 (CPA) 高、ROAS (廣告投資報酬率) 慘不忍睹。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">策略：第一方數據與漏斗行銷</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">策略：第一方數據與漏斗營銷</h3>
       <p>既然平台數據不準，我們就用自己的數據。</p>
       
       <div class="bg-green-50 p-6 rounded-xl border-l-4 border-green-500 my-8">
@@ -1996,7 +1996,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: 6,
     slug: "custom-system-efficiency",
-    title: "Excel 檔案亂到崩潰？客製化系統能省下多少時間",
+    title: "Excel 檔案亂到崩潰？度身訂造系統能省下多少時間",
     excerpt: "還在用 Google Sheets 管理幾百個客戶資料？資料重複、版本混亂、權限不清... 是時候升級你的數位大腦了。",
     date: "2025-01-15",
     updatedAt: "2026-09-20",
@@ -2013,7 +2013,7 @@ export const blogPosts: BlogPost[] = [
       <p><strong>資料孤島 (Data Silos)</strong> 讓部門之間溝通困難，老闆想看即時業績，卻要等員工手動匯總，往往看到的已經是上週的數據。</p>
 
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">解決方案：量身訂製的營運系統</h3>
-      <p>市面上的罐頭軟體 (SaaS) 功能太多用不著，或者缺了關鍵功能。客製化系統 (Custom System) 才是最貼合你流程的解決方案。</p>
+      <p>市面上的罐頭軟件 (SaaS) 功能太多用不著，或者缺了關鍵功能。度身訂造系統 (Custom System) 才是最貼合你流程的解決方案。</p>
       
       <div class="bg-cyan-50 p-6 rounded-xl border-l-4 border-cyan-500 my-8">
         <h4 class="font-bold text-cyan-800 mb-2">系統化帶來的好處：</h4>
@@ -2034,7 +2034,7 @@ export const blogPosts: BlogPost[] = [
       <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">開發一個客製化系統需要多長時間？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">開發一個度身訂造系統需要多長時間？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">視乎複雜度。簡單的內部工具一般約 4–8 週；涉及多個部門流程或需要整合多個系統的項目可能需要 3–6 個月。我們會在報價階段提供時間表，並在開發過程中分段交付供你確認。</p>
           </div>
@@ -2050,7 +2050,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
           <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">系統開發完成後，原始碼歸誰所有？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-            <p class="text-gray-600 text-sm" itemprop="text">客製化開發的原始碼及你付費購買的帳戶歸客戶所有，交付時會一併移交。第三方平台（例如雲端主機、短訊或電郵服務）的帳戶建議以客戶名義開立，避免日後更換供應商時出現交接困難。</p>
+            <p class="text-gray-600 text-sm" itemprop="text">訂造開發的原始碼及你付費購買的帳戶歸客戶所有，交付時會一併移交。第三方平台（例如雲端主機、短訊或電郵服務）的帳戶建議以客戶名義開立，避免日後更換供應商時出現交接困難。</p>
           </div>
         </div>
 

@@ -909,7 +909,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className="text-[#f5a623] text-sm font-semibold tracking-widest uppercase mb-4">
-              獲取同等成果
+              取得同等成果
             </p>
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
               你的品牌
@@ -1065,7 +1065,7 @@ function SidebarInfoCard({ caseItem }: { caseItem: PortfolioCase }) {
         {/* Tags */}
         <div className="mt-5 pt-5 border-t border-gray-100">
           <p className="text-xs text-gray-400 uppercase tracking-wide font-medium mb-3">
-            關鍵詞
+            關鍵字
           </p>
           <div className="flex flex-wrap gap-1.5">
             {caseItem.tags.map((tag, i) => (

@@ -45,7 +45,7 @@ export default function WebServiceContent() {
       
       <ServiceJsonLd 
         name="網頁設計及系統開發 (Web Design & Development)"
-        description="香港專業網頁設計公司，專注於 Next.js 高性能網站開發。結合 SEO 優化架構、極速加載與高轉換 UI/UX 設計，為您打造 24/7 自動獲客的企業官網、電商平台及 Landing Page。"
+        description="香港專業網頁設計公司，專注於 Next.js 高性能網站開發。結合 SEO 優化架構、極速加載與高轉換 UI/UX 設計，為你打造 24/7 自動獲客的企業官網、電商平台及 Landing Page。"
         url="https://adwire.com.hk/services/web/"
         image="https://adwire.com.hk/portfolio/corporate-website.webp"
       />
@@ -75,7 +75,7 @@ export default function WebServiceContent() {
               </h1>
               
               <p className="text-xl text-gray-400 mb-8 leading-relaxed">
-                在競爭激烈的數碼時代，漂亮的網站只是基本。我們結合 <span className="text-white font-semibold">Next.js 極速技術</span>、<span className="text-white font-semibold">原生 SEO 架構</span> 與 <span className="text-white font-semibold">數據驅動的 UI/UX</span>，助您的網站從「展示工具」進化為「24/7 自動成交引擎」。
+                在競爭激烈的數碼時代，漂亮的網站只是基本。我們結合 <span className="text-white font-semibold">Next.js 極速技術</span>、<span className="text-white font-semibold">原生 SEO 架構</span> 與 <span className="text-white font-semibold">數據驅動的 UI/UX</span>，助你的網站從「展示工具」進化為「24/7 自動成交引擎」。
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -185,7 +185,7 @@ export default function WebServiceContent() {
       <section className="py-20 bg-gray-900 text-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">為什麼您的網站不轉換？</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">為什麼你的網站不轉換？</h2>
             <p className="text-gray-400 max-w-3xl mx-auto text-lg">
               大多數網站失敗的原因不在於設計不夠美，而在於忽視了用戶心理學與技術性能的結合。
               我們以 <span className="text-cyan-400 font-bold">轉換率優化 (CRO)</span> 為核心，解決三大痛點：
@@ -196,12 +196,12 @@ export default function WebServiceContent() {
             <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
               <div className="text-cyan-400 mb-4 font-bold text-xl">01. 加載太慢</div>
               <h3 className="text-xl font-bold mb-4">每延遲 1 秒，轉換率下降 7%</h3>
-              <p className="text-gray-400 text-sm">我們使用 Next.js 靜態生成技術，確保您的網站在任何設備上都能秒開，留住每一位潛在客戶。</p>
+              <p className="text-gray-400 text-sm">我們使用 Next.js 靜態生成技術，確保你的網站在任何設備上都能秒開，留住每一位潛在客戶。</p>
             </div>
             <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
               <div className="text-cyan-400 mb-4 font-bold text-xl">02. 信任感不足</div>
               <h3 className="text-xl font-bold mb-4">缺乏專業感與社交證明</h3>
-              <p className="text-gray-400 text-sm">透過精心設計的 UI 佈局與結構化數據，建立品牌權威感，讓訪客在 3 秒內對您產生信任。</p>
+              <p className="text-gray-400 text-sm">透過精心設計的 UI 排版與結構化數據，建立品牌權威感，讓訪客在 3 秒內對你產生信任。</p>
             </div>
             <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
               <div className="text-cyan-400 mb-4 font-bold text-xl">03. 導向不明確</div>
@@ -238,7 +238,7 @@ export default function WebServiceContent() {
             <TechCard 
               icon={MousePointerClick}
               title="高轉換 UI/UX 設計"
-              desc="基於用戶行為數據設計界面，優化導航路徑與 CTA 佈局，確保訪客能以最短路徑轉化為您的客戶。"
+              desc="基於用戶行為數據設計界面，優化導航路徑與 CTA 位置，確保訪客能以最短路徑轉化為你的客戶。"
               tags={["CRO", "User Journey", "A/B Testing"]}
             />
           </div>
@@ -278,7 +278,7 @@ export default function WebServiceContent() {
               image="/blog/high-converting-landing-page.webp"
               title="高轉換著陸頁 (Landing Page)"
               subtitle="專為廣告投放設計，最大化 ROI"
-              desc="適合推廣單一產品、服務或活動。我們運用 AIDA 行銷模型與消費者心理學設計頁面佈局，移除所有干擾元素，引導訪客完成單一目標 (填表或購買)。"
+              desc="適合推廣單一產品、服務或活動。我們運用 AIDA 營銷模型與消費者心理學設計頁面排版，移除所有干擾元素，引導訪客完成單一目標 (填表或購買)。"
               features={[
                 "極致加載速度優化 (LCP < 1.5s)",
                 "A/B Testing 架構支援",
@@ -294,7 +294,7 @@ export default function WebServiceContent() {
               image="/portfolio/ecommerce-automation.webp"
               title="電商網店系統 (E-commerce)"
               subtitle="打造流暢購物體驗，提升客單價"
-              desc="從 Shopify 建置到 WooCommerce 客製化開發，我們助你建立功能強大的網上商店。整合本地支付 (PayMe/FPS/Credit Card) 與物流系統，讓生意 24 小時不打烊。"
+              desc="從 Shopify 建置到 WooCommerce 訂造開發，我們助你建立功能強大的網上商店。整合本地支付 (PayMe/FPS/Credit Card) 與物流系統，讓生意 24 小時不打烊。"
               features={[
                 "購物車與結帳流程優化",
                 "會員系統與積分獎賞",
@@ -308,7 +308,7 @@ export default function WebServiceContent() {
             {/* Solution 4: Custom Web App */}
             <SolutionRow 
               image="/system/CRM.webp"
-              title="客製化系統開發 (Web Application)"
+              title="度身訂造系統開發 (Web Application)"
               subtitle="解決複雜業務需求，提升營運效率"
               desc="當現成軟件無法滿足你的需求時，我們為你開發專屬的 Web 應用程式。包括客戶管理系統 (CRM)、預約系統、內部管理 Dashboard 或 SaaS 產品 MVP 開發。"
               features={[
@@ -422,12 +422,12 @@ export default function WebServiceContent() {
                 <ProcessItem 
                   number="02" 
                   title="高轉換 UI/UX 原型" 
-                  desc="製作 Wireframe 與 Figma 高保真設計，專注於用戶路徑優化與 CTA 佈局，確保設計符合品牌形象且具備銷售力。"
+                  desc="製作 Wireframe 與 Figma 高保真設計，專注於用戶路徑優化與 CTA 位置，確保設計符合品牌形象且具備銷售力。"
                 />
                 <ProcessItem 
                   number="03" 
                   title="Next.js 高性能開發" 
-                  desc="使用 Next.js 進行開發，確保極速加載與原生 SEO。整合 CMS 系統，讓您輕鬆管理內容，同時保持技術領先。"
+                  desc="使用 Next.js 進行開發，確保極速加載與原生 SEO。整合 CMS 系統，讓你輕鬆管理內容，同時保持技術領先。"
                 />
                 <ProcessItem 
                   number="04" 
@@ -496,7 +496,7 @@ export default function WebServiceContent() {
                 <h3 className="text-xl font-bold text-gray-900">Google / Meta 廣告</h3>
               </div>
               <p className="text-gray-600 text-sm mb-4">
-                精準投放廣告，將訪客導流至你的高轉換網站，快速獲取潛在客戶。
+                精準投放廣告，將訪客導流至你的高轉換網站，快速取得潛在客戶。
               </p>
               <div className="flex items-center gap-2 text-cyan-600 font-medium text-sm group-hover:gap-3 transition-all">
                 了解更多 <ArrowRight size={16} />

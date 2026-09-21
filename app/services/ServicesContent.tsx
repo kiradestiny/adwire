@@ -26,7 +26,7 @@ const painPoints = [
   {
     icon: Megaphone,
     title: "不懂做內容，社交媒體沒人看？",
-    desc: "在這個「內容為王」的時代，缺乏吸引眼球的短視頻或貼文，品牌聲音很容易被淹沒在資訊海中。"
+    desc: "在這個「內容為王」的時代，缺乏吸引眼球的短視頻或帖文，品牌聲音很容易被淹沒在資訊海中。"
   },
   {
     icon: Zap,
@@ -64,7 +64,7 @@ const services = [
         id: "social",
         title: "社交媒體管理",
         icon: Users,
-        content: "一站式代營運 IG、Facebook 及 LinkedIn。從內容日曆規劃、貼文設計到粉絲互動，我們助你建立忠實的品牌社群，持續提升品牌聲量。",
+        content: "一站式代營運 IG、Facebook 及 LinkedIn。從內容日曆規劃、帖文設計到粉絲互動，我們助你建立忠實的品牌社群，持續提升品牌聲量。",
         features: ["內容策略規劃", "視覺設計與文案", "社群互動管理", "月度成效報告"],
         link: "/services/social"
       }
@@ -97,8 +97,8 @@ const services = [
         id: "ai",
         title: "AI 解決方案 (AI Solutions)",
         icon: Cpu,
-        content: "領先市場的 AI 應用方案。我們為企業定制 AI Agent、自動化工作流及 LLM 整合，將 AI 技術轉化為實際生產力，助你在 AI 時代保持競爭優勢。",
-        features: ["定制化 AI Agent", "企業級 LLM 應用", "AI 工作流自動化", "AI 內容生成系統"],
+        content: "實用的 AI 應用方案。我們為企業定制 AI Agent、自動化工作流及 LLM 整合，將 AI 技術轉化為實際生產力，助你在 AI 時代保持競爭優勢。",
+        features: ["度身訂造 AI Agent", "企業級 LLM 應用", "AI 工作流自動化", "AI 內容生成系統"],
         link: "/services/ai"
       }
     ]
@@ -194,7 +194,7 @@ export default function ServicesContent() {
             transition={{ delay: 0.2 }}
             className="text-xl text-gray-300 max-w-3xl mx-auto mb-10"
           >
-            從流量獲取、內容轉化到自動化成交。
+            從流量取得、內容轉化到自動化成交。
             我們結合創意內容與數據科技，為你構建全自動的業務增長引擎。
           </motion.p>
 

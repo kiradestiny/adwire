@@ -150,7 +150,7 @@ export default function Services() {
             transition={{ delay: 0.2 }}
             className="text-gray-500 text-lg max-w-2xl mx-auto"
           >
-            從流量獲取、內容製作到技術開發，我們提供一站式服務，助你突破增長瓶頸。
+            從流量取得、內容製作到技術開發，我們提供一站式服務，助你突破增長瓶頸。
           </motion.p>
         </div>
 

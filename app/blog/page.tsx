@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     "GEO 生成式引擎優化",
     "KOL 網紅營銷",
     "AI 營銷策略",
-    "短視頻行銷",
+    "短視頻營銷",
     "Facebook 廣告投放",
     "Google Ads 香港",
     "自動化營銷",
     "增長黑客",
     "轉換率優化",
-    "香港中小企行銷",
+    "香港中小企營銷",
   ],
   alternates: {
     canonical: "/blog/",
@@ -121,7 +121,7 @@ function BlogListSchema() {
 }
 
 export default async function BlogListingPage() {
-  // Build Time 數據獲取（API 優先 + 本地 Fallback）
+  // Build Time 數據取得（API 優先 + 本地 Fallback）
   const posts = await getBlogPosts();
 
   return (

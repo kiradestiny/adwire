@@ -296,7 +296,7 @@ export default async function BlogPost({
     return notFound();
   }
 
-  // 獲取相關文章 (同分類，排除自己，取前 3 篇)
+  // 取得相關文章 (同分類，排除自己，取前 3 篇)
   const relatedPosts = allPosts
     .filter((p) => p.category === post.category && p.id !== post.id)
     .slice(0, 3);
@@ -423,7 +423,7 @@ export default async function BlogPost({
           </div>
         </div>
 
-        {/* ── 雙欄佈局 ── */}
+        {/* ── 雙欄排版 ── */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* 左側：主要內容 */}
           <div className="lg:col-span-2">
@@ -491,7 +491,7 @@ export default async function BlogPost({
                   遇到類似的增長瓶頸？
                 </h3>
                 <p className="text-blue-100 mb-8 max-w-xl mx-auto">
-                  別讓問題持續影響你的業績。預約 ADWire 的 15 分鐘免費諮詢，讓我們為你診斷痛點，提供客製化解決方案。
+                  別讓問題持續影響你的業績。預約 ADWire 的 15 分鐘免費諮詢，讓我們為你診斷痛點，提供度身訂造解決方案。
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link
@@ -573,7 +573,7 @@ export default async function BlogPost({
                   </div>
                 </div>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  香港 AI 驅動 MarTech 代理商，專注數據驅動的行銷策略，幫助品牌在數位時代實現可持續增長。服務 500+ 企業，平均 ROI 提升 328%。
+                  香港軟件、AI 及數碼增長方案供應商，專注把業務需求轉化為可落地的系統與搜尋增長方案。服務 500+ 企業，平均 ROI 提升 328%。
                 </p>
                 <div className="flex gap-2">
                   <ShareButton title={post.title} />

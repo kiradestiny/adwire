@@ -18,7 +18,7 @@ export default function NotFound() {
                 找不到頁面
               </h2>
               <p className="text-gray-600 text-lg max-w-md mx-auto">
-                抱歉，我們找不到您要找的頁面。它可能已被移除、更名或暫時無法使用。
+                抱歉，我們找不到你要找的頁面。它可能已被移除、更名或暫時無法使用。
               </p>
             </div>
           </div>

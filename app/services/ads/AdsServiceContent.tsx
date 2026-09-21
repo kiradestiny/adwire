@@ -312,7 +312,7 @@ export default function AdsServiceContent() {
                 很多 Agency 只會報告「曝光數 (Reach)」，但曝光不能當飯吃。ADWire 專注於你看得見的業績：
               </p>
               <div className="space-y-6">
-                <MetricRow label="CPA" subLabel="(獲客成本)" desc="持續優化，以最低成本獲取一個客。" />
+                <MetricRow label="CPA" subLabel="(獲客成本)" desc="持續優化，以最低成本取得一個客。" />
                 <MetricRow label="CVR" subLabel="(轉化率)" desc="優化 Landing Page，提升訪客購買意欲。" />
                 <MetricRow label="ROAS" subLabel="(回報率)" desc="確保每投放 $1，能帶回 $3-$10 的生意。" />
               </div>

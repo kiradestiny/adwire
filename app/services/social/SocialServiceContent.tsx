@@ -58,11 +58,11 @@ const PLATFORMS = [
       "香港 Facebook 活躍用戶滲透率超 90%，幾乎人人有帳號",
       "社團 (Groups) 功能建立深度品牌社群，提升忠誠度",
       "廣告系統最成熟，支援最精準的受眾定向",
-      "活動 (Events) 功能輕鬆推廣線下及線上活動",
+      "活動 (Events) 功能輕鬆推廣線下及網上活動",
     ],
-    contentTypes: ["圖文貼文", "影片及直播 Live", "Groups 社群帖子", "Events 活動推廣", "Reels 短視頻"],
+    contentTypes: ["圖文帖文", "影片及直播 Live", "Groups 社群帖子", "Events 活動推廣", "Reels 短視頻"],
     bestFor: "專業服務、醫療健康、地產、餐飲、金融貸款、B2B 企業",
-    approach: "針對 Facebook 演算法優化貼文格式（問答、投票、分享型內容互動率更高），同步建立 Facebook Group 作為品牌忠實用戶社群。Organic 內容與廣告系統整合，用自然貼文測試受眾反應後，再放大至付費廣告投放。",
+    approach: "針對 Facebook 演算法優化帖文格式（問答、投票、分享型內容互動率更高），同步建立 Facebook Group 作為品牌忠實用戶社群。Organic 內容與廣告系統整合，用自然帖文測試受眾反應後，再放大至付費廣告投放。",
   },
   {
     id: "linkedin",
@@ -361,7 +361,7 @@ export default function SocialServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">一站式社群代管服務</h2>
-            <p className="text-gray-500">我們不只是小編，更是你的品牌行銷顧問。</p>
+            <p className="text-gray-500">我們不只是小編，更是你的品牌營銷顧問。</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard icon={PenTool} title="內容企劃 (Content)" desc="拒絕流水帳。我們撰寫有共鳴的文案，結合時事熱話 (Trend Jacking)，讓你的 Post 更有話題性。" />
@@ -550,7 +550,7 @@ export default function SocialServiceContent() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-600 text-xs font-bold mb-4">
                 <MessageCircle size={14} /> 提升轉換
               </div>
-              <h2 className="text-3xl font-bold text-[#0f4c81] mb-6">用心回覆，<br />是最高性價比的行銷。</h2>
+              <h2 className="text-3xl font-bold text-[#0f4c81] mb-6">用心回覆，<br />是最高性價比的營銷。</h2>
               <p className="text-gray-500 mb-8 text-lg leading-relaxed">
                 每一個留言、每一個 Inbox 都是生意的機會。我們的小編團隊用最貼地、親切的語氣與粉絲互動，建立像朋友一樣的關係。
               </p>
@@ -574,7 +574,7 @@ export default function SocialServiceContent() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <WhyUsCard icon={Target} title="結果導向" desc="我們關注的不只是 Like 數，更是轉換率。所有內容策略都以「幫助客戶達成商業目標」為核心。" />
-            <WhyUsCard icon={MousePointerClick} title="全方位支援" desc="由文案、設計、影片剪輯到廣告投放，完整的 In-house 團隊，無需外判，溝通更順暢。" />
+            <WhyUsCard icon={MousePointerClick} title="全方位支援" desc="由文案、設計、影片剪接到廣告投放，完整的 In-house 團隊，無需外判，溝通更順暢。" />
             <WhyUsCard icon={TrendingUp} title="數據驅動" desc="拒絕憑感覺做事。依賴數據分析優化每一個 Post，確保每一分預算都花在刀口上。" />
           </div>
         </div>
@@ -590,7 +590,7 @@ export default function SocialServiceContent() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <CaseStudyCard industry="美容護膚" title="IG 追蹤者 3 個月增長 500%" desc="透過精心策劃的 Reels 內容和 KOL 合作，成功將小眾品牌推向大眾市場。" metric="+2.5萬" metricLabel="新增粉絲" icon={Sparkles} color="from-pink-500 to-rose-500" />
-            <CaseStudyCard industry="餐飲 F&B" title="每月訂座量提升 80%" desc="運用 Story 互動遊戲與限時優惠，成功將線上流量轉化為實際訂座。" metric="80%" metricLabel="訂座增長" icon={Utensils} color="from-orange-500 to-red-500" />
+            <CaseStudyCard industry="餐飲 F&B" title="每月訂座量提升 80%" desc="運用 Story 互動遊戲與限時優惠，成功將網上流量轉化為實際訂座。" metric="80%" metricLabel="訂座增長" icon={Utensils} color="from-orange-500 to-red-500" />
             <CaseStudyCard industry="電商零售" title="IG Shop 月營業額破百萬" desc="優化產品目錄展示，配合 UGC 內容策略，大幅提升購買轉換率。" metric="HK$1.2M" metricLabel="月營業額" icon={ShoppingCart} color="from-blue-500 to-cyan-500" />
           </div>
         </div>
@@ -653,7 +653,7 @@ export default function SocialServiceContent() {
             <p className="text-gray-500">Social Media 只是開始，配合其他服務，全方位提升品牌競爭力</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <RelatedServiceCard title="KOL 行銷" desc="與網紅合作，擴大品牌曝光" link="/services/kol" icon="👥" />
+            <RelatedServiceCard title="KOL 營銷" desc="與網紅合作，擴大品牌曝光" link="/services/kol" icon="👥" />
             <RelatedServiceCard title="短片製作" desc="專業 Reels/TikTok 影片拍攝" link="/services/video" icon="🎬" />
             <RelatedServiceCard title="廣告投放" desc="Facebook/IG Ads 精準投放" link="/services/ads" icon="📢" />
             <RelatedServiceCard title="SEO / GEO" desc="搜尋引擎 + AI 引擎優化排名" link="/services/seo" icon="🔍" />

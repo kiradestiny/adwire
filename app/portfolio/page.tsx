@@ -91,7 +91,7 @@ function PortfolioJsonLd() {
       { "@type": "Thing", name: "短視頻製作" },
       { "@type": "Thing", name: "SEO 搜尋引擎優化" },
       { "@type": "Thing", name: "數碼廣告投放" },
-      { "@type": "Thing", name: "行銷自動化" },
+      { "@type": "Thing", name: "營銷自動化" },
       { "@type": "Thing", name: "網站開發" },
       { "@type": "Thing", name: "手機 App 開發" },
     ],
@@ -107,7 +107,7 @@ function PortfolioJsonLd() {
 
 // ─── Page Component ───────────────────────────────────────────
 export default async function PortfolioPage() {
-  // Build Time 數據獲取（API 優先 + 本地 Fallback）
+  // Build Time 數據取得（API 優先 + 本地 Fallback）
   const cases = await getSerializablePortfolioCases();
 
   return (

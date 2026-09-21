@@ -74,7 +74,7 @@ export const SERVICE_LINES: ServiceLine[] = [
     href: "/services/system/",
     children: [
       { name: "網頁設計及電商", href: "/services/web/" },
-      { name: "Web App 及客製化系統", href: "/services/system/" },
+      { name: "Web App 及度身訂造系統", href: "/services/system/" },
       { name: "CRM / ERP 及內部工具", href: "/services/system/" },
       { name: "Mobile App / MVP / SaaS", href: "/services/system/" },
       { name: "API 及系統整合", href: "/services/system/" },

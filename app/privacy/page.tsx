@@ -40,12 +40,12 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none text-gray-600">
             <p>
-              ADWire Agency Limited（下稱「我們」或「本公司」）致力於保護您的個人私隱。本私隱政策旨在說明我們如何收集、使用、披露及保護您的個人資料。
+              ADWire Agency Limited（下稱「我們」或「本公司」）致力於保護你的個人私隱。本私隱政策旨在說明我們如何收集、使用、披露及保護你的個人資料。
             </p>
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">1. 資料收集</h2>
             <p>
-              當您瀏覽本網站、使用我們的服務或與我們聯絡時，我們可能會收集以下資料：
+              當你瀏覽本網站、使用我們的服務或與我們聯絡時，我們可能會收集以下資料：
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>個人識別資料（如姓名、電郵地址、電話號碼）。</li>
@@ -59,14 +59,14 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>提供及改善我們的服務。</li>
-              <li>處理您的查詢及訂單。</li>
-              <li>發送有關我們服務的最新資訊及推廣優惠（如您已同意接收）。</li>
+              <li>處理你的查詢及訂單。</li>
+              <li>發送有關我們服務的最新資訊及推廣優惠（如你已同意接收）。</li>
               <li>分析網站流量及用戶行為，以優化用戶體驗。</li>
             </ul>
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">3. 資料披露</h2>
             <p>
-              除非獲得您的同意或法律規定，否則我們不會將您的個人資料出售、出租或披露予第三方。但在以下情況下，我們可能會與第三方分享您的資料：
+              除非獲得你的同意或法律規定，否則我們不會將你的個人資料出售、出租或披露予第三方。但在以下情況下，我們可能會與第三方分享你的資料：
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>獲授權的服務供應商（如網站託管、數據分析），以協助我們營運業務。</li>
@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">4. 資料安全</h2>
             <p>
-              我們採取合理的技術及組織措施，以防止您的個人資料遺失、被盜用或未經授權的存取。然而，互聯網傳輸並非百分之百安全，我們無法保證資料的絕對安全。
+              我們採取合理的技術及組織措施，以防止你的個人資料遺失、被盜用或未經授權的存取。然而，互聯網傳輸並非百分之百安全，我們無法保證資料的絕對安全。
             </p>
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">5. Cookie 及網站分析工具</h2>
@@ -99,7 +99,7 @@ export default function PrivacyPolicyPage() {
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">6. 資料保留</h2>
             <p>
-              我們只會在達成收集目的所需的期間內保留您的個人資料，或按法律要求保留。透過網站表格提交的查詢記錄會保留一段合理時間以便跟進及內部記錄；如你希望查閱、更正或刪除你曾提交的資料，可電郵至 info@adwire.com.hk 提出。
+              我們只會在達成收集目的所需的期間內保留你的個人資料，或按法律要求保留。透過網站表格提交的查詢記錄會保留一段合理時間以便跟進及內部記錄；如你希望查閱、更正或刪除你曾提交的資料，可電郵至 info@adwire.com.hk 提出。
             </p>
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">7. 政策修訂</h2>
@@ -109,7 +109,7 @@ export default function PrivacyPolicyPage() {
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">8. 聯絡我們</h2>
             <p>
-              如您對本私隱政策有任何疑問，請透過以下方式聯絡我們：<br/>
+              如你對本私隱政策有任何疑問，請透過以下方式聯絡我們：<br/>
               電郵：info@adwire.com.hk
             </p>
           </div>

@@ -88,7 +88,7 @@ export const portfolioCases: PortfolioCase[] = [
       { label: "Reels 總播放量", value: "180K+", description: "發佈後 7 天", highlight: true },
       { label: "週末新增訂枱", value: "30+桌", description: "平均每週新客", highlight: true },
       { label: "IG 追蹤成長", value: "+805%", description: "從 420 至 3,800", highlight: false },
-      { label: "行銷總預算", value: "HK$4,200", description: "低於市場廣告費", highlight: false },
+      { label: "營銷總預算", value: "HK$4,200", description: "低於市場廣告費", highlight: false },
     ],
     processSteps: [
       { phase: "第 1 週", title: "品牌故事挖掘", description: "深度訪談業主，發掘品牌獨特性與視覺賣點，確定三個拍攝主題方向。" },
@@ -179,7 +179,7 @@ export const portfolioCases: PortfolioCase[] = [
     shortDescription:
       "為傳統行業進行數碼轉型。重新編寫高速度網站，配合長尾關鍵字策略，成功霸佔 Google 首頁頭三位。",
     fullDescription:
-      "三個不同行業的本地服務業客戶（美容診所、私人貸款、外幣兌換），面對共同困境：業務完全仰賴口耳相傳，Google 搜尋曝光接近零，競爭對手佔據首頁。ADWire 為三個客戶制訂「行業定制化」SEO/GEO 策略，在競爭激烈的本地服務市場成功取得頭三位排名。",
+      "三個不同行業的本地服務業客戶（美容診所、私人貸款、外幣兌換），面對共同困境：業務完全仰賴口耳相傳，Google 搜尋曝光接近零，競爭對手佔據首頁。ADWire 為三個客戶制訂「行業度身訂造」SEO/GEO 策略，在競爭激烈的本地服務市場成功取得頭三位排名。",
     challenge:
       "三個行業均屬高競爭關鍵字環境（美容診所、快速貸款、外幣找換），網站技術狀況差（LCP > 6s、無 HTTPS、無結構化數據），本地業務亟需 Google Maps Pack 曝光，但對 SEO 完全陌生。",
     solution:
@@ -197,7 +197,7 @@ export const portfolioCases: PortfolioCase[] = [
     processSteps: [
       { phase: "第 1 月", title: "技術審計與重建", description: "全面技術 SEO 審查，修復所有技術問題，重建網站架構，部署結構化數據。" },
       { phase: "第 2 月", title: "內容策略執行", description: "關鍵字矩陣建立，撰寫 30+ 高質素內容頁面，優化現有服務頁。" },
-      { phase: "第 3 月", title: "GEO & 外鏈建設", description: "Google Business 深度優化，20+ 本地目錄提交，評論獲取計劃啟動。" },
+      { phase: "第 3 月", title: "GEO & 外鏈建設", description: "Google Business 深度優化，20+ 本地目錄提交，評論取得計劃啟動。" },
       { phase: "持續", title: "監控與迭代", description: "每月排名報告，內容持續更新，競爭對手分析，策略微調。" },
     ],
     testimonial: {
@@ -231,18 +231,18 @@ export const portfolioCases: PortfolioCase[] = [
     shortDescription:
       "利用 A/B Testing 測試超過 50 組廣告素材，精準鎖定 25-35 歲高消費力女性，ROI 達到 1:8。",
     fullDescription:
-      "一個在台灣起家、準備打入香港市場的新興美妝品牌，擁有優質產品卻缺乏本地市場認知。首輪廣告自行投放，ROAS 僅 2.1x，獲取成本 (CAC) 高達 HK$380/人，難以維持盈利。ADWire 接手後，從創意策略、受眾建模到廣告架構全面重組，以精準測試驅動高 ROAS 成效。",
+      "一個在台灣起家、準備打入香港市場的新興美妝品牌，擁有優質產品卻缺乏本地市場認知。首輪廣告自行投放，ROAS 僅 2.1x，獲客成本 (CAC) 高達 HK$380/人，難以維持盈利。ADWire 接手後，從創意策略、受眾建模到廣告架構全面重組，以精準測試驅動高 ROAS 成效。",
     challenge:
       "品牌在港零認知，競爭極激烈（美妝廣告 CPM 高達 HK$300+）；產品定價偏高端（HK$380-680），需觸及真正有購買意願的高消費力受眾；創意素材缺乏本地化，轉化率低。",
     solution:
-      "建立三層廣告漏斗：認知層（品牌故事短片 + KOL UGC 素材）、考慮層（產品功效對比 + 用戶評價輪播）、轉化層（限時優惠 + 棄單再行銷）。採用「快速創意測試框架」：於第一週同時測試 50 組素材（5 種創意概念 × 5 種文案 × 2 種格式），以最低預算識別爆款，再集中資源放大。受眾方面，以 Facebook CAPI 建立高精準購買意圖受眾，配合 Lookalike 2% 擴展。",
+      "建立三層廣告漏斗：認知層（品牌故事短片 + KOL UGC 素材）、考慮層（產品功效對比 + 用戶評價輪播）、轉化層（限時優惠 + 棄單再營銷）。採用「快速創意測試框架」：於第一週同時測試 50 組素材（5 種創意概念 × 5 種文案 × 2 種格式），以最低預算識別爆款，再集中資源放大。受眾方面，以 Facebook CAPI 建立高精準購買意圖受眾，配合 Lookalike 2% 擴展。",
     outcome:
       "8 週完成全港品牌知名度建立，ROAS 突破 8x，CAC 降至 HK$95，新品上市首月銷售額超越目標 220%。",
     stats: "800%",
     statLabel: "廣告回報率 (ROAS)",
     resultMetrics: [
       { label: "廣告回報 (ROAS)", value: "8x", description: "從 2.1x 提升至 8x", highlight: true },
-      { label: "用戶獲取成本", value: "HK$95", description: "從 HK$380 大幅下降", highlight: true },
+      { label: "用戶獲客成本", value: "HK$95", description: "從 HK$380 大幅下降", highlight: true },
       { label: "首月銷售額", value: "+220%", description: "超越銷售目標", highlight: false },
       { label: "測試素材數量", value: "50+組", description: "快速創意框架", highlight: false },
     ],
@@ -267,7 +267,7 @@ export const portfolioCases: PortfolioCase[] = [
     alt: "美妝新品發佈廣告 ROAS 800% Facebook Ads 成功案例 香港",
     seoTitle: "美妝品牌廣告投放案例 ROAS 8x | Facebook Ads",
     seoDescription:
-      "香港美妝新品上市，ADWire 透過 50+ 素材 A/B 測試框架，將 ROAS 從 2.1x 提升至 8x，用戶獲取成本降低 75%，首月銷售超標 220%。",
+      "香港美妝新品上市，ADWire 透過 50+ 素材 A/B 測試框架，將 ROAS 從 2.1x 提升至 8x，用戶獲客成本降低 75%，首月銷售超標 220%。",
   },
 
   // ─── 5. 企業官網 ──────────────────────────────────────────
@@ -509,7 +509,7 @@ export const portfolioCases: PortfolioCase[] = [
       { phase: "第 1 月", title: "技術審計與修復", description: "全面 SEO 技術審計，修復 40+ 個技術問題，部署醫療行業 Schema Markup。" },
       { phase: "第 2 月", title: "內容策略與 GEO", description: "建立關鍵字地圖，撰寫 25 篇 AI 友好型問答式療程介紹文章，優化 GEO 呈現。" },
       { phase: "第 3 月", title: "評論積累計劃", description: "設計禮貌性邀請評論流程，訓練前台執行，系統性積累真實評價。" },
-      { phase: "第 4 月", title: "本地引文與鏈接建設", description: "提交 30+ 醫療目錄，聯繫本地健康媒體，建立高質量外部鏈接。" },
+      { phase: "第 4 月", title: "本地引文與鏈接建設", description: "提交 30+ 醫療目錄，聯繫本地健康媒體，建立高質素外部鏈接。" },
     ],
     testimonial: {
       quote:
@@ -542,7 +542,7 @@ export const portfolioCases: PortfolioCase[] = [
     shortDescription:
       "開發貸款客戶管理系統，整合客戶資料、貸款申請及還款管理等功能，大幅減輕員工工作量。",
     fullDescription:
-      "一家持牌放貸機構，業務規模擴展至每月處理 300+ 申請，但完全依賴 Excel 及紙張記錄，導致數據混亂、遺漏跟進、合規風險增加。院長坦言「每天打開 Excel 就頭痛」，員工大量時間花在行政整理而非業務拓展。ADWire 為其設計並開發全套定制化 CRM 系統。",
+      "一家持牌放貸機構，業務規模擴展至每月處理 300+ 申請，但完全依賴 Excel 及紙張記錄，導致數據混亂、遺漏跟進、合規風險增加。院長坦言「每天打開 Excel 就頭痛」，員工大量時間花在行政整理而非業務拓展。ADWire 為其設計並開發全套度身訂造 CRM 系統。",
     challenge:
       "300+ 月申請量的 Excel 管理已達極限；缺乏完整的客戶還款追蹤和逾期提醒；監管合規需要完整的審計記錄；多位職員同時修改同一份 Excel 導致數據衝突；缺乏業務分析數據供管理層決策。",
     solution:
@@ -578,7 +578,7 @@ export const portfolioCases: PortfolioCase[] = [
     alt: "貸款 CRM 客戶管理系統 金融 合規 行政自動化 香港 成功案例",
     seoTitle: "貸款 CRM 系統開發案例 | 行政時間節省 50%",
     seoDescription:
-      "香港放貸機構透過 ADWire 定制化 CRM 系統，行政時間節省 50%，審批週期從 3 天縮至 4 小時，逾期率下降 35%，全面符合香港放債人條例要求。",
+      "香港放貸機構透過 ADWire 度身訂造 CRM 系統，行政時間節省 50%，審批週期從 3 天縮至 4 小時，逾期率下降 35%，全面符合香港放債人條例要求。",
   },
 
   // ─── 11. 美食短視頻 ───────────────────────────────────────
@@ -596,7 +596,7 @@ export const portfolioCases: PortfolioCase[] = [
     fullDescription:
       "一個由家庭主婦創辦的香港本地醬料品牌，以阿媽秘方為賣點，產品質素受身邊朋友一致好評，但缺乏規模化的品牌曝光渠道，IG 追蹤者長期停留在 300 人以下。ADWire 為其策劃系列化美食短視頻計劃，以極速美食製作為核心賣點打入 TikTok 及 IG Reels 算法推薦流。",
     challenge:
-      "品牌完全無線上知名度，預算極有限（HK$15,000 以內）；內容同質化嚴重，難以在大量美食帳號中突圍；需要同時在 TikTok 及 IG 兩個平台起效，且目標受眾不同（TK 偏向年輕族群，IG 偏向 25-35 歲主婦）。",
+      "品牌完全無網上知名度，預算極有限（HK$15,000 以內）；內容同質化嚴重，難以在大量美食帳號中突圍；需要同時在 TikTok 及 IG 兩個平台起效，且目標受眾不同（TK 偏向年輕族群，IG 偏向 25-35 歲主婦）。",
     solution:
       "策略核心：將醬料品牌定位為「懶人料理神器」，而非傳統「家庭廚房用品」。製作格式統一的 15 秒「一招搞掂」系列：每條片只示範一道菜，前 3 秒必有強烈視覺鉤子（熱油爆香特寫、奶酪拉絲 ASMR），字幕強調省時效益。TikTok 版本側重快節奏剪接與流行音效；IG 版本增加美食氛圍感。系列採用開放式結尾，鼓勵用戶評論「下一道菜是什麼」，持續推動算法互動。",
     outcome:
@@ -644,9 +644,9 @@ export const portfolioCases: PortfolioCase[] = [
     duration: "12 週",
     services: ["LinkedIn Ads", "自動化電郵培育", "Landing Page 優化", "Lead Scoring", "B2B 策略"],
     shortDescription:
-      "利用 LinkedIn 廣告精準鎖定海外採購經理，配合自動化電郵跟進，成功開拓歐美市場，每月穩定獲取 15+ 高質量 B2B 詢盤。",
+      "利用 LinkedIn 廣告精準鎖定海外採購經理，配合自動化電郵跟進，成功開拓歐美市場，每月穩定取得 15+ 高質素 B2B 詢盤。",
     fullDescription:
-      "一家香港製造業出口商，主要產品為工業零件，長期依賴傳統展覽（如廣交會）獲取海外客戶，但受限於 COVID 後展覽縮減及國際差旅成本上升，業務拓展陷入困境。業主希望建立數字化的歐美市場開發渠道，但對 LinkedIn B2B 廣告毫無經驗。ADWire 設計「LinkedIn 廣告 + 自動化電郵培育」一體化方案，系統化開拓歐美採購市場。",
+      "一家香港製造業出口商，主要產品為工業零件，長期依賴傳統展覽（如廣交會）取得海外客戶，但受限於 COVID 後展覽縮減及國際差旅成本上升，業務拓展陷入困境。業主希望建立數字化的歐美市場開發渠道，但對 LinkedIn B2B 廣告毫無經驗。ADWire 設計「LinkedIn 廣告 + 自動化電郵培育」一體化方案，系統化開拓歐美採購市場。",
     challenge:
       "B2B 採購決策週期長（3-6 個月），需要長期培育而非即時轉化；LinkedIn 廣告 CPL 偏高，需精準定向減少預算浪費；缺乏英語內容製作能力；與海外時區差異大，難以即時跟進詢盤。",
     solution:
@@ -654,7 +654,7 @@ export const portfolioCases: PortfolioCase[] = [
     outcome:
       "12 週穩定達到每月 15+ 合格 B2B 詢盤，其中 3 件已成交，合同總值超過 HK$800,000；Email 培育序列開封率 42%（行業平均 18%）；年化 ROI 預估超過 600%。",
     stats: "15+",
-    statLabel: "高質量 B2B 詢盤/月",
+    statLabel: "高質素 B2B 詢盤/月",
     resultMetrics: [
       { label: "月均合格詢盤", value: "15+件", description: "穩定可預期 Pipeline", highlight: true },
       { label: "成交合同總值", value: "HK$800K+", description: "12 週內首批成交", highlight: true },
@@ -665,11 +665,11 @@ export const portfolioCases: PortfolioCase[] = [
       { phase: "第 1-2 週", title: "市場研究與定向策略", description: "歐美目標市場分析，理想客戶畫像 (ICP) 建立，LinkedIn 定向策略制定，競爭對手研究。" },
       { phase: "第 2-4 週", title: "廣告素材與 Landing Page", description: "英語廣告文案創作，Lead Gen Form 設計，Landing Page 建設，感謝頁及 CRM 整合。" },
       { phase: "第 4-6 週", title: "電郵培育序列建置", description: "8 封電郵系列策劃及撰寫，HubSpot 自動化流程建置，Lead Scoring 模型設定。" },
-      { phase: "第 6-12 週", title: "廣告優化與規模化", description: "每週廣告數據分析，持續優化定向與素材，依詢盤質量調整 Lead Scoring 規則。" },
+      { phase: "第 6-12 週", title: "廣告優化與規模化", description: "每週廣告數據分析，持續優化定向與素材，依詢盤質素調整 Lead Scoring 規則。" },
     ],
     testimonial: {
       quote:
-        "以前只靠參加展覽搵歐洲客，費用高又唔穩定。而家透過 LinkedIn，每個月都有新詢盤入嚟，成本比展覽低好多，而且詢盤質量更加好，係真係有採購需求嘅人。",
+        "以前只靠參加展覽搵歐洲客，費用高又唔穩定。而家透過 LinkedIn，每個月都有新詢盤入嚟，成本比展覽低好多，而且詢盤質素更加好，係真係有採購需求嘅人。",
       author: "James Ng",
       role: "出口部總監",
       company: "Pacific Industrial Trading",
@@ -682,7 +682,7 @@ export const portfolioCases: PortfolioCase[] = [
     alt: "B2B LinkedIn 廣告 自動化電郵 歐美開拓市場 國際貿易 香港 成功案例",
     seoTitle: "B2B LinkedIn 廣告開拓歐美市場 | 月均 15+ 詢盤",
     seoDescription:
-      "香港出口商透過 ADWire LinkedIn Ads + 自動化電郵培育，12 週穩定獲取每月 15+ 高質 B2B 詢盤，成交合同 HK$80 萬，年化 ROI 超過 600%。",
+      "香港出口商透過 ADWire LinkedIn Ads + 自動化電郵培育，12 週穩定取得每月 15+ 高質 B2B 詢盤，成交合同 HK$80 萬，年化 ROI 超過 600%。",
   },
 
   // ─── 13. AI 辦公效率工具 ──────────────────────────────────────
@@ -696,7 +696,7 @@ export const portfolioCases: PortfolioCase[] = [
     duration: "5 週",
     services: ["Google Gemini API", "AI 工具開發", "流程自動化", "員工培訓", "效率分析"],
     shortDescription:
-      "善用 Google Gemini API 為零售商打造三款定制化 AI 工具，涵蓋庫存分析、客服草稿及銷售日報生成，每週節省超過 30 小時人力。",
+      "善用 Google Gemini API 為零售商打造三款度身訂造 AI 工具，涵蓋庫存分析、客服草稿及銷售日報生成，每週節省超過 30 小時人力。",
     fullDescription:
       "一家在香港擁有 8 間分店的連鎖藥妝零售商，每天需要處理大量重複性行政工作：庫存數據整理分析（每天 3 小時）、回覆客戶電郵及 WhatsApp 查詢（每天 4 小時）、為管理層撰寫分店銷售日報（每天 2 小時）。管理層意識到這些都是低創意值但高時間消耗的工作，決心引入 AI 工具提升效率。ADWire 以 Google Gemini API 為核心，在 5 週內定制開發三款「即插即用」的 AI 效率工具。",
     challenge:
@@ -715,7 +715,7 @@ export const portfolioCases: PortfolioCase[] = [
     ],
     processSteps: [
       { phase: "第 1 週", title: "痛點深挖與工具規劃", description: "跟隨員工工作一整天，完整記錄每個重複性任務的時間消耗與操作步驟，確定三個優先工具方向。" },
-      { phase: "第 2-3 週", title: "MVP 開發與 Gemini API 整合", description: "三款工具核心邏輯開發，Gemini Prompt Engineering 優化，確保輸出質量達到「可以直接使用」的水準。" },
+      { phase: "第 2-3 週", title: "MVP 開發與 Gemini API 整合", description: "三款工具核心邏輯開發，Gemini Prompt Engineering 優化，確保輸出質素達到「可以直接使用」的水準。" },
       { phase: "第 3-4 週", title: "員工測試與迭代", description: "選取 3 名員工進行真實工作場景測試，收集反饋持續優化提示詞與介面，確保非技術用戶也能輕鬆使用。" },
       { phase: "第 5 週", title: "全店部署與培訓", description: "Google Sheets Add-on 正式部署至所有分店，進行 2 小時員工培訓工作坊，建立使用手冊。" },
     ],
@@ -756,12 +756,12 @@ export const portfolioCases: PortfolioCase[] = [
     solution:
       "建立「三層種草矩陣」：① 頭部 KOL（100 萬+粉絲，2 位）負責品牌背書，打造「香港品牌來了」的話題感；② 腰部達人（5-50 萬粉絲，8 位）進行深度產品評測，提供有說服力的使用體驗內容；③ 素人博主（5,000-2 萬粉絲，30+位）發佈真實口碑筆記，形成「大量用戶都在用」的社會証明。同步優化品牌官方帳號，採用「問題解決型」標題結構提升搜尋曝光，主動與種草筆記互動提升品牌形象。",
     outcome:
-      "3 個月種草計劃總曝光量突破 500 萬次，品牌關鍵詞在小紅書搜尋量增加 312%；官方帳號粉絲從 800 增至 18,500；多篇素人筆記自然傳播，2 篇進入熱門推薦，合計獲得 35 萬+ 有機曝光。",
+      "3 個月種草計劃總曝光量突破 500 萬次，品牌關鍵字在小紅書搜尋量增加 312%；官方帳號粉絲從 800 增至 18,500；多篇素人筆記自然傳播，2 篇進入熱門推薦，合計獲得 35 萬+ 有機曝光。",
     stats: "500萬+",
     statLabel: "筆記總曝光量",
     resultMetrics: [
       { label: "筆記總曝光量", value: "500萬+", description: "3 個月累積", highlight: true },
-      { label: "品牌搜尋增長", value: "+312%", description: "小紅書關鍵詞搜尋量", highlight: true },
+      { label: "品牌搜尋增長", value: "+312%", description: "小紅書關鍵字搜尋量", highlight: true },
       { label: "官方帳號粉絲", value: "+2,212%", description: "從 800 至 18,500", highlight: false },
       { label: "合作 KOL 數量", value: "40+位", description: "三層矩陣覆蓋", highlight: false },
     ],
@@ -769,7 +769,7 @@ export const portfolioCases: PortfolioCase[] = [
       { phase: "第 1-2 週", title: "平台研究與 KOL 篩選", description: "小紅書美妝類目深度分析，競品種草策略研究，從 300+ KOL 候選中篩選 40 位合適合作對象。" },
       { phase: "第 2-4 週", title: "內容策略與素材準備", description: "制定統一品牌 Tone of Voice（內地化語言風格），設計種草話題框架，為每層 KOL 提供明確創作方向。" },
       { phase: "第 4-10 週", title: "分批發佈與算法激活", description: "首週素人批量發佈建立基礎聲量，第二週腰部達人跟進提升可信度，第三週頭部 KOL 加倉放大效應。" },
-      { phase: "持續", title: "數據監測與優化", description: "每週爬取關鍵詞排名數據，分析高互動筆記共性，滾動優化創作方向。" },
+      { phase: "持續", title: "數據監測與優化", description: "每週爬取關鍵字排名數據，分析高互動筆記共性，滾動優化創作方向。" },
     ],
     testimonial: {
       quote:
@@ -793,12 +793,12 @@ export const portfolioCases: PortfolioCase[] = [
   {
     id: 15,
     slug: "xiaohongshu-paid-ads",
-    title: "小紅書信息流廣告優化",
+    title: "小紅書資訊流廣告優化",
     category: "China Market",
     displayCategory: "小紅書廣告",
     industry: "健康食品 / 保健品",
     duration: "8 週",
-    services: ["小紅書廣告投放", "素材創意製作", "偽種草廣告策略", "關鍵詞搜尋廣告", "A/B 測試"],
+    services: ["小紅書廣告投放", "素材創意製作", "偽種草廣告策略", "關鍵字搜尋廣告", "A/B 測試"],
     shortDescription:
       "健康食品品牌採用「偽種草式廣告」策略，規避平台用戶對硬廣的反感，ROAS 從 1.8x 優化至 4.3x，CPL 大幅降低 66%。",
     fullDescription:
@@ -806,7 +806,7 @@ export const portfolioCases: PortfolioCase[] = [
     challenge:
       "小紅書用戶對品牌廣告極度敏感，「廣告感」一旦出現用戶立即滑走；健康食品類目在小紅書屬於高競爭區間，CPC 居高不下（¥12-18/次）；品牌方以往素材風格過於「電商感」，不符合小紅書的「生活分享」文化；效果轉化路徑不清晰。",
     solution:
-      "核心策略：採用「偽種草廣告」方法論 — 廣告素材完全模仿真實用戶的日記體筆記，以「最近試了一款超好用的xxx」為開頭，避免品牌 Logo 前置；創意方向分為「問題解決型」（我之前一直有xxx困擾，試過這個後...）和「生活方式型」（分享一下我的健康日常...）兩大類；同步啟動關鍵詞搜尋廣告，在高意圖搜尋場景精準捕獲有需求的用戶；AB 測試 30+ 素材，以數據找出平台爆款公式。",
+      "核心策略：採用「偽種草廣告」方法論 — 廣告素材完全模仿真實用戶的日記體筆記，以「最近試了一款超好用的xxx」為開頭，避免品牌 Logo 前置；創意方向分為「問題解決型」（我之前一直有xxx困擾，試過這個後...）和「生活方式型」（分享一下我的健康日常...）兩大類；同步啟動關鍵字搜尋廣告，在高意圖搜尋場景精準捕獲有需求的用戶；AB 測試 30+ 素材，以數據找出平台爆款公式。",
     outcome:
       "8 週優化後 ROAS 從 1.8x 提升至 4.3x，CPL 從 ¥180 降至 ¥62；搜尋廣告帶來 35% 的總轉化量；3 組「偽種草」素材自然傳播，額外帶來 8 萬次有機曝光。",
     stats: "4.3x",
@@ -835,7 +835,7 @@ export const portfolioCases: PortfolioCase[] = [
     accentColor: "#e91e8c",
     tags: ["小紅書廣告", "偽種草", "Health Food"],
     image: "/portfolio/ecommerce-automation.webp",
-    alt: "小紅書信息流廣告 偽種草策略 ROAS 4.3x 健康食品 香港品牌 成功案例",
+    alt: "小紅書資訊流廣告 偽種草策略 ROAS 4.3x 健康食品 香港品牌 成功案例",
     seoTitle: "小紅書廣告投放案例 ROAS 4.3x | 偽種草策略",
     seoDescription:
       "健康食品品牌透過 ADWire 小紅書偽種草廣告策略，ROAS 從 1.8x 升至 4.3x，CPL 降低 66%，30+ 素材 A/B 測試找出平台爆款公式。",
@@ -854,24 +854,24 @@ export const portfolioCases: PortfolioCase[] = [
     shortDescription:
       "香港服務業品牌建立全鏈路內地品牌形象，百度核心關鍵字排名首頁，每月內地詢問增長 180%，成功觸達計劃赴港的內地客戶。",
     fullDescription:
-      "一間香港頂級美容醫療診所，主要客群為本地港人，但發現越來越多內地訪客詢問服務。然而在百度搜尋「香港醫美推薦」、「赴港醫美攻略」等關鍵詞，診所完全不存在。管理層意識到這是一個巨大的增長機遇：吸引高消費力的內地赴港客群，但完全不知道如何在內地平台建立品牌存在。ADWire 為其設計「全鏈路內地品牌形象計劃」。",
+      "一間香港頂級美容醫療診所，主要客群為本地港人，但發現越來越多內地訪客詢問服務。然而在百度搜尋「香港醫美推薦」、「赴港醫美攻略」等關鍵字，診所完全不存在。管理層意識到這是一個巨大的增長機遇：吸引高消費力的內地赴港客群，但完全不知道如何在內地平台建立品牌存在。ADWire 為其設計「全鏈路內地品牌形象計劃」。",
     challenge:
       "香港網站無法在百度直接被索引（需要 ICP 備案或特殊處理）；品牌在內地社交平台零存在感；內地用戶對香港品牌的可信度有疑慮，需要建立信任背書；百度 SEO 策略與 Google 差異巨大，需要本地化知識；需在不違規的前提下合法合規地建立百度品牌形象。",
     solution:
-      "四步建立全鏈路內地曝光：① 百度品牌建設 — 建立百度百科詞條（給品牌官方知識背書）、百度地圖標記（覆蓋所有分類標籤）、百度知道問答佈局（截獲「赴港醫美哪裏好？」類型的搜尋意圖）；② 內容 SEO — 以「赴港醫美攻略」、「香港XXX推薦」等關鍵詞撰寫百度友好型攻略文章；③ 微信生態建設 — 開設微信公眾號並運營「赴港醫美指南」系列內容，配套微信小程序預約功能；④ 內地 PR — 聯繫 3 個赴港生活類微信公眾號進行品牌報道。",
+      "四步建立全鏈路內地曝光：① 百度品牌建設 — 建立百度百科詞條（給品牌官方知識背書）、百度地圖標記（覆蓋所有分類標籤）、百度知道問答部署（截獲「赴港醫美哪裏好？」類型的搜尋意圖）；② 內容 SEO — 以「赴港醫美攻略」、「香港XXX推薦」等關鍵字撰寫百度友好型攻略文章；③ 微信生態建設 — 開設微信公眾號並運營「赴港醫美指南」系列內容，配套微信小程序預約功能；④ 內地 PR — 聯繫 3 個赴港生活類微信公眾號進行品牌報道。",
     outcome:
-      "5 個月後，「香港醫美推薦」等 6 個核心百度關鍵詞登上首頁；每月來自內地的查詢增加 180%；微信公眾號累積 3,200+ 關注者；診所成功接待大量內地 VIP 客戶，人均消費金額為港人的 2.3 倍。",
+      "5 個月後，「香港醫美推薦」等 6 個核心百度關鍵字登上首頁；每月來自內地的查詢增加 180%；微信公眾號累積 3,200+ 關注者；診所成功接待大量內地 VIP 客戶，人均消費金額為港人的 2.3 倍。",
     stats: "+180%",
     statLabel: "內地來源查詢增長",
     resultMetrics: [
       { label: "內地查詢增長", value: "+180%", description: "每月內地詢問量", highlight: true },
-      { label: "百度關鍵字", value: "6個首頁", description: "核心赴港關鍵詞", highlight: true },
+      { label: "百度關鍵字", value: "6個首頁", description: "核心赴港關鍵字", highlight: true },
       { label: "微信公眾號", value: "3,200+", description: "粉絲關注者", highlight: false },
       { label: "內地客人消費", value: "2.3倍", description: "相比本地客人均消費", highlight: false },
     ],
     processSteps: [
       { phase: "第 1 月", title: "內地市場審計與策略規劃", description: "百度搜尋行為分析，競品在百度的布局研究，制定「合規 + 高效」四步曝光策略。" },
-      { phase: "第 2 月", title: "百度品牌基礎建設", description: "百度百科詞條撰寫與提交、百度地圖標記優化、百度知道 Q&A 佈局，建立品牌搜尋基礎。" },
+      { phase: "第 2 月", title: "百度品牌基礎建設", description: "百度百科詞條撰寫與提交、百度地圖標記優化、百度知道 Q&A 部署，建立品牌搜尋基礎。" },
       { phase: "第 3 月", title: "內容 SEO + 微信建設", description: "10 篇赴港醫美攻略內容撰寫，百度 SEO 收錄，微信公眾號開設及首批內容發佈。" },
       { phase: "第 4-5 月", title: "PR 推廣與持續優化", description: "3 個赴港類公眾號品牌報道，持續更新 SEO 內容，微信粉絲增長計劃執行。" },
     ],

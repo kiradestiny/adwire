@@ -114,7 +114,7 @@ const serviceSchema = {
     {
       "@type": "Offer",
       name: "Premium（旗艦方案）",
-      description: "適合競爭較高或希望加快佈局的品牌。50 個重點關鍵字、每月 6 篇內容、每月 6 頁優化、較深入技術支援及更全面 SEO + GEO 佈局。",
+      description: "適合競爭較高或希望加快部署的品牌。50 個重點關鍵字、每月 6 篇內容、每月 6 頁優化、較深入技術支援及更全面 SEO + GEO 部署。",
       price: "16800",
       priceCurrency: "HKD",
       priceSpecification: {
@@ -175,7 +175,7 @@ const faqSchema = {
       name: "大公司如果不做 GEO 優化會有什麼後果？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "AI 搜尋市場正急速增長。ChatGPT 月活用戶已超過 3 億，Perplexity 每月處理逾 5 億次查詢。若品牌未建立 GEO 優化基礎，當用戶問 AI「香港最好的XXX是什麼」，AI 只會推薦已做 GEO 的競爭對手。越早部署，建立的 AI 引用優勢就越難被追上。業界預計 2025 年後 GEO 將成為數碼行銷的基本配置。",
+        text: "AI 搜尋市場正急速增長。ChatGPT 月活用戶已超過 3 億，Perplexity 每月處理逾 5 億次查詢。若品牌未建立 GEO 優化基礎，當用戶問 AI「香港最好的XXX是什麼」，AI 只會推薦已做 GEO 的競爭對手。越早部署，建立的 AI 引用優勢就越難被追上。業界預計 2025 年後 GEO 將成為數碼營銷的基本配置。",
       },
     },
     {
@@ -204,7 +204,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "ADWire 保證能上 Google 第一頁嗎？",
+      name: "能保證 Google 第一頁排名嗎？",
       acceptedAnswer: {
         "@type": "Answer",
         text: "不會，我們亦不會作任何排名保證，因為 Google 及 AI 平台的演算法並非供應商可控制。ADWire 的工作是按技術 SEO、關鍵字意圖、內容質素及網站結構逐項優化，並以曝光、點擊、索引健康及查詢轉換等可量度數據向客戶交代進度。實務經驗上，基礎打好後約 3–6 個月開始見到較明顯的排名及流量變化，競爭激烈的行業需要更長時間。",

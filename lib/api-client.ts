@@ -1,7 +1,7 @@
 /**
  * API Client — 從 PHP 後台拉取數據
  * 
- * 此模組在 Next.js Build Time 運行，從 Admin API 獲取最新數據。
+ * 此模組在 Next.js Build Time 運行，從 Admin API 取得最新數據。
  * 如果 API 不可用，會自動 fallback 到本地硬編碼數據。
  * 
  * 環境變數：

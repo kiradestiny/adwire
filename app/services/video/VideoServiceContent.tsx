@@ -70,8 +70,8 @@ export default function VideoServiceContent() {
       <section className="py-20 bg-[#0a0a0a] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">為什麼你的短影音行銷總是「滑過即逝」？</h2>
-            <p className="text-gray-400 text-lg">在這個注意力稀缺的年代，平庸的影片等於無效行銷。</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">為什麼你的短視頻營銷總是「滑過即逝」？</h2>
+            <p className="text-gray-400 text-lg">在這個注意力稀缺的年代，平庸的影片等於無效營銷。</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -88,7 +88,7 @@ export default function VideoServiceContent() {
             <PainPointCard 
               icon={Target}
               title="只有曝光，沒有轉換"
-              desc="影片拍得漂亮但沒人買單？因為缺乏清晰的 CTA 和銷售心理學。我們將行銷思維融入劇本，引導觀眾行動。"
+              desc="影片拍得漂亮但沒人買單？因為缺乏清晰的 CTA 和銷售心理學。我們將營銷思維融入劇本，引導觀眾行動。"
             />
           </div>
         </div>
@@ -99,14 +99,14 @@ export default function VideoServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <span className="text-purple-400 font-bold tracking-wider uppercase text-sm mb-2 block">Our Services</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">不只是短影音製作，更是品牌資產</h2>
-            <p className="text-gray-400 text-lg">針對不同行銷目的，提供量身定制的影像解決方案。</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">不只是短視頻製作，更是品牌資產</h2>
+            <p className="text-gray-400 text-lg">針對不同營銷目的，提供量身定制的影像解決方案。</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ServiceCard 
               title="病毒式短視頻 (Viral Shorts)"
-              desc="專攻 IG Reels, TikTok, YouTube Shorts。節奏快、娛樂性強，最適合快速獲取流量和年輕客群。"
+              desc="專攻 IG Reels, TikTok, YouTube Shorts。節奏快、娛樂性強，最適合快速取得流量和年輕客群。"
               tags={['9:16 豎屏', '快節奏', '原生感']}
               icon={Zap}
             />
@@ -124,7 +124,7 @@ export default function VideoServiceContent() {
             />
             <ServiceCard 
               title="活動紀錄與訪問 (Event & Interview)"
-              desc="紀錄公司活動、發布會或客戶見證訪問。將線下活動轉化為線上永久的行銷素材。"
+              desc="紀錄公司活動、發布會或客戶見證訪問。將線下活動轉化為網上永久的營銷素材。"
               tags={['活動花絮', '人物訪談', '真實見證']}
               icon={Video}
             />
@@ -272,14 +272,14 @@ export default function VideoServiceContent() {
       {/* 6. 數據與優勢 (Stats) */}
       <section className="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#0f4c81]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16">數據話你知：短影音行銷是必須的</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-16">數據話你知：短視頻營銷是必須的</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <StatCard 
               icon={Smartphone}
               val="9:16"
               label="全屏沉浸體驗"
-              desc="霸佔用戶手機屏幕，信息干擾最小，轉化率比傳統橫片高 2 倍。"
+              desc="霸佔用戶手機屏幕，資訊干擾最小，轉化率比傳統橫片高 2 倍。"
             />
             <StatCard 
               icon={Clock}
@@ -316,7 +316,7 @@ export default function VideoServiceContent() {
             />
             <FAQItem 
               question="收費模式是怎樣的？" 
-              answer="我們提供單次製作服務，也有「月費包月」的短視頻套餐（例如每月 4 條或 8 條），包月方案會更划算，適合需要持續產出內容的品牌。歡迎聯絡我們獲取詳細報價單。"
+              answer="我們提供單次製作服務，也有「月費包月」的短視頻套餐（例如每月 4 條或 8 條），包月方案會更划算，適合需要持續產出內容的品牌。歡迎聯絡我們取得詳細報價單。"
             />
             <FAQItem 
               question="影片可以修改幾次？" 

@@ -151,7 +151,7 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "如何與 ADWire Agency 開始合作？",
-    "description": "四個簡單步驟，讓 ADWire 為您量身打造 AI 驅動的數碼營銷方案，助香港企業業績增長。",
+    "description": "四個簡單步驟，讓 ADWire 為你量身打造 AI 驅動的數碼營銷方案，助香港企業業績增長。",
     "totalTime": "PT15M",
     "supply": [
       {
@@ -168,14 +168,14 @@ export default function JsonLd() {
         "@type": "HowToStep",
         "position": 1,
         "name": "免費初步諮詢",
-        "text": `通過 WhatsApp (${WHATSAPP_E164}) 或網站表格聯絡 ADWire，進行 15 分鐘免費業務診斷，了解您的痛點與目標。`,
+        "text": `通過 WhatsApp (${WHATSAPP_E164}) 或網站表格聯絡 ADWire，進行 15 分鐘免費業務診斷，了解你的痛點與目標。`,
         "url": "https://adwire.com.hk/contact/"
       },
       {
         "@type": "HowToStep",
         "position": 2,
         "name": "深度調研與分析",
-        "text": "ADWire 專家團隊分析您的行業趨勢、競爭對手及目標受眾，找出品牌增長的關鍵切入點。"
+        "text": "ADWire 專家團隊分析你的行業趨勢、競爭對手及目標受眾，找出品牌增長的關鍵切入點。"
       },
       {
         "@type": "HowToStep",
@@ -247,7 +247,7 @@ export default function JsonLd() {
         "@type": "ListItem",
         "position": 7,
         "name": "AI 解決方案",
-        "description": "定制化 AI Agent、企業級 LLM 應用及 AI 工作流自動化",
+        "description": "度身訂造 AI Agent、企業級 LLM 應用及 AI 工作流自動化",
         "url": "https://adwire.com.hk/services/ai/"
       },
       {
@@ -261,14 +261,14 @@ export default function JsonLd() {
         "@type": "ListItem",
         "position": 9,
         "name": "企業系統開發",
-        "description": "ERP、CRM、預訂系統等定制化企業管理系統開發",
+        "description": "ERP、CRM、預訂系統等度身訂造企業管理系統開發",
         "url": "https://adwire.com.hk/services/system/"
       },
       {
         "@type": "ListItem",
         "position": 10,
-        "name": "商業攝影與視頻製作",
-        "description": "專業產品攝影、企業形象片及宣傳視頻製作",
+        "name": "商業攝影與影片製作",
+        "description": "專業產品攝影、企業形象片及宣傳影片製作",
         "url": "https://adwire.com.hk/services/production/"
       }
     ]

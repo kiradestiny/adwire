@@ -10,7 +10,7 @@ const aiFaqs = [
     answer: "我們的 AI 解決方案適合各種規模的 B2B 企業，從 10 人的中小企到數百人的大型企業都適用。我們會根據企業實際需求及預算，量身定制最合適的方案，由基礎的 AI 客服機器人到企業級私有化部署都可以提供。"
   },
   {
-    question: "AI 導入需要多長時間？投資回報期是多久？",
+    question: "AI 導入需要多長時間？成效何時可以看到？",
     answer: "基礎的 AI 客服系統最快 4-6 週可上線，較複雜的企業知識庫或流程自動化約需 2-3 個月。實際回報視使用場景、資料質素及流程複雜度而定；我們會在方案階段提供估算假設及量度方式，不會預先保證回本期。"
   },
   {
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "AI 解決方案 | 企業智能轉型專家 | ADWire Agency",
-    description: "為香港 B2B 企業打造專屬 AI 解決方案。AI 客服、流程自動化、知識庫建設、私有化部署。助你解決人手短缺，提升效率高達 500%。",
+    description: "為香港企業開發 AI 應用與系統整合：AI Agent、RAG 知識庫、文件處理及工作流程自動化。按實際需要評估部署選項，並說明權限、資料保留及人工覆核安排。",
     url: "https://adwire.com.hk/services/ai/",
     siteName: "ADWire Agency",
     type: "website",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AI 解決方案 | 企業智能轉型專家",
-    description: "香港 B2B 企業 AI 轉型首選。AI 客服、流程自動化、私有化部署，3-6 個月 ROI。",
+    description: "由使用場景、資料可用性及風險評估，到 Prototype、測試及上線後監控。說明 AI 模型費用、知識庫維護及人工覆核安排。",
   },
   robots: {
     index: true,

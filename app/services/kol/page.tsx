@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     "KOL 配對服務",
     "網紅廣告香港",
     "Influencer Agency Hong Kong",
-    "KOL 行銷策略",
+    "KOL 營銷策略",
     "品牌大使 Hong Kong",
     "社交媒體 KOL",
-    "網紅行銷代理",
+    "網紅營銷代理",
   ],
   authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
   alternates: {
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "KOL 網紅營銷服務 | ADWire Agency 香港",
-    description: "香港一站式 KOL 配對 + 內容監修，IG / FB / 小紅書 / Threads，數據驅動確保真實 ROI。",
+    description: "香港一站式 KOL 配對與內容監修，涵蓋 IG、Facebook、小紅書及 Threads。以數據追蹤受眾真偽、觸及及轉化表現。",
     images: ["/services/kol/product.webp"],
   },
 };
@@ -60,7 +60,7 @@ const serviceSchema = {
   name: "KOL 網紅營銷服務 (Influencer Marketing)",
   alternateName: "Influencer Marketing Hong Kong",
   description:
-    "ADWire Agency 提供香港一站式 KOL 網紅營銷服務，包括 IG、Facebook、小紅書及 Threads 平台的 KOL 配對、AI 粉絲質量分析、內容策略監修及成效追蹤報告。服務涵蓋 Nano KOL 種草至 Mega KOL 品牌宣傳。",
+    "ADWire Agency 提供香港一站式 KOL 網紅營銷服務，包括 IG、Facebook、小紅書及 Threads 平台的 KOL 配對、AI 粉絲質素分析、內容策略監修及成效追蹤報告。服務涵蓋 Nano KOL 種草至 Mega KOL 品牌宣傳。",
   url: "https://adwire.com.hk/services/kol/",
   image: "https://adwire.com.hk/services/kol/product.webp",
   provider: {
@@ -86,7 +86,7 @@ const serviceSchema = {
     {
       "@type": "Offer",
       name: "KOL 種草基礎方案",
-      description: "適合初次嘗試 KOL 行銷的品牌。1–3 位 Micro KOL 合作，AI 粉絲分析報告，內容監修及成效追蹤。",
+      description: "適合初次嘗試 KOL 營銷的品牌。1–3 位 Micro KOL 合作，AI 粉絲分析報告，內容監修及成效追蹤。",
       itemOffered: { "@type": "Service", name: "KOL 種草基礎方案" },
     },
     {
@@ -159,7 +159,7 @@ const faqSchema = {
       name: "什麼行業最適合 KOL 網紅營銷？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "KOL 行銷適合幾乎所有 B2C 行業，尤其以下行業效果最佳：美容護膚（開箱評測）、餐飲 F&B（探店打卡）、時尚服飾（穿搭 Look）、電商零售（好物種草）、旅遊（打卡地點）、母嬰育兒（親子體驗）、科技產品（評測開箱）。",
+        text: "KOL 營銷適合幾乎所有 B2C 行業，尤其以下行業效果最佳：美容護膚（開箱評測）、餐飲 F&B（探店打卡）、時尚服飾（穿搭 Look）、電商零售（好物種草）、旅遊（打卡地點）、母嬰育兒（親子體驗）、科技產品（評測開箱）。",
       },
     },
     {

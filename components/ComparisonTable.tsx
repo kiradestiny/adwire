@@ -74,7 +74,7 @@ const rows: ComparisonRow[] = [
     highlight: true,
   },
   {
-    feature: "24小時回覆承諾",
+    feature: "專人跟進及進度匯報",
     adwire: "yes",
     traditional: "partial",
     diy: "no",
@@ -193,16 +193,15 @@ export default function ComparisonTable() {
                   scope="col"
                   className="text-center px-4 py-5 font-bold bg-[#f5a623]"
                 >
-                  {/* 推薦標籤：inline flow，不用 absolute 避免 overflow 問題 */}
-                  <div className="inline-flex items-center justify-center mb-2 bg-green-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap shadow-sm">
-                    ✦ 推薦首選
-                  </div>
+                  {/* 2026-09：原本此處有一個「✦ 推薦首選」標籤。任何供應商自稱
+                      「推薦首選」都是不可核實的優越性聲稱，對需要盡職審查的
+                      企業客戶反而扣分，故移除。表格只呈現各模式實際涵蓋的服務範圍。 */}
                   <div className="flex flex-col items-center gap-0.5">
                     <span className="text-white font-bold text-base leading-tight">
                       ADWire
                     </span>
                     <span className="text-white/80 text-xs font-normal">
-                      AI MarTech 代理
+                      軟件・AI・增長方案
                     </span>
                   </div>
                 </th>
@@ -300,7 +299,7 @@ export default function ComparisonTable() {
         <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-100">
           <p className="text-center text-gray-600 text-sm leading-relaxed">
             <strong className="text-[#0f4c81]">ADWire Agency</strong> 是香港少數同時提供
-            <strong>「爆款內容創作」</strong>與<strong>「複雜系統開發」</strong>能力的 MarTech 代理商。
+            <strong>「爆款內容創作」</strong>與<strong>「複雜系統開發」</strong>能力的軟件及數碼增長夥伴。
             服務超過 <strong>500+</strong> 香港中小企及品牌，平均 ROI 提升 <strong>328%</strong>。
             <br className="hidden md:block" />
             <span className="mt-1 inline-block">

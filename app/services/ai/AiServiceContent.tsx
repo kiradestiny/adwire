@@ -246,7 +246,7 @@ export default function AiServiceContent() {
 
             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
               AI 不只是工具，而是企業的新生產力引擎。ADWire 提供從策略、開發到落地的 AI 解決方案，
-              協助你解決人手短缺、流程低效、數據孤島與客戶回應慢的問題，<span className="text-blue-200 font-semibold">平均 3-6 個月回本</span>。
+              協助你解決人手短缺、流程低效、數據孤島與客戶回應慢的問題。
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -254,7 +254,7 @@ export default function AiServiceContent() {
                 href="#roi"
                 className="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/50 flex items-center justify-center gap-2"
               >
-                <Calculator size={18} /> 立即計算 ROI
+                <Calculator size={18} /> 試算投資估算
               </a>
               <a
                 href="#contact"
@@ -265,9 +265,9 @@ export default function AiServiceContent() {
             </div>
 
             <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-blue-100/90">
-              <span className="flex items-center gap-2"><ShieldCheck size={16} /> 私有化部署 | 數據安全</span>
-              <span className="flex items-center gap-2"><Zap size={16} /> 最快 3 個月上線</span>
-              <span className="flex items-center gap-2"><Target size={16} /> 量身定制 ROI 方案</span>
+              <span className="flex items-center gap-2"><ShieldCheck size={16} /> 部署選項按需要評估</span>
+              <span className="flex items-center gap-2"><Zap size={16} /> 按範圍分階段交付</span>
+              <span className="flex items-center gap-2"><Target size={16} /> 先盤點可自動化流程</span>
             </div>
           </motion.div>
         </div>
@@ -276,8 +276,8 @@ export default function AiServiceContent() {
       {/* Social Proof Stats */}
       <section className="py-12 bg-white border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          <StatCard icon={TrendingUp} value="500%" label="平均流程效率提升" />
-          <StatCard icon={Clock} value="3-6 個月" label="投資回報期" />
+          <StatCard icon={TrendingUp} value="流程盤點" label="先釐清可自動化範圍" />
+          <StatCard icon={Clock} value="Prototype" label="先做小範圍驗證" />
           <StatCard icon={Handshake} value="45+" label="香港 B2B 案例" />
         </div>
       </section>
@@ -431,7 +431,7 @@ export default function AiServiceContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AdvantageCard icon={Brain} title="多模型策略" desc="支援 GPT-4、Claude、Llama 及私有模型，根據場景選擇最佳方案。" />
             <AdvantageCard icon={Database} title="資料治理與 RAG" desc="建立高品質知識庫，確保 AI 回答準確、可追溯。" />
-            <AdvantageCard icon={Lock} title="企業級安全" desc="私有化部署、權限控制、審計日誌，確保合規安全。" />
+            <AdvantageCard icon={Lock} title="企業級安全" desc="權限控制與審計日誌；部署方式按資料敏感度及業務需要評估。" />
             <AdvantageCard icon={Gauge} title="效能優化" desc="針對回應速度與成本進行模型壓縮與調優。" />
             <AdvantageCard icon={Headset} title="本地支援" desc="以香港市場為主，提供廣東話及中文書面語的溝通、培訓及維護安排。" />
             <AdvantageCard icon={LineChart} title="AI 成效追蹤" desc="提供 KPI Dashboard 追蹤 ROI、工時節省與銷售成效。" />

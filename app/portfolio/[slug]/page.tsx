@@ -262,7 +262,7 @@ export default async function CaseStudyPage({
 }) {
   const { slug } = await params;
 
-  // Build Time 數據獲取（API 優先 + 本地 Fallback）
+  // Build Time 數據取得（API 優先 + 本地 Fallback）
   const [allCases, extendedDataMap] = await Promise.all([
     getSerializablePortfolioCases(),
     getPortfolioExtendedData(),

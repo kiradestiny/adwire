@@ -122,7 +122,7 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
             仲有其他問題？
           </p>
           <p className="text-gray-500 text-sm mb-6">
-            我們的專家團隊隨時準備為您解答，歡迎免費諮詢。
+            我們的專家團隊隨時準備為你解答，歡迎免費諮詢。
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

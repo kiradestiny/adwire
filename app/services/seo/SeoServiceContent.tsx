@@ -31,7 +31,7 @@ export default function SeoServiceContent() {
     },
     {
       question: "大公司如果不做 GEO 優化會有什麼後果？",
-      answer: "ChatGPT 月活用戶超過 3 億，Perplexity 每月逾 5 億次查詢。若品牌未建立 GEO 優化基礎，當用戶問 AI「香港最好的XXX是什麼」，AI 只會推薦已做 GEO 的競爭對手。越早部署，AI 引用優勢就越難被追上。業界預計 2025 年後 GEO 將成為數碼行銷的基本配置。"
+      answer: "ChatGPT 月活用戶超過 3 億，Perplexity 每月逾 5 億次查詢。若品牌未建立 GEO 優化基礎，當用戶問 AI「香港最好的XXX是什麼」，AI 只會推薦已做 GEO 的競爭對手。越早部署，AI 引用優勢就越難被追上。業界預計 2025 年後 GEO 將成為數碼營銷的基本配置。"
     },
     {
       question: "ADWire SEO / GEO 服務收費是多少？",
@@ -46,7 +46,7 @@ export default function SeoServiceContent() {
       answer: "AI 引擎選擇推薦品牌主要依據：(1) 內容被高信譽媒體/網站引用次數；(2) 官方網站內容的清晰度和結構化程度（Schema Markup）；(3) 品牌在多個渠道出現的一致性；(4) 內容的 E-E-A-T 原則（經驗、專業、權威、信任）。ADWire 的 GEO 服務針對這些指標進行系統性優化。"
     },
     {
-      question: "ADWire 保證能上 Google 第一頁嗎？",
+      question: "能保證 Google 第一頁排名嗎？",
       answer: "不會，我們亦不會作任何排名保證，因為 Google 及 AI 平台的演算法並非供應商可控制。ADWire 的工作是按技術 SEO、關鍵字意圖、內容質素及網站結構逐項優化，並以曝光、點擊、索引健康及查詢轉換等可量度數據交代進度。實務上，基礎打好後約 3–6 個月開始見到較明顯的排名及流量變化，競爭激烈的行業需要更長時間。"
     }
   ];
@@ -378,15 +378,15 @@ export default function SeoServiceContent() {
             <DetailServiceCard 
               icon={FileText}
               title="Content SEO 內容營銷"
-              desc="內容為王。根據 Google E-E-A-T (經驗、專業、權威、信任) 原則，創作高質量的原創內容。不僅滿足搜尋意圖，更能建立品牌專業形象。"
-              features={["關鍵字佈局 (Keyword Mapping)", "高質量 Blog 文章撰寫", "On-Page 優化 (Title/Meta)", "圖片 Alt Text 優化"]}
+              desc="內容為王。根據 Google E-E-A-T (經驗、專業、權威、信任) 原則，創作高質素的原創內容。不僅滿足搜尋意圖，更能建立品牌專業形象。"
+              features={["關鍵字規劃 (Keyword Mapping)", "高質素 Blog 文章撰寫", "On-Page 優化 (Title/Meta)", "圖片 Alt Text 優化"]}
               color="emerald"
             />
             <DetailServiceCard 
               icon={LinkIcon}
               title="Off-Page SEO 權威建設"
-              desc="建立聲望。透過高質量的反向連結 (Backlinks) 和品牌提及，告訴 Google 你的網站值得信賴。這是提升網域權重 (Domain Authority) 的關鍵。"
-              features={["高質量 Backlink 建設", "品牌公關與提及", "社交媒體信號", "去除有害連結"]}
+              desc="建立聲望。透過高質素的反向連結 (Backlinks) 和品牌提及，告訴 Google 你的網站值得信賴。這是提升網域權重 (Domain Authority) 的關鍵。"
+              features={["高質素 Backlink 建設", "品牌公關與提及", "社交媒體信號", "去除有害連結"]}
               color="purple"
             />
             <DetailServiceCard 
@@ -447,7 +447,7 @@ export default function SeoServiceContent() {
             <CaseStudyCard 
               industry="電商平台"
               title="月營業額突破 $500K"
-              desc="透過 Content SEO 策略和產品頁優化，大幅提升長尾關鍵字排名，帶來高質量流量。"
+              desc="透過 Content SEO 策略和產品頁優化，大幅提升長尾關鍵字排名，帶來高質素流量。"
               metric="$500K"
               metricLabel="月營業額"
               icon={ShoppingCart}
@@ -509,13 +509,13 @@ export default function SeoServiceContent() {
               name="Premium"
               price="HK$16,800"
               period="/ 月"
-              description="競爭較高或想加快佈局"
+              description="競爭較高或想加快部署"
               features={[
                 "50 個重點關鍵字",
                 "每月 6 篇內容",
                 "每月 6 頁優化",
                 "較深入技術支援",
-                "更全面 SEO + GEO 佈局"
+                "更全面 SEO + GEO 部署"
               ]}
               highlight={false}
               whatsappMsg="Hello ADWire, 我想查詢 SEO / GEO 的【Premium 方案】(HK$16,800/月)。"
@@ -571,7 +571,7 @@ export default function SeoServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">搭配服務，效果更佳</h2>
-            <p className="text-gray-500">SEO 配合其他服務，全方位提升品牌線上競爭力</p>
+            <p className="text-gray-500">SEO 配合其他服務，全方位提升品牌網上競爭力</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -589,7 +589,7 @@ export default function SeoServiceContent() {
             />
             <RelatedServiceCard 
               title="內容製作"
-              desc="高質量 SEO 文章撰寫"
+              desc="高質素 SEO 文章撰寫"
               link="/services/production"
               icon="📝"
             />
@@ -645,7 +645,7 @@ export default function SeoServiceContent() {
           {/* 三大核心數據 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {[
-              { stat: "60%+", label: "搜尋是 Zero-Click", desc: "超過 60% 的 Google 搜尋沒有任何網站被點擊。用戶直接從 AI 回答獲取答案，你的網站從未進入他們視野。", color: "border-red-500/30 bg-red-500/5", statColor: "text-red-400", icon: TrendingDown },
+              { stat: "60%+", label: "搜尋是 Zero-Click", desc: "超過 60% 的 Google 搜尋沒有任何網站被點擊。用戶直接從 AI 回答取得答案，你的網站從未進入他們視野。", color: "border-red-500/30 bg-red-500/5", statColor: "text-red-400", icon: TrendingDown },
               { stat: "34%", label: "自然流量跌幅", desc: "Google AI Overview 出現後，相關搜尋的自然點擊率平均下跌 34%。這個數字在 AI 全面普及後會繼續惡化。", color: "border-orange-500/30 bg-orange-500/5", statColor: "text-orange-400", icon: AlertTriangle },
               { stat: "8億+", label: "月活 AI 搜尋用戶", desc: "ChatGPT（3億+）+ Perplexity（5億+ 查詢）+ Gemini + Claude + Copilot。AI 搜尋已成主流，大多數品牌完全不在 AI 的知識庫中。", color: "border-blue-500/30 bg-blue-500/5", statColor: "text-blue-400", icon: Bot },
             ].map((item, i) => (
@@ -692,7 +692,7 @@ export default function SeoServiceContent() {
               <AlertTriangle size={28} className="text-[#f5a623]" />
             </div>
             <div className="flex-1">
-              <h3 className="text-xl font-bold text-white mb-3">⚠️ 給仍未部署 GEO 的企業主：你正在失去先機</h3>
+              <h3 className="text-xl font-bold text-white mb-3">給仍未部署 GEO 的企業主：你正在失去先機</h3>
               <p className="text-gray-300 leading-relaxed mb-4">GEO 不像廣告，可以即開即有效果。AI 需要時間「學習」你的品牌。<strong className="text-white"> 今天開始，最快也要 3–6 個月才能建立穩固的 AI 引用基礎。</strong>你的競爭對手越早開始，你就越難追趕。</p>
               <p className="text-[#f5a623] font-semibold text-sm">GEO 的先行者優勢是真實且持久的。</p>
             </div>

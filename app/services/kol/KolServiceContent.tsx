@@ -21,7 +21,7 @@ export default function KolServiceContent() {
         <p>
           ADWire Agency KOL 網紅營銷服務是一項由 ADWire Agency（香港葵芳）提供的 Influencer Marketing 服務，
           涵蓋 Instagram、Facebook、小紅書（RED）及 Threads 平台的 KOL 配對，
-          服務包括 AI 粉絲質量分析、內容策略監修及成效追蹤報告，
+          服務包括 AI 粉絲質素分析、內容策略監修及成效追蹤報告，
           從 Nano KOL（1K–10K粉絲）至 Mega KOL（100萬+粉絲）均有合作。
           聯絡：WhatsApp {WHATSAPP_E164}，電郵 info@adwire.com.hk。
         </p>
@@ -124,7 +124,7 @@ export default function KolServiceContent() {
             <PainPointCard 
               title="粉絲多 ≠ 購買力"
               desc="許多 KOL 擁有數萬粉絲，但互動率極低，甚至充斥著「殭屍粉」。投放這類帳號，只會換來無效的 Like。"
-              solution="我們使用 AI 工具分析粉絲真偽與互動質量，確保每一分錢都花在真實受眾上。"
+              solution="我們使用 AI 工具分析粉絲真偽與互動質素，確保每一分錢都花在真實受眾上。"
             />
             <PainPointCard 
               title="內容生硬像廣告"
@@ -187,8 +187,8 @@ export default function KolServiceContent() {
               </thead>
               <tbody>
                 {[
-                  ["Nano KOL 🌱", "1K–10K", "8–15%", "真實感强、信任度高", "大規模種草、素人口碑行銷", "HK$500–3,000"],
-                  ["Micro KOL 📱", "10K–100K", "5–8%", "精準受眾、CP值高", "產品評測、精準行銷", "HK$3,000–15,000"],
+                  ["Nano KOL 🌱", "1K–10K", "8–15%", "真實感强、信任度高", "大規模種草、素人口碑營銷", "HK$500–3,000"],
+                  ["Micro KOL 📱", "10K–100K", "5–8%", "精準受眾、CP值高", "產品評測、精準營銷", "HK$3,000–15,000"],
                   ["Mid-tier KOL ⭐", "100K–500K", "3–5%", "知名度與互動兼備", "新品發佈、品牌知名度提升", "HK$15,000–50,000"],
                   ["Macro KOL 🏆", "500K–1M", "1–3%", "大規模曝光", "品牌形象塑造、直播帶貨", "HK$50,000–200,000"],
                   ["Mega KOL 🚀", "1M+", "0.5–1.5%", "全港/全球曝光", "品牌大使、年度合作", "議價"],
@@ -461,12 +461,12 @@ export default function KolServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">搭配服務，效果倍增</h2>
-            <p className="text-gray-500">KOL 行銷與其他服務配合，全方位提升品牌影響力</p>
+            <p className="text-gray-500">KOL 營銷與其他服務配合，全方位提升品牌影響力</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "社交媒體代管", desc: "IG / FB / 小紅書代營運，維持長期品牌熱度", link: "/services/social", icon: "📱" },
-              { title: "短片製作", desc: "專業 Reels / 廣告視頻拍攝及剪輯", link: "/services/video", icon: "🎬" },
+              { title: "短片製作", desc: "專業 Reels / 廣告影片拍攝及剪輯", link: "/services/video", icon: "🎬" },
               { title: "廣告投放", desc: "Meta / Google Ads 精準定向放大 KOL 效果", link: "/services/ads", icon: "📢" },
               { title: "SEO / GEO 優化", desc: "搜尋引擎 + AI 引擎同步提升品牌能見度", link: "/services/seo", icon: "🔍" },
             ].map((s, i) => (
@@ -502,7 +502,7 @@ export default function KolServiceContent() {
               { q: "小紅書 KOL 與 Instagram KOL 有什麼分別？", a: "小紅書 KOL 主要觸達中國內地及海外華人（月活 3 億，以內地年輕女性為主），適合香港品牌進入大灣區市場。IG KOL 主要觸達香港本地及全球受眾，視覺化內容吸引力強。兩者組合使用效果最佳。" },
               { q: "KOL 廣告的效果如何衡量？", a: "ADWire 提供完整成效追蹤報告，涵蓋：觸及率（Reach）、觀看次數（Views）、互動率（Engagement Rate）、點擊率（CTR）、網站流量增長及查詢轉換率。透明可追蹤，讓你清楚每分預算的真實 ROI。" },
               { q: "合作一個 KOL 項目需要多長時間？", a: "一般 KOL 項目由 Briefing 到發佈約需 2–4 週：第1週 KOL 篩選，第2週提案確認及接洽，第3週內容創作及審稿，第4週發佈及追蹤。大型品牌活動建議提前 6–8 週規劃。" },
-              { q: "什麼行業最適合 KOL 網紅營銷？", a: "KOL 行銷適合幾乎所有 B2C 行業，尤其是：美容護膚（開箱評測）、餐飲 F&B（探店打卡）、時尚服飾（穿搭 Look）、電商零售（好物種草）、旅遊（打卡地點）、母嬰育兒（親子體驗）。" },
+              { q: "什麼行業最適合 KOL 網紅營銷？", a: "KOL 營銷適合幾乎所有 B2C 行業，尤其是：美容護膚（開箱評測）、餐飲 F&B（探店打卡）、時尚服飾（穿搭 Look）、電商零售（好物種草）、旅遊（打卡地點）、母嬰育兒（親子體驗）。" },
             ].map((item, i) => (
               <FAQItem key={i} question={item.q} answer={item.a} index={i} />
             ))}

@@ -125,8 +125,8 @@ export default function Partners() {
               </span>
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-              ADWire 不僅是一家代理商，更是您的技術夥伴。我們深度整合全球領先的 AI 模型與 MarTech 工具，
-              為您的品牌構建自動化、數據化、智能化的增長引擎。
+              ADWire 不僅是一家代理商，更是你的技術夥伴。我們深度整合全球領先的 AI 模型與 MarTech 工具，
+              為你的品牌構建自動化、數據化、智能化的增長引擎。
             </p>
           </motion.div>
         </div>
@@ -212,7 +212,7 @@ export default function Partners() {
               </div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">企業級安全穩定</h4>
               <p className="text-gray-500 text-sm leading-relaxed">
-                採用全球頂尖雲端架構與安全防護，確保您的業務系統 24/7 穩定運行。
+                採用全球頂尖雲端架構與安全防護，確保你的業務系統 24/7 穩定運行。
               </p>
             </div>
           </div>

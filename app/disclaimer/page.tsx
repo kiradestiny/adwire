@@ -45,7 +45,7 @@ export default function DisclaimerPage() {
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">1. 資料準確性</h2>
             <p>
-              本網站上的內容可能包含技術錯誤或排版錯誤。我們保留隨時更改或更新資料的權利，恕不另行通知。您依賴該等資料的風險由您自行承擔。
+              本網站上的內容可能包含技術錯誤或排版錯誤。我們保留隨時更改或更新資料的權利，恕不另行通知。你依賴該等資料的風險由你自行承擔。
             </p>
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">2. 服務成效</h2>
@@ -70,7 +70,7 @@ export default function DisclaimerPage() {
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">6. 聯絡我們</h2>
             <p>
-              如您對本免責聲明有任何疑問，請透過以下方式聯絡我們：<br/>
+              如你對本免責聲明有任何疑問，請透過以下方式聯絡我們：<br/>
               電郵：info@adwire.com.hk
             </p>
           </div>

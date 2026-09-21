@@ -403,10 +403,10 @@ export default function BlogContent({ posts }: BlogContentProps) {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-blue-50 text-[#0f4c81] px-3 py-1 rounded-full text-sm font-semibold mb-4">
             <TrendingUp size={14} />
-            每週行銷乾貨
+            每週營銷乾貨
           </div>
           <h2 className="text-3xl font-bold text-[#0f4c81] mb-3">
-            不想錯過最新的行銷乾貨？
+            不想錯過最新的營銷乾貨？
           </h2>
           <p className="text-gray-500 mb-8 max-w-xl mx-auto">
             每週更新，助你掌握流量密碼。我們只發乾貨，不發垃圾郵件。
@@ -452,7 +452,7 @@ export default function BlogContent({ posts }: BlogContentProps) {
           </form>
           {subscribeStatus === "success" && (
             <p className="text-green-600 mt-4 text-sm">
-              感謝訂閱！我們已將確認信發送至您的信箱。
+              感謝訂閱！我們已將確認信發送至你的信箱。
             </p>
           )}
         </div>

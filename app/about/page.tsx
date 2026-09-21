@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: [
     "ADWire Agency",
     "香港數碼營銷代理",
-    "MarTech 代理",
+    "香港軟件開發公司",
     "香港 SEO 公司",
     "KOL 網紅營銷",
     "AI 自動化營銷",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "關於 ADWire Agency | 香港 MarTech 數碼營銷代理",
+    title: "關於 ADWire Agency | 香港軟件及數碼增長方案",
     description:
       "ADWire Agency 結合 SEO、AI 自動化與全棧開發，為香港品牌提供全方位數碼增長方案。",
     images: ["/logo.png"],
@@ -202,7 +202,7 @@ const faqSchema = {
       name: "如何與 ADWire 開始合作？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: `可透過以下方式聯絡 ADWire：(1) WhatsApp ${WHATSAPP_E164}；(2) 電郵 info@adwire.com.hk；(3) 填寫網站聯絡表單。我們提供免費初步諮詢，了解您的業務需求後，會提供針對性的服務方案建議。`,
+        text: `可透過以下方式聯絡 ADWire：(1) WhatsApp ${WHATSAPP_E164}；(2) 電郵 info@adwire.com.hk；(3) 填寫網站聯絡表單。我們提供免費初步諮詢，了解你的業務需求後，會提供針對性的服務方案建議。`,
       },
     },
     {

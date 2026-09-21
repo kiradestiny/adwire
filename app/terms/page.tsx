@@ -4,13 +4,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "服務條款 (Terms of Service)",
-  description: "ADWire Agency 的服務條款。使用本網站及服務即表示您同意遵守這些條款及細則。",
+  description: "ADWire Agency 的服務條款。使用本網站及服務即表示你同意遵守這些條款及細則。",
   alternates: {
     canonical: "/terms/",
   },
   openGraph: {
     title: "服務條款 (Terms of Service) | ADWire Agency",
-    description: "ADWire Agency 的服務條款。使用本網站及服務即表示您同意遵守這些條款及細則。",
+    description: "ADWire Agency 的服務條款。使用本網站及服務即表示你同意遵守這些條款及細則。",
     url: "https://adwire.com.hk/terms/",
     type: "website",
   },
@@ -40,7 +40,7 @@ export default function TermsOfServicePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none text-gray-600">
             <p>
-              歡迎使用 ADWire Agency Limited（下稱「我們」或「本公司」）的網站及服務。使用本網站即表示您同意遵守以下服務條款。如您不同意本條款，請停止使用本網站。
+              歡迎使用 ADWire Agency Limited（下稱「我們」或「本公司」）的網站及服務。使用本網站即表示你同意遵守以下服務條款。如你不同意本條款，請停止使用本網站。
             </p>
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">1. 服務內容</h2>
@@ -50,7 +50,7 @@ export default function TermsOfServicePage() {
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">2. 用戶責任</h2>
             <p>
-              您同意在使用本網站及服務時：
+              你同意在使用本網站及服務時：
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>提供真實、準確及完整的資料。</li>
@@ -80,7 +80,7 @@ export default function TermsOfServicePage() {
 
             <h2 className="text-[#0f4c81] font-bold mt-8 mb-4 text-2xl">7. 聯絡我們</h2>
             <p>
-              如您對本服務條款有任何疑問，請透過以下方式聯絡我們：<br/>
+              如你對本服務條款有任何疑問，請透過以下方式聯絡我們：<br/>
               電郵：info@adwire.com.hk
             </p>
           </div>

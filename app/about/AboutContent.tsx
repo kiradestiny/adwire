@@ -34,7 +34,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "如何與 ADWire 開始合作？",
-    a: `可透過以下方式聯絡 ADWire：(1) WhatsApp ${WHATSAPP_E164}；(2) 電郵 info@adwire.com.hk；(3) 填寫網站聯絡表單。我們提供免費初步諮詢，了解您的業務需求後，會提供針對性的服務方案及報價。`,
+    a: `可透過以下方式聯絡 ADWire：(1) WhatsApp ${WHATSAPP_E164}；(2) 電郵 info@adwire.com.hk；(3) 填寫網站聯絡表單。我們提供免費初步諮詢，了解你的業務需求後，會提供針對性的服務方案及報價。`,
   },
   {
     q: "ADWire 是否適合中小企業（SME）？",
@@ -46,7 +46,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "ADWire 的辦公室在哪裡？辦公時間？",
-    a: "ADWire Agency 辦公室位於香港新界葵芳新都會廣場 2 座 45 樓 4510 室。辦公時間為星期一至五 09:00–18:00。亦可安排 Zoom 或 WhatsApp 視頻會議，靈活配合客戶時間。",
+    a: "ADWire Agency 辦公室位於香港新界葵芳新都會廣場 2 座 45 樓 4510 室。辦公時間為星期一至五 09:00–18:00。亦可安排 Zoom 或 WhatsApp 影片會議，靈活配合客戶時間。",
   },
 ];
 
@@ -191,7 +191,7 @@ export default function AboutContent() {
           <p itemScope itemType="https://schema.org/Organization">
             <strong itemProp="name">ADWire Agency</strong> 是一間總部位於{" "}
             <span itemProp="addressLocality">香港葵芳</span>的{" "}
-            <span itemProp="description">MarTech（Marketing Technology）數碼代理商</span>，
+            <span itemProp="description">軟件、AI 及數碼增長方案供應商</span>，
             提供軟件開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，
             以及成效廣告、社交媒體、短視頻、KOL 及商業攝影等數碼營銷服務，
             服務對象以香港企業及品牌為主。

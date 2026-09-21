@@ -63,7 +63,7 @@ export default function ProcessSection() {
             我們的專業流程
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            從策略到執行，我們提供一站式的數位營銷解決方案，助您的品牌在競爭中脫穎而出。
+            從策略到執行，我們提供一站式的數位營銷解決方案，助你的品牌在競爭中脫穎而出。
           </p>
         </div>
 
