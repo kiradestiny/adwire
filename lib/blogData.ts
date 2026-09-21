@@ -17,6 +17,325 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // ─── Article 12：RPA 機械人流程自動化（2026-09｜目標關鍵字：rpa 1,900/月、機械人流程自動化）───
+  {
+    id: 12,
+    slug: "rpa-hong-kong-guide-2026",
+    title: "RPA 是什麼？香港企業機械人流程自動化導入指南（2026）",
+    excerpt:
+      "RPA（機械人流程自動化）適合高頻、規則固定的重複工序。本文拆解 RPA 與 AI Agent 的分別、UiPath／Power Automate／Zapier 的實際差異、真實成本結構、香港公開案例，以及六個最常見的導入失敗原因。",
+    date: "2026-09-21",
+    updatedAt: "2026-09-21",
+    category: "Automation",
+    readTime: "14 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/rpa-hong-kong-guide-2026.webp",
+    tags: ["RPA", "機械人流程自動化", "流程自動化", "企業自動化", "UiPath", "Power Automate"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">RPA（Robotic Process Automation，機械人流程自動化）是指用軟件機械人，模仿人在電腦上的操作 —— 開啟系統、複製資料、填寫表格、下載報表 —— 並且<strong>按固定規則重複執行</strong>。它不會思考，也不會判斷，但可以在無人看管下，日復日準確完成人不想再做的重複工序。</p>
+
+        <p>香港企業對 RPA 的興趣在 2026 年明顯升溫，但市場上大部分中文資料都停留在「RPA 好處六大點」。這篇文章講的是你真正需要知道的事：<strong>RPA 能解決甚麼、不能解決甚麼、跟 AI Agent 有何分別、三個主流工具的實際差異、錢花在哪裡，以及六個最常見的導入失敗原因。</strong></p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">先講結論</p>
+          <ul class="list-disc pl-5 space-y-2 text-blue-900 text-sm">
+            <li>RPA 適合<strong>高頻、重複、規則固定、資料結構化</strong>的工作；不適合需要判斷、讀懂模糊文件或處理例外的工作</li>
+            <li>RPA 最大弱點是<strong>脆弱</strong>：系統介面一改、文件格式一變，機械人就會失敗，需要人手修正腳本</li>
+            <li>維護成本一般為初始建置成本的 <strong>20–30%／年</strong>，這是最常被低估的預算項目</li>
+            <li>2026 年主流做法不是「RPA vs AI」，而是<strong>混合架構</strong>：AI 負責理解與判斷，RPA 負責穩定執行</li>
+            <li>導入失敗的最大原因不是技術，而是<strong>一開始選錯流程</strong></li>
+            <li>香港已有公開案例（如日本煙草香港的物流報關自動化），證明 RPA 在香港營運環境切實可行</li>
+          </ul>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、RPA 實際怎樣運作？</h3>
+
+        <p>RPA 的運作層次是<strong>使用者介面（UI）</strong>，而不是 API 或資料庫。軟件機械人就像一個坐在電腦前的員工：它登入系統、點擊按鈕、讀取畫面文字、把資料由一個系統複製到另一個系統。</p>
+
+        <p>這個特性帶來一個關鍵好處：<strong>RPA 不需要改動你現有的系統</strong>。不需要寫 API、不需要改資料庫結構、不需要重新訓練員工使用新軟件。機械人只是「坐」在現有系統之上，模仿人的操作。這令導入時間可以用「週」計算，而不是傳統系統整合的「月」或「年」。</p>
+
+        <p>RPA 機械人主要分兩類：</p>
+
+        <div class="grid md:grid-cols-2 gap-5 my-8">
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <p class="font-bold text-[#0f4c81] mb-2">有人看管（Attended）</p>
+            <p class="text-gray-600 text-sm leading-relaxed">在員工的桌面電腦上執行，由員工即時觸發。適合「輔助型」工序 —— 例如客服人員按一個鍵，機械人自動把資料填進 CRM。</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-6">
+            <p class="font-bold text-[#0f4c81] mb-2">無人看管（Unattended）</p>
+            <p class="text-gray-600 text-sm leading-relaxed">在伺服器上執行，由時間表、收到電郵或新增資料庫記錄觸發，全程無需人手。適合夜間批次處理、每日報表生成等工序。</p>
+          </div>
+        </div>
+
+        <p>規模化之後，通常會有一個<strong>編排器（Orchestrator）</strong>統一管理：排隊分派工作、失敗自動重試、記錄每一個動作以供審計。這也是企業級 RPA 平台與「自己寫腳本」的主要分別。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、RPA 不是甚麼？三個必須先釐清的誤解</h3>
+
+        <div class="space-y-5 my-8">
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl">
+            <p class="font-bold text-amber-900 mb-1">誤解一：RPA 等於 AI</p>
+            <p class="text-amber-900 text-sm leading-relaxed">RPA 本身<strong>不含人工智能</strong>。它不會推理、不理解語境、不做判斷，只是執行預先寫好的固定步驟。把 RPA 當成 AI 去評估，會嚴重高估它能處理的範圍。</p>
+          </div>
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl">
+            <p class="font-bold text-amber-900 mb-1">誤解二：RPA 可以處理任何文件</p>
+            <p class="text-amber-900 text-sm leading-relaxed">RPA 只能處理<strong>格式可預期</strong>的結構化資料。發票、表格、資料庫欄位 —— 只要格式每次都一樣，就沒有問題。但只要同一份文件有幾十種不同排版，為每一種寫一個模板並不現實。這種情況需要 AI 文件理解，而不是 RPA。</p>
+          </div>
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl">
+            <p class="font-bold text-amber-900 mb-1">誤解三：裝好就會一直運作</p>
+            <p class="text-amber-900 text-sm leading-relaxed">這是 RPA 最真實的限制。供應商更新介面、網站改版、ERP 加了一個下拉選單 —— 機械人就可能失敗。行業經驗顯示，<strong>每花 HK$1 在授權上，企業往往要再花 HK$3.41–4.00 在顧問與維護</strong>上，用來維持這些脆弱的腳本繼續運作。授權只佔總成本約 25%。</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、香港企業最常用 RPA 的場景</h3>
+
+        <p>以下是香港及亞太企業最常見、回報最快的 RPA 應用範圍。共通點是：<strong>工序步驟固定、資料來自結構化系統、出錯成本高但不需要判斷</strong>。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-[#0f4c81] text-white">
+                <th class="text-left px-5 py-3 font-semibold">部門</th>
+                <th class="text-left px-4 py-3 font-semibold">典型工序</th>
+                <th class="text-left px-4 py-3 font-semibold">為何適合</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3 font-semibold">財務／會計</td><td class="px-4 py-3">發票錄入、應付帳款核對、月結資料彙整</td><td class="px-4 py-3">單據格式固定、每日量大、要求零輸入錯誤</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">人力資源</td><td class="px-4 py-3">入職文件處理、薪酬資料輸入、福利登記</td><td class="px-4 py-3">步驟完全標準化、每名員工都走同一流程</td></tr>
+              <tr><td class="px-5 py-3 font-semibold">物流／貿易</td><td class="px-4 py-3">報關系統資料輸入、庫存核對、出貨文件</td><td class="px-4 py-3">資料由既有系統取得、必須逐字準確</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">客戶服務</td><td class="px-4 py-3">查詢狀態更新、跨系統資料查詢、回覆模板填寫</td><td class="px-4 py-3">回應內容重複性高、量大而人手不足</td></tr>
+              <tr><td class="px-5 py-3 font-semibold">零售／電商</td><td class="px-4 py-3">訂單同步、庫存更新、對帳</td><td class="px-4 py-3">多平台資料搬移、格式可預期</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">香港公開案例：日本煙草（香港）的物流自動化</h4>
+
+        <p>日本煙草（香港）有限公司曾透過 KDDI 導入 UiPath，處理物流部門的庫存管理與進出口報關資料輸入。過去需要約<strong>一小時</strong>的輸入工序，導入後縮短至約<strong>二十分鐘</strong>；物流部門每月減少約 <strong>157 小時</strong>工作量，令原本長期加班的團隊得以改善工作與生活平衡，並且在沒有增加人手的情況下承接新任務。</p>
+
+        <p>這個案例值得注意的地方有兩點：一是自動化範圍集中在<strong>資料輸入與核對</strong>這類最基礎、最容易驗證的工序；二是企業選擇了「可以先小規模開始」的方案，而不是一次過全面改造。</p>
+
+        <p class="text-gray-500 text-sm italic">資料來源：KDDI Hong Kong 公開案例研究。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、RPA 與 AI Agent 的分別（2026 年最重要的問題）</h3>
+
+        <p>如果你在 2026 年評估自動化方案，最常見的疑問是：「既然有 AI Agent，還需要 RPA 嗎？」</p>
+
+        <p>答案是：<strong>兩者處理不同類型的工序，而且大部分企業最終會同時使用。</strong></p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-[#0f4c81] text-white">
+                <th class="text-left px-5 py-3 font-semibold">比較項目</th>
+                <th class="text-left px-4 py-3 font-semibold">RPA 機械人</th>
+                <th class="text-left px-4 py-3 font-semibold">AI Agent</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3 font-semibold">運作邏輯</td><td class="px-4 py-3">固定規則，預先寫好的步驟</td><td class="px-4 py-3">理解目標、規劃步驟、按情況調整</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">處理資料</td><td class="px-4 py-3">主要為結構化資料（表格、固定欄位）</td><td class="px-4 py-3">結構化與非結構化皆可（電郵、文件、對話）</td></tr>
+              <tr><td class="px-5 py-3 font-semibold">遇到變化</td><td class="px-4 py-3">失敗，需要人手更新腳本</td><td class="px-4 py-3">可在容許範圍內自行調整做法</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">輸出穩定性</td><td class="px-4 py-3">高度一致、可完全預測</td><td class="px-4 py-3">按語境而變，需要覆核機制</td></tr>
+              <tr><td class="px-5 py-3 font-semibold">成本模式</td><td class="px-4 py-3">授權費固定，可預算</td><td class="px-4 py-3">按用量計（模型推論費用）</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">最適合</td><td class="px-4 py-3">高頻、重複、規則不變的工序</td><td class="px-4 py-3">需要理解、判斷、跨系統協調的工序</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">混合架構：2026 年的主流做法</h4>
+
+        <p>目前企業最常見的架構是：<strong>AI Agent 負責理解與判斷，RPA 負責穩定執行。</strong></p>
+
+        <p>以發票處理為例：一份 PDF 發票以電郵送達 → AI Agent 讀取內容，抽取供應商名稱、發票號碼、項目與付款條件（即使格式與以往不同）→ 查核採購單是否存在、金額是否相符 → 若相符，交由 RPA 機械人把已核准的發票輸入 ERP；若不相符，AI Agent 擬定差異通知並交由主管處理。</p>
+
+        <p>這樣的分工，讓 RPA 繼續處理它最擅長的高頻結構化動作，同時由 AI 處理以往 RPA 無法觸及的「例外情況」。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">一個實用的判斷原則</p>
+          <p class="text-blue-900 text-sm leading-relaxed mb-3">不要因為 AI Agent 較新就選它。如果一個工序可以<strong>可靠地用固定規則完成</strong>，用確定性的機械人或流程自動化，會比用機率性的 AI 更容易測試、更容易控制，成本也更低。</p>
+          <p class="text-blue-900 text-sm leading-relaxed">反過來說，如果工序涉及電郵、文件、對話，每次輸入都不一樣，或者正確做法取決於當時情況 —— 那才是 AI Agent 真正發揮價值的地方。</p>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、三個主流工具的實際差異</h3>
+
+        <p>RPA 工具不是可以隨意互換的。以下是香港企業最常接觸的三個平台，以及它們真正的分野。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-[#0f4c81] text-white">
+                <th class="text-left px-5 py-3 font-semibold">項目</th>
+                <th class="text-left px-4 py-3 font-semibold">UiPath</th>
+                <th class="text-left px-4 py-3 font-semibold">Power Automate</th>
+                <th class="text-left px-4 py-3 font-semibold">Zapier</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3 font-semibold">定位</td><td class="px-4 py-3">企業級 RPA，處理複雜遺留系統</td><td class="px-4 py-3">Microsoft 365 生態的原生自動化層</td><td class="px-4 py-3">中小企 SaaS 對 SaaS 整合</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">桌面自動化</td><td class="px-4 py-3">完整支援（有人／無人看管）</td><td class="px-4 py-3">支援（Power Automate Desktop）</td><td class="px-4 py-3">無原生桌面 RPA</td></tr>
+              <tr><td class="px-5 py-3 font-semibold">上手難度</td><td class="px-4 py-3">較高，通常需要專責開發人員</td><td class="px-4 py-3">低程式碼，業務人員可建雲端流程</td><td class="px-4 py-3">無程式碼，數小時內可用</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">連接器</td><td class="px-4 py-3">1,000+，強於 SAP、Oracle、Salesforce</td><td class="px-4 py-3">1,000+，Microsoft 產品覆蓋最佳</td><td class="px-4 py-3">7,000+，SaaS 覆蓋最廣</td></tr>
+              <tr><td class="px-5 py-3 font-semibold">治理與審計</td><td class="px-4 py-3">企業級審計、角色權限、可內部部署</td><td class="px-4 py-3">Microsoft 合規框架、DLP 政策</td><td class="px-4 py-3">有限企業級治理，無內部部署</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">首次可用的時間</td><td class="px-4 py-3">約 4–12 週</td><td class="px-4 py-3">雲端流程約 1–3 週</td><td class="px-4 py-3">數小時至數日</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="text-gray-500 text-sm italic">以上平台特性綜合自各供應商公開文件及第三方比較分析（Zapier、Emerline、EPC Group、Alice Labs，2026）。</p>
+
+        <p><strong>實際選擇的簡單原則：</strong></p>
+
+        <ul class="list-disc pl-6 space-y-2 my-6 text-gray-700">
+          <li>要自動化<strong>SAP、Oracle、大型主機或沒有 API 的舊系統</strong> → 傾向 UiPath</li>
+          <li>公司<strong>已經在用 Microsoft 365</strong>，自動化對象是 SharePoint、Teams、Dynamics 等 → 傾向 Power Automate</li>
+          <li>需求是<strong>連接多個 SaaS 工具</strong>，不涉及桌面軟件與受監管資料 → Zapier 最快最省</li>
+          <li>目標系統<strong>本身有完善 API</strong> → 很多時候直接用 API 或 MCP 整合，比 RPA 更乾淨，不需要中介層</li>
+        </ul>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、成本結構：錢實際花在哪裡？</h3>
+
+        <p>RPA 的預算分三層：<strong>授權、實作、以及最常被低估的年度維護</strong>。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-[#0f4c81] text-white">
+                <th class="text-left px-5 py-3 font-semibold">成本項目</th>
+                <th class="text-left px-4 py-3 font-semibold">小型企業</th>
+                <th class="text-left px-4 py-3 font-semibold">中型企業</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3 font-semibold">軟件授權</td><td class="px-4 py-3">US$5,000 – US$15,000</td><td class="px-4 py-3">US$50,000 – US$150,000</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">開發與設定</td><td class="px-4 py-3">US$10,000 – US$25,000</td><td class="px-4 py-3">US$75,000 – US$200,000</td></tr>
+              <tr><td class="px-5 py-3 font-semibold">基礎設施</td><td class="px-4 py-3">US$2,000 – US$8,000</td><td class="px-4 py-3">US$20,000 – US$50,000</td></tr>
+              <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">培訓與變革管理</td><td class="px-4 py-3">US$3,000 – US$10,000</td><td class="px-4 py-3">US$25,000 – US$75,000</td></tr>
+              <tr><td class="px-5 py-3 font-semibold">年度維護</td><td class="px-4 py-3">US$5,000 – US$12,000</td><td class="px-4 py-3">US$40,000 – US$120,000</td></tr>
+              <tr class="bg-[#0f4c81] text-white font-bold"><td class="px-5 py-3">首年總額</td><td class="px-4 py-3">US$25,000 – US$70,000</td><td class="px-4 py-3">US$210,000 – US$595,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="text-gray-500 text-sm italic">資料來源：Perimattic《Cost of RPA Implementation: A Complete 2026 Cost Guide》。為國際市場行情，香港實際報價受流程複雜度、系統數量及本地工資水平影響，應以項目評估為準。</p>
+
+        <p>另外值得注意：開發費用視流程複雜度差距很大 —— 單一系統的簡單流程與跨多個系統的複雜流程，成本可以相差數倍。若 IT 環境零散、多個平台互不連接，整合與 API 開發可能額外增加 US$20,000–US$200,000。</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8">
+          <p class="font-bold text-amber-900 mb-2">香港企業的現實考量</p>
+          <p class="text-amber-900 text-sm leading-relaxed">香港生產力促進局的調查顯示，<strong>55% 香港中小企已使用或計劃在一年內使用 AI 工具，但只有 32% 使用付費方案</strong>。行業採用率差異明顯：資訊及通訊業 92%、專業及商業服務 72%、金融及保險 62%、製造業 60%。</p>
+          <p class="text-amber-900 text-sm leading-relaxed mt-3">這代表香港市場的自動化需求真實存在，但預算意識很強。因此務實的做法是：<strong>由一個回報可量度的流程開始，而不是一開始就採購企業級平台。</strong></p>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、六個最常見的導入失敗原因</h3>
+
+        <p>行業經驗顯示，相當比例的大型自動化項目未能達到預期目標。失敗原因通常與技術無關，而是以下六項：</p>
+
+        <div class="space-y-4 my-8">
+          <div class="bg-white border-l-4 border-red-400 p-5 rounded-r-xl shadow-sm">
+            <p class="font-bold text-gray-900 mb-1">1. 一開始就選錯流程</p>
+            <p class="text-gray-600 text-sm leading-relaxed">選流程是項目成敗的決定性因素。選對了，開發快、運作穩定、使用者接受；選錯了，之後每一步都困難。應優先選擇<strong>規則清晰、量大、例外少</strong>的流程。</p>
+          </div>
+          <div class="bg-white border-l-4 border-red-400 p-5 rounded-r-xl shadow-sm">
+            <p class="font-bold text-gray-900 mb-1">2. 把自動化當成純技術項目</p>
+            <p class="text-gray-600 text-sm leading-relaxed">最終承接這套工序的是業務部門，不是 IT。如果流程擁有者從未參與設計，做出來的機械人往往不符合實際運作。</p>
+          </div>
+          <div class="bg-white border-l-4 border-red-400 p-5 rounded-r-xl shadow-sm">
+            <p class="font-bold text-gray-900 mb-1">3. 低估維護成本</p>
+            <p class="text-gray-600 text-sm leading-relaxed">機械人會因系統更新而失效。若沒有預留維護預算與負責人，機械人會在數個月內陸續停擺。</p>
+          </div>
+          <div class="bg-white border-l-4 border-red-400 p-5 rounded-r-xl shadow-sm">
+            <p class="font-bold text-gray-900 mb-1">4. 沒有處理例外情況</p>
+            <p class="text-gray-600 text-sm leading-relaxed">真實工序總有例外。若設計時只想著「順利情況」，一旦遇到例外，整個流程就會卡住，甚至產生錯誤資料。</p>
+          </div>
+          <div class="bg-white border-l-4 border-red-400 p-5 rounded-r-xl shadow-sm">
+            <p class="font-bold text-gray-900 mb-1">5. 一次過追求全面自動化</p>
+            <p class="text-gray-600 text-sm leading-relaxed">範圍越大、風險越高。務實做法是由價值最高或架構最簡單的環節開始，驗證有效後才逐步擴大。</p>
+          </div>
+          <div class="bg-white border-l-4 border-red-400 p-5 rounded-r-xl shadow-sm">
+            <p class="font-bold text-gray-900 mb-1">6. 沒有為自動化後的工序重新設計</p>
+            <p class="text-gray-600 text-sm leading-relaxed">把一個本身有問題的流程自動化，只會更快地產生錯誤。自動化之前，應先簡化與清理流程。</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、如何在香港開始一個 RPA 項目</h3>
+
+        <div class="space-y-4 my-8">
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#0f4c81] text-white flex items-center justify-center font-bold text-sm">1</div>
+            <div><p class="font-bold text-gray-900 mb-1">流程盤點</p><p class="text-gray-600 text-sm leading-relaxed">找出團隊每週重複最多、最耗時、最容易出錯的工序。逐一記錄步驟、涉及的系統、資料來源與例外情況。</p></div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#0f4c81] text-white flex items-center justify-center font-bold text-sm">2</div>
+            <div><p class="font-bold text-gray-900 mb-1">評估可行性與回報</p><p class="text-gray-600 text-sm leading-relaxed">判斷每個工序是否「規則固定、資料結構化、量大」。同時估算現時投入的人手時間，作為日後比較的基準。</p></div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#0f4c81] text-white flex items-center justify-center font-bold text-sm">3</div>
+            <div><p class="font-bold text-gray-900 mb-1">先做一個試點</p><p class="text-gray-600 text-sm leading-relaxed">選一個流程、一個小範圍先做。目標不是節省最多時間，而是<strong>驗證技術可行、團隊接受、數據正確</strong>。</p></div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#0f4c81] text-white flex items-center justify-center font-bold text-sm">4</div>
+            <div><p class="font-bold text-gray-900 mb-1">選擇平台與部署方式</p><p class="text-gray-600 text-sm leading-relaxed">按現有系統環境選擇工具；確認授權模式、資料存放位置、權限控制及審計紀錄是否符合公司要求。</p></div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#0f4c81] text-white flex items-center justify-center font-bold text-sm">5</div>
+            <div><p class="font-bold text-gray-900 mb-1">建立監控與例外處理</p><p class="text-gray-600 text-sm leading-relaxed">設定失敗重試、錯誤通知與人工接手流程。機械人出錯時必須有人知道，而不是靜靜地產生錯誤資料。</p></div>
+          </div>
+          <div class="flex gap-4 items-start">
+            <div class="flex-shrink-0 w-9 h-9 rounded-full bg-[#0f4c81] text-white flex items-center justify-center font-bold text-sm">6</div>
+            <div><p class="font-bold text-gray-900 mb-1">量度、檢討、再擴大</p><p class="text-gray-600 text-sm leading-relaxed">用試點階段的基準比較實際效果。確認穩定後，才把同一模式套用到下一個流程。</p></div>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h3>
+
+        <div class="space-y-4 my-8">
+          <div class="bg-gray-50 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">RPA 同 AI Agent，我應該先做哪一個？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">取決於你的工序性質。如果工序規則固定、資料結構化、重複性高（例如每日把資料由系統 A 搬到系統 B），先做 RPA 回報最直接。如果工序涉及閱讀電郵、文件或對話，每次輸入都不同，那屬於 AI Agent 的範圍。很多企業兩者都需要，順序取決於哪個工序的痛點最大。</p>
+  </div>
+</div>
+          <div class="bg-gray-50 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">RPA 會取代我的員工嗎？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">RPA 處理的是重複、低判斷的工序，不是整個職位。香港公開案例中，物流部門在自動化後<strong>沒有裁員</strong>，而是在同一人手規模下承接了新的工作，並改善了加班情況。實務上，自動化是把人手從重複工序釋放出來，調配到需要判斷與溝通的工作。</p>
+  </div>
+</div>
+          <div class="bg-gray-50 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">我們沒有 IT 團隊，可以導入嗎？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但需要外部支援。低程式碼平台（如 Power Automate、Zapier）讓業務人員也能建立簡單流程，但流程盤點、例外處理設計、權限與監控，仍然需要具備技術經驗的夥伴協助，否則很容易做出「一開始能用、三個月後失效」的機械人。</p>
+  </div>
+</div>
+          <div class="bg-gray-50 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">RPA 的資料安全如何處理？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">部署方式與權限設計按實際需要評估，不能一概而論。實務上需要處理的包括：機械人使用哪個帳號、可存取哪些資料、憑證如何儲存、每個動作是否留有審計紀錄、失敗時如何通知。企業級平台提供角色權限與審計日誌；SaaS 型工具（如 Zapier）沒有內部部署選項，涉及受監管個人資料時需要先評估。任何部署方式都不應被視為「零外洩」的保證。</p>
+  </div>
+</div>
+          <div class="bg-gray-50 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">一個 RPA 項目要多久？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">視平台與流程範圍而定。雲端流程類的工具，首個流程約 1–3 週可用；企業級桌面自動化（涉及遺留系統、多個系統串接）通常需要 4–12 週，另加環境設定與測試時間。若有人聲稱可以在數日內完成複雜的跨系統自動化，需要先問清楚範圍與例外處理怎樣設計。</p>
+  </div>
+</div>
+          <div class="bg-gray-50 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">RPA 會不會很快被淘汰？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不會，但適用範圍較以往收窄。大型 RPA 平台（UiPath、Automation Anywhere、Blue Prism）近年都轉向「代理式自動化」，把確定性機械人與 AI Agent 放在同一編排層之下。市場結構變成：<strong>AI 負責判斷，機械人負責執行</strong>。純粹用於結構化重複工序的 RPA 仍然有價值，尤其是沒有 API 的遺留系統。</p>
+  </div>
+</div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結：由一個流程開始，而不是一個平台</h3>
+
+        <p>RPA 在香港的價值不在於「用了哪個平台」，而在於<strong>是否挑對了第一個流程</strong>。回報最明顯的自動化項目，通常不是最複雜的那個，而是最重複、最枯燥、最容易出錯的那一個。</p>
+
+        <p>如果你的團隊每週都在做「把資料由 A 系統複製到 B 系統」這類工序，值得先花時間做一次流程盤點，而不是直接購買授權。搞清楚工序、例外與回報，再決定工具與範圍 —— 這是唯一能避免「買了平台卻用不起來」的方法。</p>
+    `,
+  },
+
   // ─── Article 11：香港網頁設計價錢完全指南（2026-09｜目標關鍵字：網頁設計 22,200/月）───
   {
     id: 11,

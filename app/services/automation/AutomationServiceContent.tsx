@@ -273,6 +273,82 @@ export default function AutomationServiceContent() {
         </div>
       </section>
 
+      {/* 7.5 RPA 機械人流程自動化（目標關鍵字：rpa 1,900/月） */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">RPA 機械人流程自動化</h2>
+            <p className="text-gray-500 max-w-3xl mx-auto">
+              RPA（Robotic Process Automation）是指用軟件機械人模仿人在電腦上的操作 ——
+              登入系統、複製資料、填寫表格 —— 並按固定規則重複執行。
+              它不需要改動你現有系統，但也不是萬能，適用範圍有清楚界線。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+            <div className="border border-gray-100 rounded-2xl p-7 bg-gray-50/60">
+              <h3 className="font-bold text-[#0f4c81] mb-3">適合用 RPA 的工序</h3>
+              <ul className="text-sm text-gray-600 leading-relaxed space-y-2 list-disc pl-5">
+                <li>步驟固定、每次都走同一條路徑</li>
+                <li>資料來自結構化系統（表格、固定欄位）</li>
+                <li>每日或每週大量重複，人手容易出錯</li>
+                <li>不需要判斷，只需要準確執行</li>
+              </ul>
+            </div>
+            <div className="border border-gray-100 rounded-2xl p-7 bg-amber-50/70">
+              <h3 className="font-bold text-amber-900 mb-3">不適合用 RPA 的工序</h3>
+              <ul className="text-sm text-amber-900 leading-relaxed space-y-2 list-disc pl-5">
+                <li>同一份文件有幾十種不同排版（需 AI 文件理解）</li>
+                <li>需要理解語意、判斷或取捨</li>
+                <li>例外情況多，且規則無法事先寫清楚</li>
+                <li>目標系統本身已有完善 API（直接整合更乾淨）</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 className="text-xl font-bold text-[#0f4c81] mb-6 text-center">
+            RPA 與 AI Agent 的分工
+          </h3>
+          <div className="overflow-x-auto rounded-xl shadow-sm border border-gray-200 mb-8">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-[#0f4c81] text-white">
+                  <th className="text-left px-5 py-3 font-semibold">比較項目</th>
+                  <th className="text-left px-4 py-3 font-semibold">RPA 機械人</th>
+                  <th className="text-left px-4 py-3 font-semibold">AI Agent</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                <tr><td className="px-5 py-3 font-semibold">運作邏輯</td><td className="px-4 py-3">固定規則，預先寫好的步驟</td><td className="px-4 py-3">理解目標、規劃步驟、按情況調整</td></tr>
+                <tr className="bg-gray-50"><td className="px-5 py-3 font-semibold">處理資料</td><td className="px-4 py-3">主要為結構化資料</td><td className="px-4 py-3">結構化與非結構化皆可</td></tr>
+                <tr><td className="px-5 py-3 font-semibold">遇到變化</td><td className="px-4 py-3">失敗，需人手更新腳本</td><td className="px-4 py-3">可在容許範圍內自行調整</td></tr>
+                <tr className="bg-gray-50"><td className="px-5 py-3 font-semibold">輸出穩定性</td><td className="px-4 py-3">高度一致、可完全預測</td><td className="px-4 py-3">按語境而變，需覆核機制</td></tr>
+                <tr><td className="px-5 py-3 font-semibold">成本模式</td><td className="px-4 py-3">授權費固定，可預算</td><td className="px-4 py-3">按用量計（模型推論費用）</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl mb-10">
+            <p className="font-bold text-[#0f4c81] mb-2">我們實際使用的平台</p>
+            <p className="text-blue-900 text-sm leading-relaxed">
+              按客戶現有環境及流程性質選擇，包括 Microsoft Power Automate（適用於 Microsoft 365 環境）、
+              UiPath（適用於需要連接遺留系統、桌面軟件的流程）、Zapier（適用於 SaaS 工具之間的連接），
+              以及直接 API 整合。平台選擇以現有系統與實際工序為準，不會一律套用同一套工具。
+            </p>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="/blog/rpa-hong-kong-guide-2026/"
+              className="inline-flex items-center gap-2 text-[#0f4c81] font-semibold hover:underline"
+            >
+              延伸閱讀：RPA 香港企業導入指南（成本結構、工具比較與六個失敗原因）
+              <ArrowRight size={18} />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 8. 實作方式及例外處理 */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
