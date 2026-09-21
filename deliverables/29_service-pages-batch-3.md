@@ -126,7 +126,55 @@ Build 首次攔到 **2 處「保證排名」** —— 但兩處都是**否定語
 
 ---
 
-## 6. 部署
+## 6. 🚨 部署過程發現：架構級內容漂移第二次出現
+
+### 症狀
+
+本機 `npm run build` **完全通過**，但 CI build **失敗 45 項**：
+
+```
+❌ 45 項必須修正（會阻擋部署）：
+   / 出現禁止字句「霸佔」
+   /portfolio/seo-geo-ranking/ 出現禁止字句「霸佔」
+   /blog/ai-solution-hong-kong-enterprise-guide-2026/ 出現禁止字句「GPT-4」
+   /__next.__PAGE__.txt 出現禁止字句「最高 ROI」
+   …
+```
+
+### 根因（與 `deliverables/21` 同一個架構問題）
+
+**只有 CI 有 `ADMIN_API_KEY`** → CI build 時會抓**正式後台資料庫**的內容並覆蓋 repo 的 fallback 資料。本機冇 key，所以用 repo 內乾淨的 `portfolioData.ts`／`blogData.ts`，因此本機永遠看不到這些問題。
+
+**第二次出現的原因：** 上一批我加了 `328%+` 等禁字並擴大掃描範圍，而閘門現在掃 **520 個 `.txt` 檔**（包括 Next.js 的 RSC payload：`index.txt`、`__next._full.txt`、`__next.__PAGE__.txt`）—— 這些檔含完整頁面文字，等於把後台內容完全暴露。
+
+### 後台 DB 掃描結果（4 個源頭）
+
+| 表 | slug | 欄位 | 禁字 |
+|---|---|---|---|
+| `blog_posts` | `ai-solution-hong-kong-enterprise-guide-2026` | `content` | **GPT-4**（「如 GPT-4、Claude、Gemini」） |
+| `blog_posts` | `ai-solution-hong-kong-enterprise-guide-2026` | `content` | **最高 ROI**（「選擇 1-2 個最高 ROI 的場景」） |
+| `portfolio_cases` | `seo-geo-ranking` | `short_description` | **霸佔**（「成功霸佔 Google 首頁頭三位」） |
+| `blog_posts` | `hong-kong-seo-geo-guide-2026` | `content` | `保證排名` — **否定語境，閘門正常放行，不需修改** |
+
+### 修正（3 筆 UPDATE，先備份，非刪除）
+
+| 原文 | 改為 |
+|---|---|
+| 如 **GPT-4**、Claude、Gemini | 如 GPT、Claude、Gemini |
+| 選擇 1-2 個**最高 ROI**的場景先做試點 | 選擇 1-2 個**回報潛力較高**的場景先做試點 |
+| 成功**霸佔** Google 首頁頭三位 | **帶動多組關鍵字進入** Google 首頁 |
+
+**備份位置：** `~/db_backups/backup_{table}_{slug}_{timestamp}.json`（3 個檔，分別 36KB／41KB／4KB）
+**驗證：** 每筆 UPDATE 均回讀核對一致；全表重掃後殘留 0（否定語境那筆除外）。
+
+### 附帶發現（未修改，供負責人判斷）
+
+`最強` 一詞出現於 `hong-kong-seo-geo-guide-2026`：「定期發布行業白皮書……是 GEO **最強**的長期競爭護城河」。
+**閘門未將「最強」列為禁字**，故不阻擋部署，但屬最高級形容詞，是否保留由負責人決定。
+
+---
+
+## 7. 部署
 
 - Build：**67 頁**、sitemap **64 URL**、閘門全綠（46+ 項禁止字句 + selftest）
 - 所有服務頁圖片檔案已核對存在於輸出目錄
@@ -134,10 +182,13 @@ Build 首次攔到 **2 處「保證排名」** —— 但兩處都是**否定語
 
 ---
 
-## 7. 待跟進
+## 8. 待跟進
 
 - **🔴 Google Partner 資格**：需負責人確認。如屬實，請提供證明，我會用合規措辭加回
-- **`app/portfolio/page.tsx`、`lib/portfolioExtendedData.ts` 的成效聲稱**：掃描時發現仍有類似「確保 100% 合規」「LinkedIn 廣告 CPL」等未經核實數字，**未處理**。建議下一批處理
+- **🔴 架構級漂移的根治**：現時只要有人在後台輸入禁字，CI build 就會失敗，但**本機永遠測不到**。建議加入「用後台資料 build 一次」的本機驗證步驟，或在後台編輯器加入即時禁字檢查（**下一批優先**）
+- **🟡 `最強` 一詞**：見上，是否加禁字由負責人決定
+- **`lib/portfolioExtendedData.ts` 成效聲稱**：掃描時發現「確保 100% 合規」「LinkedIn 廣告 CPL」等未經核實數字，**未處理**（repo 內的，非後台）
 - **`components/HeroSection.tsx`**：「AI 認可 — 多項 AI 工具認證技術」屬認證類聲稱，需核實
 - **服務頁表格**：現時每頁 1–2 個。SEO 頁的 `CompareRow`／System 頁的 `ComparisonRow` 仍為視覺元件，可考慮一併改為真表格
 - **llms.txt 比較表**：仍待按新定位重做
+- **`最強`／`最快` 等最高級形容詞**：現時不在閘門內，可按負責人意願加入
