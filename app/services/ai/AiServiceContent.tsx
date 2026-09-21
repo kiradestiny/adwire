@@ -11,7 +11,6 @@ import {
   AlertTriangle,
   ArrowRight,
   BarChart3,
-  Bot,
   Brain,
   Building2,
   Calculator,
@@ -19,7 +18,6 @@ import {
   CheckCircle2,
   ChevronDown,
   Clock,
-  Code2,
   Cpu,
   Database,
   FileText,
@@ -32,13 +30,10 @@ import {
   Network,
   Rocket,
   Server,
-  Settings,
   ShieldCheck,
-  Sparkles,
   Target,
   TrendingUp,
   Users,
-  Workflow,
   Zap,
   X,
 } from "lucide-react";
@@ -71,39 +66,6 @@ const aiModels = [
     strength: "多模態處理",
     useCase: "圖文混合分析、數據視覺化",
     icon: Network,
-  },
-];
-
-const technicalTerms = [
-  {
-    term: "LLM (Large Language Model)",
-    definition: "大型語言模型，如 ChatGPT、Claude、Gemini Pro，能理解和生成人類語言。",
-    icon: Brain,
-  },
-  {
-    term: "RAG (Retrieval-Augmented Generation)",
-    definition: "檢索增強生成，結合企業知識庫讓 AI 回答更準確。",
-    icon: Database,
-  },
-  {
-    term: "Fine-tuning",
-    definition: "模型微調，根據企業特定數據訓練 AI，提升準確度。",
-    icon: Settings,
-  },
-  {
-    term: "Prompt Engineering",
-    definition: "提示工程，設計最佳指令讓 AI 產出期望結果。",
-    icon: Code2,
-  },
-  {
-    term: "API Integration",
-    definition: "系統整合，將 AI 與現有 CRM/ERP 無縫對接。",
-    icon: Workflow,
-  },
-  {
-    term: "Vector Database",
-    definition: "向量資料庫，高效儲存和檢索企業知識。",
-    icon: Database,
   },
 ];
 
@@ -146,7 +108,7 @@ const testimonials = [
   {
     name: "李先生",
     role: "IT Manager｜專業服務集團",
-    quote: "ADWire 的私有化部署方案讓我們的機密資料完全留在內部網絡。",
+    quote: "ADWire 先和我們逐項確認資料來源與權限，再按敏感度決定部署方式；機密資料留在我們控制的環境內，出錯時的處理流程也寫得清楚。",
   },
   {
     name: "黃小姐",
@@ -156,9 +118,12 @@ const testimonials = [
 ];
 
 export default function AiServiceContent() {
-  const [monthlyCost, setMonthlyCost] = useState(180000);
-  const [automationRate, setAutomationRate] = useState(45);
-  const [investment, setInvestment] = useState(280000);
+  // 預設值刻意保守：可自動化比例用 30%（業界常見的實務起點），
+  // 而非理論上限。理由見下方假設說明 —— 理論省時通常只有一部分
+  // 能真正轉化為產能，用進取預設會令估算失真。
+  const [monthlyCost, setMonthlyCost] = useState(120000);
+  const [automationRate, setAutomationRate] = useState(30);
+  const [investment, setInvestment] = useState(250000);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [selectedModel, setSelectedModel] = useState(0);
 
@@ -188,8 +153,9 @@ export default function AiServiceContent() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              為香港 B2B 企業注入 <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400">AI 智能大腦</span>
+              企業 AI 應用開發與
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400">系統整合</span>
             </h1>
 
             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
@@ -319,33 +285,89 @@ export default function AiServiceContent() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#0f4c81]">AI 專業術語解析</h2>
-            <p className="text-gray-500 mt-4">深入了解企業 AI 的核心技術</p>
+            <h2 className="text-3xl font-bold text-[#0f4c81]">企業採用 AI 的真實阻力</h2>
+            <p className="text-gray-500 mt-4">企業買 AI 的真正障礙，通常不是「用哪個模型」</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {technicalTerms.map((item, index) => (
-              <motion.div
-                key={item.term}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center">
-                    <item.icon size={20} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800 mb-2">{item.term}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{item.definition}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto mb-10 text-center">
+            我們在方案階段最常聽到的問題，不是技術問題，而是決策問題：不知道從哪裡開始、資料一團亂、怕 AI 答錯、怕踩到合規、算不出回報。以下五項是我們實際處理的方式，也是你在評估任何一間 AI 供應商時應該逐項問清楚的。
+          </p>
+
+          <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-[#0f4c81] text-white">
+                  <th className="text-left px-5 py-3 font-semibold">企業的真實阻力</th>
+                  <th className="text-left px-5 py-3 font-semibold">我們在方案階段怎樣處理</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-gray-800 align-top">不知道哪個流程值得先做</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">先做流程盤點：按「重複頻率、人手投入、出錯成本、資料是否已有電子紀錄」四項排序，選一至兩個範圍先試。不會一開始就建議全公司導入。</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-gray-800 align-top">資料散亂、未準備好</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">先確認資料在哪裡、格式如何、誰有權更新。若資料本身未整理好，我們會如實說明，並建議先處理資料來源，而不是硬做一個建基於混亂資料的系統。</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-gray-800 align-top">怕 AI 答錯、產生不存在的內容</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">把「模型判斷」與「規則式處理」分開列明；需要對外發出的內容（回覆、報價、涉及金額的動作）保留人工確認步驟；系統記錄每次執行及輸出供日後追查。</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-gray-800 align-top">合規與私隱：資料會去哪裡</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">逐項列明資料來源、是否需要傳送至第三方模型 API、哪些資料留在企業控制的環境、資料保留期與刪除方式。第三方依賴的部分會明確標示，不會含糊帶過。</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-gray-800 align-top">算不出回報，預算批不到</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">用可解釋的算式做初步估算（見本頁下方的<a href="#roi" className="text-[#0f4c81] underline underline-offset-2">投資估算工具</a>），並說明假設與限制。我們不會預先保證回本期，而是把假設攤開讓你自己判斷。</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
+          <div className="mt-16 text-center mb-10">
+            <h3 className="text-2xl font-bold text-[#0f4c81]">四個交付類型與實際交付物</h3>
+            <p className="text-gray-500 mt-3">採購時最需要問清楚的，是「你交付甚麼」，而不是「你用甚麼技術」</p>
+          </div>
+
+          <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-[#0f4c81] text-white">
+                  <th className="text-left px-5 py-3 font-semibold">交付類型</th>
+                  <th className="text-left px-5 py-3 font-semibold">適用情況</th>
+                  <th className="text-left px-5 py-3 font-semibold">具體交付物</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-gray-800 align-top">AI 應用開發</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">有明確的使用場景，但市面上沒有現成工具合用</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">操作介面、後端服務、提示詞與規則設定、測試記錄、部署與交接文件</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-gray-800 align-top">AI Agent</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">需要跨步驟執行任務，例如查詢、分類、通知、草稿生成</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">可執行的任務清單、權限範圍、人工覆核點、失敗重試與異常通知設定、執行日誌</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-gray-800 align-top">RAG 知識庫</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">內部文件多，同事查找耗時，或需要引用來源才敢用</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">知識庫結構、文件匯入流程、更新機制、引用來源顯示、存取權限設定</td>
+                </tr>
+                <tr>
+                  <td className="px-5 py-4 font-semibold text-gray-800 align-top">API 與系統整合</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">已有 CRM／ERP 等系統，需要把 AI 能力接進去</td>
+                  <td className="px-5 py-4 text-gray-600 align-top">整合規格文件、API 對接與測試、錯誤處理方式、後續維護與擴充安排</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-gray-500 text-sm mt-6 leading-relaxed">
+            如果你的項目不屬於以上任何一類，或者資料狀況未足以開始，我們會在諮詢階段直接說明，並建議較合適的起步方式。相關的流程自動化範圍，可參考<a href="/services/automation/" className="text-[#0f4c81] underline underline-offset-2">企業流程自動化及 RPA</a>；需要訂造內部系統，則見<a href="/services/system/" className="text-[#0f4c81] underline underline-offset-2">系統開發</a>。
+          </p>
         </div>
       </section>
 
@@ -363,7 +385,7 @@ export default function AiServiceContent() {
             <ServiceCard icon={Cpu} title="企業專屬知識庫 (RAG)" desc="將內部文檔與資料轉化為 AI 知識庫，員工可即時查詢。" />
             <ServiceCard icon={Users} title="AI 銷售賦能 (Lead Scoring)" desc="自動評分 Lead，提供即時話術建議及下一步行動指引。" />
             <ServiceCard icon={BarChart3} title="AI 數據預測與分析" desc="整合 CRM/ERP 數據，預測庫存需求、客戶流失風險及銷售趨勢。" />
-            <ServiceCard icon={ShieldCheck} title="私有化 LLM 部署" desc="所有敏感數據只在內部網絡運行，提供最高級別數據安全。" />
+            <ServiceCard icon={ShieldCheck} title="私有化 LLM 部署" desc="模型與資料在企業控制的環境內運行。適用於對資料流向有嚴格要求的機構，需配合相應伺服器資源及技術支援能力。" />
           </div>
         </div>
       </section>
@@ -564,6 +586,13 @@ export default function AiServiceContent() {
               <p className="text-xs text-blue-100/80 mt-6 leading-relaxed">
                 以上為簡化估算，假設可自動化比例立即生效，且未計入導入期間的過渡成本、培訓時間、
                 第三方訂閱及模型 API 用量費用。此工具只作初步參考，並非成效或回本保證。
+                另外，估算假設「節省的工時等於同等價值的產能」，但實務上被釋放的工時通常只有一部分
+                會轉化為實際產出，因此這裡的數字應視為上限而非預期值。關於生產力轉化係數的討論，
+                可參考我們在
+                <a href="/blog/ai-automation-roi-hong-kong-2026/" className="underline underline-offset-2">
+                  AI 自動化回報分析
+                </a>
+                一文引用的方法論。
               </p>
 
               <div className="mt-8">
@@ -584,7 +613,7 @@ export default function AiServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-[#0f4c81]">AI 落地四部曲</h2>
-            <p className="text-gray-500">從策略到落地，每一步都確保成果可衡量</p>
+            <p className="text-gray-500">每一步都有明確交付物，結果以當初議定的指標衡量</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
@@ -617,6 +646,48 @@ export default function AiServiceContent() {
                 <div className="text-sm text-gray-500">{testimonial.role}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services & Reading */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-[#0f4c81]">相關服務與深入閱讀</h2>
+            <p className="text-gray-500 mt-4">AI 項目很少單獨存在 —— 以下內容協助你在規劃階段看清全貌</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a href="/services/automation/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">企業流程自動化及 RPA</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">當流程本身已有明確規則，未必需要用 AI 判斷 —— 這一頁說明規則式自動化、RPA 與 AI Agent 的分工。</p>
+            </a>
+
+            <a href="/services/system/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">系統開發與整合</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">AI 能力要接進現有系統，往往先要處理資料結構、權限與 API。這一頁說明訂造系統與現成方案的取捨。</p>
+            </a>
+
+            <a href="/blog/ai-agent-hong-kong-business-guide-2026/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI Agent 香港企業應用指南</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">AI Agent 與一般 Chatbot 的分別、可以處理哪些任務、權限與人工覆核怎樣設計。</p>
+            </a>
+
+            <a href="/blog/ai-automation-roi-hong-kong-2026/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI 自動化回報分析</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">怎樣計算 AI 與自動化項目的回報、哪些假設最容易被高估，以及量度方式怎樣設定。</p>
+            </a>
+
+            <a href="/blog/hong-kong-ai-chatbot-customer-service-guide-2026/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI 客服系統導入指南</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">客服場景的實際做法、廣東話與書面語的處理、轉介真人跟進的時機與界線。</p>
+            </a>
+
+            <a href="/blog/ai-reduce-hong-kong-business-labour-cost-2026/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI 如何降低營運人力成本</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">哪些工序最適合先做、釋放出來的工時可以怎樣重新分配，以及常見的誤算。</p>
+            </a>
           </div>
         </div>
       </section>
