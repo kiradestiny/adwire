@@ -32,6 +32,8 @@ on:
       - 'tailwind.config.ts'
       - 'tsconfig.json'
       - 'postcss.config.mjs'
+      # 出街前閘門本身（改壞閘門 = 失去防線，故閘門改動亦須跑一次驗證）
+      - 'scripts/**'
 
   # 2. 後台「發佈更新」按鈕觸發（透過 GitHub API 發送 repository_dispatch）
   repository_dispatch:
