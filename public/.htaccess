@@ -305,18 +305,28 @@ ErrorDocument 403 /404.html
 
     # _next/static/ 下的資源（JS/CSS 帶 hash）→ 永久快取 + immutable
     <FilesMatch "\.(js|css|woff|woff2|ttf|otf|eot)$">
-        Header set Cache-Control "public, max-age=31536000, immutable"
+        Header always set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
 
     # 圖片與影片資源 → 永久快取
     <FilesMatch "\.(webp|avif|jpg|jpeg|png|gif|svg|ico|mp4|webm)$">
-        Header set Cache-Control "public, max-age=31536000, immutable"
+        Header always set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
 
-    # HTML → 不快取，確保取得最新頁面
+    # HTML → 可快取但必須重新驗證（2026-09-22 修正）
+    #
+    # 原本為 "no-store, no-cache, must-revalidate"：
+    #   no-store = 瀏覽器連副本都唔可以保留 → 每次導覽都完整重新下載
+    #   （實測首頁 441 KB HTML 每次重新傳輸；同時令 SiteGround 代理
+    #    快取永遠 MISS，TTFB 無法改善）
+    #
+    # 改為 public, max-age=0, must-revalidate：
+    #   - 瀏覽器保留副本，以 ETag 重新驗證 → 命中時回 304（約 200 bytes）
+    #   - public 令代理／CDN 可以儲存，改善 TTFB
+    #   - max-age=0 保證用戶每次都拿到最新版本，不會看到舊內容
     <FilesMatch "\.(html)$">
-        Header set Cache-Control "no-store, no-cache, must-revalidate"
-        Header set Pragma "no-cache"
+        Header always set Cache-Control "public, max-age=0, must-revalidate"
+        Header unset Pragma
     </FilesMatch>
 
 </IfModule>
