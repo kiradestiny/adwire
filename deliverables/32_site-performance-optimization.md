@@ -145,7 +145,61 @@
 
 ---
 
-## 五、仍可優化（未做，需負責人決定）
+## 五、修正：Logo 變空白方塊（2026-09-22 補做）
+
+### 問題
+
+負責人回報 navbar（捲動後）及 footer 嘅 logo 變成**空白白色方塊**。
+
+### 原因（兩個獨立問題）
+
+**1. 我破壞咗透明背景**
+
+`Navbar.tsx` 及 `Footer.tsx` 用 CSS `brightness-0 invert` 將 logo 轉為純白，
+以便喺深色背景顯示：
+
+```
+Footer.tsx:  className="h-10 w-auto object-contain brightness-0 invert"
+Navbar.tsx:  ${dark ? "brightness-0 invert" : ""}
+```
+
+呢個做法**依賴透明背景**。原 `logo.png` 有 **85.1% 全透明像素**
+（可見圖案只佔 7.8%）。我轉 webp 時合成咗白色底 → `brightness-0 invert`
+之後整個長方形變純白 → 空白。
+
+**2. immutable 快取令修正無法生效**
+
+`logo.webp` 回應 `Cache-Control: public, max-age=31536000, immutable`（一年）。
+修正透明背景後，瀏覽器仍然由快取載入舊版（實測 `naturalWidth: 1066` 而非
+新檔嘅 640）—— **曾經睇過壞圖嘅訪客會繼續見到一年**。
+
+### 修正
+
+1. 重新由 `logo.png` 生成，**保留 alpha channel**
+   - 640×207 RGBA，透明像素 81.7%，33 KB（原 PNG 56 KB，省 41%）
+2. **改檔名** `logo.webp` → `adwire-logo.webp`（immutable 資產必須換名破快取）
+   - Navbar 2 處、Footer 1 處更新引用
+   - 移除舊 `logo.webp` 避免新舊並存
+
+### 驗證
+
+| 位置 | 背景 | 結果 |
+|---|---|---|
+| 頂部 navbar | 淺色 | ✅ 藍橙 ADWire logo |
+| 捲動後 navbar | 深色 | ✅ 白色 ADWire logo |
+| Footer | 深藍 | ✅ 白色 ADWire logo |
+
+載入檔案確認為新版（`naturalWidth: 640`）。
+
+### 教訓
+
+- 轉換帶透明嘅 logo **必須保留 alpha channel**
+- 任何依賴 `brightness-0`／`invert` 嘅深色背景用法，一旦填白底就會完全失效
+- `immutable` 快取嘅資產，**修正內容時必須同時改檔名**
+
+---
+
+## 六、仍可優化（未做，需負責人決定）
 
 | 項目 | 潛在效益 | 代價 |
 |---|---|---|
@@ -155,7 +209,7 @@
 
 ---
 
-## 六、部署記錄
+## 七、部署記錄
 
 | Commit | 內容 |
 |---|---|
@@ -164,6 +218,8 @@
 | `442ebb9` | 客戶圖 srcset |
 | `43e4e08` | mod_expires HTML 設定註明 |
 | `3117685` | HTML 改 5 分鐘快取 |
+| `d72bfaf` | 還原 logo.webp 透明背景 |
+| `030f9e5` | logo 改版本化檔名破快取 |
 
 **CI**：全部 success
 **備份**：`~/peko_ads/htaccess_backup_repo_*`（.htaccess）、
