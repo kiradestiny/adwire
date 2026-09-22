@@ -74,7 +74,7 @@ export default function Footer() {
         <div className="space-y-6">
           <Link href="/" prefetch={false} className="inline-block">
             <Image 
-              src="/logo.webp" 
+              src="/adwire-logo.webp" 
               alt="ADWire" 
               width={180} 
               height={60} 
