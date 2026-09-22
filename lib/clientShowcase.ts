@@ -97,37 +97,37 @@ export const clientShowcase: ClientShowcase[] = [
     no: 4, slug: "jasper-beauty",
     name: "彤肌研 Jasper Beauty",
     industry: "美容中心",
-    website: null, websiteLabel: null,
+    website: "https://www.facebook.com/jasperbeauty.hk/", websiteLabel: "FB 彤肌研｜Jasper Beauty",
     intro: "",
     service: { category: "Meta 廣告", items: [
       "Meta 廣告投放",
       "影片拍攝",
       "社交媒體帖文製作",
     ]},
-    image: null, accent: "#ad1457",
+    image: "04_jasper-beauty.webp", accent: "#ad1457",
   },
   {
     no: 5, slug: "quinlan-tcm",
     name: "康倫中醫診所",
     industry: "中醫診所",
-    website: null, websiteLabel: null,
+    website: "https://www.instagram.com/quinlantcmclinic/", websiteLabel: "IG @quinlantcmclinic",
     intro: "",
     service: { category: "圖片／影片製作", items: [
       "拍攝 3 條廣告影片",
       "Meta 廣告管理",
     ]},
-    image: null, accent: "#00695c",
+    image: "05_quinlan-tcm.webp", accent: "#00695c",
   },
   {
     no: 6, slug: "time-universe",
     name: "Time Universe",
     industry: "名貴腕錶零售",
-    website: null, websiteLabel: null,
+    website: "https://www.instagram.com/timeuniverse.hk/", websiteLabel: "IG @timeuniverse.hk",
     intro: "",
     service: { category: "Meta 廣告", items: [
       "Meta 廣告投放及管理（素材由客戶提供）",
     ]},
-    image: null, accent: "#37474f",
+    image: "06_time-universe.webp", accent: "#37474f",
   },
   {
     no: 7, slug: "yorokobi",
@@ -216,7 +216,7 @@ export const clientShowcase: ClientShowcase[] = [
       "Landing Page 製作",
       "WhatsApp API 設定",
     ]},
-    image: null, accent: "#455a64",
+    image: "13_wang-fung.webp", accent: "#455a64",
   },
   {
     no: 14, slug: "thousand-bright",
@@ -238,7 +238,7 @@ export const clientShowcase: ClientShowcase[] = [
     service: { category: "WhatsApp API", items: [
       "WhatsApp API 設定",
     ]},
-    image: null, accent: "#607d8b",
+    image: "15_tokyo-finance.webp", accent: "#607d8b",
   },
   {
     no: 16, slug: "herface",
@@ -297,19 +297,19 @@ export const clientShowcase: ClientShowcase[] = [
       "廣告影片創意及生成提示詞素材",
       "網站技術支援（故障排查及主機溝通）",
     ]},
-    image: null, accent: "#263238",
+    image: "20_my-cash-credit.webp", accent: "#263238",
   },
   {
     no: 21, slug: "allaboutbeaut",
     name: "AllAboutBeaut",
     industry: "美容／美妝",
-    website: null, websiteLabel: null,
+    website: "https://www.allabout-beaut.com/", websiteLabel: "allabout-beaut.com",
     intro: "",
     service: { category: "Google 廣告", items: [
       "Google Ads 月度成效報告及彙整",
       "WhatsApp 點擊及廣告電話轉換數據彙整",
     ]},
-    image: null, accent: "#8d6e63",
+    image: "21_allaboutbeaut.webp", accent: "#8d6e63",
   },
 ];
 
