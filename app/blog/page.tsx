@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import BlogContent from "./BlogContent";
-import { getBlogPosts } from "@/lib/data-resolver";
-import { blogPosts } from "@/lib/blogData";
+import { getBlogPosts, type BlogPostSummary } from "@/lib/data-resolver";
 
 export const metadata: Metadata = {
   title: "增長洞察｜系統・AI・SEO 實戰指南",
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "ADWire Agency 增長洞察 Blog",
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
 };
 
 // Blog ItemList Schema — 讓 Google 及 AI 引擎理解 Blog 結構
-function BlogListSchema() {
+function BlogListSchema({ posts }: { posts: BlogPostSummary[] }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -66,7 +65,7 @@ function BlogListSchema() {
         "url": "https://adwire.com.hk/logo.png",
       },
     },
-    "blogPost": blogPosts.map((post: { slug: string; title: string; excerpt: string; date: string; image?: string; tags: string[]; category: string }) => ({
+    "blogPost": posts.map((post: { slug: string; title: string; excerpt: string; date: string; image?: string; tags: string[]; category: string }) => ({
       "@type": "BlogPosting",
       "@id": `https://adwire.com.hk/blog/${post.slug}/`,
       "headline": post.title,
@@ -126,7 +125,7 @@ export default async function BlogListingPage() {
 
   return (
     <>
-      <BlogListSchema />
+      <BlogListSchema posts={posts} />
       <BlogContent posts={posts} />
     </>
   );

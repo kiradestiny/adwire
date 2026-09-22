@@ -77,7 +77,26 @@ export async function getBrands(): Promise<string[]> {
 // ── Blog 文章 ────────────────────────────────────────────────────────────
 let cachedBlogPosts: BlogPost[] | null = null;
 
-export async function getBlogPosts(): Promise<BlogPost[]> {
+/** 文章摘要：列表頁／卡片只需要這些欄位，唔含完整內容（避免整套文章 HTML 進入客戶端 bundle） */
+export type BlogPostSummary = Omit<BlogPost, "content">;
+
+function toSummary(p: BlogPost): BlogPostSummary {
+  const { content: _omit, ...rest } = p;
+  return rest;
+}
+
+/**
+ * 文章摘要列表（不含 content）
+ * ⚠️ 唔可以改成回傳完整文章：BlogSection / BlogContent 係 client component，
+ *    完整 content 會被打包入 JS chunk，令全站每頁多下載約 660 KB。
+ */
+export async function getBlogPosts(): Promise<BlogPostSummary[]> {
+  const full = await getAllBlogPosts();
+  return full.map(toSummary);
+}
+
+/** 完整文章列表（含 content）— 只可在 server component 使用 */
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
   if (cachedBlogPosts) return cachedBlogPosts;
 
   const apiPosts = await fetchBlogPosts();
@@ -116,6 +135,12 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 
   cachedBlogPosts = [...added, ...merged];
   return cachedBlogPosts;
+}
+
+/** 單篇文章（含 content）— 供文章頁 server component 使用 */
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
+  const all = await getAllBlogPosts();
+  return all.find((p) => p.slug === slug);
 }
 
 // ── Portfolio 案例（可序列化版本，用於 Server→Client Props 傳遞）──────────

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: "提交服務類別、項目需求、預算區間及預計開始時間，我們會安排合適同事跟進。",
     images: [
       {
-        url: "/logo.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "聯絡 ADWire Agency",

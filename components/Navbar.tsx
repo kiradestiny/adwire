@@ -192,7 +192,7 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
       <div className="flex-shrink-0">
         <Link href="/" prefetch={false} className="flex items-center">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="ADWire"
             width={180}
             height={60}
@@ -533,7 +533,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center px-5 h-[68px] border-b border-gray-100 flex-shrink-0">
           <Link href="/" onClick={() => setIsOpen(false)}>
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="ADWire"
               width={180}
               height={60}

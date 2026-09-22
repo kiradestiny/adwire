@@ -1,5 +1,5 @@
-import { blogPosts as fallbackPosts, type BlogPost } from "@/lib/blogData";
-import { getBlogPosts } from "@/lib/data-resolver";
+import { getBlogPosts, getBlogPostBySlug } from "@/lib/data-resolver";
+import type { BlogPost } from "@/lib/blogData";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
@@ -88,7 +88,7 @@ function ArticleSchema({ post }: { post: BlogPost }) {
       "@type": "ImageObject",
       "url": post.image
         ? `https://adwire.com.hk${post.image}`
-        : "https://adwire.com.hk/logo.png",
+        : "https://adwire.com.hk/og-image.png",
       "width": 1200,
       "height": 630,
     },
@@ -290,7 +290,7 @@ export default async function BlogPost({
 }) {
   const { slug } = await params;
   const allPosts = await getBlogPosts();
-  const post = allPosts.find((p) => p.slug === slug);
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
     return notFound();

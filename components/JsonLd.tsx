@@ -67,7 +67,7 @@ export default function JsonLd() {
     "@type": ["ProfessionalService", "MarketingAgency"],
     "@id": "https://adwire.com.hk/#localbusiness",
     "name": "ADWire Agency",
-    "image": "https://adwire.com.hk/logo.png",
+    "image": "https://adwire.com.hk/og-image.png",
     "url": "https://adwire.com.hk",
     "telephone": WHATSAPP_E164,
     "email": "info@adwire.com.hk",

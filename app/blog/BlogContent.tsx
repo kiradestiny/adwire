@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
-import { blogPosts as fallbackPosts, type BlogPost } from "@/lib/blogData";
+import type { BlogPostSummary } from "@/lib/data-resolver";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -20,12 +20,12 @@ import {
 import Image from "next/image";
 
 interface BlogContentProps {
-  posts?: BlogPost[];
+  posts?: BlogPostSummary[];
 }
 
 export default function BlogContent({ posts }: BlogContentProps) {
   // 使用傳入的 posts 或本地 fallback
-  const blogPosts = posts || fallbackPosts;
+  const blogPosts = posts ?? [];
 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");

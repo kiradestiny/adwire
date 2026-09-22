@@ -3,15 +3,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
-import { blogPosts as fallbackPosts, type BlogPost } from "@/lib/blogData";
+import type { BlogPostSummary } from "@/lib/data-resolver";
 
 interface BlogSectionProps {
-  posts?: BlogPost[];
+  posts?: BlogPostSummary[];
 }
 
 export default function BlogSection({ posts }: BlogSectionProps) {
   // 使用傳入的 posts 或本地 fallback，只取最新的 3 篇文章
-  const allPosts = posts || fallbackPosts;
+  const allPosts = posts ?? [];
   const latestPosts = allPosts.slice(0, 3);
 
   return (
