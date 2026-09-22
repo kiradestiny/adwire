@@ -165,3 +165,36 @@
 | `6f7e62c` | 走馬燈改用 21 個已確認客戶；新增真實客戶 Showcase（12 張官網圖片）；修正未核實聲稱 |
 | `dbead36` | 加走馬燈品牌白名單閘門 |
 | `7436bc8` | `scripts/**` 加入 CI 觸發路徑 |
+
+---
+
+## 九、補充：Wellness Service 資料（2026-09-22）
+
+負責人提供 staging 站作資料來源：`darkslateblue-zebra-429022.hostingersite.com`
+
+**抓取結果**（193 KB）：
+- H1：**香港註冊針劑診所**
+- 療程：埋線輪廓改善（APTOS）、肉毒桿菌素、水光保濕針（Juvederm／Teosyal／Restylane／Belotero／SuneKOS）、
+  透明質酸填充（MISFILL+／TEOSYAL Redensity 2 熊貓針）、膠原蛋白誘發劑（Sculptra／ELLANSE／RADIESS E）、
+  減肥針（Saxenda／Mounjaro／Wegovy）
+- 品牌語：「醫學為本，精準美學 / Foundation in Medicine, Precision in Aesthetics」
+
+**更新內容**：
+| 項目 | 改動 |
+|---|---|
+| `intro` | 補上品牌簡介（取自客戶官網公開文案）|
+| `image` | 官網 desktop banner → `11_wellness-service.webp`（1200×750 webp，237 KB → 44 KB）|
+| `industry` | 醫學美容／針劑療程 → **醫學美容／針劑診所** |
+| `accent` | #6d4c41 → 官網主色 **#2b7fa8** |
+
+**有圖客戶：12 → 13 個**
+
+**注意事項**：
+- 官方網域 `wellness-service.com.hk`（www 及非 www）現時仍回 **HTTP 500**，
+  卡片連結保留指向官方網域（品牌正式網址）；**staging URL 不公開展示**。
+- 過程中發現：我的圖片挑選器只按 `<img>` 的 class／alt 判斷 hero 圖，
+  未檢查**檔名**，導致首次誤選 `Wellness-Logo.png`。已改為同時檢查檔名。
+
+**Commit**：`0960f1a`｜**CI**：`35692836036` success
+
+**正式站驗證**：客戶名／行業／簡介／卡片圖全部 ✅；13 張客戶圖 ✅；走馬燈 21 個、無未核准 ✅
