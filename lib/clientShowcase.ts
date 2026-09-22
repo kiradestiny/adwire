@@ -184,14 +184,14 @@ export const clientShowcase: ClientShowcase[] = [
   {
     no: 11, slug: "wellness-service",
     name: "Wellness Service",
-    industry: "醫學美容／針劑療程",
+    industry: "醫學美容／針劑診所",
     website: "https://www.wellness-service.com.hk/", websiteLabel: "wellness-service.com.hk",
-    intro: "",
+    intro: "以「醫學為本，精準美學」為定位的香港註冊針劑診所，提供埋線輪廓改善、肉毒桿菌素、水光保濕針、透明質酸填充、膠原蛋白誘發劑及減肥針等療程。",
     service: { category: "網站／Landing Page", items: [
       "網站設計",
       "SEO 優化",
     ]},
-    image: null, accent: "#6d4c41",
+    image: "11_wellness-service.webp", accent: "#2b7fa8",
   },
   {
     no: 12, slug: "petgarden",
