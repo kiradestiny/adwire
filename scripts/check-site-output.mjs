@@ -321,6 +321,58 @@ function checkPage(file, inSitemap) {
   for (const s of stats) if (!APPROVED_STATS.has(s)) warnings.push({ page, stat: s });
 }
 
+/**
+ * 首頁走馬燈的品牌白名單。
+ *
+ * 2026-09-22 負責人確認：走馬燈只可顯示 21 個「已確認合作品牌／項目」
+ * （來源：ADWire_Client_Portfolio_2025_2026_v4_Confirmed.xlsx）。
+ * 原本列表含 31 個未經核實品牌（7-Eleven、The Ritz-Carlton、Rakuten 等），
+ * 與該檔案「Logo 或合作參考不等於 ADWire 直接客戶」的說明相抵觸。
+ *
+ * 此閘門存在的目的：防止未核實品牌日後再經後台或程式碼靜默流回街。
+ * 要新增品牌，必須先經負責人書面確認合作，再把名稱加入此清單。
+ */
+const APPROVED_MARQUEE_BRANDS = new Set([
+  "AURA TRESS 髮研", "FineNutri 斐萃", "HON'S Chinese Medicine Centre",
+  "彤肌研 Jasper Beauty", "康倫中醫診所", "Time Universe",
+  "YOROKOBI 天之悅", "HEYAMI", "NovaLend 智本信貸",
+  "Morning Global", "Wellness Service", "寵之花園",
+  "雲峰信貸", "千輝財務", "東京財務",
+  "HERFACE", "ToLove", "PEKO Beauty",
+  "MEDSKIN PLUS+ 美學中心", "My Cash Credit", "AllAboutBeaut",
+]);
+
+/** 檢查首頁走馬燈只含已核准品牌 */
+function checkMarquee() {
+  const f = join(OUT, "index.html");
+  if (!existsSync(f)) return;
+  const html = readFileSync(f, "utf8");
+  const found = [
+    ...html.matchAll(/<span class="text-xl font-bold text-gray-300[^"]*">([^<]+)<\/span>/g),
+  ].map((m) =>
+    m[1].replace(/&#x27;/g, "'").replace(/&amp;/g, "&").replace(/&#x2F;/g, "/").trim()
+  );
+  if (found.length === 0) return; // 元件結構改了就不再誤報
+
+  const uniq = [...new Set(found)];
+  const bad = uniq.filter((b) => !APPROVED_MARQUEE_BRANDS.has(b));
+  if (bad.length) {
+    errors.push(
+      `首頁走馬燈出現 ${bad.length} 個未核准品牌：${bad.slice(0, 6).join("、")}` +
+        `${bad.length > 6 ? "…" : ""} —— 走馬燈只可顯示已確認合作的 21 個品牌；` +
+        `要新增須先經負責人確認，並同步更新 lib/data-resolver.ts、components/LogoWall.tsx、` +
+        `後台 brands 表及本清單`
+    );
+  }
+  const missing = [...APPROVED_MARQUEE_BRANDS].filter((b) => !uniq.includes(b));
+  if (missing.length) {
+    console.log(
+      `   ⚠️  走馬燈缺少 ${missing.length} 個已確認品牌：${missing.slice(0, 5).join("、")}` +
+        `${missing.length > 5 ? "…" : ""}（未阻擋部署）`
+    );
+  }
+}
+
 function main() {
   if (process.argv.includes("--selftest")) selftest();
 
@@ -332,6 +384,8 @@ function main() {
   const inSitemap = sitemapPages();
   const files = walk(OUT);
   for (const f of files) checkPage(f, inSitemap);
+
+  checkMarquee();
 
   // 純文字檔只做禁止字句檢查（無 Title／canonical／H1 等結構）
   const txts = textFiles(OUT);
