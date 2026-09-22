@@ -6,7 +6,7 @@ import { getSerializablePortfolioCases } from "@/lib/data-resolver";
 export const metadata: Metadata = {
   title: "成功案例｜系統・AI・SEO 實戰項目",
   description:
-    "精選案例涵蓋系統及 CRM 開發、AI 與工作流程自動化、SEO／GEO 及整合數碼增長項目。每個案例列明 ADWire 的實際工作範圍、時期及已核實的技術與成效。",
+    "已確認合作品牌／項目一覽，涵蓋網站開發、廣告投放、社交媒體管理、影片製作及 SEO／GEO。每個項目列明 ADWire 的實際服務範圍。",
   keywords: [
     "香港數碼營銷案例",
     "KOL 營銷成功案例",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "成功案例 Portfolio | ADWire Agency",
-    description: "120+ 個真實數位營銷成功案例，從 KOL 短片到 SEO 霸榜，用數據說話。",
+    description: "21 個已確認合作品牌／項目，涵蓋網站開發、Meta 及 Google 廣告、社交媒體管理、影片製作與 SEO／GEO。每個項目列明 ADWire 的實際服務範圍。",
     images: ["/portfolio/beauty-ads.webp"],
   },
 };
@@ -63,7 +63,7 @@ function PortfolioJsonLd() {
       },
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+852-XXXX-XXXX",
+        telephone: "+852-9586-1027",
         contactType: "customer service",
         areaServed: "HK",
         availableLanguage: ["Chinese", "English"],

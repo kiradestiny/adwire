@@ -29,13 +29,13 @@ import type { SerializablePortfolioCase } from './admin-types';
 let cachedBrands: string[] | null = null;
 
 const FALLBACK_BRANDS: string[] = [
-  "7-Eleven", "Rakuten", "The Ritz-Carlton", "Kirin Ichiban", "Mister Donut",
-  "Matsuya", "Miki House", "Kerry Hotel", "Hotel ICON", "義務工作發展局（AVS）",
-  "HKWS", "Organicmom", "隨傳隨借", "Nuva", "SurrFACE", "WISDOM", "Global32",
-  "Envirosafe", "Skinpro", "Peko Beauty", "MEDSKIN PLUS+", "YOROKOBI Beauty",
-  "Meta Beauty Lab", "All About Beaut", "Wonder Lens", "Barebooby", "永記渠務工程",
-  "N Creative", "effect.", "Eco Pro", "H$ Credit", "Quantum Matrix", "KM. Fiber",
-  "千葉願", "Sometimes lab",
+  "AURA TRESS 髮研", "FineNutri 斐萃", "HON'S Chinese Medicine Centre",
+  "彤肌研 Jasper Beauty", "康倫中醫診所", "Time Universe",
+  "YOROKOBI 天之悅", "HEYAMI", "NovaLend 智本信貸",
+  "Morning Global", "Wellness Service", "寵之花園",
+  "雲峰信貸", "千輝財務", "東京財務",
+  "HERFACE", "ToLove", "PEKO Beauty",
+  "MEDSKIN PLUS+ 美學中心", "My Cash Credit", "AllAboutBeaut",
 ];
 
 export async function getBrands(): Promise<string[]> {
