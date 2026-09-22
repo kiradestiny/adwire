@@ -56,6 +56,8 @@ function ClientCard({ client, index }: { client: Client; index: number }) {
           <img
             src={"/clients/" + client.image}
             alt={`${client.name}｜${client.industry}｜ADWire 香港客戶案例`}
+            srcSet={`/clients/${client.image.replace(/\.webp$/, "-600.webp")} 600w, /clients/${client.image} 1200w`}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             title={`${client.name} — ${client.industry}`}
             loading="lazy"
             decoding="async"
