@@ -320,3 +320,61 @@ AURA TRESS 髮研、HEYAMI、Wellness Service、HERFACE
 | 新增社交連結 | 4 / 4 生效 |
 
 **Commit**：`fe2b38d`｜**CI**：`35697695405` success
+
+---
+
+## 十二、負責人提供圖片替換 5 個客戶 + 全套 SEO 優化
+
+### 替換嘅 5 張（負責人提供原圖）
+
+| 客戶 | 原圖 | 處理 |
+|---|---|---|
+| FineNutri 斐萃 | 1122x1402 促銷 banner | 取上方（品牌＋標題＋產品）裁 16:10 |
+| MEDSKIN PLUS+ | 2560x1277 官網 hero | ⚠️ 裁切會切走 logo → 改「全寬縮放＋模糊填充」|
+| PEKO Beauty | 547x365 門店實照 | 放大至 1200x750（原圖較細）|
+| HON'S | 2560x1277 官網 hero | 置中裁切 |
+| Morning Global | 2560x1277 官網 hero | 置中裁切 |
+
+⚠️ **MEDSKIN 第一次裁切失敗**：置中裁切（2043x1277）切走咗「MEDSKIN PLUS+」logo
+同「未來不能預測／自信自己掌握」文字 → 改用保留全寬 + 模糊填充。
+
+### 20 張圖 SEO 優化
+
+| 項目 | 之前 | 之後 |
+|---|---|---|
+| **檔名** | `01_aura-tress.webp` | `aura-tress-hair-care-hong-kong.webp` |
+| **alt** | `{name}｜{industry}` | `{name}｜{industry}｜ADWire 香港客戶案例` |
+| **title** | 無 | `{name} — {industry}` |
+| lazy / async / width / height | 已有 | 保留 |
+
+**命名規則**：品牌 slug + 服務關鍵字 + `hong-kong`，全小寫連字符。
+
+### Image Sitemap（新增）
+
+`sitemap.ts` 嘅 `images` 欄位**喺呢個 Next 版本唔會輸出**（實測輸出無 image
+namespace）→ 改用獨立 route：
+
+- 新增 `app/image-sitemap.xml/route.ts`：標準 image sitemap，含
+  `<image:loc>`／`<image:title>`／`<image:caption>`
+- `app/robots.ts`：列出兩個 sitemap（`/sitemap.xml`、`/image-sitemap.xml`）
+
+### 修正
+
+`PORTFOLIO_LAST_UPDATED` 由 `2025-02-15` → `2026-09-22`
+（上次只改變數**冇寫入檔案**，已確認今次寫入並反映於輸出）
+
+### 正式站驗證（07:25 部署）
+
+| 檢查 | 結果 |
+|---|---|
+| 客戶圖（SEO 檔名）| 20 張，**檔案零缺失** |
+| 舊格式殘留 | ✅ 無 |
+| alt 含「ADWire 香港客戶案例」| **20 個** |
+| title 屬性 | **20 個** |
+| Image sitemap 條目 | **20**，對應檔案零缺失 |
+| robots.txt Sitemap 行 | **2 個** |
+| 主 sitemap portfolio lastmod | **2026-09-22** ✅ |
+| 21 個客戶卡 | **21 / 21** |
+
+**Commit**：`f825094`｜**CI**：`35699427214` success
+**備份**：舊圖在 `~/peko_ads/clients_backup_20260922/`
