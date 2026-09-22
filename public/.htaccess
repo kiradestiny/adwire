@@ -327,9 +327,13 @@ ErrorDocument 403 /404.html
     # 改為 public, max-age=0, must-revalidate：
     #   - 瀏覽器保留副本，以 ETag 重新驗證 → 命中時回 304（約 200 bytes）
     #   - public 令代理／CDN 可以儲存，改善 TTFB
-    #   - max-age=0 保證用戶每次都拿到最新版本，不會看到舊內容
+    #   - max-age=300（5 分鐘）令重複導航完全唔需要發請求（實測 SiteGround
+    #     代理唔支援條件請求，一律回 200 而非 304，所以 max-age=0 會導致
+    #     每次導覽都重新下載 HTML）。5 分鐘後必須重新驗證，內容更新最多
+    #     延遲 5 分鐘；如需即時看到更新可強制重新載入（Ctrl/Cmd+Shift+R）。
+    #     若希望完全零延遲，可將 max-age 改回 0。
     <FilesMatch "\.(html)$">
-        Header always set Cache-Control "public, max-age=0, must-revalidate"
+        Header always set Cache-Control "public, max-age=300, must-revalidate"
         Header unset Pragma
     </FilesMatch>
 
