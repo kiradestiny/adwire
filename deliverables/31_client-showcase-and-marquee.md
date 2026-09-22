@@ -251,3 +251,72 @@
 **「隨傳隨借」與「My Cash Credit」可能是同一客戶** —— My Cash Credit 官網標題為
 「24小時網上貸款 | 全天候隨傳隨借」，「隨傳隨借」或為其品牌別名。
 現時保留為兩個獨立項目（52 個）；**如確認為同一客戶，可再合併為 51 個**。
+
+---
+
+## 十一、重做全部客戶卡片圖（2026-09-22 晚）
+
+**負責人指出**：showcase 大部分圖片錯誤，只有 4 張正確；要求改用客戶 **IG／網站嘅 banner**。
+
+### 負責人確認保留（4 張）
+
+AURA TRESS 髮研、HEYAMI、Wellness Service、HERFACE
+
+### 圖片來源（17 張全部換新）
+
+| 客戶 | 來源 | 說明 |
+|---|---|---|
+| FineNutri 斐萃 | 官網 hero | |
+| HON'S 養康中醫館 | 官網 hero | 品牌 logo + 診所環境 + 「成立超過13年」 |
+| 彤肌研 Jasper Beauty | **IG @jasper_beauty_hk** | 新發現帳號 |
+| 康倫中醫診所 | **IG @quinlantcmclinic** | 新發現帳號 |
+| Time Universe | **IG @timeuniverse.hk** | 新發現帳號（時宇鐘錶有限公司）|
+| YOROKOBI 天之悅 | 官網 hero | |
+| NovaLend 智本信貸 | 官網 hero | |
+| Morning Global | 官網 hero | |
+| 寵之花園 | 官網 hero | |
+| 雲峰信貸 | 官網 hero | |
+| 東京財務 | FB 東京信貸 | ⚠️ 名稱待確認 |
+| ToLove | 官網 hero | |
+| PEKO Beauty | 官網 hero | |
+| MEDSKIN PLUS+ | 官網 hero | |
+| My Cash Credit | 官網 banner + 官方 logo | 合成（官網 banner 本身無品牌名）|
+| AllAboutBeaut | **allabout-beaut.com** | 新發現官網 |
+
+**有圖客戶：13 → 20 個**
+
+### 技術方法（重要）
+
+`browser_exec` 完全故障（420 秒超時）→ 改用 **Playwright MCP**：
+
+1. `browser_resize` 設 **1200×750**（正好等於卡片尺寸）→ 截圖直接可用
+2. `browser_run_code_unsafe` **一次過批次**處理多個網站（navigate + 截圖）
+3. WAF 封鎖嘅站（honscmc／yorokobi／wangfung／peko）只有真瀏覽器過得
+4. IG／FB 有登入牆 → 針對性移除含「登入／註冊／查看…相片」字眼嘅 `div[role="dialog"]`
+   （⚠️ 唔可以暴力刪所有 fixed 定位元素，會變全白）
+
+### 順帶發現（需負責人確認）
+
+1. **YOROKOBI 係「觀塘貓貓伴膚質改造專門店」** —— 之前我誤判貓相係錯圖而換走，
+   其實貓係品牌主題。已還原含貓嘅官方 hero。**我當時改錯咗。**
+2. **「隨傳隨借」= My Cash Credit 嘅品牌標記** —— mycashcredit.com.hk **全文冇
+   「My Cash Credit」字樣**，導覽 logo 同辦公室牆身標誌都係「隨傳隨借」。
+3. **MyCash footer：智本信貸有限公司 / Credit Hong Kong Holdings**，放債人牌照
+   1752/20xx；而 novalend.hk 品牌名亦含「智本信貸」→ **兩個品牌可能同屬一間公司**。
+4. **Excel 寫「東京財務」，搵到嘅 FB 係「東京信貸 Tokyo Finance」** —— 未確認是否
+   同一客戶，故未為佢加社交連結。
+5. **千輝財務**：只有公司註冊記錄，搵唔到官網／IG／FB 或任何品牌圖 → 暫用品牌色卡。
+
+### 新增已核實連結
+
+彤肌研（FB）、康倫中醫（IG）、Time Universe（IG）、AllAboutBeaut（官網）
+
+### 正式站驗證（07:04 部署）
+
+| 檢查 | 結果 |
+|---|---|
+| 卡片圖引用 | 20 張，**檔案零缺失** |
+| 21 個客戶卡 | **21 / 21 齊全** |
+| 新增社交連結 | 4 / 4 生效 |
+
+**Commit**：`fe2b38d`｜**CI**：`35697695405` success
