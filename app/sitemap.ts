@@ -19,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const BLOG_LAST_UPDATED     = '2026-09-20'  // 文章模板及內容更新
   const SERVICE_LAST_UPDATED  = '2026-09-20'  // 服務頁面定位、交付內容及 Schema 更新
   const LEGAL_LAST_UPDATED    = '2025-01-01'  // 法律條款未變更
-  const PORTFOLIO_LAST_UPDATED = '2025-02-15' // 作品集未有新增
+  const PORTFOLIO_LAST_UPDATED = '2026-09-22' // 作品集：新增 21 個已確認客戶 Showcase 及品牌圖
 
   // 1. 核心頁面 (Core Pages) — 最高優先級
   const coreRoutes: RouteConfig[] = [

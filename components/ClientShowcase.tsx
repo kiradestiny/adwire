@@ -55,7 +55,8 @@ function ClientCard({ client, index }: { client: Client; index: number }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={"/clients/" + client.image}
-            alt={`${client.name}｜${client.industry}`}
+            alt={`${client.name}｜${client.industry}｜ADWire 香港客戶案例`}
+            title={`${client.name} — ${client.industry}`}
             loading="lazy"
             decoding="async"
             width={1200}

@@ -46,6 +46,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/thank-you/', '/send-mail.php', '/admin/'],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    // 兩個 sitemap：頁面 + 客戶品牌圖（image sitemap）
+    sitemap: [`${baseUrl}/sitemap.xml`, `${baseUrl}/image-sitemap.xml`],
   }
 }

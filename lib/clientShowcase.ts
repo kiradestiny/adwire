@@ -66,7 +66,7 @@ export const clientShowcase: ClientShowcase[] = [
       "社交媒體管理（帖文、短片、IG Reels）",
       "Google Search Console、GA4、GTM 設定",
     ]},
-    image: "01_aura-tress.webp", accent: "#0f4c81",
+    image: "aura-tress-hair-care-hong-kong.webp", accent: "#0f4c81",
   },
   {
     no: 2, slug: "finenutri",
@@ -78,7 +78,7 @@ export const clientShowcase: ClientShowcase[] = [
       "Meta 廣告投放",
       "廣告素材製作（圖片及短影片）",
     ]},
-    image: "02_finenutri.webp", accent: "#c2185b",
+    image: "finenutri-hk-health-supplements.webp", accent: "#c2185b",
   },
   {
     no: 3, slug: "hons",
@@ -91,7 +91,7 @@ export const clientShowcase: ClientShowcase[] = [
       "Google Ads 投放及持續優化",
       "轉換設定與追蹤碼植入",
     ]},
-    image: "03_hons.webp", accent: "#2e7d32",
+    image: "hons-chinese-medicine-centre-hong-kong.webp", accent: "#2e7d32",
   },
   {
     no: 4, slug: "jasper-beauty",
@@ -104,7 +104,7 @@ export const clientShowcase: ClientShowcase[] = [
       "影片拍攝",
       "社交媒體帖文製作",
     ]},
-    image: "04_jasper-beauty.webp", accent: "#ad1457",
+    image: "jasper-beauty-facial-hong-kong.webp", accent: "#ad1457",
   },
   {
     no: 5, slug: "quinlan-tcm",
@@ -116,7 +116,7 @@ export const clientShowcase: ClientShowcase[] = [
       "拍攝 3 條廣告影片",
       "Meta 廣告管理",
     ]},
-    image: "05_quinlan-tcm.webp", accent: "#00695c",
+    image: "quinlan-tcm-chinese-medicine-hong-kong.webp", accent: "#00695c",
   },
   {
     no: 6, slug: "time-universe",
@@ -127,7 +127,7 @@ export const clientShowcase: ClientShowcase[] = [
     service: { category: "Meta 廣告", items: [
       "Meta 廣告投放及管理（素材由客戶提供）",
     ]},
-    image: "06_time-universe.webp", accent: "#37474f",
+    image: "time-universe-luxury-watch-hong-kong.webp", accent: "#37474f",
   },
   {
     no: 7, slug: "yorokobi",
@@ -141,7 +141,7 @@ export const clientShowcase: ClientShowcase[] = [
       "WhatsApp API 設定",
       "網站內容整理及 SEO 文章",
     ]},
-    image: "07_yorokobi.webp", accent: "#8e24aa",
+    image: "yorokobi-skincare-hong-kong.webp", accent: "#8e24aa",
   },
   {
     no: 8, slug: "heyami",
@@ -154,7 +154,7 @@ export const clientShowcase: ClientShowcase[] = [
       "直接修改及優化 Shopify 網站",
       "網站轉換率優化（CRO）",
     ]},
-    image: "08_heyami.webp", accent: "#00897b",
+    image: "heyami-hk-brand.webp", accent: "#00897b",
   },
   {
     no: 9, slug: "novalend",
@@ -165,7 +165,7 @@ export const clientShowcase: ClientShowcase[] = [
     service: { category: "網站／Landing Page", items: [
       "開發可供用戶申請貸款的網站",
     ]},
-    image: "09_novalend.webp", accent: "#1B2A4A",
+    image: "novalend-personal-loan-hong-kong.webp", accent: "#1B2A4A",
   },
   {
     no: 10, slug: "morning-global",
@@ -179,7 +179,7 @@ export const clientShowcase: ClientShowcase[] = [
       "製作 30 個設計素材",
       "拍攝及製作 25 條影片",
     ]},
-    image: "10_morning.webp", accent: "#1565c0",
+    image: "morning-global-logistics-hong-kong.webp", accent: "#1565c0",
   },
   {
     no: 11, slug: "wellness-service",
@@ -191,7 +191,7 @@ export const clientShowcase: ClientShowcase[] = [
       "網站設計",
       "SEO 優化",
     ]},
-    image: "11_wellness-service.webp", accent: "#2b7fa8",
+    image: "wellness-service-injection-clinic-hong-kong.webp", accent: "#2b7fa8",
   },
   {
     no: 12, slug: "petgarden",
@@ -204,7 +204,7 @@ export const clientShowcase: ClientShowcase[] = [
       "網站追蹤碼連接",
       "關鍵字研究",
     ]},
-    image: "12_petgarden.webp", accent: "#7b1fa2",
+    image: "petgarden-pet-funeral-hong-kong.webp", accent: "#7b1fa2",
   },
   {
     no: 13, slug: "wang-fung",
@@ -216,7 +216,7 @@ export const clientShowcase: ClientShowcase[] = [
       "Landing Page 製作",
       "WhatsApp API 設定",
     ]},
-    image: "13_wang-fung.webp", accent: "#455a64",
+    image: "wang-fung-credit-hong-kong.webp", accent: "#455a64",
   },
   {
     no: 14, slug: "thousand-bright",
@@ -238,7 +238,7 @@ export const clientShowcase: ClientShowcase[] = [
     service: { category: "WhatsApp API", items: [
       "WhatsApp API 設定",
     ]},
-    image: "15_tokyo-finance.webp", accent: "#607d8b",
+    image: "tokyo-finance-personal-loan-hong-kong.webp", accent: "#607d8b",
   },
   {
     no: 16, slug: "herface",
@@ -249,7 +249,7 @@ export const clientShowcase: ClientShowcase[] = [
     service: { category: "Meta 廣告", items: [
       "Meta 廣告投放及管理",
     ]},
-    image: "16_herface.webp", accent: "#d81b60",
+    image: "herface-skincare-hong-kong.webp", accent: "#d81b60",
   },
   {
     no: 17, slug: "tolove",
@@ -260,7 +260,7 @@ export const clientShowcase: ClientShowcase[] = [
     service: { category: "Meta 廣告", items: [
       "Meta 廣告投放及管理",
     ]},
-    image: "17_tolove.webp", accent: "#c2185b",
+    image: "tolove-skincare-hong-kong.webp", accent: "#c2185b",
   },
   {
     no: 18, slug: "peko",
@@ -273,7 +273,7 @@ export const clientShowcase: ClientShowcase[] = [
       "Google Ads 投放及管理",
       "廣告圖片、影片及社交媒體文案製作",
     ]},
-    image: "18_peko.webp", accent: "#C52B21",
+    image: "peko-beauty-hong-kong.webp", accent: "#C52B21",
   },
   {
     no: 19, slug: "medskin-plus",
@@ -285,7 +285,7 @@ export const clientShowcase: ClientShowcase[] = [
       "網站標題與內容優化",
       "療程頁 SEO／Landing Page 內容及設計素材製作",
     ]},
-    image: "19_medskin.webp", accent: "#b8860b",
+    image: "medskin-plus-aesthetic-beauty-centre-hong-kong.webp", accent: "#b8860b",
   },
   {
     no: 20, slug: "my-cash-credit",
@@ -297,7 +297,7 @@ export const clientShowcase: ClientShowcase[] = [
       "廣告影片創意及生成提示詞素材",
       "網站技術支援（故障排查及主機溝通）",
     ]},
-    image: "20_my-cash-credit.webp", accent: "#263238",
+    image: "my-cash-credit-personal-loan-hong-kong.webp", accent: "#263238",
   },
   {
     no: 21, slug: "allaboutbeaut",
@@ -309,7 +309,7 @@ export const clientShowcase: ClientShowcase[] = [
       "Google Ads 月度成效報告及彙整",
       "WhatsApp 點擊及廣告電話轉換數據彙整",
     ]},
-    image: "21_allaboutbeaut.webp", accent: "#8d6e63",
+    image: "allaboutbeaut-aesthetic-beauty-hong-kong.webp", accent: "#8d6e63",
   },
 ];
 
