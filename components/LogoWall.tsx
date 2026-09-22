@@ -11,6 +11,17 @@ const DEFAULT_BRANDS = [
   "雲峰信貸", "千輝財務", "東京財務",
   "HERFACE", "ToLove", "PEKO Beauty",
   "MEDSKIN PLUS+ 美學中心", "My Cash Credit", "AllAboutBeaut",
+  "Rakuten", "The Ritz-Carlton", "Kirin Ichiban",
+  "7-Eleven", "Mister Donut", "Matsuya",
+  "Miki House", "Kerry Hotel", "Hotel ICON",
+  "義務工作發展局（AVS）", "HKWS", "Organicmom",
+  "隨傳隨借", "Nuva", "SurrFACE",
+  "WISDOM", "Global32", "Envirosafe",
+  "Skinpro", "Meta Beauty Lab", "Wonder Lens",
+  "Barebooby", "永記渠務工程", "N Creative",
+  "effect.", "Eco Pro", "H$ Credit",
+  "Quantum Matrix", "KM. Fiber", "千葉願",
+  "Sometimes lab",
 ];
 
 interface LogoWallProps {
