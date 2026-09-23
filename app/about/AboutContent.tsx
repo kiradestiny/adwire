@@ -1,99 +1,96 @@
 "use client";
 
+/**
+ * AboutContent — 「關於我們」頁主內容
+ *
+ * 重寫背景（2026-09-23）：
+ *   舊版問題：① 口語與書面語混雜（「ADWire 係一間…我哋唔止幫你做 Marketing」）
+ *   ② 視覺與全站不一致（彩虹粉彩色卡 vs 全站藍金）③ hero 副標出現斷字
+ *   （「增長系／統。」）④ 有「ADWire vs 傳統 Agency vs IT 公司」稻草人比較表，
+ *   對第三方作無法核實的判斷 ⑤ 內容講唔到公司實際做什麼、如何合作。
+ *
+ *   新版原則：
+ *   - 全部香港書面語，與服務頁、Blog 一致
+ *   - 只使用已核准數字（lib/site-content.ts 為單一真相來源）
+ *   - 配色只用品牌藍金（#0f4c81 / #f5a623），移除粉彩色
+ *   - 內容具體：五條服務線、七步交付流程、合作模式、客戶行業、團隊組成
+ *   - GEO：最直接答案塊、重點摘要、公司資料一覽表、隱藏結構化文字
+ */
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
-  Code2, Cpu, LineChart, Lightbulb, Users, Zap, Target,
-  Rocket, ShieldCheck, Award, CheckCircle2, XCircle,
-  MinusCircle, ChevronDown, Phone, MessageCircle, ArrowRight,
-  TrendingUp, Building2, Clock, Star,
+  Code2, Cpu, LineChart, Lightbulb, ShieldCheck, CheckCircle2,
+  ChevronDown, Phone, MessageCircle, ArrowRight, TrendingUp,
+  Building2, Clock, Search, Globe2, Bot, Megaphone, Layers,
 } from "lucide-react";
-import { WHATSAPP_E164, WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
+import {
+  WHATSAPP_E164, WHATSAPP_DISPLAY, getWhatsAppUrl, CONTACT_EMAIL,
+} from "@/lib/site-config";
+import {
+  PROOF, SERVICE_LINES, DELIVERY_PROCESS, CTA_HEADLINE, CTA_SUBHEAD,
+} from "@/lib/site-content";
+import { ABOUT_FAQS as FAQ_ITEMS, OFFICE_ADDRESS } from "@/lib/about-faqs";
 import Link from "next/link";
 import { useState } from "react";
 
-// ─── FAQ 資料（與 page.tsx 的 JSON-LD 保持一致）────────────────────────────
-const FAQ_ITEMS = [
-  {
-    q: "ADWire Agency 係咩公司？",
-    a: "ADWire Agency 係香港軟件開發、AI 自動化與數碼增長團隊，提供四條服務線：軟件開發（企業網站、Web App、CRM／ERP 定制系統、手機 App）、AI 與自動化（AI 應用、企業知識庫、工作流程自動化）、SEO／GEO 搜尋優化，以及數碼營銷（成效廣告、社交媒體、短視頻、KOL）。500+ 服務客戶，團隊由精簡核心成員及按項目協作的專業人才組成。",
-  },
-  {
-    q: "ADWire 與其他香港 Marketing Agency 有什麼分別？",
-    a: "ADWire 的團隊同時具備營銷、創意與技術開發經驗，可以從業務問題出發，一路處理需求整理、系統或內容方案、開發交付及成效量度。這種組合的好處是：客戶不需要在廣告公司與開發商之間來回協調，項目範圍、技術選項及維護安排可以在同一個團隊內一次講清楚。",
-  },
-  {
-    q: "ADWire 提供哪些數碼營銷服務？",
-    a: "ADWire Agency 提供 8 大核心服務：(1) SEO / GEO 搜尋引擎優化；(2) KOL 網紅營銷；(3) AI 自動化系統；(4) Meta & Google 成效廣告；(5) 短視頻及內容製作；(6) 網站及電商開發；(7) 社交媒體管理；(8) 定制系統開發（CRM/ERP）。",
-  },
-  {
-    q: "ADWire 主要服務哪些行業？",
-    a: "ADWire 服務廣泛行業，包括：零售電商、美容護膚、飲食餐廳、醫療健康、金融貸款、科技初創及中小企業（SME）。客戶遍布香港及大灣區，並為部分品牌提供東南亞市場拓展支援。",
-  },
-  {
-    q: "如何與 ADWire 開始合作？",
-    a: `可透過以下方式聯絡 ADWire：(1) WhatsApp ${WHATSAPP_E164}；(2) 電郵 info@adwire.com.hk；(3) 填寫網站聯絡表單。我們提供免費初步諮詢，了解你的業務需求後，會提供針對性的服務方案及報價。`,
-  },
-  {
-    q: "ADWire 是否適合中小企業（SME）？",
-    a: "係，ADWire 有專為香港中小企業設計嘅數碼增長方案。我哋提供靈活套餐，由單一服務（如 SEO 或廣告投放）至全方位管理均可選擇。AI 自動化技術可以幫助優化營運流程。",
-  },
-  {
-    q: "ADWire 廣告投放的平均成效如何？",
-    a: "ADWire 管理的廣告項目注重數據驅動優化。我哋採用 A/B 測試及深度數據分析持續優化廣告表現，並每月提供透明績效報告，確保每分預算均可追蹤回報。具體成效因行業、預算及市場競爭而異，歡迎 WhatsApp 我哋了解實際案例。",
-  },
-  {
-    q: "ADWire 的辦公室在哪裡？辦公時間？",
-    a: "ADWire Agency 辦公室位於香港新界葵芳新都會廣場 2 座 45 樓 4510 室。辦公時間為星期一至五 09:00–18:00。亦可安排 Zoom 或 WhatsApp 影片會議，靈活配合客戶時間。",
-  },
-  {
-    q: "ADWire 的 AI 自動化系統可以應用在哪些方面？",
-    a: "ADWire 嘅 AI 自動化系統可以應用喺多個方面：(1) 客戶服務自動化（AI 聊天機械人、智能客服）；(2) 行銷自動化（自動發送 EDM、社交媒體排程）；(3) 數據分析自動化（自動生成報告、業績追蹤）；(4) 內部流程自動化（審批流程、庫存管理）。我哋會按你嘅業務需求，度身訂造合適嘅自動化方案。",
-  },
-  {
-    q: "ADWire 開發嘅 CRM/ERP 系統同市面上嘅有咩分別？",
-    a: "ADWire 嘅 CRM/ERP 系統係完全按你嘅業務流程度身訂造，唔似市面上嘅現成方案咁要你遷就佢。我哋會先了解你嘅工作流程，再設計最貼合嘅系統。而且系統係你嘅資產，唔會被供應商鎖死。",
-  },
-  {
-    q: "GEO（生成式引擎優化）同傳統 SEO 有咩分別？",
-    a: "傳統 SEO 針對 Google 搜尋結果排名；GEO（Generative Engine Optimization）針對 ChatGPT、Perplexity 等 AI 引擎嘅推薦。ADWire 同時做兩樣，確保你嘅品牌喺傳統搜尋同 AI 搜尋都見得到。",
-  },
-];
-
-// ─── 比較表格資料 ────────────────────────────────────────────────────────────
-const COMPARE_ROWS = [
-  { feature: "SEO / GEO 優化", adwire: "full", trad: "partial", it: "none" },
-  { feature: "全棧技術開發", adwire: "full", trad: "none", it: "full" },
-  { feature: "AI 自動化系統", adwire: "full", trad: "none", it: "partial" },
-  { feature: "KOL / 網紅營銷", adwire: "full", trad: "partial", it: "none" },
-  { feature: "成效廣告（Meta / Google）", adwire: "full", trad: "full", it: "none" },
-  { feature: "深度數據分析", adwire: "full", trad: "partial", it: "partial" },
-  { feature: "透明費用報告", adwire: "full", trad: "partial", it: "partial" },
-  { feature: "CRM / ERP 定制開發", adwire: "full", trad: "none", it: "full" },
-];
-
-// ─── 數據統計 ────────────────────────────────────────────────────────────────
+// ─── 核心數據（全部取自 lib/site-content.ts 的已核准數字）──────────────────
 const STATS = [
-  { value: "500+", label: "服務客戶", icon: Building2, color: "text-orange-600 bg-orange-50" },
-  { value: "4", label: "主要業務線", icon: Star, color: "text-purple-600 bg-purple-50" },
-  { value: "16", label: "精選公開案例", icon: Award, color: "text-blue-600 bg-blue-50" },
-  { value: "328%", label: "平均 ROI 提升", icon: TrendingUp, color: "text-green-600 bg-green-50" },
-  { value: "98%", label: "客戶滿意度", icon: LineChart, color: "text-pink-600 bg-pink-50" },
-  { value: "HK / GBA", label: "服務覆蓋範圍", icon: Users, color: "text-teal-600 bg-teal-50" },
+  { value: PROOF.clientsServed, label: "服務客戶", icon: Building2 },
+  { value: "5", label: "服務線", icon: Layers },
+  { value: PROOF.featuredCases, label: "精選公開案例", icon: CheckCircle2 },
+  { value: PROOF.avgRoi, label: "平均 ROI 提升", icon: TrendingUp },
+  { value: PROOF.satisfaction, label: "客戶滿意度", icon: LineChart },
+  { value: "HK / GBA", label: "服務覆蓋範圍", icon: Globe2 },
 ];
 
-// ─── 輔助 Icon ──────────────────────────────────────────────────────────────
-function StatusIcon({ status }: { status: "full" | "partial" | "none" }) {
-  if (status === "full")
-    return <CheckCircle2 className="w-6 h-6 text-green-500 mx-auto" />;
-  if (status === "partial")
-    return <MinusCircle className="w-6 h-6 text-amber-400 mx-auto" />;
-  return <XCircle className="w-6 h-6 text-red-400 mx-auto" />;
-}
+// ─── 公司資料一覽（GEO 可抽取的結構化事實）───────────────────────────────
+const FACT_SHEET = [
+  { k: "法定名稱", v: "ADWire Agency Limited" },
+  { k: "業務性質", v: "軟件開發、AI 與自動化、SEO／GEO 搜尋優化、跨境營銷及數碼營銷" },
+  { k: "辦公室", v: OFFICE_ADDRESS },
+  { k: "辦公時間", v: "星期一至五 09:00–18:00（可安排線上會議）" },
+  { k: "服務對象", v: "香港及大灣區企業、品牌及中小企業" },
+  { k: "團隊組成", v: "精簡核心成員，按項目與專業人才協作" },
+  { k: "聯絡方式", v: `${CONTACT_EMAIL}／WhatsApp ${WHATSAPP_DISPLAY}` },
+];
 
-// ─── FAQ Accordion Item ──────────────────────────────────────────────────────
+// ─── 合作模式（客戶最常關心的三件事）─────────────────────────────────────
+const ENGAGEMENT = [
+  {
+    icon: Search,
+    title: "範圍與報價先講清楚",
+    desc: "確認範圍、交付物及時間表後才報價，報價內會列明包含與不包含的項目，減少後期爭議。",
+  },
+  {
+    icon: ShieldCheck,
+    title: "資產歸客戶所有",
+    desc: "程式碼、網域、主機及廣告帳戶均歸客戶，不設供應商鎖定；需要轉交其他團隊時提供交接文件。",
+  },
+  {
+    icon: Cpu,
+    title: "上線後仍可維護",
+    desc: "交付時提供操作說明及文件，並可按需要安排維護及持續優化，收費範圍事先說明。",
+  },
+];
+
+// ─── 客戶行業 ─────────────────────────────────────────────────────────────
+const INDUSTRIES = [
+  "美容及醫美", "中醫及醫療", "零售及電商", "飲食", "金融及信貸",
+  "物流及跨境快遞", "寵物服務", "名貴腕錶零售", "保健品牌", "科技初創",
+];
+
+// ─── 服務線圖示對應 ───────────────────────────────────────────────────────
+const LINE_ICON: Record<string, typeof Code2> = {
+  software: Code2,
+  ai: Bot,
+  seo: Search,
+  crossborder: Globe2,
+  marketing: Megaphone,
+};
+
 function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false);
   return (
@@ -101,7 +98,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.06 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.3) }}
       className="border border-gray-200 rounded-2xl overflow-hidden bg-white hover:border-[#0f4c81]/30 transition-colors duration-200"
     >
       <button
@@ -109,112 +106,112 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         className="w-full flex items-center justify-between px-6 py-5 text-left gap-4 group"
         aria-expanded={open}
       >
-        <span
-          className="text-base md:text-lg font-semibold text-[#0f4c81] group-hover:text-[#f5a623] transition-colors duration-200"
-        >
+        <span className="text-base md:text-lg font-semibold text-[#0f4c81] group-hover:text-[#f5a623] transition-colors duration-200">
           {q}
         </span>
         <ChevronDown
           className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-[#f5a623]" : ""}`}
         />
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="answer"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <p
-              className="px-6 pb-5 text-gray-600 leading-relaxed text-sm md:text-base border-t border-gray-100 pt-4"
-            >
-              {a}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="overflow-hidden"
+        >
+          <p className="px-6 pb-5 text-gray-600 leading-relaxed text-sm md:text-base border-t border-gray-100 pt-4">
+            {a}
+          </p>
+        </motion.div>
+      )}
     </motion.div>
   );
 }
 
-// ─── Main Component ──────────────────────────────────────────────────────────
 export default function AboutContent() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
 
-      {/* ── Hero Header ── */}
-      <section className="pt-32 pb-24 bg-[#0f4c81] text-white relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-blue-400/20 rounded-full mix-blend-overlay filter blur-[100px] animate-blob" />
-          <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-400/20 rounded-full mix-blend-overlay filter blur-[100px] animate-blob animation-delay-2000" />
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      <section className="pt-32 pb-20 bg-[#0f4c81] text-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-20%] right-[-10%] w-[560px] h-[560px] bg-[#f5a623]/10 rounded-full filter blur-[110px]" />
+          <div className="absolute bottom-[-25%] left-[-10%] w-[480px] h-[480px] bg-blue-400/15 rounded-full filter blur-[110px]" />
         </div>
 
-        {/* Breadcrumb（SEO + 使用者導航）*/}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10">
           <nav aria-label="breadcrumb">
-            <ol className="flex items-center gap-2 text-sm text-blue-200" itemScope itemType="https://schema.org/BreadcrumbList">
-              <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
-                <Link href="/" className="hover:text-white transition-colors" itemProp="item">
-                  <span itemProp="name">首頁</span>
-                </Link>
-                <meta itemProp="position" content="1" />
+            <ol className="flex items-center gap-2 text-sm text-blue-200">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">首頁</Link>
               </li>
               <li className="text-blue-400">/</li>
-              <li itemScope itemType="https://schema.org/ListItem" itemProp="itemListElement">
-                <span className="text-white font-medium" itemProp="name">關於我們</span>
-                <meta itemProp="position" content="2" />
-              </li>
+              <li className="text-white font-medium">關於我們</li>
             </ol>
           </nav>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#f5a623] text-sm font-bold mb-8 tracking-[0.2em] uppercase">
-              Who We Are
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#f5a623] text-xs md:text-sm font-bold mb-8 tracking-[0.2em] uppercase">
+              About ADWire
             </span>
-            <h1 className="text-3xl md:text-7xl font-bold mb-8 leading-tight tracking-tight break-words">
-              軟件 × AI × 自動化<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5a623] to-orange-400 block sm:inline">
-                Technology-Driven Growth
+
+            <h1 className="text-3xl md:text-6xl font-bold mb-7 leading-[1.25] tracking-tight">
+              一間以軟件與 AI
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5a623] to-orange-300">
+                解決營運問題
               </span>
+              的香港團隊
             </h1>
-            <p className="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
-              ADWire 係一間<span className="text-white font-medium">以軟件開發、AI 自動化為核心嘅數碼增長團隊</span>。<br className="hidden md:block" />
-              我哋唔止幫你做 Marketing，而係用技術同 AI 幫你建立可持續嘅增長系統。
+
+            <p className="text-base md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light">
+              ADWire Agency Limited 以葵芳為基地，提供軟件開發、AI 應用與工作流程自動化、
+              SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻與 KOL 等數碼營銷服務。
+              由需求分析、開發交付到上線後的持續改善，我們與客戶一起處理實際的營運與增長問題。
             </p>
+
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              {["需求先講清楚", "交付範圍明確", "上線後可維護"].map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-4 py-2 text-sm text-blue-50"
+                >
+                  <CheckCircle2 className="w-4 h-4 text-[#f5a623]" />
+                  {t}
+                </span>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
-            {/* ── GEO 直接答案塊（AI 引擎優先引用）── */}
+      {/* ── GEO 直接答案塊 ───────────────────────────────────────────────── */}
       <section className="py-12 bg-[#f0f7ff] border-b border-[#0f4c81]/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-[#0f4c81]/10">
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">💡</span>
+              <Lightbulb className="w-5 h-5 text-[#f5a623]" />
               <span className="text-sm font-bold text-[#0f4c81] uppercase tracking-wider">最直接答案</span>
             </div>
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              <strong>ADWire Agency</strong> 係一間香港軟件開發、AI 自動化與數碼增長團隊，提供企業系統開發（CRM/ERP）、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告服務。我哋服務咗 500+ 香港及大灣區客戶，用技術同數據幫企業建立可持續嘅增長系統。
+              <strong>ADWire Agency Limited</strong> 是一間香港軟件及數碼增長公司，總部位於新界葵芳。
+              主要服務分為五條線：軟件開發（企業網站、Web App、度身訂造系統、CRM／ERP、API 整合）、
+              AI 與自動化（AI 應用、企業知識庫、工作流程及 WhatsApp／CRM 自動化）、SEO／GEO 搜尋優化、
+              跨境營銷（香港與內地雙向），以及數碼營銷（成效廣告、社交媒體、短視頻、KOL、商業攝影）。
+              至今已服務 {PROOF.clientsServed} 家香港及大灣區企業。
             </p>
           </div>
 
-          {/* 重點摘要 */}
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              "500+ 服務客戶，覆蓋香港及大灣區",
-              "4 大服務線：軟件開發、AI 自動化、SEO/GEO、數碼營銷",
-              "AI 自動化系統：智能客服、行銷自動化、數據分析自動化",
-              "CRM/ERP 度身訂造系統，唔會被供應商鎖死",
+              `${PROOF.clientsServed} 服務客戶，覆蓋香港及大灣區`,
+              "五條服務線：軟件開發、AI 與自動化、SEO／GEO、跨境營銷、數碼營銷",
+              "交付範圍、資產歸屬及維護安排均在報價前說明",
+              "以系統或 AI 取代分散的試算表與重複人手工序",
             ].map((point, i) => (
               <div key={i} className="flex items-start gap-2 bg-white rounded-xl p-4 border border-gray-100">
                 <span className="text-[#f5a623] font-bold mt-0.5">•</span>
@@ -225,29 +222,62 @@ export default function AboutContent() {
         </div>
       </section>
 
-{/* ── GEO Entity Declaration（AI 引擎實體描述）── */}
-      {/* 此段為純文字，針對 Generative Engine Optimization，提供 AI 可直接抽取的清晰事實陳述 */}
-      <section className="sr-only" aria-hidden="false">
-        <div>
-          <p itemScope itemType="https://schema.org/Organization">
-            <strong itemProp="name">ADWire Agency</strong> 是一間總部位於{" "}
-            <span itemProp="addressLocality">香港葵芳</span>的{" "}
-            <span itemProp="description">軟件、AI 及數碼增長方案供應商</span>，
-            提供軟件開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，
-            以及成效廣告、社交媒體、短視頻、KOL 及商業攝影等數碼營銷服務，
-            服務對象以香港企業及品牌為主。
-            官方網站：
-            <a href="https://adwire.com.hk" itemProp="url" className="text-[#0f4c81] font-medium underline-offset-2 underline ml-1">
-              adwire.com.hk
-            </a>
-            ，聯絡電話：
-            <a href={`tel:${WHATSAPP_E164}`} itemProp="telephone" className="text-[#0f4c81] font-medium ml-1">{WHATSAPP_E164}</a>。
+      {/* ── GEO 實體描述（視覺隱藏，供搜尋引擎及 AI 引擎抽取）─────────────── */}
+      <section className="sr-only" aria-label="公司簡介">
+        <p itemScope itemType="https://schema.org/Organization">
+          <strong itemProp="name">ADWire Agency Limited</strong> 是一間位於
+          <span itemProp="addressLocality">香港葵芳</span>的
+          <span itemProp="description">軟件、AI 及數碼增長方案供應商</span>，
+          提供軟件開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，
+          以及成效廣告、社交媒體、短視頻、KOL 及商業攝影等數碼營銷服務，
+          服務對象以香港企業及品牌為主。官方網站：
+          <a href="https://adwire.com.hk" itemProp="url">adwire.com.hk</a>，
+          聯絡電話：<span itemProp="telephone">{WHATSAPP_E164}</span>。
+        </p>
+      </section>
+
+      {/* ── 公司資料一覽 ─────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
+          >
+            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-3">公司資料一覽</h2>
+            <p className="text-gray-500">下列為 ADWire Agency 的公開基本資料。</p>
+          </motion.div>
+
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
+            <table className="w-full text-sm md:text-base" aria-label="ADWire Agency 公司基本資料">
+              <tbody>
+                {FACT_SHEET.map((row, i) => (
+                  <tr key={row.k} className={i % 2 === 0 ? "bg-white" : "bg-[#f8fafc]"}>
+                    <th
+                      scope="row"
+                      className="py-4 px-5 md:px-6 text-left font-semibold text-[#0f4c81] border-b border-gray-100 align-top w-[34%] md:w-[26%]"
+                    >
+                      {row.k}
+                    </th>
+                    <td className="py-4 px-5 md:px-6 text-gray-600 border-b border-gray-100 leading-relaxed">
+                      {row.v}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-xs text-gray-400 mt-4 text-center">
+            如需公司註冊或商業登記資料作採購用途，歡迎透過下方聯絡方式提出。
           </p>
         </div>
       </section>
 
-      {/* ── 關鍵數據統計（Stats Table）── */}
-      <section className="py-20 bg-white">
+      {/* ── 核心數據 ─────────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-20 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -256,24 +286,21 @@ export default function AboutContent() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0f4c81] mb-3">
-              ADWire 核心數據一覽
-            </h2>
-            <p className="text-gray-500">數字會說話——這是我們對每一位客戶的承諾</p>
+            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-3">核心數據</h2>
+            <p className="text-gray-500">以下數字為 ADWire 現時對外公布的營運指標。</p>
           </motion.div>
 
-          {/* 數據卡片網格（同時作為 GEO 可抽取的結構化內容）*/}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {STATS.map((stat, i) => (
               <motion.div
-                key={i}
+                key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300 group"
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm hover:shadow-md hover:border-[#0f4c81]/20 transition-all duration-300 group"
               >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 ${stat.color} group-hover:scale-110 transition-transform duration-300`}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 bg-[#0f4c81]/8 text-[#0f4c81] group-hover:bg-[#0f4c81] group-hover:text-white transition-colors duration-300">
                   <stat.icon size={22} />
                 </div>
                 <div className="text-2xl md:text-3xl font-black text-[#0f4c81] mb-1">{stat.value}</div>
@@ -281,94 +308,68 @@ export default function AboutContent() {
               </motion.div>
             ))}
           </div>
-
-          {/* 備用：純文字表格版本（有利 GEO 索引，隱藏於 screen reader / AI 爬蟲）*/}
-          <div className="sr-only" aria-hidden="false">
-            <table>
-              <caption>ADWire Agency 關鍵業績指標</caption>
-              <thead>
-                <tr><th>指標</th><th>數值</th></tr>
-              </thead>
-              <tbody>
-                {STATS.map((s) => (
-                  <tr key={s.label}><td>{s.label}</td><td>{s.value}</td></tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
       </section>
 
-      {/* ── Story Section ── */}
-      <section className="py-24 relative overflow-hidden">
+      {/* ── 我們為什麼存在 ───────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-8 leading-tight">
-                為什麼會有 <span className="text-[#f5a623]">ADWire</span>？
+              <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-6 leading-tight">
+                我們<span className="text-[#f5a623]">為什麼</span>存在
               </h2>
-              <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
-                <p>在成立 ADWire 之前，我們發現香港市場存在一個巨大的斷層：</p>
-                <div className="pl-6 border-l-4 border-gray-200 space-y-4 italic">
-                  <p>
-                    傳統 Marketing Agency 擅長創意與文案，但往往對<strong>技術 (IT)</strong> 一竅不通，導致網站轉換率低，無法自動化；
-                  </p>
-                  <p>
-                    而 IT 公司雖然技術強大，卻不懂<strong>市場心理 (Psychology)</strong>，做出來的產品「好用但沒人買」。
-                  </p>
-                </div>
-                <p className="font-bold text-[#0f4c81] text-xl pt-4">
-                  ADWire 就是為了填補這個缺口而生。
+              <div className="space-y-5 text-gray-600 text-base md:text-lg leading-relaxed">
+                <p>
+                  香港企業常見的處境是：市場營銷與技術由兩個不同團隊負責。
+                  營銷團隊了解客戶與訊息，但難以處理系統與數據；技術團隊能建立系統，
+                  但未必掌握實際的銷售與營運流程。結果是網站上線後無人使用，
+                  或系統建成後流程仍然依賴人手。
                 </p>
                 <p>
-                  我們的團隊同時具備營銷、創意與技術開發經驗，可以從業務問題出發，一路處理需求整理、方案設計、開發交付及成效量度。由需求分析到上線後的持續改善，範圍與交付會事先講清楚。
+                  我們成立 ADWire，是希望由同一個團隊處理這兩件事。項目由業務問題出發，
+                  先確認要解決什麼，再決定用系統、內容、廣告，還是三者配合，
+                  最後以可量度的指標檢視成效。
+                </p>
+                <p className="font-semibold text-[#0f4c81]">
+                  這亦是我們近年把重心放在軟件開發與 AI 自動化的原因：
+                  真正改變營運效率的，往往是流程與系統，而不只是曝光量。
                 </p>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-100 to-orange-100 rounded-[3rem] transform rotate-3 scale-105 opacity-50 blur-xl" />
-              <div className="bg-white rounded-[2.5rem] p-10 shadow-2xl border border-gray-100 relative z-10">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-gray-50 p-8 rounded-3xl flex flex-col items-center text-center hover:bg-pink-50 transition-colors duration-300">
-                    <div className="h-16 w-16 bg-pink-100 text-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                      <Lightbulb size={32} />
+              <div className="bg-gradient-to-br from-[#0f4c81] to-[#1a6bb5] rounded-[2rem] p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
+                <div className="absolute top-[-30%] right-[-20%] w-[320px] h-[320px] bg-[#f5a623]/15 rounded-full filter blur-[80px]" />
+                <div className="relative z-10 space-y-4">
+                  {[
+                    { t: "業務問題", d: "先確認要解決的營運或增長問題", i: Search },
+                    { t: "方案設計", d: "決定用系統、內容、廣告或組合方案", i: Layers },
+                    { t: "開發與交付", d: "開發、整合、測試、驗收及上線", i: Code2 },
+                    { t: "成效量度", d: "以指標檢視結果並持續改善", i: LineChart },
+                  ].map((step, i) => (
+                    <div key={step.t} className="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/10">
+                      <div className="w-11 h-11 rounded-xl bg-[#f5a623] text-[#0f4c81] flex items-center justify-center flex-shrink-0 font-bold">
+                        <step.i size={20} />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-1">{step.t}</h3>
+                        <p className="text-blue-100 text-sm leading-relaxed">{step.d}</p>
+                      </div>
+                      <span className="ml-auto text-white/25 font-black text-2xl">{i + 1}</span>
                     </div>
-                    <h3 className="font-bold text-gray-800 text-lg">創意與流量</h3>
-                    <p className="text-sm text-gray-500 mt-2">KOL / Content / Ads</p>
-                  </div>
-                  <div className="bg-gray-50 p-8 rounded-3xl flex flex-col items-center text-center hover:bg-blue-50 transition-colors duration-300">
-                    <div className="h-16 w-16 bg-blue-100 text-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
-                      <Code2 size={32} />
-                    </div>
-                    <h3 className="font-bold text-gray-800 text-lg">技術與效能</h3>
-                    <p className="text-sm text-gray-500 mt-2">Dev / AI / Automation</p>
-                  </div>
-                </div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f5a623] text-white p-3 rounded-full border-8 border-white shadow-lg z-20">
-                  <Zap size={28} fill="currentColor" />
-                </div>
-                <div className="mt-6 bg-[#0f4c81] text-white p-8 rounded-3xl shadow-lg text-center relative overflow-hidden group">
-                  <div className="relative z-10">
-                    <h3 className="text-2xl font-bold mb-2 flex items-center justify-center gap-2">
-                      <Rocket size={24} className="text-[#f5a623]" />
-                      Growth Hacking
-                    </h3>
-                    <p className="text-blue-100">極致增長與轉化</p>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -376,9 +377,9 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── 比較表格：ADWire vs 傳統 Agency vs IT 公司 ── */}
-      <section className="py-24 bg-[#f8fafc]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── 五條服務線 ───────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-[#f8fafc]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -387,131 +388,298 @@ export default function AboutContent() {
             className="text-center mb-14"
           >
             <span className="inline-block py-1 px-4 rounded-full bg-[#0f4c81]/10 text-[#0f4c81] text-sm font-bold mb-4 tracking-wider uppercase">
-              為什麼選擇 ADWire
+              What We Do
             </span>
-            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-4">
-              ADWire vs 市場上其他選擇
-            </h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              我哋唔係最平嘅，但係我哋用技術同數據為你創造最高性價比。
+            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-4">五條服務線</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              由軟件與 AI 到搜尋優化及市場推廣，全部由同一團隊負責，避免跨公司協調。
             </p>
           </motion.div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SERVICE_LINES.map((line, i) => {
+              const Icon = LINE_ICON[line.key] ?? Code2;
+              return (
+                <motion.div
+                  key={line.key}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: Math.min(i * 0.07, 0.35) }}
+                  className="group bg-white rounded-2xl border border-gray-100 p-7 shadow-sm hover:shadow-lg hover:border-[#0f4c81]/20 transition-all duration-300 flex flex-col"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-[#0f4c81]/8 text-[#0f4c81] flex items-center justify-center mb-5 group-hover:bg-[#0f4c81] group-hover:text-[#f5a623] transition-colors duration-300">
+                    <Icon size={26} />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0f4c81] mb-2">{line.name}</h3>
+                  <p className="text-sm text-gray-500 mb-4 leading-relaxed">{line.audience}</p>
+                  <ul className="space-y-2 mb-6 flex-1">
+                    {line.children.map((c) => (
+                      <li key={c.name} className="flex items-start gap-2 text-sm text-gray-600">
+                        <span className="text-[#f5a623] font-bold mt-0.5">•</span>
+                        <span>{c.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={line.href}
+                    className="inline-flex items-center gap-2 text-[#0f4c81] font-semibold text-sm hover:text-[#f5a623] transition-colors"
+                  >
+                    了解服務內容 <ArrowRight size={15} />
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 交付流程 + 合作模式 ──────────────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="overflow-x-auto rounded-2xl shadow-lg border border-gray-200 bg-white"
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
           >
-            <table className="w-full text-sm md:text-base" aria-label="ADWire Agency 與傳統代理商及 IT 公司服務能力對比">
-              <thead>
-                <tr>
-                  <th className="py-5 px-6 text-left text-gray-500 font-semibold bg-gray-50 border-b border-gray-200 w-1/2 md:w-auto">
-                    服務能力
-                  </th>
-                  <th className="py-5 px-4 text-center bg-[#0f4c81] text-white font-bold border-b border-[#0f4c81] min-w-[120px]">
-                    <div className="flex flex-col items-center gap-1">
-                      <span className="text-[#f5a623] text-xs uppercase tracking-wider">推薦</span>
-                      ADWire Agency
-                    </div>
-                  </th>
-                  <th className="py-5 px-4 text-center text-gray-600 font-semibold bg-gray-50 border-b border-gray-200 min-w-[120px]">
-                    傳統 Marketing Agency
-                  </th>
-                  <th className="py-5 px-4 text-center text-gray-600 font-semibold bg-gray-50 border-b border-gray-200 min-w-[120px]">
-                    純 IT 公司
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {COMPARE_ROWS.map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/50"}>
-                    <td className="py-4 px-6 text-gray-700 font-medium border-r border-gray-100">
-                      {row.feature}
-                    </td>
-                    <td className="py-4 px-4 text-center bg-[#0f4c81]/5 border-r border-[#0f4c81]/10">
-                      <StatusIcon status={row.adwire as any} />
-                    </td>
-                    <td className="py-4 px-4 text-center border-r border-gray-100">
-                      <StatusIcon status={row.trad as any} />
-                    </td>
-                    <td className="py-4 px-4 text-center">
-                      <StatusIcon status={row.it as any} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-              <tfoot>
-                <tr className="bg-gray-50 border-t border-gray-200">
-                  <td className="py-4 px-6 text-gray-500 text-xs" colSpan={4}>
-                    <span className="inline-flex items-center gap-3 flex-wrap">
-                      <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-green-500" /> 完整支援</span>
-                      <span className="flex items-center gap-1"><MinusCircle className="w-4 h-4 text-amber-400" /> 部分支援</span>
-                      <span className="flex items-center gap-1"><XCircle className="w-4 h-4 text-red-400" /> 不支援</span>
-                    </span>
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
+            <span className="inline-block py-1 px-4 rounded-full bg-[#f5a623]/12 text-[#b8791a] text-sm font-bold mb-4 tracking-wider uppercase">
+              How We Work
+            </span>
+            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-4">交付流程與合作模式</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              軟件、AI 及 SEO 項目均依下列流程推進，每個階段都有明確交付物。
+            </p>
           </motion.div>
+
+          {/* 七步流程 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            {DELIVERY_PROCESS.map((s, i) => (
+              <motion.div
+                key={s.step}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: Math.min(i * 0.06, 0.4) }}
+                className="relative bg-[#f8fafc] border border-gray-100 rounded-2xl p-6 hover:border-[#0f4c81]/25 hover:bg-white transition-colors duration-300"
+              >
+                <span className="text-xs font-black text-[#f5a623] tracking-widest">
+                  STEP {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-bold text-[#0f4c81] text-lg mt-2 mb-1">{s.step}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* 三個合作重點 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {ENGAGEMENT.map((e, i) => (
+              <motion.div
+                key={e.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+                className="bg-white rounded-2xl border border-gray-100 p-7 shadow-sm hover:shadow-md transition-shadow duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#0f4c81]/8 text-[#0f4c81] flex items-center justify-center mb-5">
+                  <e.icon size={22} />
+                </div>
+                <h3 className="text-lg font-bold text-[#0f4c81] mb-3">{e.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{e.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── Core Values ── */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      {/* ── 客戶與服務範圍 ───────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-[#0f4c81] text-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-25%] left-[-10%] w-[480px] h-[480px] bg-[#f5a623]/10 rounded-full filter blur-[100px]" />
+          <div className="absolute bottom-[-30%] right-[-15%] w-[520px] h-[520px] bg-blue-400/15 rounded-full filter blur-[110px]" />
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-6">我們的核心價值 (Core Values)</h2>
-            <p className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto">
-              不做花巧野，只做有用野。<br />我們堅持用數據說話，用技術創造價值。
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-2xl md:text-4xl font-bold mb-5">客戶與服務範圍</h2>
+              <p className="text-blue-100 leading-relaxed mb-6">
+                至今已服務 {PROOF.clientsServed} 家香港及大灣區企業，公開的精選案例共 {PROOF.featuredCases} 個，
+                涵蓋品牌網站及電商、內部管理系統、AI 自動化、SEO／GEO 與成效廣告等項目。
+                客戶以中小企業為主，部分為連鎖品牌及金融機構。
+              </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {INDUSTRIES.map((ind) => (
+                  <span
+                    key={ind}
+                    className="text-sm bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-3.5 py-1.5 text-blue-50"
+                  >
+                    {ind}
+                  </span>
+                ))}
+              </div>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center gap-2 bg-[#f5a623] hover:bg-[#e59815] text-[#0f4c81] font-bold px-6 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 shadow-lg"
+              >
+                查看成功案例 <ArrowRight size={17} />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="space-y-4"
+            >
+              {[
+                {
+                  t: "軟件與系統",
+                  d: "企業網站、電商平台、Web App、CRM／ERP 及內部工具、手機 App 與 MVP、API 及系統整合。",
+                },
+                {
+                  t: "AI 與自動化",
+                  d: "AI 應用開發、企業知識庫、工作流程自動化、WhatsApp 及 CRM 自動化。",
+                },
+                {
+                  t: "搜尋與內容",
+                  d: "技術 SEO、關鍵字及內容規劃、GEO（生成式引擎優化）及 AI 搜尋能見度。",
+                },
+                {
+                  t: "市場推廣",
+                  d: "成效廣告（Meta／Google）、社交媒體代管、短視頻製作、KOL 網紅營銷及商業攝影。",
+                },
+              ].map((b) => (
+                <div
+                  key={b.t}
+                  className="bg-white/10 backdrop-blur-md border border-white/12 rounded-2xl p-6 hover:bg-white/15 transition-colors duration-300"
+                >
+                  <h3 className="font-bold text-lg mb-2 text-[#f5a623]">{b.t}</h3>
+                  <p className="text-blue-100 text-sm leading-relaxed">{b.d}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 核心價值 ─────────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-4">我們的核心價值</h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+              我們不追求花巧的包裝，只做對客戶營運真正有用的工作。
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <ValueCard
-              icon={LineChart}
-              title="數據先行 (Data First)"
-              desc="我們拒絕「憑感覺」做 Marketing。每一個決策、每一次投放，都基於數據分析與 A/B Testing 的結果。"
-              color="blue"
-            />
-            <ValueCard
-              icon={Cpu}
-              title="技術驅動 (Tech Efficiency)"
-              desc="能用 AI 解決嘅，絕唔浪費人手。我哋利用 AI 自動化系統為客戶優化營運流程，令團隊專注高價值工作。"
-              color="purple"
-            />
-            <ValueCard
-              icon={ShieldCheck}
-              title="高透明度 (Transparency)"
-              desc="沒有隱藏收費，沒有虛假報告。我們視客戶為合作夥伴，確保你清楚知道每一分預算的去向與回報。"
-              color="green"
-            />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: LineChart,
+                title: "數據先行",
+                desc: "每個決策與投放設定都以可量度的數據為基礎，並透過 A／B 測試驗證，不以感覺決定預算分配。",
+              },
+              {
+                icon: Cpu,
+                title: "技術效率",
+                desc: "能夠交由系統或 AI 處理的重複工序，不會長期留在人手。我們先自動化流程，再按業務增長擴充團隊。",
+              },
+              {
+                icon: ShieldCheck,
+                title: "高度透明",
+                desc: "報價、服務範圍、成效報告及費用去向均清楚列明，不以模糊或無關的數據填充報告。",
+              },
+            ].map((v, i) => (
+              <motion.div
+                key={v.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="group bg-white p-9 rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-7 bg-[#0f4c81]/8 text-[#0f4c81] group-hover:bg-[#0f4c81] group-hover:text-[#f5a623] transition-colors duration-300">
+                  <v.icon size={30} />
+                </div>
+                <h3 className="text-2xl font-bold text-[#0f4c81] mb-4">{v.title}</h3>
+                <p className="text-gray-500 leading-relaxed">{v.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Team Expertise ── */}
-      <section className="py-24 bg-gray-50">
+      {/* ── 團隊 ─────────────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-6">由各領域專家組成的實戰團隊</h2>
-            <p className="text-lg md:text-xl text-gray-500">我哋唔止係 Agency，更加係你嘅技術增長顧問。</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <ExpertiseItem title="搜尋優化" exp="SEO / GEO" desc="技術 SEO、內容規劃及搜尋能見度量度" icon={Target} color="bg-orange-100 text-orange-600" />
-            <ExpertiseItem title="系統開發" exp="Web / App / API" desc="網站、內部系統、App 及 API 整合" icon={Code2} color="bg-blue-100 text-blue-600" />
-            <ExpertiseItem title="廣告優化" exp="成效導向" desc="Meta / Google / YouTube / LinkedIn Ads" icon={LineChart} color="bg-green-100 text-green-600" />
-            <ExpertiseItem title="內容創作者" exp="Viral Content" desc="短視頻劇本與拍攝" icon={Award} color="bg-pink-100 text-pink-600" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-6">團隊組成</h2>
+              <div className="space-y-5 text-gray-600 text-base md:text-lg leading-relaxed">
+                <p>
+                  ADWire 採用精簡核心團隊配合按項目協作的模式。核心成員負責需求分析、
+                  方案設計、項目管理及品質把關；開發、設計、拍攝及內容製作則按項目需要，
+                  與具相關經驗的專業人才協作。
+                </p>
+                <p>
+                  我們的核心成員具備十年以上數碼項目、系統開發及市場營銷的實戰經驗，
+                  並同時處理企業系統、AI 應用與搜尋優化項目，因此能在同一個團隊內完成
+                  由構思到上線的流程。
+                </p>
+                <p>
+                  每個項目均設有指定項目負責人，負責進度同步、範圍管理及交付驗收，
+                  客戶不需要在多位對接人之間重複說明需求。
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+            >
+              {[
+                { t: "軟件開發", d: "網站、Web App、CRM／ERP、App 及 API 整合", i: Code2 },
+                { t: "AI 與自動化", d: "AI 應用、知識庫及工作流程自動化", i: Bot },
+                { t: "搜尋優化", d: "技術 SEO、內容規劃及 GEO", i: Search },
+                { t: "市場推廣", d: "成效廣告、社媒、短視頻及 KOL", i: Megaphone },
+              ].map((c, i) => (
+                <div
+                  key={c.t}
+                  className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-[#0f4c81]/8 text-[#0f4c81] flex items-center justify-center mb-4">
+                    <c.i size={22} />
+                  </div>
+                  <h3 className="font-bold text-[#0f4c81] text-lg mb-1.5">{c.t}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{c.d}</p>
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── FAQ Section ── */}
-      <section
-        className="py-24 bg-white"
-        aria-label="常見問題 FAQ"
-      >
+      {/* ── FAQ ──────────────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-white" aria-label="常見問題">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -520,46 +688,34 @@ export default function AboutContent() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <span className="inline-block py-1 px-4 rounded-full bg-[#f5a623]/10 text-[#f5a623] text-sm font-bold mb-4 tracking-wider uppercase">
+            <span className="inline-block py-1 px-4 rounded-full bg-[#f5a623]/12 text-[#b8791a] text-sm font-bold mb-4 tracking-wider uppercase">
               FAQ
             </span>
-            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-4">
-              常見問題解答
-            </h2>
-            <p className="text-gray-500">
-              有任何疑問？以下是客戶最常問我們的問題。
-            </p>
+            <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-4">常見問題</h2>
+            <p className="text-gray-500">以下是客戶在合作前最常提出的問題。</p>
           </motion.div>
 
           <div className="space-y-3">
             {FAQ_ITEMS.map((item, i) => (
-              <FAQItem key={i} q={item.q} a={item.a} index={i} />
+              <FAQItem key={item.q} q={item.q} a={item.a} index={i} />
             ))}
           </div>
 
-          {/* FAQ 底部 CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-10 text-center"
-          >
-            <p className="text-gray-500 mb-4">找不到你想問的問題？</p>
+          <div className="mt-10 text-center">
+            <p className="text-gray-500 mb-4">有其他問題想直接了解？</p>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 bg-[#0f4c81] hover:bg-[#0d3d6e] text-white font-semibold px-6 py-3 rounded-full transition-colors duration-200"
             >
-              直接聯絡我們 <ArrowRight size={16} />
+              聯絡我們 <ArrowRight size={16} />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* ── CRO 轉換區塊 ── */}
-      <section className="py-20 bg-gradient-to-br from-[#0f4c81] to-[#1a6bb5] text-white relative overflow-hidden">
-        {/* 背景裝飾 */}
-        <div className="absolute inset-0 overflow-hidden">
+      {/* ── CTA ──────────────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-[#0f4c81] to-[#1a6bb5] text-white relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-[-30%] right-[-10%] w-[500px] h-[500px] bg-white/5 rounded-full filter blur-[80px]" />
           <div className="absolute bottom-[-20%] left-[-5%] w-[400px] h-[400px] bg-[#f5a623]/10 rounded-full filter blur-[80px]" />
         </div>
@@ -570,43 +726,39 @@ export default function AboutContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-center mb-12"
+            className="text-center mb-10"
           >
-            <h2 className="text-2xl md:text-4xl font-bold mb-4">
-              準備好讓業績起飛了嗎？
-            </h2>
-            <p className="text-blue-100 text-lg max-w-2xl mx-auto">
-              立即預約免費諮詢，ADWire 團隊將為你分析現有數碼策略，
-              提供<strong className="text-white">具體可行方案</strong>——完全免費，無需承諾。
-            </p>
+            <h2 className="text-2xl md:text-4xl font-bold mb-4">{CTA_HEADLINE}</h2>
+            <p className="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">{CTA_SUBHEAD}</p>
           </motion.div>
 
-          {/* 信任訊號 */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12"
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10"
           >
             {[
-              { icon: CheckCircle2, text: "首次諮詢完全免費" },
-              { icon: Clock, text: "專人跟進回覆" },
-              { icon: ShieldCheck, text: "無隱藏收費承諾" },
+              { icon: CheckCircle2, text: "初步溝通免費" },
+              { icon: Clock, text: "營業時間內回覆" },
+              { icon: ShieldCheck, text: "報價不含隱藏費用" },
             ].map((item, i) => (
-              <div key={i} className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm rounded-xl py-3 px-4">
+              <div
+                key={i}
+                className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm rounded-xl py-3 px-4 border border-white/10"
+              >
                 <item.icon className="w-5 h-5 text-[#f5a623] flex-shrink-0" />
                 <span className="text-sm font-medium">{item.text}</span>
               </div>
             ))}
           </motion.div>
 
-          {/* CTA 按鈕組 */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.35 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
@@ -616,7 +768,7 @@ export default function AboutContent() {
               className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b957] text-white font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               <MessageCircle size={20} />
-              WhatsApp 免費諮詢
+              WhatsApp 查詢
             </a>
             <Link
               href="/contact"
@@ -627,67 +779,14 @@ export default function AboutContent() {
             </Link>
           </motion.div>
 
-          {/* 社會認同（Social Proof）*/}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-center text-blue-200 text-sm mt-8"
-          >
-            已有 500+ 香港及大灣區客戶選擇 ADWire 作為數碼增長夥伴
-          </motion.p>
+          <p className="text-center text-blue-200 text-sm mt-8">
+            已服務 {PROOF.clientsServed} 家香港及大灣區企業及品牌
+          </p>
         </div>
       </section>
 
       <ContactSection />
       <Footer />
     </div>
-  );
-}
-
-// ─── 子組件 ──────────────────────────────────────────────────────────────────
-
-function ValueCard({
-  icon: Icon, title, desc, color,
-}: {
-  icon: any; title: string; desc: string; color: string;
-}) {
-  const colorClasses = {
-    blue: "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white",
-    purple: "bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white",
-    green: "bg-green-50 text-green-600 group-hover:bg-green-600 group-hover:text-white",
-  };
-  return (
-    <motion.div
-      whileHover={{ y: -10 }}
-      className="group bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300"
-    >
-      <div className={`h-16 w-16 rounded-2xl flex items-center justify-center mb-8 transition-colors duration-300 ${colorClasses[color as keyof typeof colorClasses]}`}>
-        <Icon size={32} />
-      </div>
-      <h3 className="text-2xl font-bold text-[#0f4c81] mb-4">{title}</h3>
-      <p className="text-gray-500 leading-relaxed text-lg">{desc}</p>
-    </motion.div>
-  );
-}
-
-function ExpertiseItem({
-  title, exp, desc, icon: Icon, color,
-}: {
-  title: string; exp: string; desc: string; icon: any; color: string;
-}) {
-  return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      className="p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all text-center group"
-    >
-      <div className={`w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center shadow-sm ${color} group-hover:scale-110 transition-transform duration-300`}>
-        <Icon size={36} />
-      </div>
-      <h3 className="font-bold text-xl text-[#0f4c81] mb-2">{title}</h3>
-      <div className="inline-block px-3 py-1 bg-gray-100 rounded-full text-[#f5a623] font-bold text-sm mb-4">{exp}</div>
-      <p className="text-gray-500 text-sm">{desc}</p>
-    </motion.div>
   );
 }

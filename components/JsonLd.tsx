@@ -6,7 +6,8 @@ export default function JsonLd() {
     "@type": "Organization",
     "@id": "https://adwire.com.hk/#organization",
     "name": "ADWire Agency",
-    "alternateName": ["ADWire", "ADWire Hong Kong", "ADWire Agency Limited"],
+    "legalName": "ADWire Agency Limited",
+    "alternateName": ["ADWire", "ADWire Hong Kong"],
     "url": "https://adwire.com.hk",
     "logo": {
       "@type": "ImageObject",
