@@ -23,7 +23,7 @@ export const blogPosts: BlogPost[] = [
     slug: "xiaohongshu-marketing-hong-kong-guide-2026",
     title: "小紅書推廣攻略：香港品牌實戰指南 2026",
     excerpt:
-      "小紅書值唔值得做？本文按新華網、華泰證券研報及行業白皮書的公開數據，拆解小紅書的用戶結構與「搜尋平台」本質，說明香港品牌在哪些品類有真實優勢、實際要做的六件事、選題研究的四步方法、預算分配的三個常見錯誤，以及甚麼情況下我們會建議你唔好做。",
+      "小紅書值不值得做？本文按新華網、華泰證券研報及行業白皮書的公開數據，拆解小紅書的用戶結構與「搜尋平台」本質，說明香港品牌在哪些品類有真實優勢、實際要做的六件事、選題研究的四步方法、預算分配的三個常見錯誤，以及甚麼情況下我們會建議你不要做。",
     date: "2026-09-21",
     updatedAt: "2026-09-21",
     category: "China Market",
@@ -32,48 +32,32 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/xiaohongshu-marketing-hong-kong-guide-2026.webp",
     tags: ["小紅書", "小紅書推廣", "小紅書代運營", "內地推廣", "種草", "香港品牌"],
     content: `
-        <p class="lead text-xl text-gray-600 mb-8">近年最多香港品牌問的一個問題是：「小紅書到底值唔值得做？」問的人通常已經聽過身邊有品牌靠小紅書打開內地市場，但同時又聽過有人做了一年毫無動靜。這篇文章不講願景，只講實際：小紅書的用戶結構、內容機制、香港品牌實際會遇到什麼、要投入多少、怎樣量度成效，以及什麼情況下我們會建議你唔好做。</p>
+        <p class="lead text-xl text-gray-600 mb-8">近年最多香港品牌問的一個問題是：「小紅書到底值唔值得做？」問的人通常已經聽過身邊有品牌靠小紅書打開內地市場，但同時又聽過有人做了一年毫無動靜。這篇文章不講願景，只講實際：小紅書的用戶結構、內容機制、香港品牌實際會遇到什麼、要投入多少、怎樣量度成效，以及什麼情況下我們會建議你不要做。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">小紅書推廣係香港品牌進軍內地市場嘅最有效起點。核心策略係「種草」——用真實體驗分享建立口碑，配合薯條/聚光廣告放大觸及。香港品牌做小紅書，最大優勢係「港式生活方式」本身就有吸引力。</p>
+          <p class="text-gray-700 leading-relaxed">小紅書推廣是香港品牌進軍內地市場的最有效起點。核心策略是「種草」——用真實體驗分享建立口碑，配合薯條/聚光廣告放大觸及。香港品牌做小紅書，最大優勢是「港式生活方式」本身就有吸引力。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">小紅書核心係「種草」，唔係硬銷廣告</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">小紅書核心是「種草」，不是硬銷廣告</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">薯條（自然流量加熱）vs 聚光（付費廣告）先後次序好重要</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">港式生活方式本身就係內容賣點</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">港式生活方式本身就是內容賣點</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">KOC（素人）比 KOL 更適合初期種草</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/xiaohongshu-hero.webp" alt="小紅書推廣攻略 — ADWire 香港社交媒體" title="小紅書推廣攻略 — ADWire 香港社交媒體" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
-          <p class="text-lg font-bold text-[#0f4c81] mb-2">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">小紅書推廣係香港品牌進軍內地市場嘅最有效起點。核心策略係「種草」——用真實體驗分享建立口碑，配合薯條/聚光廣告放大觸及。香港品牌做小紅書，最大優勢係「港式生活方式」本身就有吸引力。</p>
-        </div>
+        </figure>
 
-        <div class="bg-gray-50 border border-gray-200 p-6 rounded-xl my-8">
-          <p class="text-lg font-bold text-[#0f4c81] mb-3">📋 重點摘要</p>
-          <ul class="space-y-2 text-gray-700">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>小紅書核心係「種草」，唔係硬銷廣告</span></li>\n          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>薯條（自然流量加熱）vs 聚光（付費廣告）先後次序好重要</span></li>\n          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>港式生活方式本身就係內容賣點</span></li>\n          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>KOC（關鍵意見消費者，Key Opinion Consumer）（素人）比 KOL（關鍵意見領袖，Key Opinion Leader）（Key Opinion Leader，關鍵意見領袖） 更適合初期種草</span></li>
-          </ul>
-        </div>
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
-          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">小紅書推廣係香港品牌進軍內地市場嘅最有效起點。核心策略係「種草」——用真實體驗分享建立口碑，配合薯條/聚光廣告放大觸及。香港品牌做小紅書，最大優勢係「港式生活方式」本身就有吸引力。</p>
-        </div>
-        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
-          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
-          <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">小紅書核心係「種草」，唔係硬銷廣告</span></li>\n          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">薯條（自然流量加熱）vs 聚光（付費廣告）先後次序好重要</span></li>\n          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">港式生活方式本身就係內容賣點</span></li>\n          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">KOC（素人）比 KOL 更適合初期種草</span></li>
-          </ul>
-        </div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，小紅書的核心是「搜尋」而不是「推送」——用戶主動搜尋產品與解決方案，因此內容的主題選擇比發文頻率重要。二，香港品牌在小紅書有一個真實優勢：內地用戶對「港貨」普遍存在品質信任。三，但這個優勢只對部分品類有效，美容、母嬰、家居、生活消費最明顯。四，帳號與內容基建一般需 3–6 週，自然流量成長通常要 3–6 個月才較穩定。五，成效要看搜尋曝光、收藏與查詢，不是單看讚好數。</p></div>\n\n        
 
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，小紅書的核心是「搜尋」而不是「推送」——用戶主動搜尋產品與解決方案，因此內容的主題選擇比發文頻率重要。二，香港品牌在小紅書有一個真實優勢：內地用戶對「港貨」普遍存在品質信任。三，但這個優勢只對部分品類有效，美容、母嬰、家居、生活消費最明顯。四，帳號與內容基建一般需 3–6 週，自然流量成長通常要 3–6 個月才較穩定。五，成效要看搜尋曝光、收藏與查詢，唔係單看讚好數。</p></div>
+        
+        
+        
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、小紅書是甚麼：一個「搜尋」平台，不是「推送」平台</h3>
 
@@ -89,7 +73,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>把這些數字放在一起，可以得出一個實務結論：<strong>小紅書的用戶集中在一線與新一線城市的年輕女性，而且消費力偏高。</strong>如果你的產品或服務正是針對這群人，小紅書是有效渠道；如果目標客群是內地的中年男性或三四線城市，小紅書的效率會明顯較低。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">項目</th><th class="text-left px-5 py-3 font-semibold">華泰證券研報</th><th class="text-left px-5 py-3 font-semibold">行業白皮書</th><th class="text-left px-5 py-3 font-semibold">新華網報導</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">月活躍用戶</td><td class="px-5 py-3">約 2.6 億</td><td class="px-5 py-3">約 3.39 億</td><td class="px-5 py-3">3 億</td></tr><tr><td class="px-5 py-3">女性用戶佔比</td><td class="px-5 py-3">67.8%</td><td class="px-5 py-3">71.98%</td><td class="px-5 py-3">未列明</td></tr><tr><td class="px-5 py-3">用戶年齡</td><td class="px-5 py-3">未列明</td><td class="px-5 py-3">18–34 歲近 80%</td><td class="px-5 py-3">未列明</td></tr><tr><td class="px-5 py-3">日均使用時長</td><td class="px-5 py-3">約 49 分鐘</td><td class="px-5 py-3">未列明</td><td class="px-5 py-3">未列明</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">項目</th><th class="text-left px-5 py-3 font-semibold">華泰證券研報</th><th class="text-left px-5 py-3 font-semibold">行業白皮書</th><th class="text-left px-5 py-3 font-semibold">新華網報導</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">月活躍用戶</td><td class="px-5 py-3">約 2.6 億</td><td class="px-5 py-3">約 3.39 億</td><td class="px-5 py-3">3 億</td></tr><tr><td class="px-5 py-3">女性用戶佔比</td><td class="px-5 py-3">67.8%</td><td class="px-5 py-3">71.98%</td><td class="px-5 py-3">未列明</td></tr><tr><td class="px-5 py-3">用戶年齡</td><td class="px-5 py-3">未列明</td><td class="px-5 py-3">18–34 歲近 80%</td><td class="px-5 py-3">未列明</td></tr><tr><td class="px-5 py-3">日均使用時長</td><td class="px-5 py-3">約 49 分鐘</td><td class="px-5 py-3">未列明</td><td class="px-5 py-3">未列明</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="http://www.news.cn/food/20250516/9fead12989c14425b2bb72ce2be7494a/c.html" target="_blank" rel="noopener">新華網（2025年5月）</a>、華泰證券研報（經三個皮匠報告轉載）、傳聲港行業白皮書（2026年2月）。<strong>各來源統計口徑與時間點不同，數字不可直接比較</strong>；此處並列是為了顯示區間，而非取用單一「官方數字」。</p>
 
@@ -99,7 +83,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>但這個優勢有清楚的邊界，講清楚比誇大更有用：</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">品類</th><th class="text-left px-5 py-3 font-semibold">「港貨」優勢</th><th class="text-left px-5 py-3 font-semibold">原因</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">美容護膚</td><td class="px-5 py-3">明顯</td><td class="px-5 py-3">對成分、來源、正貨的信任度高</td></tr><tr><td class="px-5 py-3">母嬰用品</td><td class="px-5 py-3">明顯</td><td class="px-5 py-3">家長對安全標準最敏感，香港標準是加分項</td></tr><tr><td class="px-5 py-3">家居生活</td><td class="px-5 py-3">中等</td><td class="px-5 py-3">設計與品質有優勢，但內地本地品牌競爭激烈</td></tr><tr><td class="px-5 py-3">食品／健康</td><td class="px-5 py-3">中等</td><td class="px-5 py-3">信任度有優勢，但受進口與標籤規定限制</td></tr><tr><td class="px-5 py-3">餐飲／服務</td><td class="px-5 py-3">只在有內地門店時適用</td><td class="px-5 py-3">無實體店則無法承接到店流量</td></tr><tr><td class="px-5 py-3">B2B 服務</td><td class="px-5 py-3">有限</td><td class="px-5 py-3">小紅書用戶以消費決策為主，非採購決策</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">品類</th><th class="text-left px-5 py-3 font-semibold">「港貨」優勢</th><th class="text-left px-5 py-3 font-semibold">原因</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">美容護膚</td><td class="px-5 py-3">明顯</td><td class="px-5 py-3">對成分、來源、正貨的信任度高</td></tr><tr><td class="px-5 py-3">母嬰用品</td><td class="px-5 py-3">明顯</td><td class="px-5 py-3">家長對安全標準最敏感，香港標準是加分項</td></tr><tr><td class="px-5 py-3">家居生活</td><td class="px-5 py-3">中等</td><td class="px-5 py-3">設計與品質有優勢，但內地本地品牌競爭激烈</td></tr><tr><td class="px-5 py-3">食品／健康</td><td class="px-5 py-3">中等</td><td class="px-5 py-3">信任度有優勢，但受進口與標籤規定限制</td></tr><tr><td class="px-5 py-3">餐飲／服務</td><td class="px-5 py-3">只在有內地門店時適用</td><td class="px-5 py-3">無實體店則無法承接到店流量</td></tr><tr><td class="px-5 py-3">B2B 服務</td><td class="px-5 py-3">有限</td><td class="px-5 py-3">小紅書用戶以消費決策為主，非採購決策</td></tr></tbody></table></div>
 
         <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">一個要老實講的限制</p><p class="text-amber-900 text-sm leading-relaxed">如果你的產品是純 B2B、或目標客群是內地的中年男性、或沒有辦法解決內地的物流與售後，小紅書未必是第一步。我們在診斷階段會直接講出這一點，而不是先簽約再想辦法。</p></div>
 
@@ -125,7 +109,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>小紅書的成本主要由三部分組成，與「發幾多篇」的關係比一般人想像中小：</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">成本項目</th><th class="text-left px-5 py-3 font-semibold">內容</th><th class="text-left px-5 py-3 font-semibold">說明</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">帳號與內容基建</td><td class="px-5 py-3">開通認證、定位、主題規劃、拍攝風格設定</td><td class="px-5 py-3">一次性投入，一般 3–6 週</td></tr><tr><td class="px-5 py-3 font-semibold">內容生產</td><td class="px-5 py-3">選題、文案、拍攝、修圖、發佈</td><td class="px-5 py-3">持續投入，成本與產量及製作要求掛鈎</td></tr><tr><td class="px-5 py-3 font-semibold">投放與 KOC</td><td class="px-5 py-3">薯條／聚光投放、KOC 合作費用</td><td class="px-5 py-3">浮動成本，按預算與目標調整</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">成本項目</th><th class="text-left px-5 py-3 font-semibold">內容</th><th class="text-left px-5 py-3 font-semibold">說明</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">帳號與內容基建</td><td class="px-5 py-3">開通認證、定位、主題規劃、拍攝風格設定</td><td class="px-5 py-3">一次性投入，一般 3–6 週</td></tr><tr><td class="px-5 py-3 font-semibold">內容生產</td><td class="px-5 py-3">選題、文案、拍攝、修圖、發佈</td><td class="px-5 py-3">持續投入，成本與產量及製作要求掛鈎</td></tr><tr><td class="px-5 py-3 font-semibold">投放與 KOC</td><td class="px-5 py-3">薯條／聚光投放、KOC 合作費用</td><td class="px-5 py-3">浮動成本，按預算與目標調整</td></tr></tbody></table></div>
 
         <p>我們不會在這裡列出一個「標準價」，因為合理預算取決於品類競爭程度、內容製作要求與投放規模，用一個籠統數字開始討論只會導致後期爭議。實際做法是在診斷階段按你的產品與目標城市，提出一個分階段的預算結構。</p>
 
@@ -135,7 +119,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>小紅書的數據要分開三層看，混在一起就會得出錯誤結論：</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">層級</th><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">反映什麼</th><th class="text-left px-5 py-3 font-semibold">局限</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">內容層</td><td class="px-5 py-3">曝光、點擊率、互動率</td><td class="px-5 py-3">內容是否切中題目</td><td class="px-5 py-3">互動高不等於有生意</td></tr><tr><td class="px-5 py-3 font-semibold">搜尋層</td><td class="px-5 py-3">筆記的搜尋曝光、收藏數</td><td class="px-5 py-3">是否累積成長期搜尋資產</td><td class="px-5 py-3">需在專業號後台觀察</td></tr><tr><td class="px-5 py-3 font-semibold">業務層</td><td class="px-5 py-3">查詢數、成交、客戶成本</td><td class="px-5 py-3">是否真正帶來生意</td><td class="px-5 py-3">需要追蹤配置才能歸因</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">層級</th><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">反映什麼</th><th class="text-left px-5 py-3 font-semibold">局限</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">內容層</td><td class="px-5 py-3">曝光、點擊率、互動率</td><td class="px-5 py-3">內容是否切中題目</td><td class="px-5 py-3">互動高不等於有生意</td></tr><tr><td class="px-5 py-3 font-semibold">搜尋層</td><td class="px-5 py-3">筆記的搜尋曝光、收藏數</td><td class="px-5 py-3">是否累積成長期搜尋資產</td><td class="px-5 py-3">需在專業號後台觀察</td></tr><tr><td class="px-5 py-3 font-semibold">業務層</td><td class="px-5 py-3">查詢數、成交、客戶成本</td><td class="px-5 py-3">是否真正帶來生意</td><td class="px-5 py-3">需要追蹤配置才能歸因</td></tr></tbody></table></div>
 
         <p><strong>收藏數</strong>在小紅書是特別值得留意的指標。用戶收藏一篇筆記，代表他打算之後再回來看 —— 這是「購買意圖」的間接訊號，比單純的讚好更有參考價值。</p>
 
@@ -143,25 +127,33 @@ export const blogPosts: BlogPost[] = [
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、香港品牌常見的四個失敗原因</h3>
 
-        <p><strong>一、把 Instagram 的內容直接搬過去。</strong>小紅書的用戶期待「真實分享」的語氣，過度精緻的商業廣告感反而會被判斷為廣告而降低觸及。內容需要按內地語境重寫，不是翻譯。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">一、把 Instagram 的內容直接搬過去</h4>
+<p>小紅書的用戶期待「真實分享」的語氣，過度精緻的商業廣告感反而會被判斷為廣告而降低觸及。內容需要按內地語境重寫，不是翻譯。</p>
 
-        <p><strong>二、只做內容不解決承接。</strong>用戶在小紅書看到產品，下一步會去哪裡買？如果內地沒有購買渠道、沒有客服、沒有售後，流量只會流失。這一步必須在開始之前想清楚。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">二、只做內容不解決承接</h4>
+<p>用戶在小紅書看到產品，下一步會去哪裡買？如果內地沒有購買渠道、沒有客服、沒有售後，流量只會流失。這一步必須在開始之前想清楚。</p>
 
-        <p><strong>三、沒有耐心。</strong>小紅書的搜尋資產需要累積。做了兩個月就停，等於放棄了前面累積的搜尋位置。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">三、沒有耐心</h4>
+<p>小紅書的搜尋資產需要累積。做了兩個月就停，等於放棄了前面累積的搜尋位置。</p>
 
-        <p><strong>四、選錯品類。</strong>如前述，部分品類在小紅書的效率天生較低。硬做的結果是投入與回報不成比例。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">四、選錯品類</h4>
+<p>如前述，部分品類在小紅書的效率天生較低。硬做的結果是投入與回報不成比例。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、選題研究：具體怎樣做</h3>
 
         <p>這一節是整篇最實用的部分。小紅書的選題不是靠靈感，而是靠一個可以重複的流程。以下四步是我們實際使用的做法。</p>
 
-        <p><strong>第一步：列出客群的「問題句」。</strong>不是列產品名，而是列客群會問的問題。例如做護膚品，問題句會是「敏感肌可以用嗎」「夏天出油怎樣揀」「平價替代有咩選擇」。這些句子才是用戶實際會輸入搜尋框的內容。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第一步：列出客群的「問題句」</h4>
+<p>不是列產品名，而是列客群會問的問題。例如做護膚品，問題句會是「敏感肌可以用嗎」「夏天出油怎樣揀」「平價替代有咩選擇」。這些句子才是用戶實際會輸入搜尋框的內容。</p>
 
-        <p><strong>第二步：在小紅書搜尋欄實測。</strong>把問題句輸入小紅書的搜尋欄，觀察下拉建議（這些是平台按真實搜尋量提供的提示）。如果一個問題句有下拉建議，代表有真實搜尋需求；如果沒有，即使題目聽起來很吸引，也可能無人搜尋。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第二步：在小紅書搜尋欄實測</h4>
+<p>把問題句輸入小紅書的搜尋欄，觀察下拉建議（這些是平台按真實搜尋量提供的提示）。如果一個問題句有下拉建議，代表有真實搜尋需求；如果沒有，即使題目聽起來很吸引，也可能無人搜尋。</p>
 
-        <p><strong>第三步：看現有筆記的表現。</strong>搜尋結果中，哪些筆記的讚好與收藏明顯較高？把它們的題目結構、封面形式、內容長度記錄下來。這一步不是為了模仿，而是為了知道「這個題目目前的天花板在哪裡」。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第三步：看現有筆記的表現</h4>
+<p>搜尋結果中，哪些筆記的讚好與收藏明顯較高？把它們的題目結構、封面形式、內容長度記錄下來。這一步不是為了模仿，而是為了知道「這個題目目前的天花板在哪裡」。</p>
 
-        <p><strong>第四步：找出未被滿足的角度。</strong>如果現有筆記都在講「推薦」，你可以做「對比」；如果都在講「好處」，你可以做「不適合什麼人」。<strong>同一個搜尋字之下，角度差異比題目本身更能決定成效。</strong></p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第四步：找出未被滿足的角度</h4>
+<p>如果現有筆記都在講「推薦」，你可以做「對比」；如果都在講「好處」，你可以做「不適合什麼人」。<strong>同一個搜尋字之下，角度差異比題目本身更能決定成效。</strong></p>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">一個實務判斷標準</p><p class="text-blue-900 text-sm leading-relaxed">如果一個題目在搜尋欄有下拉建議，但現有筆記的最高收藏數仍然偏低，這通常是最值得做的題目 —— 有需求但未有好的答案。相反，如果題目有大量高收藏筆記，除非你有明顯更強的角度或素材，否則投入產出比會偏低。</p></div>
 
@@ -169,23 +161,26 @@ export const blogPosts: BlogPost[] = [
 
         <p>小紅書很少單獨運作。實務上，多數品牌會用兩至三個渠道配合，各自負責不同的階段。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">渠道</th><th class="text-left px-5 py-3 font-semibold">在小紅書為主的組合中負責</th><th class="text-left px-5 py-3 font-semibold">時機</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">小紅書</td><td class="px-5 py-3">建立產品認知與搜尋資產</td><td class="px-5 py-3">第一階段</td></tr><tr><td class="px-5 py-3 font-semibold">抖音</td><td class="px-5 py-3">擴大觸及、短視頻展示、本地生活</td><td class="px-5 py-3">第二階段（如需更大流量）</td></tr><tr><td class="px-5 py-3 font-semibold">微信</td><td class="px-5 py-3">沉澱客戶、復購、客服</td><td class="px-5 py-3">第二階段（有查詢之後）</td></tr><tr><td class="px-5 py-3 font-semibold">百度</td><td class="px-5 py-3">品牌查證、長期搜尋可見度</td><td class="px-5 py-3">可與第一階段同步</td></tr><tr><td class="px-5 py-3 font-semibold">微博</td><td class="px-5 py-3">公關曝光、話題帶動</td><td class="px-5 py-3">有公關需求時</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">渠道</th><th class="text-left px-5 py-3 font-semibold">在小紅書為主的組合中負責</th><th class="text-left px-5 py-3 font-semibold">時機</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">小紅書</td><td class="px-5 py-3">建立產品認知與搜尋資產</td><td class="px-5 py-3">第一階段</td></tr><tr><td class="px-5 py-3 font-semibold">抖音</td><td class="px-5 py-3">擴大觸及、短視頻展示、本地生活</td><td class="px-5 py-3">第二階段（如需更大流量）</td></tr><tr><td class="px-5 py-3 font-semibold">微信</td><td class="px-5 py-3">沉澱客戶、復購、客服</td><td class="px-5 py-3">第二階段（有查詢之後）</td></tr><tr><td class="px-5 py-3 font-semibold">百度</td><td class="px-5 py-3">品牌查證、長期搜尋可見度</td><td class="px-5 py-3">可與第一階段同步</td></tr><tr><td class="px-5 py-3 font-semibold">微博</td><td class="px-5 py-3">公關曝光、話題帶動</td><td class="px-5 py-3">有公關需求時</td></tr></tbody></table></div>
 
         <p>這個分工的邏輯是：<strong>小紅書負責「讓人知道你」，微信負責「留住已認識你的人」。</strong>如果只有小紅書而沒有微信承接，查詢會散落在私訊與評論中，難以轉化為可跟進的客戶。這也是我們在方案階段會一併確認的部分。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、預算分配的三個常見錯誤</h3>
 
-        <p><strong>錯誤一：全部預算放在投放，沒有留預算做內容。</strong>投放可以把內容推給更多人，但無法令內容本身變得有說服力。如果筆記本身不夠好，投放只是把不夠好的內容放大。實務上，內容生產應該佔一個穩定比例，而不是投放有餘才做。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">錯誤一：全部預算放在投放，沒有留預算做內容</h4>
+<p>投放可以把內容推給更多人，但無法令內容本身變得有說服力。如果筆記本身不夠好，投放只是把不夠好的內容放大。實務上，內容生產應該佔一個穩定比例，而不是投放有餘才做。</p>
 
-        <p><strong>錯誤二：一次做五個平台。</strong>同一筆預算分給五個平台，每個平台都做得淺。小紅書的搜尋資產需要持續累積，分散投入只會令每個平台都無法形成累積。我們一般建議先做一至兩個平台，做出可觀察的成績再擴展。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">錯誤二：一次做五個平台</h4>
+<p>同一筆預算分給五個平台，每個平台都做得淺。小紅書的搜尋資產需要持續累積，分散投入只會令每個平台都無法形成累積。我們一般建議先做一至兩個平台，做出可觀察的成績再擴展。</p>
 
-        <p><strong>錯誤三：只看曝光數字。</strong>曝光是最容易達到的指標，也是最容易令人誤判的指標。一萬次曝光如果全部來自不相關的用戶，實際價值可能低於一千次來自目標客群的曝光。因此月報應該同時包含互動率、搜尋曝光與查詢數。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">錯誤三：只看曝光數字</h4>
+<p>曝光是最容易達到的指標，也是最容易令人誤判的指標。一萬次曝光如果全部來自不相關的用戶，實際價值可能低於一千次來自目標客群的曝光。因此月報應該同時包含互動率、搜尋曝光與查詢數。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、首 90 天的實際行動次序</h3>
 
         <p>以下是一個常見的起步次序，實際會按品類與資源調整。重點是<strong>次序</strong>：先確認方向，再累積內容，最後才放大投放。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">階段</th><th class="text-left px-5 py-3 font-semibold">工作</th><th class="text-left px-5 py-3 font-semibold">完成標準</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">第 1–3 週</td><td class="px-5 py-3">帳號開通與認證、帳號定位、主題方向確認、選題研究</td><td class="px-5 py-3">有一份可執行的選題清單，每條題目都有搜尋依據</td></tr><tr><td class="px-5 py-3 font-semibold">第 4–8 週</td><td class="px-5 py-3">生產首批內容（不同題材各測試）、建立封面風格</td><td class="px-5 py-3">累積足夠樣本判斷哪類題材互動最好</td></tr><tr><td class="px-5 py-3 font-semibold">第 9–12 週</td><td class="px-5 py-3">用薯條測試表現最好的題材、開始 KOC 配合</td><td class="px-5 py-3">找出可複製的內容模式，而非單篇爆款</td></tr><tr><td class="px-5 py-3 font-semibold">第 13 週起</td><td class="px-5 py-3">把預算集中到已驗證的方向、開始觀察搜尋曝光成長</td><td class="px-5 py-3">搜尋端開始有穩定曝光，查詢可歸因</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">階段</th><th class="text-left px-5 py-3 font-semibold">工作</th><th class="text-left px-5 py-3 font-semibold">完成標準</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">第 1–3 週</td><td class="px-5 py-3">帳號開通與認證、帳號定位、主題方向確認、選題研究</td><td class="px-5 py-3">有一份可執行的選題清單，每條題目都有搜尋依據</td></tr><tr><td class="px-5 py-3 font-semibold">第 4–8 週</td><td class="px-5 py-3">生產首批內容（不同題材各測試）、建立封面風格</td><td class="px-5 py-3">累積足夠樣本判斷哪類題材互動最好</td></tr><tr><td class="px-5 py-3 font-semibold">第 9–12 週</td><td class="px-5 py-3">用薯條測試表現最好的題材、開始 KOC 配合</td><td class="px-5 py-3">找出可複製的內容模式，而非單篇爆款</td></tr><tr><td class="px-5 py-3 font-semibold">第 13 週起</td><td class="px-5 py-3">把預算集中到已驗證的方向、開始觀察搜尋曝光成長</td><td class="px-5 py-3">搜尋端開始有穩定曝光，查詢可歸因</td></tr></tbody></table></div>
 
         <p>要留意的是，<strong>第 1–8 週的目標不是「做出爆款」，而是「找出哪一類內容對你的客群有效」。</strong>把這個階段當成測試期，比一開始就追求曝光數字更實際。爆款有運氣成分，可複製的內容模式才是資產。</p>
 
@@ -233,15 +228,15 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">小紅書推廣有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">小紅書推廣有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見風險包括內容被判定為廣告被限流、抄襲香港文案水土不服、過度依賴單一 KOL。建議原創內容 + 多 KOC 分散風險。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">主要有三類：內容被判定為硬性廣告而受到流量限制、直接搬用香港文案導致水土不服，以及成效過度依賴單一 KOL。實務做法是以真實體驗內容為基礎，配合多個 KOC 分散風險，並在投放前先做小規模測試。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做小紅書推廣比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇小紅書推廣服務商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有實際香港品牌案例、了解兩地內容差異、同埋有 KOC 資源嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議核查三點：對方能否提供香港品牌的實際案例與後台數據、團隊是否理解兩地內容與用戶差異、以及是否具備 KOC 資源與薯條／聚光投放經驗。簽約前應要求對方說明選題邏輯與成效量度方式。</p>
           </div>
         </div>
 
@@ -253,7 +248,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>小紅書值不值得做，取決於三件事：你的品類是否屬於「港貨」有優勢的類別、你的目標客群是否與平台用戶結構吻合、以及你是否能解決內地的承接問題。三者都符合，小紅書是香港品牌進入內地市場效率較高的起點；有一項不符，就應該先考慮其他渠道。</p>
 
-        <p>操作上最需要記住的一點是：<strong>小紅書是搜尋平台，內容策略要由搜尋字開始。</strong>這也是為什麼我們的做法是先在診斷階段確認主題方向，再開始生產內容，而不是先決定一個月發幾多篇。</p>
+        <p>操作上最需要記住的一點是：<strong>小紅書是搜尋平台，內容策略要由搜尋字開始。</strong>這也是為什麼我們的做法是先在診斷階段確認主題方向，再開始生產內容，而不是先決定一個月發多少篇。</p>
 
         <p>如果你正在考慮進入內地市場，可以參考我們的<a href="/services/china-market/">中國市場推廣服務</a>，了解小紅書以外的其他渠道（抖音、微信、百度、美團等）如何配合；亦可以看<a href="/blog/hong-kong-brand-china-market-guide-2026/">香港品牌進軍內地市場完全攻略</a>，了解五大渠道的整體分工。若你已經在做小紅書但成效未如理想，可以先做一次內容與搜尋表現的診斷，再決定調整方向。</p>
     
@@ -273,7 +268,7 @@ export const blogPosts: BlogPost[] = [
     slug: "kol-marketing-hong-kong-guide-2026",
     title: "KOL 網紅營銷指南：香港中小企選型、報價與成效 2026",
     excerpt:
-      "粉絲數係最弱嘅指標。本文拆解 Nano 到 Mega 五個層級的分工、三個第三方來源的香港 KOL 報價區間（並說明為何不可直接比較）、四個可實際核查的選人維度、KOL 與 KOC 與素人的組合策略、六個成效指標與三種歸因方法，以及六個最常見的失敗原因。",
+      "粉絲數是最弱的指標。本文拆解 Nano 到 Mega 五個層級的分工、三個第三方來源的香港 KOL 報價區間（並說明為何不可直接比較）、四個可實際核查的選人維度、KOL 與 KOC 與素人的組合策略、六個成效指標與三種歸因方法，以及六個最常見的失敗原因。",
     date: "2026-09-21",
     updatedAt: "2026-09-21",
     category: "Digital Marketing",
@@ -282,11 +277,11 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/kol-marketing-hong-kong-guide-2026.webp",
     tags: ["KOL", "網紅營銷", "KOC", "influencer marketing", "香港推廣", "社交媒體"],
     content: `
-        <p class="lead text-xl text-gray-600 mb-8">KOL 推廣是香港中小企最常被問到、也最容易被做錯的一環。很多人一開始就問「邊個 KOL 最多粉絲」，但真正決定成效的，其實是受眾匹配度、互動質素、內容方向與歸因設計。這篇指南會由 KOL 層級講起，再到香港市場的報價區間、選人方法、KOC 與素人的分工、成效量度、常見失敗原因，最後附上完整合作流程與常見問題，讓你在落單之前已經知道自己買緊啲乜。</p>
+        <p class="lead text-xl text-gray-600 mb-8">KOL 推廣是香港中小企最常被問到、也最容易被做錯的一環。很多人一開始就問「邊個 KOL 最多粉絲」，但真正決定成效的，其實是受眾匹配度、互動質素、內容方向與歸因設計。這篇指南會由 KOL 層級講起，再到香港市場的報價區間、選人方法、KOC 與素人的分工、成效量度、常見失敗原因，最後附上完整合作流程與常見問題，讓你在下單之前已經知道自己買的是什麼。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">KOL 網紅營銷係指透過社交媒體意見領袖推廣品牌或產品。香港中小企做 KOL 推廣，最緊要係係揀「啱受眾」嘅 KOL，唔係揀「最多粉絲」嘅 KOL。Nano/Micro KOL 嘅互動率通常係 Mid-tier 嘅 2-3 倍。</p>
+          <p class="text-gray-700 leading-relaxed">KOL 網紅營銷是指透過社交媒體意見領袖推廣品牌或產品。香港中小企做 KOL 推廣，最重要的是選擇「啱受眾」的 KOL，不是選擇「最多粉絲」的 KOL。Nano/Micro KOL 的互動率通常是 Mid-tier 的 2-3 倍。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -294,24 +289,20 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">Nano/Micro KOL（1K-50K 粉絲）性價比最高</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">KOL vs KOC：KOL 專業推薦、KOC 真實體驗分享</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">一定要檢查互動率，唔好只睇粉絲數</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">一定要檢查互動率，不要只查看粉絲數</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">合約要寫明使用權、修改次數、交付標準</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/kol-marketing-hero.webp" alt="KOL 網紅營銷指南 — ADWire 香港 KOL 營銷" title="KOL 網紅營銷指南 — ADWire 香港 KOL 營銷" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
+        </figure>
 
-        
-        
-        
-
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，粉絲數是最弱的指標，互動率與受眾地區、年齡、消費習慣才是關鍵。二，香港 KOL 收費由幾百元一帖到十幾萬元一帖都有，價格差異主要來自級別、平台、內容形式、使用權與獨家條款，唔同來源的口徑亦唔可以直接比較。三，中小企最務實的做法，通常是用多個 Nano 或 Micro KOL 組成組合，而不是把預算全押在一個大號。四，KOL 內容必須配合付費推廣，否則自然觸及會遠低於你的預期。五，一定要用優惠碼、專屬連結或 UTM 參數做歸因，否則你永遠唔會知道錢花得值唔值。六，我們不會作任何排名保證，成效取決於產品、市場、內容與執行，而不是買一個「名單」。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，粉絲數是最弱的指標，互動率與受眾地區、年齡、消費習慣才是關鍵。二，香港 KOL 收費由幾百元一帖到十幾萬元一帖都有，價格差異主要來自級別、平台、內容形式、使用權與獨家條款，不同來源的口徑亦不可以直接比較。三，中小企最務實的做法，通常是用多個 Nano 或 Micro KOL 組成組合，而不是把預算全押在一個大號。四，KOL 內容必須配合付費推廣，否則自然觸及會遠低於你的預期。五，一定要用優惠碼、專屬連結或 UTM 參數做歸因，否則你永遠不會知道錢花得值不值。六，我們不會作任何排名保證，成效取決於產品、市場、內容與執行，而不是買一個「名單」。</p></div>\n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、KOL 層級與分工：Nano 到 Mega 各有用途</h3>
 
-        <p>KOL 分層沒有全球統一的官方標準，不同機構、平台與媒體的界線都有出入。以下是一套在香港市場最常用、亦最容易溝通的分層方式。重點唔在於記住數字，而在於理解每一層的「性價比曲線」：粉絲越多，觸及越廣，但互動率與可信度通常越低，單位成本越高。</p>
+        <p>KOL 分層沒有全球統一的官方標準，不同機構、平台與媒體的界線都有出入。以下是一套在香港市場最常用、亦最容易溝通的分層方式。重點不在於記住數字，而在於理解每一層的「性價比曲線」：粉絲越多，觸及越廣，但互動率與可信度通常越低，單位成本越高。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">五個層級的基本定義</h4>
 
@@ -323,25 +314,26 @@ export const blogPosts: BlogPost[] = [
 
         <p><strong>Macro（宏觀，約 500,000 至 1,000,000 粉絲）</strong>：屬於半名人級別，多數有經紀安排，合作需要較長前置時間。適合需要短時間內製造大量曝光的項目，例如旗艦產品發佈、品牌重新定位。</p>
 
-        <p><strong>Mega／名人級（100 萬粉絲以上）</strong>：藝人、運動員、頭部 YouTuber。收費以「十萬」為單位起跳，通常按個別項目議價。對中小企而言，除非產品與該名人的形象高度契合，否則單位成本效益往往不及組合投放。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">Mega／名人級（100 萬粉絲以上）</h4>
+<p>藝人、運動員、頭部 YouTuber。收費以「十萬」為單位起跳，通常按個別項目議價。對中小企而言，除非產品與該名人的形象高度契合，否則單位成本效益往往不及組合投放。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">層級</th><th class="text-left px-5 py-3 font-semibold">粉絲範圍</th><th class="text-left px-5 py-3 font-semibold">互動率傾向</th><th class="text-left px-5 py-3 font-semibold">適用場景</th><th class="text-left px-5 py-3 font-semibold">主要缺點</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Nano 納米</td><td class="px-5 py-3">1K – 10K</td><td class="px-5 py-3">最高</td><td class="px-5 py-3">地區小店、口碑、種草</td><td class="px-5 py-3">觸及有限、製作水平參差</td></tr><tr><td class="px-5 py-3">Micro 微型</td><td class="px-5 py-3">10K – 100K</td><td class="px-5 py-3">高</td><td class="px-5 py-3">新品試用、日常推廣</td><td class="px-5 py-3">供應多、需仔細篩選</td></tr><tr><td class="px-5 py-3">Mid-tier 中層</td><td class="px-5 py-3">100K – 500K</td><td class="px-5 py-3">中</td><td class="px-5 py-3">品牌推廣、季節活動</td><td class="px-5 py-3">價格跳升、檔期緊張</td></tr><tr><td class="px-5 py-3">Macro 宏觀</td><td class="px-5 py-3">500K – 1M</td><td class="px-5 py-3">偏低</td><td class="px-5 py-3">大型曝光、品牌重塑</td><td class="px-5 py-3">前置時間長、彈性低</td></tr><tr><td class="px-5 py-3">Mega 名人</td><td class="px-5 py-3">1M 以上</td><td class="px-5 py-3">低</td><td class="px-5 py-3">旗艦發佈、全城話題</td><td class="px-5 py-3">成本極高、中小企難回本</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">層級</th><th class="text-left px-5 py-3 font-semibold">粉絲範圍</th><th class="text-left px-5 py-3 font-semibold">互動率傾向</th><th class="text-left px-5 py-3 font-semibold">適用場景</th><th class="text-left px-5 py-3 font-semibold">主要缺點</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Nano 納米</td><td class="px-5 py-3">1K – 10K</td><td class="px-5 py-3">最高</td><td class="px-5 py-3">地區小店、口碑、種草</td><td class="px-5 py-3">觸及有限、製作水平參差</td></tr><tr><td class="px-5 py-3">Micro 微型</td><td class="px-5 py-3">10K – 100K</td><td class="px-5 py-3">高</td><td class="px-5 py-3">新品試用、日常推廣</td><td class="px-5 py-3">供應多、需仔細篩選</td></tr><tr><td class="px-5 py-3">Mid-tier 中層</td><td class="px-5 py-3">100K – 500K</td><td class="px-5 py-3">中</td><td class="px-5 py-3">品牌推廣、季節活動</td><td class="px-5 py-3">價格跳升、檔期緊張</td></tr><tr><td class="px-5 py-3">Macro 宏觀</td><td class="px-5 py-3">500K – 1M</td><td class="px-5 py-3">偏低</td><td class="px-5 py-3">大型曝光、品牌重塑</td><td class="px-5 py-3">前置時間長、彈性低</td></tr><tr><td class="px-5 py-3">Mega 名人</td><td class="px-5 py-3">1M 以上</td><td class="px-5 py-3">低</td><td class="px-5 py-3">旗艦發佈、全城話題</td><td class="px-5 py-3">成本極高、中小企難回本</td></tr></tbody></table></div>
 
-        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">粉絲多唔等於有效</p><p class="text-amber-900 text-sm leading-relaxed">一個 30 萬粉絲的帳號，如果受眾七成在台灣、東南亞或內地，對香港本地生意幾乎沒有幫助。同樣，一個 5 萬粉絲但互動率只有 0.5% 的帳號，實際觸及可能比一個 8,000 粉絲、互動率 8% 的 Nano 更低。粉絲數是入場券，唔係成績表。請記住：你買的是「觸及一群合適的人」，唔係「一個數字」。</p></div>
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">粉絲多不等於有效</p><p class="text-amber-900 text-sm leading-relaxed">一個 30 萬粉絲的帳號，如果受眾七成在台灣、東南亞或內地，對香港本地生意幾乎沒有幫助。同樣，一個 5 萬粉絲但互動率只有 0.5% 的帳號，實際觸及可能比一個 8,000 粉絲、互動率 8% 的 Nano 更低。粉絲數是入場券，不是成績表。請記住：你買的是「觸及一群合適的人」，不是「一個數字」。</p></div>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、香港 KOL 報價：市場觀察數字與注意事項</h3>
 
-        <p>香港 KOL 收費沒有官方統計，市場上流通的數字全部來自第三方公開資料、代理經驗或媒體報導。以下整理三個不同來源的公開區間，方便你建立一個「大概概念」。請務必留意：<strong>以下全部是市場觀察數字，來自公開第三方資料，不同來源的粉絲分層口徑、平台假設、內容形式與時間點都唔同，不可直接橫向比較；這些亦不是 ADWire 的報價。</strong></p>
+        <p>香港 KOL 收費沒有官方統計，市場上流通的數字全部來自第三方公開資料、代理經驗或媒體報導。以下整理三個不同來源的公開區間，方便你建立一個「大概概念」。請務必留意：<strong>以下全部是市場觀察數字，來自公開第三方資料，不同來源的粉絲分層口徑、平台假設、內容形式與時間點都不同，不可直接橫向比較；這些亦不是 ADWire 的報價。</strong></p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">來源一：Mr. Discovery（2025）靜態貼文報價參考</h4>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">網紅級別</th><th class="text-left px-5 py-3 font-semibold">追蹤人數</th><th class="text-left px-5 py-3 font-semibold">報價範圍（HK$／帖）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Nano</td><td class="px-5 py-3">1K – 10K</td><td class="px-5 py-3">$800 – $2,000</td></tr><tr><td class="px-5 py-3">Micro</td><td class="px-5 py-3">10K – 50K</td><td class="px-5 py-3">$2,500 – $8,000</td></tr><tr><td class="px-5 py-3">Mid</td><td class="px-5 py-3">50K – 200K</td><td class="px-5 py-3">$10,000 – $30,000</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">網紅級別</th><th class="text-left px-5 py-3 font-semibold">追蹤人數</th><th class="text-left px-5 py-3 font-semibold">報價範圍（HK$／帖）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Nano</td><td class="px-5 py-3">1K – 10K</td><td class="px-5 py-3">$800 – $2,000</td></tr><tr><td class="px-5 py-3">Micro</td><td class="px-5 py-3">10K – 50K</td><td class="px-5 py-3">$2,500 – $8,000</td></tr><tr><td class="px-5 py-3">Mid</td><td class="px-5 py-3">50K – 200K</td><td class="px-5 py-3">$10,000 – $30,000</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.mrdiscovery.co/zh/post/hong-kong-social-media-benchmarks-2025-ads-reels-influencer-campaigns" target="_blank" rel="noopener">Mr. Discovery｜香港社交媒體行銷指標 2025</a></p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">來源二：WebSeoHK（2025）按平台劃分的微型 KOL 區間</h4>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">假設粉絲規模</th><th class="text-left px-5 py-3 font-semibold">報價範圍（HK$／帖）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">TikTok</td><td class="px-5 py-3">1 萬 – 10 萬</td><td class="px-5 py-3">$3,000 – $8,000</td></tr><tr><td class="px-5 py-3">Instagram</td><td class="px-5 py-3">1 萬 – 10 萬</td><td class="px-5 py-3">$4,000 – $10,000</td></tr><tr><td class="px-5 py-3">YouTube</td><td class="px-5 py-3">1 萬 – 10 萬</td><td class="px-5 py-3">$8,000 – $15,000</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">假設粉絲規模</th><th class="text-left px-5 py-3 font-semibold">報價範圍（HK$／帖）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">TikTok</td><td class="px-5 py-3">1 萬 – 10 萬</td><td class="px-5 py-3">$3,000 – $8,000</td></tr><tr><td class="px-5 py-3">Instagram</td><td class="px-5 py-3">1 萬 – 10 萬</td><td class="px-5 py-3">$4,000 – $10,000</td></tr><tr><td class="px-5 py-3">YouTube</td><td class="px-5 py-3">1 萬 – 10 萬</td><td class="px-5 py-3">$8,000 – $15,000</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://webseohk.com/" target="_blank" rel="noopener">WebSeoHK｜香港數位行銷知識庫</a></p>
 
@@ -349,31 +341,36 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">來源三：ADWire 服務頁公開的參考區間</h4>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">級別</th><th class="text-left px-5 py-3 font-semibold">粉絲範圍</th><th class="text-left px-5 py-3 font-semibold">參考區間（HK$／帖）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Nano KOL</td><td class="px-5 py-3">1K – 10K</td><td class="px-5 py-3">約 $500 – $3,000</td></tr><tr><td class="px-5 py-3">Micro KOL</td><td class="px-5 py-3">10K – 100K</td><td class="px-5 py-3">約 $3,000 – $15,000</td></tr><tr><td class="px-5 py-3">Mid-tier KOL</td><td class="px-5 py-3">100K – 500K</td><td class="px-5 py-3">約 $15,000 – $50,000</td></tr><tr><td class="px-5 py-3">Macro／Mega</td><td class="px-5 py-3">500K 以上</td><td class="px-5 py-3">按個別項目議價</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">級別</th><th class="text-left px-5 py-3 font-semibold">粉絲範圍</th><th class="text-left px-5 py-3 font-semibold">參考區間（HK$／帖）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Nano KOL</td><td class="px-5 py-3">1K – 10K</td><td class="px-5 py-3">約 $500 – $3,000</td></tr><tr><td class="px-5 py-3">Micro KOL</td><td class="px-5 py-3">10K – 100K</td><td class="px-5 py-3">約 $3,000 – $15,000</td></tr><tr><td class="px-5 py-3">Mid-tier KOL</td><td class="px-5 py-3">100K – 500K</td><td class="px-5 py-3">約 $15,000 – $50,000</td></tr><tr><td class="px-5 py-3">Macro／Mega</td><td class="px-5 py-3">500K 以上</td><td class="px-5 py-3">按個別項目議價</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="/services/kol/" target="_blank" rel="noopener">ADWire｜KOL 網紅營銷服務頁公開資料</a></p>
 
-        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">閱讀報價表之前必須知道的三件事</p><p class="text-amber-900 text-sm leading-relaxed">第一，三個來源的粉絲分層界線唔一樣（有來源把 50K 當 Micro，有來源把 100K 才當 Mid-tier），所以同一行數字唔代表同一批人。第二，報價假設的交付內容唔一樣：有的指一張靜態圖文，有的包含限時動態、Reels、Story 連結、多平台轉發。第三，時間點唔同，2025 年的數字在 2026 年未必仍然適用。要真正比較，唯一方法是要求對方列出「交付清單」，逐項對照。</p></div>
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">閱讀報價表之前必須知道的三件事</p><p class="text-amber-900 text-sm leading-relaxed">第一，三個來源的粉絲分層界線不一樣（有來源把 50K 當 Micro，有來源把 100K 才當 Mid-tier），所以同一行數字不代表同一批人。第二，報價假設的交付內容不一樣：有的指一張靜態圖文，有的包含限時動態、Reels、Story 連結、多平台轉發。第三，時間點不同，2025 年的數字在 2026 年未必仍然適用。要真正比較，唯一方法是要求對方列出「交付清單」，逐項對照。</p></div>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">影響價格的五個變數</h4>
 
-        <p><strong>一、內容形式</strong>：靜態圖文最便宜，Reels 與短片較貴，YouTube 長影片最貴。限時動態通常只是貼文價格的三成至四成，但只有 24 小時曝光，適合搭配優惠碼做即時轉換。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">一、內容形式</h4>
+<p>靜態圖文最便宜，Reels 與短片較貴，YouTube 長影片最貴。限時動態通常只是貼文價格的三成至四成，但只有 24 小時曝光，適合搭配優惠碼做即時轉換。</p>
 
-        <p><strong>二、使用權</strong>：如果你想把 KOL 的內容放到自己的廣告帳號做付費推廣，這叫「白名單授權」或「內容二次使用」，通常要額外加錢，幅度可以相當可觀。唔講清楚就落廣告，可能構成侵權。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">二、使用權</h4>
+<p>如果你想把 KOL 的內容放到自己的廣告帳號做付費推廣，這叫「白名單授權」或「內容二次使用」，通常要額外加錢，幅度可以相當可觀。不說明清楚就落廣告，可能構成侵權。</p>
 
-        <p><strong>三、獨家條款</strong>：要求 KOL 在指定期間內不接同類競品，等於買斷他的檔期，價格自然上升。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">三、獨家條款</h4>
+<p>要求 KOL 在指定期間內不接同類競品，等於買斷他的檔期，價格自然上升。</p>
 
-        <p><strong>四、檔期與急單</strong>：農曆新年、聖誕、母親節、雙十一等旺季，KOL 檔期緊張，議價空間收窄。急單通常沒有折扣。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">四、檔期與急單</h4>
+<p>農曆新年、聖誕、母親節、雙十一等旺季，KOL 檔期緊張，議價空間收窄。急單通常沒有折扣。</p>
 
-        <p><strong>五、組合與長期合作</strong>：一次過簽多帖、或簽半年至一年的品牌大使合作，通常可爭取到一定折扣，但前提是你對該 KOL 的表現已有數據支持。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">五、組合與長期合作</h4>
+<p>一次過簽多帖、或簽半年至一年的品牌大使合作，通常可爭取到一定折扣，但前提是你對該 KOL 的表現已有數據支持。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、如何選 KOL：四個可以實際檢查的維度</h3>
 
-        <p>選 KOL 唔應該靠感覺，亦唔應該只看粉絲數。以下四項，你都可以在 30 分鐘內自行核查，亦可以要求代理提供截圖或報表。</p>
+        <p>選 KOL 不應該靠感覺，亦不應該只看粉絲數。以下四項，你都可以在 30 分鐘內自行核查，亦可以要求代理提供截圖或報表。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">維度一：受眾人口統計與品牌客群匹配度</h4>
 
-        <p>先問自己：我的客人是邊個年齡、性別、地區、消費水平？然後對照 KOL 的後台數據。Instagram 與 YouTube 的專業帳號可以看到受眾的性別比例、年齡分佈、主要城市。如果 KOL 的受眾有大量海外粉絲，而你的生意只做香港本地，就要重新考慮。這一步最容易被忽略，但往往是成敗分水嶺。</p>
+        <p>先問自己：我的客人是哪個年齡、性別、地區、消費水平？然後對照 KOL 的後台數據。Instagram 與 YouTube 的專業帳號可以看到受眾的性別比例、年齡分佈、主要城市。如果 KOL 的受眾有大量海外粉絲，而你的生意只做香港本地，就要重新考慮。這一步最容易被忽略，但往往是成敗分水嶺。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">維度二：互動率</h4>
 
@@ -385,13 +382,13 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">維度四：以往商業帖的轉化表現</h4>
 
-        <p>直接問對方：過去半年做過哪些品牌合作？可否提供該次合作的數據？負責任的 KOL 或代理會提供部分數據，或至少提供公開的帖文連結讓你自己查看。如果對方只能提供曝光量而無法提供任何互動或點擊數據，你要有心理準備，這次合作只能當作品牌曝光，唔應該期待直接查詢。</p>
+        <p>直接問對方：過去半年做過哪些品牌合作？可否提供該次合作的數據？負責任的 KOL 或代理會提供部分數據，或至少提供公開的帖文連結讓你自己查看。如果對方只能提供曝光量而無法提供任何互動或點擊數據，你要有心理準備，這次合作只能當作品牌曝光，不應該期待直接查詢。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">檢查項目</th><th class="text-left px-5 py-3 font-semibold">怎樣查</th><th class="text-left px-5 py-3 font-semibold">合格參考</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">受眾地區</td><td class="px-5 py-3">要求後台截圖或看留言語言</td><td class="px-5 py-3">主要受眾在香港</td></tr><tr><td class="px-5 py-3">受眾年齡性別</td><td class="px-5 py-3">後台 Insights</td><td class="px-5 py-3">與品牌客群重疊</td></tr><tr><td class="px-5 py-3">互動率</td><td class="px-5 py-3">抽查最近 10 帖計算平均</td><td class="px-5 py-3">視層級而定，重點是穩定</td></tr><tr><td class="px-5 py-3">留言質素</td><td class="px-5 py-3">閱讀留言內容</td><td class="px-5 py-3">有真人對話、有提問</td></tr><tr><td class="px-5 py-3">假粉跡象</td><td class="px-5 py-3">看粉絲頭像、成長曲線</td><td class="px-5 py-3">無異常暴增</td></tr><tr><td class="px-5 py-3">商業帖表現</td><td class="px-5 py-3">索取過去合作數據</td><td class="px-5 py-3">能提供互動或點擊數字</td></tr><tr><td class="px-5 py-3">內容風格</td><td class="px-5 py-3">看最近 10 帖</td><td class="px-5 py-3">與品牌調性一致</td></tr></tbody></div><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、KOL、KOC 與素人：三者分工與成本差異</h3>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">檢查項目</th><th class="text-left px-5 py-3 font-semibold">怎樣查</th><th class="text-left px-5 py-3 font-semibold">合格參考</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">受眾地區</td><td class="px-5 py-3">要求後台截圖或看留言語言</td><td class="px-5 py-3">主要受眾在香港</td></tr><tr><td class="px-5 py-3">受眾年齡性別</td><td class="px-5 py-3">後台 Insights</td><td class="px-5 py-3">與品牌客群重疊</td></tr><tr><td class="px-5 py-3">互動率</td><td class="px-5 py-3">抽查最近 10 帖計算平均</td><td class="px-5 py-3">視層級而定，重點是穩定</td></tr><tr><td class="px-5 py-3">留言質素</td><td class="px-5 py-3">閱讀留言內容</td><td class="px-5 py-3">有真人對話、有提問</td></tr><tr><td class="px-5 py-3">假粉跡象</td><td class="px-5 py-3">看粉絲頭像、成長曲線</td><td class="px-5 py-3">無異常暴增</td></tr><tr><td class="px-5 py-3">商業帖表現</td><td class="px-5 py-3">索取過去合作數據</td><td class="px-5 py-3">能提供互動或點擊數字</td></tr><tr><td class="px-5 py-3">內容風格</td><td class="px-5 py-3">看最近 10 帖</td><td class="px-5 py-3">與品牌調性一致</td></tr></tbody></table></div><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、KOL、KOC 與素人：三者分工與成本差異</h3>
 
-        <p>很多人把 KOL 與 KOC 混為一談，但兩者在預算分配上的角色完全唔同。KOL 是關鍵意見領袖，重點在影響力與曝光；KOC 是關鍵意見消費者，重點在真實使用體驗與說服力；素人則是純粹的普通用戶分享。</p>
+        <p>很多人把 KOL 與 KOC 混為一談，但兩者在預算分配上的角色完全不同。KOL 是關鍵意見領袖，重點在影響力與曝光；KOC 是關鍵意見消費者，重點在真實使用體驗與說服力；素人則是純粹的普通用戶分享。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">類別</th><th class="text-left px-5 py-3 font-semibold">典型粉絲與身份</th><th class="text-left px-5 py-3 font-semibold">核心作用</th><th class="text-left px-5 py-3 font-semibold">相對成本</th><th class="text-left px-5 py-3 font-semibold">適用場景</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">KOL</td><td class="px-5 py-3">1 萬至數十萬粉絲</td><td class="px-5 py-3">曝光、話題、品牌信任</td><td class="px-5 py-3">高</td><td class="px-5 py-3">新品上市、品牌推廣</td></tr><tr><td class="px-5 py-3">KOC</td><td class="px-5 py-3">數千至一萬多粉絲</td><td class="px-5 py-3">真實試用、口碑種草</td><td class="px-5 py-3">中低</td><td class="px-5 py-3">轉換、評論區發酵</td></tr><tr><td class="px-5 py-3">素人</td><td class="px-5 py-3">幾百至幾千，多為真實用戶</td><td class="px-5 py-3">數量堆疊、搜尋結果佔位</td><td class="px-5 py-3">低（多為產品置換）</td><td class="px-5 py-3">小紅書筆記、Google 評論</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">類別</th><th class="text-left px-5 py-3 font-semibold">典型粉絲與身份</th><th class="text-left px-5 py-3 font-semibold">核心作用</th><th class="text-left px-5 py-3 font-semibold">相對成本</th><th class="text-left px-5 py-3 font-semibold">適用場景</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">KOL</td><td class="px-5 py-3">1 萬至數十萬粉絲</td><td class="px-5 py-3">曝光、話題、品牌信任</td><td class="px-5 py-3">高</td><td class="px-5 py-3">新品上市、品牌推廣</td></tr><tr><td class="px-5 py-3">KOC</td><td class="px-5 py-3">數千至一萬多粉絲</td><td class="px-5 py-3">真實試用、口碑種草</td><td class="px-5 py-3">中低</td><td class="px-5 py-3">轉換、評論區發酵</td></tr><tr><td class="px-5 py-3">素人</td><td class="px-5 py-3">幾百至幾千，多為真實用戶</td><td class="px-5 py-3">數量堆疊、搜尋結果佔位</td><td class="px-5 py-3">低（多為產品置換）</td><td class="px-5 py-3">小紅書筆記、Google 評論</td></tr></tbody></table></div>
 
         <p>實務上的最佳組合，通常是「一個 Mid-tier 或 Micro KOL 打頭陣製造話題，配上一批 KOC 做真實體驗分享，再加一批素人在評論區與搜尋結果中形成密度」。因為當消費者被 KOL 吸引之後，下一步通常會自己去搜尋品牌名稱，看看有無其他人講過。如果搜尋結果只有品牌自己的宣傳，說服力會大打折扣；如果搜尋結果有大量第三方真實分享，轉換機會就高得多。</p>
 
@@ -399,66 +396,87 @@ export const blogPosts: BlogPost[] = [
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、成效量度：六個要看的指標與歸因難題</h3>
 
-        <p>KOL 推廣最常被誤解的一點，是以為它可以直接用廣告回報率的方式衡量。實際上，KOL 影響的是認知與信任，而這兩件事的轉換路徑通常很長：用戶今日看到帖文，可能兩星期後才搜尋品牌，一個月後才落單。這就是所謂的歸因困難。</p>
+        <p>KOL 推廣最常被誤解的一點，是以為它可以直接用廣告回報率的方式衡量。實際上，KOL 影響的是認知與信任，而這兩件事的轉換路徑通常很長：用戶今日看到帖文，可能兩星期後才搜尋品牌，一個月後才下單。這就是所謂的歸因困難。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">六個核心指標</h4>
 
-        <p><strong>觸及率</strong>：有多少獨立帳號看到內容。這比曝光次數更真實，因為同一人重複看到不會重複計算。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">觸及率</h4>
+<p>有多少獨立帳號看到內容。這比曝光次數更真實，因為同一人重複看到不會重複計算。</p>
 
-        <p><strong>觀看次數</strong>：影片類內容的主要指標，但要注意平台計算方式不同，有些平台看 3 秒就算一次，有些要看一半以上。跨平台比較意義不大。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">觀看次數</h4>
+<p>影片類內容的主要指標，但要注意平台計算方式不同，有些平台看 3 秒就算一次，有些要看一半以上。跨平台比較意義不大。</p>
 
-        <p><strong>互動率</strong>：反映內容有無引起反應。互動率高的內容，通常值得再加付費推廣放大。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">互動率</h4>
+<p>反映內容有無引起反應。互動率高的內容，通常值得再加付費推廣放大。</p>
 
-        <p><strong>點擊率</strong>：如果有放連結，就可以看到有多少人真的想進一步了解。這是從認知走向考慮的重要一步。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">點擊率</h4>
+<p>如果有放連結，就可以看到有多少人真的想進一步了解。這是從認知走向考慮的重要一步。</p>
 
-        <p><strong>網站流量</strong>：用 UTM 參數追蹤來自該 KOL 的流量，看停留時間、瀏覽頁數、跳出率，而不只是看人數。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">網站流量</h4>
+<p>用 UTM 參數追蹤來自該 KOL 的流量，看停留時間、瀏覽頁數、跳出率，而不只是看人數。</p>
 
-        <p><strong>查詢與轉換</strong>：最終的落單、查詢、WhatsApp 對話、預約數量。這是唯一真正重要的指標，但需要歸因工具配合。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">查詢與轉換</h4>
+<p>最終的下單、查詢、WhatsApp 對話、預約數量。這是唯一真正重要的指標，但需要歸因工具配合。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">歸因方法：三個實用做法</h4>
 
-        <p><strong>一、專屬優惠碼</strong>：每個 KOL 一個獨立優惠碼，用戶落單時輸入。這是最直接、最不易出錯的方法，缺點是會影響部分用戶的落單意願。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">一、專屬優惠碼</h4>
+<p>每個 KOL 一個獨立優惠碼，用戶下單時輸入。這是最直接、最不易出錯的方法，缺點是會影響部分用戶的下單意願。</p>
 
-        <p><strong>二、專屬連結</strong>：用短連結或獨立登陸頁，配合 UTM 參數，這樣在 Google Analytics 4 就可以分開看到每個 KOL 帶來的流量與轉換。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">二、專屬連結</h4>
+<p>用短連結或獨立登陸頁，配合 UTM 參數，這樣在 Google Analytics 4 就可以分開看到每個 KOL 帶來的流量與轉換。</p>
 
-        <p><strong>三、分時段對照</strong>：如果無法做技術歸因，就用時間對照法。記錄每個 KOL 的發佈時間，觀察發佈後 24 至 72 小時內網站流量、查詢量與品牌搜尋量的變化。這種方法不精確，但對於沒有電商系統的服務型生意仍然有參考價值。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">三、分時段對照</h4>
+<p>如果無法做技術歸因，就用時間對照法。記錄每個 KOL 的發佈時間，觀察發佈後 24 至 72 小時內網站流量、查詢量與品牌搜尋量的變化。這種方法不精確，但對於沒有電商系統的服務型生意仍然有參考價值。</p>
 
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">實務提醒</p><p class="text-blue-900 text-sm leading-relaxed">不要期望 KOL 帖文一出就即刻有大量訂單。香港消費者的決策路徑通常包括：看到帖文、搜尋品牌、看 Google 評論、比較幾間、再落單。所以 KOL 推廣通常要配合搜尋廣告、社交媒體內容、網站與 Google 商家資料，形成一條完整的路徑。這也是我們建議把 KOL 與<a href="/services/ads/">成效廣告投放</a>、<a href="/services/social/">社交媒體代管</a>一齊規劃的原因。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">實務提醒</p><p class="text-blue-900 text-sm leading-relaxed">不要期望 KOL 帖文一出就即刻有大量訂單。香港消費者的決策路徑通常包括：看到帖文、搜尋品牌、看 Google 評論、比較幾間、再下單。所以 KOL 推廣通常要配合搜尋廣告、社交媒體內容、網站與 Google 商家資料，形成一條完整的路徑。這也是我們建議把 KOL 與<a href="/services/ads/">成效廣告投放</a>、<a href="/services/social/">社交媒體代管</a>一齊規劃的原因。</p></div>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、六個常見失敗原因</h3>
 
-        <p><strong>一、只買粉絲數。</strong>把預算集中在最大號的 KOL，結果觸及一堆與產品無關的受眾，互動率低，查詢亦少。正確做法是先定義客群，再反推要找哪一層的 KOL。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">一、只買粉絲數</h4>
+<p>把預算集中在最大號的 KOL，結果觸及一堆與產品無關的受眾，互動率低，查詢亦少。正確做法是先定義客群，再反推要找哪一層的 KOL。</p>
 
-        <p><strong>二、內容監修過度或完全放手。</strong>兩種極端都會失敗。過度監修會令內容變成廣告稿，用戶一眼看穿，互動率大跌；完全放手則可能出現與品牌定位不符的內容。務實做法是提供方向、必須出現的資訊、不可觸碰的紅線，然後讓 KOL 用自己的語言寫。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">二、內容監修過度或完全放手</h4>
+<p>兩種極端都會失敗。過度監修會令內容變成廣告稿，用戶一眼看穿，互動率大跌；完全放手則可能出現與品牌定位不符的內容。務實做法是提供方向、必須出現的資訊、不可觸碰的紅線，然後讓 KOL 用自己的語言寫。</p>
 
-        <p><strong>三、完全沒有歸因設計。</strong>合作完之後只有一堆截圖與讚好數字，講唔出帶來幾多查詢。下一次預算就無從判斷。歸因設計必須在合作前做好，唔可以事後補救。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">三、完全沒有歸因設計</h4>
+<p>合作完之後只有一堆截圖與讚好數字，講不出帶來多少查詢。下一次預算就無從判斷。歸因設計必須在合作前做好，不可以事後補救。</p>
 
-        <p><strong>四、選錯平台。</strong>你的客群是 45 歲以上、重視信任的行業，卻把預算全放在 TikTok，成效自然不理想。平台的用戶結構與內容形態，決定了它適合哪一種溝通方式。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">四、選錯平台</h4>
+<p>你的客群是 45 歲以上、重視信任的行業，卻把預算全放在 TikTok，成效自然不理想。平台的用戶結構與內容形態，決定了它適合哪一種溝通方式。</p>
 
-        <p><strong>五、只做一次性推廣。</strong>KOL 的價值需要重複曝光才會累積。一個 KOL 講一次，用戶可能無印象；同一個 KOL 在三個月內講三次，加上其他 KOC 的分享，品牌才會真正進入用戶的考慮名單。長期合作通常亦可以爭取較好價錢。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">五、只做一次性推廣</h4>
+<p>KOL 的價值需要重複曝光才會累積。一個 KOL 講一次，用戶可能無印象；同一個 KOL 在三個月內講三次，加上其他 KOC 的分享，品牌才會真正進入用戶的考慮名單。長期合作通常亦可以爭取較好價錢。</p>
 
-        <p><strong>六、只做自然觸及，不做付費放大。</strong>現時社交平台的自然觸及普遍偏低，表現最好的 KOL 內容如果只用自然流量，等於浪費。把表現好的內容加上付費推廣，可以用相對合理的成本再放大一次，而且素材是真實內容，說服力通常比品牌自製廣告更高。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">六、只做自然觸及，不做付費放大</h4>
+<p>現時社交平台的自然觸及普遍偏低，表現最好的 KOL 內容如果只用自然流量，等於浪費。把表現好的內容加上付費推廣，可以用相對合理的成本再放大一次，而且素材是真實內容，說服力通常比品牌自製廣告更高。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、KOL 合作流程：六個步驟</h3>
 
-        <p><strong>第一步：定義目標與客群。</strong>先寫清楚這次合作要達成什麼：是品牌曝光、新產品試用、還是直接查詢？目標客群是邊個年齡、地區、消費習慣？預算範圍多少？這一步寫得越具體，後面越省事。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第一步：定義目標與客群</h4>
+<p>先寫清楚這次合作要達成什麼：是品牌曝光、新產品試用、還是直接查詢？目標客群是哪個年齡、地區、消費習慣？預算範圍多少？這一步寫得越具體，後面越省事。</p>
 
-        <p><strong>第二步：擬定 KOL 組合。</strong>根據目標與預算，決定用幾個 Nano、幾個 Micro、是否需要一個 Mid-tier 打頭陣。與其把全部預算押在一個大號，不如用組合分散風險，同時覆蓋更多不同社群。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第二步：擬定 KOL 組合</h4>
+<p>根據目標與預算，決定用幾個 Nano、幾個 Micro、是否需要一個 Mid-tier 打頭陣。與其把全部預算押在一個大號，不如用組合分散風險，同時覆蓋更多不同社群。</p>
 
-        <p><strong>第三步：篩選與核實。</strong>按前述四個維度逐一檢查，包括受眾地區、互動率、假粉跡象、以往商業帖表現。這一步值得花時間，因為選錯人之後的所有成本都無法回收。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第三步：篩選與核實</h4>
+<p>按前述四個維度逐一檢查，包括受眾地區、互動率、假粉跡象、以往商業帖表現。這一步值得花時間，因為選錯人之後的所有成本都無法回收。</p>
 
-        <p><strong>第四步：報價與議價。</strong>要求對方列出交付清單：幾張圖、幾條片、是否包含限時動態、是否包含多平台轉發、使用權多久、是否獨家。逐項對照之後再議價，唔好只比較一個總數。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第四步：報價與議價</h4>
+<p>要求對方列出交付清單：幾張圖、幾條片、是否包含限時動態、是否包含多平台轉發、使用權多久、是否獨家。逐項對照之後再議價，不要只比較一個總數。</p>
 
-        <p><strong>第五步：簡報與內容監修。</strong>提供品牌資料、產品重點、必須出現的資訊、不可提及的內容、以及參考風格。設定清晰的審稿次數上限，避免無限修改拖垮雙方。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第五步：簡報與內容監修</h4>
+<p>提供品牌資料、產品重點、必須出現的資訊、不可提及的內容、以及參考風格。設定清晰的審稿次數上限，避免無限修改拖垮雙方。</p>
 
-        <p><strong>第六步：發佈、放大與檢討。</strong>按約定時間發佈，同步開啟歸因追蹤。發佈後 48 至 72 小時檢視數據，挑出表現最好的內容加付費推廣。最後整理報告，包括觸及、互動、點擊、查詢，並記錄下次要改什麼。這份記錄就是你的內部資產。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第六步：發佈、放大與檢討</h4>
+<p>按約定時間發佈，同步開啟歸因追蹤。發佈後 48 至 72 小時檢視數據，挑出表現最好的內容加付費推廣。最後整理報告，包括觸及、互動、點擊、查詢，並記錄下次要改什麼。這份記錄就是你的內部資產。</p>
 
         <p>如果你需要由選人、議價、簡報到成效報告的整體支援，可以參考我們的<a href="/services/kol/">KOL 網紅營銷服務</a>，我們有 1,000+ KOL 合作資源庫，會按你的客群與預算提供組合建議。若你需要同時製作產品素材、專業攝影或影片，亦可以配合<a href="/services/production/">商業攝影與影片製作</a>，讓 KOL 拿到的素材本身已經有質素。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h3>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港 KOL 收費大概幾多？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港 KOL 收費大概多少？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">香港 KOL 收費沒有官方統計，不同第三方來源的公開區間差異很大。以 2025 年的市場觀察數字為例，Nano（約 1K 至 10K 粉絲）大約每帖 HK$500 至 $3,000；Micro（約 10K 至 100K）大約 HK$3,000 至 $15,000；Mid-tier（約 100K 至 500K）大約 HK$15,000 至 $50,000；Macro 與名人級通常按個別項目議價。實際價錢會受平台、內容形式、使用權、獨家條款與檔期影響，同一個粉絲規模可以有兩三倍差距。這些數字來自公開第三方資料，口徑與時間點各異，不可直接比較，亦不是 ADWire 的報價。</p>
           </div>
@@ -467,7 +485,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">中小企應該選 Nano、Micro 還是 Mid-tier KOL？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">大部分香港中小企最務實的做法，是以 Micro 為主、Nano 為輔，組成一個組合。原因是 Micro 的互動率仍然可觀、內容質素較穩定、價格在可承受範圍，而 Nano 可以補足地區與小眾社群。Mid-tier 適合有明確品牌推廣目標、且預算較充裕的情況。選層級唔應該只看粉絲數，而應該先定義客群，再反推哪一層的受眾最貼近你的客人。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">大部分香港中小企最務實的做法，是以 Micro 為主、Nano 為輔，組成一個組合。原因是 Micro 的互動率仍然可觀、內容質素較穩定、價格在可承受範圍，而 Nano 可以補足地區與小眾社群。Mid-tier 適合有明確品牌推廣目標、且預算較充裕的情況。選層級不應該只看粉絲數，而應該先定義客群，再反推哪一層的受眾最貼近你的客人。</p>
           </div>
         </div>
 
@@ -488,26 +506,26 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">KOL 推廣的成效可以怎樣量度？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">主要看六個指標：觸及率、觀看次數、互動率、點擊率、網站流量、查詢與轉換。由於 KOL 影響的是認知與信任，轉換路徑通常較長，用戶看完帖文未必即刻落單，所以歸因設計很重要。實用做法有三種：一是給每個 KOL 一個專屬優惠碼；二是用專屬連結配合 UTM 參數，在 Google Analytics 4 分開追蹤；三是分時段對照法，記錄發佈後 24 至 72 小時的流量與查詢變化。三種方法可以並用，互相印證。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">主要看六個指標：觸及率、觀看次數、互動率、點擊率、網站流量、查詢與轉換。由於 KOL 影響的是認知與信任，轉換路徑通常較長，用戶看完帖文未必即刻下單，所以歸因設計很重要。實用做法有三種：一是給每個 KOL 一個專屬優惠碼；二是用專屬連結配合 UTM 參數，在 Google Analytics 4 分開追蹤；三是分時段對照法，記錄發佈後 24 至 72 小時的流量與查詢變化。三種方法可以並用，互相印證。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">KOL 內容可以直接用來落廣告嗎？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">需要事先取得授權。KOL 發佈的原創內容，版權通常屬於創作者本人，如果你想把它放到品牌的廣告帳號做付費推廣，或作其他商業用途，一般需要額外購買使用權或白名單授權，費用會另計。常見做法是在合作報價階段就一併談清楚：內容可否二次使用、可用多久、可用於哪些渠道、是否包含付費放大。如果事前唔講清楚就用，可能構成侵權，亦會影響日後的合作關係。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">需要事先取得授權。KOL 發佈的原創內容，版權通常屬於創作者本人，如果你想把它放到品牌的廣告帳號做付費推廣，或作其他商業用途，一般需要額外購買使用權或白名單授權，費用會另計。常見做法是在合作報價階段就一併談清楚：內容可否二次使用、可用多久、可用於哪些渠道、是否包含付費放大。如果事前不說明清楚就用，可能構成侵權，亦會影響日後的合作關係。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">KOL 營銷有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">KOL 營銷有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係揀到買粉絲嘅假 KOL。檢查方法：①互動率（讚好/粉絲數）是否合理 ②留言質素 ③粉絲增長曲線。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最常見的風險是選到購買粉絲的帳號，互動數據與真實受眾不符。核查方法有三：互動率（讚好與粉絲數的比例）是否合理、留言質素是否自然、粉絲增長曲線是否有異常跳升。此外，若未在合約寫明內容二次使用權，日後用作付費廣告可能構成侵權。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做 KOL 營銷比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇 KOL 營銷服務商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有香港本地 KOL 資源庫、可以提供互動數據分析、同埋有合約保障嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可從三方面判斷：是否具備香港本地 KOL 資源庫並能提供互動數據分析、能否示範歸因設計（優惠碼、專屬連結或 UTM 參數）、以及合約是否涵蓋授權與成效條款。只提供粉絲數清單而無法解釋選人邏輯的供應商，成效風險較高。</p>
           </div>
         </div>
 
@@ -517,7 +535,7 @@ export const blogPosts: BlogPost[] = [
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">結語：KOL 推廣的本質是「借別人的信任」</h3>
 
-        <p>KOL 推廣之所以有效，唔係因為它能夠在一夜之間帶來大量訂單，而係因為它讓你的品牌出現在一群已經被信任的人口中。消費者願意相信一個追蹤了很久的 Nano KOL 講的一句真心話，多過相信品牌自己寫的十句宣傳。這也是為什麼「只買粉絲數」幾乎注定失敗，而「選對一群合適的人、給他們足夠空間講真話、再用數據持續優化」通常會慢慢累積出成果。</p>
+        <p>KOL 推廣之所以有效，不是因為它能夠在一夜之間帶來大量訂單，而是因為它讓你的品牌出現在一群已經被信任的人口中。消費者願意相信一個追蹤了很久的 Nano KOL 講的一句真心話，多過相信品牌自己寫的十句宣傳。這也是為什麼「只買粉絲數」幾乎注定失敗，而「選對一群合適的人、給他們足夠空間講真話、再用數據持續優化」通常會慢慢累積出成果。</p>
 
         <p>對香港中小企而言，一個務實的起點是：先用一個不大的預算，試三至五個 Micro 與 Nano KOL，做好歸因設計，跑完一次完整流程，然後用真實數據決定下一步放大哪一個組合。這樣做的好處是風險可控，而且你會累積到屬於自己的 KOL 表現記錄，這是任何代理都無法直接給你的資產。</p>
 
@@ -527,7 +545,7 @@ export const blogPosts: BlogPost[] = [
         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
-          <li><a href="/blog/social-media-management-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">社交媒體管理：香港企業外判代管服務點揀、月費與成效量度 2026</a></li>
+          <li><a href="/blog/social-media-management-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">社交媒體管理：香港企業外判代管服務如何選擇、月費與成效量度 2026</a></li>
           <li><a href="/blog/short-video-marketing-guide/" class="text-[#0f4c81] hover:underline">短視頻營銷香港 2026：抖音 Reels 小紅書實戰攻略</a></li>
           </ul>
         </div>`,
@@ -552,7 +570,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">企業影片製作報價差距極大：基本宣傳片 HK$10,000-50,000、品牌形象片 HK$50,000-200,000、3D 動畫 HK$30,000-150,000。差距來自製作團隊規模、拍攝日數、後期複雜度。揀製作公司最重要係睇作品集同交付標準。</p>
+          <p class="text-gray-700 leading-relaxed">企業影片製作報價差距極大：基本宣傳片 HK$10,000-50,000、品牌形象片 HK$50,000-200,000、3D 動畫 HK$30,000-150,000。差距來自製作團隊規模、拍攝日數、後期複雜度。選擇製作公司最重要是查看作品集與交付標準。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -567,13 +585,11 @@ export const blogPosts: BlogPost[] = [
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/video-production-hero.webp" alt="企業影片製作指南 — ADWire 香港影片製作" title="企業影片製作指南 — ADWire 香港影片製作" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
-
-        
-        
-        
+        </figure>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">企業影片沒有一個「標準價」。影響報價的因素包括拍攝日數、場景數量、演員、器材規格、動畫與特效、後期複雜度、修改輪數、使用權範圍，以及配樂版權。同樣是「一條三分鐘企業宣傳片」，只用一日室內拍攝、無演員、無動畫，與三日跨地點拍攝、有模特兒、有動畫特效，成本可以相差數倍。所以正確的做法不是問「一條片幾錢」，而是要求製作公司逐項列明交付內容，再比較每個項目的範圍。簽約之前，確認合約寫明修改輪數、使用權範圍與期限、原始素材歸屬，以及配樂授權方式。這四項沒有寫清楚的合約，日後最容易出現爭議。</p></div>
+
+        \n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為甚麼香港企業客戶特別容易在影片項目上失預算</h3>
 
@@ -613,7 +629,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>教學影片用於產品教學、內部培訓、客戶 onboarding。它的特點是內容會過時，所以客戶要考慮「未來要否自行更新」——如果內部同事需要自己補拍和剪接，拍攝時就應該採用可以複製的固定格式（固定機位、固定片頭、固定字幕樣式），並且要求交付原始素材和項目檔案。這類影片的片長彈性最大，由 2 分鐘的單一功能示範，到 20 分鐘的完整課程都有。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">影片類型</th><th class="text-left px-5 py-3 font-semibold">主要用途</th><th class="text-left px-5 py-3 font-semibold">常見片長</th><th class="text-left px-5 py-3 font-semibold">製作重點</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">企業宣傳片</td><td class="px-5 py-3">官網首頁、公司簡介、展會</td><td class="px-5 py-3">90 秒至 3 分鐘</td><td class="px-5 py-3">敘事結構、訪談、品牌一致性</td></tr><tr><td class="px-5 py-3">產品影片</td><td class="px-5 py-3">產品頁、銷售說明、電商</td><td class="px-5 py-3">30 秒至 2 分鐘</td><td class="px-5 py-3">細節燈光、功能示範清晰度</td></tr><tr><td class="px-5 py-3">社交媒體短片</td><td class="px-5 py-3">Reels、Shorts、小紅書</td><td class="px-5 py-3">15 至 60 秒</td><td class="px-5 py-3">頭三秒、字幕、批量版本</td></tr><tr><td class="px-5 py-3">活動紀錄</td><td class="px-5 py-3">發佈會、展會、晚宴</td><td class="px-5 py-3">精華 1 至 3 分鐘</td><td class="px-5 py-3">多機位、關鍵時刻捕捉</td></tr><tr><td class="px-5 py-3">訪問與 Podcast</td><td class="px-5 py-3">品牌信任、行業內容</td><td class="px-5 py-3">10 至 60 分鐘</td><td class="px-5 py-3">收音、燈光、字幕與分段</td></tr><tr><td class="px-5 py-3">教學與培訓</td><td class="px-5 py-3">客戶 onboarding、內部培訓</td><td class="px-5 py-3">2 至 20 分鐘</td><td class="px-5 py-3">可複製格式、素材歸屬</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">影片類型</th><th class="text-left px-5 py-3 font-semibold">主要用途</th><th class="text-left px-5 py-3 font-semibold">常見片長</th><th class="text-left px-5 py-3 font-semibold">製作重點</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">企業宣傳片</td><td class="px-5 py-3">官網首頁、公司簡介、展會</td><td class="px-5 py-3">90 秒至 3 分鐘</td><td class="px-5 py-3">敘事結構、訪談、品牌一致性</td></tr><tr><td class="px-5 py-3">產品影片</td><td class="px-5 py-3">產品頁、銷售說明、電商</td><td class="px-5 py-3">30 秒至 2 分鐘</td><td class="px-5 py-3">細節燈光、功能示範清晰度</td></tr><tr><td class="px-5 py-3">社交媒體短片</td><td class="px-5 py-3">Reels、Shorts、小紅書</td><td class="px-5 py-3">15 至 60 秒</td><td class="px-5 py-3">頭三秒、字幕、批量版本</td></tr><tr><td class="px-5 py-3">活動紀錄</td><td class="px-5 py-3">發佈會、展會、晚宴</td><td class="px-5 py-3">精華 1 至 3 分鐘</td><td class="px-5 py-3">多機位、關鍵時刻捕捉</td></tr><tr><td class="px-5 py-3">訪問與 Podcast</td><td class="px-5 py-3">品牌信任、行業內容</td><td class="px-5 py-3">10 至 60 分鐘</td><td class="px-5 py-3">收音、燈光、字幕與分段</td></tr><tr><td class="px-5 py-3">教學與培訓</td><td class="px-5 py-3">客戶 onboarding、內部培訓</td><td class="px-5 py-3">2 至 20 分鐘</td><td class="px-5 py-3">可複製格式、素材歸屬</td></tr></tbody></table></div>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、影片製作的實際流程</h3>
 
@@ -661,7 +677,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>交付物：最終成品檔案、字幕檔、平台比例版本。客戶需要參與的部分是：確認最終版本、確認使用權範圍、安排素材存檔。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">階段</th><th class="text-left px-5 py-3 font-semibold">交付物</th><th class="text-left px-5 py-3 font-semibold">客戶需要參與的部分</th><th class="text-left px-5 py-3 font-semibold">改動成本</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">前期策劃</td><td class="px-5 py-3">創意簡報、核心訊息</td><td class="px-5 py-3">內部共識、指定決策人</td><td class="px-5 py-3">低</td></tr><tr><td class="px-5 py-3">腳本與分鏡</td><td class="px-5 py-3">腳本定稿、分鏡圖</td><td class="px-5 py-3">確認事實、確認場景可行</td><td class="px-5 py-3">低</td></tr><tr><td class="px-5 py-3">場地與選角</td><td class="px-5 py-3">時間表、名單、器材清單</td><td class="px-5 py-3">協調檔期、提供場地權限</td><td class="px-5 py-3">中</td></tr><tr><td class="px-5 py-3">拍攝</td><td class="px-5 py-3">完成入機素材</td><td class="px-5 py-3">現場確認關鍵鏡頭</td><td class="px-5 py-3">高</td></tr><tr><td class="px-5 py-3">初剪</td><td class="px-5 py-3">初剪版本</td><td class="px-5 py-3">整合意見後一次提交</td><td class="px-5 py-3">中</td></tr><tr><td class="px-5 py-3">修改</td><td class="px-5 py-3">修改後版本</td><td class="px-5 py-3">標示時間碼的意見</td><td class="px-5 py-3">中至高</td></tr><tr><td class="px-5 py-3">調色音效與交片</td><td class="px-5 py-3">成品、字幕、多比例版本</td><td class="px-5 py-3">最終確認、存檔安排</td><td class="px-5 py-3">高</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">階段</th><th class="text-left px-5 py-3 font-semibold">交付物</th><th class="text-left px-5 py-3 font-semibold">客戶需要參與的部分</th><th class="text-left px-5 py-3 font-semibold">改動成本</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">前期策劃</td><td class="px-5 py-3">創意簡報、核心訊息</td><td class="px-5 py-3">內部共識、指定決策人</td><td class="px-5 py-3">低</td></tr><tr><td class="px-5 py-3">腳本與分鏡</td><td class="px-5 py-3">腳本定稿、分鏡圖</td><td class="px-5 py-3">確認事實、確認場景可行</td><td class="px-5 py-3">低</td></tr><tr><td class="px-5 py-3">場地與選角</td><td class="px-5 py-3">時間表、名單、器材清單</td><td class="px-5 py-3">協調檔期、提供場地權限</td><td class="px-5 py-3">中</td></tr><tr><td class="px-5 py-3">拍攝</td><td class="px-5 py-3">完成入機素材</td><td class="px-5 py-3">現場確認關鍵鏡頭</td><td class="px-5 py-3">高</td></tr><tr><td class="px-5 py-3">初剪</td><td class="px-5 py-3">初剪版本</td><td class="px-5 py-3">整合意見後一次提交</td><td class="px-5 py-3">中</td></tr><tr><td class="px-5 py-3">修改</td><td class="px-5 py-3">修改後版本</td><td class="px-5 py-3">標示時間碼的意見</td><td class="px-5 py-3">中至高</td></tr><tr><td class="px-5 py-3">調色音效與交片</td><td class="px-5 py-3">成品、字幕、多比例版本</td><td class="px-5 py-3">最終確認、存檔安排</td><td class="px-5 py-3">高</td></tr></tbody></table></div>
 
         <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">越後期的改動越貴</p><p class="text-amber-900 text-sm leading-relaxed">影片製作的改動成本，由前期到後期是逐級上升的。在腳本階段改一句對白，成本接近零；在分鏡階段改一個場景，成本是重新準備；到拍攝完成之後才想改場景，就是重拍。所以前期策劃和分鏡確認花的時間，其實是在買保險。如果製作公司不願意花時間在前期，只想盡快開機，這是一個值得留意的訊號。</p></div><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、報價構成的因素</h3>
 
@@ -669,25 +685,34 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">影響成本的主要因素</h4>
 
-        <p><strong>拍攝日數。</strong>這是最直接的成本驅動因素。一日拍攝涉及團隊人力、器材租金、場地、交通、餐飲。兩日拍攝不是簡單的兩倍，因為還要加上額外的協調和準備時間，但如果總日數多，單日成本通常會下降。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">拍攝日數</h4>
+<p>這是最直接的成本驅動因素。一日拍攝涉及團隊人力、器材租金、場地、交通、餐飲。兩日拍攝不是簡單的兩倍，因為還要加上額外的協調和準備時間，但如果總日數多，單日成本通常會下降。</p>
 
-        <p><strong>場景數量與地點。</strong>在同一個地點完成所有拍攝，與跨三、四個地點拍攝，成本差異很大。每次轉場都要搬運器材、重新佈光、重新收音。涉及離島或跨境拍攝，還要計算交通與住宿。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">場景數量與地點</h4>
+<p>在同一個地點完成所有拍攝，與跨三、四個地點拍攝，成本差異很大。每次轉場都要搬運器材、重新佈光、重新收音。涉及離島或跨境拍攝，還要計算交通與住宿。</p>
 
-        <p><strong>演員、模特兒與素人。</strong>用公司同事出鏡的成本最低，但需要協調檔期，表現也較難控制。專業模特兒或演員涉及演出費、試鏡、造型，成本較高但效果穩定。如果需要真實客戶或真實用家出鏡，還涉及同意書與協調時間。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">演員、模特兒與素人</h4>
+<p>用公司同事出鏡的成本最低，但需要協調檔期，表現也較難控制。專業模特兒或演員涉及演出費、試鏡、造型，成本較高但效果穩定。如果需要真實客戶或真實用家出鏡，還涉及同意書與協調時間。</p>
 
-        <p><strong>器材規格。</strong>攝影機、鏡頭、燈光、收音、穩定器、航拍，每一項都有不同級別。這裡不需要盲目追求最高規格——重要的是器材是否配合內容需要。室內訪談用一套穩定的燈光和收音，效果可以比用高階攝影機但收音草率更好。客戶應該問的是「這個項目為甚麼需要這個器材」，而不是「你用幾多 K」。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">器材規格</h4>
+<p>攝影機、鏡頭、燈光、收音、穩定器、航拍，每一項都有不同級別。這裡不需要盲目追求最高規格——重要的是器材是否配合內容需要。室內訪談用一套穩定的燈光和收音，效果可以比用高階攝影機但收音草率更好。客戶應該問的是「這個項目為甚麼需要這個器材」，而不是「你用幾多 K」。</p>
 
-        <p><strong>動畫與特效。</strong>動畫是成本彈性最大的一項。簡單的文字動態圖形（例如產品名稱飛入、數字滾動）與全 3D 產品動畫，工作量可以相差十幾倍。如果腳本需要動畫，應該要求製作公司分開列明動畫的種類、長度、複雜度，而不是把它包含在一個籠統的後期費用內。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">動畫與特效</h4>
+<p>動畫是成本彈性最大的一項。簡單的文字動態圖形（例如產品名稱飛入、數字滾動）與全 3D 產品動畫，工作量可以相差十幾倍。如果腳本需要動畫，應該要求製作公司分開列明動畫的種類、長度、複雜度，而不是把它包含在一個籠統的後期費用內。</p>
 
-        <p><strong>後期複雜度。</strong>包括剪接節奏、調色、去背、畫面修補、多版本輸出。單純的實拍剪接與需要大量合成、去背、特效的後期，工作量差異明顯。多語言字幕、多平台比例輸出，也會增加後期時間。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">後期複雜度</h4>
+<p>包括剪接節奏、調色、去背、畫面修補、多版本輸出。單純的實拍剪接與需要大量合成、去背、特效的後期，工作量差異明顯。多語言字幕、多平台比例輸出，也會增加後期時間。</p>
 
-        <p><strong>修改輪數。</strong>修改輪數越多，後期投入的時間越多。合理的做法是合約寫明包含的輪數，以及超出之後的計費方式。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">修改輪數</h4>
+<p>修改輪數越多，後期投入的時間越多。合理的做法是合約寫明包含的輪數，以及超出之後的計費方式。</p>
 
-        <p><strong>使用權範圍與期限。</strong>這一項最容易被忽略，但影響可以很大。影片用在官網和自家社交媒體，與用在付費廣告、電視、戶外廣告，授權範圍完全不同。授權是永久，還是只限一年，價錢也不同。如果影片內有演員或模特兒，他們的演出授權通常也有期限和渠道限制。客戶應該要求合約清楚寫明：可以用在哪些渠道、可以用多久、期滿之後如何續期。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">使用權範圍與期限</h4>
+<p>這一項最容易被忽略，但影響可以很大。影片用在官網和自家社交媒體，與用在付費廣告、電視、戶外廣告，授權範圍完全不同。授權是永久，還是只限一年，價錢也不同。如果影片內有演員或模特兒，他們的演出授權通常也有期限和渠道限制。客戶應該要求合約清楚寫明：可以用在哪些渠道、可以用多久、期滿之後如何續期。</p>
 
-        <p><strong>配樂版權。</strong>配樂有三種常見來源：免版稅音樂庫、委託原創音樂、現成商業歌曲。免版稅音樂庫的成本最低，但要留意授權條款是否覆蓋廣告用途；委託原創音樂成本較高，但可以做到獨一無二；使用現成商業歌曲涉及唱片公司的同步授權，費用和審批時間都可能很高，而且在社交媒體上容易被平台的自動識別系統限制。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">配樂版權</h4>
+<p>配樂有三種常見來源：免版稅音樂庫、委託原創音樂、現成商業歌曲。免版稅音樂庫的成本最低，但要留意授權條款是否覆蓋廣告用途；委託原創音樂成本較高，但可以做到獨一無二；使用現成商業歌曲涉及唱片公司的同步授權，費用和審批時間都可能很高，而且在社交媒體上容易被平台的自動識別系統限制。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">成本因素</th><th class="text-left px-5 py-3 font-semibold">低範圍的典型情況</th><th class="text-left px-5 py-3 font-semibold">高範圍的典型情況</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">拍攝日數</td><td class="px-5 py-3">半日至一日</td><td class="px-5 py-3">三日或以上</td></tr><tr><td class="px-5 py-3">場景數量</td><td class="px-5 py-3">單一場地</td><td class="px-5 py-3">多個場地，需要轉場與許可</td></tr><tr><td class="px-5 py-3">出鏡人員</td><td class="px-5 py-3">公司同事</td><td class="px-5 py-3">專業模特兒或演員</td></tr><tr><td class="px-5 py-3">器材規格</td><td class="px-5 py-3">基本燈光與收音</td><td class="px-5 py-3">航拍、穩定器、多機位</td></tr><tr><td class="px-5 py-3">動畫與特效</td><td class="px-5 py-3">簡單文字動態</td><td class="px-5 py-3">3D 動畫或複雜合成</td></tr><tr><td class="px-5 py-3">後期複雜度</td><td class="px-5 py-3">單一版本實拍剪接</td><td class="px-5 py-3">多版本、多語言、去背修補</td></tr><tr><td class="px-5 py-3">修改輪數</td><td class="px-5 py-3">兩輪</td><td class="px-5 py-3">四輪以上或無限修改</td></tr><tr><td class="px-5 py-3">使用權範圍</td><td class="px-5 py-3">自家網站與社交媒體</td><td class="px-5 py-3">付費廣告、電視、戶外媒體</td></tr><tr><td class="px-5 py-3">配樂來源</td><td class="px-5 py-3">免版稅音樂庫</td><td class="px-5 py-3">委託原創音樂或商業歌曲授權</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">成本因素</th><th class="text-left px-5 py-3 font-semibold">低範圍的典型情況</th><th class="text-left px-5 py-3 font-semibold">高範圍的典型情況</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">拍攝日數</td><td class="px-5 py-3">半日至一日</td><td class="px-5 py-3">三日或以上</td></tr><tr><td class="px-5 py-3">場景數量</td><td class="px-5 py-3">單一場地</td><td class="px-5 py-3">多個場地，需要轉場與許可</td></tr><tr><td class="px-5 py-3">出鏡人員</td><td class="px-5 py-3">公司同事</td><td class="px-5 py-3">專業模特兒或演員</td></tr><tr><td class="px-5 py-3">器材規格</td><td class="px-5 py-3">基本燈光與收音</td><td class="px-5 py-3">航拍、穩定器、多機位</td></tr><tr><td class="px-5 py-3">動畫與特效</td><td class="px-5 py-3">簡單文字動態</td><td class="px-5 py-3">3D 動畫或複雜合成</td></tr><tr><td class="px-5 py-3">後期複雜度</td><td class="px-5 py-3">單一版本實拍剪接</td><td class="px-5 py-3">多版本、多語言、去背修補</td></tr><tr><td class="px-5 py-3">修改輪數</td><td class="px-5 py-3">兩輪</td><td class="px-5 py-3">四輪以上或無限修改</td></tr><tr><td class="px-5 py-3">使用權範圍</td><td class="px-5 py-3">自家網站與社交媒體</td><td class="px-5 py-3">付費廣告、電視、戶外媒體</td></tr><tr><td class="px-5 py-3">配樂來源</td><td class="px-5 py-3">免版稅音樂庫</td><td class="px-5 py-3">委託原創音樂或商業歌曲授權</td></tr></tbody></table></div>
 
         <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">要求逐項列明，不要接受一個總數</p><p class="text-amber-900 text-sm leading-relaxed">當你收到的報價只有一個總數，你無法判斷這個價錢是否合理，也無法在日後出現爭議時知道自己付了甚麼。合理的報價單應該至少分開列出：前期策劃、拍攝（日數與團隊）、器材、演員、後期剪接、動畫、配樂、字幕與版本輸出、使用權。如果製作公司不願意拆分，你可以要求它提供一份交付清單，把每一項的範圍寫清楚。願意拆分的公司，通常也比較願意在合約裡寫清楚使用權和修改輪數。</p></div>
 
@@ -701,29 +726,37 @@ export const blogPosts: BlogPost[] = [
 
         <p><strong>分鏡。</strong>是否提供分鏡圖或鏡頭表？分鏡是否包含場景、構圖、時長？</p>
 
-        <p><strong>拍攝日數與團隊規模。</strong>拍攝幾日？團隊有幾多人？誰負責收音、燈光、導演？</p>
+        <p><strong>拍攝日數與團隊規模。</strong>拍攝幾日？團隊有多少人？誰負責收音、燈光、導演？</p>
 
-        <p><strong>場地與許可。</strong>場地由誰安排？涉及公共場所或第三方場地的拍攝許可，由誰申請、費用由誰承擔？</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">場地與許可</h4>
+<p>場地由誰安排？涉及公共場所或第三方場地的拍攝許可，由誰申請、費用由誰承擔？</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">交付時應該確認的事項</h4>
 
-        <p><strong>剪輯版本數。</strong>交付幾多個剪輯版本？是否包含不同時長的版本（例如 3 分鐘版、60 秒版、15 秒版）？</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">剪輯版本數</h4>
+<p>交付多少個剪輯版本？是否包含不同時長的版本（例如 3 分鐘版、60 秒版、15 秒版）？</p>
 
         <p><strong>修改輪數。</strong>包含幾輪修改？一輪的定義是甚麼？超出之後如何計費？</p>
 
-        <p><strong>字幕。</strong>是否包含字幕？是硬字幕還是可編輯的字幕檔？中文與英文版本是否都包含？</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">字幕</h4>
+<p>是否包含字幕？是硬字幕還是可編輯的字幕檔？中文與英文版本是否都包含？</p>
 
-        <p><strong>平台比例。</strong>是否包含 16:9、9:16、1:1 三個版本？不同比例可能需要重新構圖，不是單純裁切。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">平台比例</h4>
+<p>是否包含 16:9、9:16、1:1 三個版本？不同比例可能需要重新構圖，不是單純裁切。</p>
 
-        <p><strong>交付格式。</strong>輸出格式與碼率是甚麼？是否需要電視或大型螢幕播放的指定格式？</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">交付格式</h4>
+<p>輸出格式與碼率是甚麼？是否需要電視或大型螢幕播放的指定格式？</p>
 
-        <p><strong>原始素材歸屬。</strong>原始拍攝素材是否交付給客戶？如果不交付，客戶日後能否索取？素材由誰保管、保管多久？</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">原始素材歸屬</h4>
+<p>原始拍攝素材是否交付給客戶？如果不交付，客戶日後能否索取？素材由誰保管、保管多久？</p>
 
-        <p><strong>使用權範圍與期限。</strong>可以用在哪些渠道？可以用多久？是否包含付費廣告投放？期滿如何續期？</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">使用權範圍與期限</h4>
+<p>可以用在哪些渠道？可以用多久？是否包含付費廣告投放？期滿如何續期？</p>
 
-        <p><strong>配樂授權。</strong>配樂來源是甚麼？授權是否覆蓋商業與廣告用途？是否需要在平台申報？</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">配樂授權</h4>
+<p>配樂來源是甚麼？授權是否覆蓋商業與廣告用途？是否需要在平台申報？</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">交付項目</th><th class="text-left px-5 py-3 font-semibold">應該問的問題</th><th class="text-left px-5 py-3 font-semibold">合約應該寫明</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">腳本</td><td class="px-5 py-3">由誰撰寫、有幾輪修改</td><td class="px-5 py-3">定稿確認方式</td></tr><tr><td class="px-5 py-3">分鏡</td><td class="px-5 py-3">是否提供、包含哪些內容</td><td class="px-5 py-3">分鏡確認即鎖定範圍</td></tr><tr><td class="px-5 py-3">拍攝</td><td class="px-5 py-3">日數、團隊、場地安排</td><td class="px-5 py-3">日數與超時安排</td></tr><tr><td class="px-5 py-3">剪輯版本</td><td class="px-5 py-3">幾個版本、幾個時長</td><td class="px-5 py-3">版本數量與規格</td></tr><tr><td class="px-5 py-3">修改</td><td class="px-5 py-3">幾輪、如何定義一輪</td><td class="px-5 py-3">輪數與超額計費</td></tr><tr><td class="px-5 py-3">字幕</td><td class="px-5 py-3">語言、硬字幕或檔案</td><td class="px-5 py-3">語言與格式</td></tr><tr><td class="px-5 py-3">平台比例</td><td class="px-5 py-3">是否包含三個比例</td><td class="px-5 py-3">輸出比例清單</td></tr><tr><td class="px-5 py-3">原始素材</td><td class="px-5 py-3">是否交付、保管多久</td><td class="px-5 py-3">素材歸屬與保管期</td></tr><tr><td class="px-5 py-3">使用權</td><td class="px-5 py-3">渠道、期限、廣告用途</td><td class="px-5 py-3">授權範圍與續期方式</td></tr><tr><td class="px-5 py-3">配樂</td><td class="px-5 py-3">來源、是否覆蓋廣告</td><td class="px-5 py-3">授權證明與責任歸屬</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">交付項目</th><th class="text-left px-5 py-3 font-semibold">應該問的問題</th><th class="text-left px-5 py-3 font-semibold">合約應該寫明</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">腳本</td><td class="px-5 py-3">由誰撰寫、有幾輪修改</td><td class="px-5 py-3">定稿確認方式</td></tr><tr><td class="px-5 py-3">分鏡</td><td class="px-5 py-3">是否提供、包含哪些內容</td><td class="px-5 py-3">分鏡確認即鎖定範圍</td></tr><tr><td class="px-5 py-3">拍攝</td><td class="px-5 py-3">日數、團隊、場地安排</td><td class="px-5 py-3">日數與超時安排</td></tr><tr><td class="px-5 py-3">剪輯版本</td><td class="px-5 py-3">幾個版本、幾個時長</td><td class="px-5 py-3">版本數量與規格</td></tr><tr><td class="px-5 py-3">修改</td><td class="px-5 py-3">幾輪、如何定義一輪</td><td class="px-5 py-3">輪數與超額計費</td></tr><tr><td class="px-5 py-3">字幕</td><td class="px-5 py-3">語言、硬字幕或檔案</td><td class="px-5 py-3">語言與格式</td></tr><tr><td class="px-5 py-3">平台比例</td><td class="px-5 py-3">是否包含三個比例</td><td class="px-5 py-3">輸出比例清單</td></tr><tr><td class="px-5 py-3">原始素材</td><td class="px-5 py-3">是否交付、保管多久</td><td class="px-5 py-3">素材歸屬與保管期</td></tr><tr><td class="px-5 py-3">使用權</td><td class="px-5 py-3">渠道、期限、廣告用途</td><td class="px-5 py-3">授權範圍與續期方式</td></tr><tr><td class="px-5 py-3">配樂</td><td class="px-5 py-3">來源、是否覆蓋廣告</td><td class="px-5 py-3">授權證明與責任歸屬</td></tr></tbody></table></div>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、如何分辨製作公司的能力</h3>
 
@@ -751,7 +784,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">看溝通方式與回覆節奏</h4>
 
-        <p>在報價階段，留意對方回覆問題的速度和具體程度。願意逐條回答你的問題、主動指出你沒有考慮到的環節（例如版權、場地許可、字幕格式），通常代表這間公司有實際做過類似項目。相反，如果對方只不斷催促你落單，對細節問題含糊其詞，就要謹慎。</p>
+        <p>在報價階段，留意對方回覆問題的速度和具體程度。願意逐條回答你的問題、主動指出你沒有考慮到的環節（例如版權、場地許可、字幕格式），通常代表這間公司有實際做過類似項目。相反，如果對方只不斷催促你下單，對細節問題含糊其詞，就要謹慎。</p>
 
         <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">一個實用的檢查動作</p><p class="text-amber-900 text-sm leading-relaxed">拿同一份交付清單去問三間公司，逐項對比它們的答案。你會發現，最便宜的報價通常在某些項目上是空白的，或者範圍寫得很模糊。對比清單之後，你比較的就不再是價錢，而是每一個價錢背後的實際範圍。這個動作大約花你半日時間，但可以省下日後幾個星期的爭議。</p></div>
 
@@ -827,15 +860,15 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">影片製作有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">企業影片製作有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見陷阱：①報價唔包修改費 ②使用權範圍模糊 ③原始素材唔交回 ④交付格式受限。合約一定要寫清楚。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見陷阱有四項：報價未包含修改費用、使用權範圍模糊、原始素材不交回客戶，以及交付格式受限。這四項都應在簽約前於合約逐項寫明，否則後期補做的成本遠高於事前約定。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做企業影片比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇企業影片製作公司？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有企業影片作品集、合約透明、可以提供完整使用權嘅香港製作公司。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議要求對方提供兩至三條完整成品，而非只有精華片段，並確認每條片中對方負責的環節。此外應檢查對方是否備有標準交付清單、合約是否寫明修改輪數與使用權範圍。願意逐項列明範圍的公司，後期爭議通常較少。</p>
           </div>
         </div>
 
@@ -881,7 +914,7 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
           <li><a href="/blog/kol-marketing-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">KOL 網紅營銷指南：香港中小企選型、報價與成效 2026</a></li>
-          <li><a href="/blog/social-media-management-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">社交媒體管理：香港企業外判代管服務點揀、月費與成效量度 2026</a></li>
+          <li><a href="/blog/social-media-management-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">社交媒體管理：香港企業外判代管服務如何選擇、月費與成效量度 2026</a></li>
           </ul>
         </div>`,
   },
@@ -892,7 +925,7 @@ export const blogPosts: BlogPost[] = [
     slug: "social-media-management-hong-kong-guide-2026",
     title: "社交媒體管理：香港企業外判代管服務點揀、月費與成效量度 2026",
     excerpt:
-      "自己請人定外判？本文釐清社交媒體管理實際包括哪六項工作、外判與自聘的成本與風險對照、月費通常包含甚麼（附第三方平台公開市場數據）、香港五個平台的分工、虛榮指標與業務指標的分別，以及六項可檢查的選商方法。",
+      "應該自聘還是外判？本文釐清社交媒體管理實際包括哪六項工作、外判與自聘的成本與風險對照、月費通常包含甚麼（附第三方平台公開市場數據）、香港五個平台的分工、虛榮指標與業務指標的分別，以及六項可檢查的選商方法。",
     date: "2026-09-21",
     updatedAt: "2026-09-21",
     category: "Digital Marketing",
@@ -901,11 +934,11 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/social-media-management-hong-kong-guide-2026.webp",
     tags: ["社交媒體管理", "代管服務", "社交媒體推廣", "小編", "內容企劃", "香港"],
     content: `
-        <p class="lead text-xl text-gray-600 mb-8">香港好多企業都試過同一件事：請了一個同事專門做社交媒體，錢花了、時間花了，一年過去，專頁追蹤數升了一點，但查詢量幾乎無變。問題往往唔係「小編唔夠努力」，而係一開始就無釐清社交媒體管理實際上要做什麼、月費買到的究竟係邊幾項交付、以及成效應該用什麼指標去睇。這篇文章用採購角度寫，幫你在比較代管服務商時，知道要問什麼、要核對什麼、要寫入合約什麼。</p>
+        <p class="lead text-xl text-gray-600 mb-8">香港好多企業都試過同一件事：請了一個同事專門做社交媒體，錢花了、時間花了，一年過去，專頁追蹤數升了一點，但查詢量幾乎無變。問題往往不是「小編唔夠努力」，而是一開始就無釐清社交媒體管理實際上要做什麼、月費買到的究竟是邊幾項交付、以及成效應該用什麼指標去看。這篇文章用採購角度寫，幫你在比較代管服務商時，知道要問什麼、要核對什麼、要寫入合約什麼。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">社交媒體管理月費香港市場價大約 HK$3,000-15,000/月，視乎平台數量、發文頻率、同埋有冇包含廣告管理。外判代管 vs 自己請人性價比要按企業規模嚟比較。</p>
+          <p class="text-gray-700 leading-relaxed">社交媒體管理月費香港市場價大約 HK$3,000-15,000/月，視乎平台數量、發文頻率、以及有沒有包含廣告管理。外判代管 vs 自己請人性價比要按企業規模來比較。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -913,32 +946,28 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">月費 HK$3,000-15,000（視平台數量同發文頻率）</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">外判代管通常比自己請人平 30-50%</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">簽約前要問清楚：包唔包回覆留言/私訊、有冇內容日曆</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">成效量度要用互動率+轉換率，唔係只睇讚好數</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">簽約前要問清楚：包不包回覆留言/私訊、有沒有內容日曆</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">成效量度要用互動率+轉換率，不是只查看讚好數</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/social-media-hero.webp" alt="社交媒體管理指南 — ADWire 香港社交媒體管理" title="社交媒體管理指南 — ADWire 香港社交媒體管理" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
+        </figure>
 
-        
-        
-        
-
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">社交媒體管理不是「幫你出帖」這麼簡單，它同時包含內容企劃、視覺設計、社群互動、數據分析與廣告配合五個環節，任何一環缺失，成效都會大打折扣。香港市場上第三方平台觀察到的月費大致分三檔（約 HK$3,000、HK$7,500、HK$12,000），但價錢高低本身唔代表什麼，真正要比的是「這個價錢包幾多個帖、幾多個平台、包唔包回覆留言、包唔包廣告管理」。成效方面，追蹤數與讚好屬於虛榮指標，唔可以單獨作為續約或加預算的依據；真正要看的是觸及、互動率、網站點擊與查詢數。如果只有一項要記住：要求服務商把交付清單逐項寫入合約，包括帖子數量、平台數量、修改次數與回覆留言的處理方式。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">社交媒體管理不是「幫你出帖」這麼簡單，它同時包含內容企劃、視覺設計、社群互動、數據分析與廣告配合五個環節，任何一環缺失，成效都會大打折扣。香港市場上第三方平台觀察到的月費大致分三檔（約 HK$3,000、HK$7,500、HK$12,000），但價錢高低本身不代表什麼，真正要比的是「這個價錢包幾多個帖、幾多個平台、包唔包回覆留言、包唔包廣告管理」。成效方面，追蹤數與讚好屬於虛榮指標，不可以單獨作為續約或加預算的依據；真正要看的是觸及、互動率、網站點擊與查詢數。如果只有一項要記住：要求服務商把交付清單逐項寫入合約，包括帖子數量、平台數量、修改次數與回覆留言的處理方式。</p></div>\n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先釐清：社交媒體管理到底包括什麼</h3>
 
-        <p>在香港，「社交媒體管理」這個詞被用得極闊。有人用它指「幫我出帖」，有人用它指「全權代管包括廣告」，亦有人用它指「請個人返嚟坐喺公司回覆留言」。範圍唔講清楚，報價就無得比。以下把工作拆成六項，並寫明每一項實際上要花的工夫。</p>
+        <p>在香港，「社交媒體管理」這個詞被用得極闊。有人用它指「幫我出帖」，有人用它指「全權代管包括廣告」，亦有人用它指「請個人返嚟坐喺公司回覆留言」。範圍不說明清楚，報價就無得比。以下把工作拆成六項，並寫明每一項實際上要花的工夫。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1. 日常發文與排程</h4>
 
-        <p>看似最簡單的一項，實際上包括：擬定發文時間表、準備素材、寫 caption、加上標籤、排程或手動發佈、發佈後檢查是否成功上線、處理突發的熱話或節日借勢。如果一個月要出 12 至 20 個帖，橫跨兩至三個平台，單是「複製內容去唔同平台再各自調整格式」就已經是一份兼職工作量。平台演算法對格式有偏好，同一個帖直接搬去另一個平台，效果通常會差一截，所以「一稿多投」唔等於省工夫，只係把工夫轉移到成效損失上。</p>
+        <p>看似最簡單的一項，實際上包括：擬定發文時間表、準備素材、寫 caption、加上標籤、排程或手動發佈、發佈後檢查是否成功上線、處理突發的熱話或節日借勢。如果一個月要出 12 至 20 個帖，橫跨兩至三個平台，單是「複製內容去唔同平台再各自調整格式」就已經是一份兼職工作量。平台演算法對格式有偏好，同一個帖直接搬去另一個平台，效果通常會差一截，所以「一稿多投」不等於省工夫，只是把工夫轉移到成效損失上。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">2. 內容企劃</h4>
 
-        <p>內容企劃係決定「講什麼、為誰講、幾時講」的工作。它需要理解你的業務、客群痛點、競爭對手在做什麼，再排出一個月的內容主題分佈。沒有企劃的專頁，通常會出現三種症狀：內容全部係產品硬銷、主題重複、或者跟風跟到與品牌無關。企劃工作唔會直接出現在專頁上，但它決定了其餘五項工作的方向，也是分辨「代管服務」與「代客出帖」最實際的一條線。</p>
+        <p>內容企劃是決定「講什麼、為誰講、幾時講」的工作。它需要理解你的業務、客群痛點、競爭對手在做什麼，再排出一個月的內容主題分佈。沒有企劃的專頁，通常會出現三種症狀：內容全部是產品硬銷、主題重複、或者跟風跟到與品牌無關。企劃工作不會直接出現在專頁上，但它決定了其餘五項工作的方向，也是分辨「代管服務」與「代客出帖」最實際的一條線。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">3. 視覺設計</h4>
 
@@ -946,17 +975,17 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">4. 社群互動：回覆留言與私訊</h4>
 
-        <p>這一項最常被低估。回覆留言與私訊不只是「有禮貌地答問題」，還包括：過濾廣告與惡意留言、把查詢分流到正確的同事或分店、記錄常見問題以便日後做內容、以及在負評出現時判斷應該公開回覆還是轉私下處理。對做生意來說，私訊往往是查詢轉化的第一站，回覆速度與回覆質素直接影響落單機會。這裡要留意：任何服務商都唔應該在合約上承諾特定的回覆時限，因為實際回覆速度取決於你提供的產品資訊、授權範圍與內部審批流程；合理的做法是約定「在什麼時段內由誰負責查看訊息」，而不是寫一個無法長期履行的承諾。</p>
+        <p>這一項最常被低估。回覆留言與私訊不只是「有禮貌地答問題」，還包括：過濾廣告與惡意留言、把查詢分流到正確的同事或分店、記錄常見問題以便日後做內容、以及在負評出現時判斷應該公開回覆還是轉私下處理。對做生意來說，私訊往往是查詢轉化的第一站，回覆速度與回覆質素直接影響下單機會。這裡要留意：任何服務商都不應該在合約上承諾特定的回覆時限，因為實際回覆速度取決於你提供的產品資訊、授權範圍與內部審批流程；合理的做法是約定「在什麼時段內由誰負責查看訊息」，而不是寫一個無法長期履行的承諾。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">5. 數據分析與報告</h4>
 
-        <p>每個月需要整理：追蹤數變化、觸及人數、互動率、貼文表現排名、網站點擊、以及查詢來源。報告的價值唔在於「數字多」，而在於「下個月會改什麼」。如果一份報告只有追蹤數與讚好數，它其實幫唔到你做任何決定。</p>
+        <p>每個月需要整理：追蹤數變化、觸及人數、互動率、貼文表現排名、網站點擊、以及查詢來源。報告的價值不在於「數字多」，而在於「下個月會改什麼」。如果一份報告只有追蹤數與讚好數，它其實幫不到你做任何決定。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">6. 廣告配合</h4>
 
-        <p>自然觸及在香港已經相當有限，內容做得再好，唔配合付費推廣，新客群很難接觸到。廣告配合包括：把表現好的自然帖轉為付費推廣、設定受眾、管理預算、以及把廣告帶來的查詢與自然流量分開記錄。這一項通常是獨立收費項目，所以比較報價時必須問清楚「月費包唔包廣告管理」。</p>
+        <p>自然觸及在香港已經相當有限，內容做得再好，不配合付費推廣，新客群很難接觸到。廣告配合包括：把表現好的自然帖轉為付費推廣、設定受眾、管理預算、以及把廣告帶來的查詢與自然流量分開記錄。這一項通常是獨立收費項目，所以比較報價時必須問清楚「月費包唔包廣告管理」。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">工作項目</th><th class="text-left px-5 py-3 font-semibold">每月實際工作量（以 12 個帖、2 個平台估算）</th><th class="text-left px-5 py-3 font-semibold">缺少時的常見後果</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">日常發文與排程</td><td class="px-5 py-3">約 8 至 16 小時</td><td class="px-5 py-3">發文斷斷續續，演算法觸及下滑</td></tr><tr><td class="px-5 py-3">內容企劃</td><td class="px-5 py-3">約 4 至 8 小時</td><td class="px-5 py-3">內容重複、只賣產品，客群流失</td></tr><tr><td class="px-5 py-3">視覺設計</td><td class="px-5 py-3">約 10 至 20 小時</td><td class="px-5 py-3">版面雜亂，專業感下降</td></tr><tr><td class="px-5 py-3">社群互動</td><td class="px-5 py-3">約 10 至 30 小時（視查詢量）</td><td class="px-5 py-3">查詢無人跟，直接損失生意</td></tr><tr><td class="px-5 py-3">數據分析與報告</td><td class="px-5 py-3">約 3 至 6 小時</td><td class="px-5 py-3">無從判斷什麼內容有效</td></tr><tr><td class="px-5 py-3">廣告配合</td><td class="px-5 py-3">約 4 至 10 小時</td><td class="px-5 py-3">觸及只限現有追蹤者，增長停滯</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">工作項目</th><th class="text-left px-5 py-3 font-semibold">每月實際工作量（以 12 個帖、2 個平台估算）</th><th class="text-left px-5 py-3 font-semibold">缺少時的常見後果</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">日常發文與排程</td><td class="px-5 py-3">約 8 至 16 小時</td><td class="px-5 py-3">發文斷斷續續，演算法觸及下滑</td></tr><tr><td class="px-5 py-3">內容企劃</td><td class="px-5 py-3">約 4 至 8 小時</td><td class="px-5 py-3">內容重複、只賣產品，客群流失</td></tr><tr><td class="px-5 py-3">視覺設計</td><td class="px-5 py-3">約 10 至 20 小時</td><td class="px-5 py-3">版面雜亂，專業感下降</td></tr><tr><td class="px-5 py-3">社群互動</td><td class="px-5 py-3">約 10 至 30 小時（視查詢量）</td><td class="px-5 py-3">查詢無人跟，直接損失生意</td></tr><tr><td class="px-5 py-3">數據分析與報告</td><td class="px-5 py-3">約 3 至 6 小時</td><td class="px-5 py-3">無從判斷什麼內容有效</td></tr><tr><td class="px-5 py-3">廣告配合</td><td class="px-5 py-3">約 4 至 10 小時</td><td class="px-5 py-3">觸及只限現有追蹤者，增長停滯</td></tr></tbody></table></div>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、自己請人 vs 外判：成本與風險對照</h3>
 
@@ -966,45 +995,45 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">自己請人的隱藏成本</h4>
 
-        <p>社交媒體管理需要的是複合技能：文案、設計、影片剪輯、數據解讀、廣告操作。請一位設計師，他做唔到文案與廣告；請一位文案，他做唔到設計。要覆蓋全部環節，通常要兩至三個人，成本即刻倍升。另一個隱藏成本是「單一視角」：同一個人長期做同一個專頁，容易陷入內容慣性，創意衰減，而外部團隊因為同時處理多個行業，通常能帶來跨行業的觀察。</p>
+        <p>社交媒體管理需要的是複合技能：文案、設計、影片剪輯、數據解讀、廣告操作。請一位設計師，他做不到文案與廣告；請一位文案，他做不到設計。要覆蓋全部環節，通常要兩至三個人，成本即刻倍升。另一個隱藏成本是「單一視角」：同一個人長期做同一個專頁，容易陷入內容慣性，創意衰減，而外部團隊因為同時處理多個行業，通常能帶來跨行業的觀察。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">外判的市場月費區間</h4>
 
         <p>以下是第三方平台公開資料所見的市場觀察，屬於市場參考而非官方統計。不同公司服務範圍差異很大，價格必須連同交付內容一併比較，單看月費高低沒有意義。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">月費檔次（市場觀察）</th><th class="text-left px-5 py-3 font-semibold">常見交付範圍</th><th class="text-left px-5 py-3 font-semibold">適合什麼情況</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">約 HK$3,000／月</td><td class="px-5 py-3">基本發文，設計與文案可能較簡單，平台數目通常限一至兩個</td><td class="px-5 py-3">剛開始經營專頁，需要穩定出帖節奏</td></tr><tr><td class="px-5 py-3">約 HK$7,500／月</td><td class="px-5 py-3">內容企劃、設計、文案、基本社群互動與月報</td><td class="px-5 py-3">已有一定客群，需要系統化內容與互動</td></tr><tr><td class="px-5 py-3">約 HK$12,000／月</td><td class="px-5 py-3">多平台、影片內容、廣告配合、較完整的數據報告</td><td class="px-5 py-3">多平台經營、有推廣預算、需要整合內容與廣告</td></tr><tr><td class="px-5 py-3">HK$4,000／月（個別服務商公開價）</td><td class="px-5 py-3">每月 12 個帖子，含設計與文案</td><td class="px-5 py-3">想以固定帖量控制成本</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">月費檔次（市場觀察）</th><th class="text-left px-5 py-3 font-semibold">常見交付範圍</th><th class="text-left px-5 py-3 font-semibold">適合什麼情況</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">約 HK$3,000／月</td><td class="px-5 py-3">基本發文，設計與文案可能較簡單，平台數目通常限一至兩個</td><td class="px-5 py-3">剛開始經營專頁，需要穩定出帖節奏</td></tr><tr><td class="px-5 py-3">約 HK$7,500／月</td><td class="px-5 py-3">內容企劃、設計、文案、基本社群互動與月報</td><td class="px-5 py-3">已有一定客群，需要系統化內容與互動</td></tr><tr><td class="px-5 py-3">約 HK$12,000／月</td><td class="px-5 py-3">多平台、影片內容、廣告配合、較完整的數據報告</td><td class="px-5 py-3">多平台經營、有推廣預算、需要整合內容與廣告</td></tr><tr><td class="px-5 py-3">HK$4,000／月（個別服務商公開價）</td><td class="px-5 py-3">每月 12 個帖子，含設計與文案</td><td class="px-5 py-3">想以固定帖量控制成本</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.pro360.com.hk/" target="_blank" rel="noopener">PRO360 香港服務收費參考</a>（第三方配對平台的公開收費資料，屬市場觀察，非官方統計）</p>
 
-        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">比較報價時最常出錯的地方</p><p class="text-amber-900 text-sm leading-relaxed">同一個「HK$5,000 一個月」，A 公司包 8 個帖、1 個平台、唔包回覆留言；B 公司包 16 個帖、3 個平台、包回覆留言與月報。兩個價錢一樣，實際交付差一倍以上。所以唔可以只比較月費數字，必須把交付清單逐項並排比較，包括帖子數量、平台數量、設計與修改次數、回覆留言的範圍、報告內容、以及廣告管理是否另計。任何唔肯把這些寫入合約的報價，都值得重新考慮。</p></div>
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">比較報價時最常出錯的地方</p><p class="text-amber-900 text-sm leading-relaxed">同一個「HK$5,000 一個月」，A 公司包 8 個帖、1 個平台、不包回覆留言；B 公司包 16 個帖、3 個平台、包回覆留言與月報。兩個價錢一樣，實際交付差一倍以上。所以不可以只比較月費數字，必須把交付清單逐項並排比較，包括帖子數量、平台數量、設計與修改次數、回覆留言的範圍、報告內容、以及廣告管理是否另計。任何不肯把這些寫入合約的報價，都值得重新考慮。</p></div>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、月費通常包含什麼？逐項列明</h3>
 
         <p>以下是社交媒體代管服務常見的收費項目。你可以在比較報價時，直接把這張表當作核對清單，逐項問清楚「包定唔包、包幾多」。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">收費項目</th><th class="text-left px-5 py-3 font-semibold">要問清楚的細節</th><th class="text-left px-5 py-3 font-semibold">常見計法</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">帖子數量</td><td class="px-5 py-3">係「帖子」定「帖文＋限時動態」？限時動態算唔算？</td><td class="px-5 py-3">按每月帖數分級</td></tr><tr><td class="px-5 py-3">平台數量</td><td class="px-5 py-3">同一內容發去多個平台，係唔係每個平台都重新調整格式？</td><td class="px-5 py-3">第 2、3 個平台通常加費</td></tr><tr><td class="px-5 py-3">設計</td><td class="px-5 py-3">包幾多張圖？修改次數上限幾多？原稿檔會唔會交回？</td><td class="px-5 py-3">通常按帖數包，額外設計另計</td></tr><tr><td class="px-5 py-3">文案</td><td class="px-5 py-3">係中文定中英雙語？Hashtag 研究包唔包？</td><td class="px-5 py-3">一般包含在帖費內</td></tr><tr><td class="px-5 py-3">回覆留言與私訊</td><td class="px-5 py-3">邊個時段負責？複雜產品問題由誰答？負評處理流程？</td><td class="px-5 py-3">部分服務商列為附加項</td></tr><tr><td class="px-5 py-3">數據報告</td><td class="px-5 py-3">月報還是雙週報？包含哪些指標？有無建議事項？</td><td class="px-5 py-3">通常月報，深度分析另計</td></tr><tr><td class="px-5 py-3">廣告管理</td><td class="px-5 py-3">管理費係固定月費定按廣告支出百分比？廣告費本身另計？</td><td class="px-5 py-3">常見為廣告費之外的服務費</td></tr><tr><td class="px-5 py-3">拍攝與影片</td><td class="px-5 py-3">上門拍攝次數？剪輯長度？字幕與封面包唔包？</td><td class="px-5 py-3">按次或按條計，屬高階項目</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">收費項目</th><th class="text-left px-5 py-3 font-semibold">要問清楚的細節</th><th class="text-left px-5 py-3 font-semibold">常見計法</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">帖子數量</td><td class="px-5 py-3">是「帖子」定「帖文＋限時動態」？限時動態算不算？</td><td class="px-5 py-3">按每月帖數分級</td></tr><tr><td class="px-5 py-3">平台數量</td><td class="px-5 py-3">同一內容發去多個平台，是不是每個平台都重新調整格式？</td><td class="px-5 py-3">第 2、3 個平台通常加費</td></tr><tr><td class="px-5 py-3">設計</td><td class="px-5 py-3">包多少張圖？修改次數上限多少？原稿檔會不會交回？</td><td class="px-5 py-3">通常按帖數包，額外設計另計</td></tr><tr><td class="px-5 py-3">文案</td><td class="px-5 py-3">是中文定中英雙語？Hashtag 研究包不包？</td><td class="px-5 py-3">一般包含在帖費內</td></tr><tr><td class="px-5 py-3">回覆留言與私訊</td><td class="px-5 py-3">哪個時段負責？複雜產品問題由誰答？負評處理流程？</td><td class="px-5 py-3">部分服務商列為附加項</td></tr><tr><td class="px-5 py-3">數據報告</td><td class="px-5 py-3">月報還是雙週報？包含哪些指標？有無建議事項？</td><td class="px-5 py-3">通常月報，深度分析另計</td></tr><tr><td class="px-5 py-3">廣告管理</td><td class="px-5 py-3">管理費是固定月費定按廣告支出百分比？廣告費本身另計？</td><td class="px-5 py-3">常見為廣告費之外的服務費</td></tr><tr><td class="px-5 py-3">拍攝與影片</td><td class="px-5 py-3">上門拍攝次數？剪輯長度？字幕與封面包不包？</td><td class="px-5 py-3">按次或按條計，屬高階項目</td></tr></tbody></table></div>
 
-        <p>建議你要求服務商把上述每一項寫入合約或報價單，特別是「帖子數量」、「平台數量」與「修改次數」三項。這三項是日後爭議最常見的來源。同時建議在合約中寫明素材與原稿的擁有權，以及合約結束後專頁帳號與內容的交接安排，避免日後轉換服務商時出現資料拿唔返的情況。</p><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、香港五個平台的分工</h3>
+        <p>建議你要求服務商把上述每一項寫入合約或報價單，特別是「帖子數量」、「平台數量」與「修改次數」三項。這三項是日後爭議最常見的來源。同時建議在合約中寫明素材與原稿的擁有權，以及合約結束後專頁帳號與內容的交接安排，避免日後轉換服務商時出現資料拿不返的情況。</p><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、香港五個平台的分工</h3>
 
-        <p>香港的數碼環境有幾個已核實的基礎事實：用戶日常通訊以 WhatsApp 為主，社交平台以 Instagram 與 Facebook 為主，而搜尋入口則以 Google 為主。這意味著社交媒體的角色通常不是「直接完成交易」，而是「被搜尋到、被信任、再引導去 WhatsApp 或網站完成查詢」。理解這一點，才唔會把資源錯配。</p>
+        <p>香港的數碼環境有幾個已核實的基礎事實：用戶日常通訊以 WhatsApp 為主，社交平台以 Instagram 與 Facebook 為主，而搜尋入口則以 Google 為主。這意味著社交媒體的角色通常不是「直接完成交易」，而是「被搜尋到、被信任、再引導去 WhatsApp 或網站完成查詢」。理解這一點，才不會把資源錯配。</p>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://datareportal.com/reports/digital-2024-hong-kong" target="_blank" rel="noopener">DataReportal：Digital 2024 Hong Kong</a></p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">主要客群</th><th class="text-left px-5 py-3 font-semibold">內容形式</th><th class="text-left px-5 py-3 font-semibold">適用場景</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Instagram</td><td class="px-5 py-3">年輕至中產客群，視覺導向消費</td><td class="px-5 py-3">圖片、Reels、限時動態</td><td class="px-5 py-3">美容、餐飲、零售、生活服務建立品牌感</td></tr><tr><td class="px-5 py-3">Facebook</td><td class="px-5 py-3">較成熟的用戶群，地區與興趣社群活躍</td><td class="px-5 py-3">圖文帖、影片、社團互動</td><td class="px-5 py-3">本地服務、B2C 推廣、活動報名、廣告投放</td></tr><tr><td class="px-5 py-3">Threads</td><td class="px-5 py-3">習慣文字互動的用戶</td><td class="px-5 py-3">短文字、對話式帖文</td><td class="px-5 py-3">建立品牌語氣、即時回應行業話題</td></tr><tr><td class="px-5 py-3">LinkedIn</td><td class="px-5 py-3">B2B 決策者、專業人士、招聘對象</td><td class="px-5 py-3">專業觀點、案例分享、公司動態</td><td class="px-5 py-3">B2B 開發、建立專業形象、人才招募</td></tr><tr><td class="px-5 py-3">小紅書</td><td class="px-5 py-3">內地用戶及來港旅客，重視真實體驗分享</td><td class="px-5 py-3">圖文筆記、探店與體驗分享</td><td class="px-5 py-3">吸納旅客與跨境客群，配合中國市場推廣</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">主要客群</th><th class="text-left px-5 py-3 font-semibold">內容形式</th><th class="text-left px-5 py-3 font-semibold">適用場景</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Instagram</td><td class="px-5 py-3">年輕至中產客群，視覺導向消費</td><td class="px-5 py-3">圖片、Reels、限時動態</td><td class="px-5 py-3">美容、餐飲、零售、生活服務建立品牌感</td></tr><tr><td class="px-5 py-3">Facebook</td><td class="px-5 py-3">較成熟的用戶群，地區與興趣社群活躍</td><td class="px-5 py-3">圖文帖、影片、社團互動</td><td class="px-5 py-3">本地服務、B2C 推廣、活動報名、廣告投放</td></tr><tr><td class="px-5 py-3">Threads</td><td class="px-5 py-3">習慣文字互動的用戶</td><td class="px-5 py-3">短文字、對話式帖文</td><td class="px-5 py-3">建立品牌語氣、即時回應行業話題</td></tr><tr><td class="px-5 py-3">LinkedIn</td><td class="px-5 py-3">B2B 決策者、專業人士、招聘對象</td><td class="px-5 py-3">專業觀點、案例分享、公司動態</td><td class="px-5 py-3">B2B 開發、建立專業形象、人才招募</td></tr><tr><td class="px-5 py-3">小紅書</td><td class="px-5 py-3">內地用戶及來港旅客，重視真實體驗分享</td><td class="px-5 py-3">圖文筆記、探店與體驗分享</td><td class="px-5 py-3">吸納旅客與跨境客群，配合中國市場推廣</td></tr></tbody></table></div>
 
-        <p>資源有限時，順序建議係：先做好 Instagram 與 Facebook（覆蓋面最廣），再加一個符合你客群的第三平台。B2B 業務應該把重心放在 LinkedIn；做旅客或跨境生意的，小紅書與中國市場渠道值得優先考慮。想了解跨境客群的內容策略，可以參考我們的<a href="/services/china-market/">中國市場推廣服務</a>；如果希望透過有影響力的人去建立信任，可配合<a href="/services/kol/">KOL 網紅推廣服務</a>，並先讀<a href="/blog/kol-marketing-hong-kong-guide-2026/">KOL 推廣指南</a>了解合作模式與報價結構。</p>
+        <p>資源有限時，順序建議是：先做好 Instagram 與 Facebook（覆蓋面最廣），再加一個符合你客群的第三平台。B2B 業務應該把重心放在 LinkedIn；做旅客或跨境生意的，小紅書與中國市場渠道值得優先考慮。想了解跨境客群的內容策略，可以參考我們的<a href="/services/china-market/">中國市場推廣服務</a>；如果希望透過有影響力的人去建立信任，可配合<a href="/services/kol/">KOL 網紅推廣服務</a>，並先讀<a href="/blog/kol-marketing-hong-kong-guide-2026/">KOL 推廣指南</a>了解合作模式與報價結構。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、成效怎樣量度：分清虛榮指標與業務指標</h3>
 
-        <p>社交媒體最容易出現的報告陷阱，係把「追蹤數」與「讚好數」當成主要成果。這兩個數字有個共同特性：它們會上升，但唔一定同生意有關。追蹤數可以靠抽獎活動短期推高，讚好數可以靠討好式內容換取，但兩者都唔代表有人準備向你查詢或落單。</p>
+        <p>社交媒體最容易出現的報告陷阱，是把「追蹤數」與「讚好數」當成主要成果。這兩個數字有個共同特性：它們會上升，但不一定同生意有關。追蹤數可以靠抽獎活動短期推高，讚好數可以靠討好式內容換取，但兩者都不代表有人準備向你查詢或下單。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">虛榮指標 vs 業務指標</h4>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標類型</th><th class="text-left px-5 py-3 font-semibold">例子</th><th class="text-left px-5 py-3 font-semibold">為什麼唔可以單獨使用</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">虛榮指標</td><td class="px-5 py-3">追蹤數、讚好數、帖文數</td><td class="px-5 py-3">可以被非目標客群推高，與查詢無必然關係</td></tr><tr><td class="px-5 py-3">過程指標</td><td class="px-5 py-3">觸及人數、互動率、儲存與分享次數</td><td class="px-5 py-3">反映內容是否被看見，但未反映商業意圖</td></tr><tr><td class="px-5 py-3">業務指標</td><td class="px-5 py-3">網站點擊、WhatsApp 查詢數、表單提交、到店或落單數</td><td class="px-5 py-3">需要與內部系統配合記錄，但最能支撐決策</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標類型</th><th class="text-left px-5 py-3 font-semibold">例子</th><th class="text-left px-5 py-3 font-semibold">為什麼不可以單獨使用</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">虛榮指標</td><td class="px-5 py-3">追蹤數、讚好數、帖文數</td><td class="px-5 py-3">可以被非目標客群推高，與查詢無必然關係</td></tr><tr><td class="px-5 py-3">過程指標</td><td class="px-5 py-3">觸及人數、互動率、儲存與分享次數</td><td class="px-5 py-3">反映內容是否被看見，但未反映商業意圖</td></tr><tr><td class="px-5 py-3">業務指標</td><td class="px-5 py-3">網站點擊、WhatsApp 查詢數、表單提交、到店或下單數</td><td class="px-5 py-3">需要與內部系統配合記錄，但最能支撐決策</td></tr></tbody></table></div>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">為什麼讚好數不能單獨作為成效依據</h4>
 
-        <p>原因有三。第一，讚好唔需要成本，也不代表購買意圖，一個帖可以有大量讚好而零查詢。第二，讚好數字受發文時間、內容類型與平台推播影響，波動大，單月比較沒有意義。第三，若把讚好當作 KPI，內容團隊自然會傾向製作容易取讚的內容，而這類內容通常與產品資訊或轉化路徑無關。</p>
+        <p>原因有三。第一，讚好不需要成本，也不代表購買意圖，一個帖可以有大量讚好而零查詢。第二，讚好數字受發文時間、內容類型與平台推播影響，波動大，單月比較沒有意義。第三，若把讚好當作 KPI，內容團隊自然會傾向製作容易取讚的內容，而這類內容通常與產品資訊或轉化路徑無關。</p>
 
         <p>比較合理的做法是建立「三層報告」：上層是業務指標（查詢與轉化），中層是過程指標（觸及與互動率），下層才是虛榮指標。每月的討論重點應該放在「哪一類內容帶來最多查詢」，而不是「這個月多了幾多個讚」。要讓業務指標可量度，最實際的方法是在帖文與專頁中加入可追蹤的連結，並使用獨立連結去分辨社交媒體、廣告與搜尋三個來源。若果你同時投放付費廣告，可以把社交內容與<a href="/services/ads/">成效廣告投放服務</a>配合，把表現好的自然內容轉為付費推廣，並分別記錄兩邊帶來的查詢，這樣才能判斷預算應該加在內容還是廣告上。</p>
 
@@ -1016,7 +1045,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1. 交付清單是否具體</h4>
 
-        <p>「每月發文、設計、報告」屬於模糊描述。具體的寫法是「每月 12 個帖、2 個平台、每個帖包 2 張圖與 1 次修改、每月 1 份報告」。如果對方唔願意把數字寫落報價單，日後就無從核對。</p>
+        <p>「每月發文、設計、報告」屬於模糊描述。具體的寫法是「每月 12 個帖、2 個平台、每個帖包 2 張圖與 1 次修改、每月 1 份報告」。如果對方不願意把數字寫落報價單，日後就無從核對。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">2. 報告包含什麼</h4>
 
@@ -1024,15 +1053,15 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">3. 內容是否原創</h4>
 
-        <p>問清楚設計素材來源：係自家設計、購買授權圖庫，還是直接使用網上圖片。使用未授權素材會為你的品牌帶來法律風險，這一點值得在合約中明確要求對方保證素材授權。</p>
+        <p>問清楚設計素材來源：是自家設計、購買授權圖庫，還是直接使用網上圖片。使用未授權素材會為你的品牌帶來法律風險，這一點值得在合約中明確要求對方保證素材授權。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">4. 有沒有實際案例</h4>
 
-        <p>要求對方說明「做過什麼行業、遇到什麼問題、用了什麼方法」。注意對方是否只提供截圖而無法解釋策略思路。案例唔需要透露客戶名稱，但策略思路應該講得清楚。</p>
+        <p>要求對方說明「做過什麼行業、遇到什麼問題、用了什麼方法」。注意對方是否只提供截圖而無法解釋策略思路。案例不需要透露客戶名稱，但策略思路應該講得清楚。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">5. 回覆留言是否包含</h4>
 
-        <p>這是查詢轉化的關鍵環節，卻最常被列為附加項。要問清楚：邊個時段負責查看訊息、複雜問題如何轉交、負評與惡意留言的處理原則。同時要建立內部流程，確保你這邊能及時提供產品資訊，因為服務商無法回答他唔知道的細節。</p>
+        <p>這是查詢轉化的關鍵環節，卻最常被列為附加項。要問清楚：哪個時段負責查看訊息、複雜問題如何轉交、負評與惡意留言的處理原則。同時要建立內部流程，確保你這邊能及時提供產品資訊，因為服務商無法回答他不知道道的細節。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">6. 合約是否寫明帖子數量與修改次數</h4>
 
@@ -1040,7 +1069,7 @@ export const blogPosts: BlogPost[] = [
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見失敗原因</h3>
 
-        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1. 只比較月費，唔比較交付</h4>
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1. 只比較月費，不比較交付</h4>
 
         <p>最常見的一項。低價方案往往以削減帖數、平台數或互動服務來達成，結果是「省了錢但無成效」，最終要重新找服務商，成本更高。</p>
 
@@ -1050,7 +1079,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">3. 報告只有讚好數</h4>
 
-        <p>如果每月的檢討只圍繞讚好與追蹤數，團隊自然會把資源放在容易取讚的內容上，而唔會處理查詢轉化與產品訊息傳遞這些更難但更有價值的工作。</p>
+        <p>如果每月的檢討只圍繞讚好與追蹤數，團隊自然會把資源放在容易取讚的內容上，而不會處理查詢轉化與產品訊息傳遞這些更難但更有價值的工作。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">4. 平台選錯</h4>
 
@@ -1058,7 +1087,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">5. 無廣告配合，只靠自然觸及</h4>
 
-        <p>自然觸及在香港的覆蓋有限，若完全唔投放推廣，新客群很難接觸到你。內容與廣告應該互相配合：先用自然內容測試題材，再把表現好的內容轉為付費推廣。</p>
+        <p>自然觸及在香港的覆蓋有限，若完全不投放推廣，新客群很難接觸到你。內容與廣告應該互相配合：先用自然內容測試題材，再把表現好的內容轉為付費推廣。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">6. 內部無接單流程</h4>
 
@@ -1067,37 +1096,37 @@ export const blogPosts: BlogPost[] = [
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h3>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">社交媒體管理月費大概幾多？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">社交媒體管理月費大概多少？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">根據第三方配對平台的公開收費資料，香港社交媒體管理的月費大致分為約 HK$3,000、HK$7,500 與 HK$12,000 三個檔次，亦有個別服務商公開每月 HK$4,000、包含 12 個帖子與設計文案的方案。這些屬市場觀察而非官方統計，實際價格取決於帖子數量、平台數量、是否包含回覆留言與廣告管理。比較時必須把交付清單一併對照，單看月費數字沒有意義。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">外判社交媒體管理，同自己請人比較，邊個抵？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">外判社交媒體管理，同自己請人比較，哪個抵？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">要視乎你的內容量與內部能力。自己請人除了薪酬，還要計強積金、假期、招聘與管理時間，以及離職帶來的節奏中斷風險；而且社交媒體需要文案、設計、影片、數據與廣告等複合技能，一個人通常無法全部覆蓋。外判的好處是可以一次取得多項技能，並按需要調整規模；缺點是產品細節需要你提供，且需要清晰的內部對接流程。內容需求穩定且涉及大量產品知識的行業，常見做法是內部負責產品資訊與審批，外部負責企劃、設計、發文與數據。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">社交媒體代管服務通常包唔包回覆留言與私訊？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">社交媒體代管服務通常包不包回覆留言與私訊？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">唔一定，這是最常見的收費分界線。有些方案包含基本回覆，有些列為附加項目，亦有部分只負責發文而唔處理訊息。由於私訊往往是查詢轉化的第一站，建議在報價階段就問清楚：邊個時段負責查看、複雜問題如何轉交、負評與惡意留言的處理原則。同時要留意，服務商無法回答他唔知道的產品細節，所以內部必須有提供資訊與最終決策的人。合約上宜約定由誰在什麼時段負責查看訊息，而唔應該寫上具體的回覆時限承諾。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定，這是最常見的收費分界線。有些方案包含基本回覆，有些列為附加項目，亦有部分只負責發文而不處理訊息。由於私訊往往是查詢轉化的第一站，建議在報價階段就問清楚：哪個時段負責查看、複雜問題如何轉交、負評與惡意留言的處理原則。同時要留意，服務商無法回答他不知道道的產品細節，所以內部必須有提供資訊與最終決策的人。合約上宜約定由誰在什麼時段負責查看訊息，而不應該寫上具體的回覆時限承諾。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">成效應該用什麼指標去量度？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議分三層。業務指標包括網站點擊、WhatsApp 或電話查詢數、表單提交與落單數，最能支撐決策；過程指標包括觸及人數、互動率、儲存與分享次數，用來判斷內容是否被看見；虛榮指標包括追蹤數與讚好數，只適合作為參考。讚好數唔可以單獨作為成效依據，因為它唔代表購買意圖，容易被非目標客群推高，而且會引導團隊製作容易取讚但與生意無關的內容。要讓業務指標可量度，需要在帖文加入可追蹤連結，並分開記錄社交媒體、廣告與搜尋三個來源。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議分三層。業務指標包括網站點擊、WhatsApp 或電話查詢數、表單提交與下單數，最能支撐決策；過程指標包括觸及人數、互動率、儲存與分享次數，用來判斷內容是否被看見；虛榮指標包括追蹤數與讚好數，只適合作為參考。讚好數不可以單獨作為成效依據，因為它不代表購買意圖，容易被非目標客群推高，而且會引導團隊製作容易取讚但與生意無關的內容。要讓業務指標可量度，需要在帖文加入可追蹤連結，並分開記錄社交媒體、廣告與搜尋三個來源。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港企業應該做邊幾個社交平台？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">香港用戶日常通訊以 WhatsApp 為主，社交平台以 Instagram 與 Facebook 為主，搜尋入口以 Google 為主。因此一般企業建議先做好 Instagram 與 Facebook，再加一個符合客群的第三平台。B2B 或專業服務應把重心放在 LinkedIn；做旅客或跨境生意的，小紅書值得優先考慮；想以文字建立品牌語氣與即時互動的，可以加入 Threads。資源有限時，寧願把兩個平台做好，也唔好五個平台都半死不活。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">香港用戶日常通訊以 WhatsApp 為主，社交平台以 Instagram 與 Facebook 為主，搜尋入口以 Google 為主。因此一般企業建議先做好 Instagram 與 Facebook，再加一個符合客群的第三平台。B2B 或專業服務應把重心放在 LinkedIn；做旅客或跨境生意的，小紅書值得優先考慮；想以文字建立品牌語氣與即時互動的，可以加入 Threads。資源有限時，寧願把兩個平台做好，也不要五個平台都半死不活。</p>
           </div>
         </div>
 
@@ -1108,15 +1137,15 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">社交媒體管理有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">社交媒體管理外判有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見陷阱：①代管公司用自動化工具批量發文失去品牌個性 ②合約冇寫明危機處理機制 ③數據報告太表面。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見問題有三：代管方以批量自動化工具發文，令品牌語氣失去個性；合約未寫明危機處理與負評應對機制；以及每月報告只列追蹤數與讚好數，無法反映查詢轉化。簽約前應要求對方說明內容企劃流程與報告指標。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做社交媒體管理比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇社交媒體管理服務商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有香港本地品牌管理經驗、內容風格多元化、同埋有危機處理機制嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">重點有三：對方是否有香港本地品牌管理經驗、內容風格是否多元（文案、設計、影片兼備）、以及是否具備負評與危機處理機制。建議要求對方把交付數量、平台數目、回覆範圍與報告內容逐項寫入報價單。</p>
           </div>
         </div>
 
@@ -1124,15 +1153,15 @@ export const blogPosts: BlogPost[] = [
 
         
 
-        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">結語：把社交媒體當成流程，而唔係一次性任務</h3>
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">結語：把社交媒體當成流程，而不是一次性任務</h3>
 
-        <p>香港企業在 Google 上通常會用「社交媒體管理」、「社交媒體營銷」或「社交媒體推廣」去搜尋相關服務，但這幾個詞其實指向同一件事的不同側面：管理是日常工作，營銷與推廣則偏向策略與付費投放。無論你用邊個詞搜尋，最終要解決的問題都一樣——如何用有限資源，穩定地把內容送到對的客群面前，並把查詢接住。</p>
+        <p>香港企業在 Google 上通常會用「社交媒體管理」、「社交媒體營銷」或「社交媒體推廣」去搜尋相關服務，但這幾個詞其實指向同一件事的不同側面：管理是日常工作，營銷與推廣則偏向策略與付費投放。無論你用哪個詞搜尋，最終要解決的問題都一樣——如何用有限資源，穩定地把內容送到對的客群面前，並把查詢接住。</p>
 
-        <p>社交媒體管理之所以容易失望，通常唔係因為團隊能力問題，而係因為採購與管理方式有缺口：交付範圍無寫清楚、成效指標定錯、內部無人接查詢、平台選擇與客群錯配。只要把這四件事處理好，社交媒體就會由「每月要交數的開支」變成可持續的客戶來源。</p>
+        <p>社交媒體管理之所以容易失望，通常不是因為團隊能力問題，而是因為採購與管理方式有缺口：交付範圍無寫清楚、成效指標定錯、內部無人接查詢、平台選擇與客群錯配。只要把這四件事處理好，社交媒體就會由「每月要交數的開支」變成可持續的客戶來源。</p>
 
         <p>ADWire Agency 是香港的數碼推廣及軟件開發公司，累計服務超過 500 個客戶，社交媒體代管與社交媒體推廣是我們的核心服務之一。我們的<a href="/services/social/">社交媒體代管服務</a>會把交付清單、報告指標與回覆留言的安排逐項列明，方便你在同一基礎上與其他報價比較。如果你同時需要付費推廣、內容製作或跨境客群開發，可以一併考慮<a href="/services/ads/">成效廣告投放</a>、<a href="/services/video/">短視頻製作</a>、<a href="/services/kol/">KOL 網紅推廣</a>與<a href="/services/china-market/">中國市場推廣</a>，並參考<a href="/blog/kol-marketing-hong-kong-guide-2026/">KOL 推廣指南</a>了解合作與計價的常見結構。</p>
 
-        <p>最後一句實務建議：在簽任何合約之前，先寫好你自己的「一個月內容日曆」與「查詢接單流程」。當你清楚知道自己要什麼、由誰接得住，任何服務商的提案都會變得容易評估，而唔會再出現「出咗好多帖但無生意」的結果。</p>
+        <p>最後一句實務建議：在簽任何合約之前，先寫好你自己的「一個月內容日曆」與「查詢接單流程」。當你清楚知道自己要什麼、由誰接得住，任何服務商的提案都會變得容易評估，而不會再出現「出咗好多帖但無生意」的結果。</p>
 
     
 
@@ -1151,7 +1180,7 @@ export const blogPosts: BlogPost[] = [
     slug: "china-market-strategy-hong-kong-2026",
     title: "中國市場推廣：香港品牌進入內地的策略與資源分配指南 2026",
     excerpt:
-      "唔係「一次開齊五個平台」。本文聚焦進入次序與資源分配：抖音本地生活 8,500 億 GMV 與 50–60% 核銷率代表甚麼、五個平台的「適合與不適合」判斷表、四筆預算的結構與最常見的錯誤、六個失敗原因、三層成效量度，以及政府資助的現實限制。",
+      "不是「一次開齊五個平台」。本文聚焦進入次序與資源分配：抖音本地生活 8,500 億 GMV 與 50–60% 核銷率代表甚麼、五個平台的「適合與不適合」判斷表、四筆預算的結構與最常見的錯誤、六個失敗原因、三層成效量度，以及政府資助的現實限制。",
     date: "2026-09-21",
     updatedAt: "2026-09-21",
     category: "China Market",
@@ -1164,7 +1193,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">香港品牌進軍內地市場，第一步唔係「做邊個平台」而係「了解內地消費者點諗」。2026 年最有效嘅路徑係：小紅書種草 → 抖音引爆 → 微信沉澱私域流量。</p>
+          <p class="text-gray-700 leading-relaxed">香港品牌進軍內地市場，第一步不是「選擇哪個平台」，而是「了解內地消費者如何思考」。2026 年最有效的路徑是：小紅書種草 → 抖音引爆 → 微信沉澱私域流量。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -1172,20 +1201,18 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">小紅書適合品牌種草同口碑建立</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">抖音適合短期引爆同直播帶貨</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">微信公眾號+小程序係私域流量核心</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">微信公眾號+小程序是私域流量核心</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">內地推廣預算建議 5:3:2 分配（小紅書:抖音:微信）</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/china-market-hero.webp" alt="中國市場推廣策略 — ADWire 香港跨境營銷" title="中國市場推廣策略 — ADWire 香港跨境營銷" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
-
-        
-        
-        
+        </figure>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">內地推廣不是「一次開齊五個平台」的遊戲，而是按客群與品類選一個主平台，用三至六個月驗證內容與承接流程是否行得通，再決定要不要加第二個平台。預算必須分成四筆：內容生產、投放、KOC／KOL、平台開戶與基建；把全部預算押在投放，結果通常是有曝光但沒有說服力。平台數據（曝光、互動）不能當作業務成效，必須同時看搜尋數據與查詢量、成交量、獲客成本。最後一點最容易被忽略：沒有一個平台對所有品類都有效，選錯品類比選錯平台更致命。</p></div>
+
+        \n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、選平台的標準不是「最多人用」，而是「客群在哪裡被發現」</h3>
 
@@ -1195,7 +1222,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">主動搜尋與被動推送，決定你要做內容還是做投放</h4>
 
-        <p>所有內地平台可以簡化成兩種發現路徑。第一種是用戶主動搜尋：他心裡已經有一個需求，去搜關鍵字，然後比較。第二種是被動推送：用戶本來沒有打算消費，刷到一條內容被勾起興趣，然後落單。這兩種路徑對品牌的要求完全相反。</p>
+        <p>所有內地平台可以簡化成兩種發現路徑。第一種是用戶主動搜尋：他心裡已經有一個需求，去搜關鍵字，然後比較。第二種是被動推送：用戶本來沒有打算消費，刷到一條內容被勾起興趣，然後下單。這兩種路徑對品牌的要求完全相反。</p>
 
         <p>主動搜尋為主的平台，需要的是「搜尋資產」：關鍵字佈局、標題寫法、筆記數量、口碑內容沉澱。投放可以加速，但沒有內容沉澱，投放一停就歸零。被動推送為主的平台，需要的是「內容產能」：持續產出可看性高的影片，配合投放放大器。沒有產能，投放只是在買一次性曝光。</p>
 
@@ -1207,7 +1234,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>在討論策略之前，先看一組已核實的市場數據。抖音本地生活服務是目前內地內容平台商業化最活躍的板塊之一，它的規模與結構，很能反映香港品牌將會面對的環境。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">數字</th><th class="text-left px-5 py-3 font-semibold">說明了甚麼</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">抖音本地生活服務 2025 年全年支付 GMV</td><td class="px-5 py-3">超過 8,500 億元人民幣</td><td class="px-5 py-3">同比增速 59%，市場規模已不是概念</td></tr><tr><td class="px-5 py-3">截至 2025 年末動銷門店累計</td><td class="px-5 py-3">1,519.8 萬家</td><td class="px-5 py-3">線下商家已大規模上線，競爭密度極高</td></tr><tr><td class="px-5 py-3">2025 年新增入駐商家</td><td class="px-5 py-3">399 萬家</td><td class="px-5 py-3">一年內新增的供給量已相當於一個大型市場</td></tr><tr><td class="px-5 py-3">一年內在平台經營的中小商家</td><td class="px-5 py-3">458 萬家</td><td class="px-5 py-3">中小商家是平台生態的主體，不是陪跑</td></tr><tr><td class="px-5 py-3">年銷售額超過百萬元的中小商家</td><td class="px-5 py-3">超過 2.2 萬家</td><td class="px-5 py-3">中小規模的商家確實做到可觀生意，不是只有大品牌有機會</td></tr><tr><td class="px-5 py-3">本地生活團購核銷率</td><td class="px-5 py-3">約 50%–60%</td><td class="px-5 py-3">賣出的券只有一半左右真正到店，GMV 不等於實際生意</td></tr><tr><td class="px-5 py-3">沒有專業短視頻運營團隊的本地生活中小商戶</td><td class="px-5 py-3">超過一半</td><td class="px-5 py-3">內容運營能力是普遍短板，也是外來專業團隊的切入點</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">數字</th><th class="text-left px-5 py-3 font-semibold">說明了甚麼</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">抖音本地生活服務 2025 年全年支付 GMV</td><td class="px-5 py-3">超過 8,500 億元人民幣</td><td class="px-5 py-3">同比增速 59%，市場規模已不是概念</td></tr><tr><td class="px-5 py-3">截至 2025 年末動銷門店累計</td><td class="px-5 py-3">1,519.8 萬家</td><td class="px-5 py-3">線下商家已大規模上線，競爭密度極高</td></tr><tr><td class="px-5 py-3">2025 年新增入駐商家</td><td class="px-5 py-3">399 萬家</td><td class="px-5 py-3">一年內新增的供給量已相當於一個大型市場</td></tr><tr><td class="px-5 py-3">一年內在平台經營的中小商家</td><td class="px-5 py-3">458 萬家</td><td class="px-5 py-3">中小商家是平台生態的主體，不是陪跑</td></tr><tr><td class="px-5 py-3">年銷售額超過百萬元的中小商家</td><td class="px-5 py-3">超過 2.2 萬家</td><td class="px-5 py-3">中小規模的商家確實做到可觀生意，不是只有大品牌有機會</td></tr><tr><td class="px-5 py-3">本地生活團購核銷率</td><td class="px-5 py-3">約 50%–60%</td><td class="px-5 py-3">賣出的券只有一半左右真正到店，GMV 不等於實際生意</td></tr><tr><td class="px-5 py-3">沒有專業短視頻運營團隊的本地生活中小商戶</td><td class="px-5 py-3">超過一半</td><td class="px-5 py-3">內容運營能力是普遍短板，也是外來專業團隊的切入點</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://finance.sina.com.cn/stock/t/2026-02-25/doc-inhnzfcq5200783.shtml" target="_blank" rel="noopener">新浪財經（轉載雷峰網報導）</a>、<a href="https://column.iresearch.cn/b/202603/1024079.shtml" target="_blank" rel="noopener">艾瑞網專欄</a>、<a href="https://m.36kr.com/p/3787674617420806" target="_blank" rel="noopener">36氪</a>、<a href="https://www.jiemian.com/article/14291726.html" target="_blank" rel="noopener">介面新聞</a>、<a href="https://www.donews.com/article/detail/6378/97502.html" target="_blank" rel="noopener">DoNews</a></p>
 
@@ -1227,7 +1254,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>這一節不會介紹平台功能，而是提供一張判斷表。重點在最後兩欄：如果你的情況落在「較不適合」那一欄，就應該把預算放到別處，而不是硬做。這一欄通常是推廣公司不會主動講的部分。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">用戶行為</th><th class="text-left px-5 py-3 font-semibold">較適合的品類</th><th class="text-left px-5 py-3 font-semibold">較不適合的情況</th><th class="text-left px-5 py-3 font-semibold">典型用途</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">小紅書</td><td class="px-5 py-3">主動搜尋為主，兼有推薦</td><td class="px-5 py-3">美妝護膚、母嬰、家居、穿搭、旅遊、生活服務、裝修</td><td class="px-5 py-3">客群年齡層偏高、需要短期內大量曝光、純低價促銷導向的品類</td><td class="px-5 py-3">建立搜尋資產與口碑，累積可被反覆搜到的內容</td></tr><tr><td class="px-5 py-3 font-semibold">抖音</td><td class="px-5 py-3">被動推送為主，兼有搜尋</td><td class="px-5 py-3">餐飲、本地生活服務、日用品、食品、平價服飾、連鎖品牌</td><td class="px-5 py-3">高單價且決策期長的專業服務、B2B 業務、需要深度解釋的產品</td><td class="px-5 py-3">快速取得曝光、帶動到店與直播成交</td></tr><tr><td class="px-5 py-3 font-semibold">微信</td><td class="px-5 py-3">私域，已有客戶關係</td><td class="px-5 py-3">已有客戶基礎、需要復購、需要一對一服務、客單價較高</td><td class="px-5 py-3">獲取完全陌生的新客——它本身不是發現渠道</td><td class="px-5 py-3">承接、復購、客服、社群經營</td></tr><tr><td class="px-5 py-3 font-semibold">微博</td><td class="px-5 py-3">公關與話題擴散</td><td class="px-5 py-3">品牌事件、代言合作、需要輿論熱度的議題</td><td class="px-5 py-3">需要直接成交、需要精準客群、預算有限的小型項目</td><td class="px-5 py-3">品牌公告、話題擴散、危機溝通</td></tr><tr><td class="px-5 py-3 font-semibold">百度</td><td class="px-5 py-3">主動搜尋，品牌查證</td><td class="px-5 py-3">B2B、專業服務、教育、醫療、需要被查證的品牌</td><td class="px-5 py-3">純衝動型消費品、以年輕女性為主的品類、需要內容種草的產品</td><td class="px-5 py-3">承接已有搜尋需求，建立品牌可信度</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">用戶行為</th><th class="text-left px-5 py-3 font-semibold">較適合的品類</th><th class="text-left px-5 py-3 font-semibold">較不適合的情況</th><th class="text-left px-5 py-3 font-semibold">典型用途</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">小紅書</td><td class="px-5 py-3">主動搜尋為主，兼有推薦</td><td class="px-5 py-3">美妝護膚、母嬰、家居、穿搭、旅遊、生活服務、裝修</td><td class="px-5 py-3">客群年齡層偏高、需要短期內大量曝光、純低價促銷導向的品類</td><td class="px-5 py-3">建立搜尋資產與口碑，累積可被反覆搜到的內容</td></tr><tr><td class="px-5 py-3 font-semibold">抖音</td><td class="px-5 py-3">被動推送為主，兼有搜尋</td><td class="px-5 py-3">餐飲、本地生活服務、日用品、食品、平價服飾、連鎖品牌</td><td class="px-5 py-3">高單價且決策期長的專業服務、B2B 業務、需要深度解釋的產品</td><td class="px-5 py-3">快速取得曝光、帶動到店與直播成交</td></tr><tr><td class="px-5 py-3 font-semibold">微信</td><td class="px-5 py-3">私域，已有客戶關係</td><td class="px-5 py-3">已有客戶基礎、需要復購、需要一對一服務、客單價較高</td><td class="px-5 py-3">獲取完全陌生的新客——它本身不是發現渠道</td><td class="px-5 py-3">承接、復購、客服、社群經營</td></tr><tr><td class="px-5 py-3 font-semibold">微博</td><td class="px-5 py-3">公關與話題擴散</td><td class="px-5 py-3">品牌事件、代言合作、需要輿論熱度的議題</td><td class="px-5 py-3">需要直接成交、需要精準客群、預算有限的小型項目</td><td class="px-5 py-3">品牌公告、話題擴散、危機溝通</td></tr><tr><td class="px-5 py-3 font-semibold">百度</td><td class="px-5 py-3">主動搜尋，品牌查證</td><td class="px-5 py-3">B2B、專業服務、教育、醫療、需要被查證的品牌</td><td class="px-5 py-3">純衝動型消費品、以年輕女性為主的品類、需要內容種草的產品</td><td class="px-5 py-3">承接已有搜尋需求，建立品牌可信度</td></tr></tbody></table></div>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">為甚麼「不適合」那一欄最重要</h4>
 
@@ -1239,13 +1266,13 @@ export const blogPosts: BlogPost[] = [
 
         <p>關於預算，最常被問的問題是「一個月要幾錢」。這個問題沒有單一答案，因為它取決於品類、城市、目標與競爭密度。但預算的結構是相對穩定的，通常可以分成四筆。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">預算類別</th><th class="text-left px-5 py-3 font-semibold">包含甚麼</th><th class="text-left px-5 py-3 font-semibold">缺少了會出現甚麼問題</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">內容生產</td><td class="px-5 py-3">影片拍攝與剪輯、圖文設計、腳本、內地語境改寫、素材測試版本</td><td class="px-5 py-3">有曝光但沒有說服力，投放買回來的流量看完即走，不會記住品牌</td></tr><tr><td class="px-5 py-3 font-semibold">投放</td><td class="px-5 py-3">平台廣告、資訊流、搜尋廣告、本地推廣工具、直播投流</td><td class="px-5 py-3">自然流量起步極慢，優質內容沒有加速器，錯過最佳時間窗口</td></tr><tr><td class="px-5 py-3 font-semibold">KOC／KOL</td><td class="px-5 py-3">達人探店、產品試用、素人分享、內容授權二次使用</td><td class="px-5 py-3">品牌認知度接近零時，只有品牌自己在說話，可信度不足</td></tr><tr><td class="px-5 py-3 font-semibold">平台開戶與基建</td><td class="px-5 py-3">企業號認證、店舖頁、客服工具、承接渠道（微信、客服系統、小程式）</td><td class="px-5 py-3">有人查詢但無人接住，查詢在幾分鐘內流失，前面三筆錢一齊白花</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">預算類別</th><th class="text-left px-5 py-3 font-semibold">包含甚麼</th><th class="text-left px-5 py-3 font-semibold">缺少了會出現甚麼問題</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">內容生產</td><td class="px-5 py-3">影片拍攝與剪輯、圖文設計、腳本、內地語境改寫、素材測試版本</td><td class="px-5 py-3">有曝光但沒有說服力，投放買回來的流量看完即走，不會記住品牌</td></tr><tr><td class="px-5 py-3 font-semibold">投放</td><td class="px-5 py-3">平台廣告、資訊流、搜尋廣告、本地推廣工具、直播投流</td><td class="px-5 py-3">自然流量起步極慢，優質內容沒有加速器，錯過最佳時間窗口</td></tr><tr><td class="px-5 py-3 font-semibold">KOC／KOL</td><td class="px-5 py-3">達人探店、產品試用、素人分享、內容授權二次使用</td><td class="px-5 py-3">品牌認知度接近零時，只有品牌自己在說話，可信度不足</td></tr><tr><td class="px-5 py-3 font-semibold">平台開戶與基建</td><td class="px-5 py-3">企業號認證、店舖頁、客服工具、承接渠道（微信、客服系統、小程式）</td><td class="px-5 py-3">有人查詢但無人接住，查詢在幾分鐘內流失，前面三筆錢一齊白花</td></tr></tbody></table></div>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">最常見的錯誤：把預算全部放在投放</h4>
 
         <p>這是最常見、也最貴的錯誤。原因很簡單：投放的成效最容易看見。今天花錢，明天就看到曝光數字上升，後天就有互動報表，管理層容易交代。內容生產的成效慢、難以量化、而且需要先投入才有素材可以投。</p>
 
-        <p>結果就是：品牌用大量預算買曝光，但買回來的流量看到的是沒有針對性、沒有說服力的內容。用戶看了一眼就滑走，不會產生查詢，更不會落單。下一輪預算又繼續買曝光，形成一個花錢但沒有累積的循環。</p>
+        <p>結果就是：品牌用大量預算買曝光，但買回來的流量看到的是沒有針對性、沒有說服力的內容。用戶看了一眼就滑走，不會產生查詢，更不會下單。下一輪預算又繼續買曝光，形成一個花錢但沒有累積的循環。</p>
 
         <p>合理的次序應該是先做內容，再用投放放大已經驗證有效的內容。具體來說，先用小額預算測試三至五條不同方向的素材，找出互動率與完播率明顯較好的版本，然後才把主要投放預算放在這些版本上。這樣投放是在放大一個已經證明有效的東西，而不是在賭一個未知的東西。</p>
 
@@ -1255,7 +1282,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>以下六項是香港品牌進入內地市場時反覆出現的問題。它們通常不是單獨出現，而是同時發生，互相放大。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">失敗原因</th><th class="text-left px-5 py-3 font-semibold">表面現象</th><th class="text-left px-5 py-3 font-semibold">較合理的做法</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">一次做五個平台</td><td class="px-5 py-3">每個平台都開了號，但每個都只有零星更新，沒有一個做起來</td><td class="px-5 py-3">先集中做一個主平台，做到有穩定查詢量，再考慮加第二個</td></tr><tr><td class="px-5 py-3 font-semibold">內容直接翻譯</td><td class="px-5 py-3">把香港的文案直譯成簡體字發出去，互動率極低</td><td class="px-5 py-3">按內地用戶的語境重新寫，包括選題、用詞、價格表達方式</td></tr><tr><td class="px-5 py-3 font-semibold">沒有承接渠道</td><td class="px-5 py-3">曝光與互動數字不錯，但沒有查詢，或者查詢了但沒有回覆</td><td class="px-5 py-3">上線前先建好查詢入口與回覆流程，並指定負責人與回覆時限</td></tr><tr><td class="px-5 py-3 font-semibold">只看曝光數字</td><td class="px-5 py-3">每月報表都是播放量與粉絲增長，但生意沒有變化</td><td class="px-5 py-3">把查詢量、查詢成本、成交量列為主要匯報指標，平台數據只作過程參考</td></tr><tr><td class="px-5 py-3 font-semibold">選錯品類切入</td><td class="px-5 py-3">投放成本明顯高於同行，互動率長期偏低</td><td class="px-5 py-3">先選品牌有相對優勢、內地競爭尚未飽和的品類切入，而不是全線推出</td></tr><tr><td class="px-5 py-3 font-semibold">沒有耐心</td><td class="px-5 py-3">做了兩個月沒有明顯成效，就換平台、換方向、換團隊</td><td class="px-5 py-3">設定一個合理的驗證期，在期內保持方向一致，只在內容層面做優化</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">失敗原因</th><th class="text-left px-5 py-3 font-semibold">表面現象</th><th class="text-left px-5 py-3 font-semibold">較合理的做法</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">一次做五個平台</td><td class="px-5 py-3">每個平台都開了號，但每個都只有零星更新，沒有一個做起來</td><td class="px-5 py-3">先集中做一個主平台，做到有穩定查詢量，再考慮加第二個</td></tr><tr><td class="px-5 py-3 font-semibold">內容直接翻譯</td><td class="px-5 py-3">把香港的文案直譯成簡體字發出去，互動率極低</td><td class="px-5 py-3">按內地用戶的語境重新寫，包括選題、用詞、價格表達方式</td></tr><tr><td class="px-5 py-3 font-semibold">沒有承接渠道</td><td class="px-5 py-3">曝光與互動數字不錯，但沒有查詢，或者查詢了但沒有回覆</td><td class="px-5 py-3">上線前先建好查詢入口與回覆流程，並指定負責人與回覆時限</td></tr><tr><td class="px-5 py-3 font-semibold">只看曝光數字</td><td class="px-5 py-3">每月報表都是播放量與粉絲增長，但生意沒有變化</td><td class="px-5 py-3">把查詢量、查詢成本、成交量列為主要匯報指標，平台數據只作過程參考</td></tr><tr><td class="px-5 py-3 font-semibold">選錯品類切入</td><td class="px-5 py-3">投放成本明顯高於同行，互動率長期偏低</td><td class="px-5 py-3">先選品牌有相對優勢、內地競爭尚未飽和的品類切入，而不是全線推出</td></tr><tr><td class="px-5 py-3 font-semibold">沒有耐心</td><td class="px-5 py-3">做了兩個月沒有明顯成效，就換平台、換方向、換團隊</td><td class="px-5 py-3">設定一個合理的驗證期，在期內保持方向一致，只在內容層面做優化</td></tr></tbody></table></div>
 
         <p>其中「一次做五個平台」是最常見的起手式錯誤。品牌通常以為多開幾個渠道等於多幾個機會，但實際上每個平台的內容邏輯、發佈節奏、演算法偏好都不一樣。五個平台各分到兩成資源，等於五個都不夠資源做到起量。資源分散的直接後果是每個平台的帳號都處於「半死不活」的狀態，既沒有自然流量，投放也沒有效益。</p>
 
@@ -1267,7 +1294,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>內地推廣的成效量度應該分成三層，由淺入深。最常見的問題是停在第一層，然後用第一層的數字去推論業務成效，這是報表上最容易出現的落差。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">層次</th><th class="text-left px-5 py-3 font-semibold">看甚麼指標</th><th class="text-left px-5 py-3 font-semibold">可以回答的問題</th><th class="text-left px-5 py-3 font-semibold">不可以回答的問題</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">平台數據</td><td class="px-5 py-3">曝光量、互動率、完播率、收藏、粉絲增長、直播觀看時長</td><td class="px-5 py-3">內容有沒有被看見、素材之間哪個方向較受歡迎</td><td class="px-5 py-3">有沒有人因此想買、這些人有沒有消費能力</td></tr><tr><td class="px-5 py-3 font-semibold">搜尋數據</td><td class="px-5 py-3">百度收錄數量與品牌字搜尋量、筆記與影片的搜尋曝光、關鍵字排名趨勢</td><td class="px-5 py-3">有沒有人主動找這個品牌或品類、搜尋需求有沒有累積</td><td class="px-5 py-3">找到之後有沒有成交、成交的成本是多少</td></tr><tr><td class="px-5 py-3 font-semibold">業務數據</td><td class="px-5 py-3">查詢量、每次查詢成本、成交量、客單價、獲客成本、回購情況</td><td class="px-5 py-3">生意有沒有增長、增長是否可持續、成本結構是否合理</td><td class="px-5 py-3">為甚麼增長或下跌——這需要回到上面兩層找原因</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">層次</th><th class="text-left px-5 py-3 font-semibold">看甚麼指標</th><th class="text-left px-5 py-3 font-semibold">可以回答的問題</th><th class="text-left px-5 py-3 font-semibold">不可以回答的問題</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">平台數據</td><td class="px-5 py-3">曝光量、互動率、完播率、收藏、粉絲增長、直播觀看時長</td><td class="px-5 py-3">內容有沒有被看見、素材之間哪個方向較受歡迎</td><td class="px-5 py-3">有沒有人因此想買、這些人有沒有消費能力</td></tr><tr><td class="px-5 py-3 font-semibold">搜尋數據</td><td class="px-5 py-3">百度收錄數量與品牌字搜尋量、筆記與影片的搜尋曝光、關鍵字排名趨勢</td><td class="px-5 py-3">有沒有人主動找這個品牌或品類、搜尋需求有沒有累積</td><td class="px-5 py-3">找到之後有沒有成交、成交的成本是多少</td></tr><tr><td class="px-5 py-3 font-semibold">業務數據</td><td class="px-5 py-3">查詢量、每次查詢成本、成交量、客單價、獲客成本、回購情況</td><td class="px-5 py-3">生意有沒有增長、增長是否可持續、成本結構是否合理</td><td class="px-5 py-3">為甚麼增長或下跌——這需要回到上面兩層找原因</td></tr></tbody></table></div>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">為甚麼不能用平台數據代替業務成效</h4>
 
@@ -1291,7 +1318,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="space-y-4">
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港品牌進入內地市場，第一步應該做邊個平台？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港品牌進入內地市場，第一步應該做哪個平台？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">取決於你的客群會不會主動搜尋這個品類。如果客人會主動找答案（例如美妝、家居、旅遊、專業服務），應該先做以搜尋為主的平台，累積可被反覆搜到的內容。如果品類靠視覺與價格快速打動人（例如餐飲、日用品、平價服飾），則適合先做推送型平台。較常見的錯誤是同時開五個平台，結果每個都不夠資源做起來。建議先集中做一個主平台，做到有穩定查詢量再擴展。</p>
           </div>
@@ -1312,7 +1339,7 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">微信推廣與小紅書推廣，應該先做邊個？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">微信推廣與小紅書推廣，應該先做哪個？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">要看品牌在內地是否已經有客戶基礎。微信的價值在於私域經營，包括復購、客服、社群與一對一溝通，它本身不是讓陌生人認識你的渠道。如果品牌在內地還沒有客戶，先做微信的效益會很低。小紅書則以主動搜尋為主，適合用來累積搜尋資產與口碑內容，是較常見的第一步。兩者的關係其實是前後端：小紅書負責被發現，微信負責承接與復購。</p>
           </div>
@@ -1333,15 +1360,15 @@ export const blogPosts: BlogPost[] = [
         </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">內地推廣有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港品牌進入內地市場有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係照搬香港文案去內地平台。內地消費者嘅用語、審美、購買習慣都唔同，必須本地化。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險是直接搬用香港文案。內地消費者的用語、審美與購買習慣與香港不同，內容必須重新本地化。其次是無法承接流量，即購買渠道、物流與售後尚未準備好。第三是把預算全押在投放，忽略內容生產與口碑累積。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做內地推廣比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇內地推廣服務商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有實際內地平台運營經驗、了解兩地差異、同埋有 KOL/KOC 資源嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應核查三項：是否具備實際跨境推廣案例、團隊是否同時熟悉香港與內地平台差異、以及是否擁有內地 KOL／KOC 資源。此外，對方應能說明內容本地化的具體做法，而非只承諾投放量。</p>
           </div>
         </div>
 
@@ -1372,7 +1399,7 @@ export const blogPosts: BlogPost[] = [
     slug: "ai-reduce-hong-kong-business-labour-cost-2026",
     title: "AI 如何幫香港企業減低人手及營運成本？",
     excerpt:
-      "香港人力成本中位數 HK$21,200，但多數 AI 項目未見成效。本文按生產力局、渣打、政府統計處及金管局沙盒的一手數據，說明 AI 實際可自動化哪些工序、導入成本幾多、為何 Gartner 指 50% 項目被放棄，並附一套可自行計算的評估框架。",
+      "香港人力成本中位數 HK$21,200，但多數 AI 項目未見成效。本文按生產力局、渣打、政府統計處及金管局沙盒的一手數據，說明 AI 實際可自動化哪些工序、導入成本多少、為何 Gartner 指 50% 項目被放棄，並附一套可自行計算的評估框架。",
     date: "2026-09-21",
     updatedAt: "2026-09-21",
     category: "AI Technology",
@@ -1385,7 +1412,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">AI 可以幫香港企業節省 30-60% 嘅重複性人手工作，最常見嘅應用包括 AI 客服（節省前線人手）、自動化文書處理（節省行政人手）、智能數據分析（節省分析人手）。</p>
+          <p class="text-gray-700 leading-relaxed">AI 可以幫香港企業節省 30-60% 的重複性人手工作，最常見的應用包括 AI 客服（節省前線人手）、自動化文書處理（節省行政人手）、智能數據分析（節省分析人手）。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -1400,13 +1427,9 @@ export const blogPosts: BlogPost[] = [
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/ai-cost-reduction-hero.webp" alt="AI 減低企業成本 — ADWire 香港 AI 方案" title="AI 減低企業成本 — ADWire 香港 AI 方案" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
+        </figure>
 
-        
-        
-        
-
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">AI 在香港企業的滲透已經發生，但「用過」與「收回成本」之間有相當距離。生產力局 2025 年的調查顯示，88% 受訪企業的員工日常已在工作中使用 AI 工具，但渣打香港中小企領先營商指數同期只有 55% 中小企曾用或計劃於一年內使用 AI，真正付費的比例更只有 32%。真正影響成本的，從來不是「有無用 AI」，而是有否先算清楚某個工序佔用多少人力時間，再選擇對應的工具。企業規模愈小，愈應該從單一、高重複、輸出格式固定的工序入手，而不是一次過推行全公司數碼轉型。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">AI 在香港企業的滲透已經發生，但「用過」與「收回成本」之間有相當距離。生產力局 2025 年的調查顯示，88% 受訪企業的員工日常已在工作中使用 AI 工具，但渣打香港中小企領先營商指數同期只有 55% 中小企曾用或計劃於一年內使用 AI，真正付費的比例更只有 32%。真正影響成本的，從來不是「有無用 AI」，而是有否先算清楚某個工序佔用多少人力時間，再選擇對應的工具。企業規模愈小，愈應該從單一、高重複、輸出格式固定的工序入手，而不是一次過推行全公司數碼轉型。</p></div>\n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、香港企業採用 AI 的真實數據</h3>
 
@@ -1424,7 +1447,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>整體採用率容易掩蓋行業之間的分歧。同一份中小企領先營商指數顯示，資訊及通訊業的採用率達 92%，專業及商用服務業 72%，金融及保險業 62%，製造業 60%。更值得留意的是<strong>付費比例</strong>：整體只有 32%，其中資訊及通訊業 64%、金融及保險業 47%、製造業 31%（<a href="https://itpromag.com/2026/01/15/hkpc-sc-sme-index-2025/" target="_blank" rel="noopener">渣打香港中小企領先營商指數 Q1 2026</a>）。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">行業</th><th class="text-left px-5 py-3 font-semibold">曾用或一年內會用 AI</th><th class="text-left px-5 py-3 font-semibold">付費使用比例</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">資訊及通訊業</td><td class="px-5 py-3">92%</td><td class="px-5 py-3">64%</td></tr><tr><td class="px-5 py-3">專業及商用服務業</td><td class="px-5 py-3">72%</td><td class="px-5 py-3">未於公開資料分項披露</td></tr><tr><td class="px-5 py-3">金融及保險業</td><td class="px-5 py-3">62%</td><td class="px-5 py-3">47%</td></tr><tr><td class="px-5 py-3">製造業</td><td class="px-5 py-3">60%</td><td class="px-5 py-3">31%</td></tr><tr><td class="px-5 py-3">全體中小企</td><td class="px-5 py-3">55%</td><td class="px-5 py-3">32%</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">行業</th><th class="text-left px-5 py-3 font-semibold">曾用或一年內會用 AI</th><th class="text-left px-5 py-3 font-semibold">付費使用比例</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">資訊及通訊業</td><td class="px-5 py-3">92%</td><td class="px-5 py-3">64%</td></tr><tr><td class="px-5 py-3">專業及商用服務業</td><td class="px-5 py-3">72%</td><td class="px-5 py-3">未於公開資料分項披露</td></tr><tr><td class="px-5 py-3">金融及保險業</td><td class="px-5 py-3">62%</td><td class="px-5 py-3">47%</td></tr><tr><td class="px-5 py-3">製造業</td><td class="px-5 py-3">60%</td><td class="px-5 py-3">31%</td></tr><tr><td class="px-5 py-3">全體中小企</td><td class="px-5 py-3">55%</td><td class="px-5 py-3">32%</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://itpromag.com/2026/01/15/hkpc-sc-sme-index-2025/" target="_blank" rel="noopener">渣打香港中小企領先營商指數 Q1 2026，819 間中小企</a></p>
 
@@ -1440,7 +1463,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>2025 年 5 至 6 月的統計顯示，香港每月工資中位數為 HK$21,200，第 10、25、75、90 百分位數分別為 HK$11,000、HK$15,300、HK$33,000 及 HK$51,300（<a href="https://www.info.gov.hk/gia/general/202603/23/P2026032300367.htm" target="_blank" rel="noopener">政府統計處公布，2026年3月</a>）。按職業組別劃分，2025 年的每月工資中位數如下（<a href="https://www.censtatd.gov.hk/wbr/B1050014/B10500142025AN25/att/tc/B10500142025AN25.pdf" target="_blank" rel="noopener">政府統計處，2025年按職業組別工資統計</a>）：</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">職業組別</th><th class="text-left px-5 py-3 font-semibold">每月工資中位數</th><th class="text-left px-5 py-3 font-semibold">強積金僱主供款</th><th class="text-left px-5 py-3 font-semibold">每月僱主成本</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">經理及專業人員</td><td class="px-5 py-3">HK$32,700</td><td class="px-5 py-3">HK$1,500（已達上限）</td><td class="px-5 py-3">HK$34,200</td></tr><tr><td class="px-5 py-3">文書支援人員</td><td class="px-5 py-3">HK$17,500</td><td class="px-5 py-3">HK$875</td><td class="px-5 py-3">HK$18,375</td></tr><tr><td class="px-5 py-3">服務及銷售人員</td><td class="px-5 py-3">HK$15,800</td><td class="px-5 py-3">HK$790</td><td class="px-5 py-3">HK$16,590</td></tr><tr><td class="px-5 py-3">非技術工人</td><td class="px-5 py-3">HK$14,900</td><td class="px-5 py-3">HK$745</td><td class="px-5 py-3">HK$15,645</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">職業組別</th><th class="text-left px-5 py-3 font-semibold">每月工資中位數</th><th class="text-left px-5 py-3 font-semibold">強積金僱主供款</th><th class="text-left px-5 py-3 font-semibold">每月僱主成本</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">經理及專業人員</td><td class="px-5 py-3">HK$32,700</td><td class="px-5 py-3">HK$1,500（已達上限）</td><td class="px-5 py-3">HK$34,200</td></tr><tr><td class="px-5 py-3">文書支援人員</td><td class="px-5 py-3">HK$17,500</td><td class="px-5 py-3">HK$875</td><td class="px-5 py-3">HK$18,375</td></tr><tr><td class="px-5 py-3">服務及銷售人員</td><td class="px-5 py-3">HK$15,800</td><td class="px-5 py-3">HK$790</td><td class="px-5 py-3">HK$16,590</td></tr><tr><td class="px-5 py-3">非技術工人</td><td class="px-5 py-3">HK$14,900</td><td class="px-5 py-3">HK$745</td><td class="px-5 py-3">HK$15,645</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.censtatd.gov.hk/wbr/B1050014/B10500142025AN25/att/tc/B10500142025AN25.pdf" target="_blank" rel="noopener">政府統計處按職業組別工資統計（2025）</a>；強積金供款按<a href="https://www.mpfa.org.hk/mpf-system/mandatory-contributions/employees" target="_blank" rel="noopener">積金局規定</a>計算，僱主供款為有關入息的 5%，最高入息水平 HK$30,000，每月上限 HK$1,500。「每月僱主成本」一欄為本文自行計算的推算，並非官方數字。</p>
 
@@ -1476,13 +1499,13 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">哪些工序最適合先試</h4>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">工序類型</th><th class="text-left px-5 py-3 font-semibold">常見例子</th><th class="text-left px-5 py-3 font-semibold">適合程度</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">財務及合規</td><td class="px-5 py-3">個案摘要、備忘文件、對帳資料整理</td><td class="px-5 py-3">高：有明確格式與可核對的來源文件</td></tr><tr><td class="px-5 py-3">行政流程</td><td class="px-5 py-3">申請表分流、文件分類、內部查詢回覆</td><td class="px-5 py-3">高：規則清晰、重複度高</td></tr><tr><td class="px-5 py-3">客戶服務</td><td class="px-5 py-3">常見問題回覆、訂單狀態查詢</td><td class="px-5 py-3">中至高：需要準確的知識庫支撐</td></tr><tr><td class="px-5 py-3">市場推廣及內容</td><td class="px-5 py-3">帖文、產品描述、短視頻文案初稿</td><td class="px-5 py-3">中：省時間明顯，但仍需人手審核</td></tr><tr><td class="px-5 py-3">涉及判斷與責任的工序</td><td class="px-5 py-3">定價、人事決定、客戶投訴最終處理</td><td class="px-5 py-3">低：短期內不宜完全交由 AI</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">工序類型</th><th class="text-left px-5 py-3 font-semibold">常見例子</th><th class="text-left px-5 py-3 font-semibold">適合程度</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">財務及合規</td><td class="px-5 py-3">個案摘要、備忘文件、對帳資料整理</td><td class="px-5 py-3">高：有明確格式與可核對的來源文件</td></tr><tr><td class="px-5 py-3">行政流程</td><td class="px-5 py-3">申請表分流、文件分類、內部查詢回覆</td><td class="px-5 py-3">高：規則清晰、重複度高</td></tr><tr><td class="px-5 py-3">客戶服務</td><td class="px-5 py-3">常見問題回覆、訂單狀態查詢</td><td class="px-5 py-3">中至高：需要準確的知識庫支撐</td></tr><tr><td class="px-5 py-3">市場推廣及內容</td><td class="px-5 py-3">帖文、產品描述、短視頻文案初稿</td><td class="px-5 py-3">中：省時間明顯，但仍需人手審核</td></tr><tr><td class="px-5 py-3">涉及判斷與責任的工序</td><td class="px-5 py-3">定價、人事決定、客戶投訴最終處理</td><td class="px-5 py-3">低：短期內不宜完全交由 AI</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：工序分類由本文按上述金管局及政府公開案例歸納，適合程度屬本文判斷，非官方評級。</p><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、導入 AI 的實際成本</h3>
 
         <p>算過工序成本之後，下一步是看工具那一邊的支出。以下是香港企業常用方案的公開定價。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">方案</th><th class="text-left px-5 py-3 font-semibold">公開月費</th><th class="text-left px-5 py-3 font-semibold">備註</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Microsoft 365 Business Basic</td><td class="px-5 py-3">US$7.00／用戶／月（年付）</td><td class="px-5 py-3">不含 Copilot</td></tr><tr><td class="px-5 py-3">Microsoft 365 Business Standard</td><td class="px-5 py-3">US$23.50／用戶／月（年付）</td><td class="px-5 py-3">含 Copilot</td></tr><tr><td class="px-5 py-3">Microsoft 365 Business Premium</td><td class="px-5 py-3">US$32.00／用戶／月（年付）</td><td class="px-5 py-3">含 Copilot</td></tr><tr><td class="px-5 py-3">ChatGPT Business 標準席</td><td class="px-5 py-3">US$20（年付）／US$25（月付）</td><td class="px-5 py-3">每用戶每月</td></tr><tr><td class="px-5 py-3">ChatGPT Business 高級席</td><td class="px-5 py-3">US$100（年付）／US$125（月付）</td><td class="px-5 py-3">每用戶每月</td></tr><tr><td class="px-5 py-3">香港寬頻「AI+」WorkMate Starter</td><td class="px-5 py-3">HK$98（早鳥月費）</td><td class="px-5 py-3">本地方案，價格以官方公布為準</td></tr><tr><td class="px-5 py-3">香港寬頻「AI+」WorkMate Essential</td><td class="px-5 py-3">HK$298／月</td><td class="px-5 py-3">同上</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">方案</th><th class="text-left px-5 py-3 font-semibold">公開月費</th><th class="text-left px-5 py-3 font-semibold">備註</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Microsoft 365 Business Basic</td><td class="px-5 py-3">US$7.00／用戶／月（年付）</td><td class="px-5 py-3">不含 Copilot</td></tr><tr><td class="px-5 py-3">Microsoft 365 Business Standard</td><td class="px-5 py-3">US$23.50／用戶／月（年付）</td><td class="px-5 py-3">含 Copilot</td></tr><tr><td class="px-5 py-3">Microsoft 365 Business Premium</td><td class="px-5 py-3">US$32.00／用戶／月（年付）</td><td class="px-5 py-3">含 Copilot</td></tr><tr><td class="px-5 py-3">ChatGPT Business 標準席</td><td class="px-5 py-3">US$20（年付）／US$25（月付）</td><td class="px-5 py-3">每用戶每月</td></tr><tr><td class="px-5 py-3">ChatGPT Business 高級席</td><td class="px-5 py-3">US$100（年付）／US$125（月付）</td><td class="px-5 py-3">每用戶每月</td></tr><tr><td class="px-5 py-3">香港寬頻「AI+」WorkMate Starter</td><td class="px-5 py-3">HK$98（早鳥月費）</td><td class="px-5 py-3">本地方案，價格以官方公布為準</td></tr><tr><td class="px-5 py-3">香港寬頻「AI+」WorkMate Essential</td><td class="px-5 py-3">HK$298／月</td><td class="px-5 py-3">同上</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.microsoft.com/en-us/microsoft-365/business/with-copilot-plans-and-pricing" target="_blank" rel="noopener">Microsoft 365 商業版定價</a>；<a href="https://openai.com/business/pricing/" target="_blank" rel="noopener">OpenAI 商業方案定價</a>；<a href="https://ezone.hk/article/20104598/" target="_blank" rel="noopener">ezone 報道香港寬頻「AI+」方案</a>。</p>
 
@@ -1572,15 +1595,15 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">AI 減人手有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">以 AI 精簡人手有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係過度裁減人手導致服務質素下降。建議 AI 作為人手嘅輔助工具，唔係完全取代。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">主要風險是過度裁減導致服務質素下降，或把不適合自動化的工序強行交給 AI。較穩健的做法是先量化某個工序佔用的工時，再以 AI 輔助該環節，並保留人手處理例外情況。AI 應視為提升產能的工具，而非單純的裁員手段。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做 AI 減成本方案比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇 AI 成本優化方案供應商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有實際香港企業部署經驗、可以量化節省幅度、同埋提供持續優化嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可從三點判斷：對方是否有實際香港企業部署經驗、能否量化節省幅度與回本期、以及是否提供上線後的持續優化。若供應商只能示範工具功能而無法說明如何在你的流程中落地與量度，成效風險較高。</p>
           </div>
         </div>
 
@@ -1629,28 +1652,26 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">AI Agent（智能代理）係指可以自主執行任務嘅 AI 系統，唔只係回答問題，仲可以主動查詢數據、發送訊息、更新記錄等。香港企業應用 AI Agent 最普遍嘅場景係客戶服務、銷售跟進、行政管理。</p>
+          <p class="text-gray-700 leading-relaxed">AI Agent（智能代理）是指可以自主執行任務的 AI 系統，不只是回答問題，還可以主動查詢數據、發送訊息、更新記錄等。香港企業應用 AI Agent 最普遍的場景是客戶服務、銷售跟進、行政管理。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">AI Agent = 自主執行任務嘅 AI，唔只係聊天機械人</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">AI Agent = 自主執行任務的 AI，不只是聊天機械人</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">常見應用：客戶服務、銷售跟進、預約管理、行政流程</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">同傳統 Chatbot 嘅分別：AI Agent 可以「做嘢」，Chatbot 只係「答嘢」</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">同傳統 Chatbot 的分別：AI Agent 可以「做嘢」，Chatbot 只是「答嘢」</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">導入前要定義清楚任務範圍同邊界</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/ai-agent-hero.webp" alt="AI Agent 智能代理指南 — ADWire 香港 AI" title="AI Agent 智能代理指南 — ADWire 香港 AI" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
-
-        
-        
-        
+        </figure>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">AI Agent 不是「更聰明的聊天機械人」，而是由大型語言模型驅動、能夠自行決定下一步用什麼工具、按目標多步執行任務的系統。它與 RPA 不是取代關係而是互補關係：RPA 按預先寫死的規則執行，Agent 負責推理、解讀與規劃。市場仍在非常早期——McKinsey 於 2025 年 11 月發表的《State of AI》調查顯示，62% 受訪企業至少在做 Agent 實驗，但只有 23% 稱正在規模化，而在單一職能內真正規模化 Agent 的比例不超過 10%。對香港企業而言，現階段最務實的做法，是先挑一個高重複、低風險、有明確人手覆核點的流程做試點，而不是全面鋪開。</p></div>
+
+        \n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、為何 2026 年突然人人都講 AI Agent</h3>
 
@@ -1664,7 +1685,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>「AI Agent」目前沒有單一權威定義，不同機構的側重點不同。要判斷一個方案是否真的是 Agent，最實際的方法是同時看三份定義。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">機構</th><th class="text-left px-5 py-3 font-semibold">核心定義</th><th class="text-left px-5 py-3 font-semibold">關鍵字</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">IBM</td><td class="px-5 py-3">透過設計工作流程並運用可用工具，自主執行任務的系統，核心為大型語言模型</td><td class="px-5 py-3">自主執行、工具運用</td></tr><tr><td class="px-5 py-3 font-semibold">Anthropic</td><td class="px-5 py-3">Workflow 是 LLM 與工具經預先定義的程式路徑編排；Agent 則是 LLM 動態決定自身流程與工具使用</td><td class="px-5 py-3">動態決定流程</td></tr><tr><td class="px-5 py-3 font-semibold">UiPath</td><td class="px-5 py-3">能感知環境、實時朝目標推理、以最少人手執行複雜多步任務的自主系統</td><td class="px-5 py-3">感知、推理、最少人手</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">機構</th><th class="text-left px-5 py-3 font-semibold">核心定義</th><th class="text-left px-5 py-3 font-semibold">關鍵字</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">IBM</td><td class="px-5 py-3">透過設計工作流程並運用可用工具，自主執行任務的系統，核心為大型語言模型</td><td class="px-5 py-3">自主執行、工具運用</td></tr><tr><td class="px-5 py-3 font-semibold">Anthropic</td><td class="px-5 py-3">Workflow 是 LLM 與工具經預先定義的程式路徑編排；Agent 則是 LLM 動態決定自身流程與工具使用</td><td class="px-5 py-3">動態決定流程</td></tr><tr><td class="px-5 py-3 font-semibold">UiPath</td><td class="px-5 py-3">能感知環境、實時朝目標推理、以最少人手執行複雜多步任務的自主系統</td><td class="px-5 py-3">感知、推理、最少人手</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.ibm.com/think/topics/ai-agents" target="_blank" rel="noopener">IBM</a>、<a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Anthropic</a>、<a href="https://www.uipath.com/ai/ai-agents" target="_blank" rel="noopener">UiPath</a></p>
 
@@ -1680,7 +1701,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>AI Agent 補上的正是這一段。UiPath 的說明指出，agent 負責推理、解讀與規劃，而 robots 與 API 負責執行，兩者是互補關係（<a href="https://www.uipath.com/community-blog/tutorials/harness-the-best-of-rpa-and-agentic-ai" target="_blank" rel="noopener">UiPath</a>）。在實務上，這意味著成熟的企業架構會是：Agent 讀懂一封格式混亂的供應商電郵、判斷屬於哪類採購、抽出關鍵欄位，然後交由既有的 RPA 流程把資料準確寫入 ERP。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">維度</th><th class="text-left px-5 py-3 font-semibold">聊天機械人</th><th class="text-left px-5 py-3 font-semibold">RPA</th><th class="text-left px-5 py-3 font-semibold">AI Agent</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">驅動方式</td><td class="px-5 py-3">人手逐句輸入</td><td class="px-5 py-3">預先定義規則</td><td class="px-5 py-3">模型推理與規劃</td></tr><tr><td class="px-5 py-3 font-semibold">流程路徑</td><td class="px-5 py-3">由對話決定</td><td class="px-5 py-3">寫死在流程內</td><td class="px-5 py-3">執行時動態決定</td></tr><tr><td class="px-5 py-3 font-semibold">處理非結構化輸入</td><td class="px-5 py-3">可理解但不行動</td><td class="px-5 py-3">弱，需先做格式整理</td><td class="px-5 py-3">可讀懂並轉為結構化資料</td></tr><tr><td class="px-5 py-3 font-semibold">異常處理</td><td class="px-5 py-3">交回人手</td><td class="px-5 py-3">流程中斷</td><td class="px-5 py-3">可嘗試重試或改道</td></tr><tr><td class="px-5 py-3 font-semibold">成本可預測性</td><td class="px-5 py-3">高</td><td class="px-5 py-3">高</td><td class="px-5 py-3">低，變數較多</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">維度</th><th class="text-left px-5 py-3 font-semibold">聊天機械人</th><th class="text-left px-5 py-3 font-semibold">RPA</th><th class="text-left px-5 py-3 font-semibold">AI Agent</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">驅動方式</td><td class="px-5 py-3">人手逐句輸入</td><td class="px-5 py-3">預先定義規則</td><td class="px-5 py-3">模型推理與規劃</td></tr><tr><td class="px-5 py-3 font-semibold">流程路徑</td><td class="px-5 py-3">由對話決定</td><td class="px-5 py-3">寫死在流程內</td><td class="px-5 py-3">執行時動態決定</td></tr><tr><td class="px-5 py-3 font-semibold">處理非結構化輸入</td><td class="px-5 py-3">可理解但不行動</td><td class="px-5 py-3">弱，需先做格式整理</td><td class="px-5 py-3">可讀懂並轉為結構化資料</td></tr><tr><td class="px-5 py-3 font-semibold">異常處理</td><td class="px-5 py-3">交回人手</td><td class="px-5 py-3">流程中斷</td><td class="px-5 py-3">可嘗試重試或改道</td></tr><tr><td class="px-5 py-3 font-semibold">成本可預測性</td><td class="px-5 py-3">高</td><td class="px-5 py-3">高</td><td class="px-5 py-3">低，變數較多</td></tr></tbody></table></div>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、運作架構：三套主流框架</h3>
 
@@ -1699,7 +1720,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>目前公開且可查證的案例，集中在客服、文件處理、資料查詢與審批四類。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">場景</th><th class="text-left px-5 py-3 font-semibold">機構</th><th class="text-left px-5 py-3 font-semibold">公開數據</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">客服</td><td class="px-5 py-3">Klarna（2024-02-27 公布）</td><td class="px-5 py-3">首月 230 萬次對話，相當於客服對話的三分之二、等同 700 名全職工作量；重複查詢減 25%；解決時間由 11 分鐘降至 2 分鐘內；當時估計 2024 年利潤改善 4,000 萬美元</td></tr><tr><td class="px-5 py-3 font-semibold">客服（自家使用）</td><td class="px-5 py-3">Salesforce（2025-11-06）</td><td class="px-5 py-3">Agentforce 在自家 Help 網站處理逾 200 萬次對話</td></tr><tr><td class="px-5 py-3 font-semibold">文件處理</td><td class="px-5 py-3">IBM 客戶案例 Dynamiq</td><td class="px-5 py-3">以 watsonx Orchestrate 建立多 agent 法律研究助理，合約審閱時間由 90 分鐘縮至 45 分鐘</td></tr><tr><td class="px-5 py-3 font-semibold">資料查詢</td><td class="px-5 py-3">香港政府統計處及 1823</td><td class="px-5 py-3">以 AI 審核貿易統計、從上千間上市公司財報提取數據；1823 以 AI 辨識語音查詢並草擬回覆，節省約三成時間</td></tr><tr><td class="px-5 py-3 font-semibold">審批</td><td class="px-5 py-3">香港 AI 效能提升組（2026-08-17 公布）</td><td class="px-5 py-3">首批 30 個項目、涉及 13 個部門，部分審批時間縮減九成、工序由數日壓縮至數小時</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">場景</th><th class="text-left px-5 py-3 font-semibold">機構</th><th class="text-left px-5 py-3 font-semibold">公開數據</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">客服</td><td class="px-5 py-3">Klarna（2024-02-27 公布）</td><td class="px-5 py-3">首月 230 萬次對話，相當於客服對話的三分之二、等同 700 名全職工作量；重複查詢減 25%；解決時間由 11 分鐘降至 2 分鐘內；當時估計 2024 年利潤改善 4,000 萬美元</td></tr><tr><td class="px-5 py-3 font-semibold">客服（自家使用）</td><td class="px-5 py-3">Salesforce（2025-11-06）</td><td class="px-5 py-3">Agentforce 在自家 Help 網站處理逾 200 萬次對話</td></tr><tr><td class="px-5 py-3 font-semibold">文件處理</td><td class="px-5 py-3">IBM 客戶案例 Dynamiq</td><td class="px-5 py-3">以 watsonx Orchestrate 建立多 agent 法律研究助理，合約審閱時間由 90 分鐘縮至 45 分鐘</td></tr><tr><td class="px-5 py-3 font-semibold">資料查詢</td><td class="px-5 py-3">香港政府統計處及 1823</td><td class="px-5 py-3">以 AI 審核貿易統計、從上千間上市公司財報提取數據；1823 以 AI 辨識語音查詢並草擬回覆，節省約三成時間</td></tr><tr><td class="px-5 py-3 font-semibold">審批</td><td class="px-5 py-3">香港 AI 效能提升組（2026-08-17 公布）</td><td class="px-5 py-3">首批 30 個項目、涉及 13 個部門，部分審批時間縮減九成、工序由數日壓縮至數小時</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/" target="_blank" rel="noopener">Klarna</a>、<a href="https://www.salesforce.com/blog/support-requests-agentforce/" target="_blank" rel="noopener">Salesforce</a>、<a href="https://www.ibm.com/think/topics/ai-agents" target="_blank" rel="noopener">IBM</a>、<a href="https://www.policyaddress.gov.hk/2025/tc/p40.html" target="_blank" rel="noopener">香港特區政府施政報告</a>、<a href="https://www.info.gov.hk/gia/general/202608/17/P2026081700318.htm" target="_blank" rel="noopener">政府新聞公報</a></p>
 
@@ -1707,7 +1728,7 @@ export const blogPosts: BlogPost[] = [
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、市場數據：數字差距極大，因為定義不同</h3>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">機構與年份</th><th class="text-left px-5 py-3 font-semibold">數據</th><th class="text-left px-5 py-3 font-semibold">定義範圍</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">MarketsandMarkets（2025-04）</td><td class="px-5 py-3">AI agents 市場由 78.4 億美元（2025）增至 526.2 億美元（2030），複合年增長率 46.3%</td><td class="px-5 py-3">以 AI agent 軟件及服務市場為口徑</td></tr><tr><td class="px-5 py-3 font-semibold">Gartner（2025-08-26）</td><td class="px-5 py-3">2026 年底 40% 企業應用將整合任務專用 agents（2025 年不足 5%）</td><td class="px-5 py-3">企業應用內的功能滲透率</td></tr><tr><td class="px-5 py-3 font-semibold">Deloitte（2025 預測）</td><td class="px-5 py-3">使用 GenAI 的企業中，25% 預計 2025 年部署 agents，2027 年達 50%</td><td class="px-5 py-3">已使用 GenAI 的企業子集</td></tr><tr><td class="px-5 py-3 font-semibold">PwC（2025-05）</td><td class="px-5 py-3">300 名美國高管中，88% 擬因 agentic AI 增 AI 預算，79% 稱已採用；已採用者中 66% 見生產力提升、57% 見成本節省</td><td class="px-5 py-3">美國高管問卷，自我申報</td></tr><tr><td class="px-5 py-3 font-semibold">McKinsey（2025-11）</td><td class="px-5 py-3">62% 至少在做 agent 實驗，23% 稱正規模化；單一職能中不超過 10% 在規模化 agents</td><td class="px-5 py-3">企業職能層面的部署階段</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">機構與年份</th><th class="text-left px-5 py-3 font-semibold">數據</th><th class="text-left px-5 py-3 font-semibold">定義範圍</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">MarketsandMarkets（2025-04）</td><td class="px-5 py-3">AI agents 市場由 78.4 億美元（2025）增至 526.2 億美元（2030），複合年增長率 46.3%</td><td class="px-5 py-3">以 AI agent 軟件及服務市場為口徑</td></tr><tr><td class="px-5 py-3 font-semibold">Gartner（2025-08-26）</td><td class="px-5 py-3">2026 年底 40% 企業應用將整合任務專用 agents（2025 年不足 5%）</td><td class="px-5 py-3">企業應用內的功能滲透率</td></tr><tr><td class="px-5 py-3 font-semibold">Deloitte（2025 預測）</td><td class="px-5 py-3">使用 GenAI 的企業中，25% 預計 2025 年部署 agents，2027 年達 50%</td><td class="px-5 py-3">已使用 GenAI 的企業子集</td></tr><tr><td class="px-5 py-3 font-semibold">PwC（2025-05）</td><td class="px-5 py-3">300 名美國高管中，88% 擬因 agentic AI 增 AI 預算，79% 稱已採用；已採用者中 66% 見生產力提升、57% 見成本節省</td><td class="px-5 py-3">美國高管問卷，自我申報</td></tr><tr><td class="px-5 py-3 font-semibold">McKinsey（2025-11）</td><td class="px-5 py-3">62% 至少在做 agent 實驗，23% 稱正規模化；單一職能中不超過 10% 在規模化 agents</td><td class="px-5 py-3">企業職能層面的部署階段</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://marketsandmarkets.com/Market-Reports/-agents-market-15761548.html" target="_blank" rel="noopener">MarketsandMarkets</a>、<a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025" target="_blank" rel="noopener">Gartner</a>、<a href="https://www.deloitte.com/global/en/about/press-room/deloitte-globals-2025-predictions-report.html" target="_blank" rel="noopener">Deloitte</a>、<a href="https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-agent-survey.html" target="_blank" rel="noopener">PwC</a>、<a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2025" target="_blank" rel="noopener">McKinsey</a></p>
 
@@ -1793,9 +1814,9 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">AI Agent 有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">企業導入 AI Agent 有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見風險包括 AI 做錯決策（例如發錯報價）、數據私隱問題、系統故障影響服務。建議設定人手審批機制，重要決策必須人手確認。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">主要有三類：AI 自主作出錯誤決策（例如發出錯誤報價）、客戶與業務數據的私隱及存取權限問題、系統故障直接影響服務。實務上應設定人手審批關卡，重要決策必須由人確認，並定義清楚 Agent 的任務邊界與失敗時的處理方式。</p>
           </div>
         </div>
 
@@ -1838,7 +1859,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">AI 客服及 Chatbot 選型嘅關鍵係三個維度：①回應準確度 ②整合能力（WhatsApp、網站、社交媒體） ③價格透明度。香港中小企最常用嘅方案月費由 HK$500 到 HK$5,000 不等。</p>
+          <p class="text-gray-700 leading-relaxed">AI 客服及 Chatbot 選型的關鍵是三個維度：①回應準確度 ②整合能力（WhatsApp、網站、社交媒體） ③價格透明度。香港中小企最常用的方案月費由 HK$500 到 HK$5,000 不等。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -1847,19 +1868,17 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">先定義需求：FAQ 自動回覆？預約管理？銷售跟進？</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">必須支援 WhatsApp——香港客戶首選渠道</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">回應準確度 > 功能數量</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">月費 HK$500-5,000，注意按訊息量收費嘅隱藏成本</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">月費 HK$500-5,000，注意按訊息量收費的隱藏成本</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/ai-chatbot-hero.webp" alt="AI 客服 Chatbot 指南 — ADWire 香港 AI 客服" title="AI 客服 Chatbot 指南 — ADWire 香港 AI 客服" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
-
-        
-        
-        
+        </figure>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一、chatbot 分三代，規則式、意圖識別、LLM 對話式各有硬限制，現時實務上主流做法是混合架構：規則決定「可做甚麼」，模型決定「怎樣講」。二、自助渠道的實際解決率遠低於想像——Gartner 2024 年調查 5,728 名顧客，僅 14% 客服問題能在自助渠道完全解決。三、香港企業買 chatbot 的費用是兩層：BSP 平台訂閱費加 Meta 每則訊息費，另外還有號碼託管、席位、AI 附加功能、CRM 整合等隱藏項。四、chatbot 講錯政策可以令公司負上法律責任，加拿大 Moffatt v. Air Canada 一案已有明確裁決。五、無論買哪個平台，都必須設計人工升級機制，並按 PCPD 的 AI 個人資料保障模範框架處理風險評估與人為監督。</p></div>
+
+        \n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、為甚麼裝了 chatbot，客人反而更不滿</h3>
 
@@ -1867,13 +1886,13 @@ export const blogPosts: BlogPost[] = [
 
         <p>Gartner 在 2024 年發表的調查訪問了 5,728 名顧客，結果顯示自助渠道失敗的原因相當集中：45% 顧客認為公司不明白自己的需求，43% 顧客找不到相關內容<a href="https://www.gartner.com/en/newsroom/press-releases/2024-08-19-gartner-survey-finds-only-14-percent-of-customer-service-issues-are-fully-resolved-in-self-service" target="_blank" rel="noopener">（Gartner，2024）</a>。換句話說，失敗不是因為客人不願意自助，而是自助工具沒有接住他們的真實問題。</p>
 
-        <p>對香港中小企而言，這個落差特別明顯。多數公司人手有限，客服同事同時要處理落單、查詢、投訴與售後，AI 客服往往被當成萬能替代品。結果就是：規則寫得愈死，離題就愈多；離題愈多，客人愈覺得公司不明白自己。</p>
+        <p>對香港中小企而言，這個落差特別明顯。多數公司人手有限，客服同事同時要處理下單、查詢、投訴與售後，AI 客服往往被當成萬能替代品。結果就是：規則寫得愈死，離題就愈多；離題愈多，客人愈覺得公司不明白自己。</p>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、三代 chatbot 的分野及各自限制</h3>
 
         <p>要判斷一個方案值不值得買，第一步是分清它屬於哪一代。三代技術的原理不同，能處理的問題與限制也完全不同。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">世代</th><th class="text-left px-5 py-3 font-semibold">技術原理</th><th class="text-left px-5 py-3 font-semibold">能處理</th><th class="text-left px-5 py-3 font-semibold">主要限制</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">第 1 代：規則式</td><td class="px-5 py-3">關鍵字比對加決策樹</td><td class="px-5 py-3">只回答預設答案</td><td class="px-5 py-3">客人一離題即回「我不明白」，無法處理同義改寫</td></tr><tr><td class="px-5 py-3">第 2 代：意圖識別</td><td class="px-5 py-3">用模型把句子分類到固定 intent 清單</td><td class="px-5 py-3">能處理改寫，命中率比關鍵字高</td><td class="px-5 py-3">受清單限制，清單以外的意圖一律接不住</td></tr><tr><td class="px-5 py-3">第 3 代：LLM 對話式</td><td class="px-5 py-3">逐字生成，支援多輪對話及工具呼叫</td><td class="px-5 py-3">能回答未預設過的問題，語氣自然</td><td class="px-5 py-3">輸出屬機率性，有幻覺風險，可能講出不存在的事實</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">世代</th><th class="text-left px-5 py-3 font-semibold">技術原理</th><th class="text-left px-5 py-3 font-semibold">能處理</th><th class="text-left px-5 py-3 font-semibold">主要限制</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">第 1 代：規則式</td><td class="px-5 py-3">關鍵字比對加決策樹</td><td class="px-5 py-3">只回答預設答案</td><td class="px-5 py-3">客人一離題即回「我不明白」，無法處理同義改寫</td></tr><tr><td class="px-5 py-3">第 2 代：意圖識別</td><td class="px-5 py-3">用模型把句子分類到固定 intent 清單</td><td class="px-5 py-3">能處理改寫，命中率比關鍵字高</td><td class="px-5 py-3">受清單限制，清單以外的意圖一律接不住</td></tr><tr><td class="px-5 py-3">第 3 代：LLM 對話式</td><td class="px-5 py-3">逐字生成，支援多輪對話及工具呼叫</td><td class="px-5 py-3">能回答未預設過的問題，語氣自然</td><td class="px-5 py-3">輸出屬機率性，有幻覺風險，可能講出不存在的事實</td></tr></tbody></table></div>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第 1 代：規則式（Rule-based）</h4>
 
@@ -1895,7 +1914,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">重要警示</p><p class="text-amber-900 text-sm leading-relaxed">Gartner 2024 年調查（5,728 名顧客）顯示，僅 14% 客服問題能在自助渠道完全解決；即使是「非常簡單」的問題，亦僅 36%。如果你的計劃假設「上線 chatbot 就可以削減大部分客服人手」，這個假設與實際數據有相當距離。</p></div>
 
-        <p>這個數字值得打算「用 chatbot 減少人手」的老闆細看。它不代表自助渠道無用，而是說明自助渠道能完全收尾的比例有限。配合前文的失敗原因，可得出一個實務結論：<strong>AI 客服的價值不在於取代人，而在於把簡單、重複、有明確答案的問題分流，並在接不住時迅速交回真人</strong>；衡量成效的指標應是自助解決率與成功轉真人率，而非減少了幾多客服。</p>
+        <p>這個數字值得打算「用 chatbot 減少人手」的老闆細看。它不代表自助渠道無用，而是說明自助渠道能完全收尾的比例有限。配合前文的失敗原因，可得出一個實務結論：<strong>AI 客服的價值不在於取代人，而在於把簡單、重複、有明確答案的問題分流，並在接不住時迅速交回真人</strong>；衡量成效的指標應是自助解決率與成功轉真人率，而非減少了多少客服。</p>
 
         <p>來源：<a href="https://www.gartner.com/en/newsroom/press-releases/2024-08-19-gartner-survey-finds-only-14-percent-of-customer-service-issues-are-fully-resolved-in-self-service" target="_blank" rel="noopener">Gartner Newsroom（2024-08-19）</a></p>
 
@@ -1913,7 +1932,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>下表列出香港市場常見的幾個選項，價錢以各平台官方定價頁為準，查證日期為 2026-09-21。留意收費單位並不統一：有些按席位，有些按號碼，有些按訊息量。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">類型</th><th class="text-left px-5 py-3 font-semibold">公開定價（查證日期 2026-09-21）</th><th class="text-left px-5 py-3 font-semibold">備註</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Twilio</td><td class="px-5 py-3">用量計費</td><td class="px-5 py-3">每則處理費 US$0.005（收／發），另加 Meta 範本費</td><td class="px-5 py-3">適合有技術團隊自行開發的企業</td></tr><tr><td class="px-5 py-3">WATI</td><td class="px-5 py-3">SaaS</td><td class="px-5 py-3">Growth US$99／月、Pro US$249／月</td><td class="px-5 py-3">以 WhatsApp 為核心</td></tr><tr><td class="px-5 py-3">Respond.io</td><td class="px-5 py-3">SaaS</td><td class="px-5 py-3">Starter US$79／月、Growth US$159／月</td><td class="px-5 py-3">多渠道收件箱</td></tr><tr><td class="px-5 py-3">360dialog</td><td class="px-5 py-3">BSP</td><td class="px-5 py-3">€49／號碼／月起</td><td class="px-5 py-3">偏基礎建設，介面需自建</td></tr><tr><td class="px-5 py-3">Omnichat</td><td class="px-5 py-3">SaaS（香港）</td><td class="px-5 py-3">不公開價格，只可取得報價</td><td class="px-5 py-3">支援 WhatsApp、FB Messenger、Instagram、WeChat、LINE 及網站插件</td></tr><tr><td class="px-5 py-3">SleekFlow</td><td class="px-5 py-3">SaaS（香港）</td><td class="px-5 py-3">年繳 Pro US$109／月、Premium US$279／月；WhatsApp 號碼託管 US$15／月；一次性 Premium 設定 US$999</td><td class="px-5 py-3">整合 WhatsApp、FB、IG、網站、電郵、SMS</td></tr><tr><td class="px-5 py-3">HKT</td><td class="px-5 py-3">企業方案</td><td class="px-5 py-3">提供 GPT 客製 AI 聊天機械人，按需求報價</td><td class="px-5 py-3">不公開價格</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">類型</th><th class="text-left px-5 py-3 font-semibold">公開定價（查證日期 2026-09-21）</th><th class="text-left px-5 py-3 font-semibold">備註</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Twilio</td><td class="px-5 py-3">用量計費</td><td class="px-5 py-3">每則處理費 US$0.005（收／發），另加 Meta 範本費</td><td class="px-5 py-3">適合有技術團隊自行開發的企業</td></tr><tr><td class="px-5 py-3">WATI</td><td class="px-5 py-3">SaaS</td><td class="px-5 py-3">Growth US$99／月、Pro US$249／月</td><td class="px-5 py-3">以 WhatsApp 為核心</td></tr><tr><td class="px-5 py-3">Respond.io</td><td class="px-5 py-3">SaaS</td><td class="px-5 py-3">Starter US$79／月、Growth US$159／月</td><td class="px-5 py-3">多渠道收件箱</td></tr><tr><td class="px-5 py-3">360dialog</td><td class="px-5 py-3">BSP</td><td class="px-5 py-3">€49／號碼／月起</td><td class="px-5 py-3">偏基礎建設，介面需自建</td></tr><tr><td class="px-5 py-3">Omnichat</td><td class="px-5 py-3">SaaS（香港）</td><td class="px-5 py-3">不公開價格，只可取得報價</td><td class="px-5 py-3">支援 WhatsApp、FB Messenger、Instagram、WeChat、LINE 及網站插件</td></tr><tr><td class="px-5 py-3">SleekFlow</td><td class="px-5 py-3">SaaS（香港）</td><td class="px-5 py-3">年繳 Pro US$109／月、Premium US$279／月；WhatsApp 號碼託管 US$15／月；一次性 Premium 設定 US$999</td><td class="px-5 py-3">整合 WhatsApp、FB、IG、網站、電郵、SMS</td></tr><tr><td class="px-5 py-3">HKT</td><td class="px-5 py-3">企業方案</td><td class="px-5 py-3">提供 GPT 客製 AI 聊天機械人，按需求報價</td><td class="px-5 py-3">不公開價格</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.twilio.com/en-us/whatsapp/pricing" target="_blank" rel="noopener">Twilio</a>、<a href="https://wati.io/pricing" target="_blank" rel="noopener">WATI</a>、<a href="https://respond.io/pricing" target="_blank" rel="noopener">Respond.io</a>、<a href="https://360dialog.com/pricing" target="_blank" rel="noopener">360dialog</a>、<a href="https://www.omnichat.ai/zh-hk/pricing/" target="_blank" rel="noopener">Omnichat</a>、<a href="https://sleekflow.io/zh-hk/pricing" target="_blank" rel="noopener">SleekFlow</a>、<a href="https://www.hkt-enterprise.com/tc/products-solutions/digital-technology/ai-and-robotics/solution/chatbots" target="_blank" rel="noopener">HKT Enterprise</a>，查證日期 2026-09-21。</p>
 
@@ -1982,7 +2001,7 @@ export const blogPosts: BlogPost[] = [
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十二、常見問題</h3>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港中小企做 AI 客服，預算大概要幾多？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港中小企做 AI 客服，預算大概要多少？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">公開定價方面，WATI Growth 為 US$99／月、Respond.io Starter 為 US$79／月、360dialog 為 €49／號碼／月起。香港 BSP 平台費的常見估算為 HKD 1,200 至 8,000／月（中小企），企業級可達 HKD 20,000 以上，惟此區間屬供應商文章估算而非官方定價。實際總成本還要加上 Meta 每則訊息費、號碼託管、席位、AI 附加功能與 CRM 整合等項目。Omnichat 與 HKT 均不公開價格，只可取得報價。</p>
           </div>
@@ -2023,15 +2042,15 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">AI Chatbot 有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">企業採用 AI 客服有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係 AI 答錯問題影響客戶信任。建議設定「轉人手」機制，AI 答唔到就即刻轉真人客服。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險是 AI 答錯問題而影響客戶信任，尤其在價格、庫存或服務條款等範疇。其次是資料處理的合規問題。建議設定清晰的轉人手機制，AI 無法處理時即時轉接真人，並在對話中明確告知用戶正在與 AI 對話。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司提供 AI 客服方案比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇 AI 客服方案供應商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有香港本地部署經驗、支援 WhatsApp 整合、同埋提供持續訓練同優化嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議核查三項：是否具備香港本地部署經驗、能否整合 WhatsApp 與網站等實際渠道、以及是否提供上線後的持續訓練與優化。另外要問清楚收費模式，特別是對話量計費的隱藏成本。</p>
           </div>
         </div>
 
@@ -2047,7 +2066,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>ADWire 為香港企業提供 AI 應用與工作流程自動化的落地服務，包括對話系統設計、知識庫整理、人工升級流程，以及與現有後台系統的整合。如果你的團隊正準備評估 chatbot 方案，可以先看看我們的 <a href="/services/ai/">AI 應用服務</a>，以及 <a href="/services/automation/">工作流程自動化服務</a>，了解實際可以做到甚麼程度，再決定買哪一種工具。</p>
 
-        <p>最後提醒一句：本文的定價資料查證日期為 2026-09-21，平台價格與 Meta 費率都可能變動，落單前請以供應商官方頁面與 Meta 官方 rate card 為準。本文不構成任何成效承諾，實際效果視乎你的業務場景、知識庫質素與人手配置而定。</p>
+        <p>最後提醒一句：本文的定價資料查證日期為 2026-09-21，平台價格與 Meta 費率都可能變動，下單前請以供應商官方頁面與 Meta 官方 rate card 為準。本文不構成任何成效承諾，實際效果視乎你的業務場景、知識庫質素與人手配置而定。</p>
     
 
         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
@@ -2078,7 +2097,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">AI 自動化 ROI 計算公式：（節省成本 + 增加收入 − 投入成本）÷ 投入成本 × 100%。香港企業常見嘅 AI 自動化項目 ROI 喺 150-400% 之間，回本期通常 3-6 個月。</p>
+          <p class="text-gray-700 leading-relaxed">AI 自動化 ROI 計算公式：（節省成本 + 增加收入 − 投入成本）÷ 投入成本 × 100%。香港企業常見的 AI 自動化項目 ROI 在 150-400% 之間，回本期通常 3-6 個月。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -2093,13 +2112,9 @@ export const blogPosts: BlogPost[] = [
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/ai-roi-hero.webp" alt="AI 自動化 ROI 評估 — ADWire 香港 AI 自動化" title="AI 自動化 ROI 評估 — ADWire 香港 AI 自動化" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
+        </figure>
 
-        
-        
-        
-
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">自動化是否值得投資，取決於三件事。第一，你有沒有把授權以外的實作、維護與人力成本一併計入；第二，效益有沒有用「節省工時 × 完全負載時薪 × 50% 生產力轉換係數」量化，而不是憑感覺；第三，有沒有為項目失敗率做風險調整。業界標準是 Forrester Total Economic Impact（TEI）框架，以成本、效益、靈活性、風險四大元素，配合風險調整後三年現金流計算，標準折現率 10%。權威研究顯示，回收期可由少於 6 個月至 22 個月，差距來自規模、流程複雜度與是否已超越試行階段。任何財務數字都是模型推算，不是承諾。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">自動化是否值得投資，取決於三件事。第一，你有沒有把授權以外的實作、維護與人力成本一併計入；第二，效益有沒有用「節省工時 × 完全負載時薪 × 50% 生產力轉換係數」量化，而不是憑感覺；第三，有沒有為項目失敗率做風險調整。業界標準是 Forrester Total Economic Impact（TEI）框架，以成本、效益、靈活性、風險四大元素，配合風險調整後三年現金流計算，標準折現率 10%。權威研究顯示，回收期可由少於 6 個月至 22 個月，差距來自規模、流程複雜度與是否已超越試行階段。任何財務數字都是模型推算，不是承諾。</p></div>\n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、為何不能只計軟件授權費</h3>
 
@@ -2109,7 +2124,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>忽略其餘成本會帶來兩個後果。一是預算超支：項目進行到一半才發現要請外部顧問、要做系統整合、要重新培訓前線同事。二是效益被高估：因為沒有把內部人力投入算成成本，回報看起來自然更好。對財務負責人而言，前者影響現金流，後者影響判斷，兩者都不容忽視。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">成本類別</th><th class="text-left px-5 py-3 font-semibold">具體內容</th><th class="text-left px-5 py-3 font-semibold">常被忽略的原因</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">軟件授權／訂閱</td><td class="px-5 py-3">平台月費、用戶數授權、附加模組</td><td class="px-5 py-3">報價單上最顯眼，反而最容易被完整計入</td></tr><tr><td class="px-5 py-3">規劃與實作</td><td class="px-5 py-3">流程梳理、系統整合、第三方專業服務、內部人力、測試</td><td class="px-5 py-3">以「同事順手做」的心態帶過，未折算工時成本</td></tr><tr><td class="px-5 py-3">持續管理與維護</td><td class="px-5 py-3">監控、異常處理、版本更新、流程調整</td><td class="px-5 py-3">上線後才陸續發生，初期預算常沒預留</td></tr><tr><td class="px-5 py-3">培訓及公民開發者</td><td class="px-5 py-3">員工培訓、內部開發者培養、實驗成本</td><td class="px-5 py-3">被當成一次性支出，忽略持續投入</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">成本類別</th><th class="text-left px-5 py-3 font-semibold">具體內容</th><th class="text-left px-5 py-3 font-semibold">常被忽略的原因</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">軟件授權／訂閱</td><td class="px-5 py-3">平台月費、用戶數授權、附加模組</td><td class="px-5 py-3">報價單上最顯眼，反而最容易被完整計入</td></tr><tr><td class="px-5 py-3">規劃與實作</td><td class="px-5 py-3">流程梳理、系統整合、第三方專業服務、內部人力、測試</td><td class="px-5 py-3">以「同事順手做」的心態帶過，未折算工時成本</td></tr><tr><td class="px-5 py-3">持續管理與維護</td><td class="px-5 py-3">監控、異常處理、版本更新、流程調整</td><td class="px-5 py-3">上線後才陸續發生，初期預算常沒預留</td></tr><tr><td class="px-5 py-3">培訓及公民開發者</td><td class="px-5 py-3">員工培訓、內部開發者培養、實驗成本</td><td class="px-5 py-3">被當成一次性支出，忽略持續投入</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://tei.forrester.com/go/microsoft/PowerPlatform2024/" target="_blank" rel="noopener">Forrester，The Total Economic Impact of Microsoft Power Platform</a></p>
 
@@ -2142,7 +2157,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>談到企業 AI 自動化的回報，最常被引用的兩份研究都來自 Forrester TEI。它們的數字相當可觀，但必須連同研究性質一併理解。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">研究</th><th class="text-left px-5 py-3 font-semibold">三年 ROI</th><th class="text-left px-5 py-3 font-semibold">NPV</th><th class="text-left px-5 py-3 font-semibold">回收期</th><th class="text-left px-5 py-3 font-semibold">委託方</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Forrester TEI：Microsoft Power Platform（2024年7月）</td><td class="px-5 py-3">224%</td><td class="px-5 py-3">8,170 萬美元</td><td class="px-5 py-3">少於 6 個月</td><td class="px-5 py-3">Microsoft 委託</td></tr><tr><td class="px-5 py-3">Forrester TEI：UiPath Automation（2021）</td><td class="px-5 py-3">97%</td><td class="px-5 py-3">594 萬美元</td><td class="px-5 py-3">少於 6 個月</td><td class="px-5 py-3">UiPath 委託</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">研究</th><th class="text-left px-5 py-3 font-semibold">三年 ROI</th><th class="text-left px-5 py-3 font-semibold">NPV</th><th class="text-left px-5 py-3 font-semibold">回收期</th><th class="text-left px-5 py-3 font-semibold">委託方</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Forrester TEI：Microsoft Power Platform（2024年7月）</td><td class="px-5 py-3">224%</td><td class="px-5 py-3">8,170 萬美元</td><td class="px-5 py-3">少於 6 個月</td><td class="px-5 py-3">Microsoft 委託</td></tr><tr><td class="px-5 py-3">Forrester TEI：UiPath Automation（2021）</td><td class="px-5 py-3">97%</td><td class="px-5 py-3">594 萬美元</td><td class="px-5 py-3">少於 6 個月</td><td class="px-5 py-3">UiPath 委託</td></tr></tbody></table></div>
 
         <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">必須留意的研究性質</p><p class="text-amber-900 text-sm leading-relaxed">上述兩份 Forrester TEI 研究均由供應商委託，財務數字屬「複合組織」模型推算，是把多家受訪企業的經驗合成一個虛擬組織後計算，並非單一企業的實測結果。數字可用作行業參考與假設起點，但不可當作任何企業的回本承諾。</p></div>
 
@@ -2158,7 +2173,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>最能說明「不能只看授權費」的，是兩份 TEI 研究的成本拆解。把它們的三年成本現值按項目列出，就會發現授權以外的支出相當可觀。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">研究</th><th class="text-left px-5 py-3 font-semibold">成本項目</th><th class="text-left px-5 py-3 font-semibold">金額（美元）</th><th class="text-left px-5 py-3 font-semibold">佔比</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Power Platform 2024（三年成本現值 3,648 萬）</td><td class="px-5 py-3">軟件授權</td><td class="px-5 py-3">2,413 萬</td><td class="px-5 py-3">66%</td></tr><tr><td class="px-5 py-3">Power Platform 2024</td><td class="px-5 py-3">初期實作、培訓與實驗</td><td class="px-5 py-3">615 萬</td><td class="px-5 py-3">17%</td></tr><tr><td class="px-5 py-3">Power Platform 2024</td><td class="px-5 py-3">持續管理</td><td class="px-5 py-3">462 萬</td><td class="px-5 py-3">13%</td></tr><tr><td class="px-5 py-3">Power Platform 2024</td><td class="px-5 py-3">方案層培訓／實驗</td><td class="px-5 py-3">159 萬</td><td class="px-5 py-3">4%</td></tr><tr><td class="px-5 py-3">UiPath 2021（三年成本現值 614 萬）</td><td class="px-5 py-3">持續營運（CoE 及公民開發者）</td><td class="px-5 py-3">459 萬</td><td class="px-5 py-3">75%</td></tr><tr><td class="px-5 py-3">UiPath 2021</td><td class="px-5 py-3">軟件授權</td><td class="px-5 py-3">139 萬</td><td class="px-5 py-3">23%</td></tr><tr><td class="px-5 py-3">UiPath 2021</td><td class="px-5 py-3">規劃及實作</td><td class="px-5 py-3">16 萬</td><td class="px-5 py-3">3%</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">研究</th><th class="text-left px-5 py-3 font-semibold">成本項目</th><th class="text-left px-5 py-3 font-semibold">金額（美元）</th><th class="text-left px-5 py-3 font-semibold">佔比</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Power Platform 2024（三年成本現值 3,648 萬）</td><td class="px-5 py-3">軟件授權</td><td class="px-5 py-3">2,413 萬</td><td class="px-5 py-3">66%</td></tr><tr><td class="px-5 py-3">Power Platform 2024</td><td class="px-5 py-3">初期實作、培訓與實驗</td><td class="px-5 py-3">615 萬</td><td class="px-5 py-3">17%</td></tr><tr><td class="px-5 py-3">Power Platform 2024</td><td class="px-5 py-3">持續管理</td><td class="px-5 py-3">462 萬</td><td class="px-5 py-3">13%</td></tr><tr><td class="px-5 py-3">Power Platform 2024</td><td class="px-5 py-3">方案層培訓／實驗</td><td class="px-5 py-3">159 萬</td><td class="px-5 py-3">4%</td></tr><tr><td class="px-5 py-3">UiPath 2021（三年成本現值 614 萬）</td><td class="px-5 py-3">持續營運（CoE 及公民開發者）</td><td class="px-5 py-3">459 萬</td><td class="px-5 py-3">75%</td></tr><tr><td class="px-5 py-3">UiPath 2021</td><td class="px-5 py-3">軟件授權</td><td class="px-5 py-3">139 萬</td><td class="px-5 py-3">23%</td></tr><tr><td class="px-5 py-3">UiPath 2021</td><td class="px-5 py-3">規劃及實作</td><td class="px-5 py-3">16 萬</td><td class="px-5 py-3">3%</td></tr></tbody></table></div>
 
         <p>兩份研究的結構明顯不同：Power Platform 的授權佔 66%，是最大一項；UiPath 的授權只佔 23%，反而是持續營運佔 75%。差異來自方案性質與推行模式，但共同點是一致的——<strong>授權以外的實作、維護與人力成本佔比可觀，不應只計授權費</strong>。</p>
 
@@ -2180,7 +2195,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>回收期是老闆最常問的數字，但不同來源給出的答案差距很大。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">來源</th><th class="text-left px-5 py-3 font-semibold">回收期</th><th class="text-left px-5 py-3 font-semibold">說明</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Forrester TEI</td><td class="px-5 py-3">少於 6 個月</td><td class="px-5 py-3">多數個案，屬模型推算的複合組織</td></tr><tr><td class="px-5 py-3">Deloitte（2022）</td><td class="px-5 py-3">平均 22 個月</td><td class="px-5 py-3">試行階段企業平均，較 2020 年的 16 個月上升；逾半受訪者從未計算回收期</td></tr><tr><td class="px-5 py-3">綜合實務範圍</td><td class="px-5 py-3">約 6 至 22 個月</td><td class="px-5 py-3">視規模與流程複雜度而定</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">來源</th><th class="text-left px-5 py-3 font-semibold">回收期</th><th class="text-left px-5 py-3 font-semibold">說明</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">Forrester TEI</td><td class="px-5 py-3">少於 6 個月</td><td class="px-5 py-3">多數個案，屬模型推算的複合組織</td></tr><tr><td class="px-5 py-3">Deloitte（2022）</td><td class="px-5 py-3">平均 22 個月</td><td class="px-5 py-3">試行階段企業平均，較 2020 年的 16 個月上升；逾半受訪者從未計算回收期</td></tr><tr><td class="px-5 py-3">綜合實務範圍</td><td class="px-5 py-3">約 6 至 22 個月</td><td class="px-5 py-3">視規模與流程複雜度而定</td></tr></tbody></table></div>
 
         <p>為何差距如此大？關鍵在於「誰被計算在內」。Forrester TEI 的模型假設企業已具備一定成熟度，流程範圍明確、效益可以量化，因此回收期短。Deloitte 的調查則覆蓋大量仍在試行階段的企業，這些企業的固定成本已經付出，但效益基數仍小，平均回收期自然被拉長。</p>
 
@@ -2209,7 +2224,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>要用公式算出效益，先要有香港本地的人力成本基準。政府統計處《2025年收入及工時按年統計調查》（2026年3月23日公布）提供了以下數字。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">項目</th><th class="text-left px-5 py-3 font-semibold">數字</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">僱員每月工資中位數（整體）</td><td class="px-5 py-3">HK$21,200</td></tr><tr><td class="px-5 py-3">每小時工資中位數（整體）</td><td class="px-5 py-3">HK$85.7</td></tr><tr><td class="px-5 py-3">每周工時中位數</td><td class="px-5 py-3">43.2 小時</td></tr><tr><td class="px-5 py-3">經理／專業人員每月工資中位數</td><td class="px-5 py-3">HK$32,700</td></tr><tr><td class="px-5 py-3">文書支援每月工資中位數</td><td class="px-5 py-3">HK$17,500</td></tr><tr><td class="px-5 py-3">服務及銷售每月工資中位數</td><td class="px-5 py-3">HK$15,800</td></tr><tr><td class="px-5 py-3">非技術工人每月工資中位數</td><td class="px-5 py-3">HK$14,900</td></tr><tr><td class="px-5 py-3">強積金僱主強制供款</td><td class="px-5 py-3">有關入息 5%，每月上限 HK$1,500（入息上限 HK$30,000）</td></tr><tr><td class="px-5 py-3">法定最低工資（2025年5月1日起）</td><td class="px-5 py-3">每小時 HK$42.1</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">項目</th><th class="text-left px-5 py-3 font-semibold">數字</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">僱員每月工資中位數（整體）</td><td class="px-5 py-3">HK$21,200</td></tr><tr><td class="px-5 py-3">每小時工資中位數（整體）</td><td class="px-5 py-3">HK$85.7</td></tr><tr><td class="px-5 py-3">每周工時中位數</td><td class="px-5 py-3">43.2 小時</td></tr><tr><td class="px-5 py-3">經理／專業人員每月工資中位數</td><td class="px-5 py-3">HK$32,700</td></tr><tr><td class="px-5 py-3">文書支援每月工資中位數</td><td class="px-5 py-3">HK$17,500</td></tr><tr><td class="px-5 py-3">服務及銷售每月工資中位數</td><td class="px-5 py-3">HK$15,800</td></tr><tr><td class="px-5 py-3">非技術工人每月工資中位數</td><td class="px-5 py-3">HK$14,900</td></tr><tr><td class="px-5 py-3">強積金僱主強制供款</td><td class="px-5 py-3">有關入息 5%，每月上限 HK$1,500（入息上限 HK$30,000）</td></tr><tr><td class="px-5 py-3">法定最低工資（2025年5月1日起）</td><td class="px-5 py-3">每小時 HK$42.1</td></tr></tbody></table></div>
 
         <p>補充一個背景數字：2026 年 3 月香港約有 36 萬家中小企，佔企業總數 98% 以上，僱用約 120 萬人。這意味着大部分本地企業的流程規模，都適合用上述中位數作為起點推算。</p>
 
@@ -2230,11 +2245,16 @@ export const blogPosts: BlogPost[] = [
 
         <p>把以上方法整合，企業內部可以按以下五步做一次評估，全程不需要外部工具。</p>
 
-        <p><strong>第一步：界定範圍。</strong>只選一條重複性高、規則清晰的流程，例如發票錄入、客戶查詢分流或報表整理。範圍越窄，效益越容易量化。</p>
-        <p><strong>第二步：列全成本。</strong>按 TEI 的四類列出授權、實作、持續管理、培訓與人力投入，並以三年為期計算現值。</p>
-        <p><strong>第三步：量化效益。</strong>用「節省工時 × 完全負載時薪 × 50%」計算生產力效益，另加錯誤率與合規事件避免的價值，不可量化的部分如實標示。</p>
-        <p><strong>第四步：套公式。</strong>以折現率 10% 計算三年效益現值與成本現值，得出 ROI、NPV 與回收期三個數字。</p>
-        <p><strong>第五步：做風險調整。</strong>參考 RAND 與 Gartner 的失敗率數據，對效益假設打折，並檢視數據質素、風險控制與價值論證是否到位。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第一步：界定範圍</h4>
+<p>只選一條重複性高、規則清晰的流程，例如發票錄入、客戶查詢分流或報表整理。範圍越窄，效益越容易量化。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第二步：列全成本</h4>
+<p>按 TEI 的四類列出授權、實作、持續管理、培訓與人力投入，並以三年為期計算現值。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第三步：量化效益</h4>
+<p>用「節省工時 × 完全負載時薪 × 50%」計算生產力效益，另加錯誤率與合規事件避免的價值，不可量化的部分如實標示。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第四步：套公式</h4>
+<p>以折現率 10% 計算三年效益現值與成本現值，得出 ROI、NPV 與回收期三個數字。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">第五步：做風險調整</h4>
+<p>參考 RAND 與 Gartner 的失敗率數據，對效益假設打折，並檢視數據質素、風險控制與價值論證是否到位。</p>
 
         <p>完成這五步後，你會得到一個屬於自己公司的區間，而不是一個抄回來的漂亮數字。這個區間才是可以拿上會議桌討論的依據。</p>
 
@@ -2282,9 +2302,9 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">AI 自動化 ROI 有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">計算 AI 自動化 ROI 時有哪些常見錯誤？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見錯誤係只計直接節省而忽略隱性成本（培訓時間、系統維護、過渡期效率下降）。建議用保守估計計 ROI。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最常見的錯誤是只計直接節省的工時，而忽略隱性成本，包括前期流程梳理、員工培訓、系統維護，以及過渡期的效率下降。此外，以理論最高效益而非實際使用率估算，也會高估回報。較穩健的做法是用保守假設計算，並在試點後修正。</p>
           </div>
         </div>
 
@@ -2327,15 +2347,15 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">GEO（生成式引擎優化，Generative Engine Optimization）係指令 ChatGPT、Perplexity、Google AI Overviews 等 AI 引擎引用你嘅內容嘅優化方法。核心係提供「直接答案」「定義型語句」「結構化數據」三種 AI 最愛引用嘅內容格式。</p>
+          <p class="text-gray-700 leading-relaxed">GEO（生成式引擎優化，Generative Engine Optimization）是指令 ChatGPT、Perplexity、Google AI Overviews 等 AI 引擎引用你的內容的優化方法。核心是提供「直接答案」「定義型語句」「結構化數據」三種 AI 最愛引用的內容格式。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">GEO = 令 AI 引擎引用你嘅內容</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">GEO = 令 AI 引擎引用你的內容</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">三大核心：直接答案塊、定義型語句、結構化數據</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">FAQ Schema 係 GEO 嘅基本功</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">FAQ Schema 是 GEO 的基本功</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">品牌提及頻率影響 AI 品牌認知</span></li>
           </ul>
         </div>
@@ -2370,7 +2390,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>把兩者放在同一張表上對照，會發現它們的基礎設施重疊度極高，真正不同的只是「優化目標」與「成效觀察方式」。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">比較項目</th><th class="text-left px-5 py-3 font-semibold">傳統 SEO</th><th class="text-left px-5 py-3 font-semibold">GEO（生成式引擎優化）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">優化目標</td><td class="px-5 py-3">搜尋結果頁的排名位置</td><td class="px-5 py-3">在 AI 生成答案中被引用或呈現</td></tr><tr><td class="px-5 py-3">內容來源</td><td class="px-5 py-3">同一個搜尋索引</td><td class="px-5 py-3">同一個搜尋索引，並非獨立 AI 索引</td></tr><tr><td class="px-5 py-3">核心機制</td><td class="px-5 py-3">爬取、索引、排名系統</td><td class="px-5 py-3">RAG／grounding 檢索＋query fan-out 拆解子查詢</td></tr><tr><td class="px-5 py-3">技術要求</td><td class="px-5 py-3">可被索引、具備顯示 snippet 資格</td><td class="px-5 py-3">完全相同，Google 明言沒有額外技術要求</td></tr><tr><td class="px-5 py-3">學術定位</td><td class="px-5 py-3">優化排名位置</td><td class="px-5 py-3">優化在生成答案中的能見度</td></tr><tr><td class="px-5 py-3">成效觀察</td><td class="px-5 py-3">曝光、點擊、排名</td><td class="px-5 py-3">以曝光為主，點擊數據有限</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">比較項目</th><th class="text-left px-5 py-3 font-semibold">傳統 SEO</th><th class="text-left px-5 py-3 font-semibold">GEO（生成式引擎優化）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">優化目標</td><td class="px-5 py-3">搜尋結果頁的排名位置</td><td class="px-5 py-3">在 AI 生成答案中被引用或呈現</td></tr><tr><td class="px-5 py-3">內容來源</td><td class="px-5 py-3">同一個搜尋索引</td><td class="px-5 py-3">同一個搜尋索引，並非獨立 AI 索引</td></tr><tr><td class="px-5 py-3">核心機制</td><td class="px-5 py-3">爬取、索引、排名系統</td><td class="px-5 py-3">RAG／grounding 檢索＋query fan-out 拆解子查詢</td></tr><tr><td class="px-5 py-3">技術要求</td><td class="px-5 py-3">可被索引、具備顯示 snippet 資格</td><td class="px-5 py-3">完全相同，Google 明言沒有額外技術要求</td></tr><tr><td class="px-5 py-3">學術定位</td><td class="px-5 py-3">優化排名位置</td><td class="px-5 py-3">優化在生成答案中的能見度</td></tr><tr><td class="px-5 py-3">成效觀察</td><td class="px-5 py-3">曝光、點擊、排名</td><td class="px-5 py-3">以曝光為主，點擊數據有限</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener">KDD 2024 論文</a>、<a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener">Google Search 官方指引</a></p><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、Google 官方立場：為生成式 AI 優化，就是 SEO</h3>
 
@@ -2458,7 +2478,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">有效與無效做法對照</h4>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">做法</th><th class="text-left px-5 py-3 font-semibold">效果</th><th class="text-left px-5 py-3 font-semibold">依據</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">引用來源</td><td class="px-5 py-3">最有效之一</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">加入統計數字</td><td class="px-5 py-3">最有效之一</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">加入引文</td><td class="px-5 py-3">最有效之一</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">關鍵字堆砌</td><td class="px-5 py-3">幾乎無提升</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">刻意營造權威語氣</td><td class="px-5 py-3">無顯著改善</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">建立 llms.txt</td><td class="px-5 py-3">對 Google Search 無害亦無益</td><td class="px-5 py-3">Google 官方</td></tr><tr><td class="px-5 py-3">為查詢變體開大量頁面</td><td class="px-5 py-3">違反垃圾內容政策</td><td class="px-5 py-3">Google 官方</td></tr><tr><td class="px-5 py-3">追求不真實的品牌提及</td><td class="px-5 py-3">官方明言無效</td><td class="px-5 py-3">Google 官方</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">做法</th><th class="text-left px-5 py-3 font-semibold">效果</th><th class="text-left px-5 py-3 font-semibold">依據</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">引用來源</td><td class="px-5 py-3">最有效之一</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">加入統計數字</td><td class="px-5 py-3">最有效之一</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">加入引文</td><td class="px-5 py-3">最有效之一</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">關鍵字堆砌</td><td class="px-5 py-3">幾乎無提升</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">刻意營造權威語氣</td><td class="px-5 py-3">無顯著改善</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">建立 llms.txt</td><td class="px-5 py-3">對 Google Search 無害亦無益</td><td class="px-5 py-3">Google 官方</td></tr><tr><td class="px-5 py-3">為查詢變體開大量頁面</td><td class="px-5 py-3">違反垃圾內容政策</td><td class="px-5 py-3">Google 官方</td></tr><tr><td class="px-5 py-3">追求不真實的品牌提及</td><td class="px-5 py-3">官方明言無效</td><td class="px-5 py-3">Google 官方</td></tr></tbody></table></div>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、GEO 成效如何量度</h3>
 
@@ -2556,9 +2576,9 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">GEO 優化有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">GEO 優化有哪些風險與限制？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">AI 引擎嘅引用規則經常變動，GEO 仍然係新興領域。建議以 SEO 為基礎，GEO 作為增量優化，唔好放棄傳統 SEO。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">GEO 仍是新興領域，AI 引擎的引用規則與回答格式經常變動，因此成效難以像搜尋排名一樣穩定追蹤。此外，沒有任何方法可以保證被特定 AI 引擎引用。建議以 SEO 為基礎，把 GEO 視為增量優化，而非取代傳統搜尋的策略。</p>
           </div>
         </div>
 
@@ -2577,12 +2597,12 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
           <li><a href="/blog/seo-vs-geo-2025/" class="text-[#0f4c81] hover:underline">GEO 生成式引擎優化是什麼？2026 香港企業 AI 搜尋完整指南</a></li>
-          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 同 GEO 完全攻略：同時上 Google 同 ChatGPT</a></li>
+          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 完全攻略：同時上 Google 同 ChatGPT</a></li>
           </ul>
         </div>\n\n        <p class="text-sm text-gray-500 mt-8">參考資料：<a href="https://blog.google/products/search/generative-ai-google-search-may-2024/" target="_blank" rel="noopener" class="text-[#0f4c81] hover:underline">Google AI Overviews</a></p>`,
   },
 
-  // ─── Article 19：香港 SEO 公司點揀（seo 公司 1,000 + seo 5,400） ───
+  // ─── Article 19：香港 SEO 公司如何選擇（seo 公司 1,000 + seo 5,400） ───
   {
     id: 19,
     slug: "how-to-choose-seo-company-hong-kong-2026",
@@ -2601,28 +2621,24 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">揀香港 SEO 公司最重要係睇三樣嘢：①有冇實際香港案例同數據 ②有冇跟 Google 官方最佳實踐 ③收費係咪透明。Google 官方建議用佢嘅問題清單嚟篩選 SEO 服務商。</p>
+          <p class="text-gray-700 leading-relaxed">選擇香港 SEO 公司應核查三項：一、是否有實際香港案例與可查證數據；二、建議是否符合 Google 官方最佳實踐；三、收費是否透明。Google 官方建議的問題清單，是實用的篩選工具。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">Google 官方問題清單係最好嘅篩選工具</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">要求提供實際案例同 GSC 數據（唔係截圖）</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">警惕「保證第一頁」「大量垃圾連結」呢類承諾</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">Google 官方問題清單是最好的篩選工具</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">要求提供實際案例同 GSC 數據（不是截圖）</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">警惕「保證第一頁」「大量垃圾連結」這類承諾</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">收費透明：月費制 vs 項目制各有優劣</span></li>
           </ul>
         </div>
 
         <figure class="my-8">
           <img src="/blog/how-to-choose-seo-company-hero.webp" alt="how to choose seo company hong kong 2026 — ADWire 香港" title="how to choose seo company hong kong 2026 — ADWire 香港" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto rounded-xl shadow-sm" />
-        </figure>\n\n        
+        </figure>
 
-        
-        
-        
-
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，Google 官方立場很明確：沒有人可以保證在 Google 上排名第一。任何這樣講的人，都應該直接跳過。二，Google 也明確表示，它不會評估、認可任何第三方 SEO 工具，而第三方工具無法存取 Google 的內部排名資料，因此任何聲稱掌握「Google 內部數據」的報告都值得追問。三，稽核階段只應授予 Search Console 的讀取權限，寫入權限留到確認合作之後。四，香港市場價格由每月約三千元到八萬元不等，價差不代表效果好壞，但報價低到不合理的方案，通常反映在交付內容上。五，可以量度的成效是曝光、點擊、非品牌流量與查詢數量，不是「保證排名」。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，Google 官方立場很明確：沒有人可以保證在 Google 上排名第一。任何這樣講的人，都應該直接跳過。二，Google 也明確表示，它不會評估、認可任何第三方 SEO 工具，而第三方工具無法存取 Google 的內部排名資料，因此任何聲稱掌握「Google 內部數據」的報告都值得追問。三，稽核階段只應授予 Search Console 的讀取權限，寫入權限留到確認合作之後。四，香港市場價格由每月約三千元到八萬元不等，價差不代表效果好壞，但報價低到不合理的方案，通常反映在交付內容上。五，可以量度的成效是曝光、點擊、非品牌流量與查詢數量，不是「保證排名」。</p></div>\n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、Google 官方立場：SEO 能幫你甚麼，不能幫你甚麼</h3>
 
@@ -2640,7 +2656,7 @@ export const blogPosts: BlogPost[] = [
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/docs/fundamentals/do-i-need-seo?hl=zh-tw" target="_blank" rel="noopener">Google 搜尋中心 — 您需要 SEO 嗎？雇用 SEO 專家的訣竅</a>、<a href="https://developers.google.com/search/docs/appearance/ranking-systems-guide?hl=zh-tw" target="_blank" rel="noopener">Google 搜尋排名系統指南</a></p>
 
-        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、Google 官方教你點揀 SEO 公司</h3>
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、Google 官方教你如何選擇 SEO 公司</h3>
 
         <p>這一節是整篇文章最實用的部分，內容全部來自 Google 的官方文件原文。Google 寫這份文件的用意，是提醒網站擁有者：僱用 SEO 是一項重大決定，雖然可能提升曝光並節省時間，但<strong>也有破壞網站與聲譽的風險</strong>。</p>
 
@@ -2648,7 +2664,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>Google 建議直接向對方提出以下問題。這些問題的價值在於：好的服務商會樂於回答，而只想盡快簽約的服務商通常答不出具體內容。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">要問的問題</th><th class="text-left px-5 py-3 font-semibold">你在觀察甚麼</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">能否提供以前的案子或成功案例？</td><td class="px-5 py-3">有沒有可查證的實際作品，而不是只有 logo 牆</td></tr><tr><td class="px-5 py-3">你們是否遵循 Google 搜尋基礎入門（舊稱網站管理員指南）？</td><td class="px-5 py-3">是否清楚官方準則，還是只知道坊間流傳的做法</td></tr><tr><td class="px-5 py-3">預計有甚麼成果、需要多久、如何評估成果？</td><td class="px-5 py-3">有沒有具體的量度方法，抑或只講「會慢慢見到效果」</td></tr><tr><td class="px-5 py-3">對我的行業有哪些經驗？</td><td class="px-5 py-3">是否理解你所在行業的搜尋意圖與競爭格局</td></tr><tr><td class="px-5 py-3">對我所在的國家／地區與城市有哪些經驗？</td><td class="px-5 py-3">香港市場的中文搜尋與本地意圖，與海外市場差異很大</td></tr><tr><td class="px-5 py-3">你們有哪些國際網站的開發經驗？</td><td class="px-5 py-3">若你有海外客源，這一項直接影響可行性</td></tr><tr><td class="px-5 py-3">你們在這個領域服務的時間有多長？</td><td class="px-5 py-3">了解團隊背景，同時留意是否把個人經驗包裝成公司年資</td></tr><tr><td class="px-5 py-3">我們能溝通到甚麼層面？你們會否說明要對網站做哪些變更及理由？</td><td class="px-5 py-3">透明度。不願意解釋技術決定的服務商，風險最高</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">要問的問題</th><th class="text-left px-5 py-3 font-semibold">你在觀察甚麼</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">能否提供以前的案子或成功案例？</td><td class="px-5 py-3">有沒有可查證的實際作品，而不是只有 logo 牆</td></tr><tr><td class="px-5 py-3">你們是否遵循 Google 搜尋基礎入門（舊稱網站管理員指南）？</td><td class="px-5 py-3">是否清楚官方準則，還是只知道坊間流傳的做法</td></tr><tr><td class="px-5 py-3">預計有甚麼成果、需要多久、如何評估成果？</td><td class="px-5 py-3">有沒有具體的量度方法，抑或只講「會慢慢見到效果」</td></tr><tr><td class="px-5 py-3">對我的行業有哪些經驗？</td><td class="px-5 py-3">是否理解你所在行業的搜尋意圖與競爭格局</td></tr><tr><td class="px-5 py-3">對我所在的國家／地區與城市有哪些經驗？</td><td class="px-5 py-3">香港市場的中文搜尋與本地意圖，與海外市場差異很大</td></tr><tr><td class="px-5 py-3">你們有哪些國際網站的開發經驗？</td><td class="px-5 py-3">若你有海外客源，這一項直接影響可行性</td></tr><tr><td class="px-5 py-3">你們在這個領域服務的時間有多長？</td><td class="px-5 py-3">了解團隊背景，同時留意是否把個人經驗包裝成公司年資</td></tr><tr><td class="px-5 py-3">我們能溝通到甚麼層面？你們會否說明要對網站做哪些變更及理由？</td><td class="px-5 py-3">透明度。不願意解釋技術決定的服務商，風險最高</td></tr></tbody></table></div>
 
         <p>Google 額外提醒一點：觀察對方是否對你本人與你的業務真正感興趣。如果對方表現得興趣缺缺，就應該另找真正有熱誠的人。Google 甚至列出「好的 SEO 應該反過來問你的問題」，包括：你的生意有何獨特之處、競爭對手是誰、搜尋結果會帶來甚麼幫助、顧客如何找到你。</p>
 
@@ -2658,17 +2674,21 @@ export const blogPosts: BlogPost[] = [
 
         <p>Google 在官方文件中直接點名了以下幾類做法，語氣相當明確。</p>
 
-        <p><strong>保證排名第一。</strong> Google 原文這樣寫：「如果有人向您保證能讓網站在搜尋結果中的排名攀升到第一位，建議您另請高明。」同一份文件亦明確指出：<strong>沒有人可以保證能在 Google 上排名第一</strong>。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">保證排名第一</h4>
+<p> Google 原文這樣寫：「如果有人向您保證能讓網站在搜尋結果中的排名攀升到第一位，建議您另請高明。」同一份文件亦明確指出：<strong>沒有人可以保證能在 Google 上排名第一</strong>。</p>
 
         <p><strong>聲稱與 Google 有特殊關係，或可以「優先提交」內容。</strong> Google 特別提醒要提防這類宣傳噱頭。既然 Google 已說明不會收受金錢改變排名，這類說法在邏輯上就站不住。</p>
 
-        <p><strong>不斷主動寄送推銷電郵。</strong> Google 直接寫：「請當心不斷主動寄送電子電郵給您的 SEO 公司、網路顧問或服務商」，並建議把這類有關搜尋引擎的垃圾電郵，視為「一夜見效」的減肥藥宣傳，務必保持懷疑。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">不斷主動寄送推銷電郵</h4>
+<p> Google 直接寫：「請當心不斷主動寄送電子電郵給您的 SEO 公司、網路顧問或服務商」，並建議把這類有關搜尋引擎的垃圾電郵，視為「一夜見效」的減肥藥宣傳，務必保持懷疑。</p>
 
-        <p><strong>故作神秘、不願說明意圖。</strong> Google 建議對這類公司保持戒心，並強調如有任何不明白之處，都應該要求對方說明，因為<strong>你終究必須為受僱公司的一切行為負責</strong>。若對方可以透過 FTP 存取你的伺服器，他們應說明在你網站上所做的一切變更。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">故作神秘、不願說明意圖</h4>
+<p> Google 建議對這類公司保持戒心，並強調如有任何不明白之處，都應該要求對方說明，因為<strong>你終究必須為受僱公司的一切行為負責</strong>。若對方可以透過 FTP 存取你的伺服器，他們應說明在你網站上所做的一切變更。</p>
 
         <p><strong>聲稱能用連結熱門配置，或能把網站提交至數千個搜尋引擎。</strong> Google 直接建議避開這類 SEO，指出這些做法通常是白費工夫，對主要搜尋引擎的排名沒有幫助。</p>
 
-        <p><strong>堅持要求你連結到它。</strong> Google 原文寫得很直接：「您完全不必連結至 SEO。」要求客戶在自己網站加掛連結的服務商，出發點通常不是為了客戶。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">堅持要求你連結到它</h4>
+<p> Google 原文寫得很直接：「您完全不必連結至 SEO。」要求客戶在自己網站加掛連結的服務商，出發點通常不是為了客戶。</p>
 
         <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-amber-900 mb-2">最壞情況：網站被從索引移除</p><p class="text-amber-900 text-sm leading-relaxed">Google 明確警告：如果 SEO 以你的名義建立詐騙或誤導性內容，Google 可能會將你的網站從索引中徹底移除。這不只是排名下降，而是連被搜尋到的機會都沒有。選擇服務商時，這是最需要嚴肅對待的風險。</p></div>
 
@@ -2704,11 +2724,14 @@ export const blogPosts: BlogPost[] = [
 
         <p>價差達二十倍，主要原因並非「有人收貴」，而是以下四項的組合不同：</p>
 
-        <p><strong>一、內容產出量。</strong> 每月寫一篇文章，與每月寫四至八篇並包含研究與配圖，工作量差距明顯。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">一、內容產出量</h4>
+<p> 每月寫一篇文章，與每月寫四至八篇並包含研究與配圖，工作量差距明顯。</p>
 
-        <p><strong>二、技術優化深度。</strong> 只做頁面標題與描述，與處理網站架構、索引問題、效能與結構化資料，屬於完全不同的工作層級。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">二、技術優化深度</h4>
+<p> 只做頁面標題與描述，與處理網站架構、索引問題、效能與結構化資料，屬於完全不同的工作層級。</p>
 
-        <p><strong>三、競爭程度。</strong> 服務本地小眾查詢，與在競爭激烈的行業搶高價值關鍵字，所需投入相差很遠。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">三、競爭程度</h4>
+<p> 服務本地小眾查詢，與在競爭激烈的行業搶高價值關鍵字，所需投入相差很遠。</p>
 
         <p><strong>四、是否包含外鏈建設與內容策略。</strong> 這一項最影響價格，也最影響成效。</p>
 
@@ -2720,7 +2743,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>很多客戶聽過「黑帽 SEO 會被懲罰」，但不知道具體界線在哪。其實 Google 的垃圾內容政策寫得非常具體，逐項列出會被視為違規的手法。以下整理與 SEO 服務最相關的幾項。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">違規手法</th><th class="text-left px-5 py-3 font-semibold">官方定義與例子</th><th class="text-left px-5 py-3 font-semibold">對客戶的實際影響</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">濫填關鍵字</td><td class="px-5 py-3">在網頁填滿關鍵字或數字以操控排名，通常以不自然方式出現在清單或群組中，或與上下文無關。例如把目標城市與地區名稱羅列成文字區塊</td><td class="px-5 py-3">內容讀起來不自然，訪客信任度下降，排名亦可能被降低</td></tr><tr><td class="px-5 py-3 font-semibold">垃圾連結</td><td class="px-5 py-3">為操控排名而建立指向或來自某網站的連結。包括購買連結或含連結的文章、以商品或服務交換連結、過量連結交換、透過自動化程式建立連結、劣質目錄或書籤網站連結</td><td class="px-5 py-3">風險最高的一項。購買連結屬違規，日後可能被回溯處理</td></tr><tr><td class="px-5 py-3 font-semibold">濫用入口網頁</td><td class="px-5 py-3">為提高在相似查詢的排名而建立的網站或網頁，將使用者導向不含實用內容的轉介頁。例如多個網站只有網址與首頁稍作更改；或為特定地區、城市建立大量頁面導向同一網頁</td><td class="px-5 py-3">常見於「每區一頁」式的批量頁面，屬於明確違規</td></tr><tr><td class="px-5 py-3 font-semibold">大量內容濫用</td><td class="px-5 py-3">產生大量網頁但主要目的是操控排名而非協助使用者。包括用生成式 AI 產生多個無價值網頁、抓取動態消息或搜尋結果生成頁面、拼接組合而成的無價值文字</td><td class="px-5 py-3">用 AI 量產文章後直接發布，正好落在這一項</td></tr><tr><td class="px-5 py-3 font-semibold">濫用隱藏文字與連結</td><td class="px-5 py-3">放置只為操控搜尋引擎、而非方便訪客查看的內容。例如白底白字、文字藏在圖片後方、用 CSS 將文字放到畫面外、字型大小或不透明度設為 0</td><td class="px-5 py-3">改版時偶爾誤犯，交付前應逐項檢查</td></tr><tr><td class="px-5 py-3 font-semibold">偽裝</td><td class="px-5 py-3">為操控排名與誤導使用者，分別對使用者與搜尋引擎顯示不同內容。例如只在使用者代理程式為搜尋引擎時才插入關鍵字</td><td class="px-5 py-3">屬嚴重違規，且常被駭客用來隱藏入侵痕跡</td></tr><tr><td class="px-5 py-3 font-semibold">抓取他人內容</td><td class="px-5 py-3">從其他網站取得內容並為操控排名而代管。包括轉載而未新增原創內容或引用原始來源、複製後略作修改再轉載</td><td class="px-5 py-3">即使未經你同意，也可能令你的網站受影響</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">違規手法</th><th class="text-left px-5 py-3 font-semibold">官方定義與例子</th><th class="text-left px-5 py-3 font-semibold">對客戶的實際影響</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">濫填關鍵字</td><td class="px-5 py-3">在網頁填滿關鍵字或數字以操控排名，通常以不自然方式出現在清單或群組中，或與上下文無關。例如把目標城市與地區名稱羅列成文字區塊</td><td class="px-5 py-3">內容讀起來不自然，訪客信任度下降，排名亦可能被降低</td></tr><tr><td class="px-5 py-3 font-semibold">垃圾連結</td><td class="px-5 py-3">為操控排名而建立指向或來自某網站的連結。包括購買連結或含連結的文章、以商品或服務交換連結、過量連結交換、透過自動化程式建立連結、劣質目錄或書籤網站連結</td><td class="px-5 py-3">風險最高的一項。購買連結屬違規，日後可能被回溯處理</td></tr><tr><td class="px-5 py-3 font-semibold">濫用入口網頁</td><td class="px-5 py-3">為提高在相似查詢的排名而建立的網站或網頁，將使用者導向不含實用內容的轉介頁。例如多個網站只有網址與首頁稍作更改；或為特定地區、城市建立大量頁面導向同一網頁</td><td class="px-5 py-3">常見於「每區一頁」式的批量頁面，屬於明確違規</td></tr><tr><td class="px-5 py-3 font-semibold">大量內容濫用</td><td class="px-5 py-3">產生大量網頁但主要目的是操控排名而非協助使用者。包括用生成式 AI 產生多個無價值網頁、抓取動態消息或搜尋結果生成頁面、拼接組合而成的無價值文字</td><td class="px-5 py-3">用 AI 量產文章後直接發布，正好落在這一項</td></tr><tr><td class="px-5 py-3 font-semibold">濫用隱藏文字與連結</td><td class="px-5 py-3">放置只為操控搜尋引擎、而非方便訪客查看的內容。例如白底白字、文字藏在圖片後方、用 CSS 將文字放到畫面外、字型大小或不透明度設為 0</td><td class="px-5 py-3">改版時偶爾誤犯，交付前應逐項檢查</td></tr><tr><td class="px-5 py-3 font-semibold">偽裝</td><td class="px-5 py-3">為操控排名與誤導使用者，分別對使用者與搜尋引擎顯示不同內容。例如只在使用者代理程式為搜尋引擎時才插入關鍵字</td><td class="px-5 py-3">屬嚴重違規，且常被駭客用來隱藏入侵痕跡</td></tr><tr><td class="px-5 py-3 font-semibold">抓取他人內容</td><td class="px-5 py-3">從其他網站取得內容並為操控排名而代管。包括轉載而未新增原創內容或引用原始來源、複製後略作修改再轉載</td><td class="px-5 py-3">即使未經你同意，也可能令你的網站受影響</td></tr></tbody></table></div>
 
         <p>有一項特別值得香港企業留意：<strong>購買連結明確屬於垃圾連結</strong>。Google 的原文指出，基於排名目的購買或販售連結屬違規，包括花錢購買連結或含連結的文章、以商品或服務交換連結、以產品為誘因換取含連結的評論。不過 Google 亦說明，只要這些連結在 <code>&lt;a&gt;</code> 標記中具備 <code>rel="nofollow"</code> 或 <code>rel="sponsored"</code> 屬性值，就不會違反政策。換言之，付費廣告與贊助內容本身沒問題，問題在於沒有標明。</p>
 
@@ -2738,7 +2761,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>此外，<strong>非品牌查詢</strong>的表現特別值得單獨看。只靠品牌名稱帶來的流量，反映的是既有客戶；非品牌查詢的曝光與點擊增長，才反映 SEO 是否真的為你開拓新客源。這一項在評估成效時經常被忽略，卻最能反映實際價值。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">來源</th><th class="text-left px-5 py-3 font-semibold">為何重要</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">曝光次數</td><td class="px-5 py-3">Search Console</td><td class="px-5 py-3">反映內容開始被搜尋系統理解，是排名的前置條件</td></tr><tr><td class="px-5 py-3">點擊次數與點擊率</td><td class="px-5 py-3">Search Console</td><td class="px-5 py-3">曝光有了但點擊低，通常是標題與描述未切合搜尋意圖</td></tr><tr><td class="px-5 py-3">非品牌查詢表現</td><td class="px-5 py-3">Search Console（按查詢細分）</td><td class="px-5 py-3">反映是否開拓新客源，而非只靠既有客戶</td></tr><tr><td class="px-5 py-3">自然搜尋到達的查詢數</td><td class="px-5 py-3">GA4</td><td class="px-5 py-3">最終看的是生意成果，而非排名本身</td></tr><tr><td class="px-5 py-3">索引狀態與技術健康度</td><td class="px-5 py-3">Search Console</td><td class="px-5 py-3">頁面未被索引，其他優化都無效</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">來源</th><th class="text-left px-5 py-3 font-semibold">為何重要</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">曝光次數</td><td class="px-5 py-3">Search Console</td><td class="px-5 py-3">反映內容開始被搜尋系統理解，是排名的前置條件</td></tr><tr><td class="px-5 py-3">點擊次數與點擊率</td><td class="px-5 py-3">Search Console</td><td class="px-5 py-3">曝光有了但點擊低，通常是標題與描述未切合搜尋意圖</td></tr><tr><td class="px-5 py-3">非品牌查詢表現</td><td class="px-5 py-3">Search Console（按查詢細分）</td><td class="px-5 py-3">反映是否開拓新客源，而非只靠既有客戶</td></tr><tr><td class="px-5 py-3">自然搜尋到達的查詢數</td><td class="px-5 py-3">GA4</td><td class="px-5 py-3">最終看的是生意成果，而非排名本身</td></tr><tr><td class="px-5 py-3">索引狀態與技術健康度</td><td class="px-5 py-3">Search Console</td><td class="px-5 py-3">頁面未被索引，其他優化都無效</td></tr></tbody></table></div>
 
         <p>要留意一點：任何第三方工具的排名追蹤數字，都是工具自行抓取或估算的結果。Google 已說明第三方工具無法存取其內部排名資料。可以把這些數字當作趨勢參考，但討論成效時應以 Search Console 的數據為準。</p>
 
@@ -2760,15 +2783,20 @@ export const blogPosts: BlogPost[] = [
 
         <p>Google 已明確指出你必須為受僱公司的一切行為負責。因此以下五項應該寫入合約，而不是靠口頭承諾。</p>
 
-        <p><strong>一、交付範圍。</strong> 每月具體交付甚麼：多少篇文章、多少頁面優化、多少小時的技術工作、有沒有外鏈建設。寫得越具體，日後爭議越少。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">一、交付範圍</h4>
+<p> 每月具體交付甚麼：多少篇文章、多少頁面優化、多少小時的技術工作、有沒有外鏈建設。寫得越具體，日後爭議越少。</p>
 
-        <p><strong>二、存取權限與變更通知。</strong> 由誰持有網站、Search Console、DNS 與主機的權限？對方每次改動網站，是否會事先說明並記錄？建議保留你自己持有主帳號。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">二、存取權限與變更通知</h4>
+<p> 由誰持有網站、Search Console、DNS 與主機的權限？對方每次改動網站，是否會事先說明並記錄？建議保留你自己持有主帳號。</p>
 
-        <p><strong>三、報表方式。</strong> 每月提供甚麼報表、用哪個工具、由誰講解。要求包含 Search Console 數據。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">三、報表方式</h4>
+<p> 每月提供甚麼報表、用哪個工具、由誰講解。要求包含 Search Console 數據。</p>
 
-        <p><strong>四、資產歸屬。</strong> 對方為你撰寫的內容、製作的頁面、建立的外鏈紀錄，合約結束後歸誰？這些是可延續的資產，不應隨合作結束而失去。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">四、資產歸屬</h4>
+<p> 對方為你撰寫的內容、製作的頁面、建立的外鏈紀錄，合約結束後歸誰？這些是可延續的資產，不應隨合作結束而失去。</p>
 
-        <p><strong>五、終止安排。</strong> 如要中止合作，如何交接？包括權限移交、內容交付與技術文件的提供。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">五、終止安排</h4>
+<p> 如要中止合作，如何交接？包括權限移交、內容交付與技術文件的提供。</p>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">一條最低成本的自我保護</p><p class="text-blue-900 text-sm leading-relaxed">在任何試探性或稽核階段，只授予 Search Console 的讀取權限，不要給寫入權限，也不要交出 DNS 或主機的完整控制權。這是 Google 官方建議的做法，也是成本最低的風險管理。</p></div>
 
@@ -2784,7 +2812,7 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港 SEO 服務收費大概幾多？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港 SEO 服務收費大概多少？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">根據多間香港業界公開文章的市場觀察，月費由約 HK$3,000 至 HK$30,000 不等，部分提及上限可達 HK$80,000 或更高，有文章指市場平均約每月 HK$8,000。這些是第三方觀察數字而非官方統計。價差主要來自內容產出量、技術優化深度、行業競爭程度，以及是否包含外鏈建設與內容策略。建議連同交付範圍一併比較，而非只看價格。</p>
           </div>
@@ -2818,15 +2846,15 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">揀 SEO 公司有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">選擇 SEO 服務商有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係遇到用黑帽技術（垃圾連結、隱藏文字）嘅公司，短期可能見效但長期會被 Google 懲罰。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險是遇到使用黑帽手法（垃圾連結、隱藏文字、關鍵字堆砌）的供應商，短期或有排名上升，長期可能導致懲罰。另一類風險是對方聲稱能做到搜尋結果第一位，這與 Google 的官方立場相違。選擇時應要求對方提供可核查的個案與 Search Console 數據。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做香港 SEO 比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇香港 SEO 公司？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有實際香港本地案例、跟 Google 官方最佳實踐、收費透明、同埋提供月度數據報告嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可從三方面核查：對方能否提供實際香港案例與 Search Console 數據（而非截圖）、建議是否與 Google 官方文件一致、以及收費與交付是否透明。Google 官方提供的問題清單是實用的篩選工具，建議逐條對照供應商的回答。</p>
           </div>
         </div>
 
@@ -2854,7 +2882,7 @@ export const blogPosts: BlogPost[] = [
         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
-          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 同 GEO 完全攻略：同時上 Google 同 ChatGPT</a></li>
+          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 完全攻略：同時上 Google 同 ChatGPT</a></li>
           <li><a href="/blog/geo-generative-engine-optimization-guide-2026/" class="text-[#0f4c81] hover:underline">GEO 生成式引擎優化完整指南：官方文件與學術研究怎麼說</a></li>
           </ul>
         </div>`,
@@ -2879,28 +2907,24 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">CRM 系統（客戶關係管理系統）選型要考慮五個維度：功能覆蓋、易用性、整合能力、價格、擴展性。香港中小企最常用嘅五大平台包括 HubSpot、Salesforce、Zoho、Monday.com、Notion CRM，月費由免費到 HK$3,000/用戶不等。</p>
+          <p class="text-gray-700 leading-relaxed">CRM 系統（客戶關係管理系統）選型要考慮五個維度：功能覆蓋、易用性、整合能力、價格、擴展性。香港中小企最常用的五大平台包括 HubSpot、Salesforce、Zoho、Monday.com、Notion CRM，月費由免費到 HK$3,000/用戶不等。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">先定義需求再睇平台，唔係倒轉</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">先定義需求再查看平台，不是倒轉</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">HubSpot 有免費版，適合起步</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">Salesforce 功能最強但學習曲線最陡</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">注意資料匯出條款——遷移時唔好俾人鎖死</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">注意資料匯出條款——遷移時不要給人鎖死</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/crm-selection-hero.webp" alt="CRM 系統選型指南 — ADWire 香港 CRM" title="CRM 系統選型指南 — ADWire 香港 CRM" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
+        </figure>
 
-        
-        
-        
-
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，CRM 由 Gartner 自 1998 年起就被定義為一種商業策略，而不是一套軟件；買工具之前，先想清楚你要改善哪一段客戶流程。二，香港中小企若無特殊資料主權要求，從 SaaS 訂閱起步最實際，無需自建機房與自行維護。三，月費只是入場費：一次性上線費、用量費、資料遷移與培訓都要另外計。四，本地化要看三件事：繁體中文支援程度、稅務與公司條例的記錄保存要求、以及 WhatsApp 這類渠道的整合方式。五，公開的「CRM 項目失敗率」數據多為 2001 至 2009 年的商業市場研究，量度方法各異，不能當成今日的官方數字；真正該記住的是研究結論：失敗源於流程、人員與管理，不是軟件。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，CRM 由 Gartner 自 1998 年起就被定義為一種商業策略，而不是一套軟件；買工具之前，先想清楚你要改善哪一段客戶流程。二，香港中小企若無特殊資料主權要求，從 SaaS 訂閱起步最實際，無需自建機房與自行維護。三，月費只是入場費：一次性上線費、用量費、資料遷移與培訓都要另外計。四，本地化要看三件事：繁體中文支援程度、稅務與公司條例的記錄保存要求、以及 WhatsApp 這類渠道的整合方式。五，公開的「CRM 項目失敗率」數據多為 2001 至 2009 年的商業市場研究，量度方法各異，不能當成今日的官方數字；真正該記住的是研究結論：失敗源於流程、人員與管理，不是軟件。</p></div>\n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、CRM 是什麼：定義與四種類型</h3>
 
@@ -2924,7 +2948,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>下表為各平台官網在 2026 年 9 月 21 日顯示的標價，全部以美元計，並以每用戶每月為單位。價格隨時變動，簽約前務必重新核對官網。HubSpot 頁面同時顯示促銷價與原價，Professional 一項因此出現 US$90 與 US$100 兩個數字，故以「90–100」表述。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">方案與標價（美元／用戶／月）</th><th class="text-left px-5 py-3 font-semibold">備註</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">HubSpot Sales Hub</td><td class="px-5 py-3">Free 0（2 用戶）、Starter 7、Professional 90–100、Enterprise 150</td><td class="px-5 py-3">另收一次性上線費 Professional 1,500、Enterprise 3,500</td></tr><tr><td class="px-5 py-3">Salesforce Sales Cloud</td><td class="px-5 py-3">Starter 25、Pro Suite 100、Core 195、Advanced 395、Max 550</td><td class="px-5 py-3">方案層級最多，功能差異大</td></tr><tr><td class="px-5 py-3">Zoho CRM</td><td class="px-5 py-3">Free（3 用戶）、Standard 14、Professional 23、Enterprise 40</td><td class="px-5 py-3">官方標明無合約綁定</td></tr><tr><td class="px-5 py-3">Microsoft Dynamics 365 Sales</td><td class="px-5 py-3">Professional 65、Enterprise 105、Premium 150</td><td class="px-5 py-3">年繳計價</td></tr><tr><td class="px-5 py-3">Pipedrive</td><td class="px-5 py-3">Lite 14、Growth 39、Premium 59、Ultimate 79</td><td class="px-5 py-3">年繳計價</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">平台</th><th class="text-left px-5 py-3 font-semibold">方案與標價（美元／用戶／月）</th><th class="text-left px-5 py-3 font-semibold">備註</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">HubSpot Sales Hub</td><td class="px-5 py-3">Free 0（2 用戶）、Starter 7、Professional 90–100、Enterprise 150</td><td class="px-5 py-3">另收一次性上線費 Professional 1,500、Enterprise 3,500</td></tr><tr><td class="px-5 py-3">Salesforce Sales Cloud</td><td class="px-5 py-3">Starter 25、Pro Suite 100、Core 195、Advanced 395、Max 550</td><td class="px-5 py-3">方案層級最多，功能差異大</td></tr><tr><td class="px-5 py-3">Zoho CRM</td><td class="px-5 py-3">Free（3 用戶）、Standard 14、Professional 23、Enterprise 40</td><td class="px-5 py-3">官方標明無合約綁定</td></tr><tr><td class="px-5 py-3">Microsoft Dynamics 365 Sales</td><td class="px-5 py-3">Professional 65、Enterprise 105、Premium 150</td><td class="px-5 py-3">年繳計價</td></tr><tr><td class="px-5 py-3">Pipedrive</td><td class="px-5 py-3">Lite 14、Growth 39、Premium 59、Ultimate 79</td><td class="px-5 py-3">年繳計價</td></tr></tbody></table></div>
 
         <p>單看表價，Zoho 與 Pipedrive 的入門級明顯較低，Salesforce 的 Max 與 HubSpot 的 Enterprise 則屬於中大型團隊的價位。但要留意每個方案的「用戶」定義、功能上限與 API 用量限制，入門方案往往在自動化次數、報表數量上有上限，團隊人數一多就要跳級。</p>
 
@@ -2985,7 +3009,7 @@ export const blogPosts: BlogPost[] = [
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">5. 培訓與持續支援</h4>
         <p>Zoho 在其總體擁有成本（TCO）比較頁中，把 implementation、training、add-ons 與 integrations 列為成本組成（屬於供應商立場，僅作參考）。Zendesk 亦有一篇專文討論 CRM 的隱藏成本。無論用哪個平台，培訓與上線後的調整都需要投入工時，這部分不會出現在報價單的月費欄。</p>
 
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">報價前要問清楚的五條問題</p><p class="text-blue-900 text-sm leading-relaxed">一，這筆月費包含幾多個座位、可否中途加減？二，一次性上線費包含哪些工作、哪些要另收？三，AI 或自動化功能是否按用量額外收費、上限幾多？四，資料遷移的範圍與筆數如何界定？五，培訓時數與上線後支援期有多長？把這五條寫進合約附件，比事後爭論有效得多。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">報價前要問清楚的五條問題</p><p class="text-blue-900 text-sm leading-relaxed">一，這筆月費包含多少個座位、可否中途加減？二，一次性上線費包含哪些工作、哪些要另收？三，AI 或自動化功能是否按用量額外收費、上限多少？四，資料遷移的範圍與筆數如何界定？五，培訓時數與上線後支援期有多長？把這五條寫進合約附件，比事後爭論有效得多。</p></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.hubspot.com/pricing/sales" target="_blank" rel="noopener">HubSpot Pricing</a>、<a href="https://www.microsoft.com/en-us/dynamics-365/products/sales/pricing" target="_blank" rel="noopener">Microsoft Dynamics 365 Sales Pricing</a>、<a href="https://www.zoho.com/crm/compare/total-cost-of-ownership-comparison.html" target="_blank" rel="noopener">Zoho：TCO 比較</a>、<a href="https://www.zendesk.com/blog/sales/crm-buying-guide/the-hidden-costs-of-crm/" target="_blank" rel="noopener">Zendesk：CRM 隱藏成本</a></p>
 
@@ -3007,7 +3031,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>下表從幾個實務維度比較兩種交付方式。要重申：自建 CRM 並無公開標準價格，下表刻意不填數字，只描述結構差異。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">比較維度</th><th class="text-left px-5 py-3 font-semibold">SaaS 訂閱</th><th class="text-left px-5 py-3 font-semibold">自建</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">成本透明度</td><td class="px-5 py-3">各平台公開訂閱價，可事先計算</td><td class="px-5 py-3">無公開標準價格，需逐一報價</td></tr><tr><td class="px-5 py-3">前期投入</td><td class="px-5 py-3">以訂閱費與上線費為主，金額較可預期</td><td class="px-5 py-3">開發與部署投入集中在前段</td></tr><tr><td class="px-5 py-3">上線速度</td><td class="px-5 py-3">設定後即可使用，部分平台提供免費方案試用</td><td class="px-5 py-3">視開發範圍而定</td></tr><tr><td class="px-5 py-3">維護責任</td><td class="px-5 py-3">由供應商負責伺服器與版本更新</td><td class="px-5 py-3">由你或外判團隊負責</td></tr><tr><td class="px-5 py-3">客製彈性</td><td class="px-5 py-3">受平台功能與 API 限制</td><td class="px-5 py-3">可完全按自身流程設計</td></tr><tr><td class="px-5 py-3">合約彈性</td><td class="px-5 py-3">Zoho 官方標明無合約綁定；其他平台條款各異</td><td class="px-5 py-3">取決於開發與維護合約</td></tr><tr><td class="px-5 py-3">較適合</td><td class="px-5 py-3">流程大致標準化、想快速驗證的中小企</td><td class="px-5 py-3">流程高度特殊、或對資料存放有特別要求</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">比較維度</th><th class="text-left px-5 py-3 font-semibold">SaaS 訂閱</th><th class="text-left px-5 py-3 font-semibold">自建</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">成本透明度</td><td class="px-5 py-3">各平台公開訂閱價，可事先計算</td><td class="px-5 py-3">無公開標準價格，需逐一報價</td></tr><tr><td class="px-5 py-3">前期投入</td><td class="px-5 py-3">以訂閱費與上線費為主，金額較可預期</td><td class="px-5 py-3">開發與部署投入集中在前段</td></tr><tr><td class="px-5 py-3">上線速度</td><td class="px-5 py-3">設定後即可使用，部分平台提供免費方案試用</td><td class="px-5 py-3">視開發範圍而定</td></tr><tr><td class="px-5 py-3">維護責任</td><td class="px-5 py-3">由供應商負責伺服器與版本更新</td><td class="px-5 py-3">由你或外判團隊負責</td></tr><tr><td class="px-5 py-3">客製彈性</td><td class="px-5 py-3">受平台功能與 API 限制</td><td class="px-5 py-3">可完全按自身流程設計</td></tr><tr><td class="px-5 py-3">合約彈性</td><td class="px-5 py-3">Zoho 官方標明無合約綁定；其他平台條款各異</td><td class="px-5 py-3">取決於開發與維護合約</td></tr><tr><td class="px-5 py-3">較適合</td><td class="px-5 py-3">流程大致標準化、想快速驗證的中小企</td><td class="px-5 py-3">流程高度特殊、或對資料存放有特別要求</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://www.zoho.com/en-us/crm/zohocrm-pricing.html" target="_blank" rel="noopener">Zoho CRM Pricing</a>、<a href="https://www.gartner.com/en/documents/6590202" target="_blank" rel="noopener">Gartner：Build, Buy or Ally</a>、<a href="https://www.zoho.com/crm/compare/total-cost-of-ownership-comparison.html" target="_blank" rel="noopener">Zoho：TCO 比較（供應商立場）</a></p>
 
@@ -3040,7 +3064,7 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">最便宜的 CRM 是邊個？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">最便宜的 CRM 是哪個？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">單看 2026 年 9 月 21 日的標價，HubSpot Sales Hub 與 Zoho CRM 都提供免費層級，Zoho CRM 免費版支援 3 個用戶，HubSpot 免費版支援 2 個用戶。付費入門級方面，Zoho Standard 為 14 美元、Pipedrive Lite 為 14 美元、HubSpot Starter 為 7 美元（每用戶每月，美元）。不過最低價不等於最低總成本，要連上線費、用量費與遷移培訓一併計算。</p>
           </div>
@@ -3074,9 +3098,9 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">CRM 系統選型有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">CRM 系統選型有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見陷阱包括：①被功能清單吸引但冇試用 ②忽略資料匯出條款 ③冇計培訓成本 ④冇預留擴展空間。建議先用免費版試 3 個月。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見陷阱有四：被功能清單吸引而未實際試用、忽略資料匯出條款導致日後難以遷移、未計入上線費與培訓成本、未預留擴展空間。建議先明確定義要改善的客戶流程，再選擇平台，並利用免費層級試用一段時間。</p>
           </div>
         </div>
 
@@ -3119,7 +3143,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">Core Web Vitals 係 Google 用嚟量度用戶體驗嘅三大指標：LCP（載入速度）、INP（互動反應）、CLS（視覺穩定）。2026 年呢三個指標直接影響搜尋排名，LCP 要 <2.5 秒、INP 要 <200ms、CLS 要 <0.1。</p>
+          <p class="text-gray-700 leading-relaxed">Core Web Vitals 是 Google 用來量度用戶體驗的三大指標：LCP（載入速度）、INP（互動反應）、CLS（視覺穩定）。2026 年這三個指標直接影響搜尋排名，LCP 要 <2.5 秒、INP 要 <200ms、CLS 要 <0.1。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -3128,19 +3152,15 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">LCP < 2.5 秒：最大內容繪製時間</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">INP < 200ms：互動到下一次繪製</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">CLS < 0.1：版面位移幅度</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">圖片優化同快取策略係最有效嘅改善方法</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">圖片優化同快取策略是最有效的改善方法</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/core-web-vitals-hero.webp" alt="Core Web Vitals 網站速度指南 — ADWire 網站優化" title="Core Web Vitals 網站速度指南 — ADWire 網站優化" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
+        </figure>
 
-        
-        
-        
-
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">Core Web Vitals 由 LCP、INP、CLS 三項組成，以「第 75 百分位」量度，手機與桌面分開評估，三項全部達標才算通過。Google 明確表示 Core Web Vitals 是其排名系統使用的訊號之一，但同時強調「沒有單一排名訊號」，而且相關性優先——即使頁面體驗未達理想，Google 仍會優先顯示最相關的內容。所以網站速度值得投資，但正確的心態是改善真實用戶體驗與業務轉化，而不是追逐一個分數。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">Core Web Vitals 由 LCP、INP、CLS 三項組成，以「第 75 百分位」量度，手機與桌面分開評估，三項全部達標才算通過。Google 明確表示 Core Web Vitals 是其排名系統使用的訊號之一，但同時強調「沒有單一排名訊號」，而且相關性優先——即使頁面體驗未達理想，Google 仍會優先顯示最相關的內容。所以網站速度值得投資，但正確的心態是改善真實用戶體驗與業務轉化，而不是追逐一個分數。</p></div>\n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、網站慢不只是體驗問題，而是生意問題</h3>
 
@@ -3156,7 +3176,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>三項指標都以「第 75 百分位」量度，即是要看最慢的那 25% 訪客體驗如何，而不是平均值。手機與桌面分開評估，<strong>三項全部達標才算通過</strong>，任何一項落在「差」的範圍都不算。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">量度什麼</th><th class="text-left px-5 py-3 font-semibold">良好</th><th class="text-left px-5 py-3 font-semibold">需改善</th><th class="text-left px-5 py-3 font-semibold">差</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">LCP</td><td class="px-5 py-3">載入速度（最大內容元素繪製時間）</td><td class="px-5 py-3">2.5 秒或以下</td><td class="px-5 py-3">2.5–4.0 秒</td><td class="px-5 py-3">超過 4.0 秒</td></tr><tr><td class="px-5 py-3 font-semibold">INP</td><td class="px-5 py-3">互動反應（回應互動至下次繪製）</td><td class="px-5 py-3">200 毫秒或以下</td><td class="px-5 py-3">200–500 毫秒</td><td class="px-5 py-3">超過 500 毫秒</td></tr><tr><td class="px-5 py-3 font-semibold">CLS</td><td class="px-5 py-3">視覺穩定（版面位移程度）</td><td class="px-5 py-3">0.1 或以下</td><td class="px-5 py-3">0.1–0.25</td><td class="px-5 py-3">超過 0.25</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">指標</th><th class="text-left px-5 py-3 font-semibold">量度什麼</th><th class="text-left px-5 py-3 font-semibold">良好</th><th class="text-left px-5 py-3 font-semibold">需改善</th><th class="text-left px-5 py-3 font-semibold">差</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3 font-semibold">LCP</td><td class="px-5 py-3">載入速度（最大內容元素繪製時間）</td><td class="px-5 py-3">2.5 秒或以下</td><td class="px-5 py-3">2.5–4.0 秒</td><td class="px-5 py-3">超過 4.0 秒</td></tr><tr><td class="px-5 py-3 font-semibold">INP</td><td class="px-5 py-3">互動反應（回應互動至下次繪製）</td><td class="px-5 py-3">200 毫秒或以下</td><td class="px-5 py-3">200–500 毫秒</td><td class="px-5 py-3">超過 500 毫秒</td></tr><tr><td class="px-5 py-3 font-semibold">CLS</td><td class="px-5 py-3">視覺穩定（版面位移程度）</td><td class="px-5 py-3">0.1 或以下</td><td class="px-5 py-3">0.1–0.25</td><td class="px-5 py-3">超過 0.25</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://web.dev/articles/vitals" target="_blank" rel="noopener">web.dev — Core Web Vitals</a>、<a href="https://web.dev/articles/lcp" target="_blank" rel="noopener">LCP</a>、<a href="https://web.dev/articles/inp" target="_blank" rel="noopener">INP</a>、<a href="https://web.dev/articles/cls" target="_blank" rel="noopener">CLS</a></p>
 
@@ -3196,7 +3216,7 @@ export const blogPosts: BlogPost[] = [
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">5. 別忘了行動優先索引</h4>
 
-        <p>Google 以手機版的內容作索引與排名。這意味着即使你的桌面版又快又靚，只要手機版體驗差，被評估的就是手機版。速度優化必須以手機為先，桌面表現不能代表一切。</p>
+        <p>Google 以手機版的內容作索引與排名。這意味着即使你的桌面版又快又漂亮，只要手機版體驗差，被評估的就是手機版。速度優化必須以手機為先，桌面表現不能代表一切。</p>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" target="_blank" rel="noopener">Google Search Central — Mobile-first indexing</a></p><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、真實研究數據怎麼說</h3>
 
@@ -3246,7 +3266,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>以下按常見問題整理對應手法與預期效果。效果屬技術層面的預期，並非業務成效承諾。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">問題</th><th class="text-left px-5 py-3 font-semibold">手法</th><th class="text-left px-5 py-3 font-semibold">預期效果</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">圖片過大、格式老舊</td><td class="px-5 py-3">改用 WebP 或 AVIF，現代瀏覽器較 JPEG／PNG 更省位元</td><td class="px-5 py-3">減少下載量，縮短 LCP</td></tr><tr><td class="px-5 py-3">首屏載入太多圖片</td><td class="px-5 py-3">非首屏圖片用 loading="lazy" 延遲載入；但切勿 lazy-load LCP 圖片</td><td class="px-5 py-3">降低初始載入負擔，改善 LCP</td></tr><tr><td class="px-5 py-3">重複的網絡請求</td><td class="px-5 py-3">設定 HTTP Cache（Cache-Control、ETag、Last-Modified）</td><td class="px-5 py-3">回訪時省卻重複下載</td></tr><tr><td class="px-5 py-3">訪客距離伺服器遠</td><td class="px-5 py-3">使用 CDN，分散式伺服器縮短往返時間、減少回源請求</td><td class="px-5 py-3">縮短傳輸延遲，穩定載入</td></tr><tr><td class="px-5 py-3">JavaScript 佔用主執行緒</td><td class="px-5 py-3">程式碼分割，只載入初始所需部分</td><td class="px-5 py-3">釋放主執行緒，改善 INP</td></tr><tr><td class="px-5 py-3">圖片／影片無指定尺寸</td><td class="px-5 py-3">預留寬高空間，減少載入後的版面變動</td><td class="px-5 py-3">降低 CLS</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">問題</th><th class="text-left px-5 py-3 font-semibold">手法</th><th class="text-left px-5 py-3 font-semibold">預期效果</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">圖片過大、格式老舊</td><td class="px-5 py-3">改用 WebP 或 AVIF，現代瀏覽器較 JPEG／PNG 更省位元</td><td class="px-5 py-3">減少下載量，縮短 LCP</td></tr><tr><td class="px-5 py-3">首屏載入太多圖片</td><td class="px-5 py-3">非首屏圖片用 loading="lazy" 延遲載入；但切勿 lazy-load LCP 圖片</td><td class="px-5 py-3">降低初始載入負擔，改善 LCP</td></tr><tr><td class="px-5 py-3">重複的網絡請求</td><td class="px-5 py-3">設定 HTTP Cache（Cache-Control、ETag、Last-Modified）</td><td class="px-5 py-3">回訪時省卻重複下載</td></tr><tr><td class="px-5 py-3">訪客距離伺服器遠</td><td class="px-5 py-3">使用 CDN，分散式伺服器縮短往返時間、減少回源請求</td><td class="px-5 py-3">縮短傳輸延遲，穩定載入</td></tr><tr><td class="px-5 py-3">JavaScript 佔用主執行緒</td><td class="px-5 py-3">程式碼分割，只載入初始所需部分</td><td class="px-5 py-3">釋放主執行緒，改善 INP</td></tr><tr><td class="px-5 py-3">圖片／影片無指定尺寸</td><td class="px-5 py-3">預留寬高空間，減少載入後的版面變動</td><td class="px-5 py-3">降低 CLS</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://web.dev/articles/choose-the-right-image-format" target="_blank" rel="noopener">web.dev — Choose the right image format</a>、<a href="https://web.dev/articles/lazy-loading-images" target="_blank" rel="noopener">Lazy loading</a>、<a href="https://web.dev/articles/http-cache" target="_blank" rel="noopener">HTTP cache</a>、<a href="https://web.dev/articles/content-delivery-networks" target="_blank" rel="noopener">CDN</a>、<a href="https://web.dev/articles/reduce-javascript-payloads-with-code-splitting" target="_blank" rel="noopener">Code splitting</a></p>
 
@@ -3256,7 +3276,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>量度工具分兩類：<strong>實地數據（field data）</strong>來自真實訪客的瀏覽紀錄，<strong>實驗室數據（lab data）</strong>則是在受控環境下的模擬測試。兩者用途不同，不可互相取代。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">工具</th><th class="text-left px-5 py-3 font-semibold">類型</th><th class="text-left px-5 py-3 font-semibold">用途</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">PageSpeed Insights</td><td class="px-5 py-3">CrUX 實地 + Lighthouse 實驗室</td><td class="px-5 py-3">同時看真實用戶表現與可診斷的問題</td></tr><tr><td class="px-5 py-3">Lighthouse</td><td class="px-5 py-3">實驗室</td><td class="px-5 py-3">在受控條件下找出具體可修正項</td></tr><tr><td class="px-5 py-3">CrUX</td><td class="px-5 py-3">實地</td><td class="px-5 py-3">Google 官方實地數據集，反映真實訪客表現</td></tr><tr><td class="px-5 py-3">Search Console</td><td class="px-5 py-3">實地</td><td class="px-5 py-3">Core Web Vitals 報告，按群組檢視未達標頁面</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">工具</th><th class="text-left px-5 py-3 font-semibold">類型</th><th class="text-left px-5 py-3 font-semibold">用途</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">PageSpeed Insights</td><td class="px-5 py-3">CrUX 實地 + Lighthouse 實驗室</td><td class="px-5 py-3">同時看真實用戶表現與可診斷的問題</td></tr><tr><td class="px-5 py-3">Lighthouse</td><td class="px-5 py-3">實驗室</td><td class="px-5 py-3">在受控條件下找出具體可修正項</td></tr><tr><td class="px-5 py-3">CrUX</td><td class="px-5 py-3">實地</td><td class="px-5 py-3">Google 官方實地數據集，反映真實訪客表現</td></tr><tr><td class="px-5 py-3">Search Console</td><td class="px-5 py-3">實地</td><td class="px-5 py-3">Core Web Vitals 報告，按群組檢視未達標頁面</td></tr></tbody></table></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">PageSpeed Insights</a>、<a href="https://developer.chrome.com/docs/lighthouse/overview" target="_blank" rel="noopener">Lighthouse</a>、<a href="https://developer.chrome.com/docs/crux/methodology" target="_blank" rel="noopener">CrUX 方法論</a>、<a href="https://developers.google.com/search/docs/appearance/core-web-vitals" target="_blank" rel="noopener">Search Console Core Web Vitals 報告</a></p>
 
@@ -3284,9 +3304,11 @@ export const blogPosts: BlogPost[] = [
 
         <p>Google 的官方立場是相關性優先、頁面體驗為輔助，先確保內容與技術基本正確。從這個前提出發，判斷可以簡化為兩類：</p>
 
-        <p><strong>個別可修正項，應先優化。</strong>例如圖片未壓縮、未設快取、JavaScript 過大、圖片未指定尺寸。這些都是局部改動，成本較低，見效亦較快。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">個別可修正項，應先優化</h4>
+<p>例如圖片未壓縮、未設快取、JavaScript 過大、圖片未指定尺寸。這些都是局部改動，成本較低，見效亦較快。</p>
 
-        <p><strong>架構性問題，較適合重建或更換平台。</strong>例如主題或外掛過於臃腫、載入了大量無法控制的第三方腳本、或現有平台的渲染方式根本無法改善。這類問題逐項修補往往事倍功半。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">架構性問題，較適合重建或更換平台</h4>
+<p>例如主題或外掛過於臃腫、載入了大量無法控制的第三方腳本、或現有平台的渲染方式根本無法改善。這類問題逐項修補往往事倍功半。</p>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">實務做法：先取基線</p><p class="text-blue-900 text-sm leading-relaxed">在決定重建還是優化之前，先用 CrUX 或 PageSpeed Insights 取得基線，找出問題集中在哪幾項。有了數據，才不會憑感覺決定要重建整個網站，也不會把架構性問題當成小修小補。</p></div>
 
@@ -3340,9 +3362,9 @@ export const blogPosts: BlogPost[] = [
 
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Core Web Vitals 優化有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Core Web Vitals 優化有哪些常見錯誤？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見錯誤係只追求 LCP 而忽略 INP 同 CLS。三個指標要同時達標先有效果。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最常見的錯誤是只優化 LCP 而忽略 INP 與 CLS。三項指標以第 75 百分位量度，手機與桌面分開評估，必須全部達標才算通過。此外，優化後需持續監測，因為新增的第三方腳本或圖片往往會令指標再次變差。</p>
           </div>
         </div>
 
@@ -3387,7 +3409,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">香港 App 開發費用差異極大：簡單工具 App HK$50,000-150,000、電商 App HK$150,000-500,000、度身訂造企業系統 HK$300,000 以上。最平嘅入門方式係先做 MVP（最小可行產品）驗證需求。</p>
+          <p class="text-gray-700 leading-relaxed">香港 App 開發費用差異極大：簡單工具 App HK$50,000-150,000、電商 App HK$150,000-500,000、度身訂造企業系統 HK$300,000 以上。最平的入門方式是先做 MVP（最小可行產品）驗證需求。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -3395,26 +3417,22 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">簡單 App：HK$50,000-150,000</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">電商 App：HK$150,000-500,000</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">MVP 先行：用 20% 成本驗證 80% 嘅需求</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">注意維護費：通常係開發費嘅 15-20%/年</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">MVP 先行：用 20% 成本驗證 80% 的需求</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">注意維護費：通常是開發費的 15-20%/年</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/app-cost-hero.webp" alt="App 開發成本指南 — ADWire 香港 App 開發" title="App 開發成本指南 — ADWire 香港 App 開發" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
+        </figure>
 
-        
-        
-        
-
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一、App 開發成本主要由功能範圍、平台數量、後端需求與維護年期決定，不是由「App」這個字決定。二、先做一份寫得清楚的需求文件（spec），比急著比較報價更能省錢。三、內部工具不一定要做手機 App，很多情況用網頁應用（web app）更快更平。四、上線只是開始，維護與更新是每年持續的支出。五、有研究顯示相當比例的 App 在短時間內失去用戶，問題多數出在需求定位而非技術。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一、App 開發成本主要由功能範圍、平台數量、後端需求與維護年期決定，不是由「App」這個字決定。二、先做一份寫得清楚的需求文件（spec），比急著比較報價更能省錢。三、內部工具不一定要做手機 App，很多情況用網頁應用（web app）更快更平。四、上線只是開始，維護與更新是每年持續的支出。五、有研究顯示相當比例的 App 在短時間內失去用戶，問題多數出在需求定位而非技術。</p></div>\n\n
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、不同類型的「App」成本差異極大</h3>
 
         <p>第一次接觸開發項目的客戶，通常會把三種東西統稱為「App」：原生手機 App（要上 App Store／Google Play）、跨平台手機 App、以及內部用的網頁應用（web app，只需瀏覽器就能用）。三者的成本結構、開發時間與維護方式都不同。先弄清楚你要哪一種，報價才有比較基礎。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">類型</th><th class="text-left px-5 py-3 font-semibold">特點</th><th class="text-left px-5 py-3 font-semibold">較適合</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">原生 App（iOS／Android 分開）</td><td class="px-5 py-3">效能與硬件存取最佳，但兩個平台要分別開發</td><td class="px-5 py-3">需要相機、藍牙、推送等深度硬件功能</td></tr><tr><td class="px-5 py-3">跨平台 App</td><td class="px-5 py-3">一套程式碼同時出 iOS 與 Android，成本較低</td><td class="px-5 py-3">功能以內容與表單為主，無特殊硬件需求</td></tr><tr><td class="px-5 py-3">網頁應用（web app）</td><td class="px-5 py-3">瀏覽器直接使用，無需上架、無需審批</td><td class="px-5 py-3">內部系統、員工工具、後台管理</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">類型</th><th class="text-left px-5 py-3 font-semibold">特點</th><th class="text-left px-5 py-3 font-semibold">較適合</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">原生 App（iOS／Android 分開）</td><td class="px-5 py-3">效能與硬件存取最佳，但兩個平台要分別開發</td><td class="px-5 py-3">需要相機、藍牙、推送等深度硬件功能</td></tr><tr><td class="px-5 py-3">跨平台 App</td><td class="px-5 py-3">一套程式碼同時出 iOS 與 Android，成本較低</td><td class="px-5 py-3">功能以內容與表單為主，無特殊硬件需求</td></tr><tr><td class="px-5 py-3">網頁應用（web app）</td><td class="px-5 py-3">瀏覽器直接使用，無需上架、無需審批</td><td class="px-5 py-3">內部系統、員工工具、後台管理</td></tr></tbody></table></div>
 
         <p>值得注意的是，如果你的受眾是「公司內部同事」或「經常用電腦工作的客戶」，網頁應用往往比手機 App 更實際：更新即時生效、不必等 App Store 審批、也不必強迫用戶下載。很多公司一開始就指定要「做個 App」，結果花了額外成本處理上架與審批，實際上卻只需要一個手機可以開啟的網頁。</p>
 
@@ -3454,11 +3472,14 @@ export const blogPosts: BlogPost[] = [
 
         <p>不少項目超支，不是因為報價不合理，而是因為範圍在過程中不斷擴大。避免的方法是在開始前就分好三層。</p>
 
-        <p><strong>必須有（核心）</strong>：沒有這些功能，App 就無法運作，或無法驗證商業假設。例如用戶登入、核心資料輸入、最基本的流程閉環。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">必須有（核心）</h4>
+<p>沒有這些功能，App 就無法運作，或無法驗證商業假設。例如用戶登入、核心資料輸入、最基本的流程閉環。</p>
 
-        <p><strong>應該有（第二階段）</strong>：能明顯提升體驗，但第一版可以先不做。例如報表、通知、批次操作。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">應該有（第二階段）</h4>
+<p>能明顯提升體驗，但第一版可以先不做。例如報表、通知、批次操作。</p>
 
-        <p><strong>可以之後再加</strong>：錦上添花的功能。例如主題切換、複雜的權限分層、進階數據分析。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">可以之後再加</h4>
+<p>錦上添花的功能。例如主題切換、複雜的權限分層、進階數據分析。</p>
 
         <p>把清單寫下來、標明層級，並在合約中列明第一版的範圍，是控制成本最有效的一步。第一版上線、收到真實用戶回饋之後，才知道第二階段最值得做什麼。</p>
 
@@ -3466,7 +3487,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>標準的開發流程通常包含以下階段。每個階段都有具體產出，這些產出是日後驗收的依據。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">階段</th><th class="text-left px-5 py-3 font-semibold">工作內容</th><th class="text-left px-5 py-3 font-semibold">產出</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">1. 需求梳理</td><td class="px-5 py-3">釐清業務目標、用戶、功能範圍</td><td class="px-5 py-3">需求文件、功能清單與層級</td></tr><tr><td class="px-5 py-3">2. 介面與原型</td><td class="px-5 py-3">設計畫面流程與互動</td><td class="px-5 py-3">線框圖、可點擊原型</td></tr><tr><td class="px-5 py-3">3. 技術架構</td><td class="px-5 py-3">決定平台、後端、資料庫與整合方式</td><td class="px-5 py-3">架構說明、技術選型建議</td></tr><tr><td class="px-5 py-3">4. 開發</td><td class="px-5 py-3">按範圍實作前後端功能</td><td class="px-5 py-3">可測試的版本</td></tr><tr><td class="px-5 py-3">5. 測試與驗收</td><td class="px-5 py-3">功能測試、異常情境、跨裝置測試</td><td class="px-5 py-3">測試紀錄、問題清單</td></tr><tr><td class="px-5 py-3">6. 上線與審批</td><td class="px-5 py-3">提交 App Store／Google Play 或部署到伺服器</td><td class="px-5 py-3">已上線版本</td></tr><tr><td class="px-5 py-3">7. 維護與更新</td><td class="px-5 py-3">作業系統更新、修錯、小改動</td><td class="px-5 py-3">更新版本、支援紀錄</td></tr></tbody></div>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">階段</th><th class="text-left px-5 py-3 font-semibold">工作內容</th><th class="text-left px-5 py-3 font-semibold">產出</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">1. 需求梳理</td><td class="px-5 py-3">釐清業務目標、用戶、功能範圍</td><td class="px-5 py-3">需求文件、功能清單與層級</td></tr><tr><td class="px-5 py-3">2. 介面與原型</td><td class="px-5 py-3">設計畫面流程與互動</td><td class="px-5 py-3">線框圖、可點擊原型</td></tr><tr><td class="px-5 py-3">3. 技術架構</td><td class="px-5 py-3">決定平台、後端、資料庫與整合方式</td><td class="px-5 py-3">架構說明、技術選型建議</td></tr><tr><td class="px-5 py-3">4. 開發</td><td class="px-5 py-3">按範圍實作前後端功能</td><td class="px-5 py-3">可測試的版本</td></tr><tr><td class="px-5 py-3">5. 測試與驗收</td><td class="px-5 py-3">功能測試、異常情境、跨裝置測試</td><td class="px-5 py-3">測試紀錄、問題清單</td></tr><tr><td class="px-5 py-3">6. 上線與審批</td><td class="px-5 py-3">提交 App Store／Google Play 或部署到伺服器</td><td class="px-5 py-3">已上線版本</td></tr><tr><td class="px-5 py-3">7. 維護與更新</td><td class="px-5 py-3">作業系統更新、修錯、小改動</td><td class="px-5 py-3">更新版本、支援紀錄</td></tr></tbody></table></div>
 
         <p>要留意第 6 階段。提交上架不是即時完成的動作，審批需要時間，而且可能被要求修改。把審批時間計入項目時間表，可以避免上線日期失準。</p>
 
@@ -3508,11 +3529,13 @@ export const blogPosts: BlogPost[] = [
         <p>一份好的需求文件不需要寫得漂亮，只需要具體。以下六項是最基本的要求。</p>
 
         <p><strong>一、使用者是誰</strong>：內部同事、現有客戶，還是公眾？人數大約多少？</p>
-        <p><strong>二、核心流程</strong>：用戶由進入到完成目標，會經過哪幾步？用文字或簡單流程圖寫出來。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">二、核心流程</h4>
+<p>用戶由進入到完成目標，會經過哪幾步？用文字或簡單流程圖寫出來。</p>
         <p><strong>三、必須有的功能</strong>：按第四節的層級方法，只列第一版必須的項目。</p>
         <p><strong>四、要接的系統</strong>：現時用什麼系統？有沒有 API？這部分要事先查清楚。</p>
         <p><strong>五、平台要求</strong>：一定要手機 App，還是網頁也可接受？</p>
-        <p><strong>六、時間與預算範圍</strong>：期望何時上線？預算大約落在哪個區間？寫明「尚未確定」也可以，但不要留空。</p>
+        <h4 class="text-lg font-bold text-[#0f4c81] mt-6 mb-2">六、時間與預算範圍</h4>
+<p>期望何時上線？預算大約落在哪個區間？寫明「尚未確定」也可以，但不要留空。</p>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">一份好的需求文件，通常會令報價下調</p><p class="text-blue-900 text-sm leading-relaxed">原因很簡單：承辦方不需要為「不知道客戶想要什麼」而預留風險。範圍越清楚，報價越準，後期因為「同原本講嘅唔一樣」而追加費用的機會也越少。</p></div>
 
@@ -3560,9 +3583,9 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">App 開發有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">App 開發項目有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係需求不斷變動導致超支。建議簽約前定死功能範圍，變更需求要另外報價。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險是需求不斷變動導致超支與延期。其次是低估上線後的維護成本，一般為開發費的 15–20% 每年。建議簽約前把功能範圍寫成規格文件，並約定變更需求的計價方式；同時評估是否真的需要手機 App，部分內部工具以網頁應用更有效率。</p>
           </div>
         </div>
 
@@ -3615,8 +3638,8 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">科技券（TVP）已停辦，勿再浪費時間申請</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">BUD 專項基金：最高 HK$500,000，涵蓋數碼轉型</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">申請關鍵：清晰嘅項目計劃書 + 可量度嘅 KPI</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">建議委託有經驗嘅顧問協助申請，成功率更高</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">申請關鍵：清晰的項目計劃書 + 可量度的 KPI</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">建議委託有經驗的顧問協助申請，成功率更高</span></li>
           </ul>
         </div>
 
@@ -3637,7 +3660,7 @@ export const blogPosts: BlogPost[] = [
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先講清楚：哪個計劃仍然開放？</h3>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
             <thead>
               <tr class="bg-[#0f4c81] text-white">
@@ -3674,7 +3697,7 @@ export const blogPosts: BlogPost[] = [
               </tr>
             </tbody>
           
-        </div>
+        </table></div>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1.1 科技券（TVP）：已於 2024 年底停辦</h4>
 
@@ -3746,7 +3769,7 @@ export const blogPosts: BlogPost[] = [
           </div>
           <div class="bg-white border border-gray-200 rounded-xl p-6">
             <p class="font-bold text-[#0f4c81] mb-2">新型工業化精英企業培育計劃</p>
-            <p class="text-gray-600 text-sm leading-relaxed">2026 年 6 月推出，針對生命健康科技、人工智能及機械人、半導體及智能裝置、數碼化升級轉型等高增長領域，揀選並培育目標企業。</p>
+            <p class="text-gray-600 text-sm leading-relaxed">2026 年 6 月推出，針對生命健康科技、人工智能及機械人、半導體及智能裝置、數碼化升級轉型等高增長領域，選擇選並培育目標企業。</p>
           </div>
           <div class="bg-white border border-gray-200 rounded-xl p-6">
             <p class="font-bold text-[#0f4c81] mb-2">免費官方諮詢</p>
@@ -3827,9 +3850,9 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">政府資助申請有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">申請政府科技資助有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見問題包括計劃書唔夠具體被拒、項目進度報告唔及時被中止撥款。建議預留充足時間準備文件，定期跟進進度。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見問題包括計劃書不夠具體而被拒、項目進度報告不及時而被中止撥款，以及對資助範圍理解有誤。建議預留充足時間準備文件，並在項目期間定期跟進進度與保存紀錄。若不熟悉流程，可考慮由有經驗的顧問協助。</p>
           </div>
         </div>
 
@@ -3872,28 +3895,22 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">RPA（機械人流程自動化，Robotic Process Automation）係指用軟件機械人自動執行重複性電腦操作，例如數據輸入、報表生成、電郵處理等。香港中小企導入 RPA 最常見嘅回報係節省 30-50% 嘅行政工作時間。</p>
+          <p class="text-gray-700 leading-relaxed">RPA（機械人流程自動化，Robotic Process Automation）是指用軟件機械人自動執行重複性電腦操作，例如數據輸入、報表生成、電郵處理等。香港中小企導入 RPA 最常見的回報是節省 30-50% 的行政工作時間。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">RPA 最適合規則明確、重複性高嘅工作</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">RPA 最適合規則明確、重複性高的工作</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">常見應用：數據輸入、發票處理、報表生成、客戶跟進</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">UiPath 同 Power Automate 係香港最常用嘅 RPA 平台</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">導入前先做流程梳理，揀最花時間嘅 2-3 個流程先</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">UiPath 同 Power Automate 是香港最常用的 RPA 平台</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">導入前先做流程梳理，選擇最花時間的 2-3 個流程先</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/rpa-guide-hero.webp" alt="RPA 機械人流程自動化 — ADWire 香港企業自動化" title="RPA 機械人流程自動化 — ADWire 香港企業自動化" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
-
-        
-        
-        
-
-        <p>香港企業對 RPA 的興趣在 2026 年明顯升溫，但市場上大部分中文資料都停留在「RPA 好處六大點」。這篇文章講的是你真正需要知道的事：<strong>RPA 能解決甚麼、不能解決甚麼、跟 AI Agent 有何分別、三個主流工具的實際差異、錢花在哪裡，以及六個最常見的導入失敗原因。</strong></p>
+        </figure>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2">先講結論</p>
@@ -3905,7 +3922,13 @@ export const blogPosts: BlogPost[] = [
             <li>導入失敗的最大原因不是技術，而是<strong>一開始選錯流程</strong></li>
             <li>香港已有公開案例（如日本煙草香港的物流報關自動化），證明 RPA 在香港營運環境切實可行</li>
           </ul>
-        </div>
+        </div>\n\n        
+
+        
+        
+        
+
+        <p>香港企業對 RPA 的興趣在 2026 年明顯升溫，但市場上大部分中文資料都停留在「RPA 好處六大點」。這篇文章講的是你真正需要知道的事：<strong>RPA 能解決甚麼、不能解決甚麼、跟 AI Agent 有何分別、三個主流工具的實際差異、錢花在哪裡，以及六個最常見的導入失敗原因。</strong></p>
 
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、RPA 實際怎樣運作？</h3>
 
@@ -3949,7 +3972,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>以下是香港及亞太企業最常見、回報最快的 RPA 應用範圍。共通點是：<strong>工序步驟固定、資料來自結構化系統、出錯成本高但不需要判斷</strong>。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
             <thead>
               <tr class="bg-[#0f4c81] text-white">
@@ -3966,7 +3989,7 @@ export const blogPosts: BlogPost[] = [
               <tr><td class="px-5 py-3 font-semibold">零售／電商</td><td class="px-4 py-3">訂單同步、庫存更新、對帳</td><td class="px-4 py-3">多平台資料搬移、格式可預期</td></tr>
             </tbody>
           
-        </div>
+        </table></div>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">香港公開案例：日本煙草（香港）的物流自動化</h4>
 
@@ -3980,7 +4003,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>答案是：<strong>兩者處理不同類型的工序，而且大部分企業最終會同時使用。</strong></p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
             <thead>
               <tr class="bg-[#0f4c81] text-white">
@@ -3998,7 +4021,7 @@ export const blogPosts: BlogPost[] = [
               <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">最適合</td><td class="px-4 py-3">高頻、重複、規則不變的工序</td><td class="px-4 py-3">需要理解、判斷、跨系統協調的工序</td></tr>
             </tbody>
           
-        </div>
+        </table></div>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">混合架構：2026 年的主流做法</h4>
 
@@ -4018,7 +4041,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>RPA 工具不是可以隨意互換的。以下是香港企業最常接觸的三個平台，以及它們真正的分野。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
             <thead>
               <tr class="bg-[#0f4c81] text-white">
@@ -4037,7 +4060,7 @@ export const blogPosts: BlogPost[] = [
               <tr class="bg-gray-50"><td class="px-5 py-3 font-semibold">首次可用的時間</td><td class="px-4 py-3">約 4–12 週</td><td class="px-4 py-3">雲端流程約 1–3 週</td><td class="px-4 py-3">數小時至數日</td></tr>
             </tbody>
           
-        </div>
+        </table></div>
 
         <p class="text-gray-500 text-sm italic">以上平台特性綜合自各供應商公開文件及第三方比較分析（Zapier、Emerline、EPC Group、Alice Labs，2026）。</p>
 
@@ -4054,7 +4077,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>RPA 的預算分三層：<strong>授權、實作、以及最常被低估的年度維護</strong>。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
             <thead>
               <tr class="bg-[#0f4c81] text-white">
@@ -4072,7 +4095,7 @@ export const blogPosts: BlogPost[] = [
               <tr class="bg-[#0f4c81] text-white font-bold"><td class="px-5 py-3">首年總額</td><td class="px-4 py-3">US$25,000 – US$70,000</td><td class="px-4 py-3">US$210,000 – US$595,000</td></tr>
             </tbody>
           
-        </div>
+        </table></div>
 
         <p class="text-gray-500 text-sm italic">資料來源：Perimattic《Cost of RPA Implementation: A Complete 2026 Cost Guide》。為國際市場行情，香港實際報價受流程複雜度、系統數量及本地工資水平影響，應以項目評估為準。</p>
 
@@ -4185,15 +4208,15 @@ export const blogPosts: BlogPost[] = [
 </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">RPA 自動化有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">導入 RPA 有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見風險包括：流程本身有問題被自動放大、系統更新導致機械人失靈、員工擔心被取代。建議先梳理流程再自動化，同埋做好員工溝通。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見風險有三：把本身有問題的流程自動化，等於把錯誤放大；系統介面或文件格式更新後機械人失靈，需要人手修正腳本；員工擔心被取代而抗拒使用。建議先梳理流程、只自動化規則明確的環節，並做好內部溝通與培訓。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做 RPA 導入比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇 RPA 導入服務商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有實際香港企業案例、了解中小企需求、同埋提供培訓同持續支援嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議核查：對方是否有香港企業的實際導入案例、能否在導入前提供流程梳理與可行性評估、以及是否提供上線後的維護、培訓與支援。維護成本一般為初始建置成本的 20–30% 每年，應在報價階段一併問清楚。</p>
           </div>
         </div>
 
@@ -4236,7 +4259,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">2026 年香港網頁設計市場價差極大：基本公司網站 HK$8,000-30,000、電商網站 HK$30,000-150,000、度身訂造系統 HK$100,000 以上。關鍵唔係揀最平，而係理解報價包含咩、有冇隱藏費用。</p>
+          <p class="text-gray-700 leading-relaxed">2026 年香港網頁設計市場價差極大：基本公司網站 HK$8,000-30,000、電商網站 HK$30,000-150,000、度身訂造系統 HK$100,000 以上。關鍵不在於選擇最便宜，而在於理解報價包含什麼、有沒有隱藏費用。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -4245,19 +4268,13 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">基本公司網站：HK$8,000-30,000（5-10 頁）</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">電商網站：HK$30,000-150,000（視功能複雜度）</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">報價陷阱：域名/主機/維護費可能另計</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">一定要問清楚：有冇 SEO 基本設定、手機適配、CMS 後台</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">一定要問清楚：有沒有 SEO 基本設定、手機適配、CMS 後台</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
           <img src="/blog/web-pricing-hero.webp" alt="香港網頁設計價錢指南 — ADWire 網頁設計" title="香港網頁設計價錢指南 — ADWire 網頁設計" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
-        </figure>\n\n        
-
-        
-        
-        
-
-        <p>差別不在於「誰比較貴」，而在於<strong>你買的東西根本不同</strong>。本文用香港市場公開的真實收費數據，把這件事講清楚：錢花在哪裡、哪些是必要、哪些是陷阱，以及如何用一份檢查清單，在見面之前就篩掉不適合的公司。</p>
+        </figure>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2">📌 先講結論</p>
@@ -4269,11 +4286,19 @@ export const blogPosts: BlogPost[] = [
           </ul>
         </div>
 
+        \n\n        
+
+        
+        
+        
+
+        <p>差別不在於「誰比較貴」，而在於<strong>你買的東西根本不同</strong>。本文用香港市場公開的真實收費數據，把這件事講清楚：錢花在哪裡、哪些是必要、哪些是陷阱，以及如何用一份檢查清單，在見面之前就篩掉不適合的公司。</p>
+
         \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、香港網頁設計的真實市價（附數據來源）</h3>
 
         <p>以下是香港市場的<strong>公開收費數據</strong>，全部註明來源，你可以自行核對。這些是市場行情，不是你應該付出的價格 —— 但先知道行情，你才有議價的基準。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
             <thead>
               <tr class="bg-[#0f4c81] text-white">
@@ -4305,11 +4330,11 @@ export const blogPosts: BlogPost[] = [
               </tr>
             </tbody>
           
-        </div>
+        </table></div>
 
         <p>如果你需要<strong>逐項拆解</strong>，香港 Freelance 平台 Freehunter 公布的 2026 年參考價如下：</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
             <thead>
               <tr class="bg-[#0f4c81] text-white">
@@ -4327,7 +4352,7 @@ export const blogPosts: BlogPost[] = [
               <tr><td class="px-5 py-3 text-gray-700">網站圖示（每個）</td><td class="px-4 py-3 text-gray-600">400 – 1,000</td></tr>
             </tbody>
           
-        </div>
+        </table></div>
 
         <p class="text-sm text-gray-500">資料來源：Freehunter《2026 年最新網頁設計價錢攻略》、Toby《網頁設計費用網站設計價錢攻略 2026》、HK Platform《為什麼網頁設計的價錢兩極》、LearnMore《香港網頁設計價錢》。以上為市場公開行情，僅供預算參考。</p>
 
@@ -4371,7 +4396,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>誰負責內容與 SEO。</strong>這一點最常被忽略：如果報價<strong>不包含</strong>關鍵字規劃、頁面標題與描述、網站結構與內部連結，那你買到的是一個「漂亮但沒有人找得到」的網站。</li>
         </ol><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、模板、度身訂造、自己建站：如何選？</h3>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
             <thead>
               <tr class="bg-[#0f4c81] text-white">
@@ -4408,7 +4433,7 @@ export const blogPosts: BlogPost[] = [
               </tr>
             </tbody>
           
-        </div>
+        </table></div>
 
         <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-r-xl my-8">
           <p class="font-bold text-yellow-800 mb-2">💡 一個實用的判斷方法</p>
@@ -4433,7 +4458,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>很多客戶只比較「建站報價」，卻忽略了上線後的經常性支出。把這些一併問清楚，才是完整的成本比較。</p>
 
-        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
             <thead>
               <tr class="bg-[#0f4c81] text-white">
@@ -4449,7 +4474,7 @@ export const blogPosts: BlogPost[] = [
               <tr><td class="px-5 py-3 text-gray-700">搜尋優化（如適用）</td><td class="px-4 py-3 text-gray-600">通常為獨立服務，按月計</td></tr>
             </tbody>
           
-        </div>
+        </table></div>
 
         <p class="text-sm text-gray-500">以上為香港市場常見範圍，實際收費視供應商與規格而定。建議在報價階段要求對方以書面列出所有經常性費用。</p>
 
@@ -4554,15 +4579,15 @@ export const blogPosts: BlogPost[] = [
           <a href="/contact/" class="inline-block bg-[#0f4c81] text-white font-bold px-6 py-3 rounded-full text-sm hover:bg-[#0d4372] transition-all">討論你的網站項目 →</a>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">網頁設計價錢點解差距咁大？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">網頁設計價錢為什麼差距這樣大？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">差距來自設計複雜度、功能需求、頁面數量、同埋有冇 CMS 後台。建議要求逐項報價，避免打包式報價隱藏費用。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">差距來自設計複雜度、功能需求、頁面數量、以及有沒有 CMS 後台。建議要求逐項報價，避免打包式報價隱藏費用。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">網頁設計有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">網頁設計項目有哪些常見陷阱？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見陷阱包括：①報價唔包域名主機 ②冇 SEO 基本設定 ③冇手機適配 ④冇 CMS 後台要每次收費改嘢 ⑤合約冇寫明維護條款。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見陷阱包括：報價未包含域名與主機、缺少基本 SEO 設定（如 title、meta、結構化資料）、未做手機適配、後台不設 CMS 導致每次修改都要額外收費，以及合約未寫明維護條款。這些項目都應在簽約前逐項確認。</p>
           </div>
         </div>
 
@@ -4594,20 +4619,20 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/ai-solution-hong-kong-enterprise-guide-2026.webp",
     tags: ["AI Solution", "AI自動化", "企業AI", "人工智能", "香港AI"],
     content: `
-      <p class="lead text-xl text-gray-600 mb-8">「AI 係大企業嘅玩意，我一間中小企根本用唔起。」——呢個想法正在快速過時。2026 年，隨着香港政府「全民 AI」計劃推出、工具成本大幅下降，AI 已成為香港中小企最可負擔、回報最快的業務投資之一。問題不再是「你能否用 AI」，而是「你能否接受不用 AI」的競爭代價。</p>
+      <p class="lead text-xl text-gray-600 mb-8">「AI 係大企業嘅玩意，我一間中小企根本用唔起。」——這個想法正在快速過時。2026 年，隨着香港政府「全民 AI」計劃推出、工具成本大幅下降，AI 已成為香港中小企最可負擔、回報最快的業務投資之一。問題不再是「你能否用 AI」，而是「你能否接受不用 AI」的競爭代價。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">AI 方案（AI Solution）係指利用人工智能技術解決企業具體業務問題嘅整套方案，包括 AI 聊天機械人、智能數據分析、流程自動化等。2026 年香港企業引入 AI，最緊要係由具體痛點出發，唔係為 AI 而 AI。</p>
+          <p class="text-gray-700 leading-relaxed">AI 方案（AI Solution）是指利用人工智能技術解決企業具體業務問題的整套方案，包括 AI 聊天機械人、智能數據分析、流程自動化等。2026 年香港企業引入 AI，最重要是由具體痛點出發，不是為 AI 而 AI。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">由最痛嘅業務問題開始，唔係由技術出發</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">AI 聊天機械人係最快見效嘅入門方案</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">數據基礎（CRM、數據整理）係 AI 成效嘅前提</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">分階段推行，每階段設定可量度嘅 KPI</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">由最痛的業務問題開始，不是由技術出發</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">AI 聊天機械人是最快見效的入門方案</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">數據基礎（CRM、數據整理）是 AI 成效的前提</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">分階段推行，每階段設定可量度的 KPI</span></li>
           </ul>
         </div>
 
@@ -4640,7 +4665,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>AI 應用不是抽象概念，以下是香港企業最常落地、成效最快的 8 個實際場景：</p>
 
-      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
         
           <colgroup>
             <col style="width:22%" />
@@ -4707,9 +4732,9 @@ export const blogPosts: BlogPost[] = [
             </tr>
           </tbody>
         
-      </div>
+      </table></div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">香港企業 AI 化的 5 大痛點——你係咪都有這些顧慮？</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">香港企業 AI 化的 5 大痛點——你是否都有這些顧慮？</h3>
 
       <div class="space-y-4 my-6">
         <div class="flex gap-4 p-5 bg-gray-50 rounded-xl border border-gray-200">
@@ -4887,15 +4912,15 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">AI 方案有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">企業導入 AI 方案有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見風險包括數據不足導致 AI 準確度低、員工抗拒使用、投入成本超出預算。建議先做小規模試點（Pilot），驗證成效再全面推行。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見風險包括：數據基礎不足導致 AI 準確度偏低、員工抗拒使用令系統形同虛設、投入成本超出預算。建議由最痛的業務問題出發，先做小規模試點驗證成效，再分階段推行，並為每個階段設定可量度的指標。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司提供 AI 方案比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇 AI 方案供應商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有實際部署案例、可以度身訂造、同埋提供持續優化支援嘅團隊，唔係純賣現成軟件嘅代理商。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可從三點判斷：是否具備實際部署案例、能否按你的業務流程度身訂造、以及是否提供上線後的持續優化支援。純粹轉售現成軟件而無法說明落地方法的供應商，通常難以解決流程層面的問題。</p>
           </div>
         </div>
 
@@ -4930,7 +4955,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">香港品牌進入內地市場，核心策略係「先建立認知、再建立信任、最後建立轉換」。2026 年最有效嘅路徑係：小紅書種草建立口碑 → 抖音短視頻引爆 → 微信沉澱私域流量 → 電商平台轉換。</p>
+          <p class="text-gray-700 leading-relaxed">香港品牌進入內地市場，核心策略是「先建立認知、再建立信任、最後建立轉換」。2026 年最有效的路徑是：小紅書種草建立口碑 → 抖音短視頻引爆 → 微信沉澱私域流量 → 電商平台轉換。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -4938,7 +4963,7 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">認知→信任→轉換三階段策略</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">小紅書種草 + 抖音引爆 + 微信私域</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">內容必須本地化，唔好照搬香港文案</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">內容必須本地化，不要照搬香港文案</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">預算分配建議：50% 內容、30% 廣告、20% KOL</span></li>
           </ul>
         </div>
@@ -5008,7 +5033,7 @@ export const blogPosts: BlogPost[] = [
 
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">內地五大平台對比：哪個適合你？</h3>
 
-      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
         
           <colgroup>
             <col style="width:12%" />
@@ -5064,7 +5089,7 @@ export const blogPosts: BlogPost[] = [
             </tr>
           </tbody>
         
-      </div><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">小紅書（RED）：香港品牌的內地「種草聖地」</h3>
+      </table></div><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">小紅書（RED）：香港品牌的內地「種草聖地」</h3>
 
       <p>小紅書被內地年輕人稱為「種草平台」——用戶在此發現、分享、評測產品，形成強大的消費決策影響力。數據顯示，<strong>72% 的小紅書用戶在購買決策前會先搜尋小紅書</strong>，形成「先小紅書再購買」的消費習慣。</p>
 
@@ -5214,7 +5239,7 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">內地KOL合作費用大概係幾多？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">內地KOL合作費用大概是多少？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">費用差距極大：素人KOC（1萬粉以下）可能免費或象徵式寄樣；KOC達人（1-10萬粉）每帖約人民幣500-5,000元；中腰部KOL（10-100萬粉）每帖約人民幣5,000-50,000元；頭部KOL（百萬粉+）每帖可達人民幣10萬元以上。對香港品牌而言，鋪量KOC的性價比通常優於單一大KOL合作。</p>
           </div>
@@ -5250,15 +5275,15 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">品牌進軍內地有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">品牌進入內地市場有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係文化差異導致內容水土不服。建議委託了解兩地文化嘅團隊，唔好用翻香港現成素材。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險是文化差異導致內容水土不服，包括用語、審美與消費習慣的落差。其次是沿用香港現成素材而未重新製作，以及未處理好購買渠道與售後承接。建議委託熟悉兩地市場的團隊，並在內容製作階段就完成本地化。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司幫香港品牌做內地推廣比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇協助香港品牌進入內地的推廣夥伴？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有實際跨境推廣案例、了解兩地平台差異、同埋有內地 KOL/KOC 資源嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應核查三項：是否具備實際跨境推廣案例、團隊是否同時理解兩地平台規則與內容差異、以及是否擁有內地 KOL／KOC 與渠道資源。此外，對方應能說明針對你品類的進入次序與資源分配建議。</p>
           </div>
         </div>
 
@@ -5279,7 +5304,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: 8,
     slug: "google-meta-ads-guide-2026",
-    title: "2026 Google 同 Meta 廣告投放完全指南：AI 時代素材先行嘅制勝法則",
+    title: "2026 Google 與 Meta 廣告投放完全指南：AI 時代素材先行嘅制勝法則",
     excerpt: "廣告費年年飆升，ROAS 卻不斷下跌？本文深入拆解 2026 年 Google Performance Max 同 Meta Advantage+ 的最新 AI 趨勢，揭示「素材先行」策略如何幫香港企業以更低成本換取更高轉換率。",
     date: "2026-02-15",
     updatedAt: "2026-09-20",
@@ -5289,25 +5314,25 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/google-meta-ads-guide-2026.webp",
     tags: ["Google Ads", "Meta廣告", "Performance Max", "Advantage+", "AI廣告"],
     content: `
-      <p class="lead text-xl text-gray-600 mb-8">「同樣嘅廣告預算，以前可以帶嚟 300 個 Lead，依家只有 80 個。」——呢個係香港廣告主過去兩年最常出現嘅呻吟。廣告費用年年漲，效果卻年年低，問題並唔係你做錯咗咩，而係整個廣告投放邏輯已經徹底改變。</p>
+      <p class="lead text-xl text-gray-600 mb-8">「同樣嘅廣告預算，以前可以帶嚟 300 個 Lead，依家只有 80 個。」——這個是香港廣告主過去兩年最常出現的呻吟。廣告費用年年漲，效果卻年年低，問題並不是你做錯了什麼，而是整個廣告投放邏輯已經徹底改變。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">2026 年 Google 同 Meta 廣告嘅核心轉變係「AI 主導投放、素材決定勝負」。香港企業要做嘅唔係教 AI 點投放，而係提供多元化、高質素嘅素材俾 AI 演算法測試同優化。</p>
+          <p class="text-gray-700 leading-relaxed">2026 年 Google 與 Meta 廣告的核心轉變是「AI 主導投放、素材決定勝負」。香港企業要做的不是教 AI 如何投放，而是提供多元化、高質素的素材給 AI 演算法測試與優化。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">Google Performance Max 同 Meta Advantage+ 都係 AI 自動投放</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">素材多元化（圖片+影片+文案）係成敗關鍵</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">Google Performance Max 同 Meta Advantage+ 都是 AI 自動投放</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">素材多元化（圖片+影片+文案）是成敗關鍵</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">轉換追蹤必須準確，否則 AI 會學錯嘢</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">A/B 測試唔再係選項，係必須</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">A/B 測試不再是選項，是必須</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
-          <img src="/blog/google-meta-ads-hero.webp" alt="Google 同 Meta 廣告投放指南 — ADWire 香港廣告" title="Google 同 Meta 廣告投放指南 — ADWire 香港廣告" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
+          <img src="/blog/google-meta-ads-hero.webp" alt="Google 與 Meta 廣告投放指南 — ADWire 香港廣告" title="Google 與 Meta 廣告投放指南 — ADWire 香港廣告" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
         </figure>\n\n        
 
         
@@ -5333,7 +5358,7 @@ export const blogPosts: BlogPost[] = [
 
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">Google Ads vs Meta Ads：2026 年核心差異</h3>
 
-      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
         
           <thead>
             <tr class="bg-[#0f4c81] text-white">
@@ -5379,7 +5404,7 @@ export const blogPosts: BlogPost[] = [
             </tr>
           </tbody>
         
-      </div>
+      </table></div>
 
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">Meta 2026：素材先行（Creative-First）時代正式到來</h3>
 
@@ -5423,20 +5448,7 @@ export const blogPosts: BlogPost[] = [
       <p>Google 廣告正經歷十年來最大規模的產品重組。傳統的「搜尋廣告 + 展示廣告 + YouTube 廣告」各自獨立的時代已經過去，<strong>Performance Max（PMax）</strong> 代表了 Google 的全面 AI 化未來。</p>
 
       <div class="space-y-4 my-6">
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100">
-          <div class="flex gap-4">
-            <div class="text-3xl flex-shrink-0">⚡</div>
-            <div>
-              <h4 class="font-bold text-[#0f4c81] mb-2">Performance Max（PMax）：橫掃全平台的 AI 廣告</h4>
-              <p class="text-sm text-gray-700 mb-3">PMax 是 Google 廣告的全能型活動，<strong>單一廣告活動同時覆蓋 Search、Display、YouTube、Gmail、Google Maps 及 Discover Feed</strong>，由 AI 自動分配預算至表現最佳的版位及受眾。</p>
-              <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
-                <li>必備優質素材組合：橫版圖片 × 3、方形 × 3、豎版 × 3、影片 × 2，標題 × 5，描述 × 5</li>
-                <li>加入客戶名單（Customer Match）和購物車放棄用戶作「受眾信號」，加速 AI 學習</li>
-                <li>設定轉換動作（電話、表單、購買）時，確保每月至少 30-50 個信號供 AI 優化</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        
 
         <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100">
           <div class="flex gap-4">
@@ -5488,7 +5500,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>根據 ADWire 服務香港 500+ 企業的實戰數據，以下是不同規模企業的最優廣告預算分配參考：</p>
 
-      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
         
           <thead>
             <tr class="bg-[#0f4c81] text-white">
@@ -5530,7 +5542,7 @@ export const blogPosts: BlogPost[] = [
             </tr>
           </tbody>
         
-      </div>
+      </table></div>
 
       <div class="bg-gradient-to-br from-[#0f4c81] to-[#1a5f9a] rounded-2xl p-8 text-white text-center my-10 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
@@ -5538,7 +5550,7 @@ export const blogPosts: BlogPost[] = [
           <div class="absolute bottom-5 right-5 w-48 h-48 bg-[#f5a623] rounded-full blur-2xl"></div>
         </div>
         <div class="relative z-10">
-          <h4 class="text-2xl font-bold mb-3">想知道你嘅廣告費用係咪花對了地方？</h4>
+          <h4 class="text-2xl font-bold mb-3">想知道你的廣告費用是否花對了地方？</h4>
           <p class="text-blue-100 mb-6 max-w-xl mx-auto text-sm leading-relaxed">ADWire 提供免費廣告帳戶診斷服務，識別浪費預算的原因，並根據你的行業及目標，制定 2026 年最適合的 Google + Meta 廣告策略。</p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="https://wa.me/95861027?text=Hello%20ADWire,%20我想查詢廣告投放服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 申請免費診斷</a>
@@ -5552,7 +5564,7 @@ export const blogPosts: BlogPost[] = [
       <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">Google Ads 同 Meta Ads 應該點揀？可唔可以只做其中一個？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">Google Ads 同 Meta Ads 應該如何選擇？可不可以只做其中一個？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">兩個平台定位不同，建議配合使用。Google Ads 針對「有明確需求」的高意圖用戶（如搜尋「香港搬屋公司」），轉換率較高；Meta Ads 則擅長「主動發現」類廣告，適合品牌曝光及衝動購買。預算有限的話，建議先用 Meta 建立認知，再用 Google 捕捉轉換意圖。</p>
           </div>
@@ -5573,14 +5585,14 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港廣告投放最低預算係幾多才有效果？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港廣告投放最低預算是多少才有效果？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">Meta Ads 建議月廣告費最少 HK$3,000-5,000 才能收集到足夠數據優化。Google Search Ads 視乎關鍵字競爭程度，競爭激烈行業（金融、醫療）月費 HK$8,000 以上較為合理。預算太低（如每月 HK$1,000-2,000）的問題是 AI 無法收集足夠轉換信號進行優化學習，導致效果持續低迷。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">廣東話廣告素材係咪比英文素材更有效（香港市場）？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">廣東話廣告素材是否比英文素材更有效（香港市場）？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">在香港 B2C 市場，廣東話素材的互動率通常高於英文 20-40%，因為更貼近本地用戶情感。B2B 市場則視行業而定，專業服務類（如 IT、法律）英文素材往往表現更好。建議策略：同一個廣告活動同時測試廣東話、繁中書面語及英文素材，讓 Meta/Google AI 決定哪種語言表現最好。</p>
           </div>
@@ -5601,7 +5613,7 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 的廣告代操服務包括什麼？費用係幾多？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 的廣告代操服務包括什麼？費用是多少？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">ADWire 廣告代操服務包括：廣告策略制定、受眾研究及設定、廣告文案及素材建議、廣告帳戶設置及優化、A/B 測試、每週數據監察及每月報告。我們服務超過 500 家香港企業，管理廣告預算橫跨 FB、IG、Google、YouTube 及小紅書。費用視乎廣告預算規模及服務內容而定，歡迎 WhatsApp +852 9586 1027 免費查詢。</p>
           </div>
@@ -5609,9 +5621,9 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Google 同 Meta 廣告有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Google 與 Meta 廣告投放有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係轉換追蹤設定錯誤，令 AI 演算法優化錯目標。建議上線前用 Google Tag Assistant 確認追蹤正確。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險是轉換追蹤設定錯誤，令演算法朝錯誤目標優化，造成預算浪費。其次是素材不足，令自動投放無法有效測試。建議在上線前以 Tag Assistant 等工具驗證追蹤，並確保每組廣告有足夠的素材變體。</p>
           </div>
         </div>
 
@@ -5630,7 +5642,7 @@ export const blogPosts: BlogPost[] = [
   {
     id: 7,
     slug: "hong-kong-seo-geo-guide-2026",
-    title: "2026 香港 SEO 同 GEO 完全攻略：同時上 Google 同 ChatGPT",
+    title: "2026 香港 SEO 與 GEO 完全攻略：同時上 Google 同 ChatGPT",
     excerpt: "流量斷崖式下跌？SEO 排名不動如山卻點擊率暴跌？本文深入拆解香港企業最易踩嘅 5 大 SEO 地雷，附上 GEO（生成式引擎優化）實戰手冊，手把手教你令品牌同時被 Google 同 ChatGPT 推薦。",
     date: "2026-02-01",
     updatedAt: "2026-09-20",
@@ -5640,36 +5652,36 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/hong-kong-seo-geo-guide-2026.webp",
     tags: ["SEO", "GEO", "AI搜尋", "香港本地SEO", "數碼營銷"],
     content: `
-      <p class="lead text-xl text-gray-600 mb-8">「我哋每個月都喺 SEO 投資緊唔少，但最近發現 Google 開始喺搜尋結果頂部直接顯示 AI 答案，客人根本唔需要入我個網站……」呢個係香港越來越多老闆面對嘅困局。如果你都有同感，呢篇文章正正係為你而寫。</p>
+      <p class="lead text-xl text-gray-600 mb-8">「我哋每個月都喺 SEO 投資緊唔少，但最近發現 Google 開始喺搜尋結果頂部直接顯示 AI 答案，客人根本唔需要入我個網站……」這個是香港越來越多老闆面對的困局。如果你都有同感，呢篇文章正正是為你而寫。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">2026 年香港企業同時做好 SEO 同 GEO，先可以喺 Google 搜尋同 AI 引擎都獲得曝光。SEO 針對搜尋排名，GEO 針對 AI 引用，兩者共用高質素內容、結構化數據、權威引用呢三大基礎。</p>
+          <p class="text-gray-700 leading-relaxed">2026 年香港企業同時做好 SEO 與 GEO，先可以在 Google 搜尋與 AI 引擎都獲得曝光。SEO 針對搜尋排名，GEO 針對 AI 引用，兩者共用高質素內容、結構化數據、權威引用這三大基礎。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">SEO：針對 Google 排名，核心係內容質素 + 技術優化 + 反向連結</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">GEO：針對 AI 引擎引用，核心係直接答案 + 定義語句 + 結構化數據</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">SEO：針對 Google 排名，核心是內容質素 + 技術優化 + 反向連結</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">GEO：針對 AI 引擎引用，核心是直接答案 + 定義語句 + 結構化數據</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">香港本地 SEO 要做好 Google Business Profile 同本地目錄</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">同時做好 SEO + GEO 可以覆蓋 90% 以上嘅搜尋流量</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">同時做好 SEO + GEO 可以覆蓋 90% 以上的搜尋流量</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
-          <img src="/blog/seo-geo-guide-hero.webp" alt="香港 SEO 同 GEO 完全攻略 — ADWire 數碼營銷" title="香港 SEO 同 GEO 完全攻略 — ADWire 數碼營銷" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
+          <img src="/blog/seo-geo-guide-hero.webp" alt="香港 SEO 與 GEO 完全攻略 — ADWire 數碼營銷" title="香港 SEO 與 GEO 完全攻略 — ADWire 數碼營銷" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
         </figure>\n\n        
 
         
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">香港網站流量危機：你並唔孤單</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">香港網站流量危機：你並不孤單</h3>
 
-      <p>根據 <strong>SparkToro 2024</strong> 的研究，Google 搜尋的 <strong>Zero-Click 比率已達 65%</strong>——即每 100 次搜尋，有 65 次用戶睇完搜尋結果頁面就離開，根本唔會點擊任何網站。加上 ChatGPT、Perplexity、Google AI Overview 的急速普及，呢個數字只會繼續上升。</p>
+      <p>根據 <strong>SparkToro 2024</strong> 的研究，Google 搜尋的 <strong>Zero-Click 比率已達 65%</strong>——即每 100 次搜尋，有 65 次用戶看完搜尋結果頁面就離開，根本不會點擊任何網站。加上 ChatGPT、Perplexity、Google AI Overview 的急速普及，這個數字只會繼續上升。</p>
 
-      <p>對香港企業而言，挑戰更加獨特：繁中、英文、廣東話三語並存，競爭關鍵字集中喺美容、飲食、財務、地產等高競爭行業，而且大部分本地代理仍停留喺傳統 SEO 思維，對 GEO（Generative Engine Optimization）完全陌生。然而，<strong>挑戰背後亦蘊藏咗香港中小企彎道超車嘅絕佳機會。</strong></p>
+      <p>對香港企業而言，挑戰更加獨特：繁中、英文、廣東話三語並存，競爭關鍵字集中在美容、飲食、財務、地產等高競爭行業，而且大部分本地代理仍停留在傳統 SEO 思維，對 GEO（Generative Engine Optimization）完全陌生。然而，<strong>挑戰背後亦蘊藏了香港中小企彎道超車的絕佳機會。</strong></p>
 
       <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-r-xl my-8">
         <p class="font-bold text-yellow-800 mb-2">📊 香港數碼市場關鍵數據（2025-2026）</p>
@@ -5682,11 +5694,11 @@ export const blogPosts: BlogPost[] = [
         </ul>
       </div>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">SEO vs GEO：一次講清楚兩者有咩唔同</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">SEO vs GEO：一次講清楚兩者有什麼不同</h3>
 
-      <p>好多香港老闆將 SEO 同 GEO 混為一談。其實兩者目標受眾完全唔同，策略亦大相徑庭：</p>
+      <p>好多香港老闆將 SEO 與 GEO 混為一談。其實兩者目標受眾完全不同，策略亦大相徑庭：</p>
 
-      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
         
           <thead>
             <tr class="bg-[#0f4c81] text-white">
@@ -5728,13 +5740,13 @@ export const blogPosts: BlogPost[] = [
             </tr>
           </tbody>
         
-      </div>
+      </table></div>
 
-      <p>簡而言之：<strong>SEO 係讓 Google 爬蟲理解你，GEO 係讓 AI 語言模型信任你並引用你。</strong>2026 年，兩者缺一不可。</p>
+      <p>簡而言之：<strong>SEO 是讓 Google 爬蟲理解你，GEO 是讓 AI 語言模型信任你並引用你。</strong>2026 年，兩者缺一不可。</p>
 
-      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🇭🇰 香港 SEO 五大獨特地雷——你踩咗幾個？</h3>
+      <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">🇭🇰 香港 SEO 五大獨特地雷——你踩了幾個？</h3>
 
-      <p>香港市場有其獨特性，以下五點係本地企業最常忽略的 SEO 陷阱，踩一個都可能令你的排名大幅下跌：</p>
+      <p>香港市場有其獨特性，以下五點是本地企業最常忽略的 SEO 陷阱，踩一個都可能令你的排名大幅下跌：</p>
 
       <div class="space-y-4 my-6">
         <div class="flex gap-4 p-5 bg-red-50 rounded-xl border border-red-100">
@@ -5774,7 +5786,7 @@ export const blogPosts: BlogPost[] = [
         </div>
       </div><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">2026 香港 SEO 技術核心清單（懶人包）</h3>
 
-      <p>無論你係自己做定外判比代理，以下係 2026 年香港企業必須達標的技術基準：</p>
+      <p>無論你是自己做定外判比代理，以下是 2026 年香港企業必須達標的技術基準：</p>
 
       <div class="grid md:grid-cols-2 gap-4 my-6">
         <div class="bg-gray-50 p-5 rounded-xl border border-gray-200">
@@ -5804,15 +5816,7 @@ export const blogPosts: BlogPost[] = [
       <p>GEO 同傳統 SEO 的核心差異在於：你優化的對象是 AI 語言模型，而不是搜尋引擎爬蟲。以下 5 個策略是目前香港最有效的 GEO 方法：</p>
 
       <div class="space-y-4 my-6">
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100">
-          <div class="flex gap-4">
-            <div class="text-3xl flex-shrink-0">📄</div>
-            <div>
-              <h4 class="font-bold text-[#0f4c81] mb-2">策略一：建立 llms.txt 檔案</h4>
-              <p class="text-sm text-gray-700">在網站根目錄加入 <code class="bg-white px-1.5 py-0.5 rounded text-blue-700 text-xs">/llms.txt</code>，以 Markdown 格式提供公司資料、服務說明及可引用的事實數據。Perplexity、ChatGPT 等 AI 搜尋引擎會優先讀取此文件作為品牌資料來源。</p>
-            </div>
-          </div>
-        </div>
+        
         <div class="bg-gradient-to-r from-orange-50 to-amber-50 p-6 rounded-xl border border-orange-100">
           <div class="flex gap-4">
             <div class="text-3xl flex-shrink-0">❓</div>
@@ -5855,7 +5859,7 @@ export const blogPosts: BlogPost[] = [
 
       <p>「做 SEO 係咪比 Google Ads 更划算？」是香港老闆最常問的問題。以下是三種策略的實際對比：</p>
 
-      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+      <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
         
           <thead>
             <tr class="bg-[#0f4c81] text-white">
@@ -5904,7 +5908,7 @@ export const blogPosts: BlogPost[] = [
             </tr>
           </tbody>
         
-      </div>
+      </table></div>
 
       <p class="text-xs text-gray-400 italic mb-6">* 費用僅供香港市場參考，實際報價因服務範圍不同而有別</p>
 
@@ -5944,8 +5948,8 @@ export const blogPosts: BlogPost[] = [
           <div class="absolute bottom-5 right-5 w-48 h-48 bg-[#f5a623] rounded-full blur-2xl"></div>
         </div>
         <div class="relative z-10">
-          <h4 class="text-2xl font-bold mb-3">唔知從何入手？ADWire 幫你做全面診斷</h4>
-          <p class="text-blue-100 mb-6 max-w-xl mx-auto text-sm leading-relaxed">ADWire 係香港少數同時提供 <strong>SEO + GEO 雙軌優化</strong>的 MarTech 代理商。我們為你的網站做免費 SEO 健康診斷，找出排名下滑的真正原因，並制定針對 AI 搜尋的完整 GEO 策略。</p>
+          <h4 class="text-2xl font-bold mb-3">不知道從何入手？ADWire 幫你做全面診斷</h4>
+          <p class="text-blue-100 mb-6 max-w-xl mx-auto text-sm leading-relaxed">ADWire 是香港少數同時提供 <strong>SEO + GEO 雙軌優化</strong>的 MarTech 代理商。我們為你的網站做免費 SEO 健康診斷，找出排名下滑的真正原因，並制定針對 AI 搜尋的完整 GEO 策略。</p>
           <div class="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="https://wa.me/95861027?text=Hello%20ADWire,%20我想查詢SEO/GEO服務" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors shadow-lg">WhatsApp 免費咨詢</a>
             <a href="/services/seo" class="inline-block border border-white/40 text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors">了解 SEO/GEO 服務詳情</a>
@@ -5958,14 +5962,14 @@ export const blogPosts: BlogPost[] = [
       <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">SEO 同 GEO 係咪一定要同時做？可唔可以只做其中一個？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">SEO 與 GEO 是否一定要同時做？可不可以只做其中一個？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">建議兩者同步進行。SEO 負責傳統 Google 排名，保障現有自然流量；GEO 則針對 ChatGPT、Perplexity、Google AI Overview 等 AI 搜尋引擎，開拓新興流量渠道。單做 SEO 的風險是流量被 AI 搜尋侵蝕；單做 GEO 則基礎薄弱，難以建立長期權威。兩者相輔相成，共同構成 2026 年最完整的搜尋營銷策略。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港 SEO 費用大概係幾多？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港 SEO 費用大概是多少？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">香港 SEO 服務月費通常介乎 HK$3,000 至 HK$20,000，視乎關鍵字競爭程度、網站規模及所需服務內容而定。建議避免 HK$2,000 以下的「低價 SEO」，因為大多依賴黑帽技術，長期有被 Google 懲罰的風險。ADWire 提供透明報價，可 WhatsApp +852 9586 1027 免費查詢。</p>
           </div>
@@ -5979,35 +5983,35 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">廣東話內容對 SEO 有冇幫助？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">廣東話內容對 SEO 有沒有幫助？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">廣東話口語化內容對本地香港搜尋有一定幫助，因為用戶有時會用廣東話搜尋（如「旺角邊間美容院好」）。但要注意：純廣東話內容讓 Google 理解語言有一定難度。建議策略：正文使用正式繁體中文，標題可加入廣東話口語元素（如「點解」「係咪」）以提升 CTR，兩者平衡運用。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">點樣知道自己被 ChatGPT 引用咗？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">怎樣知道自己被 ChatGPT 引用了？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">目前尚無工具可直接追蹤 AI 引用。常見方法是直接在 ChatGPT、Perplexity、Claude 等平台輸入相關問題（如「香港最好的 SEO 代理係邊間？」），觀察你的品牌是否出現在答案中。Perplexity 會顯示引用來源，可透過 Google Search Console 監察是否有來自 Perplexity 的參照流量。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">做 SEO 定係 Google Ads（SEM）比較划算？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">做 SEO 定是 Google Ads（SEM）比較划算？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">兩者各有優勢，不應視為對立。Google Ads 適合即時見效的促銷、新產品推出，或旺季補充流量；SEO 適合長期建立自然流量資產，停止投資後效果仍可持續。最佳策略是兩者配合：SEO 建立長期基礎，Google Ads 做短期衝刺。從長遠計算，結合 GEO 的三軌策略平均 ROI 遠高於單靠 Ads。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">點樣揀選可靠的香港 SEO 代理？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">怎樣選擇選可靠的香港 SEO 代理？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">評選香港 SEO 代理時，留意以下幾點：①要求提供真實成功案例（關鍵字排名截圖 + 流量增長數據）；②代理本身的網站有無良好 SEO 排名；③避免相信「保證排名第一」的承諾（Google 明確表示無代理能保證排名）；④確認服務包含技術 SEO、內容策略及外鏈建設；⑤了解是否同時提供 GEO 優化，確保策略能應對 AI 搜尋時代。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 的 SEO/GEO 服務包含哪些內容？費用係幾多？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ADWire 的 SEO/GEO 服務包含哪些內容？費用是多少？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">ADWire 的 SEO + GEO 雙軌服務包括：全面技術 SEO 審核及修復、關鍵字研究及內容策略、Schema.org 結構化數據部署、llms.txt 及 AI 引用優化、本地 SEO（Google Business Profile 優化、NAP 一致性）、月度排名追蹤報告，以及 GEO 表現監察。費用視乎網站規模及服務範圍而定，歡迎 WhatsApp +852 9586 1027 或電郵 info@adwire.com.hk 免費咨詢。</p>
           </div>
@@ -6015,21 +6019,21 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港做 SEO 同 GEO 邊個先？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港做 SEO 與 GEO 哪個先？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議先做好 SEO 基礎（網站速度、結構化數據、內容質素），再加入 GEO 優化。因為 SEO 嘅技術基礎同時都會幫到 GEO。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議先做好 SEO 基礎（網站速度、結構化數據、內容質素），再加入 GEO 優化。因為 SEO 的技術基礎同時都會幫到 GEO。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">SEO 同 GEO 優化有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">同時進行 SEO 與 GEO 優化有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">SEO 最大風險係黑帽技術引致懲罰；GEO 最大風險係 AI 引擎規則變動。建議全部用白帽方法，保持內容質素。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">SEO 的主要風險來自黑帽手法導致的懲罰；GEO 的風險則在於 AI 引擎規則變動頻繁，成效難以保證。兩者都應以白帽方法與內容質素為基礎，避免為追求短期效果而使用不可持續的手段。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做香港 SEO 同 GEO 比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇同時提供 SEO 與 GEO 的服務商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有實際香港本地案例、可以提供 GSC 數據報告、同埋同時了解 SEO 同 AI 引擎優化嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議核查三點：是否具備香港本地案例並能提供 Search Console 數據、能否解釋 GEO 的具體做法（直接答案、定義型語句、結構化資料）而非只談概念、以及是否提供可量度的月度報告。</p>
           </div>
         </div>
 
@@ -6044,7 +6048,7 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
           <li><a href="/blog/geo-generative-engine-optimization-guide-2026/" class="text-[#0f4c81] hover:underline">GEO 生成式引擎優化完整指南：官方文件與學術研究怎麼說</a></li>
-          <li><a href="/blog/how-to-choose-seo-company-hong-kong-2026/" class="text-[#0f4c81] hover:underline">香港 SEO 公司點揀？Google 官方問題清單與危險信號（2026）</a></li>
+          <li><a href="/blog/how-to-choose-seo-company-hong-kong-2026/" class="text-[#0f4c81] hover:underline">香港 SEO 公司如何選擇？Google 官方問題清單與危險信號（2026）</a></li>
           </ul>
         </div>`
   },
@@ -6066,21 +6070,21 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">SEO（搜尋引擎優化）針對 Google 等傳統搜尋引擎排名；GEO（生成式引擎優化）針對 ChatGPT、Perplexity 等 AI 引擎嘅引用。兩者並非取代關係，而係互補——2026 年最有效嘅策略係同時做好 SEO 同 GEO。</p>
+          <p class="text-gray-700 leading-relaxed">SEO（搜尋引擎優化）針對 Google 等傳統搜尋引擎排名；GEO（生成式引擎優化）針對 ChatGPT、Perplexity 等 AI 引擎的引用。兩者並非取代關係，而是互補——2026 年最有效的策略是同時做好 SEO 與 GEO。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">SEO 令你喺 Google 排名，GEO 令 AI 引擎引用你嘅內容</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">兩者共用高質素內容、結構化數據、權威引用呢三大基礎</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">SEO 令你在 Google 排名，GEO 令 AI 引擎引用你的內容</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">兩者共用高質素內容、結構化數據、權威引用這三大基礎</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">香港企業應該由 SEO 開始，再逐步加入 GEO 優化</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">GEO 嘅核心係「直接答案」同「定義型語句」格式</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">GEO 的核心是「直接答案」同「定義型語句」格式</span></li>
           </ul>
         </div>
 
         <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
-          <img src="/blog/geo-generation-hero.webp" alt="SEO 同 GEO 對比圖 — ADWire 香港 AI 搜尋優化" title="SEO 同 GEO 對比圖 — ADWire 香港 AI 搜尋優化" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
+          <img src="/blog/geo-generation-hero.webp" alt="SEO 與 GEO 對比圖 — ADWire 香港 AI 搜尋優化" title="SEO 與 GEO 對比圖 — ADWire 香港 AI 搜尋優化" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
         </figure>\n\n        
 
         
@@ -6145,16 +6149,16 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">做咗 SEO 使唔使再做 GEO？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">做了 SEO 使不使再做 GEO？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">兩者目標唔同：SEO 針對搜尋引擎排名，GEO 針對 AI 引擎引用。2026 年建議同時做，因為愈來愈多人用 AI 搜尋。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">兩者目標不同：SEO 針對搜尋引擎排名，GEO 針對 AI 引擎引用。2026 年建議同時做，因為愈來愈多人用 AI 搜尋。</p>
           </div>
         </div>
         
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做 SEO 同 GEO 比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇 SEO 與 GEO 服務供應商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">選擇時應該睇佢有冇實際 AI 引用案例、係咪跟進緊 AI 引擎嘅最新變化、以及可唔可以提供可量度嘅成效報告。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">選擇時應查看對方是否有實際的 AI 引用案例、是否持續跟進 AI 引擎的規則變化、以及能否提供可量度的成效報告。GEO 仍屬新興領域，能具體說明方法論的供應商通常較可靠。</p>
           </div>
         </div>
 
@@ -6170,7 +6174,7 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
           <li><a href="/blog/geo-generative-engine-optimization-guide-2026/" class="text-[#0f4c81] hover:underline">GEO 生成式引擎優化完整指南：官方文件與學術研究怎麼說</a></li>
-          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 同 GEO 完全攻略：同時上 Google 同 ChatGPT</a></li>
+          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 完全攻略：同時上 Google 同 ChatGPT</a></li>
           </ul>
         </div>\n\n        <p class="text-sm text-gray-500 mt-8">參考資料：<a href="https://developers.google.com/search/docs" target="_blank" rel="noopener" class="text-[#0f4c81] hover:underline">Google Search Central</a></p>`
   },
@@ -6191,13 +6195,13 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">短視頻營銷（Short Video Marketing）係指透過 15-60 秒嘅影片內容喺抖音、Reels、小紅書等平台推廣品牌同產品。2026 年香港企業做短視頻，關鍵唔係「拍得靚」而係「頭 3 秒捉住人」同「清晰行動呼籲」。</p>
+          <p class="text-gray-700 leading-relaxed">短視頻營銷（Short Video Marketing）是指透過 15-60 秒的影片內容在抖音、Reels、小紅書等平台推廣品牌與產品。2026 年香港企業做短視頻，關鍵不是「拍得漂亮」而是「前 3 秒抓住注意力」與「清晰的行動呼籲」。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">頭 3 秒決定 80% 嘅觀看完成率</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">頭 3 秒決定 80% 的觀看完成率</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">每條片要有一個明確 CTA（行動呼籲）</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">抖音、Reels、小紅書三平台內容要因應受眾調整</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">數據追蹤比內容數量更重要</span></li>
@@ -6264,15 +6268,15 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">短視頻營銷有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">短視頻營銷有哪些常見風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係投資大量資源拍片但冇追蹤成效。建議每條片設定明確 KPI（觀看率、點擊率、轉換率），定期檢討。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險是投入大量資源製作影片，卻沒有設定追蹤方式，無法判斷成效。此外，把同一條影片原封不動發到所有平台，會因演算法偏好不同而影響表現。建議每條影片設定明確指標（觀看完成率、點擊率、轉換），並按平台調整格式。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做短視頻營銷比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇短視頻營銷服務商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇有實際投放經驗、可以提供數據報告、同埋了解香港市場嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議核查：對方是否有實際投放經驗與可展示的數據報告、能否一次拍攝產出多個平台版本的素材、以及是否理解香港受眾與各平台演算法差異。</p>
           </div>
         </div>
 
@@ -6286,7 +6290,7 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
           <li><a href="/blog/kol-marketing-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">KOL 網紅營銷指南：香港中小企選型、報價與成效 2026</a></li>
-          <li><a href="/blog/social-media-management-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">社交媒體管理：香港企業外判代管服務點揀、月費與成效量度 2026</a></li>
+          <li><a href="/blog/social-media-management-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">社交媒體管理：香港企業外判代管服務如何選擇、月費與成效量度 2026</a></li>
           </ul>
         </div>`
   },
@@ -6307,16 +6311,16 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">流程自動化（Marketing Automation）係指用軟件自動執行重複性營銷工作，例如電郵跟進、社交媒體排程、客戶分類等。香港中小企引入自動化後，平均可以節省相當於一個員工嘅工作量。</p>
+          <p class="text-gray-700 leading-relaxed">流程自動化（Marketing Automation）是指用軟件自動執行重複性營銷工作，例如電郵跟進、社交媒體排程、客戶分類等。香港中小企引入自動化後，平均可以節省相當於一個員工的工作量。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">自動化最適合重複性高、規則明確嘅工作</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">ROI 通常喺 3-6 個月內顯現</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">自動化最適合重複性高、規則明確的工作</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">ROI 通常在 3-6 個月內顯現</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">先自動化電郵跟進同客戶分類，效果最明顯</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">自動化唔係取代人，而係令團隊做更高價值嘅工作</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">自動化不是取代人，而是令團隊做更高價值的工作</span></li>
           </ul>
         </div>
 
@@ -6386,15 +6390,15 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">流程自動化有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">營銷流程自動化有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見風險包括設定錯誤導致發錯訊息、過度自動化令客戶體驗變差。建議先小規模試行，確認無誤先全面推行。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見風險包括設定錯誤導致向錯誤客群發送訊息、過度自動化令客戶體驗變得機械化、以及名單與觸發條件維護不善。建議先在小範圍試行，確認邏輯無誤後才全面推行，並定期檢查自動化流程的實際表現。</p>
           </div>
         </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">邊間公司做流程自動化比較好？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">應該如何選擇流程自動化服務商？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該選擇可以度身訂造、有實際案例、同埋提供持續支援嘅團隊。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可從三方面判斷：能否按你的實際流程度身設定、是否具備可參考的案例、以及是否提供上線後的持續支援與調整。自動化流程需要隨業務變化更新，因此長期支援比一次性建置更重要。</p>
           </div>
         </div>
 
@@ -6429,15 +6433,15 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">高轉換率 Landing Page 嘅核心係「一個頁面、一個目標、一個行動」。香港企業常見嘅錯誤係放太多資訊、CTA 模糊、載入太慢。做好呢三點，轉換率通常可以提升 2-3 倍。</p>
+          <p class="text-gray-700 leading-relaxed">高轉換率 Landing Page 的核心是「一個頁面、一個目標、一個行動」。香港企業常見的錯誤是放太多資訊、CTA 模糊、載入太慢。做好這三點，轉換率通常可以提升 2-3 倍。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">每個 Landing Page 只做一個目標（報價、登記、下載）</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">CTA 按鈕要突出、文案要具體（「免費獲取報價」好過「了解更多」）</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">手機載入速度必須喺 3 秒內</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">CTA 按鈕要突出、文案要具體（「免費獲取報價」勝過「了解更多」）</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">手機載入速度必須在 3 秒內</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">社會證明（客戶評價、案例）可以提升 30% 轉換率</span></li>
           </ul>
         </div>
@@ -6508,9 +6512,9 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Landing Page 優化有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Landing Page 優化測試有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係 A/B 測試樣本太細就下結論。建議每個版本至少收集 500 次訪問先比較成效。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險是以過小的樣本量下結論，令測試結果無法重現。此外，同時改動多個元素會無法判斷成效來自哪一項。建議每個版本累積足夠訪問量後再比較，並每次只測試一個主要變數。</p>
           </div>
         </div>
 
@@ -6543,7 +6547,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">Facebook / Instagram 廣告費上升係全球趨勢。香港中小企要止血，最有效嘅三個方向係：①精準受眾定位 ②素材 A/B 測試 ③再營銷名單。做好呢三點通常可以降低 30-50% 嘅獲客成本。</p>
+          <p class="text-gray-700 leading-relaxed">Facebook / Instagram 廣告費上升是全球趨勢。香港中小企要止血，最有效的三個方向是：①精準受眾定位 ②素材 A/B 測試 ③再營銷名單。做好這三點通常可以降低 30-50% 的獲客成本。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
@@ -6551,7 +6555,7 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">受眾定位寧窄勿濫——興趣+行為+地區三重篩選</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">每組廣告至少 3 個素材版本同步測試</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">再營銷名單嘅轉換成本通常係冷受眾嘅 1/3</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">再營銷名單的轉換成本通常是冷受眾的 1/3</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">每週檢討 ROAS，低過 2 就要即刻調整</span></li>
           </ul>
         </div>
@@ -6616,9 +6620,9 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Facebook 廣告優化有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Facebook 廣告優化有哪些常見錯誤？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見陷阱係頻密改動廣告令演算法重新學習。建議每次改動後至少等 3-5 日先再調整。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最常見的錯誤是過於頻繁地改動廣告，令演算法反覆重新學習而無法穩定優化。其次是以短期數據判斷成效。建議每次調整後保留足夠的觀察期（一般三至五日），並在足夠轉換數據出現後才作重大改動。</p>
           </div>
         </div>
 
@@ -6629,8 +6633,8 @@ export const blogPosts: BlogPost[] = [
         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
-          <li><a href="/blog/google-meta-ads-guide-2026/" class="text-[#0f4c81] hover:underline">2026 Google 同 Meta 廣告投放完全指南：AI 時代素材先行嘅制勝法則</a></li>
-          <li><a href="/blog/social-media-management-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">社交媒體管理：香港企業外判代管服務點揀、月費與成效量度 2026</a></li>
+          <li><a href="/blog/google-meta-ads-guide-2026/" class="text-[#0f4c81] hover:underline">2026 Google 與 Meta 廣告投放完全指南：AI 時代素材先行的制勝法則</a></li>
+          <li><a href="/blog/social-media-management-hong-kong-guide-2026/" class="text-[#0f4c81] hover:underline">社交媒體管理：香港企業外判代管服務如何選擇、月費與成效量度 2026</a></li>
           </ul>
         </div>`
   },
@@ -6651,16 +6655,16 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
-          <p class="text-gray-700 leading-relaxed">度身訂造系統（Custom Software）係指按企業特定需求開發嘅管理軟件，取代 Excel 人手操作。香港中小企常見嘅應用包括庫存管理、客戶跟進、報價系統。投資回報通常喺 6-12 個月內實現。</p>
+          <p class="text-gray-700 leading-relaxed">度身訂造系統（Custom Software）是指按企業特定需求開發的管理軟件，取代 Excel 人手操作。香港中小企常見的應用包括庫存管理、客戶跟進、報價系統。投資回報通常在 6-12 個月內實現。</p>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">度身訂造系統適合流程獨特、現成軟件覆蓋唔到嘅需求</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">先自動化最花時間嘅重複性工作</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">度身訂造系統適合流程獨特、現成軟件覆蓋不到的需求</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">先自動化最花時間的重複性工作</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">系統開發前要做詳細需求分析，避免超支</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">選擇有持續維護支援嘅開發團隊</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">選擇有持續維護支援的開發團隊</span></li>
           </ul>
         </div>
 
@@ -6725,9 +6729,9 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">度身訂造系統有咩風險？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">度身訂造系統開發有哪些風險？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險係需求溝通唔清晰導致開發出嚟嘅系統唔啱用。建議簽約前要求詳細功能規格書（Functional Spec）。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大風險是需求溝通不清晰，導致開發完成的系統無法對應實際工作流程。其次是低估維護成本與內部培訓需要。建議簽約前要求提供詳細功能規格書（Functional Spec），並在開發過程中安排分階段驗收。</p>
           </div>
         </div>
 
