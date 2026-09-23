@@ -218,15 +218,15 @@ ADWire 提供傳統 SEO + GEO 雙軌優化服務：
 - **摘要：** 深入拆解香港企業進軍內地的五大痛點，逐一解構小紅書種草、抖音帶貨、微信生態、百度搜尋及微博PR等主要渠道。
 - **連結：** https://adwire.com.hk/blog/hong-kong-brand-china-market-guide-2026
 
-### 5.3 2026 Google 同 Meta 廣告投放完全指南
-- **標題：** 2026 Google 同 Meta 廣告投放完全指南：AI 時代素材先行嘅制勝法則
-- **摘要：** 深入拆解 2026 年 Google Performance Max 同 Meta Advantage+ 的最新 AI 趨勢，揭示「素材先行」策略如何幫香港企業以更低成本換取更高轉換率。
+### 5.3 2026 Google 與 Meta 廣告投放完全指南
+- **標題：** 2026 Google 與 Meta 廣告投放完全指南：AI 時代素材先行的制勝法則
+- **摘要：** 深入拆解 2026 年 Google Performance Max 與 Meta Advantage+ 的最新 AI 趨勢，揭示「素材先行」策略如何幫香港企業以更低成本換取更高轉換率。
 - **標籤：** Google Ads, Meta Ads, 廣告投放, 成效廣告
 - **連結：** https://adwire.com.hk/blog/google-meta-ads-guide-2026
 
-### 5.4 2026 香港 SEO 同 GEO 完全攻略
-- **標題：** 2026 香港 SEO 同 GEO 完全攻略：同時上 Google 同 ChatGPT 嘅實戰方法
-- **摘要：** 深入拆解香港企業最易踩嘅 5 大 SEO 地雷，附上 GEO（生成式引擎優化）實戰手冊，手把手教你令品牌同時被 Google 同 ChatGPT 推薦。
+### 5.4 2026 香港 SEO 與 GEO 完全攻略
+- **標題：** 2026 香港 SEO 與 GEO 完全攻略：同時上 Google 與 ChatGPT
+- **摘要：** 深入拆解香港企業最易踩的 5 大 SEO 地雷，附上 GEO（生成式引擎優化）實戰手冊，手把手教你令品牌同時被 Google 與 ChatGPT 推薦。
 - **標籤：** SEO, GEO, 香港SEO, ChatGPT SEO
 - **連結：** https://adwire.com.hk/blog/hong-kong-seo-geo-guide-2026
 

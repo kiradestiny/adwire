@@ -407,6 +407,29 @@ function main() {
     }
   }
 
+  // llms.txt／llms-full.txt 是「手動維護」的靜態檔，不會跟 lib/blogData.ts 的
+  // 語體修正同步。2026-09-23 實證：文章正文已全部改為香港書面語，llms-full.txt
+  // 仍留著「嘅」與連接詞「同」——而 AI 引擎（GEO）讀的正是這兩個檔。
+  // 故在此加閘門：這兩個檔一律不准出現口語字。
+  // 註：正常詞（合同、同事、同業）不含下列任一單字，不會誤判。
+  const LLMS_FILE = /llms(-full)?\.txt$/;
+  const COLLOQUIAL = ["嘅", "唔", "咗", "喺", "冇", "睇", "揀", "咩", "啲"];
+  for (const f of txts) {
+    if (!LLMS_FILE.test(f)) continue;
+    const body = readFileSync(f, "utf8");
+    for (const w of COLLOQUIAL) {
+      const i = body.indexOf(w);
+      if (i >= 0) {
+        const rel = "/" + relative(OUT, f).replace(/\\/g, "/");
+        errors.push(
+          `${rel} 出現口語字「${w}」（llms 對外檔必須用書面語）：…${body
+            .slice(Math.max(0, i - 40), i + 40)
+            .replace(/\n/g, " ")}…`
+        );
+      }
+    }
+  }
+
   console.log(`\n出街前閘門（檢查 ${files.length} 頁 + ${txts.length} 個純文字檔，sitemap ${inSitemap ? inSitemap.size : "?"} 頁）`);
   console.log("─".repeat(64));
 
