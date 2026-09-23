@@ -1,0 +1,117 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ADWire — Blog DB Sync（手動觸發）
+#
+# 背景（2026-09-23）：
+#   lib/data-resolver.ts 的合併規則是「同 slug → 後台 API 版本覆蓋 repo 版本」。
+#   後台 blog_posts 表內有一批 2026-09-20 的舊快照（已停用的舊標題、舊短版內容、
+#   口語用語），令 6–10 篇文章的線上版本永遠停留在舊版 —— repo 怎樣改都無效。
+#
+#   本機 SSH key 已失效（Permission denied (publickey)），故改用本 workflow，
+#   借用 GitHub Secret 內的 SITEGROUND_SSH_KEY 執行同步。
+#
+# 只會 UPDATE 後台「已存在」的 slug（永不 INSERT、永不 DELETE），
+# 寫入前會把受影響文章的原始資料完整備份到伺服器 ~/db_backups/。
+#
+# 用法：Actions → Blog DB Sync → Run workflow → 先選 dry-run 看差異，再選 apply。
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Blog DB Sync (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: '執行模式（先 dry-run，確認差異後再 apply）'
+        required: true
+        default: 'dry-run'
+        type: choice
+        options:
+          - dry-run
+          - apply
+      confirm:
+        description: 'apply 模式請輸入 APPLY 確認'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: blog-db-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync blog_posts from repo
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: ${{ github.event.inputs.mode != 'apply' || github.event.inputs.confirm == 'APPLY' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Prepare SSH key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SITEGROUND_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo '✅ SSH key 已寫入'
+
+      - name: Sanity check — payload
+        run: |
+          if [ ! -f scripts/db-sync/payload.json ]; then
+            echo "❌ 缺少 scripts/db-sync/payload.json"; exit 1
+          fi
+          echo "📦 payload: $(python3 -c "import json;print(len(json.load(open('scripts/db-sync/payload.json'))))") 篇"
+          echo "📦 size: $(du -h scripts/db-sync/payload.json | cut -f1)"
+
+      - name: Upload sync script + payload
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+        run: |
+          SSH="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes -p 18765"
+          SCP="scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes -P 18765"
+          $SSH "$SG_USER@$SG_HOST" "mkdir -p '$SG_PATH/db-sync-tmp'"
+          $SCP scripts/db-sync/sync_blog_posts.php "$SG_USER@$SG_HOST:$SG_PATH/db-sync-tmp/"
+          $SCP scripts/db-sync/payload.json        "$SG_USER@$SG_HOST:$SG_PATH/db-sync-tmp/"
+          echo "✅ 已上傳（暫存目錄，完成後即刪除）"
+
+      - name: Run sync
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+          MODE: ${{ github.event.inputs.mode }}
+        run: |
+          SSH="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes -p 18765"
+          FLAG=""
+          if [ "$MODE" = "apply" ]; then FLAG="--apply"; fi
+          $SSH "$SG_USER@$SG_HOST" "cd '$SG_PATH/db-sync-tmp' && php sync_blog_posts.php $FLAG"
+
+      - name: Clean up temp dir (always)
+        if: always()
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+        run: |
+          SSH="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes -p 18765"
+          $SSH "$SG_USER@$SG_HOST" "rm -rf '$SG_PATH/db-sync-tmp' && echo '🧹 已刪除暫存目錄'" || true
+
+      - name: Trigger rebuild so the site picks up the new DB content
+        if: ${{ github.event.inputs.mode == 'apply' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 為何需要：deploy.yml 在 build time 才由後台 API 拉內容，
+          # DB 更新後必須重新 build 一次，線上版本才會換成新內容。
+          curl -sS -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/dispatches" \
+            -d '{"event_type":"rebuild"}'
+          echo "✅ 已觸發 repository_dispatch: rebuild"
