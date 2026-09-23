@@ -6063,7 +6063,7 @@ export const blogPosts: BlogPost[] = [
     category: "SEO & AI",
     readTime: "6 min read",
     imageColor: "from-blue-600 to-indigo-600",
-    image: "/blog/seo-vs-geo-2025.webp",
+    image: "/blog/seo-vs-geo-2025-2026.webp",
     tags: ["SEO", "AI", "Traffic"],
     content: `
       <p class="lead text-xl text-gray-600 mb-8">你的網站流量最近是否莫名其妙地下跌？即使關鍵字排名沒變，點擊率卻大不如前？這不是你的錯，而是搜尋行為變了。</p>
@@ -6188,7 +6188,7 @@ export const blogPosts: BlogPost[] = [
     category: "Social Media",
     readTime: "5 min read",
     imageColor: "from-pink-500 to-rose-500",
-    image: "/blog/short-video-marketing-guide.webp",
+    image: "/blog/short-video-marketing-guide-2026.webp",
     tags: ["Video", "Social", "Conversion"],
     content: `
       <p class="lead text-xl text-gray-600 mb-8">你是否花了大錢請人拍片、剪片，結果發布後只有幾百個 View，而且大部分還是自己員工看的？這種「自嗨式」營銷是中小企最常見的錢坑。</p>
@@ -6304,7 +6304,7 @@ export const blogPosts: BlogPost[] = [
     category: "Automation",
     readTime: "7 min read",
     imageColor: "from-orange-400 to-amber-500",
-    image: "/blog/marketing-automation-roi.webp",
+    image: "/blog/marketing-automation-roi-2026.webp",
     tags: ["Automation", "Efficiency", "Cost Saving"],
     content: `
       <p class="lead text-xl text-gray-600 mb-8">請人難，請好人更難。員工會請假、會辭職、會情緒化，但自動化系統不會。如果你還在用人手 Copy & Paste 資料，你正在浪費寶貴的利潤。</p>
@@ -6426,7 +6426,7 @@ export const blogPosts: BlogPost[] = [
     category: "Web Design",
     readTime: "6 min read",
     imageColor: "from-purple-600 to-fuchsia-600",
-    image: "/blog/high-converting-landing-page.webp",
+    image: "/blog/high-converting-landing-page-2026.webp",
     tags: ["Web Design", "UX/UI", "Conversion"],
     content: `
       <p class="lead text-xl text-gray-600 mb-8">你花了大錢做網站，設計精美，動畫炫酷，但後台數據卻慘不忍睹：跳出率高、停留時間短、轉換率低。為什麼？</p>
@@ -6540,7 +6540,7 @@ export const blogPosts: BlogPost[] = [
     category: "Ads Strategy",
     readTime: "5 min read",
     imageColor: "from-green-500 to-emerald-600",
-    image: "/blog/stop-wasting-ad-budget.webp",
+    image: "/blog/stop-wasting-ad-budget-2026.webp",
     tags: ["Ads", "Facebook", "ROAS"],
     content: `
       <p class="lead text-xl text-gray-600 mb-8">「以前投 $100 可以賺 $500，現在投 $100 連 $100 都賺不回來。」這是我們最近聽到最多的抱怨。隨著隱私權政策收緊 (iOS 14+)，精準度下降是必然的。</p>
@@ -6648,7 +6648,7 @@ export const blogPosts: BlogPost[] = [
     category: "System Dev",
     readTime: "5 min read",
     imageColor: "from-cyan-500 to-blue-500",
-    image: "/blog/custom-system-efficiency.webp",
+    image: "/blog/custom-system-efficiency-2026.webp",
     tags: ["System", "Efficiency", "Management"],
     content: `
       <p class="lead text-xl text-gray-600 mb-8">創業初期，Excel 是好朋友。但當你的業務增長，Excel 就會變成噩夢。檔案開得慢、同事不小心刪錯行、手機難以查看...</p>

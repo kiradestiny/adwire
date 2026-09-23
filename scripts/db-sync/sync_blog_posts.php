@@ -92,6 +92,7 @@ $pickCol = function (array $cands) use ($cols) {
 $cTitle   = $pickCol(['title']);
 $cExcerpt = $pickCol(['excerpt']);
 $cContent = $pickCol(['content']);
+$cImage   = $pickCol(['image']);
 $cUpdated = $pickCol(['updated_at', 'updatedAt', 'updated_on']);
 
 if (!$cTitle || !$cContent) exit("❌ blog_posts 缺少 title 或 content 欄位\n");
@@ -111,6 +112,10 @@ foreach ($payload as $p) {
     }
     if ($cExcerpt && ($row[$cExcerpt] ?? '') !== $p['excerpt']) $d[] = 'excerpt 不同（' . mb_strlen((string)$row[$cExcerpt]) . ' → ' . mb_strlen($p['excerpt']) . ' 字）';
     if (($row[$cContent] ?? '') !== $p['content']) $d[] = 'content 不同（' . mb_strlen((string)$row[$cContent]) . ' → ' . mb_strlen($p['content']) . ' 字）';
+    // image：只在 payload 有值時比較（避免把後台獨有的圖覆蓋成空值）
+    if ($cImage && !empty($p['image']) && ($row[$cImage] ?? '') !== $p['image']) {
+        $d[] = 'image: ' . (($row[$cImage] ?? '') !== '' ? $row[$cImage] : '(空)') . ' → ' . $p['image'];
+    }
 
     if ($d) $diffs[$p['slug']] = ['row' => $row, 'new' => $p, 'd' => $d];
 }
@@ -150,6 +155,7 @@ echo "\n💾 已備份 " . count($diffs) . " 篇原始資料 → $bf\n";
 // ── 6. 更新 ─────────────────────────────────────────────────────────────
 $set = ["`$cTitle` = :title", "`$cContent` = :content"];
 if ($cExcerpt) $set[] = "`$cExcerpt` = :excerpt";
+if ($cImage)   $set[] = "`$cImage` = :image";
 if ($cUpdated) $set[] = "`$cUpdated` = :updated";
 $sql  = "UPDATE blog_posts SET " . implode(', ', $set) . " WHERE slug = :slug";
 $upd  = $pdo->prepare($sql);
@@ -159,6 +165,7 @@ $ok = 0; $fail = [];
 foreach ($diffs as $slug => $info) {
     $params = ['title' => $info['new']['title'], 'content' => $info['new']['content'], 'slug' => $slug];
     if ($cExcerpt) $params['excerpt'] = $info['new']['excerpt'];
+    if ($cImage)   $params['image'] = $info['new']['image'] ?? '';
     if ($cUpdated) $params['updated'] = date('Y-m-d H:i:s');
     try {
         $upd->execute($params);
