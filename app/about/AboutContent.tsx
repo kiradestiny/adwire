@@ -30,7 +30,7 @@ import {
   WHATSAPP_E164, WHATSAPP_DISPLAY, getWhatsAppUrl, CONTACT_EMAIL,
 } from "@/lib/site-config";
 import {
-  PROOF, SERVICE_LINES, DELIVERY_PROCESS, CTA_HEADLINE, CTA_SUBHEAD,
+  PROOF, SERVICE_LINES, DELIVERY_PROCESS,
 } from "@/lib/site-content";
 import { ABOUT_FAQS as FAQ_ITEMS, OFFICE_ADDRESS } from "@/lib/about-faqs";
 import Link from "next/link";
@@ -713,75 +713,47 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-[#0f4c81] to-[#1a6bb5] text-white relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-30%] right-[-10%] w-[500px] h-[500px] bg-white/5 rounded-full filter blur-[80px]" />
-          <div className="absolute bottom-[-20%] left-[-5%] w-[400px] h-[400px] bg-[#f5a623]/10 rounded-full filter blur-[80px]" />
-        </div>
-
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* ── 聯絡前說明（避免與 ContactSection 的標題重複）─────────────── */}
+      <section className="py-16 md:py-20 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.6 }}
             className="text-center mb-10"
           >
-            <h2 className="text-2xl md:text-4xl font-bold mb-4">{CTA_HEADLINE}</h2>
-            <p className="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">{CTA_SUBHEAD}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0f4c81] mb-4">
+              聯絡我們之後會發生什麼？
+            </h2>
+            <p className="text-gray-500 leading-relaxed">
+              我們會先了解你的業務情況與現有問題，再判斷是否需要進一步評估或安排會議。
+              在這個階段不會有銷售壓力，亦不需要即時決定任何事情。
+            </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { icon: CheckCircle2, text: "初步溝通免費" },
-              { icon: Clock, text: "營業時間內回覆" },
-              { icon: ShieldCheck, text: "報價不含隱藏費用" },
+              { icon: CheckCircle2, t: "初步溝通免費", d: "了解需求與範圍的對話不收費" },
+              { icon: Clock, t: "營業時間內回覆", d: "星期一至五 09:00–18:00" },
+              { icon: ShieldCheck, t: "報價不含隱藏費用", d: "包含與不包含的項目會逐項列明" },
             ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm rounded-xl py-3 px-4 border border-white/10"
+              <motion.div
+                key={item.t}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="bg-[#f8fafc] border border-gray-100 rounded-2xl p-6 text-center"
               >
-                <item.icon className="w-5 h-5 text-[#f5a623] flex-shrink-0" />
-                <span className="text-sm font-medium">{item.text}</span>
-              </div>
+                <div className="w-12 h-12 rounded-xl bg-[#0f4c81]/8 text-[#0f4c81] flex items-center justify-center mx-auto mb-4">
+                  <item.icon size={22} />
+                </div>
+                <h3 className="font-bold text-[#0f4c81] mb-2">{item.t}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{item.d}</p>
+              </motion.div>
             ))}
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <a
-              href={getWhatsAppUrl("你好，我想了解 ADWire 的服務")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b957] text-white font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              <MessageCircle size={20} />
-              WhatsApp 查詢
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-[#0f4c81] font-bold px-8 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              <Phone size={20} />
-              填寫聯絡表單
-            </Link>
-          </motion.div>
-
-          <p className="text-center text-blue-200 text-sm mt-8">
-            已服務 {PROOF.clientsServed} 家香港及大灣區企業及品牌
-          </p>
+          </div>
         </div>
       </section>
 
