@@ -59,7 +59,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、小紅書是甚麼：一個「搜尋」平台，不是「推送」平台</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、小紅書是甚麼：一個「搜尋」平台，不是「推送」平台</h3>
 
         <p>小紅書的官方標語是「3 億人的生活經驗，都在小紅書」。新華網在 2025 年 5 月的報導中，將它形容為「3 億月活用戶的『生活百科全書』和『消費決策場』」。</p>
 
@@ -300,7 +300,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，粉絲數是最弱的指標，互動率與受眾地區、年齡、消費習慣才是關鍵。二，香港 KOL 收費由幾百元一帖到十幾萬元一帖都有，價格差異主要來自級別、平台、內容形式、使用權與獨家條款，不同來源的口徑亦不可以直接比較。三，中小企最務實的做法，通常是用多個 Nano 或 Micro KOL 組成組合，而不是把預算全押在一個大號。四，KOL 內容必須配合付費推廣，否則自然觸及會遠低於你的預期。五，一定要用優惠碼、專屬連結或 UTM 參數做歸因，否則你永遠不會知道錢花得值不值。六，我們不會作任何排名保證，成效取決於產品、市場、內容與執行，而不是買一個「名單」。</p></div>\n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、KOL 層級與分工：Nano 到 Mega 各有用途</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、KOL 層級與分工：Nano 到 Mega 各有用途</h3>
 
         <p>KOL 分層沒有全球統一的官方標準，不同機構、平台與媒體的界線都有出入。以下是一套在香港市場最常用、亦最容易溝通的分層方式。重點不在於記住數字，而在於理解每一層的「性價比曲線」：粉絲越多，觸及越廣，但互動率與可信度通常越低，單位成本越高。</p>
 
@@ -591,7 +591,7 @@ export const blogPosts: BlogPost[] = [
 
         \n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為甚麼香港企業客戶特別容易在影片項目上失預算</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為甚麼香港企業客戶特別容易在影片項目上失預算</h3>
 
         <p>企業影片製作是一項服務，不是一件產品。服務的範圍可以無限伸縮，而客戶在開拍之前通常看不到成品，只能靠報價單和對方的作品集去判斷。這種資訊不對稱，是失預算的根源。</p>
 
@@ -944,7 +944,7 @@ export const blogPosts: BlogPost[] = [
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">月費 HK$3,000-15,000（視平台數量同發文頻率）</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">月費 HK$3,000-15,000（視平台數量與發文頻率）</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">外判代管通常比自己請人平 30-50%</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">簽約前要問清楚：包不包回覆留言/私訊、有沒有內容日曆</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">成效量度要用互動率+轉換率，不是只查看讚好數</span></li>
@@ -957,13 +957,13 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">社交媒體管理不是「幫你出帖」這麼簡單，它同時包含內容企劃、視覺設計、社群互動、數據分析與廣告配合五個環節，任何一環缺失，成效都會大打折扣。香港市場上第三方平台觀察到的月費大致分三檔（約 HK$3,000、HK$7,500、HK$12,000），但價錢高低本身不代表什麼，真正要比的是「這個價錢包幾多個帖、幾多個平台、包唔包回覆留言、包唔包廣告管理」。成效方面，追蹤數與讚好屬於虛榮指標，不可以單獨作為續約或加預算的依據；真正要看的是觸及、互動率、網站點擊與查詢數。如果只有一項要記住：要求服務商把交付清單逐項寫入合約，包括帖子數量、平台數量、修改次數與回覆留言的處理方式。</p></div>\n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先釐清：社交媒體管理到底包括什麼</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先釐清：社交媒體管理到底包括什麼</h3>
 
         <p>在香港，「社交媒體管理」這個詞被用得極闊。有人用它指「幫我出帖」，有人用它指「全權代管包括廣告」，亦有人用它指「請個人返嚟坐喺公司回覆留言」。範圍不說明清楚，報價就無得比。以下把工作拆成六項，並寫明每一項實際上要花的工夫。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">1. 日常發文與排程</h4>
 
-        <p>看似最簡單的一項，實際上包括：擬定發文時間表、準備素材、寫 caption、加上標籤、排程或手動發佈、發佈後檢查是否成功上線、處理突發的熱話或節日借勢。如果一個月要出 12 至 20 個帖，橫跨兩至三個平台，單是「複製內容去唔同平台再各自調整格式」就已經是一份兼職工作量。平台演算法對格式有偏好，同一個帖直接搬去另一個平台，效果通常會差一截，所以「一稿多投」不等於省工夫，只是把工夫轉移到成效損失上。</p>
+        <p>看似最簡單的一項，實際上包括：擬定發文時間表、準備素材、寫 caption、加上標籤、排程或手動發佈、發佈後檢查是否成功上線、處理突發的熱話或節日借勢。如果一個月要出 12 至 20 個帖，橫跨兩至三個平台，單是「複製內容去不同平台再各自調整格式」就已經是一份兼職工作量。平台演算法對格式有偏好，同一個帖直接搬去另一個平台，效果通常會差一截，所以「一稿多投」不等於省工夫，只是把工夫轉移到成效損失上。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">2. 內容企劃</h4>
 
@@ -1025,7 +1025,7 @@ export const blogPosts: BlogPost[] = [
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、成效怎樣量度：分清虛榮指標與業務指標</h3>
 
-        <p>社交媒體最容易出現的報告陷阱，是把「追蹤數」與「讚好數」當成主要成果。這兩個數字有個共同特性：它們會上升，但不一定同生意有關。追蹤數可以靠抽獎活動短期推高，讚好數可以靠討好式內容換取，但兩者都不代表有人準備向你查詢或下單。</p>
+        <p>社交媒體最容易出現的報告陷阱，是把「追蹤數」與「讚好數」當成主要成果。這兩個數字有個共同特性：它們會上升，但不一定與生意有關。追蹤數可以靠抽獎活動短期推高，讚好數可以靠討好式內容換取，但兩者都不代表有人準備向你查詢或下單。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">虛榮指標 vs 業務指標</h4>
 
@@ -1035,7 +1035,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>原因有三。第一，讚好不需要成本，也不代表購買意圖，一個帖可以有大量讚好而零查詢。第二，讚好數字受發文時間、內容類型與平台推播影響，波動大，單月比較沒有意義。第三，若把讚好當作 KPI，內容團隊自然會傾向製作容易取讚的內容，而這類內容通常與產品資訊或轉化路徑無關。</p>
 
-        <p>比較合理的做法是建立「三層報告」：上層是業務指標（查詢與轉化），中層是過程指標（觸及與互動率），下層才是虛榮指標。每月的討論重點應該放在「哪一類內容帶來最多查詢」，而不是「這個月多了幾多個讚」。要讓業務指標可量度，最實際的方法是在帖文與專頁中加入可追蹤的連結，並使用獨立連結去分辨社交媒體、廣告與搜尋三個來源。若果你同時投放付費廣告，可以把社交內容與<a href="/services/ads/">成效廣告投放服務</a>配合，把表現好的自然內容轉為付費推廣，並分別記錄兩邊帶來的查詢，這樣才能判斷預算應該加在內容還是廣告上。</p>
+        <p>比較合理的做法是建立「三層報告」：上層是業務指標（查詢與轉化），中層是過程指標（觸及與互動率），下層才是虛榮指標。每月的討論重點應該放在「哪一類內容帶來最多查詢」，而不是「這個月多了多少個讚」。要讓業務指標可量度，最實際的方法是在帖文與專頁中加入可追蹤的連結，並使用獨立連結去分辨社交媒體、廣告與搜尋三個來源。若果你同時投放付費廣告，可以把社交內容與<a href="/services/ads/">成效廣告投放服務</a>配合，把表現好的自然內容轉為付費推廣，並分別記錄兩邊帶來的查詢，這樣才能判斷預算應該加在內容還是廣告上。</p>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">實務提醒</p><p class="text-blue-900 text-sm leading-relaxed">如果服務商在提案階段就主動問你「查詢之後由誰跟進、用什麼渠道記錄」，這通常代表他理解社交媒體在生意流程中的位置。相反，若整份提案只講觸及與追蹤目標，而無提及查詢如何進入你的銷售流程，就要格外謹慎。社交媒體的成效，很大程度取決於你內部有沒有接得住查詢的人與流程。</p></div>
 
@@ -1199,8 +1199,8 @@ export const blogPosts: BlogPost[] = [
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">小紅書適合品牌種草同口碑建立</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">抖音適合短期引爆同直播帶貨</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">小紅書適合品牌種草與口碑建立</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">抖音適合短期引爆與直播帶貨</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">微信公眾號+小程序是私域流量核心</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">內地推廣預算建議 5:3:2 分配（小紅書:抖音:微信）</span></li>
           </ul>
@@ -1214,7 +1214,7 @@ export const blogPosts: BlogPost[] = [
 
         \n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、選平台的標準不是「最多人用」，而是「客群在哪裡被發現」</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、選平台的標準不是「最多人用」，而是「客群在哪裡被發現」</h3>
 
         <p>很多香港品牌第一次接觸內地推廣時，會把內地當成一個市場來看待。實際上它是幾十個城市市場的組合，每個城市的消費習慣、價格敏感度、內容偏好都不一樣。深圳的客群與成都的客群，對同一個品牌的接受程度可以相差很遠。因此「內地推廣」這個詞本身就需要拆開來處理：先決定城市，再決定平台，最後才決定內容形態。</p>
 
@@ -1431,7 +1431,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">AI 在香港企業的滲透已經發生，但「用過」與「收回成本」之間有相當距離。生產力局 2025 年的調查顯示，88% 受訪企業的員工日常已在工作中使用 AI 工具，但渣打香港中小企領先營商指數同期只有 55% 中小企曾用或計劃於一年內使用 AI，真正付費的比例更只有 32%。真正影響成本的，從來不是「有無用 AI」，而是有否先算清楚某個工序佔用多少人力時間，再選擇對應的工具。企業規模愈小，愈應該從單一、高重複、輸出格式固定的工序入手，而不是一次過推行全公司數碼轉型。</p></div>\n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、香港企業採用 AI 的真實數據</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、香港企業採用 AI 的真實數據</h3>
 
         <p>要判斷 AI 是否值得投入，先要看清楚香港企業目前實際走到哪一步。以下幾組數字有一個關鍵前提：<strong>各項調查對「AI 採用」的定義並不一致，數字不能直接互相比較。</strong></p>
 
@@ -1661,7 +1661,7 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">AI Agent = 自主執行任務的 AI，不只是聊天機械人</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">常見應用：客戶服務、銷售跟進、預約管理、行政流程</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">同傳統 Chatbot 的分別：AI Agent 可以「做嘢」，Chatbot 只是「答嘢」</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">導入前要定義清楚任務範圍同邊界</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">導入前要定義清楚任務範圍與邊界</span></li>
           </ul>
         </div>
 
@@ -1673,7 +1673,7 @@ export const blogPosts: BlogPost[] = [
 
         \n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、為何 2026 年突然人人都講 AI Agent</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、為何 2026 年突然人人都講 AI Agent</h3>
 
         <p>2023 年企業談生成式 AI，場景幾乎都是「開一個對話框，員工自己打問題」。2024 年開始，模型支援工具呼叫（tool use）與結構化輸出，AI 由「答問題」變成「做動作」。到 2025 至 2026 年，重點轉向讓模型自行拆解任務、決定用哪個工具、出錯時自己修正，這就是 AI Agent 的雛形。</p>
 
@@ -1880,7 +1880,7 @@ export const blogPosts: BlogPost[] = [
 
         \n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、為甚麼裝了 chatbot，客人反而更不滿</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、為甚麼裝了 chatbot，客人反而更不滿</h3>
 
         <p>最常見的場景是這樣：客人問「送不送貨去澳門」，chatbot 回「我不明白你的問題，請重新輸入」。客人再試一次，答案一樣，於是直接關掉對話，轉去競爭對手。這一類體驗的殺傷力，比根本沒有 chatbot 更大——因為客人本來已經準備好自助解決，是系統把他們推走。</p>
 
@@ -2116,7 +2116,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">自動化是否值得投資，取決於三件事。第一，你有沒有把授權以外的實作、維護與人力成本一併計入；第二，效益有沒有用「節省工時 × 完全負載時薪 × 50% 生產力轉換係數」量化，而不是憑感覺；第三，有沒有為項目失敗率做風險調整。業界標準是 Forrester Total Economic Impact（TEI）框架，以成本、效益、靈活性、風險四大元素，配合風險調整後三年現金流計算，標準折現率 10%。權威研究顯示，回收期可由少於 6 個月至 22 個月，差距來自規模、流程複雜度與是否已超越試行階段。任何財務數字都是模型推算，不是承諾。</p></div>\n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、為何不能只計軟件授權費</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、為何不能只計軟件授權費</h3>
 
         <p>很多公司在評估企業 AI 時，第一反應是打開報價單，看每月訂閱費多少。這個做法最直觀，卻也最容易低估總成本。軟件授權只是其中一格，其餘還有實作、測試、培訓、持續管理，以及員工抽時間參與項目的隱性成本。</p>
 
@@ -2370,7 +2370,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>先釐清一個容易混淆的地方。在香港的搜尋語境裡，「GEO」這個字眼絕大多數時候指地理（geography），例如地區定位或本地搜尋，每月相關搜尋量以千計。但本文談的 GEO，全寫是 Generative Engine Optimization，中文譯作「生成式引擎優化」，與地理毫無關係。兩者共用同一組字母，是不少企業主第一次接觸這個題目時就搞錯的地方。本文所講的一切，都只針對生成式引擎優化。</p>
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、GEO 的準確定義與學術來源</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、GEO 的準確定義與學術來源</h3>
 
         <p>GEO 這個概念並非營銷公司發明，而是來自學術界。它由 Princeton 等大學的研究團隊提出，定義為「協助內容創作者提升其在生成式引擎回應中可見度的框架」。這套框架屬<strong>黑盒優化</strong>——意思是研究者並不掌握生成式引擎的內部運作，只能從輸出結果回推什麼做法有用。研究團隊同時提出了 GEO-bench 基準，用來系統化測試不同優化手法的效果。論文發表於 KDD 2024。</p>
 
@@ -2597,7 +2597,7 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
           <li><a href="/blog/seo-vs-geo-2025/" class="text-[#0f4c81] hover:underline">GEO 生成式引擎優化是什麼？2026 香港企業 AI 搜尋完整指南</a></li>
-          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 完全攻略：同時上 Google 同 ChatGPT</a></li>
+          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 完全攻略：同時上 Google 與 ChatGPT</a></li>
           </ul>
         </div>\n\n        <p class="text-sm text-gray-500 mt-8">參考資料：<a href="https://blog.google/products/search/generative-ai-google-search-may-2024/" target="_blank" rel="noopener" class="text-[#0f4c81] hover:underline">Google AI Overviews</a></p>`,
   },
@@ -2640,7 +2640,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，Google 官方立場很明確：沒有人可以保證在 Google 上排名第一。任何這樣講的人，都應該直接跳過。二，Google 也明確表示，它不會評估、認可任何第三方 SEO 工具，而第三方工具無法存取 Google 的內部排名資料，因此任何聲稱掌握「Google 內部數據」的報告都值得追問。三，稽核階段只應授予 Search Console 的讀取權限，寫入權限留到確認合作之後。四，香港市場價格由每月約三千元到八萬元不等，價差不代表效果好壞，但報價低到不合理的方案，通常反映在交付內容上。五，可以量度的成效是曝光、點擊、非品牌流量與查詢數量，不是「保證排名」。</p></div>\n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、Google 官方立場：SEO 能幫你甚麼，不能幫你甚麼</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、Google 官方立場：SEO 能幫你甚麼，不能幫你甚麼</h3>
 
         <p>先建立一個基礎認知。Google 在其官方文件中說明，付費刊登 Google 廣告並不會影響網站在自然搜尋結果中的排名，而且<strong>Google 絕對不會收受金錢來改變搜尋結果列出的網站或更動排名順序</strong>，自然搜尋結果本身亦不需付費。</p>
 
@@ -2714,7 +2714,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>Google 最後給出一個明確建議：無論是否使用第三方工具，都應該使用第一方工具 <strong>Google Search Console</strong>，直接取得 Google 搜尋提供的重要資訊與數據。</p>
 
-        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">一個簡單的提問就能篩走一半供應商</p><p class="text-blue-900 text-sm leading-relaxed">「你這個建議，是根據哪一份 Google 官方文件？」這個問題不需要任何技術背景就能問。願意即時給出官方文件連結的服務商，通常對自己的建議有把握；含糊帶過或改口說「呢啲係我哋十幾年經驗」的，就值得多想一層。</p></div>
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">一個簡單的提問就能篩走一半供應商</p><p class="text-blue-900 text-sm leading-relaxed">「你這個建議，是根據哪一份 Google 官方文件？」這個問題不需要任何技術背景就能問。願意即時給出官方文件連結的服務商，通常對自己的建議有把握；含糊帶過或改口說「這些是我們十幾年的經驗」的，就值得多想一層。</p></div>
 
         <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/docs/fundamentals/third-party-seo?hl=zh-tw" target="_blank" rel="noopener">Google 搜尋中心 — 如何使用第三方 SEO 工具、服務和建議</a></p><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、香港市場的收費模式與價格範圍</h3>
 
@@ -2882,7 +2882,7 @@ export const blogPosts: BlogPost[] = [
         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
-          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 完全攻略：同時上 Google 同 ChatGPT</a></li>
+          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 完全攻略：同時上 Google 與 ChatGPT</a></li>
           <li><a href="/blog/geo-generative-engine-optimization-guide-2026/" class="text-[#0f4c81] hover:underline">GEO 生成式引擎優化完整指南：官方文件與學術研究怎麼說</a></li>
           </ul>
         </div>`,
@@ -2926,7 +2926,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一，CRM 由 Gartner 自 1998 年起就被定義為一種商業策略，而不是一套軟件；買工具之前，先想清楚你要改善哪一段客戶流程。二，香港中小企若無特殊資料主權要求，從 SaaS 訂閱起步最實際，無需自建機房與自行維護。三，月費只是入場費：一次性上線費、用量費、資料遷移與培訓都要另外計。四，本地化要看三件事：繁體中文支援程度、稅務與公司條例的記錄保存要求、以及 WhatsApp 這類渠道的整合方式。五，公開的「CRM 項目失敗率」數據多為 2001 至 2009 年的商業市場研究，量度方法各異，不能當成今日的官方數字；真正該記住的是研究結論：失敗源於流程、人員與管理，不是軟件。</p></div>\n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、CRM 是什麼：定義與四種類型</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、CRM 是什麼：定義與四種類型</h3>
 
         <p>CRM（Customer Relationship Management，客戶關係管理）在坊間常被簡單理解為「一個記錄客人資料的系統」。這個理解不算錯，但並不完整。Salesforce 官方將其分為四類取向：<strong>營運型</strong>（自動化銷售、營銷與服務流程，例如跟進提醒、工單流轉）、<strong>分析型</strong>（整理客戶數據以支援決策，例如成交週期分析、客戶分群）、<strong>協作型</strong>（跨部門共享同一份客戶資訊，讓銷售、客服、財務看到一致紀錄）、<strong>策略型</strong>（以長期客戶關係為目標，決定資源投放在哪些客群）。</p>
 
@@ -3152,7 +3152,7 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">LCP < 2.5 秒：最大內容繪製時間</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">INP < 200ms：互動到下一次繪製</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">CLS < 0.1：版面位移幅度</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">圖片優化同快取策略是最有效的改善方法</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">圖片優化與快取策略是最有效的改善方法</span></li>
           </ul>
         </div>
 
@@ -3162,7 +3162,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">Core Web Vitals 由 LCP、INP、CLS 三項組成，以「第 75 百分位」量度，手機與桌面分開評估，三項全部達標才算通過。Google 明確表示 Core Web Vitals 是其排名系統使用的訊號之一，但同時強調「沒有單一排名訊號」，而且相關性優先——即使頁面體驗未達理想，Google 仍會優先顯示最相關的內容。所以網站速度值得投資，但正確的心態是改善真實用戶體驗與業務轉化，而不是追逐一個分數。</p></div>\n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、網站慢不只是體驗問題，而是生意問題</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、網站慢不只是體驗問題，而是生意問題</h3>
 
         <p>很多公司把網站速度當成技術細節，交給工程團隊處理就算。但速度直接決定訪客會否留下。Google 與 SOASTA 於 2017 年發表的流動頁面速度研究發現，<strong>53% 的流動用戶會放棄載入超過 3 秒的頁面</strong>；而當載入時間由 1 秒增至 10 秒，流動裝置的跳出機率增加 123%。</p>
 
@@ -3428,7 +3428,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">先講結論</p><p class="text-blue-900 text-sm leading-relaxed">一、App 開發成本主要由功能範圍、平台數量、後端需求與維護年期決定，不是由「App」這個字決定。二、先做一份寫得清楚的需求文件（spec），比急著比較報價更能省錢。三、內部工具不一定要做手機 App，很多情況用網頁應用（web app）更快更平。四、上線只是開始，維護與更新是每年持續的支出。五、有研究顯示相當比例的 App 在短時間內失去用戶，問題多數出在需求定位而非技術。</p></div>\n\n
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、不同類型的「App」成本差異極大</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、不同類型的「App」成本差異極大</h3>
 
         <p>第一次接觸開發項目的客戶，通常會把三種東西統稱為「App」：原生手機 App（要上 App Store／Google Play）、跨平台手機 App、以及內部用的網頁應用（web app，只需瀏覽器就能用）。三者的成本結構、開發時間與維護方式都不同。先弄清楚你要哪一種，報價才有比較基礎。</p>
 
@@ -3658,7 +3658,7 @@ export const blogPosts: BlogPost[] = [
 
         <p class="text-gray-500 text-sm italic mb-8">資料查證日期：2026 年 9 月 21 日。所有金額及日期均附官方來源連結。政府資助政策會不時調整，正式申請前請以官方公布為準。本文不構成申請建議，個別項目的合資格性須由執行機構評定。</p>
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先講清楚：哪個計劃仍然開放？</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先講清楚：哪個計劃仍然開放？</h3>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left">
           
@@ -3903,7 +3903,7 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">RPA 最適合規則明確、重複性高的工作</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">常見應用：數據輸入、發票處理、報表生成、客戶跟進</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">UiPath 同 Power Automate 是香港最常用的 RPA 平台</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">UiPath 與 Power Automate 是香港最常用的 RPA 平台</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">導入前先做流程梳理，選擇最花時間的 2-3 個流程先</span></li>
           </ul>
         </div>
@@ -3930,7 +3930,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>香港企業對 RPA 的興趣在 2026 年明顯升溫，但市場上大部分中文資料都停留在「RPA 好處六大點」。這篇文章講的是你真正需要知道的事：<strong>RPA 能解決甚麼、不能解決甚麼、跟 AI Agent 有何分別、三個主流工具的實際差異、錢花在哪裡，以及六個最常見的導入失敗原因。</strong></p>
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、RPA 實際怎樣運作？</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、RPA 實際怎樣運作？</h3>
 
         <p>RPA 的運作層次是<strong>使用者介面（UI）</strong>，而不是 API 或資料庫。軟件機械人就像一個坐在電腦前的員工：它登入系統、點擊按鈕、讀取畫面文字、把資料由一個系統複製到另一個系統。</p>
 
@@ -4171,7 +4171,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="space-y-4 my-8">
           <div class="bg-gray-50 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">RPA 同 AI Agent，我應該先做哪一個？</p>
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">RPA 與 AI Agent，應該先做哪一項？</p>
   <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
     <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">取決於你的工序性質。如果工序規則固定、資料結構化、重複性高（例如每日把資料由系統 A 搬到系統 B），先做 RPA 回報最直接。如果工序涉及閱讀電郵、文件或對話，每次輸入都不同，那屬於 AI Agent 的範圍。很多企業兩者都需要，順序取決於哪個工序的痛點最大。</p>
   </div>
@@ -4294,7 +4294,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>差別不在於「誰比較貴」，而在於<strong>你買的東西根本不同</strong>。本文用香港市場公開的真實收費數據，把這件事講清楚：錢花在哪裡、哪些是必要、哪些是陷阱，以及如何用一份檢查清單，在見面之前就篩掉不適合的公司。</p>
 
-        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、香港網頁設計的真實市價（附數據來源）</h3>
+        \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、香港網頁設計的真實市價（附數據來源）</h3>
 
         <p>以下是香港市場的<strong>公開收費數據</strong>，全部註明來源，你可以自行核對。這些是市場行情，不是你應該付出的價格 —— 但先知道行情，你才有議價的基準。</p>
 
@@ -4644,7 +4644,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">AI 浪潮已到：2026 年全球與香港的 AI 大趨勢</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">AI 浪潮已到：2026 年全球與香港的 AI 大趨勢</h3>
 
       <p>2026 年的 AI 行業正在經歷一次前所未有的普及加速。不再是研究院或科技巨頭的專利，AI 工具已深入到每一個行業的日常運作：</p>
 
@@ -4942,7 +4942,7 @@ export const blogPosts: BlogPost[] = [
     id: 9,
     slug: "hong-kong-brand-china-market-guide-2026",
     title: "香港品牌進軍內地市場完全攻略：小紅書、抖音、微信、百度全平台實戰指南",
-    excerpt: "想打入14億人口的內地市場？但唔知從何入手？本文深入拆解香港企業進軍內地的五大痛點，逐一解構小紅書種草、抖音帶貨、微信生態、百度搜尋及微博PR等主要渠道，助你制定零失誤的內地市場進入策略。",
+    excerpt: "想打入14億人口的內地市場？但不知從何入手？本文深入拆解香港企業進軍內地的五大痛點，逐一解構小紅書種草、抖音帶貨、微信生態、百度搜尋及微博PR等主要渠道，助你制定零失誤的內地市場進入策略。",
     date: "2026-02-20",
     updatedAt: "2026-09-20",
     category: "China Market",
@@ -4976,7 +4976,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為什麼香港品牌必須認真部署內地市場？</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為什麼香港品牌必須認真部署內地市場？</h3>
 
       <p>內地消費者對「港牌」（香港品牌）有天然的好感與信任，尤其在美容護膚、食品保健、嬰幼兒產品、奢侈品等類別，「香港製造」或「香港品牌」往往被視為品質保証。加上近年大灣區融合加深、跨境電商政策持續放寬，香港品牌進入內地市場的門檻比以往低了很多。然而，機遇背後是截然不同的數碼生態：沒有 Google、沒有 Facebook、沒有 Instagram，取而代之的是一套完全獨立運作的平台矩陣。</p>
 
@@ -5304,8 +5304,8 @@ export const blogPosts: BlogPost[] = [
   {
     id: 8,
     slug: "google-meta-ads-guide-2026",
-    title: "2026 Google 與 Meta 廣告投放完全指南：AI 時代素材先行嘅制勝法則",
-    excerpt: "廣告費年年飆升，ROAS 卻不斷下跌？本文深入拆解 2026 年 Google Performance Max 同 Meta Advantage+ 的最新 AI 趨勢，揭示「素材先行」策略如何幫香港企業以更低成本換取更高轉換率。",
+    title: "2026 Google 與 Meta 廣告投放完全指南：AI 時代素材先行的制勝法則",
+    excerpt: "廣告費年年飆升，ROAS 卻不斷下跌？本文深入拆解 2026 年 Google Performance Max 與 Meta Advantage+ 的最新 AI 趨勢，揭示「素材先行」策略如何幫香港企業以更低成本換取更高轉換率。",
     date: "2026-02-15",
     updatedAt: "2026-09-20",
     category: "Ads Strategy",
@@ -5324,7 +5324,7 @@ export const blogPosts: BlogPost[] = [
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
           <ul class="space-y-2">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">Google Performance Max 同 Meta Advantage+ 都是 AI 自動投放</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">Google Performance Max 與 Meta Advantage+ 都是 AI 自動投放</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">素材多元化（圖片+影片+文案）是成敗關鍵</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">轉換追蹤必須準確，否則 AI 會學錯嘢</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">A/B 測試不再是選項，是必須</span></li>
@@ -5339,7 +5339,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">香港廣告主的真實痛點：錢花了，但去了哪裡？</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">香港廣告主的真實痛點：錢花了，但去了哪裡？</h3>
 
       <p>過去兩年，香港數碼廣告市場出現了幾個結構性變化，直接令廣告效益每況愈下：</p>
 
@@ -5354,7 +5354,7 @@ export const blogPosts: BlogPost[] = [
         </ul>
       </div>
 
-      <p>好消息是：平台的 AI 能力同步升級，懂得善用 <strong>Google Performance Max</strong> 同 <strong>Meta Advantage+</strong> 的品牌，正在以更低成本取得比同行更好的成果。關鍵在於：你必須先理解兩大平台在 2026 年的根本邏輯轉變。</p>
+      <p>好消息是：平台的 AI 能力同步升級，懂得善用 <strong>Google Performance Max</strong> 與 <strong>Meta Advantage+</strong> 的品牌，正在以更低成本取得比同行更好的成果。關鍵在於：你必須先理解兩大平台在 2026 年的根本邏輯轉變。</p>
 
       <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">Google Ads vs Meta Ads：2026 年核心差異</h3>
 
@@ -5443,7 +5443,7 @@ export const blogPosts: BlogPost[] = [
           <h4 class="font-bold text-gray-800 mb-2">要點四：Threads 廣告新戰場</h4>
           <p class="text-sm text-gray-600">Threads 廣告於 2024 年推出，2026 年全面整合進 Meta Advantage+ 投放體系。早期進入者享有競爭少、CPM 低的先行優勢，特別適合科技、媒體及 B2B 品牌。</p>
         </div>
-      </div><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">Google 2026：Performance Max 同 AI Mode 改變廣告格局</h3>
+      </div><h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-5">Google 2026：Performance Max 與 AI Mode 改變廣告格局</h3>
 
       <p>Google 廣告正經歷十年來最大規模的產品重組。傳統的「搜尋廣告 + 展示廣告 + YouTube 廣告」各自獨立的時代已經過去，<strong>Performance Max（PMax）</strong> 代表了 Google 的全面 AI 化未來。</p>
 
@@ -5564,7 +5564,7 @@ export const blogPosts: BlogPost[] = [
       <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">Google Ads 同 Meta Ads 應該如何選擇？可不可以只做其中一個？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">Google Ads 與 Meta Ads 應該如何選擇？可不可以只做其中一個？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">兩個平台定位不同，建議配合使用。Google Ads 針對「有明確需求」的高意圖用戶（如搜尋「香港搬屋公司」），轉換率較高；Meta Ads 則擅長「主動發現」類廣告，適合品牌曝光及衝動購買。預算有限的話，建議先用 Meta 建立認知，再用 Google 捕捉轉換意圖。</p>
           </div>
@@ -5642,8 +5642,8 @@ export const blogPosts: BlogPost[] = [
   {
     id: 7,
     slug: "hong-kong-seo-geo-guide-2026",
-    title: "2026 香港 SEO 與 GEO 完全攻略：同時上 Google 同 ChatGPT",
-    excerpt: "流量斷崖式下跌？SEO 排名不動如山卻點擊率暴跌？本文深入拆解香港企業最易踩嘅 5 大 SEO 地雷，附上 GEO（生成式引擎優化）實戰手冊，手把手教你令品牌同時被 Google 同 ChatGPT 推薦。",
+    title: "2026 香港 SEO 與 GEO 完全攻略：同時上 Google 與 ChatGPT",
+    excerpt: "流量斷崖式下跌？SEO 排名不動如山卻點擊率暴跌？本文深入拆解香港企業最易踩的 5 大 SEO 地雷，附上 GEO（生成式引擎優化）實戰手冊，手把手教你令品牌同時被 Google 與 ChatGPT 推薦。",
     date: "2026-02-01",
     updatedAt: "2026-09-20",
     category: "SEO & AI",
@@ -5677,7 +5677,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">香港網站流量危機：你並不孤單</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">香港網站流量危機：你並不孤單</h3>
 
       <p>根據 <strong>SparkToro 2024</strong> 的研究，Google 搜尋的 <strong>Zero-Click 比率已達 65%</strong>——即每 100 次搜尋，有 65 次用戶看完搜尋結果頁面就離開，根本不會點擊任何網站。加上 ChatGPT、Perplexity、Google AI Overview 的急速普及，這個數字只會繼續上升。</p>
 
@@ -6091,7 +6091,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：為什麼傳統 SEO 越來越難做？</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：為什麼傳統 SEO 越來越難做？</h3>
       <p>過去，用戶有問題會問 Google，然後點擊頭幾個連結。現在，用戶直接問 ChatGPT 或 Perplexity，AI 直接給出答案，用戶根本不需要點擊進入你的網站。</p>
       <p>這就是所謂的 <strong>Zero-Click Search</strong> 危機。如果你的內容只是簡單的資訊堆砌，AI 會直接「消化」並吐出答案，你連一個 Visit 都賺不到。</p>
 
@@ -6174,7 +6174,7 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
           <ul class="space-y-2">
           <li><a href="/blog/geo-generative-engine-optimization-guide-2026/" class="text-[#0f4c81] hover:underline">GEO 生成式引擎優化完整指南：官方文件與學術研究怎麼說</a></li>
-          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 完全攻略：同時上 Google 同 ChatGPT</a></li>
+          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 完全攻略：同時上 Google 與 ChatGPT</a></li>
           </ul>
         </div>\n\n        <p class="text-sm text-gray-500 mt-8">參考資料：<a href="https://developers.google.com/search/docs" target="_blank" rel="noopener" class="text-[#0f4c81] hover:underline">Google Search Central</a></p>`
   },
@@ -6216,7 +6216,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：有 View 無 Conversion 的死局</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：有 View 無 Conversion 的死局</h3>
       <p>很多品牌追求爆款，拍搞笑、跳舞影片。沒錯，View 數可能很高，但這些觀眾是你的精準客戶嗎？他們看完笑完就滑走，對你的產品毫無印象。</p>
       <p><strong>虛榮指標 (Vanity Metrics) 救不了你的生意。</strong>你需要的是能帶貨的內容。</p>
 
@@ -6319,7 +6319,7 @@ export const blogPosts: BlogPost[] = [
           <ul class="space-y-2">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">自動化最適合重複性高、規則明確的工作</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">ROI 通常在 3-6 個月內顯現</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">先自動化電郵跟進同客戶分類，效果最明顯</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">先自動化電郵跟進與客戶分類，效果最明顯</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">自動化不是取代人，而是令團隊做更高價值的工作</span></li>
           </ul>
         </div>
@@ -6332,7 +6332,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：繁瑣流程拖慢業績</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：繁瑣流程拖慢業績</h3>
       <p>試想一下：</p>
       <ul class="list-disc pl-6 space-y-2 mb-6">
         <li>客人半夜問價，沒人回覆，第二天客人已經買了別家。</li>
@@ -6454,7 +6454,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：自嗨式設計 (Design for Ego)</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：自嗨式設計 (Design for Ego)</h3>
       <p>很多網頁設計師只在乎「好不好看」，忽略了「好不好用」和「賣不賣得出去」。</p>
       <ul class="list-disc pl-6 space-y-2 mb-6">
         <li><strong>載入太慢：</strong>過多的高清圖和動畫，讓用戶等待超過 3 秒就離開。</li>
@@ -6568,7 +6568,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：亂槍打鳥，預算打水漂</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：亂槍打鳥，預算打水漂</h3>
       <p>很多商家還在用「興趣標籤」來投放廣告。但現在興趣標籤越來越不準，你以為投給了「喜歡咖啡的人」，其實投給了「曾經不小心點過咖啡圖片的人」。</p>
       <p>結果就是：點擊率低、轉換成本 (CPA) 高、ROAS (廣告投資報酬率) 慘不忍睹。</p>
 
@@ -6676,7 +6676,7 @@ export const blogPosts: BlogPost[] = [
         
         
 
-      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗同最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：行政作業吃掉利潤</h3>
+      \n        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>\n<h3 class="text-2xl font-bold text-[#0f4c81] mt-8 mb-4">痛點：行政作業吃掉利潤</h3>
       <p>你請了高薪的 Sales，結果他每天花 2 小時在整理報表；你請了專業的會計，結果她花一半時間在核對重複的發票。</p>
       <p><strong>資料孤島 (Data Silos)</strong> 讓部門之間溝通困難，老闆想看即時業績，卻要等員工手動匯總，往往看到的已經是上週的數據。</p>
 
