@@ -390,7 +390,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">類別</th><th class="text-left px-5 py-3 font-semibold">典型粉絲與身份</th><th class="text-left px-5 py-3 font-semibold">核心作用</th><th class="text-left px-5 py-3 font-semibold">相對成本</th><th class="text-left px-5 py-3 font-semibold">適用場景</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">KOL</td><td class="px-5 py-3">1 萬至數十萬粉絲</td><td class="px-5 py-3">曝光、話題、品牌信任</td><td class="px-5 py-3">高</td><td class="px-5 py-3">新品上市、品牌推廣</td></tr><tr><td class="px-5 py-3">KOC</td><td class="px-5 py-3">數千至一萬多粉絲</td><td class="px-5 py-3">真實試用、口碑種草</td><td class="px-5 py-3">中低</td><td class="px-5 py-3">轉換、評論區發酵</td></tr><tr><td class="px-5 py-3">素人</td><td class="px-5 py-3">幾百至幾千，多為真實用戶</td><td class="px-5 py-3">數量堆疊、搜尋結果佔位</td><td class="px-5 py-3">低（多為產品置換）</td><td class="px-5 py-3">小紅書筆記、Google 評論</td></tr></tbody></table></div>
 
-        <p>實務上的最佳組合，通常是「一個 Mid-tier 或 Micro KOL 打頭陣製造話題，配上一批 KOC 做真實體驗分享，再加一批素人在評論區與搜尋結果中形成密度」。因為當消費者被 KOL 吸引之後，下一步通常會自己去搜尋品牌名稱，看看有無其他人講過。如果搜尋結果只有品牌自己的宣傳，說服力會大打折扣；如果搜尋結果有大量第三方真實分享，轉換機會就高得多。</p>
+        <p>實務上的最佳組合，通常是「一個 Mid-tier 或 Micro KOL 打頭陣製造話題，配上一批 KOC 做真實體驗分享，再加一批素人在評論區與搜尋結果中形成密度」。因為當消費者被 KOL 吸引之後，下一步通常會自己去搜尋品牌名稱，查看是否有其他人談論過。如果搜尋結果只有品牌自己的宣傳，說服力會大打折扣；如果搜尋結果有大量第三方真實分享，轉換機會就高得多。</p>
 
         <p>如果你的目標客群包含內地消費者或訪港旅客，小紅書的 KOC 種草策略就相當關鍵，可以參考我們另文整理的<a href="/blog/xiaohongshu-marketing-hong-kong-guide-2026/">小紅書推廣指南</a>，以及<a href="/services/china-market/">中國市場推廣服務</a>。</p>
 
@@ -539,7 +539,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>對香港中小企而言，一個務實的起點是：先用一個不大的預算，試三至五個 Micro 與 Nano KOL，做好歸因設計，跑完一次完整流程，然後用真實數據決定下一步放大哪一個組合。這樣做的好處是風險可控，而且你會累積到屬於自己的 KOL 表現記錄，這是任何代理都無法直接給你的資產。</p>
 
-        <p>如果你希望有人幫你把這條路走順，包括 KOL 篩選、報價談判、內容簡報、歸因設定與成效報告，歡迎了解我們的<a href="/services/kol/">KOL 網紅營銷服務</a>，或者一併看看<a href="/services/social/">社交媒體代管</a>與<a href="/services/ads/">成效廣告投放</a>怎樣互相配合。</p>
+        <p>如果你希望有人幫你把這條路走順，包括 KOL 篩選、報價談判、內容簡報、歸因設定與成效報告，歡迎了解我們的<a href="/services/kol/">KOL 網紅營銷服務</a>，或一併參考<a href="/services/social/">社交媒體代管</a>與<a href="/services/ads/">成效廣告投放</a>怎樣互相配合。</p>
     
 
         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
@@ -1621,7 +1621,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>對香港中小企老闆而言，最務實的做法不是問「要不要做數碼轉型」，而是先做一件很具體的事：挑一個每週重複三次以上、輸出格式固定的工序，算出它的年度人力成本，再判斷有沒有工具能在明顯低於這個成本的前提下把它處理好。這條算式不需要任何 AI 知識，卻能過濾掉大部分不值得做的項目。</p>
 
-        <p>如果你的團隊正處於「想用 AI 但不知道從哪個工序開始」的階段，可以先看看我們在<a href="/services/ai/">企業 AI 應用</a>及<a href="/services/automation/">工作流程自動化</a>方面的工作方式，再決定是否需要外部協助。</p>
+        <p>如果你的團隊正處於「想用 AI 但不知道從哪個工序開始」的階段，可以先參考我們在<a href="/services/ai/">企業 AI 應用</a>及<a href="/services/automation/">工作流程自動化</a>方面的工作方式，再決定是否需要外部協助。</p>
     
 
         <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
@@ -2064,7 +2064,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>對香港中小企而言，可執行的起步方式是：先盤點過去三個月最常見的客服問題，只把有明確、不會變的答案那批交給 AI，其餘一律交真人；知識庫先清理到只有一個版本，再談上線，並在第一天就設好信心分數門檻與敏感詞清單。</p>
 
-        <p>ADWire 為香港企業提供 AI 應用與工作流程自動化的落地服務，包括對話系統設計、知識庫整理、人工升級流程，以及與現有後台系統的整合。如果你的團隊正準備評估 chatbot 方案，可以先看看我們的 <a href="/services/ai/">AI 應用服務</a>，以及 <a href="/services/automation/">工作流程自動化服務</a>，了解實際可以做到甚麼程度，再決定買哪一種工具。</p>
+        <p>ADWire 為香港企業提供 AI 應用與工作流程自動化的落地服務，包括對話系統設計、知識庫整理、人工升級流程，以及與現有後台系統的整合。如果你的團隊正準備評估 chatbot 方案，可以先參考我們的 <a href="/services/ai/">AI 應用服務</a>，以及 <a href="/services/automation/">工作流程自動化服務</a>，了解實際可以做到甚麼程度，再決定買哪一種工具。</p>
 
         <p>最後提醒一句：本文的定價資料查證日期為 2026-09-21，平台價格與 Meta 費率都可能變動，下單前請以供應商官方頁面與 Meta 官方 rate card 為準。本文不構成任何成效承諾，實際效果視乎你的業務場景、知識庫質素與人手配置而定。</p>
     
@@ -3493,7 +3493,7 @@ export const blogPosts: BlogPost[] = [
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、真實的失敗率數據</h3>
 
-        <p>在投入資金之前，值得先看看行業的實際情況。以下數字均附來源，並註明其性質。</p>
+        <p>在投入資金之前，值得先參考行業的實際情況。以下數字均附來源，並註明其性質。</p>
 
         <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">RAND：AI 項目失敗率</h4>
         <p>RAND《The Root Causes of Failure for AI Projects》（2024）指出，據部分估算，<strong>逾 80% 的 AI 項目失敗</strong>，是為非 AI 資訊科技項目失敗率的兩倍。若你的 App 包含 AI 功能，這個風險需要納入考慮。RAND 指失敗主因往往不是技術，而是對問題的理解、數據準備與範圍界定。</p>
@@ -3769,7 +3769,7 @@ export const blogPosts: BlogPost[] = [
           </div>
           <div class="bg-white border border-gray-200 rounded-xl p-6">
             <p class="font-bold text-[#0f4c81] mb-2">新型工業化精英企業培育計劃</p>
-            <p class="text-gray-600 text-sm leading-relaxed">2026 年 6 月推出，針對生命健康科技、人工智能及機械人、半導體及智能裝置、數碼化升級轉型等高增長領域，選擇選並培育目標企業。</p>
+            <p class="text-gray-600 text-sm leading-relaxed">2026 年 6 月推出，針對生命健康科技、人工智能及機械人、半導體及智能裝置、數碼化升級轉型等高增長領域，選擇並培育目標企業。</p>
           </div>
           <div class="bg-white border border-gray-200 rounded-xl p-6">
             <p class="font-bold text-[#0f4c81] mb-2">免費官方諮詢</p>
@@ -5997,14 +5997,14 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">做 SEO 定是 Google Ads（SEM）比較划算？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">做 SEO 還是 Google Ads（SEM）比較划算？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">兩者各有優勢，不應視為對立。Google Ads 適合即時見效的促銷、新產品推出，或旺季補充流量；SEO 適合長期建立自然流量資產，停止投資後效果仍可持續。最佳策略是兩者配合：SEO 建立長期基礎，Google Ads 做短期衝刺。從長遠計算，結合 GEO 的三軌策略平均 ROI 遠高於單靠 Ads。</p>
           </div>
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5" itemscope itemtype="https://schema.org/Question" itemprop="mainEntity">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">怎樣選擇選可靠的香港 SEO 代理？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">怎樣選擇可靠的香港 SEO 代理？</h4>
           <div itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
             <p class="text-gray-600 text-sm" itemprop="text">評選香港 SEO 代理時，留意以下幾點：①要求提供真實成功案例（關鍵字排名截圖 + 流量增長數據）；②代理本身的網站有無良好 SEO 排名；③避免相信「保證排名第一」的承諾（Google 明確表示無代理能保證排名）；④確認服務包含技術 SEO、內容策略及外鏈建設；⑤了解是否同時提供 GEO 優化，確保策略能應對 AI 搜尋時代。</p>
           </div>
@@ -6019,7 +6019,7 @@ export const blogPosts: BlogPost[] = [
 
       </div>
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港做 SEO 與 GEO 哪個先？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港做 SEO 與 GEO 應該先做哪一項？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議先做好 SEO 基礎（網站速度、結構化數據、內容質素），再加入 GEO 優化。因為 SEO 的技術基礎同時都會幫到 GEO。</p>
           </div>
