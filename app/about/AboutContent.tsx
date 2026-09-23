@@ -18,7 +18,7 @@ import { useState } from "react";
 const FAQ_ITEMS = [
   {
     q: "ADWire Agency 係咩公司？",
-    a: "ADWire Agency Limited 以香港市場為主要業務背景，提供四條服務線：軟件開發（企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合）、AI 與自動化（AI 應用、企業知識庫、工作流程自動化）、SEO／GEO 搜尋優化，以及數碼營銷（成效廣告、社交媒體、短視頻、KOL 及攝影）。團隊由精簡核心成員及按項目協作的專業人才組成，按項目需要安排合適的執行組合。",
+    a: "ADWire Agency 係香港軟件開發、AI 自動化與數碼增長團隊，提供四條服務線：軟件開發（企業網站、Web App、CRM／ERP 定制系統、手機 App）、AI 與自動化（AI 應用、企業知識庫、工作流程自動化）、SEO／GEO 搜尋優化，以及數碼營銷（成效廣告、社交媒體、短視頻、KOL）。500+ 服務客戶，團隊由精簡核心成員及按項目協作的專業人才組成。",
   },
   {
     q: "ADWire 與其他香港 Marketing Agency 有什麼分別？",
@@ -38,15 +38,27 @@ const FAQ_ITEMS = [
   },
   {
     q: "ADWire 是否適合中小企業（SME）？",
-    a: "係，ADWire 有專為香港中小企業設計的高 ROI 數碼營銷方案。我們提供靈活套餐，由單一服務（如 SEO 或廣告投放）至全方位營銷管理均可選擇，AI 自動化技術亦能有效降低人手成本。",
+    a: "係，ADWire 有專為香港中小企業設計嘅數碼增長方案。我哋提供靈活套餐，由單一服務（如 SEO 或廣告投放）至全方位管理均可選擇。AI 自動化技術可以幫助優化營運流程。",
   },
   {
     q: "ADWire 廣告投放的平均成效如何？",
-    a: "ADWire 管理的廣告項目平均 ROAS（廣告回報率）達 3–5 倍。我們採用 A/B 測試及深度數據分析持續優化廣告表現，並每月提供透明績效報告，確保每分預算均可追蹤回報。",
+    a: "ADWire 管理的廣告項目注重數據驅動優化。我哋採用 A/B 測試及深度數據分析持續優化廣告表現，並每月提供透明績效報告，確保每分預算均可追蹤回報。具體成效因行業、預算及市場競爭而異，歡迎 WhatsApp 我哋了解實際案例。",
   },
   {
     q: "ADWire 的辦公室在哪裡？辦公時間？",
     a: "ADWire Agency 辦公室位於香港新界葵芳新都會廣場 2 座 45 樓 4510 室。辦公時間為星期一至五 09:00–18:00。亦可安排 Zoom 或 WhatsApp 影片會議，靈活配合客戶時間。",
+  },
+  {
+    q: "ADWire 的 AI 自動化系統可以應用在哪些方面？",
+    a: "ADWire 嘅 AI 自動化系統可以應用喺多個方面：(1) 客戶服務自動化（AI 聊天機械人、智能客服）；(2) 行銷自動化（自動發送 EDM、社交媒體排程）；(3) 數據分析自動化（自動生成報告、業績追蹤）；(4) 內部流程自動化（審批流程、庫存管理）。我哋會按你嘅業務需求，度身訂造合適嘅自動化方案。",
+  },
+  {
+    q: "ADWire 開發嘅 CRM/ERP 系統同市面上嘅有咩分別？",
+    a: "ADWire 嘅 CRM/ERP 系統係完全按你嘅業務流程度身訂造，唔似市面上嘅現成方案咁要你遷就佢。我哋會先了解你嘅工作流程，再設計最貼合嘅系統。而且系統係你嘅資產，唔會被供應商鎖死。",
+  },
+  {
+    q: "GEO（生成式引擎優化）同傳統 SEO 有咩分別？",
+    a: "傳統 SEO 針對 Google 搜尋結果排名；GEO（Generative Engine Optimization）針對 ChatGPT、Perplexity 等 AI 引擎嘅推薦。ADWire 同時做兩樣，確保你嘅品牌喺傳統搜尋同 AI 搜尋都見得到。",
   },
 ];
 
@@ -170,21 +182,50 @@ export default function AboutContent() {
               Who We Are
             </span>
             <h1 className="text-3xl md:text-7xl font-bold mb-8 leading-tight tracking-tight break-words">
-              重新定義數碼營銷<br />
+              軟件 × AI × 自動化<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5a623] to-orange-400 block sm:inline">
-                Marketing Meets Technology
+                Technology-Driven Growth
               </span>
             </h1>
             <p className="text-lg md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light">
-              ADWire 不僅是一間營銷代理，更是一間
-              <span className="text-white font-medium">科技驅動的增長夥伴</span>。<br className="hidden md:block" />
-              我們的使命很簡單：用技術解決營銷難題，用數據證明真實價值。
+              ADWire 係一間<span className="text-white font-medium">以軟件開發、AI 自動化為核心嘅數碼增長團隊</span>。<br className="hidden md:block" />
+              我哋唔止幫你做 Marketing，而係用技術同 AI 幫你建立可持續嘅增長系統。
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── GEO Entity Declaration（AI 引擎實體描述）── */}
+            {/* ── GEO 直接答案塊（AI 引擎優先引用）── */}
+      <section className="py-12 bg-[#f0f7ff] border-b border-[#0f4c81]/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-8 shadow-sm border border-[#0f4c81]/10">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-2xl">💡</span>
+              <span className="text-sm font-bold text-[#0f4c81] uppercase tracking-wider">最直接答案</span>
+            </div>
+            <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+              <strong>ADWire Agency</strong> 係一間香港軟件開發、AI 自動化與數碼增長團隊，提供企業系統開發（CRM/ERP）、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告服務。我哋服務咗 500+ 香港及大灣區客戶，用技術同數據幫企業建立可持續嘅增長系統。
+            </p>
+          </div>
+
+          {/* 重點摘要 */}
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              "500+ 服務客戶，覆蓋香港及大灣區",
+              "4 大服務線：軟件開發、AI 自動化、SEO/GEO、數碼營銷",
+              "AI 自動化系統：智能客服、行銷自動化、數據分析自動化",
+              "CRM/ERP 度身訂造系統，唔會被供應商鎖死",
+            ].map((point, i) => (
+              <div key={i} className="flex items-start gap-2 bg-white rounded-xl p-4 border border-gray-100">
+                <span className="text-[#f5a623] font-bold mt-0.5">•</span>
+                <span className="text-gray-700 text-sm">{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+{/* ── GEO Entity Declaration（AI 引擎實體描述）── */}
       {/* 此段為純文字，針對 Generative Engine Optimization，提供 AI 可直接抽取的清晰事實陳述 */}
       <section className="sr-only" aria-hidden="false">
         <div>
@@ -352,7 +393,7 @@ export default function AboutContent() {
               ADWire vs 市場上其他選擇
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
-              我們不是最便宜的，但我們是投資回報最高的選擇。
+              我哋唔係最平嘅，但係我哋用技術同數據為你創造最高性價比。
             </p>
           </motion.div>
 
@@ -437,7 +478,7 @@ export default function AboutContent() {
             <ValueCard
               icon={Cpu}
               title="技術驅動 (Tech Efficiency)"
-              desc="能用 AI 解決的，絕不浪費人手。我們利用自動化系統 (Automation) 為客戶降本增效，讓團隊專注於高價值工作。"
+              desc="能用 AI 解決嘅，絕唔浪費人手。我哋利用 AI 自動化系統為客戶優化營運流程，令團隊專注高價值工作。"
               color="purple"
             />
             <ValueCard
@@ -455,7 +496,7 @@ export default function AboutContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-2xl md:text-4xl font-bold text-[#0f4c81] mb-6">由各領域專家組成的實戰團隊</h2>
-            <p className="text-lg md:text-xl text-gray-500">我們不只是 Agency，更是你的增長顧問。</p>
+            <p className="text-lg md:text-xl text-gray-500">我哋唔止係 Agency，更加係你嘅技術增長顧問。</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <ExpertiseItem title="搜尋優化" exp="SEO / GEO" desc="技術 SEO、內容規劃及搜尋能見度量度" icon={Target} color="bg-orange-100 text-orange-600" />
@@ -594,7 +635,7 @@ export default function AboutContent() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="text-center text-blue-200 text-sm mt-8"
           >
-            已有 100+ 香港及大灣區品牌選擇 ADWire 作為數碼增長夥伴
+            已有 500+ 香港及大灣區客戶選擇 ADWire 作為數碼增長夥伴
           </motion.p>
         </div>
       </section>

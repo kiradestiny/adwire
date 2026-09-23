@@ -3,30 +3,30 @@ import AboutContent from "./AboutContent";
 import { WHATSAPP_E164 } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "關於 ADWire｜軟件、AI 與數碼增長團隊",
+  title: "關於 ADWire｜香港軟件開發、AI 自動化與數碼增長團隊",
   description:
-    "ADWire Agency Limited 以香港市場為主，提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 及數碼營銷服務。團隊由精簡核心成員及按項目協作的專業人才組成，按項目需要安排合適的執行組合。",
+    "ADWire Agency 是香港軟件開發、AI 自動化與數碼增長團隊，提供企業系統開發、AI 應用與工作流程自動化、SEO／GEO 及成效廣告服務。500+ 服務客戶，團隊由精簡核心成員及按項目協作的專業人才組成。",
   keywords: [
     "ADWire Agency",
-    "香港數碼營銷代理",
     "香港軟件開發公司",
+    "香港 AI 自動化",
     "香港 SEO 公司",
-    "KOL 網紅營銷",
-    "AI 自動化營銷",
-    "香港廣告代理",
-    "全棧開發香港",
+    "企業系統開發香港",
+    "AI 應用開發",
+    "工作流程自動化",
+    "CRM ERP 定制開發",
     "GEO 優化",
-    "數碼營銷香港",
-    "Marketing Agency Hong Kong",
-    "SEO Agency HK",
+    "全棧開發香港",
+    "數碼增長方案",
+    "Software Development Hong Kong",
   ],
   authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
   alternates: {
     canonical: "/about/",
   },
   openGraph: {
-    title: "關於 ADWire",
-    description: "ADWire Agency Limited 以香港市場為主，提供軟件開發、AI 應用與自動化、SEO／GEO 及數碼營銷服務。",
+    title: "關於 ADWire｜軟件開發、AI 自動化與數碼增長團隊",
+    description: "ADWire Agency 是香港軟件開發、AI 自動化與數碼增長團隊，500+ 服務客戶，提供企業系統開發、AI 應用、SEO／GEO 及成效廣告服務。",
     url: "https://adwire.com.hk/about/",
     siteName: "ADWire Agency",
     images: [
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "關於 ADWire Agency | 香港軟件及數碼增長方案",
+    title: "關於 ADWire｜香港軟件開發、AI 自動化與數碼增長",
     description:
-      "ADWire Agency 結合 SEO、AI 自動化與全棧開發，為香港品牌提供全方位數碼增長方案。",
+      "ADWire Agency 結合軟件開發、AI 自動化與 SEO/GEO，為香港企業提供全方位數碼增長方案。",
     images: ["/logo.png"],
   },
 };
