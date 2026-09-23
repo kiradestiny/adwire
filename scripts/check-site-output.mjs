@@ -412,8 +412,10 @@ function main() {
   // 仍留著「嘅」與連接詞「同」——而 AI 引擎（GEO）讀的正是這兩個檔。
   // 故在此加閘門：這兩個檔一律不准出現口語字。
   // 註：正常詞（合同、同事、同業）不含下列任一單字，不會誤判。
+  // 「揀」不列入：三篇文章標題刻意保留「點揀」（香港常用搜尋詞，SEO 價值），
+  // 正文已全部改為「選擇」；列入會造成永久假警報。
   const LLMS_FILE = /llms(-full)?\.txt$/;
-  const COLLOQUIAL = ["嘅", "唔", "咗", "喺", "冇", "睇", "揀", "咩", "啲"];
+  const COLLOQUIAL = ["嘅", "唔", "咗", "喺", "冇", "睇", "咩", "啲"];
   for (const f of txts) {
     if (!LLMS_FILE.test(f)) continue;
     const body = readFileSync(f, "utf8");
