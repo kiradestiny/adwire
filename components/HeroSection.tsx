@@ -30,7 +30,9 @@ interface Particle {
 
 // ─── Animated Counter Hook ─────────────────────────────────────────────────────
 function useCounter(target: number, duration = 1800, started = false) {
-  const [count, setCount] = useState(0);
+  // 初始值用 target（唔係 0）：令 SSR 同首帧就輸出真實數字，
+  // AI crawler 同無 JS 環境讀到嘅係 500+／328%／1000+ 而唔係 0。
+  const [count, setCount] = useState(target);
   useEffect(() => {
     if (!started) return;
     let frame = 0;
@@ -42,7 +44,13 @@ function useCounter(target: number, duration = 1800, started = false) {
       setCount(Math.min(Math.round(eased * target), target));
       if (frame < totalFrames) requestAnimationFrame(tick);
     };
+    setCount(0);
     requestAnimationFrame(tick);
+    // 保底：requestAnimationFrame 喺背景分頁／部分 headless 環境會被 throttle
+    // 甚至完全唔觸發（2026-09-24 實測：hidden tab 下 rAF 一帧都唔行），
+    // 屆時計數器會永遠停喺 0。用 setTimeout 保證最終值一定顯示。
+    const settle = setTimeout(() => setCount(target), duration + 400);
+    return () => clearTimeout(settle);
   }, [target, duration, started]);
   return count;
 }

@@ -337,6 +337,22 @@ ErrorDocument 403 /404.html
         Header unset Pragma
     </FilesMatch>
 
+    # ── 爬蟲指令檔必須即時可更新（2026-09-24 新增）──────────────────
+    # 實測：更新 app/robots.ts 並成功部署後，直接請求
+    #   https://adwire.com.hk/robots.txt            → 舊內容（390 bytes）
+    #   https://adwire.com.hk/robots.txt?nocache=1  → 新內容（1383 bytes）
+    # 即係網站檔案本身已經更新，但 SiteGround CDN 對 robots.txt 回
+    #   Cache-Control: max-age=15552000（180 日）
+    # 令 robots.txt 嘅改動最長 180 日都唔會傳到 Google／AI 爬蟲手上。
+    # 對 SEO／GEO 係嚴重風險：任何 Disallow 或 Sitemap 變更都會靜默失效。
+    # 呢個規則由源頭要求每次重新驗證；另需喺 Site Tools 手動 purge
+    # 一次現存嘅 CDN 快取，之後才會套用新規則。
+    <FilesMatch "^(robots\.txt|llms\.txt|llms-full\.txt|sitemap\.xml|image-sitemap\.xml|news-sitemap\.xml)$">
+        Header always set Cache-Control "public, max-age=0, must-revalidate"
+        Header always unset Expires
+        Header unset Pragma
+    </FilesMatch>
+
 </IfModule>
 
 
