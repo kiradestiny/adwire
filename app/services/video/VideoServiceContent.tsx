@@ -213,12 +213,13 @@ export default function VideoServiceContent() {
               videoSrc="/video/peko_beauty.mp4"
               isHighlight
             />
-            {/* Phone 3: 活動類 */}
+            {/* Phone 3: 優惠推廣 */}
             <PhoneMockup 
-              category="活動花絮" 
-              title="Event Highlight" 
+              category="優惠推廣" 
+              title="專業頭皮檢測" 
               views="450K" 
               color="bg-gradient-to-b from-blue-900 to-black"
+              videoSrc="/video/aura_tress_scalp.mp4"
             />
           </div>
           

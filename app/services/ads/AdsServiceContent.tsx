@@ -50,16 +50,16 @@ export default function AdsServiceContent() {
           ADWire Agency 成效廣告投放服務是一項由 ADWire Agency（香港葵芳）提供的 Performance Marketing 服務，
           涵蓋 Meta（Facebook / Instagram）、Google Search（SEM）、YouTube 及 LinkedIn 廣告代操，
           平均廣告回報率（ROAS）達 8.5 倍，CPA 獲客成本降低 45%。
-          代操費用：入門方案 HK$2,000/月起，進階方案 HK$6,000/月起。
+          代操費用：入門方案 HK$3,800/月起，進階方案 HK$8,800/月起；每月廣告預算 HK$50,000 以上者，代操費按廣告費 15% 計算，金額特大者另行報價。
           聯絡：WhatsApp {WHATSAPP_E164}，電郵 info@adwire.com.hk。
         </p>
         <table>
           <caption>ADWire Agency 成效廣告代操服務方案比較</caption>
           <thead><tr><th>方案</th><th>代操費（HKD/月）</th><th>廣告預算範圍</th><th>管理平台</th><th>適合對象</th></tr></thead>
           <tbody>
-            <tr><td>入門方案</td><td>HK$2,000</td><td>HK$5,000–15,000</td><td>Meta 或 Google（單一）</td><td>剛開始投放廣告的品牌</td></tr>
-            <tr><td>進階方案</td><td>HK$6,000</td><td>HK$15,000–50,000</td><td>Meta + Google（雙平台）</td><td>有成效廣告基礎的成長企業</td></tr>
-            <tr><td>企業方案</td><td>度身定制</td><td>HK$50,000+</td><td>Meta/Google/YouTube/LinkedIn</td><td>大型品牌及多平台管理</td></tr>
+            <tr><td>入門方案</td><td>HK$3,800</td><td>HK$5,000–15,000</td><td>Meta 或 Google（單一）</td><td>剛開始投放廣告的品牌</td></tr>
+            <tr><td>進階方案</td><td>HK$8,800</td><td>HK$15,000–50,000</td><td>Meta + Google（雙平台）</td><td>有成效廣告基礎的成長企業</td></tr>
+            <tr><td>企業方案</td><td>廣告費 15%（最低 HK$8,800）</td><td>HK$50,000+</td><td>Meta/Google/YouTube/LinkedIn</td><td>大型品牌及多平台管理</td></tr>
           </tbody>
         </table>
         <table>
@@ -519,7 +519,7 @@ export default function AdsServiceContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <PackageCard 
               name="入門方案"
-              price="HK$2,000"
+              price="HK$3,800"
               period="/ 月"
               description="適合剛開始投放廣告的品牌"
               features={[
@@ -530,11 +530,11 @@ export default function AdsServiceContent() {
                 "Email 支援"
               ]}
               highlight={false}
-              whatsappMsg="Hello ADWire, 我想查詢成效廣告投放的【入門方案】(HK$2,000/月)。"
+              whatsappMsg="Hello ADWire, 我想查詢成效廣告投放的【入門方案】(HK$3,800/月)。"
             />
             <PackageCard 
               name="進階方案"
-              price="HK$6,000"
+              price="HK$8,800"
               period="/ 月"
               description="最多客戶選擇"
               features={[
@@ -548,16 +548,17 @@ export default function AdsServiceContent() {
               ]}
               highlight={true}
               badge="最受歡迎"
-              whatsappMsg="Hello ADWire, 我想查詢成效廣告投放的【進階方案】(HK$6,000/月)。"
+              whatsappMsg="Hello ADWire, 我想查詢成效廣告投放的【進階方案】(HK$8,800/月)。"
             />
             <PackageCard 
               name="企業方案"
-              price="Custom"
-              period="/ 月"
-              description="適合大型品牌"
+              price="15%"
+              period="/ 廣告費"
+              description="廣告預算 HK$50,000 以上 · 金額特大者另行報價"
               features={[
                 "多平台管理 (Meta/Google/YouTube/LinkedIn)",
                 "每月廣告預算 $50K+",
+                "代操費最低 HK$8,800/月",
                 "進階受眾策略",
                 "專業影片素材製作",
                 "專屬客戶經理",
@@ -565,7 +566,7 @@ export default function AdsServiceContent() {
                 "整合 CRM 與數據分析"
               ]}
               highlight={false}
-              whatsappMsg="Hello ADWire, 我想查詢成效廣告投放的【企業方案】(Custom)。"
+              whatsappMsg="Hello ADWire, 我想查詢成效廣告投放的【企業方案】(按廣告費 15% 計算)。"
             />
           </div>
           
@@ -661,7 +662,7 @@ export default function AdsServiceContent() {
             <h2 className="text-3xl font-bold text-[#0f4c81]">廣告投放常見問題</h2>
           </div>
           <div className="space-y-3">
-            <FAQItem question="香港廣告代操費用是多少？" answer="ADWire 廣告代操分三方案：入門方案 HK$2,000/月（單一平台，廣告預算 HK$5K–15K）；進階方案 HK$6,000/月（Meta + Google 雙平台，廣告預算 HK$15K–50K）；企業方案度身定制（多平台，廣告預算 HK$50K+）。代操費不含廣告媒體費用（Media Buy）。" />
+            <FAQItem question="香港廣告代操費用是多少？" answer="ADWire 廣告代操分三方案：入門方案 HK$3,800/月（單一平台，廣告預算 HK$5K–15K）；進階方案 HK$8,800/月（Meta + Google 雙平台，廣告預算 HK$15K–50K）；企業方案按每月廣告費 15% 計算（廣告預算 HK$50K+，最低 HK$8,800/月），金額特大者會另行報價。代操費不含廣告媒體費用（Media Buy）。" />
             <FAQItem question="廣告代投需要最低多少廣告預算？" answer="一般建議每月最少 HK$5,000–8,000 媒體預算（Media Buy），確保有足夠數據進行機器學習和優化。預算越充足，優化速度越快。ADWire 入門方案支援 HK$5,000–15,000/月廣告預算。" />
             <FAQItem question="什麼是 ROAS？ROAS 多少才算好？" answer="ROAS（廣告投資回報率）= 廣告帶來收入 ÷ 廣告費用。行業均值 2–4x，ADWire 管理的帳戶平均 ROAS 達 8.5x，部分電商客戶高達 12x。ROAS 高低受行業、產品定價及受眾設定影響。" />
             <FAQItem question="投放廣告後多久會見效？" answer="Google Search 廣告通常 1–2 週見初步成效。Meta（FB/IG）需約 2–4 週「學習期（Learning Phase）」讓系統尋找最佳受眾。ADWire 持續優化以縮短學習期，一般 1 個月後可達穩定成效。" />

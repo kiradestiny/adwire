@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "廣告公司 | ADWire Agency 香港",
-    description: "香港成效廣告代操：Google / Meta / YouTube，平均 ROAS 8.5倍，入門代操費 HK$2,000/月起。",
+    description: "香港成效廣告代操：Google / Meta / YouTube，平均 ROAS 8.5倍，入門代操費 HK$3,800/月起。",
     images: ["/portfolio/global-trade-ads.webp"],
   },
 };
@@ -90,11 +90,11 @@ const serviceSchema = {
       "@type": "Offer",
       name: "廣告代操入門方案",
       description: "適合剛開始投放廣告的品牌。單一平台（Meta 或 Google），每月廣告預算 HK$5K–15K，基本素材製作及月度成效報告。",
-      price: "2000",
+      price: "3800",
       priceCurrency: "HKD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "2000",
+        price: "3800",
         priceCurrency: "HKD",
         unitText: "月",
       },
@@ -104,11 +104,11 @@ const serviceSchema = {
       "@type": "Offer",
       name: "廣告代操進階方案",
       description: "最受客戶選擇方案。雙平台（Meta + Google），廣告預算 HK$15K–50K，A/B Testing 優化、Pixel 安裝追蹤、Landing Page 建議、每週報告。",
-      price: "6000",
+      price: "8800",
       priceCurrency: "HKD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "6000",
+        price: "8800",
         priceCurrency: "HKD",
         unitText: "月",
       },
@@ -117,7 +117,7 @@ const serviceSchema = {
     {
       "@type": "Offer",
       name: "廣告代操企業方案",
-      description: "適合大型品牌。多平台管理（Meta/Google/YouTube/LinkedIn），廣告預算 HK$50K+，進階受眾策略、專業影片素材、專屬客戶經理及整合 CRM 數據分析。",
+      description: "適合大型品牌。多平台管理（Meta/Google/YouTube/LinkedIn），廣告預算 HK$50K+，代操費按每月廣告費 15% 計算（最低 HK$8,800/月），金額特大者另行報價。包含進階受眾策略、專業影片素材、專屬客戶經理及整合 CRM 數據分析。",
       itemOffered: { "@type": "Service", name: "廣告代操企業方案" },
     },
   ],
@@ -146,7 +146,7 @@ const faqSchema = {
       name: "香港廣告代操費用是多少？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "ADWire 廣告代操費用分三個方案：入門方案 HK$2,000/月（單一平台，廣告預算 HK$5K–15K）；進階方案 HK$6,000/月（雙平台 Meta + Google，廣告預算 HK$15K–50K）；企業方案為度身定制（多平台，廣告預算 HK$50K+）。代操費不包含廣告媒體費用（Media Buy）。",
+        text: "ADWire 廣告代操費用分三個方案：入門方案 HK$3,800/月（單一平台，廣告預算 HK$5K–15K）；進階方案 HK$8,800/月（雙平台 Meta + Google，廣告預算 HK$15K–50K）；企業方案按每月廣告費 15% 計算（多平台，廣告預算 HK$50K+，最低 HK$8,800/月），金額特大者另行報價。代操費不包含廣告媒體費用（Media Buy）。",
       },
     },
     {
