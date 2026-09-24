@@ -99,9 +99,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "真係唔敢相信，三條片就改變晒我個 cafe 嘅命運。第一個週末就座無虛席，仲要有人排隊！ADWire 完全明白我想要嘅係咩。",
-      author: "Wilson Chan",
+      author: "本地 Cafe 品牌",
       role: "創辦人",
-      company: "Hideaway Café 深水埗",
+      company: "餐飲 F&B",
     },
     icon: Users,
     color: "from-pink-500 to-rose-500",
@@ -151,9 +151,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "以前每晚都要加班到深夜回 WhatsApp，而家部 Bot 幫我處理咗大部分查詢，我終於可以專心做設計同揀貨，生意質素提升咗好多。",
-      author: "Mandy Lee",
+      author: "網店品牌",
       role: "品牌負責人",
-      company: "KidoStyle HK",
+      company: "電商 E-Commerce",
     },
     icon: Clock,
     color: "from-green-400 to-emerald-600",
@@ -203,9 +203,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "以前完全唔知自己係咪 Google 得到搵到，而家客人話係 Google 搵到我哋，每個月都有新客打嚟預約。SEO 真係值得投資。",
-      author: "Dr. Grace Yip",
+      author: "美容診所品牌",
       role: "診所院長",
-      company: "Grace Medical Beauty",
+      company: "美容 / 金融 / 貸款",
     },
     icon: TrendingUp,
     color: "from-blue-500 to-cyan-500",
@@ -255,9 +255,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "第一次試佢哋之前我覺得廣告就係燒錢，試完之後我明白原來廣告係可以精準計算回報。ROAS 8x 係我完全想像唔到嘅數字。",
-      author: "Chloe Wong",
+      author: "美妝品牌",
       role: "Marketing Director",
-      company: "LumiSkin HK",
+      company: "美妝 Beauty",
     },
     icon: ShoppingBag,
     color: "from-purple-500 to-indigo-500",
@@ -307,9 +307,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "新網站唔只係靚咗咁簡單，係真係幫到我哋做生意。而家客人可以直接喺網站入面搵到佢哋要嘅產品同落單，我哋嘅銷售同事可以專注處理成熟詢盤。",
-      author: "Raymond Hui",
+      author: "製造業企業",
       role: "總裁",
-      company: "ITC Industrial Supplies",
+      company: "製造業 / B2B",
     },
     icon: Globe,
     color: "from-teal-400 to-cyan-600",
@@ -358,9 +358,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "以前我哋要逐個學生打電話 confirm 堂，而家系統自動做晒。最驚喜係唔 show 嘅比例真係大跌，每個月計返其實慳咗唔少。",
-      author: "Ms. Karen Leung",
+      author: "補習中心",
       role: "中心總監",
-      company: "Elite English Academy",
+      company: "教育 / 補習中心",
     },
     icon: MessageCircle,
     color: "from-orange-400 to-red-500",
@@ -410,9 +410,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "ADWire 唔只係交咗個 App 俾我，係幫我實現咗向投資人證明嘅武器。佢哋明白 startup 嘅節奏，唔會浪費時間喺唔必要嘅功能上。",
-      author: "Eric Tse",
+      author: "初創企業",
       role: "創辦人兼 CEO",
-      company: "FlexHire HK",
+      company: "初創 Startup",
     },
     icon: Code,
     color: "from-slate-500 to-slate-700",
@@ -429,7 +429,7 @@ export const portfolioCases: PortfolioCase[] = [
   {
     id: 8,
     slug: "luxe-jewelry-photography",
-    title: "Luxe 珠寶品牌攝影",
+    title: "高級珠寶品牌攝影",
     category: "Production",
     displayCategory: "Commercial Photography",
     industry: "珠寶 Luxury",
@@ -438,7 +438,7 @@ export const portfolioCases: PortfolioCase[] = [
     shortDescription:
       "為高級珠寶品牌拍攝全新系列形象照，運用光影美學突顯產品細節，提升品牌奢華感。",
     fullDescription:
-      "The Luxe Collection 是一個主打手工打造輕奢珠寶的本地品牌，以往產品圖片使用 iPhone 拍攝，雖然真實但缺乏品牌質感，難以支撐 HK$800-3,500 的定價。業主希望透過專業商業攝影，建立可持續使用的視覺資產庫，用於網店、IG 及展會場合。",
+      "該品牌是一個主打手工打造輕奢珠寶的本地品牌，以往產品圖片使用 iPhone 拍攝，雖然真實但缺乏品牌質感，難以支撐 HK$800-3,500 的定價。業主希望透過專業商業攝影，建立可持續使用的視覺資產庫，用於網店、IG 及展會場合。",
     challenge:
       "珠寶攝影技術要求極高（反光金屬、透明寶石），需在有限預算下建立「可持續使用的視覺資產庫」；品牌視覺風格尚未清晰定義；需要同時產出適合網店白底圖、IG 氛圍圖及展示橫幅三類不同用途的素材。",
     solution:
@@ -462,9 +462,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "睇到成品我係真係喊出嚟，因為佢哋把我腦海入面嘅品牌形象真實呈現出來！自從換咗新相，客人覺得我哋嘅珠寶更加值錢，成交率都有提升。",
-      author: "Sophie Ng",
+      author: "高級珠寶品牌",
       role: "創辦人",
-      company: "The Luxe Collection",
+      company: "珠寶 Luxury",
     },
     icon: Camera,
     color: "from-rose-400 to-rose-600",
@@ -514,9 +514,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "以前完全唔知 SEO 係咩，以為 Google 排名係玄學。而家我哋診所喺 Google 搜尋排第一，每個月都有新客人話係 Google 搵到我哋，廣告費都可以少燒好多。",
-      author: "Dr. Amy Chan",
+      author: "醫美診所",
       role: "醫學總監",
-      company: "PureGlow Medical Beauty",
+      company: "醫美 Medical Beauty",
     },
     icon: Search,
     color: "from-cyan-500 to-blue-600",
@@ -566,9 +566,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "ADWire 做咗個系統真係改變咗我哋公司嘅運作方式。以前每日花好多時間喺 Excel 度，而家所有嘢都系統化，員工可以更專注service客戶，逾期追款都輕鬆好多。",
-      author: "Peter Lam",
+      author: "金融機構",
       role: "運營總監",
-      company: "FastCredit Financial",
+      company: "金融 Financial Services",
     },
     icon: Code,
     color: "from-indigo-500 to-violet-600",
@@ -585,7 +585,7 @@ export const portfolioCases: PortfolioCase[] = [
   {
     id: 11,
     slug: "yummy-food-reels",
-    title: "Yummy Food 爆款短視頻",
+    title: "食品品牌爆款短視頻",
     category: "KOL & Video",
     displayCategory: "Food Content",
     industry: "食品 Food & Beverage",
@@ -618,9 +618,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "我只係個普通主婦，完全唔識做 marketing。ADWire 幫我策劃晒，我只係負責煮嘢食。見到粉絲一直增加，仲有人買我嘅醬料，係我完全意想不到嘅。",
-      author: "Winnie Ho",
+      author: "食品品牌",
       role: "創辦人",
-      company: "Yummy Sauce HK",
+      company: "食品 Food & Beverage",
     },
     icon: Users,
     color: "from-yellow-400 to-orange-500",
@@ -670,9 +670,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "以前只靠參加展覽搵歐洲客，費用高又唔穩定。而家透過 LinkedIn，每個月都有新詢盤入嚟，成本比展覽低好多，而且詢盤質素更加好，係真係有採購需求嘅人。",
-      author: "James Ng",
+      author: "貿易企業",
       role: "出口部總監",
-      company: "Pacific Industrial Trading",
+      company: "國際貿易 B2B",
     },
     icon: Globe,
     color: "from-blue-600 to-blue-800",
@@ -722,9 +722,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "我哋呢行係傳統零售，一開始我唔相信 AI 工具可以幫到我哋。但而家我哋啲分店經理每朝用咗「庫存分析師」之後，返開會時真係有數據撐腰，唔係靠感覺賣嘢。",
-      author: "Tommy Cheung",
+      author: "藥妝連鎖",
       role: "運營總監",
-      company: "PharmaMax 藥妝連鎖",
+      company: "零售 / 企業服務",
     },
     icon: Brain,
     color: "from-violet-500 to-purple-700",
@@ -774,9 +774,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "我哋係香港品牌，以前覺得小紅書係好遙遠嘅市場。ADWire 幫我哋用咗一套好有系統嘅方法種草，效果出咗之後自己都驚，原來內地客人對香港本地品牌係有好感嘅。",
-      author: "Lily Yuen",
+      author: "消費品品牌",
       role: "市場總監",
-      company: "Bloom Beauty HK",
+      company: "美妝 / 消費品",
     },
     icon: Flame,
     color: "from-red-500 to-pink-600",
@@ -826,9 +826,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "之前我哋用傳統廣告模式係小紅書燒錢，完全唔有效。ADWire 幫我哋明白小紅書係一個講求真實感嘅平台，要入鄉隨俗。換咗策略之後個 ROAS 翻倍，之前燒嘅預算終於回本。",
-      author: "Michael Xu",
+      author: "健康食品品牌",
       role: "電商負責人",
-      company: "NutriGreen 健康食品",
+      company: "健康食品 / 保健品",
     },
     icon: BarChart3,
     color: "from-pink-500 to-red-500",
@@ -878,9 +878,9 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "我哋從來冇諗過要認真做內地市場，但自從 ADWire 幫我哋建立晒百度同微信嘅形象，每個月都有內地客人專程嚟我哋診所，而且消費力好強。呢個市場真係好大。",
-      author: "Dr. Christine Lo",
+      author: "跨境服務企業",
       role: "診所院長",
-      company: "Radiance Medical HK",
+      company: "香港服務業 / 跨境",
     },
     icon: Flag,
     color: "from-blue-600 to-indigo-700",

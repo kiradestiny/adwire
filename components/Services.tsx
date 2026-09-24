@@ -137,7 +137,9 @@ const item = {
 };
 
 export default function Services() {
-  const [showAll, setShowAll] = useState(false);
+  // 2026-09-24：初始 true —— 手機默認展開「其他服務」，令內容喺 SSR HTML
+  // 就可見（唔再係 opacity:0;height:0）。用戶仍可撳掣收起。
+  const [showAll, setShowAll] = useState(true);
 
   return (
     <section className="py-24 bg-white" id="services">
@@ -214,9 +216,14 @@ export default function Services() {
           ))}
         </motion.div>
 
-        {/* 2. 其他服務 (Grid) - Mobile Toggle */}
+        {/* 2. 其他服務 (Grid) - Mobile Toggle
+            2026-09-24：改為手機默認展開（showAll 初始 true）+ initial={false}。
+            原本 initial={{opacity:0,height:0}} 會令 SSR HTML 寫死
+            `opacity:0;height:0`，即手機（Google 用 mobile-first 索引）同
+            唔行 JS 的 AI crawler 完全睇唔到呢組服務內容。改動只影響初始狀態，
+            用戶仍然可以撳「收起其他服務」收埋。 */}
         <motion.div 
-          initial={{ opacity: 0, height: 0 }}
+          initial={false}
           animate={{ 
             opacity: showAll ? 1 : 0,
             height: showAll ? "auto" : 0
