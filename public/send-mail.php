@@ -545,7 +545,11 @@ $headers .= "X-Mailer: ADWire-Contact-Form\r\n";
 //
 // 憑證檔必須放在 webroot 以外（網站讀取不到）：
 //   ~/www/adwire.com.hk/adwire-mail-secret.php
-//   <?php return ['user' => 'info@adwire.com.hk', 'pass' => '<App Password>'];
+//   模式 A（Google SMTP relay，IP 白名單、無密碼）：
+//     <?php return ['host' => 'smtp-relay.gmail.com', 'port' => 587,
+//                    'user' => 'info@adwire.com.hk', 'from' => 'info@adwire.com.hk'];
+//   模式 B（Gmail 帳戶 + App Password）：
+//     <?php return ['user' => 'info@adwire.com.hk', 'pass' => '<App Password>'];
 function loadMailSecret(): ?array
 {
     $candidates = [
@@ -558,14 +562,18 @@ function loadMailSecret(): ?array
             continue;
         }
         $cfg = @include $path;
-        if (
-            is_array($cfg)
-            && !empty($cfg['user'])
-            && !empty($cfg['pass'])
-            && strpos((string) $cfg['pass'], 'REPLACE_WITH') === false
-        ) {
-            return $cfg;
+        if (!is_array($cfg) || empty($cfg['user'])) {
+            continue;
         }
+        $pass = (string) ($cfg['pass'] ?? '');
+        if (strpos($pass, 'REPLACE_WITH') !== false) {
+            continue; // 憑證檔未填好
+        }
+        // 無密碼但指定了 relay host（例如 Google SMTP relay 用 IP 白名單認證）→ 可用
+        if ($pass === '' && empty($cfg['host'])) {
+            continue;
+        }
+        return $cfg;
     }
     return null;
 }
@@ -610,9 +618,11 @@ function smtpSend(array $cfg, string $to, string $subject, string $html, string 
             throw new RuntimeException('STARTTLS 加密握手失敗');
         }
         smtpTalk($fp, $ehlo, [250]);
-        smtpTalk($fp, 'AUTH LOGIN', [334]);
-        smtpTalk($fp, base64_encode((string) $cfg['user']), [334]);
-        smtpTalk($fp, base64_encode((string) $cfg['pass']), [235]);
+        if ((string) ($cfg['pass'] ?? '') !== '') {
+            smtpTalk($fp, 'AUTH LOGIN', [334]);
+            smtpTalk($fp, base64_encode((string) $cfg['user']), [334]);
+            smtpTalk($fp, base64_encode((string) $cfg['pass']), [235]);
+        }
         smtpTalk($fp, "MAIL FROM:<{$from}>", [250]);
         smtpTalk($fp, "RCPT TO:<{$to}>", [250, 251]);
         smtpTalk($fp, 'DATA', [354]);
