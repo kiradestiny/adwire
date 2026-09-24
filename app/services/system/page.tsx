@@ -4,7 +4,7 @@ import SystemServiceContent from "./SystemServiceContent";
 const currentYear = new Date().getFullYear();
 
 export const metadata: Metadata = {
-  title: "企業系統與 App 開發｜網站・CRM・MVP",
+  title: "CRM 系統及 App 開發｜企業數碼轉型",
   description: "企業網站、Web App、CRM／ERP 相關系統、手機 App 及 MVP 開發。由需求整理、Prototype、開發、API 整合到 QA／UAT、部署、文件及上線後維護，範圍與交付清晰。",
   keywords: ["企業系統開發", "ERP系統", "CRM系統", "會員系統", "預約系統", "Mobile App開發", "企業數碼轉型", "系統定制開發", "香港系統開發", "進銷存系統", "客戶管理系統", "企業自動化", "AI功能開發"],
   alternates: {

@@ -4,9 +4,9 @@ import ServiceJsonLd from "@/components/ServiceJsonLd";
 import FAQJsonLd from "@/components/FAQJsonLd";
 
 export const metadata: Metadata = {
-  title: "短視頻製作｜Reels・宣傳片・廣告",
+  title: "影片製作公司｜短片・宣傳片・廣告製作",
   description: "短視頻、企業宣傳片、產品廣告及活動紀錄的策劃、拍攝及後期製作。列明腳本、拍攝日數、剪輯版本、字幕、平台比例及交片時間。",
-  keywords: ["短視頻製作", "Reels 拍攝", "短片拍攝", "企業宣傳片", "香港影片製作", "Video Production HK", "Viral Shorts"],
+  keywords: ["影片製作公司", "拍片公司", "宣傳片製作", "短視頻製作", "Reels 拍攝", "短片拍攝", "企業宣傳片", "香港影片製作", "Video Production HK", "Viral Shorts"],
   alternates: {
     canonical: "/services/video/",
   },

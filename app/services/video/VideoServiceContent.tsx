@@ -34,13 +34,13 @@ export default function VideoServiceContent() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
-              抓住 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">黃金 3 秒</span><br/>
-              讓短片被看完、被分享
+              香港影片製作公司<br/>
+              抓住 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">黃金 3 秒</span>，讓短片被看完、被分享
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
               在短片主導的年代，觀眾只會看幾秒就決定是否繼續。<br className="hidden md:block"/>
-              我們由腳本、拍攝到剪輯，按平台語言及受眾設計每一條短片，<br className="hidden md:block"/>
+              作為香港影片製作公司，我們由腳本、拍攝到剪輯，按平台語言及受眾設計每一條短片，<br className="hidden md:block"/>
               並清楚列明腳本、拍攝日數、剪輯版本、字幕及交片時間。
             </p>
 

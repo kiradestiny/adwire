@@ -70,8 +70,8 @@ export default function WebServiceContent() {
               </div>
               
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                不只是網頁設計，<br/>
-                更是打造 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">高轉換率</span> 的獲客機器
+                香港網頁設計公司<br/>
+                打造 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">高轉換率</span> 的獲客官網
               </h1>
               
               <p className="text-xl text-gray-400 mb-8 leading-relaxed">

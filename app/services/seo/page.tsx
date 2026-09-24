@@ -3,7 +3,7 @@ import { WHATSAPP_E164 } from "@/lib/site-config";
 import SeoServiceContent from "./SeoServiceContent";
 
 export const metadata: Metadata = {
-  title: "SEO + GEO 企業搜尋增長方案",
+  title: "SEO 公司｜SEO + GEO 搜尋增長方案",
   description:
     "SEO 打好 Google／Bing 自然搜尋基礎，GEO 將搜尋曝光延伸到 AI 問答搜尋。方案由每月 HK$5,800 起，列明關鍵字數量、文章篇數、頁面優化數量及每月報告。3 個月起，單一網站／單一市場為基準。",
   keywords: [
@@ -22,13 +22,15 @@ export const metadata: Metadata = {
     "AI Overview SEO",
     "搜尋引擎優化香港",
     "香港 SEO 公司",
+    "SEO 公司",
+    "SEO Agency 香港",
   ],
   authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
   alternates: {
     canonical: "/services/seo/",
   },
   openGraph: {
-    title: "SEO + GEO 企業搜尋增長方案",
+    title: "SEO 公司｜SEO + GEO 搜尋增長方案",
     description:
       "SEO 打好 Google／Bing 自然搜尋基礎，GEO 將搜尋曝光延伸到 AI 問答搜尋。方案由每月 HK$5,800 起，交付內容及量度方式清晰列明。",
     url: "https://adwire.com.hk/services/seo/",
@@ -46,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SEO + GEO 企業搜尋增長方案",
+    title: "SEO 公司｜SEO + GEO 搜尋增長方案",
     description: "SEO 打好自然搜尋基礎，GEO 將曝光延伸到 AI 問答搜尋。HK$5,800/月起，交付清晰。",
     images: ["/portfolio/seo-ranking.webp"],
   },

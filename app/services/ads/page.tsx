@@ -3,7 +3,7 @@ import { WHATSAPP_E164 } from "@/lib/site-config";
 import AdsServiceContent from "./AdsServiceContent";
 
 export const metadata: Metadata = {
-  title: "成效廣告投放｜Google・Meta 代操",
+  title: "廣告公司｜Google・Meta 成效代操",
   description:
     "Google、Meta、YouTube 及 LinkedIn 廣告策略、素材測試與持續優化。列明服務費與媒體預算分開計算，並說明成效量度方式及建議最低測試預算。",
   keywords: [
@@ -22,13 +22,17 @@ export const metadata: Metadata = {
     "廣告代操香港",
     "數位廣告代理",
     "FB IG 廣告香港",
+    "廣告公司",
+    "香港廣告公司",
+    "廣告公司 香港",
+    "廣告服務公司",
   ],
   authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
   alternates: {
     canonical: "/services/ads/",
   },
   openGraph: {
-    title: "成效廣告投放｜Google・Meta 代操",
+    title: "廣告公司｜Google・Meta 成效代操",
     description: "Google、Meta、YouTube 及 LinkedIn 廣告策略、素材測試與持續優化。服務費與媒體預算分開計算。",
     url: "https://adwire.com.hk/services/ads/",
     siteName: "ADWire Agency",
@@ -45,7 +49,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "成效廣告投放 | ADWire Agency 香港",
+    title: "廣告公司 | ADWire Agency 香港",
     description: "香港成效廣告代操：Google / Meta / YouTube，平均 ROAS 8.5倍，入門代操費 HK$2,000/月起。",
     images: ["/portfolio/global-trade-ads.webp"],
   },

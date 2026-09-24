@@ -115,13 +115,13 @@ export default function AdsServiceContent() {
                 <BarChart3 size={14} /> Performance Marketing Expert
               </span>
               <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-                每投 $1 廣告費<br />
+                香港廣告公司<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5a623] to-orange-300">
-                  讓它帶回 $8.5
+                  每投 $1 廣告費，帶回 $8.5
                 </span>
               </h1>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-                涵蓋 <strong className="text-white">Meta（FB/IG）、Google Ads、YouTube 及 LinkedIn</strong>。<br className="hidden md:block" />
+                作為香港<strong className="text-white">廣告公司</strong>，我們涵蓋 Meta（FB/IG）、Google Ads、YouTube 及 LinkedIn。<br className="hidden md:block" />
                 我們不只幫你買廣告，更利用 A/B Testing 與 Pixel 追蹤，<br className="hidden md:block" />
                 將每一分預算轉化為<span className="text-[#f5a623] font-semibold">可量化的真實生意</span>。
               </p>

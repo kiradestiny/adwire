@@ -94,12 +94,13 @@ export default function SeoServiceContent() {
                 <Search size={13} /> SEO + GEO / AISO Expert
               </span>
               <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-                SEO 打好 Google 基礎<br />
+                香港 SEO 公司<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                  GEO 將曝光延伸到 AI 搜尋
+                  Google 排名 × GEO 搶佔 AI 搜尋曝光
                 </span>
               </h1>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+                ADWire 是香港<strong className="text-white">SEO 公司</strong>，同時專攻 GEO（生成式引擎優化）。<br className="hidden md:block" />
                 客人的搜尋習慣已經改變：除了 Google，<br className="hidden md:block" />
                 亦會直接問 <strong className="text-white">ChatGPT、Perplexity、Gemini、Google AI 搜尋</strong>。<br className="hidden md:block" />
                 品牌在 AI 回答中是否被提及，會影響客人<span className="text-red-400 font-semibold">有無機會見到你</span>。

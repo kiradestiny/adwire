@@ -101,8 +101,8 @@ export default function SystemServiceContent() {
               </div>
               
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                企業數碼轉型<br/>
-                由 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">系統化</span> 開始
+                CRM 系統 與 App 開發<br/>
+                由 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">系統化</span> 開始數碼轉型
               </h1>
               
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
