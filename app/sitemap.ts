@@ -18,8 +18,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const SITE_LAST_UPDATED     = '2026-09-20'  // 2026-09 網站定位及 SEO 優化批次
   const BLOG_LAST_UPDATED     = '2026-09-20'  // 文章模板及內容更新
   const SERVICE_LAST_UPDATED  = '2026-09-20'  // 服務頁面定位、交付內容及 Schema 更新
-  const LEGAL_LAST_UPDATED    = '2025-01-01'  // 法律條款未變更
-  const PORTFOLIO_LAST_UPDATED = '2026-09-22' // 作品集：新增 21 個已確認客戶 Showcase 及品牌圖
+  const LEGAL_LAST_UPDATED    = '2025-01-01'  // 法律條款未變更（誠實值：內容確實未改）
+  const PORTFOLIO_LAST_UPDATED = '2026-09-24' // 2026-09-24 見證資料匿名化（16 個案例）
+  const SERVICE_LAST_UPDATED_2026_09_24 = '2026-09-24' // 2026-09-24 P1：title／H1／keywords 對準搜尋量
+
+  // 逐頁 lastmod 覆寫：只對「確實於該日改動過」的頁面設新日期。
+  // 唔可以全站一齊推日期 —— Google 對 lastmod 的信任建基於準確性，
+  // 造假日期會令整個 sitemap 的 lastmod 被忽略。
+  const SERVICE_PAGE_LAST_UPDATED: Record<string, string> = {
+    '/services/ads/':    SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港廣告公司／每投 $1 廣告費，帶回 $8.5」
+    '/services/seo/':    SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港 SEO 公司／Google 排名 × GEO」
+    '/services/system/': SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「CRM 系統 與 App 開發／由系統化開始數碼轉型」
+    '/services/web/':    SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港網頁設計公司／打造高轉換率的獲客官網」
+    '/services/video/':  SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港影片製作公司／抓住黃金 3 秒」
+  }
 
   // 1. 核心頁面 (Core Pages) — 最高優先級
   const coreRoutes: RouteConfig[] = [
@@ -79,6 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: '/services/hong-kong-market/',  lastModified: SERVICE_LAST_UPDATED },
   ].map((route) => ({
     ...route,
+    lastModified: SERVICE_PAGE_LAST_UPDATED[route.url] ?? route.lastModified,
     changeFrequency: 'monthly' as RouteConfig['changeFrequency'],
     priority: 0.8,
   }))
