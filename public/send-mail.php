@@ -526,7 +526,7 @@ $emailContent = <<<HTML
 </html>
 HTML;
 
-// ── SMTP Headers ──────────────────────────────────────────────────────
+// ── SMTP Headers（本機 mail() 降級方案用）─────────────────────────────
 // [FIX #7] 不暴露 PHP 版本（X-Mailer 改為自定義標識）
 $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -535,8 +535,135 @@ $headers .= "From: ADWire Website <{$mailFrom}>\r\n";
 $headers .= "Reply-To: {$safeName} <{$safeEmail}>\r\n";
 $headers .= "X-Mailer: ADWire-Contact-Form\r\n";
 
+// ── 郵件通道（FIX #11）────────────────────────────────────────────────
+// 背景：adwire.com.hk 的 SPF 只授權 Google、DMARC 為 p=quarantine，
+//       由本機（SiteGround）直接以 @adwire.com.hk 名義寄出的郵件會被 Gmail
+//       判為 DMARC:Quarantine，掉入垃圾郵件（後台有記錄、郵箱收唔到）。
+// 做法：優先經 smtp.gmail.com 認證發送（SPF＋DKIM＋DMARC 全部通過，穩定入
+//       收件箱）；憑證未設定或 SMTP 失敗時，才降級用本機 mail()，確保通知
+//       不會完全中斷。
+//
+// 憑證檔必須放在 webroot 以外（網站讀取不到）：
+//   ~/www/adwire.com.hk/adwire-mail-secret.php
+//   <?php return ['user' => 'info@adwire.com.hk', 'pass' => '<App Password>'];
+function loadMailSecret(): ?array
+{
+    $candidates = [
+        __DIR__ . '/../adwire-mail-secret.php',
+        dirname(__DIR__, 3) . '/.adwire-mail-secret.php',
+        (getenv('HOME') ?: '') . '/.adwire-mail-secret.php',
+    ];
+    foreach ($candidates as $path) {
+        if ($path === '' || !is_readable($path)) {
+            continue;
+        }
+        $cfg = @include $path;
+        if (
+            is_array($cfg)
+            && !empty($cfg['user'])
+            && !empty($cfg['pass'])
+            && strpos((string) $cfg['pass'], 'REPLACE_WITH') === false
+        ) {
+            return $cfg;
+        }
+    }
+    return null;
+}
+
+/** 讀取 SMTP 回應；非預期回應碼即拋出（訊息唔含憑證） */
+function smtpTalk($fp, ?string $command, array $okCodes): string
+{
+    if ($command !== null) {
+        fwrite($fp, $command . "\r\n");
+    }
+    $out = '';
+    while (($line = fgets($fp, 4096)) !== false) {
+        $out .= trim($line) . ' ';
+        if (preg_match('/^(\d{3}) /', $line, $m)) {
+            if (!in_array((int) $m[1], $okCodes, true)) {
+                throw new RuntimeException(trim($out));
+            }
+            return trim($out);
+        }
+    }
+    throw new RuntimeException('連線中斷或無回應：' . trim($out));
+}
+
+/** 經 Google Workspace SMTP（STARTTLS + AUTH LOGIN）發送；成功回 "OK ..."，失敗回錯誤字串 */
+function smtpSend(array $cfg, string $to, string $subject, string $html, string $from, string $replyName, string $replyEmail): string
+{
+    $host = (string) ($cfg['host'] ?? 'smtp.gmail.com');
+    $port = (int) ($cfg['port'] ?? 587);
+
+    $fp = @stream_socket_client("tcp://{$host}:{$port}", $errno, $errstr, 20);
+    if (!$fp) {
+        return "連線失敗 {$host}:{$port} — {$errstr}";
+    }
+    stream_set_timeout($fp, 20);
+
+    try {
+        $ehlo = 'EHLO ' . (gethostname() ?: 'localhost');
+        smtpTalk($fp, null, [220]);
+        smtpTalk($fp, $ehlo, [250]);
+        smtpTalk($fp, 'STARTTLS', [220]);
+        if (!stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+            throw new RuntimeException('STARTTLS 加密握手失敗');
+        }
+        smtpTalk($fp, $ehlo, [250]);
+        smtpTalk($fp, 'AUTH LOGIN', [334]);
+        smtpTalk($fp, base64_encode((string) $cfg['user']), [334]);
+        smtpTalk($fp, base64_encode((string) $cfg['pass']), [235]);
+        smtpTalk($fp, "MAIL FROM:<{$from}>", [250]);
+        smtpTalk($fp, "RCPT TO:<{$to}>", [250, 251]);
+        smtpTalk($fp, 'DATA', [354]);
+
+        $domain = preg_replace('/^.*@/', '', $from) ?: 'adwire.com.hk';
+        $mid = '<' . bin2hex(random_bytes(12)) . '@' . $domain . '>';
+        $data  = 'Date: ' . date('r') . "\r\n";
+        $data .= "Message-ID: {$mid}\r\n";
+        $data .= "From: ADWire Website <{$from}>\r\n";
+        $data .= "To: <{$to}>\r\n";
+        $data .= 'Subject: ' . mb_encode_mimeheader($subject, 'UTF-8', 'B') . "\r\n";
+        $data .= "MIME-Version: 1.0\r\n";
+        $data .= "Content-Type: text/html; charset=UTF-8\r\n";
+        $data .= "Content-Transfer-Encoding: 8bit\r\n";
+        $data .= "Reply-To: {$replyName} <{$replyEmail}>\r\n";
+        $data .= "X-Mailer: ADWire-Contact-Form\r\n\r\n";
+        $data .= preg_replace('/^\./m', '..', $html) . "\r\n.\r\n"; // dot-stuffing
+
+        fwrite($fp, $data);
+        $resp = smtpTalk($fp, null, [250]);
+        @fwrite($fp, "QUIT\r\n");
+        fclose($fp);
+        return 'OK ' . $resp;
+    } catch (Throwable $e) {
+        @fclose($fp);
+        return $e->getMessage();
+    }
+}
+
 // ── Send ──────────────────────────────────────────────────────────────
-if (mail($to, $safeSubject, $emailContent, $headers)) {
+$delivered = false;
+
+$mailSecret = loadMailSecret();
+if ($mailSecret !== null) {
+    $smtpFrom = !empty($mailSecret['from']) ? (string) $mailSecret['from'] : (string) $mailSecret['user'];
+    $smtpResult = smtpSend($mailSecret, $to, $safeSubject, $emailContent, $smtpFrom, $safeName, $safeEmail);
+    if (strpos($smtpResult, 'OK ') === 0) {
+        $delivered = true;
+        error_log('[ADWire] enquiry sent via SMTP: ' . $smtpResult);
+    } else {
+        error_log('[ADWire] SMTP failed, falling back to local mail(): ' . $smtpResult);
+    }
+} else {
+    error_log('[ADWire] mail secret missing; using local mail() (deliverability not guaranteed).');
+}
+
+if (!$delivered) {
+    $delivered = mail($to, $safeSubject, $emailContent, $headers);
+}
+
+if ($delivered) {
     jsonResponse(true, '查詢已發送，我們會盡快聯絡你！');
 } else {
     jsonResponse(false, '發送失敗，請稍後再試或直接聯絡我們。', 500);
