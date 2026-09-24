@@ -45,6 +45,23 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/thank-you/', '/send-mail.php', '/admin/'],
       },
+      // ------------------------------------------------------------------
+      // AI 搜尋／回答引擎：明確開放
+      // ------------------------------------------------------------------
+      // 「User-agent: *」本身已經 Allow，以下規則純粹係把「我哋歡迎 AI 引用」
+      // 寫成明示聲明，方便日後審計同避免誤加封鎖。
+      // 分開列出係因為「搜尋索引」（OAI-SearchBot、PerplexityBot）同
+      // 「模型訓練」（GPTBot、CCBot、anthropic-ai）係兩個獨立決定；
+      // 呢度兩者都開放。Google-Extended 唔影響 Google Search 排名，
+      // 只控制 Gemini／AI Overviews 嘅額外使用。
+      // ⚠️ 同樣不可加 '/_next/' —— 封鎖 CSS/JS 會令 AI 爬蟲無法完整解讀頁面。
+      ...['OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'PerplexityBot', 'ClaudeBot',
+          'Claude-User', 'anthropic-ai', 'Google-Extended', 'Applebot-Extended', 'CCBot']
+        .map((userAgent) => ({
+          userAgent,
+          allow: '/',
+          disallow: ['/thank-you/', '/send-mail.php', '/admin/'],
+        })),
     ],
     // 兩個 sitemap：頁面 + 客戶品牌圖（image sitemap）
     sitemap: [`${baseUrl}/sitemap.xml`, `${baseUrl}/image-sitemap.xml`],

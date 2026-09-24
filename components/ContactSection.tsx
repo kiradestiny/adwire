@@ -511,21 +511,14 @@ export default function ContactSection({ defaultService }: { defaultService?: st
               className="space-y-4"
               suppressHydrationWarning
               noValidate
+              data-hydrated={mounted ? "true" : "false"}
             >
-              {!mounted ? (
-                /* Skeleton — prevents SSR hydration mismatch */
-                <div className="space-y-4" aria-hidden="true">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="h-[58px] w-full bg-gray-100 rounded-lg animate-pulse" />
-                    <div className="h-[58px] w-full bg-gray-100 rounded-lg animate-pulse" />
-                  </div>
-                  <div className="h-[58px] w-full bg-gray-100 rounded-lg animate-pulse" />
-                  <div className="h-[58px] w-full bg-gray-100 rounded-lg animate-pulse" />
-                  <div className="h-[130px] w-full bg-gray-100 rounded-lg animate-pulse" />
-                  <div className="h-[56px] w-full bg-gray-200 rounded-lg animate-pulse" />
-                </div>
-              ) : (
-                <>
+              <>
+                {/* 2026-09-24：原本用 `!mounted` gate 顯示 skeleton，令表單
+                    （服務選項、預算區間、私隱說明）只喺 JS 執行後才存在，
+                    AI crawler 同無 JS 環境完全讀唔到。已改為直接 SSR 輸出。
+                    安全性：所有 useState 初始值都係確定性字串，冇 Date.now()／
+                    Math.random()／window，所以 SSR 與 client 首渲染一致。 */}
                   <input
                     type="text"
                     name="website"
@@ -746,7 +739,6 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                     如需提交項目文件，我們回覆時會提供安全的提交方式。
                   </p>
                 </>
-              )}
             </form>
           </motion.div>
 

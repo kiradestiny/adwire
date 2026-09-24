@@ -34,6 +34,8 @@ import { readdirSync, readFileSync, statSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 
 const OUT = "out";
+/** 原始碼根目錄（閘門由 repo 根執行，故為 "."） */
+const ROOT = ".";
 const STRICT = process.argv.includes("--strict");
 
 /** Title 長度上限。超過就有在 Google 搜尋結果被截斷的風險。 */
@@ -154,6 +156,8 @@ const APPROVED_STATS = new Set([
   "35%", "40%", "45%", "50%", "50+", "60%", "65%", "66%", "68%", "70%", "75%", "85%",
   "93%", "95%", "100+", "120+", "180%", "180,000+", "200%", "220%", "280%", "300%",
   "300+", "340%", "350%", "430%", "500%", "771%", "800%",
+  // JS 專屬數字（HeroSection STATS，負責人 2026-09-24 確認為真）
+  "1000",
 ]);
 
 const errors = [];
@@ -397,6 +401,86 @@ function checkMarquee() {
   }
 }
 
+/**
+ * 掃描原始碼內「只靠 JS 才出現」的數字。
+ *
+ * 為何需要：本閘門只讀 out/ 的靜態 HTML（唔 render JS）。2026-09-24 實測
+ * components/HeroSection.tsx 用 useCounter 由 0 動畫數到目標值，SSR 出嘅係
+ * 「0 + 服務企業 / 0 % 平均 ROI / 0 + KOL 資源」——數字由頭到尾冇出現喺 HTML，
+ * 所以永遠唔會被 APPROVED_STATS 檢查，AI crawler 亦只讀到 0。
+ *
+ * 這類數字必須手動加進 APPROVED_STATS，否則直接報錯（阻擋部署）。
+ */
+function checkJsRenderedStats() {
+  const SRC_DIRS = [join(ROOT, "components"), join(ROOT, "app")];
+  const seen = new Map(); // token -> [file]
+  const walkSrc = (d) => {
+    if (!existsSync(d)) return [];
+    const out = [];
+    for (const e of readdirSync(d, { withFileTypes: true })) {
+      const p = join(d, e.name);
+      if (e.isDirectory()) {
+        if (["admin", "node_modules", ".next"].includes(e.name)) continue;
+        out.push(...walkSrc(p));
+      } else if (/\.(tsx|ts|jsx|js)$/.test(e.name)) out.push(p);
+    }
+    return out;
+  };
+
+  for (const f of SRC_DIRS.flatMap(walkSrc)) {
+    const src = readFileSync(f, "utf8");
+    // 數字型：value: 500
+    for (const m of src.matchAll(/\bvalue:\s*(\d[\d,]*)\s*[,}]/g)) {
+      const tok = m[1].replace(/,/g, "");
+      if (!seen.has(tok)) seen.set(tok, []);
+      seen.get(tok).push(relative(ROOT, f));
+    }
+    // 字串型：value: "328%" / value: "1000+"
+    for (const m of src.matchAll(/\bvalue:\s*"(\d[\d,]*(?:\.\d+)?[%x+]?\+?)"/g)) {
+      const tok = m[1];
+      if (!seen.has(tok)) seen.set(tok, []);
+      seen.get(tok).push(relative(ROOT, f));
+    }
+  }
+
+  // 關鍵：只有當個數字「真係唔喺 build 出嘅 HTML 出現」才算 JS 專屬。
+  // 若已 SSR 輸出（例如 {value} 直接渲染），就唔應該報——否則會誤報。
+  const htmlCache = new Map();
+  const inBuiltHtml = (tok) => {
+    const bare = tok.replace(/[%x+]/g, "").replace(/,/g, "");
+    if (!bare) return true;
+    if (htmlCache.has(bare)) return htmlCache.get(bare);
+    let hit = false;
+    for (const f of walk(OUT)) {
+      if (!f.endsWith(".html")) continue;
+      if (readFileSync(f, "utf8").includes(bare)) { hit = true; break; }
+    }
+    htmlCache.set(bare, hit);
+    return hit;
+  };
+
+  const jsOnly = [...seen.entries()].filter(([tok]) => !inBuiltHtml(tok));
+  const unapproved = jsOnly.filter(([tok]) => !APPROVED_STATS.has(tok) && !APPROVED_STATS.has(tok + "+") && !APPROVED_STATS.has(tok + "%"));
+  const approved = jsOnly.filter(([tok]) =>
+    APPROVED_STATS.has(tok) || APPROVED_STATS.has(tok + "+") || APPROVED_STATS.has(tok + "%"));
+
+  if (unapproved.length) {
+    errors.push(
+      `原始碼有 ${unapproved.length} 個數字只靠 JS 才出現，且未在核准清單：` +
+        unapproved.map(([t, fs]) => `${t}（${[...new Set(fs)].join("、")}）`).join("；") +
+        ` —— 呢類數字完全唔會出現喺靜態 HTML，AI crawler／無 JS 環境讀唔到。` +
+        `修法：令 SSR 直接輸出最終值（唔好靠動畫由 0 起），或確認真偽後加入 APPROVED_STATS`
+    );
+  }
+  if (approved.length) {
+    console.log(
+      `   ⚠️  ${approved.length} 個數字只靠 JS 才出現但已核准（未阻擋）：` +
+        approved.map(([t]) => t).join("、") +
+        ` —— 建議仍改為 SSR 輸出，否則 AI crawler 睇唔到`
+    );
+  }
+}
+
 function main() {
   if (process.argv.includes("--selftest")) selftest();
 
@@ -410,6 +494,7 @@ function main() {
   for (const f of files) checkPage(f, inSitemap);
 
   checkMarquee();
+  checkJsRenderedStats();
 
   // 純文字檔只做禁止字句檢查（無 Title／canonical／H1 等結構）
   const txts = textFiles(OUT);

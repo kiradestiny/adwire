@@ -62,12 +62,15 @@ function StatCard({
   started: boolean;
 }) {
   const count = useCounter(value, 1800, started);
+  // 未開始動畫前直接輸出最終數字：令原始 HTML（無 JS 環境、AI crawler）讀到
+  // 真實數字（500+ / 328% / 1000+）而唔係初始值 0。動畫行為完全不變。
+  const display = started ? count : value;
   return (
     <div className="liquid-glass border border-white/10 rounded-2xl p-3 text-center hover:border-white/25 transition-all duration-300 group">
       <div
         className={`text-xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200 inline-block tabular-nums`}
       >
-        {count}{suffix}
+        {display}{suffix}
       </div>
       <div className="text-[11px] text-gray-400 mt-0.5 leading-tight">{label}</div>
     </div>
