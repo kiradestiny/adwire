@@ -37,19 +37,24 @@ $allowedOrigins = defined('CORS_ORIGINS') && !empty(CORS_ORIGINS)
     : ['https://adwire.com.hk', 'https://www.adwire.com.hk'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
-if (!empty($origin)) {
-    if (in_array($origin, $allowedOrigins, true)) {
-        header("Access-Control-Allow-Origin: $origin");
-        header('Access-Control-Allow-Headers: Content-Type');
-        header('Access-Control-Allow-Methods: POST, OPTIONS');
-        header('Vary: Origin');
-    } else {
-        // 非允許的 Origin → 403 拒絕
-        ob_clean();
-        http_response_code(403);
-        echo json_encode(['success' => false, 'message' => 'Forbidden'], JSON_UNESCAPED_UNICODE);
-        exit;
-    }
+// [FIX #12] Origin 必須存在且必須在白名單內。
+// 原本寫成 `if (!empty($origin))` —— 即係「唔送 Origin 就完全跳過檢查」，
+// 任何直接 POST（curl／bot／腳本）都可以長驅直入處理流程，令 honeypot
+// 同填表時間檢查形同虛設。實測收到的 spam 正是繞過前端直接 POST 的。
+// 瀏覽器對所有 POST 請求都必定送出 Origin（Fetch 規範），所以收緊後
+// 不影響任何正常表單提交；被擋的都會寫入 error_log 以便監察。
+if (in_array($origin, $allowedOrigins, true)) {
+    header("Access-Control-Allow-Origin: $origin");
+    header('Access-Control-Allow-Headers: Content-Type');
+    header('Access-Control-Allow-Methods: POST, OPTIONS');
+    header('Vary: Origin');
+} else {
+    error_log('[ADWire] origin rejected: ' . ($origin === '' ? '(missing)' : $origin)
+        . ' ip=' . ($_SERVER['REMOTE_ADDR'] ?? '?'));
+    ob_clean();
+    http_response_code(403);
+    echo json_encode(['success' => false, 'message' => 'Forbidden'], JSON_UNESCAPED_UNICODE);
+    exit;
 }
 
 // [FIX #9] OPTIONS preflight 處理（瀏覽器發 CORS 預檢請求時）
