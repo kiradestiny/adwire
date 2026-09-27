@@ -38,6 +38,7 @@
     .badge-read { background-color: #3498db; }
     .badge-replied { background-color: #2ecc71; }
     .badge-closed { background-color: #95a5a6; }
+    .badge-spam { background-color: #c0392b; }
   </style>
 </head>
 <body class="layout-fluid">

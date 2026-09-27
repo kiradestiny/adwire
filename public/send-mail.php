@@ -252,6 +252,238 @@ function hasRecentDuplicateFingerprint(string $fingerprint, int $window): bool
 }
 
 
+/*
+ * ── 反垃圾：評分式隔離（2026-09-28）────────────────────────────────────
+ *
+ * 設計原則（重要）：
+ *   1. 本層「標記隔離」而非「硬性拒收」。ADWire 的生意來自查詢，
+ *      走失一個真客的代價遠大於收到一封垃圾，所以所有判斷都只會把
+ *      提交標記為 spam（status='spam' + 主旨加 [疑似垃圾]），
+ *      記錄仍然完整保存，永不刪除。
+ *   2. 所有第三方查詢一律 fail-open：API 掛掉／超時 → 當作正常，
+ *      不會因此擋掉任何真客。
+ *   3. 只用「真客戶不會有」的訊號評分（ISP vs 數據中心 ASN、欄位互相
+ *      重複的純數字），避免用「免費電郵」之類會誤殺香港中小企的訊號。
+ */
+
+/**
+ * 記錄一次提交並回傳該時間窗口內的累計次數。
+ * 與 checkRateLimit() 的分別：此函式不會拒絕請求，只回報次數，
+ * 讓呼叫端可以根據「聚合行為」計分，而不是直接 429 掉真客。
+ */
+function bumpRateLimit(string $namespace, string $subject, int $window): int
+{
+    if ($subject === '') {
+        return 1;
+    }
+    try {
+        require_once __DIR__ . '/admin/includes/database.php';
+        $pdo = Database::getInstance();
+        $hash = hash('sha256', $subject);
+        $now  = time();
+
+        $pdo->prepare('DELETE FROM rate_limits WHERE window_start < ?')->execute([$now - $window]);
+        $pdo->prepare(
+            'INSERT INTO rate_limits (namespace, subject_hash, window_start, request_count)
+             VALUES (?, ?, ?, 1)
+             ON DUPLICATE KEY UPDATE request_count = request_count + 1'
+        )->execute([$namespace, $hash, $now]);
+
+        $stmt = $pdo->prepare(
+            'SELECT SUM(request_count) FROM rate_limits
+             WHERE namespace = ? AND subject_hash = ? AND window_start >= ?'
+        );
+        $stmt->execute([$namespace, $hash, $now - $window]);
+
+        return (int) $stmt->fetchColumn();
+    } catch (Throwable $e) {
+        error_log('[ADWire] bumpRateLimit failed: ' . $e->getMessage());
+        return 1;
+    }
+}
+
+/**
+ * 網路前綴（IPv4 取 /24、IPv6 取 /48）。
+ * 用途：捉「同一網絡段不斷輪換 IP」的攻擊 —— 換 IP 但換不掉網絡段。
+ */
+function networkPrefix(string $ip): string
+{
+    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        $p = explode('.', $ip);
+        return $p[0] . '.' . $p[1] . '.' . $p[2] . '.0/24';
+    }
+    if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+        $p = explode(':', $ip);
+        return implode(':', array_slice($p, 0, 3)) . '::/48';
+    }
+    return '';
+}
+
+/**
+ * 判斷是否數據中心／VPN／代理組織。
+ * 真客戶經 ISP 上網（香港：HKBN／PCCW／HGC／CMHK）；
+ * 垃圾與 bot 幾乎都經 VPN／主機商（實測兩個 spam 都來自 AS212238 Datacamp）。
+ * ⚠️ 此名單只作「評分」用，不是硬封鎖清單。
+ */
+function isDatacenterOrg(string $org, int $asn): bool
+{
+    $orgLower = mb_strtolower($org, 'UTF-8');
+    $keywords = [
+        // VPN / 代理服務
+        'nordvpn', 'expressvpn', 'mullvad', 'surfshark', 'purevpn', 'proton',
+        'ipvanish', 'hide.me', 'tunnelbear', 'zscaler', 'windscribe', 'cyberghost',
+        'private internet', 'kaspersky', 'avast', 'hotspot shield', 'ivacy',
+        // 主機商 / 雲 / 數據中心（含 Datacamp 系 VPN 基建）
+        'datacamp', 'digitalocean', 'digital ocean', 'ovh', 'hetzner', 'vultr',
+        'linode', 'akamai', 'contabo', 'm247', 'leaseweb', 'colocrossing',
+        'clouvider', 'choopa', 'quadranet', 'psychz', 'sharktech', 'hostsailor',
+        'hostwinds', 'ionos', 'rackspace', 'hivelocity', 'equinix', 'fastly',
+        'amazon', 'aws', 'google cloud', 'google llc', 'microsoft azure', 'microsoft corporation', 'oracle cloud',
+        'alibaba cloud', 'aliyun', 'tencent cloud', 'huawei cloud', 'cloudflare',
+        'hostinger', 'bluehost', 'dreamhost', 'namecheap', 'godaddy',
+        'serverhub', 'frantech', 'pinehosting', 'buyvm', 'jbj', 'asanetwork',
+        'gcore', 'melbicom', 'aeza', 'stark industries', 'netcup', 'ip range',
+    ];
+    foreach ($keywords as $kw) {
+        if (strpos($orgLower, $kw) !== false) {
+            return true;
+        }
+    }
+    // 已實測確認的垃圾來源 ASN（Datacamp Limited — 4,341 個 prefix 的 VPN 池）
+    return $asn > 0 && in_array($asn, [212238, 9009, 209103, 49447, 210644, 204957, 210906], true);
+}
+
+/**
+ * IP 信譽查詢（HTTPS、免費、無需 API key），結果快取 24 小時。
+ *
+ * 為什麼用 ipwho.is：免費層提供 HTTPS（ip-api 免費層只有 HTTP，純文字
+ * 傳輸可被中間人竄改）；同時回傳 ASN 號與組織名，足以判斷 ISP vs 數據中心。
+ *
+ * ⚠️ fail-open：任何失敗（超時、SSL、非 200、JSON 壞）都回傳 ok=false，
+ *    呼叫端不得因此扣分或拒收。
+ */
+function lookupIpIntel(string $ip): array
+{
+    $blank = [
+        'ok' => false, 'country' => '', 'country_code' => '',
+        'asn' => 0, 'org' => '', 'isp' => '', 'datacenter' => false,
+    ];
+
+    if ($ip === '' || $ip === '0.0.0.0' || !filter_var($ip, FILTER_VALIDATE_IP)) {
+        return $blank;
+    }
+    // 私有位址（區網／本機測試）不做外部查詢
+    if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+        return $blank;
+    }
+
+    $cachePath = sys_get_temp_dir() . '/adwire_ipintel/' . hash('sha256', $ip) . '.json';
+    if (is_readable($cachePath)) {
+        $cached = json_decode((string) @file_get_contents($cachePath), true);
+        if (is_array($cached) && (int) ($cached['ts'] ?? 0) > (time() - 86400)) {
+            unset($cached['ts']);
+            return $cached + $blank;
+        }
+    }
+
+    $ctx = stream_context_create([
+        'http' => ['timeout' => 3, 'ignore_errors' => true],
+        'ssl'  => ['verify_peer' => true, 'verify_peer_name' => true],
+    ]);
+    $raw = @file_get_contents('https://ipwho.is/' . rawurlencode($ip), false, $ctx);
+    if ($raw === false || $raw === '') {
+        return $blank;
+    }
+
+    $j = json_decode($raw, true);
+    if (!is_array($j) || empty($j['success'])) {
+        return $blank;
+    }
+
+    $conn = is_array($j['connection'] ?? null) ? $j['connection'] : [];
+    $org  = (string) ($conn['org'] ?? '');
+    $isp  = (string) ($conn['isp'] ?? '');
+    $asn  = (int) ($conn['asn'] ?? 0);
+
+    $result = [
+        'ok'           => true,
+        'country'      => (string) ($j['country'] ?? ''),
+        'country_code' => (string) ($j['country_code'] ?? ''),
+        'asn'          => $asn,
+        'org'          => $org,
+        'isp'          => $isp,
+        'datacenter'   => isDatacenterOrg($org !== '' ? $org : $isp, $asn),
+    ];
+
+    if (!is_dir(dirname($cachePath))) {
+        @mkdir(dirname($cachePath), 0700, true);
+    }
+    @file_put_contents($cachePath, json_encode($result + ['ts' => time()], JSON_UNESCAPED_UNICODE));
+
+    return $result;
+}
+
+/**
+ * 已知的一次性／棄用電郵域名（spam 常用）。
+ * 注意：gmail／yahoo／outlook 等「免費但正常」的域名刻意不在名單內 ——
+ * 香港大量中小企真的用 gmail 查詢，封咗等於走客。
+ */
+function isDisposableEmailDomain(string $domain): bool
+{
+    $domain = mb_strtolower(trim($domain), 'UTF-8');
+    if ($domain === '') {
+        return false;
+    }
+    $list = [
+        'ifastnet1.com', 'usaaxa.com', 'mailinator.com', 'guerrillamail.com',
+        'guerrillamail.net', 'sharklasers.com', 'grr.la', 'spam4.me',
+        '10minutemail.com', '10minutemail.net', 'tempmail.com', 'temp-mail.org',
+        'throwawaymail.com', 'yopmail.com', 'yopmail.net', 'trashmail.com',
+        'maildrop.cc', 'getnada.com', 'dispostable.com', 'mailnesia.com',
+        'mytemp.email', 'moakt.com', 'emailondeck.com', 'fakeinbox.com',
+        'mailcatch.com', 'spambog.com', 'discard.email', 'mail-temporaire.fr',
+        'byom.de', 'kurzepost.de', 'wegwerfmail.de', 'trbvm.com',
+    ];
+    if (in_array($domain, $list, true)) {
+        return true;
+    }
+    // 一次性域名常見關鍵字
+    foreach (['tempmail', 'temp-mail', 'throwaway', '10minutemail', 'disposable', 'trashmail', 'mailinator'] as $kw) {
+        if (strpos($domain, $kw) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/** 加分並記錄原因（供電郵／資料庫顯示） */
+function addSpamScore(int &$score, array &$reasons, int $points, string $reason): void
+{
+    if ($points <= 0) {
+        return;
+    }
+    $score   += $points;
+    $reasons[] = $reason . '(+' . $points . ')';
+}
+
+/**
+ * 是否明顯非瀏覽器的 User-Agent（bot 常常漏送或填假值）
+ */
+function looksLikeBotUserAgent(string $ua): bool
+{
+    $ua = trim($ua);
+    if ($ua === '' || mb_strlen($ua, 'UTF-8') < 20) {
+        return true;
+    }
+    foreach (['curl', 'python', 'wget', 'httpclient', 'headlesschrome', 'phantomjs',
+              'scrapy', 'go-http-client', 'java/', 'libwww', 'okhttp', 'axios'] as $bad) {
+        if (stripos($ua, $bad) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // ── Request Method Guard ──────────────────────────────────────────────
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     jsonResponse(false, 'Method Not Allowed', 405);
@@ -363,6 +595,101 @@ if (!empty($service) && !in_array($service, $allowedServices, true)) {
     $service = '未指定'; // 非白名單值統一重置，不拒絕（保留 UX 容錯）
 }
 
+// ── Spam Scoring（2026-09-28）──────────────────────────────────────────
+// 設計原則：只累積「真客戶不會出現」的訊號，並在達到門檻時「隔離」而
+// 非拒收 —— 記錄照樣完整保存（status='spam'），通知信照樣寄出但主旨
+// 加上 [疑似垃圾]，配合 Gmail filter 自動歸類，真客零損失。
+$spamScore   = 0;
+$spamReasons = [];
+
+// (1) 同一 IP 長窗口累積 —— 捉繞過「3 次/60 秒」的慢速攻擊
+$ipDailyCount = bumpRateLimit('ip_daily', $clientIp, 86400);
+if ($ipDailyCount > 4) {
+    addSpamScore($spamScore, $spamReasons, 25, "同一 IP 24 小時內第 {$ipDailyCount} 次提交");
+}
+
+// (2) 同一網絡段（/24）輪換 IP —— 換 IP 但換不掉網絡段
+$netPrefix      = networkPrefix($clientIp);
+$netHourlyCount = bumpRateLimit('net_hourly', $netPrefix, 3600);
+if ($netHourlyCount > 8) {
+    addSpamScore($spamScore, $spamReasons, 30, "同網絡段 {$netPrefix} 1 小時內第 {$netHourlyCount} 次提交");
+}
+
+// (3) 同一電郵域名的短時間用量
+$emailDomain = (strpos($email, '@') !== false)
+    ? mb_strtolower(substr(strrchr($email, '@'), 1), 'UTF-8')
+    : '';
+if ($emailDomain !== '') {
+    $domainDailyCount = bumpRateLimit('domain_daily', $emailDomain, 86400);
+    if ($domainDailyCount > 4) {
+        addSpamScore($spamScore, $spamReasons, 30, "同一電郵域名 {$emailDomain} 24 小時內第 {$domainDailyCount} 次提交");
+    }
+}
+
+// (4) IP 信譽：ISP vs 數據中心／VPN（fail-open，查不到就當正常）
+$ipIntel = lookupIpIntel($clientIp);
+$asnType = 'ASN 未知';
+$asnOrg  = '';
+if (!empty($ipIntel['ok'])) {
+    $asnOrg  = $ipIntel['org'] !== '' ? $ipIntel['org'] : $ipIntel['isp'];
+    $asnType = !empty($ipIntel['datacenter']) ? '數據中心／VPN' : '一般 ISP';
+    if (!empty($ipIntel['datacenter'])) {
+        addSpamScore($spamScore, $spamReasons, 35,
+            '來源為數據中心／VPN（AS' . $ipIntel['asn'] . ' ' . $asnOrg . '）');
+    }
+}
+
+// (5) 同一 ASN 短期內大量提交 —— 實測兩個 spam 同屬 AS212238 Datacamp
+if (!empty($ipIntel['ok']) && (int) $ipIntel['asn'] > 0) {
+    $asnHourlyCount = bumpRateLimit('asn_hourly', 'AS' . $ipIntel['asn'], 3600);
+    if ($asnHourlyCount > 15) {
+        addSpamScore($spamScore, $spamReasons, 35, "同一 ASN (AS{$ipIntel['asn']}) 1 小時內第 {$asnHourlyCount} 次提交");
+    }
+}
+
+// (6) 內容指紋：電話／公司／公司網站填同一串純數字（實測兩個 spam 都中）
+$isDigitsOnly = static function (string $v): bool {
+    return $v !== '' && preg_match('/^\d+$/', $v) === 1;
+};
+if ($phone !== '' && $company !== '' && $companySite !== ''
+    && $phone === $company && $phone === $companySite && $isDigitsOnly($phone)) {
+    addSpamScore($spamScore, $spamReasons, 40, '電話／公司／公司網站填寫完全相同的純數字');
+} else {
+    if ($isDigitsOnly($company)) {
+        addSpamScore($spamScore, $spamReasons, 20, '公司名稱只填數字');
+    }
+    if ($isDigitsOnly($companySite)) {
+        addSpamScore($spamScore, $spamReasons, 20, '公司網站只填數字');
+    }
+}
+
+// (7) 訊息與所有選填欄位全部空白（真客通常至少描述一句）
+if ($message === '' && $company === '' && $companySite === '' && $systemInfo === '') {
+    addSpamScore($spamScore, $spamReasons, 10, '訊息與所有選填欄位全部空白');
+}
+
+// (8) 一次性／棄用電郵域名
+if (isDisposableEmailDomain($emailDomain)) {
+    addSpamScore($spamScore, $spamReasons, 40, '一次性／棄用電郵域名 ' . $emailDomain);
+}
+
+// (9) User-Agent 缺失或明顯非瀏覽器
+$userAgent = (string) ($_SERVER['HTTP_USER_AGENT'] ?? '');
+if (looksLikeBotUserAgent($userAgent)) {
+    addSpamScore($spamScore, $spamReasons, 25, 'User-Agent 缺失或明顯非瀏覽器');
+}
+
+// (10) 服務類別非白名單值（正常客人只會由下拉選單送出白名單選項）
+if ($service === '未指定') {
+    addSpamScore($spamScore, $spamReasons, 15, '服務類別非白名單值');
+}
+
+// 門檻：>= 55 分 → 隔離（標記 spam，仍然保存記錄、仍然寄通知）
+$isSpam = $spamScore >= 55;
+
+// 同一 IP 近期提交次數（顯示用）
+$recentFromIp = max(0, $ipDailyCount - 1);
+
 $fingerprintSource = mb_strtolower(implode('|', [$name, $phone, $email, $service, $message]), 'UTF-8');
 $submissionFingerprint = hash('sha256', $fingerprintSource);
 
@@ -391,8 +718,9 @@ try {
     require_once __DIR__ . '/admin/includes/database.php';
     $pdo = Database::getInstance();
     $stmt = $pdo->prepare(
-        'INSERT INTO enquiries (name, phone, email, service, message, ip_address, user_agent, status)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+        'INSERT INTO enquiries (name, phone, email, service, message, ip_address, user_agent, status,
+                                spam_score, spam_reasons, country_code, asn, asn_type)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     );
     // 將項目預審欄位以結構化方式附加在訊息內（不需修改 enquiries 資料表結構）
     $extrasLines = [];
@@ -414,8 +742,13 @@ try {
         mb_substr($service, 0, 100),
         $messageForDb,
         mb_substr($clientIp, 0, 45),
-        mb_substr($_SERVER['HTTP_USER_AGENT'] ?? '', 0, 500),
-        'new',
+        mb_substr($userAgent, 0, 500),
+        $isSpam ? 'spam' : 'new',
+        $spamScore,
+        mb_substr(implode('；', $spamReasons), 0, 255),
+        mb_substr((string) ($ipIntel['country_code'] ?? ''), 0, 2),
+        $ipIntel['asn'] > 0 ? ('AS' . $ipIntel['asn']) : '',
+        mb_substr($asnType, 0, 20),
     ]);
 } catch (Throwable $dbEx) {
     // 數據庫寫入失敗只記錄日誌，不中斷流程（同樣需接得住 Error）
@@ -429,7 +762,8 @@ $to = defined('MAIL_TO') && !empty(MAIL_TO) ? MAIL_TO : 'info@adwire.com.hk';
 // [FIX #4] 標頭注入防護：對所有用於 SMTP 標頭的值移除 CR/LF/NULL
 $subjectBudget = ($budget !== '' && $budget !== '未指定') ? " - {$budget}" : '';
 $stagingTag = (defined('ADWIRE_STAGING') && ADWIRE_STAGING) ? '[STAGING 測試] ' : '';
-$safeSubject = sanitizeHeader("{$stagingTag}【新客戶查詢】{$name} - {$service}{$subjectBudget}");
+$spamTag = $isSpam ? '[疑似垃圾] ' : '';
+$safeSubject = sanitizeHeader("{$stagingTag}{$spamTag}【新客戶查詢】{$name} - {$service}{$subjectBudget}");
 $safeEmail   = sanitizeHeader($email);
 $safeName    = sanitizeHeader($name);
 
@@ -449,6 +783,31 @@ foreach ($extraPairs as $label => $val) {
     if ($val === '' || $val === '未指定') { continue; }
     $safeVal = nl2br($val);
     $extraRows .= "<tr><td class=\"label\">{$label}</td><td class=\"value\">{$safeVal}</td></tr>";
+}
+
+// ── 來源與風險資訊（2026-09-28）────────────────────────────────────────
+// 目的：唔使入後台，睇通知信就一眼判斷得出真客定 bot。
+$srcBits = [$clientIp];
+if (!empty($ipIntel['ok'])) {
+    $ccText = trim($ipIntel['country']
+        . ($ipIntel['country_code'] !== '' ? ' (' . $ipIntel['country_code'] . ')' : ''));
+    if ($ccText !== '') { $srcBits[] = $ccText; }
+    if ((int) $ipIntel['asn'] > 0) { $srcBits[] = 'AS' . $ipIntel['asn']; }
+    if ($asnOrg !== '') { $srcBits[] = $asnOrg; }
+    $srcBits[] = $asnType;
+} else {
+    $srcBits[] = '（IP 信譽查詢不可用，已放行）';
+}
+$srcText   = htmlspecialchars(implode(' · ', array_filter($srcBits, static fn($v): bool => $v !== '')), ENT_QUOTES, 'UTF-8');
+$riskColor = $isSpam ? '#c0392b' : '#27ae60';
+$riskText  = $isSpam
+    ? '疑似垃圾（' . $spamScore . ' 分）：' . htmlspecialchars(implode('；', $spamReasons), ENT_QUOTES, 'UTF-8')
+    : '正常（' . $spamScore . ' 分）';
+
+$extraRows .= '<tr><td class="label">來源資訊</td><td class="value">' . nl2br($srcText) . '</td></tr>';
+$extraRows .= '<tr><td class="label">風險評估</td><td class="value" style="color:' . $riskColor . ';font-weight:bold;">' . $riskText . '</td></tr>';
+if ($recentFromIp > 0) {
+    $extraRows .= '<tr><td class="label">重複提交</td><td class="value">同一 IP 24 小時內第 ' . $ipDailyCount . ' 次</td></tr>';
 }
 
 $emailContent = <<<HTML

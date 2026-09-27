@@ -284,6 +284,7 @@ button:focus-visible,
 .badge-read    { background-color: #3498db; color: #fff; }
 .badge-replied { background-color: #2ecc71; color: #fff; }
 .badge-closed  { background-color: #95a5a6; color: #fff; }
+.badge-spam    { background-color: #c0392b; color: #fff; }
 
 /* 通用 Tabler 色系微調 */
 .bg-primary, .bg-blue { background-color: var(--adw-blue) !important; }

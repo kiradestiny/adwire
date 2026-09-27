@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         $newStatus = $_POST['status'] ?? '';
         $adminNotes = trim($_POST['admin_notes'] ?? '');
         
-        if (in_array($newStatus, ['new', 'read', 'replied', 'closed'], true)) {
+        if (in_array($newStatus, ['new', 'read', 'replied', 'closed', 'spam'], true)) {
             // 取得舊狀態以記錄變更
             $oldStmt = $pdo->prepare('SELECT status, name FROM enquiries WHERE id = ?');
             $oldStmt->execute([$id]);
@@ -69,7 +69,7 @@ $offset = ($page - 1) * $perPage;
 $where = [];
 $params = [];
 
-if ($filterStatus && in_array($filterStatus, ['new', 'read', 'replied', 'closed'], true)) {
+if ($filterStatus && in_array($filterStatus, ['new', 'read', 'replied', 'closed', 'spam'], true)) {
     $where[] = 'status = ?';
     $params[] = $filterStatus;
 }
@@ -103,6 +103,7 @@ $statusCounts = [
     'read'    => (int) $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = 'read'")->fetchColumn(),
     'replied' => (int) $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = 'replied'")->fetchColumn(),
     'closed'  => (int) $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = 'closed'")->fetchColumn(),
+    'spam'    => (int) $pdo->query("SELECT COUNT(*) FROM enquiries WHERE status = 'spam'")->fetchColumn(),
 ];
 
 $pageTitle = 'Enquiry 紀錄';
@@ -123,6 +124,7 @@ include __DIR__ . '/includes/layout-header.php';
           <option value="read" <?= $filterStatus === 'read' ? 'selected' : '' ?>>已閱讀 (<?= $statusCounts['read'] ?>)</option>
           <option value="replied" <?= $filterStatus === 'replied' ? 'selected' : '' ?>>已回覆 (<?= $statusCounts['replied'] ?>)</option>
           <option value="closed" <?= $filterStatus === 'closed' ? 'selected' : '' ?>>已關閉 (<?= $statusCounts['closed'] ?>)</option>
+          <option value="spam" <?= $filterStatus === 'spam' ? 'selected' : '' ?>>疑似垃圾 (<?= $statusCounts['spam'] ?>)</option>
         </select>
       </div>
       <div class="col">
@@ -193,6 +195,11 @@ include __DIR__ . '/includes/layout-header.php';
                     data-status="<?= $eq['status'] ?>"
                     data-notes="<?= e($eq['admin_notes'] ?? '') ?>"
                     data-ip="<?= e($eq['ip_address']) ?>"
+                    data-score="<?= (int) ($eq['spam_score'] ?? 0) ?>"
+                    data-reasons="<?= e($eq['spam_reasons'] ?? '') ?>"
+                    data-country="<?= e($eq['country_code'] ?? '') ?>"
+                    data-asn="<?= e($eq['asn'] ?? '') ?>"
+                    data-asntype="<?= e($eq['asn_type'] ?? '') ?>"
                     data-time="<?= formatDate($eq['created_at'], 'Y-m-d H:i:s') ?>">
               <i class="ti ti-eye"></i>
             </button>
@@ -275,6 +282,16 @@ include __DIR__ . '/includes/layout-header.php';
               <div class="form-control-plaintext" id="modal-time"></div>
             </div>
           </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">來源國家 / ASN</label>
+              <div class="form-control-plaintext" id="modal-origin"></div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">風險評估（自動）</label>
+              <div class="form-control-plaintext" id="modal-risk"></div>
+            </div>
+          </div>
           <hr>
           <div class="row mb-3">
             <div class="col-md-6">
@@ -284,6 +301,7 @@ include __DIR__ . '/includes/layout-header.php';
                 <option value="read">已閱讀</option>
                 <option value="replied">已回覆</option>
                 <option value="closed">已關閉</option>
+                <option value="spam">疑似垃圾</option>
               </select>
             </div>
           </div>
@@ -313,6 +331,22 @@ document.getElementById('enquiryModal').addEventListener('show.bs.modal', functi
   document.getElementById('modal-message').textContent = btn.dataset.message || '(無訊息)';
   document.getElementById('modal-ip').textContent = btn.dataset.ip;
   document.getElementById('modal-time').textContent = btn.dataset.time;
+
+  // 來源國家 / ASN / 類型
+  const originParts = [btn.dataset.country, btn.dataset.asn, btn.dataset.asntype].filter(Boolean);
+  document.getElementById('modal-origin').textContent = originParts.length ? originParts.join(' · ') : '-';
+
+  // 風險評估
+  const score = parseInt(btn.dataset.score || '0', 10);
+  const riskEl = document.getElementById('modal-risk');
+  if (score >= 55) {
+    riskEl.textContent = '疑似垃圾（' + score + ' 分）' + (btn.dataset.reasons ? '：' + btn.dataset.reasons : '');
+    riskEl.style.color = '#c0392b';
+    riskEl.style.fontWeight = 'bold';
+  } else {
+    riskEl.textContent = '正常（' + score + ' 分）';
+    riskEl.style.color = '#27ae60';
+  }
   
   // 設定狀態下拉
   const statusSelect = this.querySelector('select[name="status"]');

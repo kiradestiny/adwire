@@ -211,9 +211,19 @@ export default function ContactSection({ defaultService }: { defaultService?: st
   const [cooldownUntil, setCooldownUntil] = useState<number | null>(null);
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
 
+  // ── 服務選項（含 fallback）──────────────────────────────────────────────
+  // 若 defaultService 不在 services.json 白名單（例如新增服務頁未同步 JSON），
+  // 就把它注入選項首位。否則會出現兩個靜默錯誤：
+  //   1) <select> 找不到對應 option，瀏覽器會顯示第一項（錯的服務）
+  //   2) send-mail.php 的白名單檢查會把它改成「未指定」，客人真正想查的服務消失
+  const serviceOptions: readonly string[] =
+    defaultService && !SERVICE_OPTIONS.includes(defaultService)
+      ? [defaultService, ...SERVICE_OPTIONS]
+      : SERVICE_OPTIONS;
+
   const [values, setValues] = useState<FormValues>({
     name: "", phone: "", email: "",
-    service: defaultService ?? SERVICE_OPTIONS[0],
+    service: serviceOptions[0],
     message: "",
     company: "",
     companySite: "",
@@ -593,7 +603,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                         onChange={e => handleChange("service", e.target.value)}
                         className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f5a623] focus:ring-2 focus:ring-[#f5a623]/20 outline-none transition-all bg-gray-50 text-sm text-gray-700"
                       >
-                        {SERVICE_OPTIONS.map(opt => (
+                        {serviceOptions.map(opt => (
                           <option key={opt} value={opt}>{opt}</option>
                         ))}
                       </select>
