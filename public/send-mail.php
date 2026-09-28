@@ -808,11 +808,44 @@ if ($turnstileStatus === 'missing') {
 
 $isSpam = $spamScore >= 55;
 
-// 評分達標時是否「完全不寄通知信」（只寫入資料庫）。
-//   true  = 收件匣零干擾（預設）；記錄仍完整保存在 enquiries（status='spam'），
-//           可隨時在後台／CRM 用「疑似垃圾」篩選查看。
-//   false = 仍然寄出，但主旨加 [疑似垃圾]，讓你自己用 Gmail filter 歸類。
-$suppressSpamEmail = true;
+// ── 分流：機械人鐵證 vs 真人可能（2026-09-28 修訂）──────────────────────
+// 背景：原本設計係「評分達標 = 靜默隔離」。但部分訊號真人完全會觸發：
+//   冇 Turnstile token ← ad-blocker／無痕模式／擋 script／舊瀏覽器
+//   數據中心／VPN      ← 公司 VPN、流動網絡、共享網絡
+//   同一 IP／域名用量   ← 同一間公司幾個人先後查詢
+// 靜默隔離呢類提交，等於白白走客。原則：**垃圾可以出聲提吓，真客一個都唔可以走。**
+//   有「機械人鐵證」→ 靜默隔離（完全唔寄信），避免收件匣被真正垃圾騷擾。
+//   只有「真人可能」訊號 → 照樣寄通知信，主旨加 [待確認]，由負責人自行判斷。
+$botEvidenceNeedles = [
+    '完全相同的純數字',   // 電話／公司／公司網站填同一串數字 —— 真人唔會咁做
+    '只填數字',           // 公司名稱／公司網站只填數字
+    'User-Agent',         // UA 缺失或明顯非瀏覽器
+    '一次性／棄用電郵域名', // 刻意使用即棄信箱
+    '同網絡段',           // 同一 /24 一小時大量提交 = 換 IP 攻擊
+    '同一 ASN',           // 同一 ASN 一小時大量提交 = 自動化腳本
+];
+$botEvidence = false;
+foreach ($spamReasons as $reasonText) {
+    foreach ($botEvidenceNeedles as $needle) {
+        if (str_contains($reasonText, $needle)) {
+            $botEvidence = true;
+            break 2;
+        }
+    }
+}
+
+// 達標但冇機械人鐵證 = 可能係真人被誤判 → 需要負責人自己判斷
+$needsHumanReview = $isSpam && !$botEvidence;
+
+// 只有「機械人鐵證」才完全不寄通知信；其餘情況一律寄出。
+$suppressSpamEmail = $isSpam && $botEvidence;
+if ($suppressSpamEmail) {
+    error_log('[ADWire] spam quarantined (bot evidence, no email): score=' . $spamScore
+        . ' ip=' . $clientIp . ' reasons=' . implode('；', $spamReasons));
+} elseif ($needsHumanReview) {
+    error_log('[ADWire] score>=55 but NO bot evidence -> notifying with [待確認]: score=' . $spamScore
+        . ' ip=' . $clientIp . ' reasons=' . implode('；', $spamReasons));
+}
 
 // 同一 IP 近期提交次數（顯示用）
 $recentFromIp = max(0, $ipDailyCount - 1);
@@ -870,7 +903,9 @@ try {
         $messageForDb,
         mb_substr($clientIp, 0, 45),
         mb_substr($userAgent, 0, 500),
-        $isSpam ? 'spam' : 'new',
+        // 有機械人鐵證才入 spam；真人可能嘅照樣入正常線索收件匣，
+        // 唔好被埋喺垃圾堆令負責人睇唔到。
+        ($isSpam && $botEvidence) ? 'spam' : 'new',
         $spamScore,
         mb_substr(implode('；', $spamReasons), 0, 255),
         mb_substr((string) ($ipIntel['country_code'] ?? ''), 0, 2),
@@ -889,7 +924,8 @@ $to = defined('MAIL_TO') && !empty(MAIL_TO) ? MAIL_TO : 'info@adwire.com.hk';
 // [FIX #4] 標頭注入防護：對所有用於 SMTP 標頭的值移除 CR/LF/NULL
 $subjectBudget = ($budget !== '' && $budget !== '未指定') ? " - {$budget}" : '';
 $stagingTag = (defined('ADWIRE_STAGING') && ADWIRE_STAGING) ? '[STAGING 測試] ' : '';
-$spamTag = $isSpam ? '[疑似垃圾] ' : '';
+// 只有「真人可能」嘅才會寄出，所以標記為 [待確認]（[疑似垃圾] 已改為靜默隔離，唔會寄）
+$spamTag = $needsHumanReview ? '[待確認] ' : '';
 $safeSubject = sanitizeHeader("{$stagingTag}{$spamTag}【新客戶查詢】{$name} - {$service}{$subjectBudget}");
 $safeEmail   = sanitizeHeader($email);
 $safeName    = sanitizeHeader($name);
@@ -926,10 +962,18 @@ if (!empty($ipIntel['ok'])) {
     $srcBits[] = '（IP 信譽查詢不可用，已放行）';
 }
 $srcText   = htmlspecialchars(implode(' · ', array_filter($srcBits, static fn($v): bool => $v !== '')), ENT_QUOTES, 'UTF-8');
-$riskColor = $isSpam ? '#c0392b' : '#27ae60';
-$riskText  = $isSpam
-    ? '疑似垃圾（' . $spamScore . ' 分）：' . htmlspecialchars(implode('；', $spamReasons), ENT_QUOTES, 'UTF-8')
-    : '正常（' . $spamScore . ' 分）';
+if ($needsHumanReview) {
+    $riskColor = '#e67e22';
+    $riskText  = '⚠️ 需要你確認（真人有可能）：' . $spamScore . ' 分 —— '
+        . htmlspecialchars(implode('；', $spamReasons), ENT_QUOTES, 'UTF-8')
+        . '｜未發現機械人鐵證，所以照樣通知你。若確認係垃圾可直接略過。';
+} elseif ($isSpam) {
+    $riskColor = '#c0392b';
+    $riskText  = '疑似垃圾（' . $spamScore . ' 分）：' . htmlspecialchars(implode('；', $spamReasons), ENT_QUOTES, 'UTF-8');
+} else {
+    $riskColor = '#27ae60';
+    $riskText  = '正常（' . $spamScore . ' 分）';
+}
 
 $extraRows .= '<tr><td class="label">來源資訊</td><td class="value">' . nl2br($srcText) . '</td></tr>';
 $extraRows .= '<tr><td class="label">風險評估</td><td class="value" style="color:' . $riskColor . ';font-weight:bold;">' . $riskText . '</td></tr>';
