@@ -51,10 +51,31 @@ const TIMELINE_OPTIONS = [
 ] as const;
 
 // ─── Per-field validators ─────────────────────────────────────────────────────
+/**
+ * 只用「數字、空白、標點、符號」組成的字串（即完全冇文字）。
+ * 刻意避開 Unicode property escapes（\p{L}）以免受 tsconfig target 限制；
+ * 客戶端只負責即時提示，最終把關在 send-mail.php。
+ */
+const NON_LETTER_ONLY = /^[\d\s\-._,:;/\\|()\[\]{}@#*"'+=~`^$%&!?<>]*$/;
+
+/** 有數字但完全冇文字 → 亂填（例如公司欄填 03669835）。"-"、"無"、"N/A" 不會觸發。 */
+const isNumericGibberish = (value: string): boolean => {
+  const s = value.trim();
+  return s !== "" && /\d/.test(s) && NON_LETTER_ONLY.test(s);
+};
+
 const VALIDATORS: Record<string, (v: string) => string> = {
-  name:  v => v.trim().length >= 2  ? "" : "請輸入姓名（最少 2 字）",
+  name: v => {
+    const s = v.trim();
+    if (s.length < 2) return "請輸入姓名（最少 2 字）";
+    if (NON_LETTER_ONLY.test(s)) return "姓名不可只填數字或符號";
+    return "";
+  },
   phone: v => PHONE_DIGITS_REGEX.test(v.trim()) ? "" : "請輸入 8 至 15 位數字，不能包含空格或符號",
   email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? "" : "請輸入有效電郵地址",
+  // 公司／品牌名稱與公司網站「不可能」是純數字（負責人指出）；留空仍可通過
+  company:     v => isNumericGibberish(v) ? "公司／品牌名稱不可只填數字（可留空）" : "",
+  companySite: v => isNumericGibberish(v) ? "公司網站不可只填數字（可留空）" : "",
 };
 
 type FormValues = {
@@ -336,7 +357,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
 
     // Validate all required fields upfront
     const newErrors: Record<string, string> = {};
-    (["name", "phone", "email"] as const).forEach(field => {
+    (["name", "phone", "email", "company", "companySite"] as const).forEach(field => {
       const err = VALIDATORS[field]?.(values[field]) ?? "";
       if (err) newErrors[field] = err;
     });

@@ -587,6 +587,67 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 $email = (string) filter_var($email, FILTER_SANITIZE_EMAIL);
 
+// ── 硬性拒收：高信心 spam（2026-09-28）─────────────────────────────────
+// 負責人指出：公司／品牌名稱與公司網站「不可能」是純數字。
+// 實測三筆 spam（#7 #8 #10）全部在三個欄位填同一串純數字；而全部真客
+// （含 ADWire 內部測試）的公司在欄位都是正常文字 —— 誤判風險為零。
+//
+// 規則刻意收窄，避免誤擋真客：
+//   必須同時「含有數字」且「完全沒有字母」才拒收。
+//   → "-"、"無"、"N/A"、"未填" 等真空值不會觸發。
+//
+// 被拒的提交仍然寫入資料庫（status='spam'）作審計，但【不寄通知信】，
+// 令收件匣零干擾，同時保留完整記錄可追溯（永不刪除）。
+$hasLetter = static fn(string $v): bool => preg_match('/\p{L}/u', $v) === 1;
+$isNumericGibberish = static fn(string $v): bool =>
+    $v !== '' && preg_match('/\d/', $v) === 1 && !preg_match('/\p{L}/u', $v);
+
+$hardRejectField  = '';
+$hardRejectReason = '';
+if (!$hasLetter($name)) {
+    $hardRejectField  = 'name';
+    $hardRejectReason = '姓名不可只填數字或符號';
+} elseif ($isNumericGibberish($company)) {
+    $hardRejectField  = 'company';
+    $hardRejectReason = '公司／品牌名稱不可只填數字，請填寫正式名稱或留空';
+} elseif ($isNumericGibberish($companySite)) {
+    $hardRejectField  = 'companySite';
+    $hardRejectReason = '公司網站不可只填數字，請填寫正確網址或留空';
+}
+
+if ($hardRejectReason !== '') {
+    if (defined('ADWIRE_STAGING') && ADWIRE_STAGING) {
+        error_log('[ADWire][STAGING] hard-reject (DB write skipped): ' . $hardRejectReason);
+    } else {
+        try {
+            require_once __DIR__ . '/admin/includes/database.php';
+            $pdoH = Database::getInstance();
+            $pdoH->prepare(
+                'INSERT INTO enquiries (name, phone, email, service, message, ip_address, user_agent, status,
+                                        spam_score, spam_reasons, country_code, asn, asn_type)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+            )->execute([
+                mb_substr($name, 0, 100),
+                mb_substr($phone, 0, 20),
+                mb_substr($email, 0, 200),
+                mb_substr($service, 0, 100),
+                $message,
+                mb_substr($clientIp, 0, 45),
+                mb_substr((string) ($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 500),
+                'spam', 100,
+                mb_substr('硬性拒收：' . $hardRejectReason, 0, 255),
+                '', '', '',
+            ]);
+        } catch (Throwable $e) {
+            error_log('[ADWire] hard-reject DB save failed: ' . $e->getMessage());
+        }
+    }
+    error_log('[ADWire] hard-reject spam: ' . $hardRejectReason
+        . ' field=' . $hardRejectField . ' ip=' . $clientIp
+        . ' name=' . $name . ' email=' . $email);
+    jsonResponse(false, '提交資料有誤：' . $hardRejectReason . '。', 400);
+}
+
 // [FIX #8] Service 白名單驗證 — 從 public/config/services.json 讀取（Single Source of Truth）
 // 前端 ContactSection.tsx 也從同一份 JSON 讀取，無需手動同步
 $servicesJsonPath = __DIR__ . '/config/services.json';
@@ -691,6 +752,12 @@ if ($service === '未指定') {
 
 // 門檻：>= 55 分 → 隔離（標記 spam，仍然保存記錄、仍然寄通知）
 $isSpam = $spamScore >= 55;
+
+// 評分達標時是否「完全不寄通知信」（只寫入資料庫）。
+//   true  = 收件匣零干擾（預設）；記錄仍完整保存在 enquiries（status='spam'），
+//           可隨時在後台／CRM 用「疑似垃圾」篩選查看。
+//   false = 仍然寄出，但主旨加 [疑似垃圾]，讓你自己用 Gmail filter 歸類。
+$suppressSpamEmail = true;
 
 // 同一 IP 近期提交次數（顯示用）
 $recentFromIp = max(0, $ipDailyCount - 1);
@@ -1017,6 +1084,12 @@ function smtpSend(array $cfg, string $to, string $subject, string $html, string 
 }
 
 // ── Send ──────────────────────────────────────────────────────────────
+// 疑似垃圾：已寫入資料庫，但不寄通知信（見上方 $suppressSpamEmail）
+if ($isSpam && $suppressSpamEmail) {
+    error_log('[ADWire] spam quarantined, no notification email: score=' . $spamScore
+        . ' ip=' . $clientIp . ' reasons=' . implode('；', $spamReasons));
+    jsonResponse(true, '查詢已發送，我們會盡快聯絡你！');
+}
 $delivered = false;
 
 $mailSecret = loadMailSecret();
