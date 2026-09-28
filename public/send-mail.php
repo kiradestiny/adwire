@@ -525,6 +525,8 @@ $service = trim(htmlspecialchars(strip_tags((string)($input['service'] ?? '')), 
 $message = trim(htmlspecialchars(strip_tags((string)($input['message'] ?? '')), ENT_QUOTES, 'UTF-8'));
 $website = trim((string)($input['website'] ?? ''));
 $formStartedAt = trim((string)($input['formStartedAt'] ?? ''));
+// Cloudflare Turnstile token（前端 widget 產生；公開值，但要限長度防濫用）
+$turnstileToken = substr(trim((string)($input['turnstileToken'] ?? '')), 0, 4096);
 
 // ── 項目預審欄位（全部選填，用於加快分流及回覆）────────────────────────
 // 注意：honeypot 欄位名稱為 website；客戶填寫的公司網站位於 companySite
@@ -661,6 +663,53 @@ if (!empty($service) && !in_array($service, $allowedServices, true)) {
     $service = '未指定'; // 非白名單值統一重置，不拒絕（保留 UX 容錯）
 }
 
+// ── Cloudflare Turnstile 驗證（2026-09-28）────────────────────────────
+// 目的：令機械人拿不到有效 token。
+//   帶 token 但驗證失敗 → 硬性拒收（明確機械人／重複使用 token）
+//   完全冇 token        → 交給評分隔離（+60 分，不寄通知信）
+//   無法判斷            → fail-open 放行
+// 安全設計：secret 未設定、Cloudflare 連不到、超時，全部 fail-open ——
+// 即係 Cloudflare 掛掉最壞都只係回到未加 Turnstile 之前的狀態，真客零損失。
+$turnstileStatus = 'skip';   // skip | missing | ok | fail | unknown
+$tsSecret = loadTurnstileSecret();
+if ($tsSecret !== null) {
+    if ($turnstileToken === '') {
+        $turnstileStatus = 'missing';
+    } else {
+        $tsVerdict = verifyTurnstile($turnstileToken, $tsSecret, $clientIp);
+        $turnstileStatus = $tsVerdict === true ? 'ok' : ($tsVerdict === false ? 'fail' : 'unknown');
+    }
+}
+
+if ($turnstileStatus === 'fail') {
+    error_log('[ADWire] turnstile hard-reject: invalid token ip=' . $clientIp . ' email=' . $email);
+    if (!(defined('ADWIRE_STAGING') && ADWIRE_STAGING)) {
+        try {
+            require_once __DIR__ . '/admin/includes/database.php';
+            $pdoT = Database::getInstance();
+            $pdoT->prepare(
+                'INSERT INTO enquiries (name, phone, email, service, message, ip_address, user_agent, status,
+                                        spam_score, spam_reasons, country_code, asn, asn_type)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+            )->execute([
+                mb_substr($name, 0, 100),
+                mb_substr($phone, 0, 20),
+                mb_substr($email, 0, 200),
+                mb_substr($service, 0, 100),
+                $message,
+                mb_substr($clientIp, 0, 45),
+                mb_substr((string) ($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 500),
+                'spam', 100,
+                '硬性拒收：Cloudflare Turnstile 驗證失敗',
+                '', '', '',
+            ]);
+        } catch (Throwable $e) {
+            error_log('[ADWire] turnstile reject DB save failed: ' . $e->getMessage());
+        }
+    }
+    jsonResponse(false, '提交驗證失敗，請重新載入頁面後再試。', 400);
+}
+
 // ── Spam Scoring（2026-09-28）──────────────────────────────────────────
 // 設計原則：只累積「真客戶不會出現」的訊號，並在達到門檻時「隔離」而
 // 非拒收 —— 記錄照樣完整保存（status='spam'），通知信照樣寄出但主旨
@@ -751,6 +800,12 @@ if ($service === '未指定') {
 }
 
 // 門檻：>= 55 分 → 隔離（標記 spam，仍然保存記錄、仍然寄通知）
+// 冇附帶 Turnstile token：前端表單一定會帶，缺咗屬強烈機械人訊號。
+// 用評分而非硬性拒收 —— 避免「真客被 ad-blocker 擋住 Turnstile script」時白白走客。
+if ($turnstileStatus === 'missing') {
+    addSpamScore($spamScore, $spamReasons, 60, '未通過 Cloudflare Turnstile 驗證（提交未附帶 token）');
+}
+
 $isSpam = $spamScore >= 55;
 
 // 評分達標時是否「完全不寄通知信」（只寫入資料庫）。
@@ -981,6 +1036,74 @@ $headers .= "X-Mailer: ADWire-Contact-Form\r\n";
 //                    'user' => 'info@adwire.com.hk', 'from' => 'info@adwire.com.hk'];
 //   模式 B（Gmail 帳戶 + App Password）：
 //     <?php return ['user' => 'info@adwire.com.hk', 'pass' => '<App Password>'];
+/**
+ * 讀取 Cloudflare Turnstile Secret Key。
+ * 存於 webroot 以外（與 adwire-mail-secret.php 同一慣例），格式：
+ *   <?php return ['secret' => '0x4AAAAA...'];
+ * 讀不到就回 null —— 呼叫方一律 fail-open，不會因此擋走真客。
+ */
+function loadTurnstileSecret(): ?string
+{
+    $candidates = [
+        __DIR__ . '/../adwire-turnstile-secret.php',
+        dirname(__DIR__, 3) . '/.adwire-turnstile-secret.php',
+        (getenv('HOME') ?: '') . '/.adwire-turnstile-secret.php',
+    ];
+    foreach ($candidates as $path) {
+        if ($path === '' || !is_readable($path)) {
+            continue;
+        }
+        $cfg = @include $path;
+        if (is_array($cfg) && !empty($cfg['secret']) && is_string($cfg['secret'])) {
+            return trim($cfg['secret']);
+        }
+    }
+    return null;
+}
+
+/**
+ * 向 Cloudflare Siteverify 驗證 Turnstile token。
+ *   回傳 true  = 通過
+ *   回傳 false = 明確失敗（token 無效／過期／重複使用）→ 呼叫方可硬性拒收
+ *   回傳 null  = 無法判斷（網絡問題／超時／回應異常）→ 呼叫方必須 fail-open
+ */
+function verifyTurnstile(string $token, string $secret, string $ip): ?bool
+{
+    if ($token === '' || $secret === '') {
+        return null;
+    }
+    $ctx = stream_context_create([
+        'http' => [
+            'method'        => 'POST',
+            'header'        => "Content-Type: application/x-www-form-urlencoded\r\n",
+            'content'       => http_build_query([
+                'secret'   => $secret,
+                'response' => $token,
+                'remoteip' => $ip,
+            ]),
+            'timeout'       => 4,
+            'ignore_errors' => true,
+        ],
+        'ssl' => ['verify_peer' => true, 'verify_peer_name' => true],
+    ]);
+    $raw = @file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false, $ctx);
+    if ($raw === false || $raw === '') {
+        error_log('[ADWire] turnstile siteverify unreachable -> fail-open');
+        return null;
+    }
+    $res = json_decode($raw, true);
+    if (!is_array($res) || !array_key_exists('success', $res)) {
+        error_log('[ADWire] turnstile siteverify unexpected response -> fail-open: ' . substr($raw, 0, 200));
+        return null;
+    }
+    if ($res['success'] === true) {
+        return true;
+    }
+    error_log('[ADWire] turnstile verification FAILED: '
+        . implode(',', (array) ($res['error-codes'] ?? [])));
+    return false;
+}
+
 function loadMailSecret(): ?array
 {
     $candidates = [

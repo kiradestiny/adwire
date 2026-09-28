@@ -5,7 +5,7 @@ import {
   Mail, MapPin, Phone, AlertCircle, Loader2,
   CheckCircle2, MessageCircle, Shield, Zap, Gift, Star,
 } from "lucide-react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 // ─── Service Options ──────────────────────────────────────────────────────────
@@ -22,6 +22,23 @@ import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
  * 避免 staging 的測試提交誤送到正式站的收件流程及 CRM。
  */
 const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || "/send-mail.php";
+
+// ─── Cloudflare Turnstile ─────────────────────────────────────────────────────
+/** 網站金鑰（Site Key）—— 公開值，只作呼叫 widget 用；密鑰只存放於伺服器端。 */
+const TURNSTILE_SITE_KEY = "0x4AAAAAAFFvSQ_aR523_Eeq";
+
+/**
+ * Turnstile widget 以 explicit 模式 render，所以要自行宣告全域型別。
+ * 用 explicit（而唔係自動掃描）係為咗控制 render 時機同容器。
+ */
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (el: HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widgetId?: string) => void;
+    };
+  }
+}
 
 const PHONE_DIGITS_REGEX = /^\d{8,15}$/;
 const CLIENT_SUBMIT_COOLDOWN_MS = 60_000;
@@ -227,6 +244,62 @@ export default function ContactSection({ defaultService }: { defaultService?: st
   const router = useRouter();
   const [mounted, setMounted]           = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // ─── Cloudflare Turnstile（2026-09-28）─────────────────────────────────────
+  // 模式用 non-interactive：真客只會見到短暫「載入中」，唔需要撳任何嘢。
+  // 刻意唔用 managed —— 佢喺 IG／FB App 內置瀏覽器有相容問題，會令真客送唔到表單。
+  // 若 script 載入失敗（例如被 ad-blocker 擋），會照樣提交，交由後端評分決定，
+  // 唔會因為第三方驗證而白白走客。
+  const turnstileBoxRef = useRef<HTMLDivElement | null>(null);
+  const turnstileTokenRef = useRef<string>("");
+  const turnstileFailedRef = useRef(false);
+
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY) return;
+    let cancelled = false;
+
+    const renderWidget = () => {
+      if (cancelled || !turnstileBoxRef.current || !window.turnstile) return;
+      try {
+        window.turnstile.render(turnstileBoxRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          theme: "light",
+          callback: (token: string) => { turnstileTokenRef.current = token; },
+          "expired-callback": () => { turnstileTokenRef.current = ""; },
+          "error-callback": () => { turnstileFailedRef.current = true; },
+        });
+      } catch {
+        turnstileFailedRef.current = true;
+      }
+    };
+
+    if (window.turnstile) { renderWidget(); return; }
+
+    const existing = document.querySelector<HTMLScriptElement>("script[data-adwire-turnstile]");
+    if (existing) {
+      existing.addEventListener("load", renderWidget);
+      return () => existing.removeEventListener("load", renderWidget);
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.defer = true;
+    script.setAttribute("data-adwire-turnstile", "1");
+    script.addEventListener("load", renderWidget);
+    script.addEventListener("error", () => { turnstileFailedRef.current = true; });
+    document.head.appendChild(script);
+
+    return () => { cancelled = true; };
+  }, []);
+
+  /** 等 Turnstile 產生 token（最多 5 秒）。失敗或被擋則回空字串，照樣提交。 */
+  const waitForTurnstileToken = async (maxMs = 5000): Promise<string> => {
+    const started = Date.now();
+    while (!turnstileTokenRef.current && !turnstileFailedRef.current && Date.now() - started < maxMs) {
+      await new Promise(resolve => setTimeout(resolve, 150));
+    }
+    return turnstileTokenRef.current;
+  };
   const [submitError, setSubmitError]   = useState<string | null>(null);
   const [shake, setShake]               = useState(false);
   const [cooldownUntil, setCooldownUntil] = useState<number | null>(null);
@@ -373,10 +446,14 @@ export default function ContactSection({ defaultService }: { defaultService?: st
     setSubmitError(null);
 
     try {
+      // 先等 Turnstile token（最多 5 秒）再送出。
+      // 若 Turnstile 被擋／出錯 → token 為空字串，照樣送出，由後端評分決定。
+      const turnstileToken = await waitForTurnstileToken();
+
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, turnstileToken }),
       });
 
       const text = await response.text();
@@ -734,6 +811,11 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                       </motion.div>
                     )}
                   </AnimatePresence>
+
+                  {/* Cloudflare Turnstile（non-interactive）
+                      — 真客只需短暫等候，唔需要撳任何嘢。
+                      — 若 script 被擋，會照樣提交，不影響真客。 */}
+                  <div ref={turnstileBoxRef} className="flex justify-center pt-1" />
 
                   {/* CTA Button */}
                   <button
