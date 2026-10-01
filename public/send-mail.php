@@ -942,10 +942,15 @@ $extraPairs = [
     '預計開始時間'    => $timeline,
     '現有系統／技術'  => $systemInfo,
 ];
+// [FIX #16] 每格一列（標籤在上、數值在下）—— 手機唔會再被擠成一團。
+// 舊寫法兩個問題：(a) 雙引號內 \" 產生字面反斜線令 class 屬性壞掉、CSS 全失效；
+//                 (b) 兩欄式 auto layout 會被長數值（長 email／網址）逼窄標籤欄，
+//                     中文標籤逐字豎排。
+// 用單引號模板 + sprintf，完全避開 PHP 轉義，且直向排列唔依賴 media query。
+$rowTpl = '<tr><td class="cell"><div class="lb">%s</div><div class="vl">%s</div></td></tr>';
 foreach ($extraPairs as $label => $val) {
     if ($val === '' || $val === '未指定') { continue; }
-    $safeVal = nl2br($val);
-    $extraRows .= "<tr><td class=\"label\">{$label}</td><td class=\"value\">{$safeVal}</td></tr>";
+    $extraRows .= sprintf($rowTpl, $label, nl2br($val));
 }
 
 // ── 來源與風險資訊（2026-09-28）────────────────────────────────────────
@@ -975,10 +980,10 @@ if ($needsHumanReview) {
     $riskText  = '正常（' . $spamScore . ' 分）';
 }
 
-$extraRows .= '<tr><td class="label">來源資訊</td><td class="value">' . nl2br($srcText) . '</td></tr>';
-$extraRows .= '<tr><td class="label">風險評估</td><td class="value" style="color:' . $riskColor . ';font-weight:bold;">' . $riskText . '</td></tr>';
+$extraRows .= sprintf($rowTpl, '來源資訊', nl2br($srcText));
+$extraRows .= sprintf($rowTpl, '風險評估', '<span style="color:' . $riskColor . ';font-weight:bold;">' . $riskText . '</span>');
 if ($recentFromIp > 0) {
-    $extraRows .= '<tr><td class="label">重複提交</td><td class="value">同一 IP 24 小時內第 ' . $ipDailyCount . ' 次</td></tr>';
+    $extraRows .= sprintf($rowTpl, '重複提交', '同一 IP 24 小時內第 ' . $ipDailyCount . ' 次');
 }
 
 $emailContent = <<<HTML
@@ -989,62 +994,79 @@ $emailContent = <<<HTML
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Inquiry</title>
     <style>
-        body { margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f4f4; color: #333333; }
-        .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .header { background-color: #0f4c81; padding: 30px 40px; text-align: center; }
-        .header h1 { color: #ffffff; margin: 0; font-size: 24px; letter-spacing: 1px; }
-        .content { padding: 40px; }
-        .section-title { color: #0f4c81; font-size: 18px; font-weight: bold; border-bottom: 2px solid #f5a623; padding-bottom: 10px; margin-bottom: 20px; }
+        /* 手機優先：直向排列、大字體、唔會擠壓 */
+        body { margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', 'Microsoft JhengHei', sans-serif; background-color: #f4f4f4; color: #1a1f36; -webkit-text-size-adjust: 100%; }
+        .wrap { padding: 14px 10px; }
+        .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; }
+        .header { background-color: #0f4c81; padding: 24px 20px; text-align: center; }
+        .header h1 { color: #ffffff; margin: 0; font-size: 22px; letter-spacing: 1px; }
+        .content { padding: 22px 20px 26px; }
+        .intro { margin: 0 0 20px; color: #5a6377; font-size: 15.5px; line-height: 1.6; }
+        .section-title { color: #0f4c81; font-size: 17px; font-weight: bold; border-bottom: 2px solid #f5a623; padding-bottom: 10px; margin-bottom: 6px; }
         .info-table { width: 100%; border-collapse: collapse; }
-        .info-table td { padding: 12px 0; border-bottom: 1px solid #eeeeee; vertical-align: top; }
-        .info-table td.label { width: 140px; color: #666666; font-weight: bold; }
-        .info-table td.value { color: #333333; font-size: 16px; }
-        .message-box { background-color: #f9f9f9; padding: 20px; border-radius: 4px; border-left: 4px solid #f5a623; margin-top: 10px; }
-        .footer { background-color: #eeeeee; padding: 20px; text-align: center; font-size: 12px; color: #888888; }
+        .info-table td.cell { padding: 13px 0; border-bottom: 1px solid #eceff4; }
+        .lb { font-size: 13px; color: #8a93a5; font-weight: bold; letter-spacing: .4px; margin: 0 0 5px; }
+        .vl { font-size: 17px; line-height: 1.55; color: #1a1f36; word-break: break-word; overflow-wrap: anywhere; }
+        .vl a { color: #0f4c81; text-decoration: none; overflow-wrap: anywhere; }
+        .msg-label { font-size: 13px; color: #8a93a5; font-weight: bold; letter-spacing: .4px; margin: 26px 0 8px; }
+        .message-box { background-color: #f8f9fb; padding: 16px 18px; border-radius: 8px; border-left: 4px solid #f5a623; font-size: 16.5px; line-height: 1.7; color: #1a1f36; word-break: break-word; overflow-wrap: anywhere; }
+        .btn-wrap { margin-top: 26px; }
+        .btn-whatsapp { display: block; background-color: #25D366; color: #ffffff !important; padding: 15px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; text-align: center; }
+        .footer { background-color: #eef1f5; padding: 18px 20px; text-align: center; font-size: 12px; line-height: 1.7; color: #8a93a5; }
+        .footer p { margin: 4px 0; }
         .highlight { color: #f5a623; }
-        a { color: #0f4c81; text-decoration: none; }
-        .btn-whatsapp { background-color: #25D366; color: white !important; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; }
+        /* 只有夠闊嘅畫面才加大留白；排列本身唔依賴呢段 */
+        @media only screen and (min-width: 601px) {
+            .wrap { padding: 24px 16px; }
+            .content { padding: 34px 40px 38px; }
+            .btn-wrap { text-align: center; }
+            .btn-whatsapp { display: inline-block; min-width: 220px; }
+        }
     </style>
 </head>
 <body>
+  <div class="wrap">
     <div class="container">
         <div class="header">
             <h1>ADWire <span class="highlight">Agency</span></h1>
         </div>
         <div class="content">
             <div class="section-title">收到新的網站查詢</div>
-            <p style="margin-bottom: 25px; color: #666;">你好，網站收到了一則新的潛在客戶查詢，詳細資料如下：</p>
+            <p class="intro">你好，網站收到了一則新的潛在客戶查詢，詳細資料如下：</p>
 
-            <table class="info-table">
+            <table class="info-table" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
-                    <td class="label">客戶姓名</td>
-                    <td class="value">{$name}</td>
+                    <td class="cell">
+                        <div class="lb">客戶姓名</div>
+                        <div class="vl">{$name}</div>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="label">聯絡電話</td>
-                    <td class="value"><a href="tel:{$phone}">{$phone}</a></td>
+                    <td class="cell">
+                        <div class="lb">聯絡電話</div>
+                        <div class="vl"><a href="tel:{$phone}">{$phone}</a></div>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="label">電子郵件</td>
-                    <td class="value"><a href="mailto:{$email}">{$email}</a></td>
+                    <td class="cell">
+                        <div class="lb">電子郵件</div>
+                        <div class="vl"><a href="mailto:{$email}">{$email}</a></div>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="label">服務類別</td>
-                    <td class="value" style="color: #0f4c81; font-weight: bold;">{$service}</td>
+                    <td class="cell">
+                        <div class="lb">服務類別</div>
+                        <div class="vl" style="color: #0f4c81; font-weight: bold;">{$service}</div>
+                    </td>
                 </tr>
                 {$extraRows}
-                </tr>
             </table>
 
-            <div style="margin-top: 30px;">
-                <div style="color: #666; font-weight: bold; margin-bottom: 10px;">客戶訊息：</div>
-                <div class="message-box">{$messageHtml}</div>
-            </div>
+            <div class="msg-label">客戶訊息</div>
+            <div class="message-box">{$messageHtml}</div>
 
-            <div style="margin-top: 30px; text-align: center;">
-                <a href="https://wa.me/{$waPhone}" target="_blank" class="btn-whatsapp">
-                    WhatsApp 回覆客戶
-                </a>
+            <div class="btn-wrap">
+                <a href="https://wa.me/{$waPhone}" target="_blank" class="btn-whatsapp">WhatsApp 回覆客戶</a>
             </div>
         </div>
         <div class="footer">
@@ -1052,6 +1074,7 @@ $emailContent = <<<HTML
             <p>此郵件由 ADWire 官方網站自動發送，請勿直接回覆此系統郵件。</p>
         </div>
     </div>
+  </div>
 </body>
 </html>
 HTML;
