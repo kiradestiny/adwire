@@ -461,6 +461,157 @@ function isDisposableEmailDomain(string $domain): bool
     return false;
 }
 
+/**
+ * 公司網站欄位是否「似一個有效網域」。
+ *   真人填公司網站一定會係 domain 格式（example.com、example.com.hk），
+ *   或者含中文嘅描述（「暫未有網站」、「Instagram 專頁」）。
+ *   純拉丁文字又唔似 domain（例如 Hdhdbsh）係好強嘅亂填訊號。
+ *   回 true = 合格（或屬真空值／中文描述）；false = 似亂填。
+ */
+function looksLikeDomainOrBlank(string $value): bool
+{
+    $v = trim($value);
+    if ($v === '') {
+        return true;
+    }
+    $benign = ['n/a', 'na', 'nil', 'none', '-', '--', '無', '沒有', '暫無', '未有',
+               '未填', '沒有網站', '暫未有', '無網站'];
+    if (in_array(mb_strtolower($v, 'UTF-8'), $benign, true)) {
+        return true;
+    }
+    if (preg_match('/[\p{Han}]/u', $v) === 1) {
+        return true;
+    }
+    $v = preg_replace('#^https?://#i', '', $v);
+    $v = preg_replace('#^www\.#i', '', $v);
+    $v = preg_replace('~[/?#].*$~', '', $v);   // 分隔符用 ~ —— 字元類別內有 # ，用 # 做分隔符會被當成收尾
+    $v = preg_replace('#:\d+$#', '', $v);
+    return preg_match('/^[a-z0-9]([a-z0-9\-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9\-]*[a-z0-9])?)+$/i', $v) === 1
+        && preg_match('/\.[a-z]{2,24}$/i', $v) === 1;
+}
+
+/**
+ * 電郵域名的頂級域係唔係「打錯字」（同常見 TLD 只差一個字母）。
+ *   例：.con（應為 .com）、.cmo、.nte、.ogr
+ *   2 字母 TLD 一律當國家域名放行（數目太多，唔判斷）。
+ */
+function emailTldLooksMisspelled(string $domain): bool
+{
+    $domain = mb_strtolower(trim($domain), 'UTF-8');
+    if ($domain === '' || strpos($domain, '.') === false) {
+        return false;
+    }
+    $tld = substr(strrchr($domain, '.'), 1);
+    if (strlen($tld) < 3 || strlen($tld) > 6 || !ctype_alpha($tld)) {
+        return false;
+    }
+    $common = ['com', 'net', 'org', 'edu', 'gov', 'info', 'biz', 'int', 'mil', 'name', 'pro'];
+    if (in_array($tld, $common, true)) {
+        return false;
+    }
+    foreach ($common as $c) {
+        if (levenshtein($tld, $c) === 1) {
+            return true;
+        }
+        // 字母相同但次序調換（cmo/net、nte/net…）—— Levenshtein 會算 2 步，要另外捉
+        if (strlen($tld) === strlen($c)) {
+            $a = str_split($tld);
+            $b = str_split($c);
+            sort($a);
+            sort($b);
+            if ($a === $b) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+/**
+ * 單一詞是否亂打鍵盤。保守設計 —— 經 68 個真實樣本（港式人名、品牌、公司名、
+ * 中英混合訊息、HKTVmall／PCCW 等縮寫）驗證零誤判。
+ */
+function looksLikeGibberishToken(string $token): bool
+{
+    if (strlen($token) < 5 || !ctype_alpha($token)) {
+        return false;
+    }
+    // 3 個以上大寫字母 → 當縮寫品牌（HKTVmall、PCCW、HKBN…）豁免
+    if (preg_match_all('/[A-Z]/', $token) >= 3) {
+        return false;
+    }
+    $t = strtolower($token);
+
+    // 鍵盤橫排（qwer / asdf / zxcv…）
+    static $rows = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm', 'qwertzuiop', '1234567890'];
+    foreach ($rows as $row) {
+        $rl = strlen($row);
+        for ($i = 0; $i + 4 <= $rl; $i++) {
+            if (strpos($t, substr($row, $i, 4)) !== false) {
+                return true;
+            }
+        }
+    }
+
+    static $bigrams = null;
+    if ($bigrams === null) {
+        $bigrams = array_flip([
+            'th','he','in','er','an','re','on','at','en','nd','ti','es','or','te','of','ed',
+            'is','it','al','ar','st','to','nt','ng','se','ha','as','ou','io','le','ve','co',
+            'me','de','hi','ri','ro','ic','ne','ea','ra','ce','li','ch','ll','be','ma','si',
+            'om','ur','ho','op','sh','ca','el','ta','la','di','lo','ck','un','ai','oo','ay',
+            'ey','oa','ee','ow','ir','us','ac','ss','so','rs','il','ly','wi','fl','du','um',
+            'ut','ry','fi','ni',
+        ]);
+    }
+
+    $len   = strlen($t);
+    $vr    = preg_match_all('/[aeiouy]/', $t) / $len;
+    $pairs = [];
+    for ($i = 0; $i + 2 <= $len; $i++) {
+        $pairs[] = substr($t, $i, 2);
+    }
+    $hit = count($pairs) > 0
+        ? count(array_intersect_key($bigrams, array_flip($pairs))) / count($pairs)
+        : 1.0;
+
+    preg_match_all('/[^aeiouy]+/', $t, $mm);
+    $run = 0;
+    foreach ($mm[0] as $seg) {
+        $run = max($run, strlen($seg));
+    }
+
+    if ($vr == 0) { return true; }                   // 完全冇母音
+    if ($hit < 0.15 && $vr < 0.40) { return true; }  // 冇常見字母組合 + 母音偏少
+    if ($run >= 5 && $vr < 0.30) { return true; }    // 過長輔音串
+    return false;
+}
+
+/**
+ * 整個欄位是否亂打鍵盤（只睇純拉丁、無中文、長度 >= 4 的欄位）。
+ * 要求「所有詞都屬亂碼」才算 —— 寧可漏，不可誤殺真客。
+ */
+function looksLikeGibberish(string $value): bool
+{
+    $v = trim($value);
+    if ($v === '' || mb_strlen($v, 'UTF-8') < 4) {
+        return false;
+    }
+    if (preg_match('/[\p{Han}]/u', $v) === 1) {
+        return false;
+    }
+    $tokens = preg_split('/[^A-Za-z]+/', $v, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+    if ($tokens === []) {
+        return false;
+    }
+    foreach ($tokens as $t) {
+        if (!looksLikeGibberishToken($t)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 /** 加分並記錄原因（供電郵／資料庫顯示） */
 function addSpamScore(int &$score, array &$reasons, int $points, string $reason): void
 {
@@ -716,6 +867,8 @@ if ($turnstileStatus === 'fail') {
 // 加上 [疑似垃圾]，配合 Gmail filter 自動歸類，真客零損失。
 $spamScore   = 0;
 $spamReasons = [];
+// 內容類訊號數量（網站格式／電郵 TLD／亂碼）—— 供下方「機械人鐵證」判斷
+$contentSignals = 0;
 
 // (1) 同一 IP 長窗口累積 —— 捉繞過「3 次/60 秒」的慢速攻擊
 $ipDailyCount = bumpRateLimit('ip_daily', $clientIp, 86400);
@@ -799,6 +952,43 @@ if ($service === '未指定') {
     addSpamScore($spamScore, $spamReasons, 15, '服務類別非白名單值');
 }
 
+// ── 內容語意訊號（2026-10-02）─────────────────────────────────────────
+// 背景：實測收到一筆 spam，用【香港住宅 IP + 有效 Turnstile token + 白名單下拉
+//       選項 + 格式正常電話】完美繞過所有結構性檢查，但內容係明顯亂打鍵盤
+//       （公司 Iddnsn、網站 Hdhdbsh、系統 Ejznznxn、訊息 Ixidjsnxnc、
+//        電郵 cn.coffsec.con），結果得 0 分。以下補上「內容有冇意義」的判斷。
+
+// (11) 公司網站唔似有效網域（中文描述與真空值一律放行）
+if ($companySite !== '' && !looksLikeDomainOrBlank($companySite)) {
+    addSpamScore($spamScore, $spamReasons, 25, '公司網站唔似有效網域格式');
+    $contentSignals++;
+}
+
+// (12) 電郵域名頂級域疑似打錯（.con / .cmo …）
+if ($emailDomain !== '' && emailTldLooksMisspelled($emailDomain)) {
+    addSpamScore($spamScore, $spamReasons, 25, '電郵域名頂級域疑似打錯（' . $emailDomain . '）');
+    $contentSignals++;
+}
+
+// (13) 欄位內容係亂打鍵盤（多個欄位同時中，上限 30 分）
+$gibberishFields = [];
+foreach ([
+    '公司／品牌'     => $company,
+    '公司網站'       => $companySite,
+    '現有系統／技術' => $systemInfo,
+    '客戶訊息'       => $message,
+] as $gibLabel => $gibVal) {
+    if ($gibVal !== '' && looksLikeGibberish($gibVal)) {
+        $gibberishFields[] = $gibLabel;
+    }
+}
+if ($gibberishFields !== []) {
+    addSpamScore($spamScore, $spamReasons,
+        min(30, 15 * count($gibberishFields)),
+        '疑似亂打鍵盤：' . implode('、', $gibberishFields));
+    $contentSignals++;
+}
+
 // 門檻：>= 55 分 → 隔離（標記 spam，仍然保存記錄、仍然寄通知）
 // 冇附帶 Turnstile token：前端表單一定會帶，缺咗屬強烈機械人訊號。
 // 用評分而非硬性拒收 —— 避免「真客被 ad-blocker 擋住 Turnstile script」時白白走客。
@@ -832,6 +1022,13 @@ foreach ($spamReasons as $reasonText) {
             break 2;
         }
     }
+}
+
+// 內容類訊號 >= 2 亦屬機械人鐵證：
+//   單一項可能係真客手民之誤（例如手寫 "Instagram" 當公司網站），
+//   但「網站格式錯 + 電郵 TLD 打錯 + 亂打鍵盤」同時出現，唔可能係正常填寫。
+if ($contentSignals >= 2) {
+    $botEvidence = true;
 }
 
 // 達標但冇機械人鐵證 = 可能係真人被誤判 → 需要負責人自己判斷
