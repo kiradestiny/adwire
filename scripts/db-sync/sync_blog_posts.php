@@ -146,44 +146,85 @@ if (!$diffs) { echo "\n✅ 無需更新。\n"; exit(0); }
 
 // ── 5. 備份 ─────────────────────────────────────────────────────────────
 $backupDir = getenv('HOME') . '/db_backups';
-if (!is_dir($backupDir)) @mkdir($backupDir, 0755, true);
+if (!is_dir($backupDir) && !@mkdir($backupDir, 0755, true) && !is_dir($backupDir)) {
+    exit("❌ 無法建立備份目錄 $backupDir，中止，未進行任何更新。\n");
+}
 $ts  = date('Ymd-His');
 $bf  = $backupDir . "/blog_posts_sync_{$ts}.json";
-file_put_contents($bf, json_encode(array_map(fn($x) => $x['row'], $diffs), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
-echo "\n💾 已備份 " . count($diffs) . " 篇原始資料 → $bf\n";
+$backupBody = json_encode(array_map(fn($x) => $x['row'], $diffs), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+if ($backupBody === false) {
+    exit("❌ 備份資料 JSON 編碼失敗，中止，未進行任何更新。\n");
+}
+$written = file_put_contents($bf, $backupBody);
+if ($written === false || $written !== strlen($backupBody)) {
+    exit("❌ 備份寫入失敗（file_put_contents 回傳 " . var_export($written, true) . "），中止，未進行任何更新。\n");
+}
+$verifyBackup = @file_get_contents($bf);
+if ($verifyBackup === false || json_decode($verifyBackup, true) === null) {
+    exit("❌ 備份寫入後無法回讀或格式錯誤，中止，未進行任何更新。\n");
+}
+echo "\n💾 已備份並回讀核對 " . count($diffs) . " 篇原始資料 → $bf\n";
 
 // ── 6. 更新 ─────────────────────────────────────────────────────────────
+// image：payload 為空時用 COALESCE(NULLIF(...)) 保留後台既有非空值，永不覆蓋成空。
 $set = ["`$cTitle` = :title", "`$cContent` = :content"];
 if ($cExcerpt) $set[] = "`$cExcerpt` = :excerpt";
-if ($cImage)   $set[] = "`$cImage` = :image";
+if ($cImage)   $set[] = "`$cImage` = COALESCE(NULLIF(:image, ''), `$cImage`)";
 if ($cUpdated) $set[] = "`$cUpdated` = :updated";
 $sql  = "UPDATE blog_posts SET " . implode(', ', $set) . " WHERE slug = :slug";
 $upd  = $pdo->prepare($sql);
-$chk  = $pdo->prepare("SELECT title, content FROM blog_posts WHERE slug = ? LIMIT 1");
 
-$ok = 0; $fail = [];
+// 回讀核對：核對所有實際寫入的欄位（不只 title/content）
+$verifyCols = ['title' => $cTitle, 'content' => $cContent];
+if ($cExcerpt) $verifyCols['excerpt'] = $cExcerpt;
+if ($cImage)   $verifyCols['image'] = $cImage;
+if ($cUpdated) $verifyCols['updated'] = $cUpdated;
+$chk  = $pdo->prepare("SELECT `" . implode('`, `', array_values($verifyCols)) . "` FROM blog_posts WHERE slug = ? LIMIT 1");
+
+$now = date('Y-m-d H:i:s');
+$ok = 0; $fail = null;
 foreach ($diffs as $slug => $info) {
     $params = ['title' => $info['new']['title'], 'content' => $info['new']['content'], 'slug' => $slug];
     if ($cExcerpt) $params['excerpt'] = $info['new']['excerpt'];
     if ($cImage)   $params['image'] = $info['new']['image'] ?? '';
-    if ($cUpdated) $params['updated'] = date('Y-m-d H:i:s');
+    if ($cUpdated) $params['updated'] = $now;
     try {
         $upd->execute($params);
         $chk->execute([$slug]);
         $after = $chk->fetch();
-        if (($after['title'] ?? null) === $info['new']['title'] && ($after['content'] ?? null) === $info['new']['content']) {
+
+        // 逐欄核對期望值；image 為空時期望值＝寫入前的原值（因為 SQL 會保留）
+        $expected = ['title' => $info['new']['title'], 'content' => $info['new']['content']];
+        if ($cExcerpt) $expected['excerpt'] = $info['new']['excerpt'];
+        if ($cImage)   $expected['image'] = !empty($info['new']['image']) ? $info['new']['image'] : ($info['row'][$cImage] ?? '');
+        if ($cUpdated) $expected['updated'] = $now;
+
+        $mismatch = [];
+        foreach ($verifyCols as $label => $col) {
+            $got = $after[$col] ?? null;
+            if ((string)$got !== (string)$expected[$label]) {
+                $mismatch[] = $label . '（寫入值 ' . mb_substr((string)$expected[$label], 0, 24) . '… vs 回讀 ' . mb_substr((string)$got, 0, 24) . '…）';
+            }
+        }
+        if (!$mismatch) {
             $ok++;
-            echo "  ✅ $slug 已更新並回讀核對一致\n";
+            echo "  ✅ $slug 已更新並回讀核對一致（" . count($verifyCols) . " 欄）\n";
         } else {
-            $fail[] = "$slug（回讀不一致）";
+            $fail = "$slug（回讀不一致：" . implode('、', $mismatch) . "）";
+            break; // 任何一筆失敗即停止，不再寫入其餘文章
         }
     } catch (Throwable $e) {
-        $fail[] = "$slug（" . $e->getMessage() . "）";
+        $fail = "$slug（" . $e->getMessage() . "）";
+        break; // 任何一筆失敗即停止
     }
 }
 
 echo "\n── 結果 ────────────────────────────────\n";
 echo "  成功： $ok / " . count($diffs) . "\n";
-if ($fail) { echo "  ❌ 失敗：\n"; foreach ($fail as $f) echo "     - $f\n"; exit(1); }
+if ($fail) {
+    echo "  ❌ 於 $fail 停止，其餘文章未寫入。\n";
+    echo "  已成功寫入 $ok 篇；如需還原，請用備份檔：$bf\n";
+    exit(1);
+}
 echo "  備份檔： $bf\n";
 echo "✅ 同步完成。\n";

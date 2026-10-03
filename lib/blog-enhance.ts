@@ -6,6 +6,7 @@
  */
 
 import type { BlogPost } from "./blogData";
+import { parseHtml, descendants, plainText } from "./blog-html";
 
 // ─── Emoji 清理 ──────────────────────────────────────────────────────────────
 /** 標題（H2/H3/H4）不應使用 emoji 作圖示（最明顯的 AI 生成訊號） */
@@ -80,31 +81,18 @@ export interface FaqItem {
  */
 export function extractFaqs(html: string): FaqItem[] {
   const faqs: FaqItem[] = [];
-
-  const questionRe = /itemprop="name"[^>]*>([\s\S]*?)</gi;
-  const answerRe = /itemprop="text"[^>]*>([\s\S]*?)</gi;
-
-  const questions: string[] = [];
-  const answers: string[] = [];
-
-  let m: RegExpExecArray | null;
-  while ((m = questionRe.exec(html)) !== null) questions.push(cleanText(m[1]));
-  while ((m = answerRe.exec(html)) !== null) answers.push(cleanText(m[1]));
-
-  const count = Math.min(questions.length, answers.length);
-  for (let i = 0; i < count; i += 1) {
-    if (questions[i].length > 0 && answers[i].length > 0) {
-      faqs.push({ question: questions[i], answer: answers[i] });
-    }
+  const root = parseHtml(html);
+  const hasProp = (value: string | undefined, name: string) => (value || '').split(/\s+/).includes(name);
+  for (const node of descendants(root, n => !n.hidden && /(?:https?:\/\/schema\.org\/Question)(?:\s|$)/.test(n.attrs.itemtype || ''))) {
+    const questionNode = descendants(node, n => !n.hidden && hasProp(n.attrs.itemprop, 'name'))[0];
+    const answerScope = descendants(node, n => !n.hidden && hasProp(n.attrs.itemprop, 'acceptedAnswer'))[0];
+    if (!questionNode || !answerScope) continue;
+    const answerNode = descendants(answerScope, n => !n.hidden && hasProp(n.attrs.itemprop, 'text'))[0];
+    if (!answerNode) continue;
+    const question = plainText(questionNode), answer = plainText(answerNode);
+    if (question && answer) faqs.push({ question, answer });
   }
   return faqs;
-}
-
-function cleanText(value: string): string {
-  return value
-    .replace(/<[^>]*>/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
 }
 
 // ─── 文章內上下文 CTA 插入 ──────────────────────────────────────────────────
@@ -222,8 +210,10 @@ const SERVICE_LINK_MAP: { match: RegExp; links: ServiceLink[] }[] = [
       { name: "成效廣告投放服務", href: "/services/ads/", reason: "內地平台的付費投放與量度方式" },
       { name: "KOL 網紅營銷", href: "/services/kol/", reason: "內地 KOC／KOL 合作的配對及內容監修" },
     ],
-  },
-
+  },
+
+
+
   {
     match: /Hong Kong Market|香港市場|在地化|來港|進入香港|本地化/i,
     links: [
@@ -267,9 +257,12 @@ export function getServiceLinks(post: BlogPost): ServiceLink[] {
 // ─── 日期格式化 ──────────────────────────────────────────────────────────────
 /** 以香港常用格式顯示日期（YYYY年M月D日） */
 export function formatHkDate(iso: string): string {
-  const d = new Date(`${iso}T00:00:00+08:00`);
-  if (Number.isNaN(d.getTime())) return iso;
-  return `${d.getFullYear()} 年 ${d.getMonth() + 1} 月 ${d.getDate()} 日`;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!match) return iso;
+  const [, year, month, day] = match;
+  const check = new Date(`${iso}T00:00:00Z`);
+  if (Number.isNaN(check.getTime()) || check.toISOString().slice(0, 10) !== iso) return iso;
+  return `${year} 年 ${Number(month)} 月 ${Number(day)} 日`;
 }
 
 /** 文章最後更新日：以後台 updatedAt 為準，否則用發佈日（不可用「今日」假裝更新） */
