@@ -94,3 +94,14 @@ node scripts/blog-live-verify.cjs --base https://adwire.com.hk --json live-repor
 - 只 UPDATE 已存在 slug，永不 INSERT／DELETE，不動其他表。
 
 Workflow：`.github/workflows/db-sync-blog.yml`（手動觸發，先 dry-run 後 apply）。
+
+## 6. 正式站讀回核對的限制（實測 2026-10-03）
+
+`blog-live-verify.cjs` 由**本機**執行時，SiteGround WAF 會對 Node/curl 客戶端回
+**HTTP 403 / 202 挑戰頁**（與 User-Agent 無關；同一時間 GitHub Actions runner 與真實
+瀏覽器都正常 200）。因此：
+
+- **本機**驗證請用真實瀏覽器（fetch 同源頁面）或 `--dir` 快照模式。
+- **CI / runner** 可直接用 `--base https://adwire.com.hk`。
+- 工具已改用完整瀏覽器 UA（與 `deploy.yml` 驗證步驟一致），但這不足以繞過
+  本機 IP 的 WAF 挑戰，屬環境限制，不是網站故障。

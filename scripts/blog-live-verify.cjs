@@ -87,7 +87,11 @@ async function fetchLive(base, slug, timeoutMs = 20000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, { signal: controller.signal, redirect: 'follow', headers: { 'User-Agent': 'ADWire-live-verify/1.0' } });
+    // SiteGround WAF 對非瀏覽器 UA 回 HTTP 202 挑戰頁（不是網站故障）。
+    // 曾用 'ADWire-live-verify/1.0' → 27 篇全部 "no <title> found" 的假失敗。
+    // 必須用完整瀏覽器 UA，與 deploy.yml 的驗證步驟一致。
+    const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36';
+    const res = await fetch(url, { signal: controller.signal, redirect: 'follow', headers: { 'User-Agent': UA } });
     if (!res.ok) throw new Error('HTTP ' + res.status + ' for ' + url);
     return { url, html: await res.text() };
   } finally { clearTimeout(timer); }
