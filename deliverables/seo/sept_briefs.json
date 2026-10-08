@@ -1,0 +1,880 @@
+{
+ "rpa-hong-kong-guide": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "適合高頻、重複、規則固定",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 11,
+   "caption": "在員工的桌面電腦上執行，由員工即時觸發",
+   "prompt": "a customer service motif: chat panels, a support operator and a handover, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 18,
+   "caption": "會計發票錄入、應付帳款核對",
+   "prompt": "a checklist motif: a form being ticked with a magnifier, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 27,
+   "caption": "運作邏輯固定規則，預先寫好的步驟理解目標",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 35,
+   "caption": "項目UiPathPowerAutomateZ",
+   "prompt": "a conceptual business illustration, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 44,
+   "caption": "香港企業的現實考量香港生產力促進局的調查顯示",
+   "prompt": "an AI motif: neural nodes, an assistant orb and spark, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 48,
+   "caption": "一開始就選錯流程選流程是項目成敗的決定性因素",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "hong-kong-government-ai-digital-funding": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "政府出一半」的文章，那些資料已經過時",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 9,
+   "caption": "每宗上限配對比例目標市場",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 16,
+   "caption": "日，優化版的資助模式、範圍、額度與申請細節仍未公布",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 21,
+   "caption": "個月內完成，須由香港企業自行執行，不設首期撥款",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 26,
+   "caption": "月推出，以配對形式資助本地企業讓員工接受高端科技培訓",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 31,
+   "caption": "願景，創新科技及工業局統籌「全民",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 38,
+   "caption": "對現金流的實際影響由於企業要先用現金墊付大部分開支",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 45,
+   "caption": "商業登記證及公司註冊證明",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 52,
+   "caption": "準備及遞交申請：整理文件與項目建議書",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 10,
+   "after": 55,
+   "caption": "先買方案，後看資格資助計劃各有行業範圍",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "ai-reduce-hong-kong-business-labour-cost": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "在香港企業的滲透已經發生",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 11,
+   "caption": "的說法都不成立。判斷自身位置時",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 17,
+   "caption": "月）。這一點與「減少人手」直接相關",
+   "prompt": "a customer service motif: chat panels, a support operator and a handover, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 28,
+   "caption": "時，第一個問題是「工具幾錢一個月」",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 35,
+   "caption": "沙盒結果，是目前香港最具體的效益數據之一",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 41,
+   "caption": "工序類型常見例子適合程度財務及合規個案摘要",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 49,
+   "caption": "相關服務減人手成本最實際嘅切入點通常係重複工序",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 56,
+   "caption": "開始，而不是由「哪個工序的工時最貴、輸出格式最固定」開始",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 68,
+   "caption": "月）。應在開始前寫明：在什麼時間點、用什麼指標",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "hong-kong-ai-chatbot-customer-service-guide": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "對話式各有硬限制，現時實務上主流做法是混合架構",
+   "prompt": "a customer service motif: chat panels, a support operator and a handover, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 13,
+   "caption": "代：規則式關鍵字比對加決策樹只回答預設答案客",
+   "prompt": "a customer service motif: chat panels, a support operator and a handover, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 21,
+   "caption": "三代不是單純的取代關係。業界目前較務實的做法是混合架構",
+   "prompt": "an AI motif: neural nodes, an assistant orb and spark, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 29,
+   "caption": "而客戶服務是首要應用場景",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 35,
+   "caption": "範本費適合有技術團隊自行開發的企業",
+   "prompt": "a website and app motif: browser and phone screens, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 46,
+   "caption": "上調。坊間二手來源的數字互相矛盾",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 56,
+   "caption": "嘅成敗多數取決於知識庫整理同系統接駁，唔係介面",
+   "prompt": "a customer service motif: chat panels, a support operator and a handover, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 61,
+   "caption": "換句話說，幻覺不只是模型能力問題",
+   "prompt": "a risk and compliance motif: a shield, warning markers and a governance checklist, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 67,
+   "caption": "時自動交接真人；另外在低信心",
+   "prompt": "a conceptual business illustration, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "ai-automation-roi-hong-kong": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "先講結論自動化是否值得投資，取決於三件事",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 10,
+   "caption": "訂閱平台月費、用戶數授權、附加模組報價單上最顯眼",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 23,
+   "caption": "成本現值。它回答「這項投資在折現之後，淨值多少錢」",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 33,
+   "caption": "除了供應商委託的研究，也有獨立機構的調查值得參考",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 41,
+   "caption": "對中小企而言，這個訊號尤其重要",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 51,
+   "caption": "的調查則覆蓋大量仍在試行階段的企業",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 60,
+   "caption": "時薪」量化，另外計算合規事件避免所帶來的價值",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 68,
+   "caption": "萬人。這意味着大部分本地企業的流程規模",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 83,
+   "caption": "的四類列出授權、實作、持續管理、培訓與人力投入",
+   "prompt": "a conceptual business illustration, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "how-to-choose-seo-company-hong-kong": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "上排名第一。任何這樣講的人，都應該直接跳過",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 11,
+   "caption": "指出，其自動化排名系統會檢視搜尋索引中數千億個網頁與其他內容",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 19,
+   "caption": "是否清楚官方準則，還是只知道坊間流傳的做法預計有甚麼成果",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 28,
+   "caption": "公司、網路顧問或服務商」",
+   "prompt": "a search and SERP motif: a magnifier, ranking cards and a citation panel, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 37,
+   "caption": "稽核報告若只有「你的網站有很多問題」這類判斷",
+   "prompt": "a website and app motif: browser and phone screens, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 44,
+   "caption": "搜尋官方準則來佐證主張。反過來",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 51,
+   "caption": "市場的收費模式主要有兩種",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 62,
+   "caption": "來源：以下為香港業界公開文章",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 65,
+   "caption": "違規手法官方定義與例子對客戶的實際影響濫填關",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 10,
+   "after": 70,
+   "caption": "公司，可以直接對照我們嘅交付清單同量度方式",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 11,
+   "after": 74,
+   "caption": "點擊、電話撥打。曝光與點擊上升但查詢沒有增加",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 12,
+   "after": 80,
+   "caption": "答案引擎最佳化）加入服務清單",
+   "prompt": "a checklist motif: a form being ticked with a magnifier, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 13,
+   "after": 88,
+   "caption": "每月具體交付甚麼：多少篇文章",
+   "prompt": "a conceptual business illustration, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 14,
+   "after": 101,
+   "caption": "比較欄目要問清楚甚麼每月交付清單文章篇數",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "crm-system-selection-guide-hong-kong": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "年起就被定義為一種商業策略",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 13,
+   "caption": "指由供應商託管、你按月或按年付費使用的模式",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 24,
+   "caption": "供自訂翻譯。若你的前線同事不諳英文",
+   "prompt": "a systems and integration motif: connected software cards and API links, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 30,
+   "caption": "語言支援級別、稅務局：業務記錄保存規定",
+   "prompt": "a website and app motif: browser and phone screens, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 48,
+   "caption": "功能使用量上升，屬於浮動成本",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 56,
+   "caption": "項目失敗」這類數字。這些數字的來源其實相當集中，而且年代久遠",
+   "prompt": "a risk and compliance motif: a shield, warning markers and a governance checklist, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 60,
+   "caption": "年的數據，只為說明「流傳甚廣的失敗率從何而來」",
+   "prompt": "a risk and compliance motif: a shield, warning markers and a governance checklist, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 65,
+   "caption": "訂閱自建成本透明度各平台公開訂閱價",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 78,
+   "caption": "先讓一個團隊用一至兩個月",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "core-web-vitals-website-speed-guide": [
+  {
+   "n": 1,
+   "after": 5,
+   "caption": "團隊整理，結合香港本地實戰經驗與最新行業數據",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 13,
+   "caption": "的頁面載入體驗須達標，換個角度講",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 22,
+   "caption": "達標就等於排名上升」這種講法",
+   "prompt": "an ROI motif: a cost-versus-benefit balance and an upward return chart, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 34,
+   "caption": "以手機版的內容作索引與排名",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 51,
+   "caption": "而字型與後備字型的大小不一致",
+   "prompt": "a conceptual business illustration, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 63,
+   "caption": "差通常來自三類問題：輸入延遲（主執行緒忙於處理其他工作）",
+   "prompt": "a conceptual business illustration, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 70,
+   "caption": "相關服務速度問題多數要改到網站底層，唔係加個外掛就搞掂",
+   "prompt": "a search and SERP motif: a magnifier, ranking cards and a citation panel, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 78,
+   "caption": "日視窗計算，因此反映的是「近四星期」的表現",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 84,
+   "caption": "的實地數據，而非只信桌面測試結果",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 10,
+   "after": 95,
+   "caption": "例如主題或外掛過於臃腫、載入了大量無法控制的第三方腳本",
+   "prompt": "a systems and integration motif: connected software cards and API links, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "xiaohongshu-marketing-hong-kong-guide": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "重點概念說明",
+   "prompt": "a conceptual business illustration, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 9,
+   "caption": "本文聚焦搜尋資產，原因不是否定推薦流",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 15,
+   "caption": "用戶會主動搜尋「香港」「港版」「香港代購」這類字眼",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 22,
+   "caption": "企業專業號面向品牌主體，個人號面向個人創作者",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 30,
+   "caption": "小紅書的站內投放工具主要分兩類用途：薯條用於為單篇筆記加熱",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 36,
+   "caption": "我們不會在這裡列出一個「標準價」",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 44,
+   "caption": "不是列產品名，而是列客群會問的問題",
+   "prompt": "a search and SERP motif: a magnifier, ranking cards and a citation panel, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 54,
+   "caption": "渠道負責時機小紅書建立產品認知與搜尋資產第一階段抖音擴大觸及",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 66,
+   "caption": "域外適用管轄。收集時應有告知與合法基礎",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 10,
+   "after": 73,
+   "caption": "的內容直接搬過去：小紅書用戶期待「真實分享」的語氣",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "kol-marketing-hong-kong-guide": [
+  {
+   "n": 1,
+   "after": 5,
+   "caption": "收費由幾百元一帖到十幾萬元一帖都有",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 10,
+   "caption": "萬粉絲的帳號，如果受眾七成在台灣、東南亞或內地",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 16,
+   "caption": "收費以「十萬」為單位起跳，通常按個別項目議價",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 22,
+   "caption": "所以同一行數字不代表同一批人",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 30,
+   "caption": "分母（觸及人數、曝光或追蹤者）",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 37,
+   "caption": "數千至一萬多粉絲真實試用、口碑種草中低素人幾百至幾千",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 42,
+   "caption": "與素人的合作同樣要合規：贈品與付費屬品牌內容",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 52,
+   "caption": "觸及人數：有多少獨立帳號看到內容",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 58,
+   "caption": "短片製作快、單價較低，但內容生命週期短，需要靠投放延續",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 10,
+   "after": 64,
+   "caption": "完全沒有歸因設計：合作完之後只有一堆截圖與讚好數字",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 11,
+   "after": 69,
+   "caption": "打頭陣。篩選與核實：按四個維度逐一檢查",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 12,
+   "after": 75,
+   "caption": "選到購買粉絲的帳號：互動數據與真實受眾不符",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "video-production-hong-kong-guide": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "先講結論企業影片沒有一個「標準價」",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 9,
+   "caption": "另一個極端是客戶只比較價錢",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 17,
+   "caption": "分鐘。這類影片對拍攝細節要求較高：產品的外觀",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 21,
+   "caption": "活動紀錄用於發佈會、展會、研討會、週年晚宴、開幕典禮等場合",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 26,
+   "caption": "影片類型主要用途常見片長製作重點企業宣傳片官網首頁",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 34,
+   "caption": "交付物：腳本定稿、分鏡圖或鏡頭表",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 42,
+   "caption": "初剪把素材按腳本組合成一個完整版本",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 49,
+   "caption": "交付物：最終成品檔案、字幕檔、平台比例版本",
+   "prompt": "a systems and integration motif: connected software cards and API links, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 54,
+   "caption": "市面上並沒有一個可靠的公開標準價",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 10,
+   "after": 65,
+   "caption": "產品動畫，工作量可以相差十幾倍",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 11,
+   "after": 73,
+   "caption": "配樂有三種常見來源：免版稅音樂庫、委託原創音樂、現成商業歌曲",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 12,
+   "after": 75,
+   "caption": "要求逐項列明，不要接受一個總數當你收到的報價只有一個總數",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 13,
+   "after": 97,
+   "caption": "是否包含付費廣告投放",
+   "prompt": "a conceptual business illustration, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 14,
+   "after": 103,
+   "caption": "作品集是客戶唯一可以在簽約前看到的證據",
+   "prompt": "a customer experience motif: personas, journey arrows and feedback cards, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 15,
+   "after": 111,
+   "caption": "如果對方對這些問題沒有清楚答案",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 16,
+   "after": 149,
+   "caption": "八、影片完成之後：與廣告及社交媒體的配合",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 17,
+   "after": 158,
+   "caption": "都是企業影片的實際用途。這些場景對影片的要求不同",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 18,
+   "after": 165,
+   "caption": "社交媒體管理：香港企業外判代管服務如何選擇",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "social-media-management-hong-kong-guide": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "先講結論社交媒體管理不是「幫你出帖」這麼簡單",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 11,
+   "caption": "內容企劃是決定「講什麼、為誰講、幾時講」的工作",
+   "prompt": "a customer experience motif: personas, journey arrows and feedback cards, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 17,
+   "caption": "每個月需要整理：追蹤數變化",
+   "prompt": "a data and measurement motif: dashboards, gauges and KPI panels, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 24,
+   "caption": "請一位負責社交媒體的同事",
+   "prompt": "an influencer and social media motif: creator avatars, follower counts and a post grid, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 29,
+   "caption": "月基本發文，設計與文案可能較簡單",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 34,
+   "caption": "按每月帖數分級平台數量同一內容發去多個平台",
+   "prompt": "a pricing and cost motif: price tags, coins and a budget gauge, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 40,
+   "caption": "較成熟的用戶群，地區與興趣社群活躍圖文帖",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 47,
+   "caption": "原因有三。第一，讚好不需要成本",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 50,
+   "caption": "相關服務如果你想比較自組團隊同外判代管嘅實際差異",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 10,
+   "after": 62,
+   "caption": "這是查詢轉化的關鍵環節，卻最常被列為附加項",
+   "prompt": "an automation motif: gears, flow arrows and connected process cards, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 11,
+   "after": 75,
+   "caption": "自然觸及在香港的覆蓋有限",
+   "prompt": "a Hong Kong motif: skyline silhouette with a local business scene, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 12,
+   "after": 84,
+   "caption": "標籤）；配樂、字體、照片與影片素材要確認商用授權並保留證明",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ],
+ "china-market-strategy-hong-kong": [
+  {
+   "n": 1,
+   "after": 4,
+   "caption": "先講結論內地推廣不是「一次開齊五個平台」的遊戲",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 2,
+   "after": 11,
+   "caption": "主動搜尋為主的平台，需要的是「搜尋資產」：關鍵字佈局",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 3,
+   "after": 17,
+   "caption": "萬家一年內新增的供給量已相當於一個大型市場一",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 4,
+   "after": 22,
+   "caption": "訂單核銷率與金額核銷率不是同一回事",
+   "prompt": "a risk and compliance motif: a shield, warning markers and a governance checklist, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 5,
+   "after": 27,
+   "caption": "平台用戶行為較適合的品類較不適合的情況典型用",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 6,
+   "after": 31,
+   "caption": "反過來，如果你的品類是價格敏感、決策快、視覺吸引力強的消費品",
+   "prompt": "a video production motif: a camera, a clapperboard and a storyboard, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 7,
+   "after": 37,
+   "caption": "這是最常見、也最貴的錯誤",
+   "prompt": "an ROI motif: a cost-versus-benefit balance and an upward return chart, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 8,
+   "after": 42,
+   "caption": "以下六項是香港品牌進入內地市場時反覆出現的問題",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 9,
+   "after": 44,
+   "caption": "其中「一次做五個平台」是最常見的起手式錯誤",
+   "prompt": "an ROI motif: a cost-versus-benefit balance and an upward return chart, a single large central object with side annotations. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 10,
+   "after": 49,
+   "caption": "內地推廣的成效量度應該分成三層，由淺入深",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, a layered card composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 11,
+   "after": 53,
+   "caption": "搜尋數據是最容易被忽略、但最有長期價值的一層",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, isometric composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 12,
+   "after": 58,
+   "caption": "因此比較穩妥的做法，是在推廣計劃開始前就先了",
+   "prompt": "a funding and grant motif: application forms, approval stamps and a growth arrow, flat icon composition. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  },
+  {
+   "n": 13,
+   "after": 65,
+   "caption": "時，須有告知與合法基礎，並處理委託代營運、保留與刪除",
+   "prompt": "a China-market platform motif: mobile app cards and a rising trend line, a scene with two people and screens. Flat vector editorial illustration, deep navy #0f4c81 and warm orange #f5a623 on off-white, rounded shapes, generous whitespace, soft shadows, clean corporate style, 16:9. Absolutely no text, no letters, no words, no numbers, no logos."
+  }
+ ]
+}

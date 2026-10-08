@@ -1,0 +1,596 @@
+{
+ "hong-kong-government-ai-digital-funding": {
+  "5": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-7.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-6.webp"
+  },
+  "2": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-4.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-11.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-9.webp"
+  },
+  "1": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-3.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-8.webp"
+  },
+  "3": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-5.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-10.webp"
+  },
+  "10": {
+   "status": "skip",
+   "file": "hong-kong-government-ai-digital-funding-12.webp"
+  }
+ },
+ "rpa-hong-kong-guide": {
+  "3": {
+   "status": "skip",
+   "file": "rpa-hong-kong-guide-5.webp"
+  },
+  "1": {
+   "status": "skip",
+   "file": "rpa-hong-kong-guide-3.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "rpa-hong-kong-guide-7.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "rpa-hong-kong-guide-9.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "rpa-hong-kong-guide-6.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "rpa-hong-kong-guide-8.webp"
+  },
+  "2": {
+   "status": "skip",
+   "file": "rpa-hong-kong-guide-4.webp"
+  }
+ },
+ "ai-reduce-hong-kong-business-labour-cost": {
+  "2": {
+   "status": "skip",
+   "file": "ai-reduce-hong-kong-business-labour-cost-4.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "ai-reduce-hong-kong-business-labour-cost-7.webp"
+  },
+  "1": {
+   "status": "skip",
+   "file": "ai-reduce-hong-kong-business-labour-cost-3.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "ai-reduce-hong-kong-business-labour-cost-10.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "ai-reduce-hong-kong-business-labour-cost-8.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "ai-reduce-hong-kong-business-labour-cost-9.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "ai-reduce-hong-kong-business-labour-cost-6.webp"
+  },
+  "3": {
+   "status": "skip",
+   "file": "ai-reduce-hong-kong-business-labour-cost-5.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "ai-reduce-hong-kong-business-labour-cost-11.webp"
+  }
+ },
+ "hong-kong-ai-chatbot-customer-service-guide": {
+  "2": {
+   "status": "skip",
+   "file": "hong-kong-ai-chatbot-customer-service-guide-4.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "hong-kong-ai-chatbot-customer-service-guide-6.webp"
+  },
+  "3": {
+   "status": "skip",
+   "file": "hong-kong-ai-chatbot-customer-service-guide-5.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "hong-kong-ai-chatbot-customer-service-guide-9.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "hong-kong-ai-chatbot-customer-service-guide-7.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "hong-kong-ai-chatbot-customer-service-guide-11.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "hong-kong-ai-chatbot-customer-service-guide-8.webp"
+  },
+  "1": {
+   "status": "skip",
+   "file": "hong-kong-ai-chatbot-customer-service-guide-3.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "hong-kong-ai-chatbot-customer-service-guide-10.webp"
+  }
+ },
+ "ai-automation-roi-hong-kong": {
+  "1": {
+   "status": "skip",
+   "file": "ai-automation-roi-hong-kong-3.webp"
+  },
+  "2": {
+   "status": "skip",
+   "file": "ai-automation-roi-hong-kong-4.webp"
+  },
+  "3": {
+   "status": "skip",
+   "file": "ai-automation-roi-hong-kong-5.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "ai-automation-roi-hong-kong-6.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "ai-automation-roi-hong-kong-7.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "ai-automation-roi-hong-kong-8.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "ai-automation-roi-hong-kong-10.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "ai-automation-roi-hong-kong-11.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "ai-automation-roi-hong-kong-9.webp"
+  }
+ },
+ "how-to-choose-seo-company-hong-kong": {
+  "2": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-4.webp"
+  },
+  "1": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-3.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-6.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-8.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-7.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-10.webp"
+  },
+  "11": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-13.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-9.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-11.webp"
+  },
+  "10": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-12.webp"
+  },
+  "3": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-5.webp"
+  },
+  "12": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-14.webp"
+  },
+  "13": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-15.webp"
+  },
+  "14": {
+   "status": "skip",
+   "file": "how-to-choose-seo-company-hong-kong-16.webp"
+  }
+ },
+ "crm-system-selection-guide-hong-kong": {
+  "1": {
+   "status": "skip",
+   "file": "crm-system-selection-guide-hong-kong-3.webp"
+  },
+  "2": {
+   "status": "skip",
+   "file": "crm-system-selection-guide-hong-kong-4.webp"
+  },
+  "3": {
+   "status": "skip",
+   "file": "crm-system-selection-guide-hong-kong-5.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "crm-system-selection-guide-hong-kong-6.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "crm-system-selection-guide-hong-kong-7.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "crm-system-selection-guide-hong-kong-10.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "crm-system-selection-guide-hong-kong-11.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "crm-system-selection-guide-hong-kong-8.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "crm-system-selection-guide-hong-kong-9.webp"
+  }
+ },
+ "core-web-vitals-website-speed-guide": {
+  "1": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-3.webp"
+  },
+  "2": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-4.webp"
+  },
+  "3": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-5.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-6.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-7.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-8.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-9.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-11.webp"
+  },
+  "10": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-12.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "core-web-vitals-website-speed-guide-10.webp"
+  }
+ },
+ "xiaohongshu-marketing-hong-kong-guide": {
+  "2": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-4.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-7.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-9.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-6.webp"
+  },
+  "1": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-3.webp"
+  },
+  "3": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-5.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-11.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-10.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-8.webp"
+  },
+  "10": {
+   "status": "skip",
+   "file": "xiaohongshu-marketing-hong-kong-guide-12.webp"
+  }
+ },
+ "kol-marketing-hong-kong-guide": {
+  "2": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-4.webp"
+  },
+  "1": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-3.webp"
+  },
+  "3": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-5.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-6.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-7.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-11.webp"
+  },
+  "10": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-12.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-9.webp"
+  },
+  "12": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-14.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-8.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-10.webp"
+  },
+  "11": {
+   "status": "skip",
+   "file": "kol-marketing-hong-kong-guide-13.webp"
+  }
+ },
+ "video-production-hong-kong-guide": {
+  "1": {
+   "status": "skip",
+   "file": "video-production-hong-kong-guide-3.webp"
+  },
+  "2": {
+   "status": "skip",
+   "file": "video-production-hong-kong-guide-4.webp"
+  },
+  "4": {
+   "status": "skip",
+   "file": "video-production-hong-kong-guide-6.webp"
+  },
+  "5": {
+   "status": "skip",
+   "file": "video-production-hong-kong-guide-7.webp"
+  },
+  "6": {
+   "status": "skip",
+   "file": "video-production-hong-kong-guide-8.webp"
+  },
+  "7": {
+   "status": "skip",
+   "file": "video-production-hong-kong-guide-9.webp"
+  },
+  "8": {
+   "status": "skip",
+   "file": "video-production-hong-kong-guide-10.webp"
+  },
+  "9": {
+   "status": "skip",
+   "file": "video-production-hong-kong-guide-11.webp"
+  },
+  "10": {
+   "status": "skip",
+   "file": "video-production-hong-kong-guide-12.webp"
+  },
+  "11": {
+   "status": "ok",
+   "file": "video-production-hong-kong-guide-13.webp"
+  },
+  "14": {
+   "status": "ok",
+   "file": "video-production-hong-kong-guide-16.webp"
+  },
+  "13": {
+   "status": "ok",
+   "file": "video-production-hong-kong-guide-15.webp"
+  },
+  "12": {
+   "status": "ok",
+   "file": "video-production-hong-kong-guide-14.webp"
+  },
+  "15": {
+   "status": "ok",
+   "file": "video-production-hong-kong-guide-17.webp"
+  },
+  "3": {
+   "status": "ok",
+   "file": "video-production-hong-kong-guide-5.webp"
+  },
+  "16": {
+   "status": "ok",
+   "file": "video-production-hong-kong-guide-18.webp"
+  },
+  "17": {
+   "status": "ok",
+   "file": "video-production-hong-kong-guide-19.webp"
+  },
+  "18": {
+   "status": "ok",
+   "file": "video-production-hong-kong-guide-20.webp"
+  }
+ },
+ "social-media-management-hong-kong-guide": {
+  "2": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-4.webp"
+  },
+  "1": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-3.webp"
+  },
+  "3": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-5.webp"
+  },
+  "6": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-8.webp"
+  },
+  "5": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-7.webp"
+  },
+  "4": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-6.webp"
+  },
+  "8": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-10.webp"
+  },
+  "7": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-9.webp"
+  },
+  "9": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-11.webp"
+  },
+  "12": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-14.webp"
+  },
+  "11": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-13.webp"
+  },
+  "10": {
+   "status": "ok",
+   "file": "social-media-management-hong-kong-guide-12.webp"
+  }
+ },
+ "china-market-strategy-hong-kong": {
+  "1": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-3.webp"
+  },
+  "3": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-5.webp"
+  },
+  "2": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-4.webp"
+  },
+  "5": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-7.webp"
+  },
+  "4": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-6.webp"
+  },
+  "6": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-8.webp"
+  },
+  "7": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-9.webp"
+  },
+  "8": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-10.webp"
+  },
+  "9": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-11.webp"
+  },
+  "10": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-12.webp"
+  },
+  "12": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-14.webp"
+  },
+  "11": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-13.webp"
+  },
+  "13": {
+   "status": "ok",
+   "file": "china-market-strategy-hong-kong-15.webp"
+  }
+ }
+}

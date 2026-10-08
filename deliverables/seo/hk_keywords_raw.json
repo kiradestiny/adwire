@@ -1,0 +1,2617 @@
+{
+ "clusters": {
+  "AI 解決方案": {
+   "seeds": [
+    "AI 解決方案",
+    "AI Agent",
+    "AI 公司 香港",
+    "企業 AI",
+    "AI 自動化",
+    "人工智能 香港",
+    "AI 顧問"
+   ],
+   "keywords": [
+    {
+     "keyword": "企業 導入ai 案例",
+     "volume": 110,
+     "cpc": 3.27,
+     "competition": 0.49,
+     "difficulty": 0,
+     "intent": "transactional"
+    },
+    {
+     "keyword": "台塑企業",
+     "volume": 22200,
+     "cpc": 0.24,
+     "competition": 0.01,
+     "difficulty": 27,
+     "intent": "informational"
+    },
+    {
+     "keyword": "什麼是企業",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業ai",
+     "volume": 170,
+     "cpc": 5.01,
+     "competition": 0.56,
+     "difficulty": 0,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "hahow企業",
+     "volume": 390,
+     "cpc": 0.16,
+     "competition": 0.24,
+     "difficulty": 14,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "創業是什麼",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": 54,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業激勵案例",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "陸仕企業",
+     "volume": 320,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "中租企業",
+     "volume": 320,
+     "cpc": 3.76,
+     "competition": 0.29,
+     "difficulty": 19,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "彰化企業",
+     "volume": 260,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 27,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "企業 用 ai",
+     "volume": 20,
+     "cpc": 2.23,
+     "competition": 0.58,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "鴻名企業",
+     "volume": 210,
+     "cpc": 0.02,
+     "competition": 0.01,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣中小企業",
+     "volume": 720,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": 42,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台中企業",
+     "volume": 110,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "南六企業",
+     "volume": 170,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣企業倫理案例",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "義式企業",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "企業內訓",
+     "volume": 210,
+     "cpc": 3.13,
+     "competition": 0.25,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "國紡企業",
+     "volume": 90,
+     "cpc": null,
+     "competition": 0.03,
+     "difficulty": 14,
+     "intent": "informational"
+    },
+    {
+     "keyword": "安氏企業",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "茂忠企業",
+     "volume": 260,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "企業ai導入事例",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "企業倫理 案例 2020",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": 15,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業倫理案例2020",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": 15,
+     "intent": "informational"
+    },
+    {
+     "keyword": "英發企業",
+     "volume": 140,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "駿 業 企業",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "中塑企業",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "企業強人",
+     "volume": 170,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業文化牆",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "中堅企業獎",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "龍形企業",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "怎樣創業",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.86,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "群英企業",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業家 例子",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "承浦企業",
+     "volume": 170,
+     "cpc": 0.01,
+     "competition": 0.02,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "創業的",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": 57,
+     "intent": "informational"
+    },
+    {
+     "keyword": "什麼是企業文化",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業中文",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "鐵碳企業",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": 12,
+     "intent": "informational"
+    },
+    {
+     "keyword": "新記企業",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "碧藍企業",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "小微企業",
+     "volume": 40,
+     "cpc": 1.5,
+     "competition": 0.06,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "華貿企業",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "企業競賽",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0.1,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "雅堤企業",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "信錦企業",
+     "volume": 210,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 37,
+     "intent": "informational"
+    },
+    {
+     "keyword": "東地企業",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "順雄企業",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "東文企業",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0.03,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "ing企業",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "lale企業",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "為 創業",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.13,
+     "difficulty": 17,
+     "intent": "informational"
+    },
+    {
+     "keyword": "為創業",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.13,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "激勵理論企業案例",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "遠東企業",
+     "volume": 140,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 38,
+     "intent": "informational"
+    },
+    {
+     "keyword": "創業如何",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台西企業",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "如何 自己創業",
+     "volume": 40,
+     "cpc": 0.65,
+     "competition": 0.51,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣企業文化",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業文化推動",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.07,
+     "difficulty": 49,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業發音",
+     "volume": 90,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業領導人",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 51,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業領導者",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "美化企業",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "國航企業",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 14,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "台 塑 企業文化",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 51,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台塑企業文化",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 51,
+     "intent": "informational"
+    },
+    {
+     "keyword": "企業內訓提案",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "親中 企業",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "企業讀音",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "東爵 企業",
+     "volume": 50,
+     "cpc": 0.21,
+     "competition": 0.4,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "東爵企業",
+     "volume": 50,
+     "cpc": 0.21,
+     "competition": 0.4,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "台積電企業文化",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "moxa企業文化",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "浚芳企業社",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "建 昌 企業",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "華 貿 企業",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "元英企業",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "達紡企業",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": 51,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "青林 企業",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 52,
+     "intent": "informational"
+    }
+   ]
+  },
+  "SEO / GEO": {
+   "seeds": [
+    "SEO 香港",
+    "SEO 公司",
+    "GEO 優化",
+    "生成式引擎優化",
+    "搜尋引擎優化",
+    "SEO 服務",
+    "AI SEO"
+   ],
+   "keywords": [
+    {
+     "keyword": "公司 尾 牙",
+     "volume": 260,
+     "cpc": 0.82,
+     "competition": 0.32,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "什麼是seo",
+     "volume": 170,
+     "cpc": 1.44,
+     "competition": 0.44,
+     "difficulty": 53,
+     "intent": "informational"
+    },
+    {
+     "keyword": "seo是什麼",
+     "volume": 5400,
+     "cpc": 1.19,
+     "competition": 0.4,
+     "difficulty": 40,
+     "intent": "informational"
+    },
+    {
+     "keyword": "seo 優化是什麼",
+     "volume": 50,
+     "cpc": 1.62,
+     "competition": 0.56,
+     "difficulty": 51,
+     "intent": "informational"
+    },
+    {
+     "keyword": "建設公司是什麼",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣 化工 公司",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 57,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "中化公司",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "創業是什麼",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": 54,
+     "intent": "informational"
+    },
+    {
+     "keyword": "pos 是 什麼",
+     "volume": 210,
+     "cpc": 2.38,
+     "competition": 0.14,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "優化台灣用語",
+     "volume": 590,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "pump 是 什麼",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "seo如何優化",
+     "volume": 10,
+     "cpc": 0.14,
+     "competition": 0.61,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "seo 如何 優化",
+     "volume": 10,
+     "cpc": 0.14,
+     "competition": 0.61,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "公司文化是什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "中石化 公司",
+     "volume": 0,
+     "cpc": null,
+     "competition": null,
+     "difficulty": 60,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "seo是",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.29,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台塑公司",
+     "volume": 320,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": 26,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台中 seo 公司",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0.39,
+     "difficulty": 100,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "國精化做什麼",
+     "volume": 1000,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "中國石油化學工業",
+     "volume": 49500,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 6,
+     "intent": "informational"
+    },
+    {
+     "keyword": "善化公司",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台塑化做什麼的",
+     "volume": 590,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台蠟公司",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 52,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "sensor 是 什麼",
+     "volume": 170,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "大化公司",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "南化公司",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣氮化鎵公司",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.11,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "三福化做什麼",
+     "volume": 390,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 24,
+     "intent": "informational"
+    },
+    {
+     "keyword": "關稅",
+     "volume": 110000,
+     "cpc": 0.24,
+     "competition": 0.01,
+     "difficulty": 42,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣工礦公司",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "中石化公司",
+     "volume": 0,
+     "cpc": null,
+     "competition": null,
+     "difficulty": 60,
+     "intent": "informational"
+    },
+    {
+     "keyword": "尋葉文化",
+     "volume": 390,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "seo怎麼做",
+     "volume": 140,
+     "cpc": 1.39,
+     "competition": 0.52,
+     "difficulty": 32,
+     "intent": "informational"
+    },
+    {
+     "keyword": "長春化工",
+     "volume": 4400,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "彰化建設公司",
+     "volume": 140,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "swag 是 什麼 公司",
+     "volume": 260,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 38,
+     "intent": "informational"
+    },
+    {
+     "keyword": "booking是什麼",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0.1,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "管理是什麼",
+     "volume": 90,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "公司文化牆",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台中建設公司",
+     "volume": 880,
+     "cpc": 2.64,
+     "competition": 0.12,
+     "difficulty": 16,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "etched 公司",
+     "volume": 480,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "seo優化意思",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "公司團保",
+     "volume": 880,
+     "cpc": 3.67,
+     "competition": 0.11,
+     "difficulty": 0,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "化工年會",
+     "volume": 720,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "成化",
+     "volume": 170,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "三福化",
+     "volume": 4400,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "擎天森林",
+     "volume": 8100,
+     "cpc": 0.2,
+     "competition": 0.09,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "怎樣創業",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.86,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台南好公司推薦",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.05,
+     "difficulty": 54,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "nitra 公司",
+     "volume": 90,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "國化有限公司",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "信昌化工做什麼",
+     "volume": 140,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "seo 怎麼 優化",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台玻做什麼的",
+     "volume": 3600,
+     "cpc": 0.06,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "中化生",
+     "volume": 1900,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 24,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣機械公司",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0.11,
+     "difficulty": 12,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "landmark 公司",
+     "volume": 170,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 2,
+     "intent": "informational"
+    },
+    {
+     "keyword": "cube公司",
+     "volume": 390,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 4,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "中化 子公司",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "中 化 子 公司",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "信越化學做什麼",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣 關稅",
+     "volume": 9900,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 23,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣水泥公司",
+     "volume": 260,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "人資是什麼",
+     "volume": 110,
+     "cpc": null,
+     "competition": 0.03,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣好農",
+     "volume": 3600,
+     "cpc": 1.12,
+     "competition": 0.26,
+     "difficulty": 23,
+     "intent": "informational"
+    },
+    {
+     "keyword": "izna 公司",
+     "volume": 140,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台鐵公司化 意思",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "onto 公司",
+     "volume": 260,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "seo 行銷 是 什麼",
+     "volume": 90,
+     "cpc": 1.25,
+     "competition": 0.5,
+     "difficulty": 50,
+     "intent": "informational"
+    },
+    {
+     "keyword": "化工學什麼",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 18,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台鹽公司",
+     "volume": 110,
+     "cpc": 0.14,
+     "competition": 0.03,
+     "difficulty": 2,
+     "intent": "informational"
+    },
+    {
+     "keyword": "e化是 什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "e化是什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "什麼 是塑膠",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "塑膠是什麼",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "台灣關稅公布",
+     "volume": 720,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 14,
+     "intent": "informational"
+    },
+    {
+     "keyword": "中石化做什麼的",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "李長榮化工",
+     "volume": 3600,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "關鍵字 公司",
+     "volume": 110,
+     "cpc": 7.09,
+     "competition": 0.19,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "成大化學系",
+     "volume": 720,
+     "cpc": 0.2,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    }
+   ]
+  },
+  "系統 / App 開發": {
+   "seeds": [
+    "App 開發 香港",
+    "系統開發",
+    "CRM 系統",
+    "網頁應用 開發",
+    "定制系統 香港",
+    "app 開發價錢"
+   ],
+   "keywords": [
+    {
+     "keyword": "開發問卷系統",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "推薦系統設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "推薦系統製作",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "開發客群",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "transactional"
+    },
+    {
+     "keyword": "開發客戶意思",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "github app 中文",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "新產品開發模式",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "pgsharp 中文 版 ios",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "transactional"
+    },
+    {
+     "keyword": "微時刻推薦系統設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "turnkey 統 包",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.04,
+     "difficulty": null,
+     "intent": "transactional"
+    },
+    {
+     "keyword": "splice app教學",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "sorted app 教學",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "cpp 是 什麼 app",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "演算法圖鑑app",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.14,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "trello公開",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "notion 發布",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "botvue共用收發平台",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "prompt是什麼",
+     "volume": 320,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "uptodate是什麼",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "botvue 共用收發平台",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "poe 啟發 輔助",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "botvue 共用收發平臺",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "opentable 是 什麼",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0.07,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "共用收發平台botvue",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "neato開關",
+     "volume": 0,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "glarity 怎么 用",
+     "volume": 0,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "sideloadly 是 什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "sideloadly是什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "leap call是什麼",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "flink教程",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.07,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "leaf發表",
+     "volume": 0,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "blockly是什麼",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "互動程式",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "glary utilities是什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "openstax 是 什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "pojavlauncher 是 什麼",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "affinity 教學",
+     "volume": 480,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "netlify 教學",
+     "volume": 320,
+     "cpc": 1,
+     "competition": 0.05,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "openevidence 是 什麼",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "logit中文",
+     "volume": 1900,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 5,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "virtual assistant是什麼",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "feedback hub是什麼",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "scope中文",
+     "volume": 1600,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "tech-stack是什麼",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "streamlit 教學",
+     "volume": 320,
+     "cpc": 2.61,
+     "competition": 0.01,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "grab 教學",
+     "volume": 590,
+     "cpc": 0.07,
+     "competition": 0.2,
+     "difficulty": 7,
+     "intent": "informational"
+    },
+    {
+     "keyword": "flyte是什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "getresponse 是 什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.07,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "ui flow是什麼",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "notion中文版",
+     "volume": 390,
+     "cpc": 2.66,
+     "competition": 0.05,
+     "difficulty": 23,
+     "intent": "informational"
+    },
+    {
+     "keyword": "scrape中文",
+     "volume": 1000,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "slack 教學",
+     "volume": 110,
+     "cpc": 2.33,
+     "competition": 0.27,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "opal 教學",
+     "volume": 110,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "用戶接管模式",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 15,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "sideloadly 教學",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 17,
+     "intent": "informational"
+    },
+    {
+     "keyword": "runpod 教學",
+     "volume": 110,
+     "cpc": 2.03,
+     "competition": 0.23,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "flowise 教學",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0.05,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "knative教程",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "activiti教程",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "rewire 中文",
+     "volume": 170,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "recuva 教學",
+     "volume": 90,
+     "cpc": 0.72,
+     "competition": 0.31,
+     "difficulty": 35,
+     "intent": "informational"
+    },
+    {
+     "keyword": "midjourney 使用教程",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.14,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "apify教學",
+     "volume": 70,
+     "cpc": 1.51,
+     "competition": 0.22,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "opnsense 教學",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "jetty 中文",
+     "volume": 110,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "flow 怎麼 用",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "swift 電文",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "retool 中文",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "fortigate 教學",
+     "volume": 70,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "glide 教學",
+     "volume": 70,
+     "cpc": 6.55,
+     "competition": 0.16,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "ubersuggest 教學",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0.07,
+     "difficulty": 49,
+     "intent": "informational"
+    },
+    {
+     "keyword": "nanosheet 中文",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "transactional"
+    },
+    {
+     "keyword": "hubspot 教學",
+     "volume": 40,
+     "cpc": 2.09,
+     "competition": 0.2,
+     "difficulty": 10,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "softether 教學",
+     "volume": 30,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "stream deck 教學",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "tanstack query 教學",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "sideload 中文",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "transactional"
+    },
+    {
+     "keyword": "twine 教學",
+     "volume": 140,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 11,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "ploom x 使用 方法",
+     "volume": 1900,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "thunderbird教學",
+     "volume": 70,
+     "cpc": 3.02,
+     "competition": 0.01,
+     "difficulty": 0,
+     "intent": "navigational"
+    }
+   ]
+  },
+  "網頁設計 / 電商": {
+   "seeds": [
+    "網頁設計",
+    "網頁設計價錢",
+    "網站設計 香港",
+    "電商 網站",
+    "Shopify 香港",
+    "網上商店",
+    "網頁設計公司"
+   ],
+   "keywords": [
+    {
+     "keyword": "gogo123網頁設計",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "gogo123 網頁 設計",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "104網頁設計",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.11,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "104 網頁設計",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.11,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "5g 網頁設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "網頁設計師104",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.34,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "巨匠 網頁設計 ptt",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "柯柯網頁設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "網頁設計 丙級 109",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "上揚-台北網頁設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "跨平台網頁設計 王者歸來",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.86,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "網名設計",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 12,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "皮可-台北網頁設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "愷昇-台北網頁設計",
+     "volume": 0,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "愷昇-台中網頁設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "愷昇-台南網頁設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "躺平設計家網頁版",
+     "volume": 0,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "計數器網頁",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0.03,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "黑 快 馬 網頁 設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "威亞網頁設計104",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "蘋果 網頁設計 104",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "蘋果網頁設計104",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "造 夢 者 網頁 設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "分貝計網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "電 競 網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "阿凡達-台中網頁設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "阿凡達-台南網頁設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "電商設計師",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.26,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "gg平台網頁版",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0.02,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "kkbox 網頁",
+     "volume": 170,
+     "cpc": 0.78,
+     "competition": 0,
+     "difficulty": 56,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "kkbox網頁",
+     "volume": 170,
+     "cpc": 0.78,
+     "competition": 0,
+     "difficulty": 56,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "osu 網頁",
+     "volume": 170,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 17,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "人物設計網站",
+     "volume": 70,
+     "cpc": 0.52,
+     "competition": 0.07,
+     "difficulty": 2,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "阿 腸 網頁設計工作室",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.71,
+     "difficulty": 27,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "網美牆設計",
+     "volume": 50,
+     "cpc": 0.64,
+     "competition": 0.12,
+     "difficulty": 0,
+     "intent": "informational"
+    },
+    {
+     "keyword": "酷網設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "commercial"
+    },
+    {
+     "keyword": "網頁 401",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "月光 創意 網頁 設計",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "104網頁",
+     "volume": 40,
+     "cpc": 0.53,
+     "competition": 0.06,
+     "difficulty": 55,
+     "intent": "informational"
+    },
+    {
+     "keyword": "網頁f12",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 15,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "yshelper網頁",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "404網頁",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "f12 網頁",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "mega網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 61,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "網頁400",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "jandi網頁",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "h5網頁",
+     "volume": 210,
+     "cpc": 0.06,
+     "competition": 0.3,
+     "difficulty": 59,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "h5 網頁",
+     "volume": 210,
+     "cpc": 0.06,
+     "competition": 0.3,
+     "difficulty": 59,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "跨平台網頁設計王者歸來ptt",
+     "volume": null,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "iv計算網頁",
+     "volume": 0,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "kkbox 網頁版",
+     "volume": 2400,
+     "cpc": 2,
+     "competition": 0,
+     "difficulty": 19,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "網頁計數器php",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "網頁404",
+     "volume": 50,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "loilonote 網頁",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "wecatch網頁",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 54,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "loilonote網頁",
+     "volume": 40,
+     "cpc": null,
+     "competition": 0.01,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "zuvio 電腦 網頁 版",
+     "volume": 390,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "kkday 網頁",
+     "volume": 30,
+     "cpc": 4.56,
+     "competition": 0.08,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "推特網頁",
+     "volume": 480,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 100,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "動森設計網站",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 29,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "f12網頁",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 49,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "onenote網頁",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "360 網頁",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "amp 網頁",
+     "volume": 20,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 17,
+     "intent": "informational"
+    },
+    {
+     "keyword": "momo網頁版",
+     "volume": 2400,
+     "cpc": 0.12,
+     "competition": 0.59,
+     "difficulty": 42,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "zuvio電腦網頁版",
+     "volume": 390,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": 0,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "xd網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "omegle 網頁",
+     "volume": 10,
+     "cpc": 1.01,
+     "competition": 0.1,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "forbidden網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "informational"
+    },
+    {
+     "keyword": "ingramer網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "mcafee 網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "poe網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "803 網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "1111網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0.07,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "xhr 網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "bluesky 網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "mufy 網頁",
+     "volume": 10,
+     "cpc": 1.09,
+     "competition": 0.29,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "never網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": 54,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "amos網頁",
+     "volume": 10,
+     "cpc": null,
+     "competition": null,
+     "difficulty": null,
+     "intent": "navigational"
+    },
+    {
+     "keyword": "網頁401",
+     "volume": 10,
+     "cpc": null,
+     "competition": 0,
+     "difficulty": null,
+     "intent": "navigational"
+    }
+   ]
+  }
+ },
+ "cost_usd": 0.0864,
+ "ts": "2026-10"
+}

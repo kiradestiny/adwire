@@ -1,0 +1,392 @@
+{
+ "by_cluster": {
+  "AI 解決方案": [
+   "AI 解決方案",
+   "AI Agent",
+   "ai agent 是什麼",
+   "企業 AI",
+   "AI 自動化",
+   "人工智能 香港",
+   "AI 顧問",
+   "AI 應用",
+   "聊天機械人",
+   "RPA",
+   "自動化流程",
+   "AI 導入",
+   "ai 公司"
+  ],
+  "SEO / GEO": [
+   "SEO 香港",
+   "SEO 公司",
+   "SEO 服務",
+   "搜尋引擎優化",
+   "生成式引擎優化",
+   "GEO",
+   "GEO 優化",
+   "AI SEO",
+   "SEO 價錢",
+   "網絡營銷",
+   "關鍵字優化",
+   "SEO 是什麼"
+  ],
+  "系統 / App 開發": [
+   "App 開發",
+   "app 開發價錢",
+   "應用程式開發",
+   "系統開發",
+   "系統開發公司",
+   "CRM",
+   "CRM 系統",
+   "網頁應用",
+   "定制系統",
+   "內部系統",
+   "企業系統",
+   "網站後台"
+  ],
+  "網頁設計 / 電商": [
+   "網頁設計",
+   "網頁設計公司",
+   "網站設計",
+   "網頁設計價錢",
+   "網頁設計報價",
+   "網上商店",
+   "電商網站",
+   "開網店",
+   "Shopify",
+   "Shopify 香港",
+   "網店",
+   "landing page",
+   "著陸頁",
+   "網頁設計服務",
+   "網站製作",
+   "網頁設計 香港",
+   "ecommerce"
+  ]
+ },
+ "volumes": {
+  "AI 解決方案": {
+   "volume": 10,
+   "cpc": 4.01,
+   "competition": "HIGH",
+   "index": 71
+  },
+  "AI Agent": {
+   "volume": 6600,
+   "cpc": 3.2,
+   "competition": "MEDIUM",
+   "index": 38
+  },
+  "ai agent 是什麼": {
+   "volume": 480,
+   "cpc": 1.98,
+   "competition": "LOW",
+   "index": 15
+  },
+  "企業 AI": {
+   "volume": 20,
+   "cpc": 6.46,
+   "competition": "MEDIUM",
+   "index": 59
+  },
+  "AI 自動化": {
+   "volume": 50,
+   "cpc": 2.93,
+   "competition": "MEDIUM",
+   "index": 44
+  },
+  "人工智能 香港": {
+   "volume": 20,
+   "cpc": null,
+   "competition": "LOW",
+   "index": 1
+  },
+  "AI 顧問": {
+   "volume": 10,
+   "cpc": 1.35,
+   "competition": "MEDIUM",
+   "index": 45
+  },
+  "AI 應用": {
+   "volume": 170,
+   "cpc": 0.87,
+   "competition": "LOW",
+   "index": 26
+  },
+  "聊天機械人": {
+   "volume": 90,
+   "cpc": 1.24,
+   "competition": "LOW",
+   "index": 21
+  },
+  "RPA": {
+   "volume": 1900,
+   "cpc": 3.98,
+   "competition": "LOW",
+   "index": 8
+  },
+  "自動化流程": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "index": 18
+  },
+  "AI 導入": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "index": 5
+  },
+  "ai 公司": {
+   "volume": 170,
+   "cpc": 3.04,
+   "competition": "MEDIUM",
+   "index": 36
+  },
+  "SEO 香港": {
+   "volume": 110,
+   "cpc": 11.61,
+   "competition": "HIGH",
+   "index": 67
+  },
+  "SEO 公司": {
+   "volume": 1000,
+   "cpc": 19.27,
+   "competition": "MEDIUM",
+   "index": 45
+  },
+  "SEO 服務": {
+   "volume": 260,
+   "cpc": 19.69,
+   "competition": "MEDIUM",
+   "index": 42
+  },
+  "搜尋引擎優化": {
+   "volume": 70,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "index": 59
+  },
+  "生成式引擎優化": {
+   "volume": 10,
+   "cpc": 14.48,
+   "competition": "HIGH",
+   "index": 70
+  },
+  "GEO": {
+   "volume": 5400,
+   "cpc": 3.53,
+   "competition": "LOW",
+   "index": 27
+  },
+  "GEO 優化": {
+   "volume": 30,
+   "cpc": 18.98,
+   "competition": "HIGH",
+   "index": 73
+  },
+  "AI SEO": {
+   "volume": 260,
+   "cpc": 14.24,
+   "competition": "HIGH",
+   "index": 69
+  },
+  "SEO 價錢": {
+   "volume": 70,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "index": 35
+  },
+  "網絡營銷": {
+   "volume": 50,
+   "cpc": null,
+   "competition": "HIGH",
+   "index": 68
+  },
+  "關鍵字優化": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "SEO 是什麼": {
+   "volume": 390,
+   "cpc": 5.4,
+   "competition": "LOW",
+   "index": 32
+  },
+  "App 開發": {
+   "volume": 140,
+   "cpc": 7.67,
+   "competition": "MEDIUM",
+   "index": 61
+  },
+  "app 開發價錢": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "應用程式開發": {
+   "volume": 20,
+   "cpc": 10.94,
+   "competition": "HIGH",
+   "index": 70
+  },
+  "系統開發": {
+   "volume": 30,
+   "cpc": 8.37,
+   "competition": "HIGH",
+   "index": 72
+  },
+  "系統開發公司": {
+   "volume": 10,
+   "cpc": 3.91,
+   "competition": "MEDIUM",
+   "index": 43
+  },
+  "CRM": {
+   "volume": 5400,
+   "cpc": 11.2,
+   "competition": "MEDIUM",
+   "index": 35
+  },
+  "CRM 系統": {
+   "volume": 260,
+   "cpc": 5.87,
+   "competition": "MEDIUM",
+   "index": 54
+  },
+  "網頁應用": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "定制系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "內部系統": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "index": 0
+  },
+  "企業系統": {
+   "volume": 10,
+   "cpc": 2.97,
+   "competition": "HIGH",
+   "index": 86
+  },
+  "網站後台": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "index": 5
+  },
+  "網頁設計": {
+   "volume": 22200,
+   "cpc": 6.09,
+   "competition": "LOW",
+   "index": 8
+  },
+  "網頁設計公司": {
+   "volume": 5400,
+   "cpc": 8.1,
+   "competition": "MEDIUM",
+   "index": 60
+  },
+  "網站設計": {
+   "volume": 720,
+   "cpc": 7.86,
+   "competition": "MEDIUM",
+   "index": 59
+  },
+  "網頁設計價錢": {
+   "volume": 140,
+   "cpc": 4.87,
+   "competition": "MEDIUM",
+   "index": 47
+  },
+  "網頁設計報價": {
+   "volume": 70,
+   "cpc": 3.62,
+   "competition": "MEDIUM",
+   "index": 62
+  },
+  "網上商店": {
+   "volume": 170,
+   "cpc": 7.86,
+   "competition": "MEDIUM",
+   "index": 53
+  },
+  "電商網站": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "HIGH",
+   "index": 71
+  },
+  "開網店": {
+   "volume": 210,
+   "cpc": 8.37,
+   "competition": "HIGH",
+   "index": 70
+  },
+  "Shopify": {
+   "volume": 22200,
+   "cpc": 1.79,
+   "competition": "MEDIUM",
+   "index": 54
+  },
+  "Shopify 香港": {
+   "volume": 70,
+   "cpc": 4.47,
+   "competition": "HIGH",
+   "index": 68
+  },
+  "網店": {
+   "volume": 720,
+   "cpc": 7.91,
+   "competition": "MEDIUM",
+   "index": 65
+  },
+  "landing page": {
+   "volume": 720,
+   "cpc": 4.28,
+   "competition": "LOW",
+   "index": 30
+  },
+  "著陸頁": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "HIGH",
+   "index": 86
+  },
+  "網頁設計服務": {
+   "volume": 70,
+   "cpc": 10.21,
+   "competition": "HIGH",
+   "index": 92
+  },
+  "網站製作": {
+   "volume": 140,
+   "cpc": 6.07,
+   "competition": "HIGH",
+   "index": 73
+  },
+  "網頁設計 香港": {
+   "volume": 90,
+   "cpc": 7.24,
+   "competition": "MEDIUM",
+   "index": 61
+  },
+  "ecommerce": {
+   "volume": 2400,
+   "cpc": 5.51,
+   "competition": "LOW",
+   "index": 18
+  }
+ }
+}

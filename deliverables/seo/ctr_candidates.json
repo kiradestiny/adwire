@@ -1,0 +1,134 @@
+[
+ {
+  "q": "rpa hk",
+  "old": "/blog/rpa-hong-kong-guide-2026/",
+  "page": "/blog/rpa-hong-kong-guide/",
+  "pos": 19.2,
+  "imp": 48,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 1.5,
+  "gap_clicks": 0.7
+ },
+ {
+  "q": "科技券2026",
+  "old": "/blog/hong-kong-government-ai-digital-funding-2026/",
+  "page": "/blog/hong-kong-government-ai-digital-funding/",
+  "pos": 3.7,
+  "imp": 10,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 7.0,
+  "gap_clicks": 0.7
+ },
+ {
+  "q": "香港有咩 aio agency 值得推薦？",
+  "old": "/blog/ai-agent-hong-kong-business-guide-2026/",
+  "page": "/blog/ai-agent-hong-kong-business-guide/",
+  "pos": 3.7,
+  "imp": 10,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 7.0,
+  "gap_clicks": 0.7
+ },
+ {
+  "q": "小紅書 marketing",
+  "old": "/blog/xiaohongshu-marketing-hong-kong-guide-2026/",
+  "page": "/blog/xiaohongshu-marketing-hong-kong-guide/",
+  "pos": 6.2,
+  "imp": 18,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 3.0,
+  "gap_clicks": 0.5
+ },
+ {
+  "q": "hk seo agency",
+  "old": "/blog/how-to-choose-seo-company-hong-kong-2026/",
+  "page": "/blog/how-to-choose-seo-company-hong-kong/",
+  "pos": 10.7,
+  "imp": 17,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 1.5,
+  "gap_clicks": 0.3
+ },
+ {
+  "q": "ai agency",
+  "old": "/blog/ai-agent-hong-kong-business-guide-2026/",
+  "page": "/blog/ai-agent-hong-kong-business-guide/",
+  "pos": 5.8,
+  "imp": 10,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 3.0,
+  "gap_clicks": 0.3
+ },
+ {
+  "q": "成功更改聯絡資料之後，幾時先會正式生效？",
+  "old": "/blog/hong-kong-ai-chatbot-customer-service-guide-2026/",
+  "page": "/blog/hong-kong-ai-chatbot-customer-service-guide/",
+  "pos": 9.2,
+  "imp": 10,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 3.0,
+  "gap_clicks": 0.3
+ },
+ {
+  "q": "ai agent 香港",
+  "old": "/blog/ai-agent-hong-kong-business-guide-2026",
+  "page": "/blog/ai-agent-hong-kong-business-guide/",
+  "pos": 5.6,
+  "imp": 9,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 3.0,
+  "gap_clicks": 0.3
+ },
+ {
+  "q": "ai agent 香港",
+  "old": "/blog/ai-agent-hong-kong-business-guide-2026/",
+  "page": "/blog/ai-agent-hong-kong-business-guide/",
+  "pos": 12,
+  "imp": 10,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 1.5,
+  "gap_clicks": 0.1
+ },
+ {
+  "q": "rpa",
+  "old": "/blog/rpa-hong-kong-guide-2026/",
+  "page": "/blog/rpa-hong-kong-guide/",
+  "pos": 17.6,
+  "imp": 10,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 1.5,
+  "gap_clicks": 0.1
+ },
+ {
+  "q": "seo hk",
+  "old": "/blog/how-to-choose-seo-company-hong-kong-2026/",
+  "page": "/blog/how-to-choose-seo-company-hong-kong/",
+  "pos": 18.8,
+  "imp": 10,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 1.5,
+  "gap_clicks": 0.1
+ },
+ {
+  "q": "crm 香港",
+  "old": "/blog/crm-system-selection-guide-hong-kong-2026/",
+  "page": "/blog/crm-system-selection-guide-hong-kong/",
+  "pos": 20,
+  "imp": 8,
+  "clicks": 0,
+  "ctr": 0,
+  "exp": 1.5,
+  "gap_clicks": 0.1
+ }
+]

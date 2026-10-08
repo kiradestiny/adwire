@@ -1,0 +1,430 @@
+{
+ "by_cluster": {
+  "網頁設計服務頁": [
+   "網站改版",
+   "網頁改版",
+   "網站重新設計",
+   "網站翻新",
+   "網頁設計",
+   "網頁設計公司",
+   "網站設計",
+   "網站設計公司",
+   "網站開發",
+   "網站開發公司",
+   "網頁設計價錢",
+   "網頁設計報價",
+   "網站製作",
+   "網頁製作",
+   "公司網站",
+   "企業網站",
+   "響應式網頁設計",
+   "響應式網站",
+   "手機版網站",
+   "網站維護",
+   "網站托管",
+   "網站設計服務",
+   "網頁設計服務",
+   "電商網站設計",
+   "網店設計",
+   "網店平台",
+   "網上商店設計",
+   "landing page 設計",
+   "着陸頁",
+   "網站架設",
+   "網頁設計 香港"
+  ],
+  "SEO 服務頁": [
+   "SEO",
+   "SEO 收費",
+   "SEO 價錢",
+   "SEO 服務",
+   "SEO 公司",
+   "SEO 顧問",
+   "搜尋引擎優化",
+   "SEO 優化",
+   "SEO 排名",
+   "關鍵字優化",
+   "網站優化",
+   "SEO 推廣",
+   "網絡推廣",
+   "數碼營銷",
+   "SEO 課程",
+   "SEO 教學",
+   "本地 SEO",
+   "生成式引擎優化",
+   "GEO 優化",
+   "AI SEO",
+   "內容行銷",
+   "反向連結",
+   "網站排名",
+   "Google 排名",
+   "SEO 報價",
+   "SEO 服務收費",
+   "SEO 邊間好",
+   "搜尋引擎優化服務",
+   "SEO 香港"
+  ]
+ },
+ "volumes": {
+  "網站改版": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "網頁改版": {
+   "volume": 0,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "網站重新設計": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "網站翻新": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "網頁設計": {
+   "volume": 22200,
+   "cpc": 6.09,
+   "competition": "LOW",
+   "index": 8
+  },
+  "網頁設計公司": {
+   "volume": 5400,
+   "cpc": 8.1,
+   "competition": "MEDIUM",
+   "index": 60
+  },
+  "網站設計": {
+   "volume": 720,
+   "cpc": 7.86,
+   "competition": "MEDIUM",
+   "index": 59
+  },
+  "網站設計公司": {
+   "volume": 480,
+   "cpc": 9.41,
+   "competition": "MEDIUM",
+   "index": 38
+  },
+  "網站開發": {
+   "volume": 40,
+   "cpc": null,
+   "competition": "HIGH",
+   "index": 76
+  },
+  "網站開發公司": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "HIGH",
+   "index": 86
+  },
+  "網頁設計價錢": {
+   "volume": 140,
+   "cpc": 4.87,
+   "competition": "MEDIUM",
+   "index": 47
+  },
+  "網頁設計報價": {
+   "volume": 70,
+   "cpc": 3.62,
+   "competition": "MEDIUM",
+   "index": 62
+  },
+  "網站製作": {
+   "volume": 140,
+   "cpc": 6.07,
+   "competition": "HIGH",
+   "index": 73
+  },
+  "網頁製作": {
+   "volume": 320,
+   "cpc": 6.29,
+   "competition": "MEDIUM",
+   "index": 61
+  },
+  "公司網站": {
+   "volume": 70,
+   "cpc": 6.43,
+   "competition": "LOW",
+   "index": 26
+  },
+  "企業網站": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "index": 0
+  },
+  "響應式網頁設計": {
+   "volume": 50,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "index": 47
+  },
+  "響應式網站": {
+   "volume": 40,
+   "cpc": null,
+   "competition": "LOW",
+   "index": 7
+  },
+  "手機版網站": {
+   "volume": 10,
+   "cpc": 2.12,
+   "competition": "HIGH",
+   "index": 86
+  },
+  "網站維護": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "index": 48
+  },
+  "網站托管": {
+   "volume": 20,
+   "cpc": 0.72,
+   "competition": "MEDIUM",
+   "index": 60
+  },
+  "網站設計服務": {
+   "volume": 10,
+   "cpc": 5.96,
+   "competition": "LOW",
+   "index": 21
+  },
+  "網頁設計服務": {
+   "volume": 70,
+   "cpc": 10.21,
+   "competition": "HIGH",
+   "index": 92
+  },
+  "電商網站設計": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "網店設計": {
+   "volume": 70,
+   "cpc": 9.52,
+   "competition": "MEDIUM",
+   "index": 48
+  },
+  "網店平台": {
+   "volume": 140,
+   "cpc": 6.65,
+   "competition": "HIGH",
+   "index": 80
+  },
+  "網上商店設計": {
+   "volume": 70,
+   "cpc": 5.33,
+   "competition": "HIGH",
+   "index": 74
+  },
+  "landing page 設計": {
+   "volume": 10,
+   "cpc": 3.07,
+   "competition": "HIGH",
+   "index": 79
+  },
+  "着陸頁": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "網站架設": {
+   "volume": 110,
+   "cpc": 6.36,
+   "competition": "HIGH",
+   "index": 73
+  },
+  "網頁設計 香港": {
+   "volume": 90,
+   "cpc": 7.24,
+   "competition": "MEDIUM",
+   "index": 61
+  },
+  "SEO": {
+   "volume": 4400,
+   "cpc": 15.42,
+   "competition": "MEDIUM",
+   "index": 58
+  },
+  "SEO 收費": {
+   "volume": 110,
+   "cpc": 12.45,
+   "competition": "MEDIUM",
+   "index": 48
+  },
+  "SEO 價錢": {
+   "volume": 70,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "index": 35
+  },
+  "SEO 服務": {
+   "volume": 260,
+   "cpc": 19.69,
+   "competition": "MEDIUM",
+   "index": 42
+  },
+  "SEO 公司": {
+   "volume": 1000,
+   "cpc": 19.27,
+   "competition": "MEDIUM",
+   "index": 45
+  },
+  "SEO 顧問": {
+   "volume": 40,
+   "cpc": 11.27,
+   "competition": "MEDIUM",
+   "index": 50
+  },
+  "搜尋引擎優化": {
+   "volume": 70,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "index": 59
+  },
+  "SEO 優化": {
+   "volume": 260,
+   "cpc": 11.56,
+   "competition": "MEDIUM",
+   "index": 58
+  },
+  "SEO 排名": {
+   "volume": 110,
+   "cpc": 10.03,
+   "competition": "MEDIUM",
+   "index": 55
+  },
+  "關鍵字優化": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "網站優化": {
+   "volume": 10,
+   "cpc": 9.19,
+   "competition": "HIGH",
+   "index": 78
+  },
+  "SEO 推廣": {
+   "volume": 20,
+   "cpc": null,
+   "competition": "HIGH",
+   "index": 85
+  },
+  "網絡推廣": {
+   "volume": 30,
+   "cpc": null,
+   "competition": "HIGH",
+   "index": 86
+  },
+  "數碼營銷": {
+   "volume": 480,
+   "cpc": 13.29,
+   "competition": "MEDIUM",
+   "index": 49
+  },
+  "SEO 課程": {
+   "volume": 50,
+   "cpc": 0.77,
+   "competition": "MEDIUM",
+   "index": 35
+  },
+  "SEO 教學": {
+   "volume": 70,
+   "cpc": 5.87,
+   "competition": "MEDIUM",
+   "index": 39
+  },
+  "本地 SEO": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "index": 0
+  },
+  "生成式引擎優化": {
+   "volume": 10,
+   "cpc": 14.48,
+   "competition": "HIGH",
+   "index": 70
+  },
+  "GEO 優化": {
+   "volume": 30,
+   "cpc": 18.98,
+   "competition": "HIGH",
+   "index": 73
+  },
+  "AI SEO": {
+   "volume": 260,
+   "cpc": 14.24,
+   "competition": "HIGH",
+   "index": 69
+  },
+  "內容行銷": {
+   "volume": 30,
+   "cpc": null,
+   "competition": "LOW",
+   "index": 8
+  },
+  "反向連結": {
+   "volume": 30,
+   "cpc": 8.57,
+   "competition": "MEDIUM",
+   "index": 39
+  },
+  "網站排名": {
+   "volume": 30,
+   "cpc": 6.52,
+   "competition": "LOW",
+   "index": 8
+  },
+  "Google 排名": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "index": 36
+  },
+  "SEO 報價": {
+   "volume": 40,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "SEO 服務收費": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "HIGH",
+   "index": 86
+  },
+  "SEO 邊間好": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "搜尋引擎優化服務": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "index": null
+  },
+  "SEO 香港": {
+   "volume": 110,
+   "cpc": 11.61,
+   "competition": "HIGH",
+   "index": 67
+  }
+ }
+}
