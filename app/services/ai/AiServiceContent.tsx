@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import ServiceDeepDive from "@/components/ServiceDeepDive";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
@@ -692,6 +693,7 @@ export default function AiServiceContent() {
         </div>
       </section>
 
+      <ServiceDeepDive slug="ai" />
       {/* FAQ - Interactive */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

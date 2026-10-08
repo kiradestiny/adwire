@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceDeepDive from "@/components/ServiceDeepDive";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import ServiceJsonLd from "@/components/ServiceJsonLd";
@@ -519,6 +520,7 @@ export default function WebServiceContent() {
         </div>
       </section>
 
+      <ServiceDeepDive slug="web" />
       {/* 10. FAQ Section */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
