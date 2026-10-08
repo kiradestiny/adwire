@@ -18,7 +18,7 @@ jobs:
         run: |
           for u in ${{ github.event.inputs.urls }}; do
             echo "===== $u"
-            curl -s -o /dev/null -w 'status=%{http_code} redirect=%{redirect_url} final=%{url_effective}\n' -L --max-time 30 "$u"
+            curl -s -o /dev/null -w 'status=%{http_code} size=%{size_download} redirect=%{redirect_url} final=%{url_effective}\n' -L --max-time 30 "$u"
             curl -sL --max-time 30 "$u" | grep -o '<title>[^<]*</title>' | head -1
             for kw in ${{ github.event.inputs.grep }}; do
               n=$(curl -sL --max-time 30 "$u" | grep -o "$kw" | wc -l)
