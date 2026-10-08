@@ -19,7 +19,10 @@ export default function ServiceDeepDive({ slug }: { slug: keyof typeof SERVICE_D
           {data.sections.map((s) => (
             <div key={s.heading} className="bg-white p-8 rounded-2xl border border-gray-100">
               <h3 className="text-xl font-bold text-[#0f4c81] mb-3">{s.heading}</h3>
-              <p className="text-gray-600 leading-relaxed">{s.body}</p>
+              <div
+                className="text-gray-600 leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_ul]:mt-2 [&_a]:text-[#0f4c81] [&_a]:font-medium [&_a]:hover:underline [&_p+p]:mt-2"
+                dangerouslySetInnerHTML={{ __html: s.body }}
+              />
               {s.link ? (
                 <Link
                   href={s.link.href}
