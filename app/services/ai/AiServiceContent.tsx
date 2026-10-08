@@ -589,7 +589,7 @@ export default function AiServiceContent() {
                 另外，估算假設「節省的工時等於同等價值的產能」，但實務上被釋放的工時通常只有一部分
                 會轉化為實際產出，因此這裡的數字應視為上限而非預期值。關於生產力轉化係數的討論，
                 可參考我們在
-                <a href="/blog/ai-automation-roi-hong-kong-2026/" className="underline underline-offset-2">
+                <a href="/blog/ai-automation-roi-hong-kong/" className="underline underline-offset-2">
                   AI 自動化回報分析
                 </a>
                 一文引用的方法論。
@@ -669,22 +669,22 @@ export default function AiServiceContent() {
               <p className="text-sm text-gray-600 leading-relaxed">AI 能力要接進現有系統，往往先要處理資料結構、權限與 API。這一頁說明訂造系統與現成方案的取捨。</p>
             </a>
 
-            <a href="/blog/ai-agent-hong-kong-business-guide-2026/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+            <a href="/blog/ai-agent-hong-kong-business-guide/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
               <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI Agent 香港企業應用指南</h3>
               <p className="text-sm text-gray-600 leading-relaxed">AI Agent 與一般 Chatbot 的分別、可以處理哪些任務、權限與人工覆核怎樣設計。</p>
             </a>
 
-            <a href="/blog/ai-automation-roi-hong-kong-2026/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+            <a href="/blog/ai-automation-roi-hong-kong/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
               <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI 自動化回報分析</h3>
               <p className="text-sm text-gray-600 leading-relaxed">怎樣計算 AI 與自動化項目的回報、哪些假設最容易被高估，以及量度方式怎樣設定。</p>
             </a>
 
-            <a href="/blog/hong-kong-ai-chatbot-customer-service-guide-2026/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+            <a href="/blog/hong-kong-ai-chatbot-customer-service-guide/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
               <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI 客服系統導入指南</h3>
               <p className="text-sm text-gray-600 leading-relaxed">客服場景的實際做法、廣東話與書面語的處理、轉介真人跟進的時機與界線。</p>
             </a>
 
-            <a href="/blog/ai-reduce-hong-kong-business-labour-cost-2026/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+            <a href="/blog/ai-reduce-hong-kong-business-labour-cost/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
               <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI 如何降低營運人力成本</h3>
               <p className="text-sm text-gray-600 leading-relaxed">哪些工序最適合先做、釋放出來的工時可以怎樣重新分配，以及常見的誤算。</p>
             </a>

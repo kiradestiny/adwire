@@ -634,7 +634,7 @@ export default function ChinaMarketContent() {
             我們可以協助你了解適用的計劃、可資助的項目範圍，以及申請時需要準備的資料。
           </p>
           <a
-            href="/blog/hong-kong-government-ai-digital-funding-2026/"
+            href="/blog/hong-kong-government-ai-digital-funding/"
             className="inline-flex items-center gap-2 bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors"
           >
             了解 2026 年可用資助 <ArrowRight size={16} />
@@ -713,7 +713,7 @@ export default function ChinaMarketContent() {
               討論你的推廣計劃
             </a>
             <a
-              href="/blog/hong-kong-brand-china-market-guide-2026/"
+              href="/blog/hong-kong-brand-china-market-guide/"
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all"
             >
               看內地市場進入攻略

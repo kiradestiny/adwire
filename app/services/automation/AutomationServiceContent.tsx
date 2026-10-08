@@ -340,7 +340,7 @@ export default function AutomationServiceContent() {
 
           <div className="text-center">
             <a
-              href="/blog/rpa-hong-kong-guide-2026/"
+              href="/blog/rpa-hong-kong-guide/"
               className="inline-flex items-center gap-2 text-[#0f4c81] font-semibold hover:underline"
             >
               延伸閱讀：RPA 香港企業導入指南（成本結構、工具比較與六個失敗原因）

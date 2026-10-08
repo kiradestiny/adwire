@@ -202,22 +202,22 @@ const relatedReading = [
   {
     title: "GEO 生成式引擎優化指南",
     desc: "AI 搜尋怎樣運作、內容要怎樣寫才容易被引用，以及哪些做法沒有實際作用。",
-    link: "/blog/geo-generative-engine-optimization-guide-2026/",
+    link: "/blog/geo-generative-engine-optimization-guide/",
   },
   {
     title: "怎樣選擇 SEO 公司",
     desc: "按 Google 官方公布的《雇用 SEO 專家的訣竅》，逐項說明評估標準與要問的問題。",
-    link: "/blog/how-to-choose-seo-company-hong-kong-2026/",
+    link: "/blog/how-to-choose-seo-company-hong-kong/",
   },
   {
     title: "核心網頁指標與網站速度指南",
     desc: "Core Web Vitals 的實際影響、量度方式，以及香港網站常見的效能問題。",
-    link: "/blog/core-web-vitals-website-speed-guide-2026/",
+    link: "/blog/core-web-vitals-website-speed-guide/",
   },
   {
     title: "AI Agent 香港企業應用指南",
     desc: "AI Agent 與一般 Chatbot 的分別、可處理的任務，以及權限與人工覆核設計。",
-    link: "/blog/ai-agent-hong-kong-business-guide-2026/",
+    link: "/blog/ai-agent-hong-kong-business-guide/",
   },
 ];
 
@@ -371,7 +371,7 @@ export default function ServicesContent() {
             值得注意的是最後一項：<strong>AI 平台的輸出由平台決定，任何供應商都無法保證你的品牌會被引用或推薦。</strong>
             如果有人向你保證「一定會被 AI 推薦」，那是不成立的承諾。我們的做法是逐項做好可控制的部分，
             並如實報告量度結果。相關討論見
-            <Link href="/blog/geo-generative-engine-optimization-guide-2026/" className="text-[#0f4c81] underline underline-offset-2 mx-1">
+            <Link href="/blog/geo-generative-engine-optimization-guide/" className="text-[#0f4c81] underline underline-offset-2 mx-1">
               GEO 生成式引擎優化指南
             </Link>。
           </p>
