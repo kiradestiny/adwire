@@ -28,6 +28,7 @@ on:
         options:
           - dry-run
           - apply
+          - rename-slugs
       confirm:
         description: 'apply 模式請輸入 APPLY 確認'
         required: false
@@ -78,6 +79,8 @@ jobs:
           $SSH "$SG_USER@$SG_HOST" "mkdir -p '$SG_PATH/db-sync-tmp'"
           $SCP scripts/db-sync/sync_blog_posts.php "$SG_USER@$SG_HOST:$SG_PATH/db-sync-tmp/"
           $SCP scripts/db-sync/payload.json        "$SG_USER@$SG_HOST:$SG_PATH/db-sync-tmp/"
+          $SCP scripts/db-sync/rename_slugs.php    "$SG_USER@$SG_HOST:$SG_PATH/db-sync-tmp/" || true
+          $SCP scripts/db-sync/slug_map.json       "$SG_USER@$SG_HOST:$SG_PATH/db-sync-tmp/" || true
           echo "✅ 已上傳（暫存目錄，完成後即刪除）"
 
       - name: Run sync
@@ -86,11 +89,18 @@ jobs:
           SG_USER: ${{ secrets.SITEGROUND_USER }}
           SG_PATH: ${{ secrets.SITEGROUND_PATH }}
           MODE: ${{ github.event.inputs.mode }}
+          CONFIRM: ${{ github.event.inputs.confirm }}
         run: |
           SSH="ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -o BatchMode=yes -p 18765"
-          FLAG=""
-          if [ "$MODE" = "apply" ]; then FLAG="--apply"; fi
-          $SSH "$SG_USER@$SG_HOST" "cd '$SG_PATH/db-sync-tmp' && php sync_blog_posts.php $FLAG"
+          if [ "$MODE" = "rename-slugs" ]; then
+            FLAG=""
+            if [ "$CONFIRM" = "APPLY" ]; then FLAG="--apply"; fi
+            $SSH "$SG_USER@$SG_HOST" "cd '$SG_PATH/db-sync-tmp' && php rename_slugs.php $FLAG"
+          else
+            FLAG=""
+            if [ "$MODE" = "apply" ]; then FLAG="--apply"; fi
+            $SSH "$SG_USER@$SG_HOST" "cd '$SG_PATH/db-sync-tmp' && php sync_blog_posts.php $FLAG"
+          fi
 
       - name: Clean up temp dir (always)
         if: always()
@@ -103,7 +113,7 @@ jobs:
           $SSH "$SG_USER@$SG_HOST" "rm -rf '$SG_PATH/db-sync-tmp' && echo '🧹 已刪除暫存目錄'" || true
 
       - name: Trigger rebuild so the site picks up the new DB content
-        if: ${{ github.event.inputs.mode == 'apply' }}
+        if: ${{ github.event.inputs.mode == 'apply' || github.event.inputs.mode == 'rename-slugs' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
