@@ -6,6 +6,10 @@ on:
         description: 'space-separated URLs'
         required: true
         default: 'https://adwire.com.hk/blog/seo-vs-geo/'
+      grep:
+        description: 'optional: space-separated strings to count in the body'
+        required: false
+        default: ''
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -16,4 +20,8 @@ jobs:
             echo "===== $u"
             curl -s -o /dev/null -w 'status=%{http_code} redirect=%{redirect_url} final=%{url_effective}\n' -L --max-time 30 "$u"
             curl -sL --max-time 30 "$u" | grep -o '<title>[^<]*</title>' | head -1
+            for kw in ${{ github.event.inputs.grep }}; do
+              n=$(curl -sL --max-time 30 "$u" | grep -o "$kw" | wc -l)
+              echo "  grep '$kw' = $n"
+            done
           done
