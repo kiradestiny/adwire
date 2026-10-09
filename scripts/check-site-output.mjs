@@ -539,6 +539,27 @@ function main() {
     }
   }
 
+  // ── 文章分類標籤長度 ────────────────────────────────────────────────
+  // 為何要查：Blog 的分類篩選 chip 是由文章 category 動態生成（new Set），
+  // 只要有一篇寫了長標籤，就會單獨造出一個撐爆版面的巨型 chip（2026-10-09 實際發生）。
+  try {
+    const catSrc = readFileSync(new URL("../lib/blogData.ts", import.meta.url), "utf8");
+    const seenCat = new Set();
+    for (const m of catSrc.matchAll(/category:\s*"([^"]+)"/g)) {
+      const c = m[1];
+      if (seenCat.has(c)) continue;
+      seenCat.add(c);
+      const len = [...c].length;
+      if (len > 24) {
+        errors.push(
+          `文章分類「${c}」過長（${len} 字元，上限 24）——會令 Blog 篩選 chip 撐爆版面，請改用短標籤（例：SEO & AI）`
+        );
+      }
+    }
+  } catch {
+    /* blogData.ts 不存在時略過 */
+  }
+
   console.log(`\n出街前閘門（檢查 ${files.length} 頁 + ${txts.length} 個純文字檔，sitemap ${inSitemap ? inSitemap.size : "?"} 頁）`);
   console.log("─".repeat(64));
 

@@ -3227,7 +3227,7 @@ export const blogPosts: BlogPost[] = [
       "GEO \u4E0D\u662F\u65B0\u6280\u8853\uFF0C\u4E5F\u4E0D\u662F\u9760 llms.txt \u5C31\u80FD\u505A\u5230\u3002\u672C\u6587\u6309 Google \u5B98\u65B9\u6307\u5F15\u3001OpenAI \u8207 Perplexity \u722C\u87F2\u8AAA\u660E\u3001KDD 2024 \u5B78\u8853\u8AD6\u6587\u8207\u7B2C\u4E09\u65B9\u5BE6\u8B49\u6578\u64DA\uFF0C\u9010\u9805\u62C6\u89E3\u6709\u6548\u8207\u7121\u6548\u7684 GEO \u505A\u6CD5\uFF0C\u4E26\u8AAA\u660E 40% \u589E\u76CA\u70BA\u4F55\u4E0D\u662F\u5546\u696D\u4FDD\u8B49\u3002",
     date: "2026-09-21",
     updatedAt: "2026-10-03",
-    category: "SEO（搜尋引擎優化，Search Engine Optimization） & AI",
+    category: "SEO & AI",
     readTime: "14 min read",
     imageColor: "from-[#0f4c81] to-slate-800",
     image: "/blog/geo-generative-engine-optimization-guide-2026.webp",
