@@ -1,0 +1,13 @@
+{
+  "id": 40,
+  "slug": "school-ai-project-hong-kong",
+  "title": "學校做 AI 項目：由校本需求到技術方案（香港學校技術指南）",
+  "excerpt": "學校推行校本 AI 項目，成敗往往不在於買了哪一套工具，而在於需求是否先整理清楚、技術方案是否對應真實痛點、資料私隱與風險是否受控。本文從技術與專案管理角度，整理需求盤點框架、項目類型、方案選型（現成工具、定制開發、混合）、私隱合規、風險與人工覆核、專案分期與驗收，以及成本估算，供校長、IT 統籌老師參考。",
+  "date": "2026-10-09",
+  "category": "System Dev",
+  "readTime": "13 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/school-ai-project-hong-kong.webp",
+  "tags": ["AI 應用", "學校", "人工智能", "技術方案", "資料私隱", "專案管理", "香港"],
+  "comment": "Article 40：學校 AI 項目技術指南"
+}

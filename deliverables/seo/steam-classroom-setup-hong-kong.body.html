@@ -1,0 +1,300 @@
+<p class="lead text-xl text-gray-600 mb-8">學校籌建或更新 STEAM 教室，多數由一張設備清單開始，但真正的難題在於設備之間的相容性、耗材供應、軟件授權、空間與電力配套，以及採購程序與日後維護。本文由技術與運營角度出發，整理 STEAM 教室包含的設備類型、選型時要考慮的技術因素、軟件授權安排、資助學校的採購程序、優質教育基金的資助範圍，以及總持有成本，協助負責統籌的同事由採購到維護一次過釐清。文內所有金額均為示範假設，只作規劃參考，實際費用以正式報價及官方文件為準。</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+  <p class="text-gray-700 leading-relaxed">STEAM 教室的設備採購不是「買齊器材」就完成。資助學校採購物料及服務，須按教育局通告第 4/2013 號的財政限額進行：<strong>$5,000 元以上至 $50,000 須最少兩個口頭報價、$50,000 元以上至 $200,000 須最少五個書面報價、$200,000 元以上須最少五份標書並由標書批核委員會審批</strong>。設備以外的持續成本（耗材、授權年費、保養）可由經常性「資訊科技綜合津貼」支付；如需增購設備或進行相關工程，優質教育基金（QEF）及「『智』啟學教」撥款計劃可作補足，但基金的資助以校本課程設計或學生支援措施為目標，<strong>不會支持單純的設備購置或裝修</strong>。</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 本文重點</p>
+  <ul class="space-y-2">
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>STEAM 教室設備大致分七類：電腦與平板、3D 打印、雷射切割、機械人套件、電子積木、感測器與物聯網、多媒體製作。</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>選型先看相容性、耗材供應、安全標準、使用年限與保養，而非只看規格與價錢。</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>軟件授權要分清永久授權、訂閱、教育授權與開源方案，並預留續期費。</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>空間、電力、網絡、通風與安全配套常被低估，卻直接決定設備能否用得其所。</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>資助學校採購受教育局通告第 4/2013 號的財政限額規管；QEF 不資助單純的設備購置。</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>計算總持有成本（TCO）要包含耗材、授權、保養、人力與更換周期。</span></li>
+  </ul>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、STEAM 教室包含哪些設備類型</h2>
+<p>STEAM 教室的設備可以按用途分為幾類。不同類別的設備，對電力、空間、網絡與安全的要求差異很大，因此在列清單時，宜同時記錄每一類的技術需求，而不是只寫型號與數量。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">設備類別</th><th class="px-4 py-3 text-left">常見形式</th><th class="px-4 py-3 text-left">主要技術需求</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">電腦與平板</td><td class="px-4 py-3">桌上電腦、筆記型電腦、平板電腦</td><td class="px-4 py-3">運算與繪圖效能、USB 供電、更新周期</td></tr>
+      <tr><td class="px-4 py-3">3D 打印</td><td class="px-4 py-3">熔融沉積（FDM）／光固化打印機、切片軟件</td><td class="px-4 py-3">通風、耗材供應、打印平台尺寸</td></tr>
+      <tr><td class="px-4 py-3">雷射切割</td><td class="px-4 py-3">二氧化碳雷射切割機、抽風系統</td><td class="px-4 py-3">排氣、防火、安全認證、材料限制</td></tr>
+      <tr><td class="px-4 py-3">機械人套件</td><td class="px-4 py-3">可編程機械人、機械臂、競賽套件</td><td class="px-4 py-3">控制器、編程軟件、零件供應</td></tr>
+      <tr><td class="px-4 py-3">電子積木</td><td class="px-4 py-3">微控制器板、傳感器積木、電路模組</td><td class="px-4 py-3">電壓相容、接腳標準、擴充模組</td></tr>
+      <tr><td class="px-4 py-3">感測器與物聯網</td><td class="px-4 py-3">各類傳感器、開發板、無線模組</td><td class="px-4 py-3">通訊協議相容、供電、數據平台</td></tr>
+      <tr><td class="px-4 py-3">多媒體製作</td><td class="px-4 py-3">攝影、收音、剪輯、直播設備</td><td class="px-4 py-3">儲存、運算、軟件授權</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-1.webp" alt="長條圖：七類 STEAM 設備在空間需求、電力需求、耗材依賴與安全要求上的相對高低比較" title="長條圖：七類 STEAM 設備在空間需求、電力需求、耗材依賴與安全要求上的相對高低比較" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">雷射切割的安全與通風要求最高；3D 打印與電子積木的耗材依賴較高</figcaption>
+</figure>
+
+<p>值得留意的是，設備類別之間並非各自獨立。例如 3D 打印與雷射切割都要與電腦的設計軟件配合；機械人套件與感測器要共用同一套編程環境；多媒體設備的檔案體積較大，會直接影響儲存與網絡規劃。把這些關聯一併列出，可以避免採購後才發現設備之間無法協作。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-2.webp" alt="示意圖：STEAM 教室七類設備的關係圖，由電腦與平板連繫到 3D 打印、雷射切割、機械人、電子積木、感測器及多媒體製作" title="示意圖：STEAM 教室七類設備的關係圖，由電腦與平板連繫到 3D 打印、雷射切割、機械人、電子積木、感測器及多媒體製作" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">七類設備並非各自獨立，多數以電腦與平板為共同工作平台</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、設備選型的技術考量</h2>
+<p>同一筆預算可以買到不同組合的設備。價格與規格之外，以下五個技術考量往往更影響長期使用：</p>
+<ul class="space-y-2 my-6">
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>相容性</strong>——同一工作流程內的設備是否互通，包括切片軟件、驅動程式、連接介面（USB、HDMI、網絡）與作業系統版本。若設備各自封閉，日後整合成本會很高。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>耗材供應</strong>——耗材是否長期供貨、是否被專屬耗材綁定、單價與交期是否穩定。封閉式耗材會令長遠成本難以控制。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>安全標準</strong>——電氣安全、雷射等級、通風與防火要求。宜選擇具安全認證、設有緊急停止裝置與防護罩的型號。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>使用年限</strong>——預期使用年期與軟件終止支援（end-of-support）時間，以及是否可更換部件延長壽命。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>保養</strong>——是否有本地維修、備件供應、保養期長短與回應時間承諾。</span></li>
+</ul>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">考量</th><th class="px-4 py-3 text-left">要查問什麼</th><th class="px-4 py-3 text-left">風險</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">相容性</td><td class="px-4 py-3">驅動、介面、作業系統版本、與現有設備的配合</td><td class="px-4 py-3">設備無法協作，需另購轉接或重做流程</td></tr>
+      <tr><td class="px-4 py-3">耗材供應</td><td class="px-4 py-3">是否專屬耗材、供貨年期、單價與交期</td><td class="px-4 py-3">耗材斷供或價格被動</td></tr>
+      <tr><td class="px-4 py-3">安全標準</td><td class="px-4 py-3">認證、緊急停止、通風與防火要求</td><td class="px-4 py-3">事故風險與合規問題</td></tr>
+      <tr><td class="px-4 py-3">使用年限</td><td class="px-4 py-3">預期年期、終止支援日期、可換部件</td><td class="px-4 py-3">提早淘汰，造成浪費</td></tr>
+      <tr><td class="px-4 py-3">保養</td><td class="px-4 py-3">本地維修、備件、保養期與回應時間</td><td class="px-4 py-3">故障停機時間過長</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-3.webp" alt="圖示：設備選型的五個技術考量——相容性、耗材供應、安全標準、使用年限與保養" title="圖示：設備選型的五個技術考量——相容性、耗材供應、安全標準、使用年限與保養" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">選型時五個技術考量，比單看規格與價錢更能反映長期成本</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-4.webp" alt="示意圖：設備相容性與耗材供應鏈——由設計檔案、驅動、切片軟件到耗材補貨的關係" title="示意圖：設備相容性與耗材供應鏈——由設計檔案、驅動、切片軟件到耗材補貨的關係" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">相容性與耗材供應是兩個最常在採購後才浮現的問題</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、軟件與授權</h2>
+<p>設備要靠軟件才用得起來。軟件層面包括作業系統、設計與創作軟件，以及授權模式三部分。作業系統方面，常見選擇有 Windows、macOS、ChromeOS 與 Linux；不同系統對設計軟件、驅動與周邊裝置的支援各有差異，宜先確認主要軟件是否支援所選系統。</p>
+<p>設計與創作軟件則涵蓋電腦輔助設計（CAD）、3D 建模與切片軟件、圖像與影片剪輯、程式編寫環境等。授權模式直接影響長期開支，宜在下單前逐項確認。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-5.webp" alt="圖表：四種作業系統在設計軟件、周邊裝置與管理難度上的支援比較" title="圖表：四種作業系統在設計軟件、周邊裝置與管理難度上的支援比較" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先確認主要設計軟件是否支援所選作業系統，再決定硬件</figcaption>
+</figure>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">授權模式</th><th class="px-4 py-3 text-left">說明</th><th class="px-4 py-3 text-left">要注意</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">永久授權</td><td class="px-4 py-3">一次付費，長期使用某一版本</td><td class="px-4 py-3">升級版本或需另行付費</td></tr>
+      <tr><td class="px-4 py-3">訂閱（SaaS）</td><td class="px-4 py-3">按年或按月付費，持續更新</td><td class="px-4 py-3">要預留續期年費，停付即停用</td></tr>
+      <tr><td class="px-4 py-3">教育授權</td><td class="px-4 py-3">供學校使用的優惠授權</td><td class="px-4 py-3">須提供資格證明，用途有限制</td></tr>
+      <tr><td class="px-4 py-3">開源方案</td><td class="px-4 py-3">免費使用，可按需要自行支援</td><td class="px-4 py-3">技術支援要靠校內或外購服務</td></tr>
+      <tr><td class="px-4 py-3">校園／全校授權</td><td class="px-4 py-3">按裝置數或全校計算</td><td class="px-4 py-3">要記錄裝置綁定與帳戶數量</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>此外，若軟件採用雲端帳戶或平台，要一併考慮數據存放位置、私隱與帳戶管理安排。設備數量、用戶數與授權數目亦要對得上，否則容易在使用時才發現授權不足。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-6.webp" alt="圖表：五種軟件授權模式比較——永久授權、訂閱、教育授權、開源與校園授權" title="圖表：五種軟件授權模式比較——永久授權、訂閱、教育授權、開源與校園授權" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">訂閱模式要預留續期年費；教育授權須提供資格證明</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、空間與基礎設施</h2>
+<p>設備能否用得其所，很大程度取決於空間與基礎設施。這一節最容易在採購後才被發現，因此宜在選型階段同步規劃。</p>
+<ul class="space-y-2 my-6">
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>電源</strong>——迴路容量、插座數量與位置、獨立斷路、接地，以及是否需設不間斷電源（UPS）保護運算設備。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>網絡</strong>——有線與無線覆蓋、網絡名稱與帶寬、防火牆、訪客網絡分隔。物聯網設備宜與教學網絡分開管理。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>儲存</strong>——本機、網絡儲存（NAS）與雲端的組合，備份與還原安排；3D 與多媒體檔案體積較大，要預留容量。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>通風</strong>——3D 打印與雷射切割要設排氣與過濾，雷射切割必須配抽風系統。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>安全</strong>——滅火設備、緊急停止裝置、防護罩、標示與學生動線安排。</span></li>
+</ul>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-7.webp" alt="示意圖：STEAM 教室的空間與基礎設施配置，包括電源、網絡、儲存、通風與安全五個部分" title="示意圖：STEAM 教室的空間與基礎設施配置，包括電源、網絡、儲存、通風與安全五個部分" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">電力、網絡、通風與安全配套在選型階段就要同步規劃</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-8.webp" alt="示意圖：教學網絡與物聯網設備的網絡分隔安排，包括無線覆蓋、防火牆與訪客網絡" title="示意圖：教學網絡與物聯網設備的網絡分隔安排，包括無線覆蓋、防火牆與訪客網絡" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">物聯網設備宜與教學網絡分開管理，並設訪客網絡分隔</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、採購程序與資助</h2>
+<p>資助學校採購物料及服務，須遵照教育局通告第 4/2013 號《資助學校採購程序》的規定（相關《指引》更新於 2025 年 10 月）。採購金額決定採用哪一種程序與由誰批核：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">財政限額</th><th class="px-4 py-3 text-left">採購安排</th><th class="px-4 py-3 text-left">批核人員</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">$5,000 或以下</td><td class="px-4 py-3">毋須公開競投，校內人員證明必須及價格公平合理</td><td class="px-4 py-3">校長／副校長</td></tr>
+      <tr><td class="px-4 py-3">$5,000 元以上至 $50,000</td><td class="px-4 py-3">邀請最少兩個供應商作口頭報價</td><td class="px-4 py-3">校長／副校長</td></tr>
+      <tr><td class="px-4 py-3">$50,000 元以上至 $200,000</td><td class="px-4 py-3">邀請最少五個供應商作書面報價</td><td class="px-4 py-3">校長</td></tr>
+      <tr><td class="px-4 py-3">$200,000 元以上</td><td class="px-4 py-3">邀請最少五名供應商投標</td><td class="px-4 py-3">標書批核委員會（須包括校監／校董、校長、一名教師及一名家長教師會代表或家長校董）</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>幾項常見規定要注意：學校不得分拆訂單以迴避報價或招標程序；同一類項目在 12 個月內的累積價值若超過 $50,000（口頭報價）或 $200,000（書面報價），便要改用更高一級的程序；書面報價與招標一般宜給予最少三周通知，並以掛號方式邀請最少五位供應商；供應商可參考教育局提供的《教育局通知名單》或其他途徑挑選，並以輪流方式邀請，以符合公平原則。採用單一報價或單一招標，須事先取得批准並記錄理據。</p>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 可用來支付持續成本的津貼</p>
+  <p class="text-gray-700 leading-relaxed mb-3">設備買回來之後，耗材與授權年費屬經常性開支。資助學校的「資訊科技綜合津貼」屬「擴大的營辦開支整筆津貼」下的津貼項目，可用於：</p>
+  <ul class="list-disc pl-5 space-y-2 text-gray-700">
+    <li>購買資訊科技相關消耗品（例如打印機墨匣、碳粉、紙張）及周邊耗用物品</li>
+    <li>購買學與教數碼資源，包括軟件及版權的年費／續期費</li>
+    <li>互聯網連接及保安服務費用（例如無線網絡租賃、防毒軟件及防火牆續期年費）</li>
+    <li>聘請技術支援人員或購買技術支援服務</li>
+  </ul>
+</div>
+
+<p>如要購置新設備或改善空間，可考慮以下資助途徑。優質教育基金（QEF）於 1998 年設立，資助基礎教育範圍內值得推行的非牟利創新計劃。其「公帑資助學校專項撥款計劃」（DFP）資助以推行校本課程設計及／或學生支援措施為目標的計劃，以及相關的校舍改善工程及／或物資購置。教育局通函第 96/2026 號公布，DFP 由 2026/27 學年至 2028/29 學年推行新階段，每所公帑資助學校的累計申請額由 200 萬元提高至 300 萬元（幼稚園由 50 萬元提高至 70 萬元）；計劃年期一般不超過三年。2026/27 學年第十七期申請期為 2026 年 10 月至 2027 年 1 月。要特別注意：基金不會支持單純的校舍改善工程或物資購置，工程與設備須用於推行計劃目標。</p>
+<p>另一項相關資源是「『智』啟學教」撥款計劃。教育局於 2025 年 12 月推出該計劃，成功申請的公帑資助中小學（包括特殊學校及直資學校）可獲一筆過 50 萬元撥款，用於購置、訂閱或租用推動人工智能輔助教學的裝置與服務，以及資助學生參與提升人工智能素養的活動。撥款不得用於裝修工程及教師修讀課程，學校一般於 2026 年 6 月 30 日或以前獲發整筆撥款，並可在 2025/26 至 2027/28 學年使用，直至 2028 年 8 月 31 日。</p>
+<p>各項資助的分工可以這樣理解：<strong>經常性津貼</strong>處理耗材、授權與技術支援；<strong>QEF</strong>處理與課程相關的設備及工程；<strong>「智」啟學教</strong>則針對人工智能裝置與學生活動。同一項開支不可重複申請，兩份文件的項目清單要分開擬定。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-9.webp" alt="階梯圖：資助學校採購的四個財政限額與對應採購安排及批核人員" title="階梯圖：資助學校採購的四個財政限額與對應採購安排及批核人員" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">金額決定程序與批核層級：$50,000 與 $200,000 是兩個關鍵界線</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-10.webp" alt="圖表：三類資助的分工——經常性資訊科技綜合津貼、優質教育基金與「智」啟學教撥款計劃" title="圖表：三類資助的分工——經常性資訊科技綜合津貼、優質教育基金與「智」啟學教撥款計劃" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">經常性津貼、QEF 與「智」啟學教各有分工，同一項開支不可重複申請</figcaption>
+</figure>
+
+<p>如欲進一步了解資助申請的細節，可參閱 <a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請攻略</a>，或參考 <a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校數碼項目服務</a> 了解由資助到落地的流程。</p>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、安裝、培訓與上線後維護</h2>
+<p>設備送到學校只是開始，之後的安裝、驗收、培訓與維護才決定設備能否長期運作。</p>
+<ul class="space-y-2 my-6">
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>安裝與驗收</strong>——安排送貨、安裝、功能測試與驗收；保留驗收文件並更新資產登記。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>培訓</strong>——為教師及技術人員安排操作培訓；確認供應商是否提供到校支援。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>保養合約</strong>——訂明保養期、回應時間、備件供應與上門維修安排。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>耗材管理</strong>——按用量規劃預算與補貨周期，並妥善儲存易燃或受管制物料。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>設備生命周期</strong>——記錄採購日期、保養到期日與終止支援日期，預早規劃更換；淘汰設備可透過環保署的電腦回收計劃處理。</span></li>
+</ul>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-11.webp" alt="流程圖：由設備送貨、安裝、驗收到培訓、保養、耗材管理與設備更換的流程" title="流程圖：由設備送貨、安裝、驗收到培訓、保養、耗材管理與設備更換的流程" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">由安裝驗收到耗材管理與更換周期，構成設備的完整運作流程</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-12.webp" alt="時間線示意圖：設備由啟用、保養期、終止支援到更換的生命周期" title="時間線示意圖：設備由啟用、保養期、終止支援到更換的生命周期" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">記錄保養到期與終止支援日期，可預早規劃更換</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、總持有成本（TCO）考慮</h2>
+<p>評估 STEAM 教室的支出，不宜只看購置金額。總持有成本應涵蓋以下部分，並以三至五年為期計算：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">TCO 組成</th><th class="px-4 py-3 text-left">內容</th><th class="px-4 py-3 text-left">性質</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">購置成本</td><td class="px-4 py-3">設備、配件與安裝</td><td class="px-4 py-3">一次過</td></tr>
+      <tr><td class="px-4 py-3">耗材</td><td class="px-4 py-3">打印線材、雷射材料、電子零件、紙張</td><td class="px-4 py-3">經常性</td></tr>
+      <tr><td class="px-4 py-3">軟件授權</td><td class="px-4 py-3">訂閱或教育授權續期年費</td><td class="px-4 py-3">經常性</td></tr>
+      <tr><td class="px-4 py-3">保養與維修</td><td class="px-4 py-3">保養合約、備件與上門維修</td><td class="px-4 py-3">經常性</td></tr>
+      <tr><td class="px-4 py-3">技術支援人力</td><td class="px-4 py-3">技術人員或外購支援服務</td><td class="px-4 py-3">經常性</td></tr>
+      <tr><td class="px-4 py-3">更換與淘汰</td><td class="px-4 py-3">按生命周期更換設備及回收處理</td><td class="px-4 py-3">周期性</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p><strong>示範假設（只作規劃參考，非實際報價）：</strong>假設一個約 60 平方米、供 30 名學生使用的 STEAM 教室，購置成本佔三至五年總持有成本約四至五成；耗材與軟件授權合共約兩至三成；保養與技術支援約一成半至兩成半；其餘為更換與淘汰的預留。實際比例會因設備組合、使用頻率與保養安排而顯著不同，宜按校情自行估算。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/steam-classroom-setup-hong-kong-13.webp" alt="圓餅圖：STEAM 教室三至五年總持有成本的組成——購置、耗材、軟件授權、保養維修、技術支援與更換" title="圓餅圖：STEAM 教室三至五年總持有成本的組成——購置、耗材、軟件授權、保養維修、技術支援與更換" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">圖中比例為示範假設，只作規劃參考，實際以報價為準</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+
+<div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">資助學校採購 STEAM 設備，要否進行招標？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">視乎金額。按教育局通告第 4/2013 號，$5,000 元以上至 $50,000 須最少兩個口頭報價；$50,000 元以上至 $200,000 須最少五個書面報價；$200,000 元以上須最少五名供應商投標，並由標書批核委員會審批。學校不得分拆訂單迴避程序。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">優質教育基金可否用來單純購買設備或裝修教室？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以。基金不會支持單純的校舍改善工程或物資購置。計劃須以推行校本課程設計及／或學生支援措施為目標，相關的校舍改善工程與物資購置只可作為計劃的配套。申請前宜先釐清計劃目標與設備用途的關係。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">「『智』啟學教」撥款計劃與優質教育基金有何分別？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">「『智』啟學教」由教育局於 2025 年 12 月推出，成功申請的公帑資助中小學可獲一筆過 50 萬元，用於購置、訂閱或租用人工智能教學裝置與服務，以及資助學生活動；不得用於裝修工程及教師修讀課程。優質教育基金則資助以校本課程設計或學生支援措施為目標的計劃。同一項開支不可重複申請，兩份文件的項目清單要分開擬定。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">設備的耗材與軟件年費可以由哪項資源支付？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">資助學校的經常性「資訊科技綜合津貼」屬「擴大的營辦開支整筆津貼」下的津貼項目，可用於購買資訊科技消耗品、學與教數碼資源（包括軟件及版權的年費／續期費）、互聯網連接及保安服務費用，以及技術支援服務。實際運用須遵照相關通函及運用指引的規定。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">3D 打印機與雷射切割機在安裝上有什麼特別要求？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">兩者都涉及氣味、煙霧或廢氣，因此要設通風與排氣安排，雷射切割機必須配合抽風系統，並選用具安全認證、設有緊急停止裝置與防護罩的型號。同時要考慮電力負載、防火設備與學生動線，宜在採購前先確認場地條件。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">設備要多久才需要更換？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">沒有一致答案，主要取決於設備的終止支援日期、實際使用頻率與保養狀況。宜為每項設備記錄採購日期、保養到期日與軟件終止支援日期，預早規劃更換，避免在學期中突然停用。淘汰設備可透過環保署的電腦回收計劃處理。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">採購時要一併考慮哪些持續成本？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">除了購置金額，應一併預算耗材（線材、雷射材料、電子零件）、軟件授權或訂閱續期年費、保養與維修、技術支援人力，以及設備更換與淘汰的預留。以三至五年為期計算總持有成本，比單看購置價更能反映實際負擔。本文所列比例均為示範假設。</p>
+  </div>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">需要協助規劃 STEAM 教室的設備與採購？</p>
+  <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供學校數碼項目的技術與採購支援，由設備清單、相容性與空間評估，到採購文件、資助申請支援及上線後維護安排，可以協助學校由需求盤點到落地一併處理。</p>
+  <p><a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校數碼項目服務</a>　·　<a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請攻略</a></p>
+</div>
+
+<p>STEAM 教室的成敗，往往不在於買了多少設備，而在於設備之間能否協作、耗材與授權能否持續、空間與電力配套是否足夠，以及採購與維護是否有制度可依。先由技術考量與採購程序入手，再逐項落實，比單靠一張設備清單更可靠。本文所有金額與比例均為示範假設，只作規劃參考，實際費用以正式報價及官方文件為準。</p>
+
+<div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+  <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+  <ul class="space-y-1">
+    <li><a href="https://www.edb.gov.hk/attachment/tc/common/EDBC13004C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通告第 4/2013 號《資助學校採購程序》</a> — 採購財政限額、口頭報價／書面報價／招標安排、批核人員、不得分拆訂單及 12 個月重複採購規定</li>
+    <li><a href="https://www.edb.gov.hk/attachment/tc/sch-admin/fin-management/procurement-procedures-in-aided-schools/Guidelines%20on%20Procurement%20Procedures_TC.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局《資助學校採購程序指引》（更新於 2025 年 10 月）</a> — 邀請書面報價／招標的通知期、掛號邀請、單一報價／招標程序及供應商選擇</li>
+    <li><a href="https://www.edb.gov.hk/tc/edu-system/primary-secondary/applicable-to-primary-secondary/it-in-edu/citg.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資訊科技綜合津貼</a> — 消耗品、學與教數碼資源（軟件及版權年費）、互聯網及保安服務、技術支援服務的可用範圍</li>
+    <li><a href="https://www.qef.org.hk/tc/application_guide/dfp_program.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：公帑資助學校專項撥款計劃</a> — 資助宗旨、申請資格、累計申請額、計劃年期及申請期</li>
+    <li><a href="https://applications.edb.gov.hk/circular/upload/EDBCM/EDBCM26096E.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通函第 96/2026 號（2026 年 6 月 26 日）</a> — 2026/27 學年優質教育基金各項撥款計劃、專項撥款計劃新階段、優先主題及累計申請額調整</li>
+    <li><a href="https://www.info.gov.hk/gia/general/202512/16/P2025121600257.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：教育局推出「『智』啟學教」撥款計劃（2025 年 12 月 16 日）</a> — 一筆過 50 萬元撥款、撥款用途、發放時間及可使用學年</li>
+    <li><a href="https://www.qef.org.hk/tc/reference/tips.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：申請小錦囊</a> — 不受資助的計劃類別及開支範圍</li>
+  </ul>
+</div>

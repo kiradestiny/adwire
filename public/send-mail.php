@@ -1487,11 +1487,11 @@ function smtpSend(array $cfg, string $to, string $subject, string $html, string 
                 $body .= 'Content-Type: ' . (string) ($att['mime'] ?? 'application/octet-stream')
                        . "; name="\"{$fname}\""\r\n";
                 $body .= "Content-Transfer-Encoding: base64\r\n";
-                $body .= "Content-Disposition: attachment; filename=\"{$fname}\""\r\n\r\n";
+                $body .= "Content-Disposition: attachment; filename=\"{$fname}\"\r\n\r\n";
                 $body .= chunk_split(base64_encode($blob), 76, "\r\n");
             }
             $body .= "--{$b}--\r\n";
-            $data .= "Content-Type: multipart/mixed; boundary=\"{$b}\""\r\n\r\n";
+            $data .= "Content-Type: multipart/mixed; boundary=\"{$b}\"\r\n\r\n";
         } else {
             $body  = "Content-Type: text/html; charset=UTF-8\r\n";
             $body .= "Content-Transfer-Encoding: 8bit\r\n\r\n";

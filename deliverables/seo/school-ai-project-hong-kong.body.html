@@ -1,0 +1,316 @@
+<p class="lead text-xl text-gray-600 mb-8">學校要開展人工智能（AI）項目，成敗通常不在於買了哪一套工具，而在於三件事有沒有先處理好：校本需求是否整理清楚、技術方案是否對應真實痛點、資料私隱與風險是否受控。本文從技術與專案管理角度，整理香港中小學推行校本 AI 項目時的完整框架——由需求盤點、項目類型、方案選型（現成工具、定制開發還是混合）、資料私隱合規、風險與人工覆核，到專案分期、驗收與成本估算，供校長、副校長、IT 統籌老師及資訊科技組參考。</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+  <p class="text-gray-700 leading-relaxed">學校做 AI 項目，第一步不是選工具，而是<strong>先分清「校本需求」與「技術方案」</strong>：需求層面要講清楚解決什麼問題、涉及哪些使用者和資料；技術層面才決定用現成工具、定制開發還是混合方案。<strong>學生資料屬於敏感個人資料</strong>，須按《個人資料（私隱）條例》處理，並參考個人資料私隱專員公署的《人工智能（AI）：個人資料保障模範框架》。專案應<strong>分期推行</strong>（先導驗證、試點、再擴展），並為高風險輸出保留<strong>人工覆核</strong>。成本則分「一次性建設」與「經常性訂閱／維護」兩類，宜用總成本而非單價比較。</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+  <ul class="space-y-2">
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>校本需求盤點須涵蓋五個維度：現有系統、資料來源、使用者角色、現有痛點、成功指標</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>校本 AI 項目大致分五類：行政自動化、資料整理、回答查詢、內容協助、圖像／語音處理，風險與技術取向各異</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>技術選型有三條路：現成 SaaS、定制開發、混合方案；關鍵是資料擁有權與日後可遷移性</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>學生資料屬敏感個人資料，須遵從《私隱條例》及公署《模範框架》的四個管治範疇</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>專案宜分三期：先導驗證（POC）→ 小範圍試點 → 全校推展，每期設明確驗收標準</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>成本要計總持有成本（TCO）：建設、訂閱、維護、培訓與日後遷移</span></li>
+  </ul>
+</div>
+
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-1.webp" alt="流程圖：由校本需求盤點、技術選型、私隱合規、風險控制到分期驗收的校本 AI 項目路線圖" title="校本 AI 項目路線圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">全篇的骨幹：需求先行、方案對應、合規到底、分期驗收</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先分清「校本需求」與「技術方案」</h2>
+<p>學校推行 AI 項目最常見的失誤，是次序顛倒：先被供應商示範打動，覺得某套工具「很厲害」，再倒過來為它找用途。這樣做通常導致兩個結果——買了用不著的工具，或者發現工具無法接駁學校現有系統。正確次序是先講清楚校本需求，再談技術方案。</p>
+<p>「校本需求」講的是學校要解決什麼問題、涉及哪些使用者、現有流程痛在哪裡、成功如何量度；「技術方案」講的是用什麼工具、什麼模型、什麼架構去落地。兩者混為一談，就會出現「為 AI 而 AI」的項目。以下表格區分兩者。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">層面</th><th class="px-4 py-3 text-left">校本需求</th><th class="px-4 py-3 text-left">技術方案</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">要回答的問題</td><td class="px-4 py-3">學校要解決什麼問題</td><td class="px-4 py-3">用什麼技術去解決</td></tr>
+      <tr><td class="px-4 py-3">主要輸入</td><td class="px-4 py-3">使用者痛點、現有流程、資料盤點</td><td class="px-4 py-3">工具、模型、系統架構</td></tr>
+      <tr><td class="px-4 py-3">決定者</td><td class="px-4 py-3">校方管理層、學科與行政代表</td><td class="px-4 py-3">IT 統籌、技術供應商</td></tr>
+      <tr><td class="px-4 py-3">產出</td><td class="px-4 py-3">需求規格、使用者故事、成功指標</td><td class="px-4 py-3">技術規格、報價、交付計劃</td></tr>
+      <tr><td class="px-4 py-3">常見錯誤</td><td class="px-4 py-3">跳過盤點，直接比較產品功能</td><td class="px-4 py-3">未核對整合難度與資料擁有權</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-2.webp" alt="比較圖：校本需求與技術方案在要回答的問題、輸入、決定者及產出上的分別" title="校本需求與技術方案的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先釐清需求，再選技術；次序顛倒是最常見的失敗起點</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、校本需求盤點框架</h2>
+<p>需求盤點不需要複雜工具，但要有系統。建議由一個跨部門小組（管理層、學科代表、行政、IT 統籌）用以下五個維度，逐項記錄狀況，再判斷哪些痛點值得用 AI 處理、哪些其實用簡單自動化或流程改善即可。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">維度</th><th class="px-4 py-3 text-left">要盤點什麼</th><th class="px-4 py-3 text-left">示例</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>現有系統</strong></td><td class="px-4 py-3">學校已在使用的平台、可否經 API 接駁</td><td class="px-4 py-3">校務系統、內聯網、繳費平台、學習管理系統</td></tr>
+      <tr><td class="px-4 py-3"><strong>資料來源</strong></td><td class="px-4 py-3">涉及什麼資料、是否含個人資料、由誰持有</td><td class="px-4 py-3">學生紀錄、成績、考勤、通告、家長聯絡</td></tr>
+      <tr><td class="px-4 py-3"><strong>使用者角色</strong></td><td class="px-4 py-3">誰用、用多少、權限如何分</td><td class="px-4 py-3">管理層、教師、職員、學生、家長</td></tr>
+      <tr><td class="px-4 py-3"><strong>現有痛點</strong></td><td class="px-4 py-3">重複工序、耗時環節、人為錯誤</td><td class="px-4 py-3">每月整理考勤報表、逐封回覆家長查詢</td></tr>
+      <tr><td class="px-4 py-3"><strong>成功指標</strong></td><td class="px-4 py-3">可量度的改善目標</td><td class="px-4 py-3">每月省 X 小時、回應時間縮短至 Y 分鐘</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>盤點時要特別留意「資料來源」一項：只要涉及學生個人資料，就會直接觸發私隱合規要求（見第五節）。另外，「成功指標」要盡量量化，例如把「減輕老師負擔」寫成「通告回覆草擬時間由平均 15 分鐘縮短至 5 分鐘」，日後驗收才有依據。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-3.webp" alt="框架圖：校本需求盤點的五個維度，包括現有系統、資料來源、使用者角色、現有痛點與成功指標" title="校本需求盤點五個維度" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">五個維度之中，資料來源與成功指標最常被忽略，卻最影響日後驗收</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、校本 AI 項目的常見類型</h2>
+<p>香港中小學的校本 AI 項目，大多落在以下五類。不同類型的技術取向、資料敏感度和風險水平都不同，選型時應分開考慮，不要用同一把尺。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">類型</th><th class="px-4 py-3 text-left">典型場景</th><th class="px-4 py-3 text-left">技術取向</th><th class="px-4 py-3 text-left">風險重點</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>行政自動化</strong></td><td class="px-4 py-3">自動生成報告、批次處理表單、流程審批</td><td class="px-4 py-3">工作流工具、腳本、API</td><td class="px-4 py-3">權限控制、錯誤處理</td></tr>
+      <tr><td class="px-4 py-3"><strong>資料整理</strong></td><td class="px-4 py-3">考勤／成績數據匯總、分類、異常標示</td><td class="px-4 py-3">資料處理、規則引擎、模型分類</td><td class="px-4 py-3">準確性、可追溯性</td></tr>
+      <tr><td class="px-4 py-3"><strong>回答查詢</strong></td><td class="px-4 py-3">家長常見問題、內部政策查詢機器人</td><td class="px-4 py-3">對話式 AI、檢索增強（RAG）</td><td class="px-4 py-3">錯誤輸出、資料外洩</td></tr>
+      <tr><td class="px-4 py-3"><strong>內容協助</strong></td><td class="px-4 py-3">草擬通告、摘要文件、翻譯</td><td class="px-4 py-3">生成式 AI 文字模型</td><td class="px-4 py-3">準確性、偏見、須人工覆核</td></tr>
+      <tr><td class="px-4 py-3"><strong>圖像／語音處理</strong></td><td class="px-4 py-3">相片分類、語音轉文字、會議紀錄</td><td class="px-4 py-3">視覺／語音模型、API 服務</td><td class="px-4 py-3">生物特徵資料、私隱敏感度高</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>值得留意：<strong>「回答查詢」與「內容協助」兩類直接使用生成式 AI，輸出可能出錯，須配合人工覆核；「圖像／語音處理」若涉及人臉或聲紋，屬於生物特徵資料，敏感度更高</strong>。這兩點會在第五、六節再展開。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-4.webp" alt="分類圖：校本 AI 項目的五種常見類型，由行政自動化、資料整理、回答查詢、內容協助到圖像語音處理" title="校本 AI 項目五種常見類型" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">不同類型的風險水平差別很大，選型與管治強度應按類型調整</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、技術方案選型：現成工具、定制開發還是混合</h2>
+<p>選型沒有絕對答案，取決於需求複雜度、預算、時間與學校自身的 IT 能力。三條路各有取捨，下表逐一比較。學校可先用現成工具快速驗證，再針對高價值、獨特流程的部分考慮定制或混合方案。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">比較項</th><th class="px-4 py-3 text-left">現成工具（SaaS）</th><th class="px-4 py-3 text-left">定制開發</th><th class="px-4 py-3 text-left">混合方案</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">上線速度</td><td class="px-4 py-3">最快</td><td class="px-4 py-3">最慢</td><td class="px-4 py-3">中</td></tr>
+      <tr><td class="px-4 py-3">貼合程度</td><td class="px-4 py-3">低（須遷就工具）</td><td class="px-4 py-3">高</td><td class="px-4 py-3">中至高</td></tr>
+      <tr><td class="px-4 py-3">前期成本</td><td class="px-4 py-3">低</td><td class="px-4 py-3">高</td><td class="px-4 py-3">中</td></tr>
+      <tr><td class="px-4 py-3">長期成本</td><td class="px-4 py-3">經常性訂閱，長遠可能較高</td><td class="px-4 py-3">一次性為主，維護另計</td><td class="px-4 py-3">兩者並存</td></tr>
+      <tr><td class="px-4 py-3">資料擁有權</td><td class="px-4 py-3">多在供應商平台，須看清條款</td><td class="px-4 py-3">學校可完全持有</td><td class="px-4 py-3">視架構而定</td></tr>
+      <tr><td class="px-4 py-3">遷移難度</td><td class="px-4 py-3">較高（資料匯出可能受限）</td><td class="px-4 py-3">低</td><td class="px-4 py-3">中</td></tr>
+      <tr><td class="px-4 py-3">維護責任</td><td class="px-4 py-3">供應商</td><td class="px-4 py-3">學校／承辦商</td><td class="px-4 py-3">分工界定</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-5.webp" alt="比較圖：現成 SaaS、定制開發與混合方案在上線速度、貼合程度、成本、資料擁有權及遷移難度上的分別" title="三種技術方案的比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">選型時最不應忽略的是「資料擁有權」與「日後能否遷移」</figcaption>
+</figure>
+
+<p>在模型與 API 層面，學校需要決定採用「雲端 API 服務」還是「自架本地模型」。雲端 API 部署快、無須硬件，但資料會離開校園網絡，須審視供應商的資料處理條款；自架模型可把資料留在校內，但需要伺服器、技術人力和持續維護，成本與門檻較高。中小學若要兼顧成效與私隱，常見做法是把<strong>低敏感度、非個人資料的任務交給雲端 API，把涉及個人資料的處理留在校內或採用去識別化處理</strong>。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-6.webp" alt="比較圖：雲端 API 服務與自架本地模型在部署速度、資料去向、成本與維護上的分別" title="雲端 API 與自架本地模型比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">低敏感度任務用雲端、涉及個人資料的留在校內，是常見的折衷做法</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、資料私隱與合規：學生資料屬敏感個人資料</h2>
+<p>校本 AI 項目最大的合規風險來自資料。學生資料（包括姓名、學號、成績、考勤、相片、健康或特殊教育需要紀錄）大多屬於<strong>個人資料</strong>，部分更屬敏感類別。學校作為資料使用者，須遵從《個人資料（私隱）條例》的六項保障資料原則，包括收集、準確性、保留、使用、保安及查閱更正。</p>
+<p>在 AI 場景下，個人資料私隱專員公署（PCPD）的《人工智能（AI）：個人資料保障模範框架》是最直接的參考。該框架就採購、實施及使用 AI 系統提出四個範疇的建議措施：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">管治範疇</th><th class="px-4 py-3 text-left">對學校項目的意思</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>制定 AI 策略及管治架構</strong></td><td class="px-4 py-3">訂立校本 AI 使用政策、設立統籌角色、為教職員提供培訓</td></tr>
+      <tr><td class="px-4 py-3"><strong>風險評估及人為監督</strong></td><td class="px-4 py-3">按風險高低決定人工監督程度；採用「風險為本」的緩減措施</td></tr>
+      <tr><td class="px-4 py-3"><strong>AI 模型定製與系統實施及管理</strong></td><td class="px-4 py-3">管理輸入模型的資料、測試模型、確保系統及資料安全、持續監察</td></tr>
+      <tr><td class="px-4 py-3"><strong>促進與持份者溝通</strong></td><td class="px-4 py-3">向教師、家長及供應商說明用途，提高透明度</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>此外，PCPD 於 2025 年發布《僱員使用生成式 AI 的指引清單》，建議機構訂明獲准使用的 AI 工具、可輸入的資料種類、輸出資訊的用途，並要求使用者核實 AI 生成結果；數字政策辦公室（DPO）亦於 2025 年公布《香港生成式人工智能技術及應用指引》，涵蓋資料洩露、模型偏見和錯誤等技術風險。學校在撰寫校本 AI 政策時，可直接引用這兩份文件。</p>
+<p>針對教育界，PCPD 與 DPO 於 2026 年共同推出<strong>「保障個人資料人工智能沙盒」</strong>，開放予公帑資助中小學申請，第一階段為期約六個月，選出約 15 間學校，讓學校在取得監管指引與技術建議下探索 AI 方案。若學校希望有制度上的支援，可留意相關申請安排。</p>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 一句提醒</p>
+  <p class="text-gray-700 leading-relaxed">本文只從技術與專案管理角度整理資料，<strong>不構成法律建議</strong>。學校處理個人資料、制定校本政策或簽署合約前，應諮詢法律顧問，並以《個人資料（私隱）條例》及公署最新指引為準。</p>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-7.webp" alt="合規圖：個人資料私隱專員公署《人工智能：個人資料保障模範框架》的四個管治範疇" title="PCPD 模範框架四個管治範疇" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">集中在資料的收集、準確、保留、使用、保安與查閱更正，並非只關乎技術</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、風險與人工覆核</h2>
+<p>任何 AI 系統都有可能出錯，學校項目要預先識別主要風險，並為高風險環節設計人工覆核（human-in-the-loop）機制。以下幾類風險在校本項目中最常見。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">風險</th><th class="px-4 py-3 text-left">具體表現</th><th class="px-4 py-3 text-left">緩減措施</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>錯誤輸出</strong></td><td class="px-4 py-3">生成內容與事實不符（「幻覺」）</td><td class="px-4 py-3">發布前人工核對、限制用途、標示 AI 生成</td></tr>
+      <tr><td class="px-4 py-3"><strong>偏見</strong></td><td class="px-4 py-3">輸出對特定群體不公平或帶歧視</td><td class="px-4 py-3">測試代表性、訂立審核準則、定期檢視</td></tr>
+      <tr><td class="px-4 py-3"><strong>過度依賴</strong></td><td class="px-4 py-3">使用者不再自行判斷，照單全收</td><td class="px-4 py-3">培訓、明示 AI 角色、保留人手決策</td></tr>
+      <tr><td class="px-4 py-3"><strong>資料外洩</strong></td><td class="px-4 py-3">輸入個人資料後被不當保存或外洩</td><td class="px-4 py-3">限制可輸入資料、最小權限、加密與審計</td></tr>
+      <tr><td class="px-4 py-3"><strong>不可追溯</strong></td><td class="px-4 py-3">無法解釋輸出如何得出</td><td class="px-4 py-3">保留紀錄、建立可審核的輸出機制</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>人工覆核的原則是：<strong>風險越高，人工介入越深</strong>。例如涉及個別學生評核或紀錄的輸出，應由教師確認後才使用；純屬內部參考、對外無影響的草擬，可採用較輕的覆核。學校亦應在政策中寫明「誰負責覆核」和「出事時的應變流程」。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-8.webp" alt="風險圖：校本 AI 項目常見的五類風險，包括錯誤輸出、偏見、過度依賴、資料外洩及不可追溯" title="校本 AI 項目五類風險" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">人工覆核不是阻礙，而是把風險控制在可接受水平的必要設計</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、專案分期與驗收</h2>
+<p>校本 AI 項目不宜一次過全校推展。較穩健的做法是分三期：先做小範圍的先導驗證（Proof of Concept／POC），確認技術可行；再選一至兩個場景試點；最後才擴展至全校。每期都要設定明確的驗收標準，避免「上了線但無人用」。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">範圍</th><th class="px-4 py-3 text-left">交付與驗收</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>第一期：先導驗證</strong></td><td class="px-4 py-3">單一場景、小量資料、少數使用者</td><td class="px-4 py-3">可運作的原型；驗收看技術可行性與準確度</td></tr>
+      <tr><td class="px-4 py-3"><strong>第二期：試點</strong></td><td class="px-4 py-3">一至兩個部門／學科，真實資料與流程</td><td class="px-4 py-3">正式系統；驗收看整合、穩定、使用者接受度</td></tr>
+      <tr><td class="px-4 py-3"><strong>第三期：擴展</strong></td><td class="px-4 py-3">全校推展，加入培訓與支援</td><td class="px-4 py-3">成效報告；驗收看成功指標是否達成</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>驗收標準要在合約或報價文件寫清楚，並盡量量化。常見的驗收維度包括：功能是否齊全、與現有系統的整合是否正常、資料處理是否準確、權限與保安是否到位、使用者培訓是否完成、以及上線後的支援安排（回應時間、保養期、指定聯絡人）。未寫清楚的部分，最容易在交付後出現爭議。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-9.webp" alt="流程圖：校本 AI 項目分三期推行的路徑，由先導驗證、試點到全校擴展" title="專案分期路徑" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">每期都設驗收關口，確認達標才進入下一期，可避免資源錯配</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、成本與資源估算</h2>
+<p>估算 AI 項目成本時，要看「總持有成本」（Total Cost of Ownership）。除了軟件費用，還要計入硬件、整合、培訓、維護與日後遷移。以下為示範假設，僅供理解成本結構，並非報價。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">成本項目</th><th class="px-4 py-3 text-left">現成 SaaS</th><th class="px-4 py-3 text-left">定制／混合</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">前期建設</td><td class="px-4 py-3">低（設定費為主）</td><td class="px-4 py-3">高（開發與整合）</td></tr>
+      <tr><td class="px-4 py-3">軟件／訂閱</td><td class="px-4 py-3">經常性，按人數或用量</td><td class="px-4 py-3">授權或自架為主</td></tr>
+      <tr><td class="px-4 py-3">硬件</td><td class="px-4 py-3">基本不需要</td><td class="px-4 py-3">可能需要伺服器</td></tr>
+      <tr><td class="px-4 py-3">整合</td><td class="px-4 py-3">視乎現有系統接駁難度</td><td class="px-4 py-3">須預留整合工序</td></tr>
+      <tr><td class="px-4 py-3">培訓與變更管理</td><td class="px-4 py-3">須安排</td><td class="px-4 py-3">須安排</td></tr>
+      <tr><td class="px-4 py-3">維護與支援</td><td class="px-4 py-3">包含在訂閱內</td><td class="px-4 py-3">另立保養合約</td></tr>
+      <tr><td class="px-4 py-3">遷移成本</td><td class="px-4 py-3">日後轉換供應商須計</td><td class="px-4 py-3">較低</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>學校在規劃資源時，可留意幾項現有資助：教育局在優質教育基金預留 20 億元推進數字教育，其中約 5 億元用於「『智』啟學教」撥款計劃，成功申請的公帑資助中小學可獲一筆過 50 萬元，用於購置人工智能輔助教學的工具與資源，以及資助學生活動，撥款可使用至 2027/28 學年。<strong>若項目涉及採購，須按資助學校採購程序辦理</strong>：資助學校採購金額在 5 萬元至 135 萬元之間，一般須最少索取五份書面報價；超過 135 萬元則須採用公開招標程序，具體以教育局通告及相關指引為準。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-10.webp" alt="表格圖：AI 項目總持有成本的組成，包括前期建設、訂閱、硬件、整合、培訓、維護與遷移" title="AI 項目總持有成本組成" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">單看軟件單價容易低估總成本，遷移與培訓常被遺漏</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+<div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校應該先選 AI 工具，還是先整理需求？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應先整理校本需求，再選工具。次序顛倒容易買到用不著或無法接駁現有系統的工具。需求整理要涵蓋現有系統、資料來源、使用者角色、現有痛點與成功指標。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">現成工具、定制開發還是混合方案，該如何選擇？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">取決於需求複雜度、預算、時間與學校的 IT 能力。現成工具上線快、前期成本低，但貼合度較低；定制開發貼合度高、須較高前期投入；混合方案兼取兩者，常見做法是用現成工具處理通用流程，針對獨特流程定制開發。不論哪條路，都要先看清資料擁有權與日後遷移安排。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學生資料可以用於 AI 系統嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">學生資料大多屬個人資料，部分屬敏感類別，須遵從《個人資料（私隱）條例》的保障資料原則。學校應採用最少量的個人資料、限制可輸入 AI 的資料種類、採取去識別化或本地處理，並參考個人資料私隱專員公署的《人工智能（AI）：個人資料保障模範框架》。本文不構成法律建議，具體處理前應諮詢法律顧問。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">AI 生成的內容可以直接採用嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不應直接採用。生成式 AI 可能產生錯誤、帶偏見或不準確的內容。學校須為高風險輸出設計人工覆核，由教職員核對後才使用，並在政策中寫明誰負責覆核，以及何時須標示內容由 AI 生成。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">校本 AI 項目應該一次過全校推行嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不建議。較穩健的做法是分三期：先導驗證（POC）確認技術可行，再選一至兩個場景試點，最後擴展至全校。每期設定量化驗收標準，達標才進入下一期，可避免資源錯配。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">「校本人工智能應用方案」是否指學校必須自建大型語言模型？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。按教育局就「『智』啟學教」撥款計劃的說明，計劃並無要求參與學校必須發展大型語言模型（LLM），「校本人工智能應用方案」只是可選項目之一。學校可完全按校本情況，選擇購置或訂閱市場上已發展成熟、合用的 AI 軟硬件、平台及教學資源。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校採購 AI 相關方案要索取多少份報價？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">資助學校須按教育局通告第 4/2013 號「資助學校採購程序」行事。一般而言，採購金額在 5 萬元至 135 萬元之間，須最少索取五份書面報價；超過 135 萬元則須採用公開招標程序。實際要求以教育局通告及資助學校採購程序指引為準。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">有哪些機構資源可以協助學校推行 AI 項目？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">個人資料私隱專員公署與數字政策辦公室曾為公帑資助中小學推出「保障個人資料人工智能沙盒」，第一階段為期約六個月，選出約 15 間學校，提供監管指引與技術建議。學校亦可參考公署《人工智能（AI）：個人資料保障模範框架》及《僱員使用生成式 AI 的指引清單》，以及數字政策辦公室的《香港生成式人工智能技術及應用指引》。</p>
+  </div>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+<p>學校做 AI 項目，技術本身通常不是最大難關，難的是次序與管治：先有清楚的校本需求盤點，才有合理的技術選型；先有私隱與風險控制，才談得上規模化推展。對中小學而言，最務實的路徑是——<strong>先分清需求與方案，用先導驗證降低風險，為高風險輸出入工覆核，並把資料擁有權與遷移安排寫進合約</strong>。掌握這幾點，校本 AI 項目才能落地而非停留在示範階段。</p>
+<p>若學校希望由需求盤點、技術選型、私隱評估到專案驗收一併處理，可參考我們的<a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校及教育數碼方案</a>、<a href="/services/ai/" class="text-[#0f4c81] font-bold hover:underline">人工智能應用服務</a>，以及<a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請指南</a>，了解由資助申請到系統落地的完整流程。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-ai-project-hong-kong-11.webp" alt="圖示：校本 AI 項目落地的三個關鍵控制點，包括需求盤點、風險與私隱控制、資料擁有權與遷移安排" title="校本 AI 項目三個關鍵控制點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">掌握需求、控制風險、保障資料擁有權，項目才能落地</figcaption>
+</figure>
+
+<div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+  <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+  <ul class="space-y-1">
+    <li><a href="https://www.pcpd.org.hk/tc_chi/news_events/media_statements/press_20240611.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：《人工智能（AI）：個人資料保障模範框架》（2024年6月）</a> — 就採購、實施及使用 AI 建議的四個管治範疇</li>
+    <li><a href="https://www.pcpd.org.hk/tc_chi/news_events/media_statements/press_20250331.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：《僱員使用生成式 AI 的指引清單》（2025年3月）</a> — 訂明獲准使用的 AI 工具、可輸入資料種類及核實輸出的責任</li>
+    <li><a href="https://www.pcpd.org.hk/tc_chi/news_events/media_statements/press_20260706.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署與數字政策辦公室：「保障個人資料人工智能沙盒」（2026年7月）</a> — 開放予公帑資助中小學、約 15 間學校、第一階段為期約六個月</li>
+    <li><a href="https://www.info.gov.hk/gia/general/202504/15/P2025041500226.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：數字政策辦公室公布《香港生成式人工智能技術及應用指引》（2025年4月）</a> — 涵蓋資料洩露、模型偏見和錯誤等技術風險</li>
+    <li><a href="https://www.info.gov.hk/gia/general/202512/16/P2025121600257.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：教育局推出「『智』啟學教」撥款計劃（2025年12月）</a> — 優質教育基金預留 20 億元、計劃約 5 億元、每校一筆過 50 萬元、可使用至 2027/28 學年</li>
+    <li><a href="https://www.edb.gov.hk/tc/about-edb/press/cleartheair/20260204.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：「『智』啟學教」撥款計劃正面睇（2026年2月）</a> — 計劃並無要求學校必須發展大型語言模型，學校可按校本情況購置或訂閱成熟 AI 資源</li>
+    <li><a href="https://applications.edb.gov.hk/circular/upload/EDBCM/EDBCM26096C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通函第 96/2026 號：優質教育基金撥款計劃（2026/27 學年）</a> — 專項撥款計劃新階段、每所公帑資助學校累計申請額提高至 300 萬元、STEAM 教育及數字教育為優先主題</li>
+  </ul>
+</div>
