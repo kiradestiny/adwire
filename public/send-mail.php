@@ -1591,7 +1591,7 @@ if ($delivered) {
             error_log('[ADWire] lead magnet auto-reply FAILED: ' . $autoReply);
         }
     }
-    jsonResponse(true, '清單已發送到你的電郵，我們會盡快聯絡你！');
+    jsonResponse(true, $isLeadMagnet ? '清單已發送到你的電郵，我們會盡快聯絡你！' : '查詢已發送，我們會盡快聯絡你！');
 } else {
     jsonResponse(false, '發送失敗，請稍後再試或直接聯絡我們。', 500);
 }
