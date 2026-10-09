@@ -1,0 +1,360 @@
+{
+ "by_cluster": {
+  "企業 AI 方案": [
+   "企業 AI",
+   "企業ai 應用",
+   "ai 轉型",
+   "人工智能 方案",
+   "ai 解決方案",
+   "ai 顧問",
+   "ai 導入",
+   "生成式 ai 企業",
+   "企業ai 導入",
+   "ai project"
+  ],
+  "自動化／轉型": [
+   "企業自動化",
+   "流程自動化",
+   "工作流程自動化",
+   "業務自動化",
+   "自動化 工具",
+   "rpa",
+   "rpa 香港",
+   "數碼轉型",
+   "數碼轉型顧問",
+   "企業數碼轉型",
+   "數字化轉型",
+   "低代碼",
+   "low code"
+  ],
+  "系統／App 開發": [
+   "系統開發",
+   "系統開發公司",
+   "軟件開發",
+   "軟件開發公司",
+   "應用程式開發",
+   "app 開發",
+   "訂造系統",
+   "度身訂造系統",
+   "企業系統",
+   "內部系統",
+   "erp",
+   "erp 系統",
+   "crm 系統",
+   "庫存管理系統",
+   "會員系統",
+   "預約系統"
+  ],
+  "IT 顧問／外判": [
+   "it 顧問",
+   "it 外判",
+   "科技顧問",
+   "資訊科技 服務",
+   "科技公司",
+   "軟件公司",
+   "it 公司"
+  ],
+  "政府資助": [
+   "科技券",
+   "tvp",
+   "bud 專項基金",
+   "dtspp",
+   "數碼轉型支援先導計劃",
+   "中小企資助",
+   "政府資助 數碼"
+  ],
+  "客服／chatbot": [
+   "chatbot 香港",
+   "客服系統",
+   "ai 客服",
+   "智能客服"
+  ]
+ },
+ "volumes": {
+  "企業 AI": {
+   "volume": 20,
+   "cpc": 6.46,
+   "competition": "MEDIUM"
+  },
+  "企業ai 應用": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "HIGH"
+  },
+  "ai 轉型": {
+   "volume": 10,
+   "cpc": 4.73,
+   "competition": "LOW"
+  },
+  "人工智能 方案": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "ai 解決方案": {
+   "volume": 10,
+   "cpc": 4.01,
+   "competition": "HIGH"
+  },
+  "ai 顧問": {
+   "volume": 10,
+   "cpc": 1.35,
+   "competition": "MEDIUM"
+  },
+  "ai 導入": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "生成式 ai 企業": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "企業ai 導入": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM"
+  },
+  "ai project": {
+   "volume": 70,
+   "cpc": 1.09,
+   "competition": "LOW"
+  },
+  "企業自動化": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "流程自動化": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "工作流程自動化": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "業務自動化": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "自動化 工具": {
+   "volume": 20,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "rpa": {
+   "volume": 1900,
+   "cpc": 3.98,
+   "competition": "LOW"
+  },
+  "rpa 香港": {
+   "volume": 10,
+   "cpc": 0.54,
+   "competition": "LOW"
+  },
+  "數碼轉型": {
+   "volume": 70,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "數碼轉型顧問": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "企業數碼轉型": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "數字化轉型": {
+   "volume": 90,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "低代碼": {
+   "volume": 90,
+   "cpc": 0.86,
+   "competition": "LOW"
+  },
+  "low code": {
+   "volume": 110,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "系統開發": {
+   "volume": 30,
+   "cpc": 8.37,
+   "competition": "HIGH"
+  },
+  "系統開發公司": {
+   "volume": 10,
+   "cpc": 3.91,
+   "competition": "MEDIUM"
+  },
+  "軟件開發": {
+   "volume": 140,
+   "cpc": 2.99,
+   "competition": "MEDIUM"
+  },
+  "軟件開發公司": {
+   "volume": 30,
+   "cpc": 3.8,
+   "competition": "MEDIUM"
+  },
+  "應用程式開發": {
+   "volume": 20,
+   "cpc": 10.94,
+   "competition": "HIGH"
+  },
+  "app 開發": {
+   "volume": 140,
+   "cpc": 7.67,
+   "competition": "MEDIUM"
+  },
+  "訂造系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "度身訂造系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "企業系統": {
+   "volume": 10,
+   "cpc": 2.97,
+   "competition": "HIGH"
+  },
+  "內部系統": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "erp": {
+   "volume": 5400,
+   "cpc": 7.27,
+   "competition": "MEDIUM"
+  },
+  "erp 系統": {
+   "volume": 590,
+   "cpc": 6.51,
+   "competition": "MEDIUM"
+  },
+  "crm 系統": {
+   "volume": 260,
+   "cpc": 5.87,
+   "competition": "MEDIUM"
+  },
+  "庫存管理系統": {
+   "volume": 40,
+   "cpc": 7.75,
+   "competition": "MEDIUM"
+  },
+  "會員系統": {
+   "volume": 110,
+   "cpc": 17.86,
+   "competition": "HIGH"
+  },
+  "預約系統": {
+   "volume": 70,
+   "cpc": 7.16,
+   "competition": "HIGH"
+  },
+  "it 顧問": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM"
+  },
+  "it 外判": {
+   "volume": 70,
+   "cpc": 12.03,
+   "competition": "MEDIUM"
+  },
+  "科技顧問": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM"
+  },
+  "資訊科技 服務": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "科技公司": {
+   "volume": 390,
+   "cpc": 2.96,
+   "competition": "LOW"
+  },
+  "軟件公司": {
+   "volume": 90,
+   "cpc": 1.07,
+   "competition": "LOW"
+  },
+  "it 公司": {
+   "volume": 140,
+   "cpc": 8.57,
+   "competition": "MEDIUM"
+  },
+  "科技券": {
+   "volume": 480,
+   "cpc": 1.23,
+   "competition": "LOW"
+  },
+  "tvp": {
+   "volume": 1000,
+   "cpc": 0.12,
+   "competition": "LOW"
+  },
+  "bud 專項基金": {
+   "volume": 880,
+   "cpc": 1.58,
+   "competition": "MEDIUM"
+  },
+  "dtspp": {
+   "volume": 480,
+   "cpc": 3.18,
+   "competition": "LOW"
+  },
+  "數碼轉型支援先導計劃": {
+   "volume": 260,
+   "cpc": 3.76,
+   "competition": "LOW"
+  },
+  "中小企資助": {
+   "volume": 210,
+   "cpc": 1.61,
+   "competition": "MEDIUM"
+  },
+  "政府資助 數碼": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "chatbot 香港": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "客服系統": {
+   "volume": 210,
+   "cpc": 9.03,
+   "competition": "HIGH"
+  },
+  "ai 客服": {
+   "volume": 140,
+   "cpc": 4.83,
+   "competition": "MEDIUM"
+  },
+  "智能客服": {
+   "volume": 90,
+   "cpc": 4.29,
+   "competition": "MEDIUM"
+  }
+ }
+}

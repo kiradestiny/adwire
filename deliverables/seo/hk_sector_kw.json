@@ -1,0 +1,416 @@
+{
+ "by_cluster": {
+  "學校": [
+   "學校網站設計",
+   "學校網站",
+   "學校管理系統",
+   "校務系統",
+   "學校系統",
+   "學生管理系統",
+   "點名系統",
+   "出勤系統",
+   "eclass",
+   "內聯網",
+   "學校內聯網",
+   "電子學習平台",
+   "電子學習",
+   "學習管理系統",
+   "lms",
+   "家校溝通 app",
+   "圖書館系統",
+   "成績管理系統",
+   "學費系統",
+   "優質教育基金",
+   "qef",
+   "教育局 資助",
+   "學校 it 支援",
+   "校園 系統",
+   "學校 app",
+   "校園電視台",
+   "timetable 系統",
+   "學生出席系統"
+  ],
+  "政府公營": [
+   "政府 it 外判",
+   "政府招標",
+   "政府資訊科技",
+   "公營機構 it",
+   "政府系統開發",
+   "ogcio",
+   "標書",
+   "政府採購",
+   "tender 香港",
+   "it 外判",
+   "系統整合",
+   "系統整合商",
+   "系統整合公司"
+  ],
+  "大企業／轉型": [
+   "數碼轉型",
+   "數位轉型",
+   "企業數碼轉型",
+   "數碼轉型顧問",
+   "企業系統整合",
+   "erp 整合",
+   "企業 ai 導入",
+   "ai 導入顧問",
+   "it 顧問",
+   "系統顧問",
+   "企業自動化",
+   "業務流程改善",
+   "bpr",
+   "digital transformation"
+  ],
+  "Idea／初創": [
+   "mvp 開發",
+   "產品開發",
+   "prototype 開發",
+   "app 開發價錢",
+   "寫 app 價錢",
+   "開發報價",
+   "技術夥伴",
+   "技術顧問",
+   "cto 外判",
+   "軟件開發 香港",
+   "app 開發公司",
+   "初創 技術支援"
+  ]
+ },
+ "volumes": {
+  "學校網站設計": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "學校網站": {
+   "volume": 110,
+   "cpc": 2.11,
+   "competition": "LOW"
+  },
+  "學校管理系統": {
+   "volume": 10,
+   "cpc": 3.99,
+   "competition": "MEDIUM"
+  },
+  "校務系統": {
+   "volume": 20,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "學校系統": {
+   "volume": 10,
+   "cpc": 1.8,
+   "competition": "LOW"
+  },
+  "學生管理系統": {
+   "volume": 10,
+   "cpc": 1.19,
+   "competition": "LOW"
+  },
+  "點名系統": {
+   "volume": 40,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "出勤系統": {
+   "volume": 10,
+   "cpc": 8.77,
+   "competition": "HIGH"
+  },
+  "eclass": {
+   "volume": 27100,
+   "cpc": 2.24,
+   "competition": "LOW"
+  },
+  "內聯網": {
+   "volume": 210,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "學校內聯網": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "電子學習平台": {
+   "volume": 90,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "電子學習": {
+   "volume": 50,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "學習管理系統": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM"
+  },
+  "lms": {
+   "volume": 2400,
+   "cpc": 2.37,
+   "competition": "LOW"
+  },
+  "家校溝通 app": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "圖書館系統": {
+   "volume": 40,
+   "cpc": 1.03,
+   "competition": "LOW"
+  },
+  "成績管理系統": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "學費系統": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "優質教育基金": {
+   "volume": 590,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "qef": {
+   "volume": 1600,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "教育局 資助": {
+   "volume": 20,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "學校 it 支援": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "校園 系統": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "學校 app": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "校園電視台": {
+   "volume": 110,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "timetable 系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "學生出席系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "政府 it 外判": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "政府招標": {
+   "volume": 170,
+   "cpc": 1.11,
+   "competition": "LOW"
+  },
+  "政府資訊科技": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "公營機構 it": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "政府系統開發": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "ogcio": {
+   "volume": 720,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "標書": {
+   "volume": 320,
+   "cpc": 0.52,
+   "competition": "LOW"
+  },
+  "政府採購": {
+   "volume": 70,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "tender 香港": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "it 外判": {
+   "volume": 70,
+   "cpc": 12.03,
+   "competition": "MEDIUM"
+  },
+  "系統整合": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "系統整合商": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "系統整合公司": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "數碼轉型": {
+   "volume": 70,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "數位轉型": {
+   "volume": 30,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "企業數碼轉型": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "數碼轉型顧問": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "企業系統整合": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "erp 整合": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "企業 ai 導入": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM"
+  },
+  "ai 導入顧問": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "it 顧問": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM"
+  },
+  "系統顧問": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "企業自動化": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "業務流程改善": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "bpr": {
+   "volume": 1300,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "digital transformation": {
+   "volume": 320,
+   "cpc": 3.29,
+   "competition": "LOW"
+  },
+  "mvp 開發": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "產品開發": {
+   "volume": 30,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "prototype 開發": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "app 開發價錢": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "寫 app 價錢": {
+   "volume": 30,
+   "cpc": 2.72,
+   "competition": "MEDIUM"
+  },
+  "開發報價": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "技術夥伴": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "技術顧問": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "cto 外判": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "軟件開發 香港": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "app 開發公司": {
+   "volume": 20,
+   "cpc": 7.41,
+   "competition": "MEDIUM"
+  },
+  "初創 技術支援": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  }
+ }
+}

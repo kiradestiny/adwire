@@ -1,0 +1,190 @@
+{
+ "ai-agent-hong-kong-business-guide-2026": [
+  {
+   "before_hash": 84841,
+   "heading": "一、為何 2026 年突然人人都講 AI Agent",
+   "section": "一、為何 2026 年突然人人都講 AI Agent",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">一、為何 2026 年突然"
+  },
+  {
+   "before_hash": 61709,
+   "heading": "三、與普通 Chatbot 的分別：Gartner 的 agentwashing 警告",
+   "section": "三、與普通 Chatbot 的分別：Gartner 的 agentwashing 警告",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">三、與普通 Chatbot"
+  },
+  {
+   "before_hash": 57582,
+   "heading": "五、運作架構：三套主流框架",
+   "section": "五、運作架構：三套主流框架",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">五、運作架構：三套主流框架"
+  },
+  {
+   "before_hash": 74461,
+   "heading": "七、市場數據：數字差距極大，因為定義不同",
+   "section": "七、市場數據：數字差距極大，因為定義不同",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">七、市場數據：數字差距極大"
+  },
+  {
+   "before_hash": 23804,
+   "heading": "八、導入成本結構：為何報價難以預先確定",
+   "section": "八、導入成本結構：為何報價難以預先確定",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">八、導入成本結構：為何報價"
+  },
+  {
+   "before_hash": 52874,
+   "heading": "九、風險與治理：先設計叫停機制",
+   "section": "九、風險與治理：先設計叫停機制",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">九、風險與治理：先設計叫停"
+  }
+ ],
+ "geo-generative-engine-optimization-guide-2026": [
+  {
+   "before_hash": 23354,
+   "heading": "一、GEO 的準確定義與學術來源",
+   "section": "一、GEO 的準確定義與學術來源",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">一、GEO 的準確定義與學"
+  },
+  {
+   "before_hash": 58214,
+   "heading": "三、GEO 與傳統 SEO 的實際分別",
+   "section": "三、GEO 與傳統 SEO 的實際分別",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">三、GEO 與傳統 SEO"
+  },
+  {
+   "before_hash": 71043,
+   "heading": "同一個索引，沒有另一套系統",
+   "section": "同一個索引，沒有另一套系統",
+   "anchor": "<h4 class=\"text-xl font-bold text-[#0f4c81] mt-8 mb-3\">同一個索引，沒有另一套系統</"
+  },
+  {
+   "before_hash": 56352,
+   "heading": "Google 明言「不需要做的事」",
+   "section": "Google 明言「不需要做的事」",
+   "anchor": "<h4 class=\"text-xl font-bold text-[#0f4c81] mt-8 mb-3\">Google 明言「不需要做的"
+  },
+  {
+   "before_hash": 25616,
+   "heading": "OpenAI 與 Perplexity：爬蟲權限是入場券",
+   "section": "OpenAI 與 Perplexity：爬蟲權限是入場券",
+   "anchor": "<h4 class=\"text-xl font-bold text-[#0f4c81] mt-8 mb-3\">OpenAI 與 Perple"
+  },
+  {
+   "before_hash": 409,
+   "heading": "六、學術研究的實證效果",
+   "section": "六、學術研究的實證效果",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">六、學術研究的實證效果</"
+  },
+  {
+   "before_hash": 2158,
+   "heading": "技術可存取性：讓爬蟲讀得到",
+   "section": "技術可存取性：讓爬蟲讀得到",
+   "anchor": "<h4 class=\"text-xl font-bold text-[#0f4c81] mt-8 mb-3\">技術可存取性：讓爬蟲讀得到</"
+  },
+  {
+   "before_hash": 94090,
+   "heading": "八、GEO 成效如何量度",
+   "section": "八、GEO 成效如何量度",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">八、GEO 成效如何量度<"
+  },
+  {
+   "before_hash": 29406,
+   "heading": "九、llms.txt 的真相",
+   "section": "九、llms.txt 的真相",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">九、llms.txt 的真"
+  },
+  {
+   "before_hash": 37979,
+   "heading": "三、把論文數字當成商業承諾",
+   "section": "三、把論文數字當成商業承諾",
+   "anchor": "<h4 class=\"text-xl font-bold text-[#0f4c81] mt-8 mb-3\">三、把論文數字當成商業承諾</"
+  }
+ ],
+ "app-development-cost-guide-hong-kong-2026": [
+  {
+   "before_hash": 50742,
+   "heading": "一、不同類型的「App」成本差異極大",
+   "section": "一、不同類型的「App」成本差異極大",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">一、不同類型的「App」成"
+  },
+  {
+   "before_hash": 61099,
+   "heading": "二、成本主要由這幾個因素決定",
+   "section": "二、成本主要由這幾個因素決定",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">二、成本主要由這幾個因素決"
+  },
+  {
+   "before_hash": 44970,
+   "heading": "四、功能的優先次序：先做核心，後做附加",
+   "section": "四、功能的優先次序：先做核心，後做附加",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">四、功能的優先次序：先做核"
+  },
+  {
+   "before_hash": 52790,
+   "heading": "六、行業失敗數據的正確讀法",
+   "section": "六、行業失敗數據的正確讀法",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">六、行業失敗數據的正確讀法"
+  },
+  {
+   "before_hash": 69853,
+   "heading": "七、完整擁有成本（TCO）：被漏算的部分",
+   "section": "七、完整擁有成本（TCO）：被漏算的部分",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">七、完整擁有成本（TCO）"
+  },
+  {
+   "before_hash": 71805,
+   "heading": "1. 資料散落在 Excel、電郵與 WhatsApp",
+   "section": "1. 資料散落在 Excel、電郵與 WhatsApp",
+   "anchor": "<h4 class=\"text-xl font-bold text-[#0f4c81] mt-8 mb-3\">1. 資料散落在 Excel、"
+  },
+  {
+   "before_hash": 52020,
+   "heading": "十、如何準備一份讓報價準確的需求文件",
+   "section": "十、如何準備一份讓報價準確的需求文件",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">十、如何準備一份讓報價準確"
+  }
+ ],
+ "hong-kong-web-design-pricing-guide-2026": [
+  {
+   "before_hash": 53156,
+   "heading": "一、香港網頁設計的公開收費數據（附來源與日期）",
+   "section": "一、香港網頁設計的公開收費數據（附來源與日期）",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">一、香港網頁設計的公開收費"
+  },
+  {
+   "before_hash": 27955,
+   "heading": "二、為何價格可以有這麼大差距？",
+   "section": "二、為何價格可以有這麼大差距？",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">二、為何價格可以有這麼大差"
+  },
+  {
+   "before_hash": 7018,
+   "heading": "三、影響報價的 6 個真正因素",
+   "section": "三、影響報價的 6 個真正因素",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">三、影響報價的 6 個真正"
+  },
+  {
+   "before_hash": 8921,
+   "heading": "五、香港網頁設計的標準流程（7 個階段）",
+   "section": "五、香港網頁設計的標準流程（7 個階段）",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">五、香港網頁設計的標準流程"
+  },
+  {
+   "before_hash": 5588,
+   "heading": "三個示意報價與三年 TCO（非市場統計）",
+   "section": "三個示意報價與三年 TCO（非市場統計）",
+   "anchor": "<h4 class=\"text-xl font-bold text-[#0f4c81] mt-8 mb-3\">三個示意報價與三年 TCO（非"
+  },
+  {
+   "before_hash": 5425,
+   "heading": "八、容易漏做、但上線前應完成的事項",
+   "section": "八、容易漏做、但上線前應完成的事項",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">八、容易漏做、但上線前應完"
+  },
+  {
+   "before_hash": 18502,
+   "heading": "九、選擇網頁設計公司的檢查清單",
+   "section": "九、選擇網頁設計公司的檢查清單",
+   "anchor": "<h3 class=\"text-2xl font-bold text-[#0f4c81] mt-10 mb-4\">九、選擇網頁設計公司的檢查"
+  }
+ ]
+}

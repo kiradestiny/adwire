@@ -1,0 +1,13 @@
+{
+  "id": 29,
+  "slug": "hong-kong-public-sector-system-procurement-guide",
+  "title": "政府、公營機構及 NGO 系統開發：報價與採購要求指南（GITP／SOA-QPS5）",
+  "excerpt": "政府部門、公營機構與 NGO 負責報價的同事，須先了解 GITP 名單、SOA-QPS5 承辦商制度、135 萬元公開招標門檻、電子付款（FPS）安排，而 NGO 一般須收取不少於 5 份標書。本文整理實際採購要求、標書必寫項目（數據所有權、知識產權、保安與私隱評估），以及由需求到批出合約的完整流程。",
+  "date": "2026-10-09",
+  "category": "System Dev",
+  "readTime": "13 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/hong-kong-public-sector-system-procurement-guide.webp",
+  "tags": ["政府採購", "公營機構", "NGO", "系統開發", "GITP", "SOA-QPS5", "報價流程"],
+  "comment": "Article 29：公營／NGO 系統採購指南"
+}

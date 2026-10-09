@@ -1,0 +1,285 @@
+
+        <p class="lead text-xl text-gray-600 mb-8">AI 搜尋興起之後，市場上湧現大量標榜「GEO」的服務與聽起來很吸引的承諾。這篇文章不談推銷，只回到可查證的來源——Google 官方文件、OpenAI 與 Perplexity 的爬蟲說明，以及 Princeton 等大學發表於 KDD 2024 的學術論文——說清楚 <a href="/services/seo/" class="text-[#0f4c81] hover:underline">生成式引擎優化</a> 到底有效在哪裡、無效在哪裡，以及企業應該把資源放在什麼地方。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">GEO（生成式引擎優化，Generative Engine Optimization）是指增加品牌內容被 ChatGPT、Perplexity、Google AI 功能引用機會的一系列做法。根據 Google 官方指引與 KDD 2024 學術研究，真正有效的方向是「提供直接答案、可獨立引用的定義型語句、可靠的來源引用與具體數據」，而不是靠特殊檔案或特殊標記。標記可以令內容更清楚，但不保證被引用。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 重點摘要</p>
+          <ul class="space-y-2">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">GEO 目標是令內容更易被 AI 引擎理解與引用，不是一套獨立於 SEO 的新技術</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">官方立場：Google 的 AI 功能使用同一個 Search 索引，沒有額外技術要求</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">Google 不使用 llms.txt；FAQ rich result 已於 2026 年 5 月起不再顯示</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700">學術研究的 40% 增益屬受控實驗環境結果，不是商業承諾</span></li>
+          </ul>
+        </div>
+
+        <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
+          <img src="/blog/geo-complete-hero.webp" alt="GEO 生成式引擎優化指南 — ADWire AI 搜尋" title="GEO 生成式引擎優化指南 — ADWire AI 搜尋" width="1200" height="800" loading="lazy" decoding="async" class="w-full h-auto" />
+        </figure>
+
+        <p>先釐清一個容易混淆的地方。在香港的搜尋語境裡，「GEO」這個字眼絕大多數時候指地理（geography），例如地區定位或本地搜尋。但本文談的 GEO，全寫是 Generative Engine Optimization，中文譯作「生成式引擎優化」，與地理毫無關係。兩者共用同一組字母，是不少企業主第一次接觸這個題目時就搞錯的地方。本文所講的一切，都只針對生成式引擎優化。</p>
+
+        <p class="text-sm text-gray-500 mb-4">以下內容由 <strong>ADWire Agency</strong> 團隊整理，結合香港本地實戰經驗與最新行業數據。</p>
+
+<h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、GEO 的準確定義與學術來源</h3>
+
+        <p>GEO 這個概念並非營銷公司發明，而是來自學術界。它由 Princeton 等大學的研究團隊提出，定義為「協助內容創作者提升其在生成式引擎回應中可見度的框架」。這套框架屬<strong>黑盒優化</strong>——意思是研究者並不掌握生成式引擎的內部運作，只能從輸出結果回推什麼做法有用。研究團隊同時提出了 GEO-bench 基準，用來系統化測試不同優化手法的效果。論文發表於 KDD 2024。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener noreferrer">Aggarwal 等，《GEO: Generative Engine Optimization》，arXiv</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">學術角度下，SEO 與 GEO 的分別</h4>
+
+        <p>論文對兩者的分工寫得很清楚：<strong>傳統 SEO 優化的是「排名位置」，GEO 優化的是「在 AI 生成答案中被引用或呈現」的能見度</strong>。排名第三的頁面，可能在生成式答案中被完整引用；排名第一的頁面，也可能完全不出現在摘要裡。這正是 GEO 被單獨提出來討論的原因。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener noreferrer">Aggarwal 等，KDD 2024</a></p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、先講結論</h3>
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/geo-generative-engine-optimization-guide-2026-1.webp" alt="GEO 有效與無效做法對照圖：引用來源、統計數字、引文有效；關鍵字堆砌、llms.txt、FAQ Schema 無效" title="GEO 有效與無效做法對照" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">依 KDD 2024 論文與 Google 官方指引整理的 GEO 做法對照。</figcaption>
+</figure>
+
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">三句話講完 GEO</p><p class="text-blue-900 text-sm leading-relaxed">第一，GEO 不是一套獨立於 SEO 的新技術。Google 官方立場明確：為生成式 AI 搜尋優化，本質上就是為搜尋體驗優化，因此仍然是 SEO。第二，學術研究顯示最有效的方法是引用來源、加入統計數字與引文，而關鍵字堆砌幾乎沒有提升。第三，真正需要做的是把可被索引的優質內容做好，而不是追逐聽起來很新的檔案與標記。任何聲稱掌握「AI 內部指標」的工具或服務，都值得你保持警惕。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、GEO 與傳統 SEO 的實際分別</h3>
+
+        <p>把兩者放在同一張表上對照，會發現它們的基礎設施重疊度極高，真正不同的只是「優化目標」與「成效觀察方式」。要注意的是：下表中間一欄描述的是「Google 自家 AI 搜尋功能」的運作，並不能直接套用到 ChatGPT、Perplexity 等第三方平台。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">比較項目</th><th class="text-left px-5 py-3 font-semibold">傳統 SEO</th><th class="text-left px-5 py-3 font-semibold">Google AI 搜尋（AIO／AI Mode）</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">優化目標</td><td class="px-5 py-3">搜尋結果頁的排名位置</td><td class="px-5 py-3">在 AI 生成答案中被引用或呈現</td></tr><tr><td class="px-5 py-3">內容來源</td><td class="px-5 py-3">Google Search 索引</td><td class="px-5 py-3">同一個 Google Search 索引，並非獨立 AI 索引</td></tr><tr><td class="px-5 py-3">核心機制</td><td class="px-5 py-3">爬取、索引、排名系統</td><td class="px-5 py-3">RAG／grounding 檢索＋query fan-out 拆解子查詢</td></tr><tr><td class="px-5 py-3">技術要求</td><td class="px-5 py-3">可被索引、具備顯示 snippet 資格</td><td class="px-5 py-3">大致相同，但另需在 Search Console 把網站設為納入生成式 AI 功能</td></tr><tr><td class="px-5 py-3">成效觀察</td><td class="px-5 py-3">曝光、點擊、排名</td><td class="px-5 py-3">以曝光為主，官方報表不提供獨立引用點擊數據</td></tr></tbody></table></div>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener noreferrer">KDD 2024 論文</a>、<a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener noreferrer">Google Search 官方指引</a></p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、Google 官方立場：為生成式 AI 優化，就是 SEO</h3>
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/geo-generative-engine-optimization-guide-2026-2.webp" alt="流程圖：網站被爬取與索引後，經 RAG 檢索與 query fan-out 生成 AI 答案，曝光由 Search Console 報告" title="Google AI 搜尋的內容取用流程" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">Google AI 功能的內容取用流程，說明曝光不等於點擊。</figcaption>
+</figure>
+
+
+        <p>這一節是全篇最需要看清楚的部分，因為它直接推翻了市場上大部分 GEO 服務的賣點。Google 於 2026 年 5 月新增了一份專門文件《Optimizing your website for generative AI features on Google Search》。文件的第一句立場就很清楚：<strong>從 Google Search 的角度，為生成式 AI 搜尋優化就是為搜尋體驗優化，因此仍然是 SEO</strong>。要說明的是，這並非 Google 首次談 AI 搜尋——Google 早於 2025 年 5 月已發表同時涵蓋 AI Overviews 與 AI Mode 的官方文章，所以更準確的說法是「2026 年新增了一份專門指引」，而不是「首份 AI 文件」。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener noreferrer">Google Search Central，Optimizing your website for generative AI features</a>、<a href="https://developers.google.com/search/blog/2025/05/succeeding-in-ai-search" target="_blank" rel="noopener noreferrer">Google Search Central Blog（2025 年 5 月）</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">同一個索引，沒有另一套系統</h4>
+
+        <p>Google 說明，其 AI 功能建基於 Google 核心排名與品質系統，並<strong>使用同一個 Search 索引</strong>，而不是另設一個「AI 索引」。實際運作靠兩項技術：一是 RAG／grounding，從 Search 索引檢索即時網頁內容；二是 query fan-out，把用戶的一個問題拆成多個並行子查詢，再匯總成答案。</p>
+
+        <p>換句話說，你在傳統搜尋做得好的東西，本來就會被 AI 功能取用。並不存在一套只服務 AI 的獨立資料庫，自然也不存在一套只為 AI 而設的優化捷徑。不過要留意，這個「同一索引」的說法只適用於 Google 自家的 AI 功能，並不涵蓋 ChatGPT、Claude、Perplexity。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">技術要求：被索引，以及納入生成式 AI 功能</h4>
+
+        <p>Google 寫得很直接：頁面只需<strong>被索引</strong>，並具備在 Google Search 顯示 snippet 的資格，沒有額外技術要求。但官方指引同時補充一個容易漏掉的條件：網站必須在 <strong>Search Console 的生成式 AI 功能中被設為「納入」（included）</strong>，才有資格在 Google Search 的生成式 AI 功能中顯示。換言之，如果網站曾被設定為排除，報表會看不到相關曝光，內容亦無法在 AI 功能中呈現。</p>
+
+        <p>想限制內容在 AI 功能的呈現，可以用 nosnippet、data-nosnippet、max-snippet 或 noindex；至於其他系統的 AI 訓練與 grounding，則由 Google-Extended 控制。這些機制各自獨立，不要混為一談。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer">Google Search Central，AI features and your website</a>、<a href="https://support.google.com/webmasters/answer/16984139?hl=en" target="_blank" rel="noopener noreferrer">Search Console 生成式 AI 成效報告說明</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">Google 明言「不需要做的事」</h4>
+
+        <p>官方指引甚至專門列出不需要做的事：<strong>不需要 AI 文字檔、不需要特殊標記、不需要 chunking、不需要為 AI 重寫內容</strong>。文件原文直接寫明：LLMS.txt 及其他「特殊」標記並不需要，因為 Google Search 本身並不使用它們。這幾句話，基本上把市面上最常被推銷的「GEO 技術項目」逐一否定了。</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">連 Google 也不能承諾收錄</p><p class="text-amber-900 text-sm leading-relaxed">Google 在官方指引中明言：即使頁面符合所有要求與最佳實務，也不代表 Google 會爬取、索引或提供內容。任何向你表示「做了這些就一定被 <a href="/services/seo/" class="text-[#0f4c81] hover:underline">AI 引用</a>」的服務，說法比 Google 自己的官方文件還要肯定，這本身就是一個警號。</p></div>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">Google 點名的兩類無效做法</h4>
+
+        <p>官方指引同時點出兩類做法沒有用。第一是追求「不真實的提及」（inauthentic mentions）——Google 直接表明這種做法並不有效。第二是為每一個查詢變體開設獨立頁面，企圖操縱排名；Google 指出這屬於 scaled content abuse，違反其垃圾內容政策。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener noreferrer">Google Search Central</a>、<a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noopener noreferrer">Google 垃圾內容政策</a></p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、AI 搜尋如何選取內容</h3>
+
+        <p>不同平台的選取機制，官方其實都有說明，只是很少被引用。把它們並排，就會明白「一套做法通吃所有平台」的說法為何站不住。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">Google：RAG 檢索＋query fan-out</h4>
+
+        <p>Google 以 RAG 從 Search 索引檢索，再用 query fan-out 產生多個子查詢。AI Overviews 只在系統判斷對傳統搜尋有增益時才觸發，並非每次搜尋都會出現。這意味著能被檢索到的前提，仍然是內容本身可被爬取、被索引、被理解。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">OpenAI 與 Perplexity：爬蟲權限是入場券</h4>
+
+        <p>OpenAI 說明，OAI-SearchBot 用於在 ChatGPT 搜尋功能中呈現網站。官方的 robots.txt 設定是獨立的：你可以選擇允許 OAI-SearchBot 以出現在搜尋結果，同時禁止 GPTBot 以表示不願內容被用於訓練模型。要注意一個例外——即使封鎖了 OAI-SearchBot，網站仍可能以純導航連結的形式出現，只是不會被當作搜尋答案的內容來源。</p>
+
+        <p>Perplexity 同樣說明，PerplexityBot 用於在 Perplexity 搜尋結果中呈現及連結網站，並聲明不用於抓取內容訓練基礎模型，亦遵守 robots.txt。兩者都不是靠「提交給某個工具」而入選，而是靠爬蟲能否讀取。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener noreferrer">OpenAI，Crawlers 文件</a>、<a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers" target="_blank" rel="noopener noreferrer">Perplexity，PerplexityBot</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">AI 摘要出現後，點擊明顯下降</h4>
+
+        <p>Pew Research 以 900 名美國成人為樣本的研究顯示，當搜尋結果出現 AI 摘要時，用戶點擊傳統結果的比例由 15% 降至 8%，而點擊摘要內連結的比例只有 1%。另一邊廂，Ahrefs 分析 190 萬條 AI Overview 引用後發現，76.1% 被引用的頁面同時排在 Google 前 10 名；但同一份分析亦記載，有 14.4% 被引用的頁面並不在前 100 名之內。</p>
+
+        <p>把兩個數字放在一起，較準確的結論是：<strong>傳統排名與被引用有明顯重疊，但重疊並非必然，也不構成「必須先有 top 10 排名」的門檻</strong>。同時要記住，AI 搜尋把「被看見」與「被點擊」拆開了——曝光未必帶來同等點擊。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/" target="_blank" rel="noopener noreferrer">Pew Research</a>、<a href="https://ahrefs.com/blog/search-rankings-ai-citations/" target="_blank" rel="noopener noreferrer">Ahrefs</a>（第三方抽樣或日誌分析，非平台官方數據）</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、學術研究的實證效果</h3>
+
+        <p>回到 Princeton 的論文，這是目前少數以受控實驗測試 GEO 手法的研究。主要結果是：GEO 方法在生成式引擎回應中最高可提升可見度 40%；在真實引擎 Perplexity.ai 上最高提升 37%。</p>
+
+        <p>更值得留意的是<strong>哪些方法有效</strong>。研究發現最有效的三種方法是：引用來源（Cite Sources）、加入統計數字（Statistics Addition）、加入引文（Quotation Addition）。相反，<strong>關鍵字堆砌（Keyword Stuffing）幾乎沒有提升</strong>，而刻意營造權威語氣亦沒有顯著改善。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://arxiv.org/html/2311.09735v3" target="_blank" rel="noopener noreferrer">Aggarwal 等，KDD 2024 論文全文</a></p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">40% 這個數字的正確讀法</p><p class="text-amber-900 text-sm leading-relaxed">論文的 40%／37% 提升，是在其受控基準（GEO-bench）及 Perplexity.ai 實驗環境下得出的結果。該實驗以 200 條樣本查詢、把來源檔案上載並限定引擎只依檔案作答，並非在 Google、ChatGPT 等實際商業系統上的成效承諾，也不是「公開網頁實施後的真實引用增長」。論文亦指出，效果因領域而異，需要領域專屬的方法。把實驗室數字當成商業保證來引用，是市場上最常見的誤讀。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、可實際執行的 GEO 做法</h3>
+
+        <p>把官方指引與論文結論合起來看，可以做的事其實相當樸素，而且大部分與做好 SEO 重疊。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">內容結構：寫「非商品化內容」</h4>
+
+        <p>Google 建議撰寫「非商品化內容」（non-commodity content），提供獨特觀點與第一手經驗；用標題與段落清楚組織；加入高品質圖片與影片。這與論文中「引用來源、加入統計數字、加入引文」的結論方向一致——本質都是讓內容帶有別人沒有的具體資訊，而非重複網上已有的泛論。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">技術可存取性：讓爬蟲讀得到</h4>
+
+        <p>Google 列出的條件包括：robots.txt 允許爬取、內部連結可達、良好頁面體驗、重要內容以文字呈現、結構化資料須與頁面可見文字一致。這些條件沒有「AI 專屬」的部分，全部都是傳統 SEO 的基礎工程。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">結構化資料：維持，但不是為了 GEO</h4>
+
+        <p>Google 明確表示 GEO 不需要特殊的 schema.org 標記，但應繼續使用結構化資料以維持 rich results 資格。同時要留意時效：FAQ rich result 這項功能，Google 已於 2026 年 5 月 7 日起不再在搜尋結果顯示，並於 2026 年 6 月中移除相關文件。因此把「加 FAQ Schema」說成提升 AI 引用的基本功，並不成立。結構化資料仍然有價值——它讓機器更準確理解頁面所描述的可見實體，但它的角色是描述內容，不是發放入場券。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/updates" target="_blank" rel="noopener noreferrer">Google Search Central — 更新記錄</a>、<a href="https://schema.org/FAQPage" target="_blank" rel="noopener noreferrer">schema.org FAQPage</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">在地與電商：用官方渠道增加曝光</h4>
+
+        <p>若業務涉及本地或電商，Google 建議使用 Merchant Center feeds 與 Google Business Profile 增加曝光。這是官方直接提供的渠道，比任何第三方「AI 提交工具」都來得實在。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener noreferrer">Google Search Central</a>、<a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer">AI features and your website</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">有效與無效做法對照</h4>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200"><table class="w-full text-sm text-left"><thead><tr class="bg-[#0f4c81] text-white"><th class="text-left px-5 py-3 font-semibold">做法</th><th class="text-left px-5 py-3 font-semibold">效果</th><th class="text-left px-5 py-3 font-semibold">依據</th></tr></thead><tbody class="divide-y divide-gray-100"><tr><td class="px-5 py-3">引用來源</td><td class="px-5 py-3">最有效之一</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">加入統計數字</td><td class="px-5 py-3">最有效之一</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">加入引文</td><td class="px-5 py-3">最有效之一</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">關鍵字堆砌</td><td class="px-5 py-3">幾乎無提升</td><td class="px-5 py-3">KDD 2024 論文</td></tr><tr><td class="px-5 py-3">建立 llms.txt</td><td class="px-5 py-3">對 Google Search 無害亦無益</td><td class="px-5 py-3">Google 官方</td></tr><tr><td class="px-5 py-3">加 FAQ Schema 求 AI 引用</td><td class="px-5 py-3">不保證；FAQ rich result 已停用</td><td class="px-5 py-3">Google 官方更新記錄</td></tr><tr><td class="px-5 py-3">為查詢變體開大量頁面</td><td class="px-5 py-3">違反垃圾內容政策</td><td class="px-5 py-3">Google 官方</td></tr></tbody></table></div>
+
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+            <p class="font-bold text-[#0f4c81] mb-3 text-lg">🔗 相關服務</p>
+            <p class="text-gray-700 leading-relaxed mb-4">GEO 同傳統 SEO 要一齊做先有效，以下係我們嘅搜尋增長服務範圍。</p>
+            <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700"><a href="/services/seo/" class="text-[#0f4c81] hover:underline">SEO 與 GEO 搜尋增長方案</a>　—　同時覆蓋 Google 排名同 AI 引用嘅搜尋方案</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700"><a href="/services/web/" class="text-[#0f4c81] hover:underline">網頁設計及電商網站開發服務</a>　—　網站結構、Schema 標記同技術底層優化</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span class="text-gray-700"><a href="/services/ai/" class="text-[#0f4c81] hover:underline">企業 AI 應用開發與系統整合</a>　—　企業內部知識整理成可被 AI 引用嘅內容資產</span></li>
+            </ul>
+          </div>
+
+          <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、GEO 成效如何量度</h3>
+
+        <p>量度是 GEO 最容易被含糊帶過的環節。先講可以拿到的數據。Google 於 2026 年 6 月 3 日公布 Search Console 的生成式 AI 成效報告，顯示 AI Overviews 及 AI Mode 的 impressions，並可細分 Pages、Countries、Devices、Dates 四個維度。<strong>截至 2026 年 8 月 31 日，這份報告已向全球所有網站推出</strong>。另外要注意，Google Search 與 Discover 的生成式 AI 報告是分開的兩份報表。</p>
+
+        <p>但要注意，<strong>該報告主要提供 impressions，並非獨立的 clicks 數據</strong>。也就是說，你能看到內容在 AI 功能中被曝光多少次，卻不能單憑這份報告得知帶來多少點擊。</p>
+
+        <p>至於轉換與流量，可以用 Google Analytics 追蹤；OpenAI 亦已在 ChatGPT 轉介 URL 自動加入 utm_source=chatgpt.com，方便你分辨來自 ChatGPT 的流量。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports" target="_blank" rel="noopener noreferrer">Google Search Central Blog</a>、<a href="https://support.google.com/webmasters/answer/16984139?hl=en" target="_blank" rel="noopener noreferrer">Search Console 說明</a>、<a href="https://help.openai.com/en/articles/12627856" target="_blank" rel="noopener noreferrer">OpenAI 說明中心</a></p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">拿不到的數據，不要假裝拿得到</h4>
+
+        <p>有些數據在現階段確實無法取得。沒有任何第三方工具能取得 Google 的內部排名或 AI 系統資料；Google 亦明確警告，應對聲稱擁有「內部指標」的工具保持警惕。此外，本次核實 ChatGPT 與 Perplexity 的官方文件，均未提供「本站被引用」的完整統計報表；市面上可見的數字多來自第三方工具抽樣 prompt 估算，各家方法與樣本各異，數據不可直接比較，引用時必須列出抽樣方法。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener noreferrer">Google Search Central</a>（第三方抽樣估算須自行標示方法）</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、llms.txt 的真相</h3>
+
+        <p>llms.txt 由 Jeremy Howard 於 2024 年 9 月 3 日提出，是一個建議性的 Markdown 檔案，放在網站根目錄，向 AI agent 提供網站摘要與重要頁面連結。它本身並非控制爬蟲的機制。</p>
+
+        <p>Google 的官方立場很直接：Google Search 不使用 llms.txt，建立它對 Google Search 的可見度或排名「既無害亦無益」。Google 的 John Mueller 把 llms.txt 比作已失效的 keywords meta tag；Gary Illyes 亦表示 Google 不支持 llms.txt，也沒有計劃支持。</p>
+
+        <p>實證數據同樣不支持它。Ahrefs 分析 137,210 個域名後發現，其中 28%（約 38,000 個）有發布 llms.txt，而 97% 的 llms.txt 檔案在 2026 年 5 月錄得零請求；在實際讀取 llms.txt 的請求中，多數來自非 AI 的工具或研究用途。這說明目前幾乎沒有 AI 系統在「主動找」這個檔案。</p>
+
+        <p class="text-gray-500 text-sm italic">來源：<a href="https://llmstxt.org/" target="_blank" rel="noopener noreferrer">llmstxt.org</a>、<a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener noreferrer">Google Search Central</a>、<a href="https://ahrefs.com/blog/llmstxt-study/" target="_blank" rel="noopener noreferrer">Ahrefs llms.txt 研究</a>（第三方分析，2026 年 5 月母群 137,210 個域名）</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、市場上常見的誇大聲稱</h3>
+
+        <p>把官方文件與第三方研究並排，市場上不少說法就站不住了。以下幾類聲稱最常見，也最容易被查證推翻。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">一、把 llms.txt 說成「AI 收錄必備」</h4>
+
+        <p>Google 已明言不使用 llms.txt，Ahrefs 的數據亦顯示絕大多數 llms.txt 檔案零請求。把它包裝成必要步驟，是把未經驗證的做法當成行業標準。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">二、聲稱掌握「AI 內部指標」</h4>
+
+        <p>沒有任何第三方工具能取得 Google 的內部排名或 AI 系統資料，Google 官方亦已就此發出警告。任何聲稱擁有這類數據的儀表板，其數字來源都值得追問。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">三、把論文數字當成商業承諾</h4>
+
+        <p>KDD 2024 論文的 40%／37% 是受控實驗結果，並非在 Google、ChatGPT 上的成效承諾。論文本身已說明效果因領域而異。引用時略去這個前提，就是斷章取義。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">四、把 GEO 說成需要「額外技術」</h4>
+
+        <p>Google 已列明不需要 AI 文字檔、特殊標記、chunking，亦不需為 AI 重寫。若一項服務的核心賣點是這些，它的價值基礎就很薄弱。</p>
+
+        <h4 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">五、混淆 Google 官方指引的適用範圍</h4>
+
+        <p>Google 的官方指引只涵蓋 Google 自家的 AI 功能，不涵蓋 ChatGPT、Claude、Perplexity。把 Google 的文件說成「適用於所有 AI 平台」，是把一份平台文件過度延伸。第三方平台各有自己的爬蟲與取用方式，需要分別處理。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8"><p class="font-bold text-[#0f4c81] mb-2">判斷一個 GEO 說法是否可信的三個問題</p><p class="text-blue-900 text-sm leading-relaxed">第一，這個說法有沒有官方文件或學術研究支持？第二，引用的數字是否被標明為抽樣或實驗結果，而非成效承諾？第三，若把同一套做法用在傳統搜尋，是否同樣說得通？三個問題都能通過的建議，才值得投入資源。</p></div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十一、常見問題</h3>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">GEO 與 SEO 是兩件不同的事嗎？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">從學術角度，兩者優化目標不同：SEO 優化排名位置，GEO 優化在 AI 生成答案中被引用的能見度。但從 Google 官方立場看，為生成式 AI 搜尋優化本質上就是為搜尋體驗優化，因此仍然是 SEO。實務上，兩者共用同一個索引與同一套品質系統，基礎工作大幅重疊。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">做 GEO 是否需要建立 llms.txt 或特殊 AI 文字檔？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不需要。Google 官方明言 Google Search 不使用 llms.txt，建立它對 Google Search 的可見度或排名既無害亦無益；官方指引亦列明不需要 AI 文字檔、特殊標記或 chunking。Ahrefs 的研究更顯示，97% 的 llms.txt 檔案在 2026 年 5 月錄得零請求。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">論文的 40% 提升，是否代表照做就有效果？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以這樣理解。40% 是論文的受控基準結果，37% 是在 Perplexity.ai 實驗環境下的數字，兩者都不是在 Google、ChatGPT 等實際商業系統上的成效承諾。論文亦指出效果因領域而異。可以參考的是方向：引用來源、加入統計數字與引文較有效，關鍵字堆砌幾乎無用。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">如何得知我的內容有否被 AI 引用？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">Google 方面，可用 Search Console 的生成式 AI 成效報告，查看 AI Overviews 及 AI Mode 的 impressions，並細分 Pages、Countries、Devices、Dates；該報告已於 2026 年 8 月 31 日向全球推出，但主要提供 impressions，並非獨立 clicks 數據。ChatGPT 與 Perplexity 沒有官方的被引用報表，只能靠第三方工具抽樣估算，各方法與樣本不同，數據不可直接比較。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">為每個查詢變體開設獨立頁面，是否好策略？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不建議。Google 官方指引指出，為每個查詢變體開設獨立頁面以操縱排名，違反 scaled content abuse 垃圾內容政策。同樣地，追求「不真實的提及」Google 亦明言並不有效。這些做法風險高而回報不確定。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">Google 的官方指引是否適用於 ChatGPT 與 Perplexity？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不適用。Google 的官方指引只涵蓋 Google 自家的 AI 功能。ChatGPT 與 Perplexity 各有自己的爬蟲機制：OpenAI 的 OAI-SearchBot 用於在 ChatGPT 搜尋功能中呈現網站，Perplexity 的 PerplexityBot 用於在 Perplexity 搜尋結果中呈現及連結網站，兩者都聲明遵守 robots.txt。若要被這些平台取用，重點是不要在 robots.txt 封鎖對應爬蟲。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">GEO 優化有哪些風險與限制？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">GEO 仍是新興領域，AI 引擎的引用規則與回答格式經常變動，因此成效難以像搜尋排名一樣穩定追蹤。此外，沒有任何方法可以保證被特定 AI 引擎引用。建議以 SEO 為基礎，把 GEO 視為增量優化，而非取代傳統搜尋的策略。</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十二、總結</h3>
+
+        <p>把官方文件與學術研究放在一起看，GEO 的圖像其實相當清楚。它是一個有用的觀察角度——提醒我們 AI 搜尋時代「被看見」與「被點擊」已經分家，內容在生成答案中的能見度值得單獨關注。但它不是一套獨立於 SEO 的新技術，更不是靠幾個新檔案就能繞過的捷徑。</p>
+
+        <p>Google 的立場最值得記住：為生成式 AI 搜尋優化就是為搜尋體驗優化，因此仍然是 SEO。同一索引、同一品質系統、沒有額外技術要求。真正有實證支持的做法，是寫別人沒有的具體內容——引用來源、加入統計數字、加入引文，並讓頁面可被爬取與索引。相反，關鍵字堆砌、追求不真實提及、為查詢變體濫開頁面，不是無效就是違規。</p>
+
+        <p>對香港企業而言，最務實的策略是不要把 GEO 當成一個獨立的預算項目，而是把它視為搜尋策略的自然延伸。市場上誇大的承諾之所以有市場，是因為量度困難、資訊不對稱；但只要回到官方文件與學術研究，大部分說法都可以自行驗證。若你希望把這些原則落實到網站的內容架構與技術基礎上，可以參考我們的 <a href="/services/seo/">SEO 與 GEO 服務</a>，我們的做法是從可查證的官方指引出發，先做好基礎工程，再談 AI 搜尋時代的內容策略。</p>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">📚 延伸閱讀</p>
+          <ul class="space-y-2">
+          <li><a href="/blog/seo-vs-geo-2025/" class="text-[#0f4c81] hover:underline">SEO 與 GEO 分別是什麼？2026 決策比較指南</a></li>
+          <li><a href="/blog/hong-kong-seo-geo-guide-2026/" class="text-[#0f4c81] hover:underline">2026 香港 SEO 與 GEO 實施指南：本地搜尋與 AI 引用的路線圖</a></li>
+          <li><a href="/blog/how-to-choose-seo-company-hong-kong-2026/" class="text-[#0f4c81] hover:underline">香港 SEO 公司點揀？Google 官方問題清單與危險信號（2026）</a></li>
+          </ul>
+        </div>
+
+        <p class="text-sm text-gray-500 mt-8">主要來源及查核日期（2026 年 10 月 3 日）：<a href="https://developers.google.com/search/docs/fundamentals/ai-optimization-guide" target="_blank" rel="noopener noreferrer" class="text-[#0f4c81] hover:underline">Google 生成式 AI 優化指引</a>、<a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer" class="text-[#0f4c81] hover:underline">Google AI features and your website</a>、<a href="https://developers.google.com/search/updates" target="_blank" rel="noopener noreferrer" class="text-[#0f4c81] hover:underline">Google Search 更新記錄</a>、<a href="https://support.google.com/webmasters/answer/16984139?hl=en" target="_blank" rel="noopener noreferrer" class="text-[#0f4c81] hover:underline">Search Console 生成式 AI 報表</a>、<a href="https://arxiv.org/html/2311.09735v3" target="_blank" rel="noopener noreferrer" class="text-[#0f4c81] hover:underline">KDD 2024 GEO 論文</a>、<a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener noreferrer" class="text-[#0f4c81] hover:underline">OpenAI Crawlers</a>、<a href="https://docs.perplexity.ai/docs/resources/perplexity-crawlers" target="_blank" rel="noopener noreferrer" class="text-[#0f4c81] hover:underline">Perplexity Crawlers</a>、<a href="https://ahrefs.com/blog/llmstxt-study/" target="_blank" rel="noopener noreferrer" class="text-[#0f4c81] hover:underline">Ahrefs llms.txt 研究</a>。</p>

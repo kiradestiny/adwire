@@ -1,0 +1,340 @@
+{
+ "by_cluster": {
+  "報價意圖（公營／大機構同事會用）": [
+   "網頁設計報價",
+   "網站報價",
+   "系統報價",
+   "軟件報價",
+   "app 開發報價",
+   "it 報價",
+   "報價單",
+   "網頁設計 價錢",
+   "網站設計 價錢",
+   "系統開發 價錢",
+   "寫 app 價錢",
+   "網頁設計 收費",
+   "網站 費用"
+  ],
+  "NGO／社福": [
+   "ngo 網站",
+   "非牟利機構 網站",
+   "社福機構 系統",
+   "捐款系統",
+   "義工管理系統",
+   "ngo 系統",
+   "慈善機構 網站",
+   "會員管理系統"
+  ],
+  "醫療／診所": [
+   "診所系統",
+   "診所管理系統",
+   "診所 預約系統",
+   "醫療系統",
+   "中醫診所系統",
+   "牙醫診所系統",
+   "clinic system",
+   "診所 網站",
+   "patient 系統",
+   "診所 收費系統"
+  ],
+  "創業／零售／餐飲": [
+   "收銀系統",
+   "pos 系統",
+   "pos 香港",
+   "零售系統",
+   "餐飲系統",
+   "落單系統",
+   "外賣系統",
+   "開店 系統",
+   "網店",
+   "網店平台",
+   "開網店",
+   "會員系統",
+   "電子支付",
+   "網上商店",
+   "pos 機"
+  ],
+  "學校（補）": [
+   "學校 報價",
+   "校網 報價",
+   "學校 系統 供應商",
+   "學校 ai",
+   "steam 教育",
+   "數字教育",
+   "學校 it 統籌",
+   "家校通訊"
+  ]
+ },
+ "volumes": {
+  "網頁設計報價": {
+   "volume": 70,
+   "cpc": 3.62,
+   "competition": "MEDIUM"
+  },
+  "網站報價": {
+   "volume": 10,
+   "cpc": 23.08,
+   "competition": "HIGH"
+  },
+  "系統報價": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "軟件報價": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "app 開發報價": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "it 報價": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "報價單": {
+   "volume": 880,
+   "cpc": 3.15,
+   "competition": "LOW"
+  },
+  "網頁設計 價錢": {
+   "volume": 140,
+   "cpc": 4.87,
+   "competition": "MEDIUM"
+  },
+  "網站設計 價錢": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM"
+  },
+  "系統開發 價錢": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "寫 app 價錢": {
+   "volume": 30,
+   "cpc": 2.72,
+   "competition": "MEDIUM"
+  },
+  "網頁設計 收費": {
+   "volume": 10,
+   "cpc": 3.22,
+   "competition": "MEDIUM"
+  },
+  "網站 費用": {
+   "volume": 30,
+   "cpc": 1.66,
+   "competition": "LOW"
+  },
+  "ngo 網站": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "非牟利機構 網站": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "社福機構 系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "捐款系統": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "義工管理系統": {
+   "volume": 70,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "ngo 系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "慈善機構 網站": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "會員管理系統": {
+   "volume": 40,
+   "cpc": null,
+   "competition": "MEDIUM"
+  },
+  "診所系統": {
+   "volume": 10,
+   "cpc": 3.68,
+   "competition": "MEDIUM"
+  },
+  "診所管理系統": {
+   "volume": 20,
+   "cpc": 3.9,
+   "competition": "MEDIUM"
+  },
+  "診所 預約系統": {
+   "volume": 20,
+   "cpc": 1.48,
+   "competition": "LOW"
+  },
+  "醫療系統": {
+   "volume": 50,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "中醫診所系統": {
+   "volume": 20,
+   "cpc": 1.41,
+   "competition": "MEDIUM"
+  },
+  "牙醫診所系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "clinic system": {
+   "volume": 40,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "診所 網站": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "patient 系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "診所 收費系統": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "收銀系統": {
+   "volume": 90,
+   "cpc": 7.58,
+   "competition": "MEDIUM"
+  },
+  "pos 系統": {
+   "volume": 720,
+   "cpc": 9.55,
+   "competition": "HIGH"
+  },
+  "pos 香港": {
+   "volume": 20,
+   "cpc": 7.08,
+   "competition": "HIGH"
+  },
+  "零售系統": {
+   "volume": 70,
+   "cpc": 9.93,
+   "competition": "MEDIUM"
+  },
+  "餐飲系統": {
+   "volume": 50,
+   "cpc": 6.31,
+   "competition": "MEDIUM"
+  },
+  "落單系統": {
+   "volume": 10,
+   "cpc": 6.44,
+   "competition": "HIGH"
+  },
+  "外賣系統": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "開店 系統": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "網店": {
+   "volume": 720,
+   "cpc": 7.91,
+   "competition": "MEDIUM"
+  },
+  "網店平台": {
+   "volume": 140,
+   "cpc": 6.65,
+   "competition": "HIGH"
+  },
+  "開網店": {
+   "volume": 210,
+   "cpc": 8.37,
+   "competition": "HIGH"
+  },
+  "會員系統": {
+   "volume": 110,
+   "cpc": 17.86,
+   "competition": "HIGH"
+  },
+  "電子支付": {
+   "volume": 1600,
+   "cpc": 3.35,
+   "competition": "LOW"
+  },
+  "網上商店": {
+   "volume": 170,
+   "cpc": 7.86,
+   "competition": "MEDIUM"
+  },
+  "pos 機": {
+   "volume": 720,
+   "cpc": 7.4,
+   "competition": "MEDIUM"
+  },
+  "學校 報價": {
+   "volume": 40,
+   "cpc": 0.16,
+   "competition": "LOW"
+  },
+  "校網 報價": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "學校 系統 供應商": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "學校 ai": {
+   "volume": 30,
+   "cpc": 1.37,
+   "competition": "MEDIUM"
+  },
+  "steam 教育": {
+   "volume": 590,
+   "cpc": 2.05,
+   "competition": "LOW"
+  },
+  "數字教育": {
+   "volume": 1300,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "學校 it 統籌": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "家校通訊": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  }
+ }
+}
