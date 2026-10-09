@@ -78,8 +78,10 @@ jobs:
             case "$base" in
               *.php)
                 echo "--- php -l $base"
-                # php -l 的錯誤會輸出到 stderr 並以非 0 結束
-                if $SSH "php -l '$STAGE/$base' 2>&1" ; then
+                # 把 php -l 的完整輸出（stdout+stderr）寫入遠端檔案再讀回，
+                # 避免 ssh 串流處理令詳細錯誤訊息遺失
+                $SSH "php -l '$STAGE/$base' > '$STAGE/lint.txt' 2>&1; echo \"exit=\$?\"; echo '<<<LINT_OUTPUT>>>'; cat '$STAGE/lint.txt'; echo '<<<END>>>'"
+                if $SSH "php -l '$STAGE/$base' >/dev/null 2>&1" ; then
                   echo "  ✅ $base 語法正確"
                 else
                   echo "  ❌ $base 語法錯誤"
