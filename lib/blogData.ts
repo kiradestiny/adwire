@@ -17,6 +17,978 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // ─── Article 40：學校 AI 項目技術指南 ───
+  {
+    id: 40,
+    slug: "school-ai-project-hong-kong",
+    title: "學校做 AI 項目：由校本需求到技術方案（香港學校技術指南）",
+    excerpt:
+      "學校推行校本 AI 項目，成敗往往不在於買了哪一套工具，而在於需求是否先整理清楚、技術方案是否對應真實痛點、資料私隱與風險是否受控。本文從技術與專案管理角度，整理需求盤點框架、項目類型、方案選型（現成工具、定制開發、混合）、私隱合規、風險與人工覆核、專案分期與驗收，以及成本估算，供校長、IT 統籌老師參考。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/school-ai-project-hong-kong.webp",
+    tags: ["AI 應用", "學校", "人工智能", "技術方案", "資料私隱", "專案管理", "香港"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">學校要開展人工智能（AI）項目，成敗通常不在於買了哪一套工具，而在於三件事有沒有先處理好：校本需求是否整理清楚、技術方案是否對應真實痛點、資料私隱與風險是否受控。本文從技術與專案管理角度，整理香港中小學推行校本 AI 項目時的完整框架——由需求盤點、項目類型、方案選型（現成工具、定制開發還是混合）、資料私隱合規、風險與人工覆核，到專案分期、驗收與成本估算，供校長、副校長、IT 統籌老師及資訊科技組參考。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">學校做 AI 項目，第一步不是選工具，而是<strong>先分清「校本需求」與「技術方案」</strong>：需求層面要講清楚解決什麼問題、涉及哪些使用者和資料；技術層面才決定用現成工具、定制開發還是混合方案。<strong>學生資料屬於敏感個人資料</strong>，須按《個人資料（私隱）條例》處理，並參考個人資料私隱專員公署的《人工智能（AI）：個人資料保障模範框架》。專案應<strong>分期推行</strong>（先導驗證、試點、再擴展），並為高風險輸出保留<strong>人工覆核</strong>。成本則分「一次性建設」與「經常性訂閱／維護」兩類，宜用總成本而非單價比較。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>校本需求盤點須涵蓋五個維度：現有系統、資料來源、使用者角色、現有痛點、成功指標</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>校本 AI 項目大致分五類：行政自動化、資料整理、回答查詢、內容協助、圖像／語音處理，風險與技術取向各異</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>技術選型有三條路：現成 SaaS、定制開發、混合方案；關鍵是資料擁有權與日後可遷移性</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>學生資料屬敏感個人資料，須遵從《私隱條例》及公署《模範框架》的四個管治範疇</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>專案宜分三期：先導驗證（POC）→ 小範圍試點 → 全校推展，每期設明確驗收標準</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>成本要計總持有成本（TCO）：建設、訂閱、維護、培訓與日後遷移</span></li>
+          </ul>
+        </div>
+
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-1.webp" alt="流程圖：由校本需求盤點、技術選型、私隱合規、風險控制到分期驗收的校本 AI 項目路線圖" title="校本 AI 項目路線圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">全篇的骨幹：需求先行、方案對應、合規到底、分期驗收</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先分清「校本需求」與「技術方案」</h2>
+        <p>學校推行 AI 項目最常見的失誤，是次序顛倒：先被供應商示範打動，覺得某套工具「很厲害」，再倒過來為它找用途。這樣做通常導致兩個結果——買了用不著的工具，或者發現工具無法接駁學校現有系統。正確次序是先講清楚校本需求，再談技術方案。</p>
+        <p>「校本需求」講的是學校要解決什麼問題、涉及哪些使用者、現有流程痛在哪裡、成功如何量度；「技術方案」講的是用什麼工具、什麼模型、什麼架構去落地。兩者混為一談，就會出現「為 AI 而 AI」的項目。以下表格區分兩者。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">層面</th><th class="px-4 py-3 text-left">校本需求</th><th class="px-4 py-3 text-left">技術方案</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">要回答的問題</td><td class="px-4 py-3">學校要解決什麼問題</td><td class="px-4 py-3">用什麼技術去解決</td></tr>
+              <tr><td class="px-4 py-3">主要輸入</td><td class="px-4 py-3">使用者痛點、現有流程、資料盤點</td><td class="px-4 py-3">工具、模型、系統架構</td></tr>
+              <tr><td class="px-4 py-3">決定者</td><td class="px-4 py-3">校方管理層、學科與行政代表</td><td class="px-4 py-3">IT 統籌、技術供應商</td></tr>
+              <tr><td class="px-4 py-3">產出</td><td class="px-4 py-3">需求規格、使用者故事、成功指標</td><td class="px-4 py-3">技術規格、報價、交付計劃</td></tr>
+              <tr><td class="px-4 py-3">常見錯誤</td><td class="px-4 py-3">跳過盤點，直接比較產品功能</td><td class="px-4 py-3">未核對整合難度與資料擁有權</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-2.webp" alt="比較圖：校本需求與技術方案在要回答的問題、輸入、決定者及產出上的分別" title="校本需求與技術方案的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先釐清需求，再選技術；次序顛倒是最常見的失敗起點</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、校本需求盤點框架</h2>
+        <p>需求盤點不需要複雜工具，但要有系統。建議由一個跨部門小組（管理層、學科代表、行政、IT 統籌）用以下五個維度，逐項記錄狀況，再判斷哪些痛點值得用 AI 處理、哪些其實用簡單自動化或流程改善即可。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">維度</th><th class="px-4 py-3 text-left">要盤點什麼</th><th class="px-4 py-3 text-left">示例</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>現有系統</strong></td><td class="px-4 py-3">學校已在使用的平台、可否經 API 接駁</td><td class="px-4 py-3">校務系統、內聯網、繳費平台、學習管理系統</td></tr>
+              <tr><td class="px-4 py-3"><strong>資料來源</strong></td><td class="px-4 py-3">涉及什麼資料、是否含個人資料、由誰持有</td><td class="px-4 py-3">學生紀錄、成績、考勤、通告、家長聯絡</td></tr>
+              <tr><td class="px-4 py-3"><strong>使用者角色</strong></td><td class="px-4 py-3">誰用、用多少、權限如何分</td><td class="px-4 py-3">管理層、教師、職員、學生、家長</td></tr>
+              <tr><td class="px-4 py-3"><strong>現有痛點</strong></td><td class="px-4 py-3">重複工序、耗時環節、人為錯誤</td><td class="px-4 py-3">每月整理考勤報表、逐封回覆家長查詢</td></tr>
+              <tr><td class="px-4 py-3"><strong>成功指標</strong></td><td class="px-4 py-3">可量度的改善目標</td><td class="px-4 py-3">每月省 X 小時、回應時間縮短至 Y 分鐘</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>盤點時要特別留意「資料來源」一項：只要涉及學生個人資料，就會直接觸發私隱合規要求（見第五節）。另外，「成功指標」要盡量量化，例如把「減輕老師負擔」寫成「通告回覆草擬時間由平均 15 分鐘縮短至 5 分鐘」，日後驗收才有依據。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-3.webp" alt="框架圖：校本需求盤點的五個維度，包括現有系統、資料來源、使用者角色、現有痛點與成功指標" title="校本需求盤點五個維度" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">五個維度之中，資料來源與成功指標最常被忽略，卻最影響日後驗收</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、校本 AI 項目的常見類型</h2>
+        <p>香港中小學的校本 AI 項目，大多落在以下五類。不同類型的技術取向、資料敏感度和風險水平都不同，選型時應分開考慮，不要用同一把尺。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">類型</th><th class="px-4 py-3 text-left">典型場景</th><th class="px-4 py-3 text-left">技術取向</th><th class="px-4 py-3 text-left">風險重點</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>行政自動化</strong></td><td class="px-4 py-3">自動生成報告、批次處理表單、流程審批</td><td class="px-4 py-3">工作流工具、腳本、API</td><td class="px-4 py-3">權限控制、錯誤處理</td></tr>
+              <tr><td class="px-4 py-3"><strong>資料整理</strong></td><td class="px-4 py-3">考勤／成績數據匯總、分類、異常標示</td><td class="px-4 py-3">資料處理、規則引擎、模型分類</td><td class="px-4 py-3">準確性、可追溯性</td></tr>
+              <tr><td class="px-4 py-3"><strong>回答查詢</strong></td><td class="px-4 py-3">家長常見問題、內部政策查詢機器人</td><td class="px-4 py-3">對話式 AI、檢索增強（RAG）</td><td class="px-4 py-3">錯誤輸出、資料外洩</td></tr>
+              <tr><td class="px-4 py-3"><strong>內容協助</strong></td><td class="px-4 py-3">草擬通告、摘要文件、翻譯</td><td class="px-4 py-3">生成式 AI 文字模型</td><td class="px-4 py-3">準確性、偏見、須人工覆核</td></tr>
+              <tr><td class="px-4 py-3"><strong>圖像／語音處理</strong></td><td class="px-4 py-3">相片分類、語音轉文字、會議紀錄</td><td class="px-4 py-3">視覺／語音模型、API 服務</td><td class="px-4 py-3">生物特徵資料、私隱敏感度高</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>值得留意：<strong>「回答查詢」與「內容協助」兩類直接使用生成式 AI，輸出可能出錯，須配合人工覆核；「圖像／語音處理」若涉及人臉或聲紋，屬於生物特徵資料，敏感度更高</strong>。這兩點會在第五、六節再展開。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-4.webp" alt="分類圖：校本 AI 項目的五種常見類型，由行政自動化、資料整理、回答查詢、內容協助到圖像語音處理" title="校本 AI 項目五種常見類型" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">不同類型的風險水平差別很大，選型與管治強度應按類型調整</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、技術方案選型：現成工具、定制開發還是混合</h2>
+        <p>選型沒有絕對答案，取決於需求複雜度、預算、時間與學校自身的 IT 能力。三條路各有取捨，下表逐一比較。學校可先用現成工具快速驗證，再針對高價值、獨特流程的部分考慮定制或混合方案。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">比較項</th><th class="px-4 py-3 text-left">現成工具（SaaS）</th><th class="px-4 py-3 text-left">定制開發</th><th class="px-4 py-3 text-left">混合方案</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">上線速度</td><td class="px-4 py-3">最快</td><td class="px-4 py-3">最慢</td><td class="px-4 py-3">中</td></tr>
+              <tr><td class="px-4 py-3">貼合程度</td><td class="px-4 py-3">低（須遷就工具）</td><td class="px-4 py-3">高</td><td class="px-4 py-3">中至高</td></tr>
+              <tr><td class="px-4 py-3">前期成本</td><td class="px-4 py-3">低</td><td class="px-4 py-3">高</td><td class="px-4 py-3">中</td></tr>
+              <tr><td class="px-4 py-3">長期成本</td><td class="px-4 py-3">經常性訂閱，長遠可能較高</td><td class="px-4 py-3">一次性為主，維護另計</td><td class="px-4 py-3">兩者並存</td></tr>
+              <tr><td class="px-4 py-3">資料擁有權</td><td class="px-4 py-3">多在供應商平台，須看清條款</td><td class="px-4 py-3">學校可完全持有</td><td class="px-4 py-3">視架構而定</td></tr>
+              <tr><td class="px-4 py-3">遷移難度</td><td class="px-4 py-3">較高（資料匯出可能受限）</td><td class="px-4 py-3">低</td><td class="px-4 py-3">中</td></tr>
+              <tr><td class="px-4 py-3">維護責任</td><td class="px-4 py-3">供應商</td><td class="px-4 py-3">學校／承辦商</td><td class="px-4 py-3">分工界定</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-5.webp" alt="比較圖：現成 SaaS、定制開發與混合方案在上線速度、貼合程度、成本、資料擁有權及遷移難度上的分別" title="三種技術方案的比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">選型時最不應忽略的是「資料擁有權」與「日後能否遷移」</figcaption>
+        </figure>
+
+        <p>在模型與 API 層面，學校需要決定採用「雲端 API 服務」還是「自架本地模型」。雲端 API 部署快、無須硬件，但資料會離開校園網絡，須審視供應商的資料處理條款；自架模型可把資料留在校內，但需要伺服器、技術人力和持續維護，成本與門檻較高。中小學若要兼顧成效與私隱，常見做法是把<strong>低敏感度、非個人資料的任務交給雲端 API，把涉及個人資料的處理留在校內或採用去識別化處理</strong>。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-6.webp" alt="比較圖：雲端 API 服務與自架本地模型在部署速度、資料去向、成本與維護上的分別" title="雲端 API 與自架本地模型比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">低敏感度任務用雲端、涉及個人資料的留在校內，是常見的折衷做法</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、資料私隱與合規：學生資料屬敏感個人資料</h2>
+        <p>校本 AI 項目最大的合規風險來自資料。學生資料（包括姓名、學號、成績、考勤、相片、健康或特殊教育需要紀錄）大多屬於<strong>個人資料</strong>，部分更屬敏感類別。學校作為資料使用者，須遵從《個人資料（私隱）條例》的六項保障資料原則，包括收集、準確性、保留、使用、保安及查閱更正。</p>
+        <p>在 AI 場景下，個人資料私隱專員公署（PCPD）的《人工智能（AI）：個人資料保障模範框架》是最直接的參考。該框架就採購、實施及使用 AI 系統提出四個範疇的建議措施：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">管治範疇</th><th class="px-4 py-3 text-left">對學校項目的意思</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>制定 AI 策略及管治架構</strong></td><td class="px-4 py-3">訂立校本 AI 使用政策、設立統籌角色、為教職員提供培訓</td></tr>
+              <tr><td class="px-4 py-3"><strong>風險評估及人為監督</strong></td><td class="px-4 py-3">按風險高低決定人工監督程度；採用「風險為本」的緩減措施</td></tr>
+              <tr><td class="px-4 py-3"><strong>AI 模型定製與系統實施及管理</strong></td><td class="px-4 py-3">管理輸入模型的資料、測試模型、確保系統及資料安全、持續監察</td></tr>
+              <tr><td class="px-4 py-3"><strong>促進與持份者溝通</strong></td><td class="px-4 py-3">向教師、家長及供應商說明用途，提高透明度</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>此外，PCPD 於 2025 年發布《僱員使用生成式 AI 的指引清單》，建議機構訂明獲准使用的 AI 工具、可輸入的資料種類、輸出資訊的用途，並要求使用者核實 AI 生成結果；數字政策辦公室（DPO）亦於 2025 年公布《香港生成式人工智能技術及應用指引》，涵蓋資料洩露、模型偏見和錯誤等技術風險。學校在撰寫校本 AI 政策時，可直接引用這兩份文件。</p>
+        <p>針對教育界，PCPD 與 DPO 於 2026 年共同推出<strong>「保障個人資料人工智能沙盒」</strong>，開放予公帑資助中小學申請，第一階段為期約六個月，選出約 15 間學校，讓學校在取得監管指引與技術建議下探索 AI 方案。若學校希望有制度上的支援，可留意相關申請安排。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 一句提醒</p>
+          <p class="text-gray-700 leading-relaxed">本文只從技術與專案管理角度整理資料，<strong>不構成法律建議</strong>。學校處理個人資料、制定校本政策或簽署合約前，應諮詢法律顧問，並以《個人資料（私隱）條例》及公署最新指引為準。</p>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-7.webp" alt="合規圖：個人資料私隱專員公署《人工智能：個人資料保障模範框架》的四個管治範疇" title="PCPD 模範框架四個管治範疇" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">集中在資料的收集、準確、保留、使用、保安與查閱更正，並非只關乎技術</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、風險與人工覆核</h2>
+        <p>任何 AI 系統都有可能出錯，學校項目要預先識別主要風險，並為高風險環節設計人工覆核（human-in-the-loop）機制。以下幾類風險在校本項目中最常見。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">風險</th><th class="px-4 py-3 text-left">具體表現</th><th class="px-4 py-3 text-left">緩減措施</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>錯誤輸出</strong></td><td class="px-4 py-3">生成內容與事實不符（「幻覺」）</td><td class="px-4 py-3">發布前人工核對、限制用途、標示 AI 生成</td></tr>
+              <tr><td class="px-4 py-3"><strong>偏見</strong></td><td class="px-4 py-3">輸出對特定群體不公平或帶歧視</td><td class="px-4 py-3">測試代表性、訂立審核準則、定期檢視</td></tr>
+              <tr><td class="px-4 py-3"><strong>過度依賴</strong></td><td class="px-4 py-3">使用者不再自行判斷，照單全收</td><td class="px-4 py-3">培訓、明示 AI 角色、保留人手決策</td></tr>
+              <tr><td class="px-4 py-3"><strong>資料外洩</strong></td><td class="px-4 py-3">輸入個人資料後被不當保存或外洩</td><td class="px-4 py-3">限制可輸入資料、最小權限、加密與審計</td></tr>
+              <tr><td class="px-4 py-3"><strong>不可追溯</strong></td><td class="px-4 py-3">無法解釋輸出如何得出</td><td class="px-4 py-3">保留紀錄、建立可審核的輸出機制</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>人工覆核的原則是：<strong>風險越高，人工介入越深</strong>。例如涉及個別學生評核或紀錄的輸出，應由教師確認後才使用；純屬內部參考、對外無影響的草擬，可採用較輕的覆核。學校亦應在政策中寫明「誰負責覆核」和「出事時的應變流程」。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-8.webp" alt="風險圖：校本 AI 項目常見的五類風險，包括錯誤輸出、偏見、過度依賴、資料外洩及不可追溯" title="校本 AI 項目五類風險" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">人工覆核不是阻礙，而是把風險控制在可接受水平的必要設計</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、專案分期與驗收</h2>
+        <p>校本 AI 項目不宜一次過全校推展。較穩健的做法是分三期：先做小範圍的先導驗證（Proof of Concept／POC），確認技術可行；再選一至兩個場景試點；最後才擴展至全校。每期都要設定明確的驗收標準，避免「上了線但無人用」。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">範圍</th><th class="px-4 py-3 text-left">交付與驗收</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>第一期：先導驗證</strong></td><td class="px-4 py-3">單一場景、小量資料、少數使用者</td><td class="px-4 py-3">可運作的原型；驗收看技術可行性與準確度</td></tr>
+              <tr><td class="px-4 py-3"><strong>第二期：試點</strong></td><td class="px-4 py-3">一至兩個部門／學科，真實資料與流程</td><td class="px-4 py-3">正式系統；驗收看整合、穩定、使用者接受度</td></tr>
+              <tr><td class="px-4 py-3"><strong>第三期：擴展</strong></td><td class="px-4 py-3">全校推展，加入培訓與支援</td><td class="px-4 py-3">成效報告；驗收看成功指標是否達成</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>驗收標準要在合約或報價文件寫清楚，並盡量量化。常見的驗收維度包括：功能是否齊全、與現有系統的整合是否正常、資料處理是否準確、權限與保安是否到位、使用者培訓是否完成、以及上線後的支援安排（回應時間、保養期、指定聯絡人）。未寫清楚的部分，最容易在交付後出現爭議。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-9.webp" alt="流程圖：校本 AI 項目分三期推行的路徑，由先導驗證、試點到全校擴展" title="專案分期路徑" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">每期都設驗收關口，確認達標才進入下一期，可避免資源錯配</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、成本與資源估算</h2>
+        <p>估算 AI 項目成本時，要看「總持有成本」（Total Cost of Ownership）。除了軟件費用，還要計入硬件、整合、培訓、維護與日後遷移。以下為示範假設，僅供理解成本結構，並非報價。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">成本項目</th><th class="px-4 py-3 text-left">現成 SaaS</th><th class="px-4 py-3 text-left">定制／混合</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">前期建設</td><td class="px-4 py-3">低（設定費為主）</td><td class="px-4 py-3">高（開發與整合）</td></tr>
+              <tr><td class="px-4 py-3">軟件／訂閱</td><td class="px-4 py-3">經常性，按人數或用量</td><td class="px-4 py-3">授權或自架為主</td></tr>
+              <tr><td class="px-4 py-3">硬件</td><td class="px-4 py-3">基本不需要</td><td class="px-4 py-3">可能需要伺服器</td></tr>
+              <tr><td class="px-4 py-3">整合</td><td class="px-4 py-3">視乎現有系統接駁難度</td><td class="px-4 py-3">須預留整合工序</td></tr>
+              <tr><td class="px-4 py-3">培訓與變更管理</td><td class="px-4 py-3">須安排</td><td class="px-4 py-3">須安排</td></tr>
+              <tr><td class="px-4 py-3">維護與支援</td><td class="px-4 py-3">包含在訂閱內</td><td class="px-4 py-3">另立保養合約</td></tr>
+              <tr><td class="px-4 py-3">遷移成本</td><td class="px-4 py-3">日後轉換供應商須計</td><td class="px-4 py-3">較低</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>學校在規劃資源時，可留意幾項現有資助：教育局在優質教育基金預留 20 億元推進數字教育，其中約 5 億元用於「『智』啟學教」撥款計劃，成功申請的公帑資助中小學可獲一筆過 50 萬元，用於購置人工智能輔助教學的工具與資源，以及資助學生活動，撥款可使用至 2027/28 學年。<strong>若項目涉及採購，須按資助學校採購程序辦理</strong>：資助學校採購金額在 5 萬元至 135 萬元之間，一般須最少索取五份書面報價；超過 135 萬元則須採用公開招標程序，具體以教育局通告及相關指引為準。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-10.webp" alt="表格圖：AI 項目總持有成本的組成，包括前期建設、訂閱、硬件、整合、培訓、維護與遷移" title="AI 項目總持有成本組成" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">單看軟件單價容易低估總成本，遷移與培訓常被遺漏</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校應該先選 AI 工具，還是先整理需求？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應先整理校本需求，再選工具。次序顛倒容易買到用不著或無法接駁現有系統的工具。需求整理要涵蓋現有系統、資料來源、使用者角色、現有痛點與成功指標。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">現成工具、定制開發還是混合方案，該如何選擇？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">取決於需求複雜度、預算、時間與學校的 IT 能力。現成工具上線快、前期成本低，但貼合度較低；定制開發貼合度高、須較高前期投入；混合方案兼取兩者，常見做法是用現成工具處理通用流程，針對獨特流程定制開發。不論哪條路，都要先看清資料擁有權與日後遷移安排。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學生資料可以用於 AI 系統嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">學生資料大多屬個人資料，部分屬敏感類別，須遵從《個人資料（私隱）條例》的保障資料原則。學校應採用最少量的個人資料、限制可輸入 AI 的資料種類、採取去識別化或本地處理，並參考個人資料私隱專員公署的《人工智能（AI）：個人資料保障模範框架》。本文不構成法律建議，具體處理前應諮詢法律顧問。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">AI 生成的內容可以直接採用嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不應直接採用。生成式 AI 可能產生錯誤、帶偏見或不準確的內容。學校須為高風險輸出設計人工覆核，由教職員核對後才使用，並在政策中寫明誰負責覆核，以及何時須標示內容由 AI 生成。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">校本 AI 項目應該一次過全校推行嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不建議。較穩健的做法是分三期：先導驗證（POC）確認技術可行，再選一至兩個場景試點，最後擴展至全校。每期設定量化驗收標準，達標才進入下一期，可避免資源錯配。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">「校本人工智能應用方案」是否指學校必須自建大型語言模型？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。按教育局就「『智』啟學教」撥款計劃的說明，計劃並無要求參與學校必須發展大型語言模型（LLM），「校本人工智能應用方案」只是可選項目之一。學校可完全按校本情況，選擇購置或訂閱市場上已發展成熟、合用的 AI 軟硬件、平台及教學資源。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校採購 AI 相關方案要索取多少份報價？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">資助學校須按教育局通告第 4/2013 號「資助學校採購程序」行事。一般而言，採購金額在 5 萬元至 135 萬元之間，須最少索取五份書面報價；超過 135 萬元則須採用公開招標程序。實際要求以教育局通告及資助學校採購程序指引為準。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">有哪些機構資源可以協助學校推行 AI 項目？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">個人資料私隱專員公署與數字政策辦公室曾為公帑資助中小學推出「保障個人資料人工智能沙盒」，第一階段為期約六個月，選出約 15 間學校，提供監管指引與技術建議。學校亦可參考公署《人工智能（AI）：個人資料保障模範框架》及《僱員使用生成式 AI 的指引清單》，以及數字政策辦公室的《香港生成式人工智能技術及應用指引》。</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>學校做 AI 項目，技術本身通常不是最大難關，難的是次序與管治：先有清楚的校本需求盤點，才有合理的技術選型；先有私隱與風險控制，才談得上規模化推展。對中小學而言，最務實的路徑是——<strong>先分清需求與方案，用先導驗證降低風險，為高風險輸出入工覆核，並把資料擁有權與遷移安排寫進合約</strong>。掌握這幾點，校本 AI 項目才能落地而非停留在示範階段。</p>
+        <p>若學校希望由需求盤點、技術選型、私隱評估到專案驗收一併處理，可參考我們的<a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校及教育數碼方案</a>、<a href="/services/ai/" class="text-[#0f4c81] font-bold hover:underline">人工智能應用服務</a>，以及<a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請指南</a>，了解由資助申請到系統落地的完整流程。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-ai-project-hong-kong-11.webp" alt="圖示：校本 AI 項目落地的三個關鍵控制點，包括需求盤點、風險與私隱控制、資料擁有權與遷移安排" title="校本 AI 項目三個關鍵控制點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">掌握需求、控制風險、保障資料擁有權，項目才能落地</figcaption>
+        </figure>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.pcpd.org.hk/tc_chi/news_events/media_statements/press_20240611.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：《人工智能（AI）：個人資料保障模範框架》（2024年6月）</a> — 就採購、實施及使用 AI 建議的四個管治範疇</li>
+            <li><a href="https://www.pcpd.org.hk/tc_chi/news_events/media_statements/press_20250331.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：《僱員使用生成式 AI 的指引清單》（2025年3月）</a> — 訂明獲准使用的 AI 工具、可輸入資料種類及核實輸出的責任</li>
+            <li><a href="https://www.pcpd.org.hk/tc_chi/news_events/media_statements/press_20260706.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署與數字政策辦公室：「保障個人資料人工智能沙盒」（2026年7月）</a> — 開放予公帑資助中小學、約 15 間學校、第一階段為期約六個月</li>
+            <li><a href="https://www.info.gov.hk/gia/general/202504/15/P2025041500226.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：數字政策辦公室公布《香港生成式人工智能技術及應用指引》（2025年4月）</a> — 涵蓋資料洩露、模型偏見和錯誤等技術風險</li>
+            <li><a href="https://www.info.gov.hk/gia/general/202512/16/P2025121600257.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：教育局推出「『智』啟學教」撥款計劃（2025年12月）</a> — 優質教育基金預留 20 億元、計劃約 5 億元、每校一筆過 50 萬元、可使用至 2027/28 學年</li>
+            <li><a href="https://www.edb.gov.hk/tc/about-edb/press/cleartheair/20260204.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：「『智』啟學教」撥款計劃正面睇（2026年2月）</a> — 計劃並無要求學校必須發展大型語言模型，學校可按校本情況購置或訂閱成熟 AI 資源</li>
+            <li><a href="https://applications.edb.gov.hk/circular/upload/EDBCM/EDBCM26096C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通函第 96/2026 號：優質教育基金撥款計劃（2026/27 學年）</a> — 專項撥款計劃新階段、每所公帑資助學校累計申請額提高至 300 萬元、STEAM 教育及數字教育為優先主題</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
+  // ─── Article 39：STEAM 教室設備與系統指南 ───
+  {
+    id: 39,
+    slug: "steam-classroom-setup-hong-kong",
+    title: "STEAM 教室設備與系統：由採購到維護的技術指南（香港學校）",
+    excerpt:
+      "學校籌建或更新 STEAM 教室，難題往往不在買什麼，而在設備相容性、耗材供應、軟件授權、空間與電力配套，以及採購程序與日後維護。本文整理七類設備、選型技術考量、授權模式、資助學校採購程序（引教育局通告第 4/2013 號的財政限額）、QEF 與「智」啟學教的資助範圍及總持有成本。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/steam-classroom-setup-hong-kong.webp",
+    tags: ["STEAM 教室", "學校設備採購", "資助學校採購程序", "優質教育基金", "智啟學教", "設備維護", "總持有成本"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">學校籌建或更新 STEAM 教室，多數由一張設備清單開始，但真正的難題在於設備之間的相容性、耗材供應、軟件授權、空間與電力配套，以及採購程序與日後維護。本文由技術與運營角度出發，整理 STEAM 教室包含的設備類型、選型時要考慮的技術因素、軟件授權安排、資助學校的採購程序、優質教育基金的資助範圍，以及總持有成本，協助負責統籌的同事由採購到維護一次過釐清。文內所有金額均為示範假設，只作規劃參考，實際費用以正式報價及官方文件為準。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">STEAM 教室的設備採購不是「買齊器材」就完成。資助學校採購物料及服務，須按教育局通告第 4/2013 號的財政限額進行：<strong>$5,000 元以上至 $50,000 須最少兩個口頭報價、$50,000 元以上至 $200,000 須最少五個書面報價、$200,000 元以上須最少五份標書並由標書批核委員會審批</strong>。設備以外的持續成本（耗材、授權年費、保養）可由經常性「資訊科技綜合津貼」支付；如需增購設備或進行相關工程，優質教育基金（QEF）及「『智』啟學教」撥款計劃可作補足，但基金的資助以校本課程設計或學生支援措施為目標，<strong>不會支持單純的設備購置或裝修</strong>。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 本文重點</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>STEAM 教室設備大致分七類：電腦與平板、3D 打印、雷射切割、機械人套件、電子積木、感測器與物聯網、多媒體製作。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>選型先看相容性、耗材供應、安全標準、使用年限與保養，而非只看規格與價錢。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>軟件授權要分清永久授權、訂閱、教育授權與開源方案，並預留續期費。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>空間、電力、網絡、通風與安全配套常被低估，卻直接決定設備能否用得其所。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>資助學校採購受教育局通告第 4/2013 號的財政限額規管；QEF 不資助單純的設備購置。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>計算總持有成本（TCO）要包含耗材、授權、保養、人力與更換周期。</span></li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、STEAM 教室包含哪些設備類型</h2>
+        <p>STEAM 教室的設備可以按用途分為幾類。不同類別的設備，對電力、空間、網絡與安全的要求差異很大，因此在列清單時，宜同時記錄每一類的技術需求，而不是只寫型號與數量。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">設備類別</th><th class="px-4 py-3 text-left">常見形式</th><th class="px-4 py-3 text-left">主要技術需求</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">電腦與平板</td><td class="px-4 py-3">桌上電腦、筆記型電腦、平板電腦</td><td class="px-4 py-3">運算與繪圖效能、USB 供電、更新周期</td></tr>
+              <tr><td class="px-4 py-3">3D 打印</td><td class="px-4 py-3">熔融沉積（FDM）／光固化打印機、切片軟件</td><td class="px-4 py-3">通風、耗材供應、打印平台尺寸</td></tr>
+              <tr><td class="px-4 py-3">雷射切割</td><td class="px-4 py-3">二氧化碳雷射切割機、抽風系統</td><td class="px-4 py-3">排氣、防火、安全認證、材料限制</td></tr>
+              <tr><td class="px-4 py-3">機械人套件</td><td class="px-4 py-3">可編程機械人、機械臂、競賽套件</td><td class="px-4 py-3">控制器、編程軟件、零件供應</td></tr>
+              <tr><td class="px-4 py-3">電子積木</td><td class="px-4 py-3">微控制器板、傳感器積木、電路模組</td><td class="px-4 py-3">電壓相容、接腳標準、擴充模組</td></tr>
+              <tr><td class="px-4 py-3">感測器與物聯網</td><td class="px-4 py-3">各類傳感器、開發板、無線模組</td><td class="px-4 py-3">通訊協議相容、供電、數據平台</td></tr>
+              <tr><td class="px-4 py-3">多媒體製作</td><td class="px-4 py-3">攝影、收音、剪輯、直播設備</td><td class="px-4 py-3">儲存、運算、軟件授權</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-1.webp" alt="長條圖：七類 STEAM 設備在空間需求、電力需求、耗材依賴與安全要求上的相對高低比較" title="長條圖：七類 STEAM 設備在空間需求、電力需求、耗材依賴與安全要求上的相對高低比較" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">雷射切割的安全與通風要求最高；3D 打印與電子積木的耗材依賴較高</figcaption>
+        </figure>
+
+        <p>值得留意的是，設備類別之間並非各自獨立。例如 3D 打印與雷射切割都要與電腦的設計軟件配合；機械人套件與感測器要共用同一套編程環境；多媒體設備的檔案體積較大，會直接影響儲存與網絡規劃。把這些關聯一併列出，可以避免採購後才發現設備之間無法協作。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-2.webp" alt="示意圖：STEAM 教室七類設備的關係圖，由電腦與平板連繫到 3D 打印、雷射切割、機械人、電子積木、感測器及多媒體製作" title="示意圖：STEAM 教室七類設備的關係圖，由電腦與平板連繫到 3D 打印、雷射切割、機械人、電子積木、感測器及多媒體製作" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">七類設備並非各自獨立，多數以電腦與平板為共同工作平台</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、設備選型的技術考量</h2>
+        <p>同一筆預算可以買到不同組合的設備。價格與規格之外，以下五個技術考量往往更影響長期使用：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>相容性</strong>——同一工作流程內的設備是否互通，包括切片軟件、驅動程式、連接介面（USB、HDMI、網絡）與作業系統版本。若設備各自封閉，日後整合成本會很高。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>耗材供應</strong>——耗材是否長期供貨、是否被專屬耗材綁定、單價與交期是否穩定。封閉式耗材會令長遠成本難以控制。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>安全標準</strong>——電氣安全、雷射等級、通風與防火要求。宜選擇具安全認證、設有緊急停止裝置與防護罩的型號。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>使用年限</strong>——預期使用年期與軟件終止支援（end-of-support）時間，以及是否可更換部件延長壽命。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>保養</strong>——是否有本地維修、備件供應、保養期長短與回應時間承諾。</span></li>
+        </ul>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">考量</th><th class="px-4 py-3 text-left">要查問什麼</th><th class="px-4 py-3 text-left">風險</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">相容性</td><td class="px-4 py-3">驅動、介面、作業系統版本、與現有設備的配合</td><td class="px-4 py-3">設備無法協作，需另購轉接或重做流程</td></tr>
+              <tr><td class="px-4 py-3">耗材供應</td><td class="px-4 py-3">是否專屬耗材、供貨年期、單價與交期</td><td class="px-4 py-3">耗材斷供或價格被動</td></tr>
+              <tr><td class="px-4 py-3">安全標準</td><td class="px-4 py-3">認證、緊急停止、通風與防火要求</td><td class="px-4 py-3">事故風險與合規問題</td></tr>
+              <tr><td class="px-4 py-3">使用年限</td><td class="px-4 py-3">預期年期、終止支援日期、可換部件</td><td class="px-4 py-3">提早淘汰，造成浪費</td></tr>
+              <tr><td class="px-4 py-3">保養</td><td class="px-4 py-3">本地維修、備件、保養期與回應時間</td><td class="px-4 py-3">故障停機時間過長</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-3.webp" alt="圖示：設備選型的五個技術考量——相容性、耗材供應、安全標準、使用年限與保養" title="圖示：設備選型的五個技術考量——相容性、耗材供應、安全標準、使用年限與保養" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">選型時五個技術考量，比單看規格與價錢更能反映長期成本</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-4.webp" alt="示意圖：設備相容性與耗材供應鏈——由設計檔案、驅動、切片軟件到耗材補貨的關係" title="示意圖：設備相容性與耗材供應鏈——由設計檔案、驅動、切片軟件到耗材補貨的關係" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">相容性與耗材供應是兩個最常在採購後才浮現的問題</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、軟件與授權</h2>
+        <p>設備要靠軟件才用得起來。軟件層面包括作業系統、設計與創作軟件，以及授權模式三部分。作業系統方面，常見選擇有 Windows、macOS、ChromeOS 與 Linux；不同系統對設計軟件、驅動與周邊裝置的支援各有差異，宜先確認主要軟件是否支援所選系統。</p>
+        <p>設計與創作軟件則涵蓋電腦輔助設計（CAD）、3D 建模與切片軟件、圖像與影片剪輯、程式編寫環境等。授權模式直接影響長期開支，宜在下單前逐項確認。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-5.webp" alt="圖表：四種作業系統在設計軟件、周邊裝置與管理難度上的支援比較" title="圖表：四種作業系統在設計軟件、周邊裝置與管理難度上的支援比較" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先確認主要設計軟件是否支援所選作業系統，再決定硬件</figcaption>
+        </figure>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">授權模式</th><th class="px-4 py-3 text-left">說明</th><th class="px-4 py-3 text-left">要注意</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">永久授權</td><td class="px-4 py-3">一次付費，長期使用某一版本</td><td class="px-4 py-3">升級版本或需另行付費</td></tr>
+              <tr><td class="px-4 py-3">訂閱（SaaS）</td><td class="px-4 py-3">按年或按月付費，持續更新</td><td class="px-4 py-3">要預留續期年費，停付即停用</td></tr>
+              <tr><td class="px-4 py-3">教育授權</td><td class="px-4 py-3">供學校使用的優惠授權</td><td class="px-4 py-3">須提供資格證明，用途有限制</td></tr>
+              <tr><td class="px-4 py-3">開源方案</td><td class="px-4 py-3">免費使用，可按需要自行支援</td><td class="px-4 py-3">技術支援要靠校內或外購服務</td></tr>
+              <tr><td class="px-4 py-3">校園／全校授權</td><td class="px-4 py-3">按裝置數或全校計算</td><td class="px-4 py-3">要記錄裝置綁定與帳戶數量</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>此外，若軟件採用雲端帳戶或平台，要一併考慮數據存放位置、私隱與帳戶管理安排。設備數量、用戶數與授權數目亦要對得上，否則容易在使用時才發現授權不足。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-6.webp" alt="圖表：五種軟件授權模式比較——永久授權、訂閱、教育授權、開源與校園授權" title="圖表：五種軟件授權模式比較——永久授權、訂閱、教育授權、開源與校園授權" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">訂閱模式要預留續期年費；教育授權須提供資格證明</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、空間與基礎設施</h2>
+        <p>設備能否用得其所，很大程度取決於空間與基礎設施。這一節最容易在採購後才被發現，因此宜在選型階段同步規劃。</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>電源</strong>——迴路容量、插座數量與位置、獨立斷路、接地，以及是否需設不間斷電源（UPS）保護運算設備。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>網絡</strong>——有線與無線覆蓋、網絡名稱與帶寬、防火牆、訪客網絡分隔。物聯網設備宜與教學網絡分開管理。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>儲存</strong>——本機、網絡儲存（NAS）與雲端的組合，備份與還原安排；3D 與多媒體檔案體積較大，要預留容量。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>通風</strong>——3D 打印與雷射切割要設排氣與過濾，雷射切割必須配抽風系統。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>安全</strong>——滅火設備、緊急停止裝置、防護罩、標示與學生動線安排。</span></li>
+        </ul>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-7.webp" alt="示意圖：STEAM 教室的空間與基礎設施配置，包括電源、網絡、儲存、通風與安全五個部分" title="示意圖：STEAM 教室的空間與基礎設施配置，包括電源、網絡、儲存、通風與安全五個部分" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">電力、網絡、通風與安全配套在選型階段就要同步規劃</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-8.webp" alt="示意圖：教學網絡與物聯網設備的網絡分隔安排，包括無線覆蓋、防火牆與訪客網絡" title="示意圖：教學網絡與物聯網設備的網絡分隔安排，包括無線覆蓋、防火牆與訪客網絡" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">物聯網設備宜與教學網絡分開管理，並設訪客網絡分隔</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、採購程序與資助</h2>
+        <p>資助學校採購物料及服務，須遵照教育局通告第 4/2013 號《資助學校採購程序》的規定（相關《指引》更新於 2025 年 10 月）。採購金額決定採用哪一種程序與由誰批核：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">財政限額</th><th class="px-4 py-3 text-left">採購安排</th><th class="px-4 py-3 text-left">批核人員</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">$5,000 或以下</td><td class="px-4 py-3">毋須公開競投，校內人員證明必須及價格公平合理</td><td class="px-4 py-3">校長／副校長</td></tr>
+              <tr><td class="px-4 py-3">$5,000 元以上至 $50,000</td><td class="px-4 py-3">邀請最少兩個供應商作口頭報價</td><td class="px-4 py-3">校長／副校長</td></tr>
+              <tr><td class="px-4 py-3">$50,000 元以上至 $200,000</td><td class="px-4 py-3">邀請最少五個供應商作書面報價</td><td class="px-4 py-3">校長</td></tr>
+              <tr><td class="px-4 py-3">$200,000 元以上</td><td class="px-4 py-3">邀請最少五名供應商投標</td><td class="px-4 py-3">標書批核委員會（須包括校監／校董、校長、一名教師及一名家長教師會代表或家長校董）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>幾項常見規定要注意：學校不得分拆訂單以迴避報價或招標程序；同一類項目在 12 個月內的累積價值若超過 $50,000（口頭報價）或 $200,000（書面報價），便要改用更高一級的程序；書面報價與招標一般宜給予最少三周通知，並以掛號方式邀請最少五位供應商；供應商可參考教育局提供的《教育局通知名單》或其他途徑挑選，並以輪流方式邀請，以符合公平原則。採用單一報價或單一招標，須事先取得批准並記錄理據。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 可用來支付持續成本的津貼</p>
+          <p class="text-gray-700 leading-relaxed mb-3">設備買回來之後，耗材與授權年費屬經常性開支。資助學校的「資訊科技綜合津貼」屬「擴大的營辦開支整筆津貼」下的津貼項目，可用於：</p>
+          <ul class="list-disc pl-5 space-y-2 text-gray-700">
+            <li>購買資訊科技相關消耗品（例如打印機墨匣、碳粉、紙張）及周邊耗用物品</li>
+            <li>購買學與教數碼資源，包括軟件及版權的年費／續期費</li>
+            <li>互聯網連接及保安服務費用（例如無線網絡租賃、防毒軟件及防火牆續期年費）</li>
+            <li>聘請技術支援人員或購買技術支援服務</li>
+          </ul>
+        </div>
+
+        <p>如要購置新設備或改善空間，可考慮以下資助途徑。優質教育基金（QEF）於 1998 年設立，資助基礎教育範圍內值得推行的非牟利創新計劃。其「公帑資助學校專項撥款計劃」（DFP）資助以推行校本課程設計及／或學生支援措施為目標的計劃，以及相關的校舍改善工程及／或物資購置。教育局通函第 96/2026 號公布，DFP 由 2026/27 學年至 2028/29 學年推行新階段，每所公帑資助學校的累計申請額由 200 萬元提高至 300 萬元（幼稚園由 50 萬元提高至 70 萬元）；計劃年期一般不超過三年。2026/27 學年第十七期申請期為 2026 年 10 月至 2027 年 1 月。要特別注意：基金不會支持單純的校舍改善工程或物資購置，工程與設備須用於推行計劃目標。</p>
+        <p>另一項相關資源是「『智』啟學教」撥款計劃。教育局於 2025 年 12 月推出該計劃，成功申請的公帑資助中小學（包括特殊學校及直資學校）可獲一筆過 50 萬元撥款，用於購置、訂閱或租用推動人工智能輔助教學的裝置與服務，以及資助學生參與提升人工智能素養的活動。撥款不得用於裝修工程及教師修讀課程，學校一般於 2026 年 6 月 30 日或以前獲發整筆撥款，並可在 2025/26 至 2027/28 學年使用，直至 2028 年 8 月 31 日。</p>
+        <p>各項資助的分工可以這樣理解：<strong>經常性津貼</strong>處理耗材、授權與技術支援；<strong>QEF</strong>處理與課程相關的設備及工程；<strong>「智」啟學教</strong>則針對人工智能裝置與學生活動。同一項開支不可重複申請，兩份文件的項目清單要分開擬定。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-9.webp" alt="階梯圖：資助學校採購的四個財政限額與對應採購安排及批核人員" title="階梯圖：資助學校採購的四個財政限額與對應採購安排及批核人員" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">金額決定程序與批核層級：$50,000 與 $200,000 是兩個關鍵界線</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-10.webp" alt="圖表：三類資助的分工——經常性資訊科技綜合津貼、優質教育基金與「智」啟學教撥款計劃" title="圖表：三類資助的分工——經常性資訊科技綜合津貼、優質教育基金與「智」啟學教撥款計劃" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">經常性津貼、QEF 與「智」啟學教各有分工，同一項開支不可重複申請</figcaption>
+        </figure>
+
+        <p>如欲進一步了解資助申請的細節，可參閱 <a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請攻略</a>，或參考 <a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校數碼項目服務</a> 了解由資助到落地的流程。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、安裝、培訓與上線後維護</h2>
+        <p>設備送到學校只是開始，之後的安裝、驗收、培訓與維護才決定設備能否長期運作。</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>安裝與驗收</strong>——安排送貨、安裝、功能測試與驗收；保留驗收文件並更新資產登記。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>培訓</strong>——為教師及技術人員安排操作培訓；確認供應商是否提供到校支援。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>保養合約</strong>——訂明保養期、回應時間、備件供應與上門維修安排。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>耗材管理</strong>——按用量規劃預算與補貨周期，並妥善儲存易燃或受管制物料。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>設備生命周期</strong>——記錄採購日期、保養到期日與終止支援日期，預早規劃更換；淘汰設備可透過環保署的電腦回收計劃處理。</span></li>
+        </ul>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-11.webp" alt="流程圖：由設備送貨、安裝、驗收到培訓、保養、耗材管理與設備更換的流程" title="流程圖：由設備送貨、安裝、驗收到培訓、保養、耗材管理與設備更換的流程" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">由安裝驗收到耗材管理與更換周期，構成設備的完整運作流程</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-12.webp" alt="時間線示意圖：設備由啟用、保養期、終止支援到更換的生命周期" title="時間線示意圖：設備由啟用、保養期、終止支援到更換的生命周期" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">記錄保養到期與終止支援日期，可預早規劃更換</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、總持有成本（TCO）考慮</h2>
+        <p>評估 STEAM 教室的支出，不宜只看購置金額。總持有成本應涵蓋以下部分，並以三至五年為期計算：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">TCO 組成</th><th class="px-4 py-3 text-left">內容</th><th class="px-4 py-3 text-left">性質</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">購置成本</td><td class="px-4 py-3">設備、配件與安裝</td><td class="px-4 py-3">一次過</td></tr>
+              <tr><td class="px-4 py-3">耗材</td><td class="px-4 py-3">打印線材、雷射材料、電子零件、紙張</td><td class="px-4 py-3">經常性</td></tr>
+              <tr><td class="px-4 py-3">軟件授權</td><td class="px-4 py-3">訂閱或教育授權續期年費</td><td class="px-4 py-3">經常性</td></tr>
+              <tr><td class="px-4 py-3">保養與維修</td><td class="px-4 py-3">保養合約、備件與上門維修</td><td class="px-4 py-3">經常性</td></tr>
+              <tr><td class="px-4 py-3">技術支援人力</td><td class="px-4 py-3">技術人員或外購支援服務</td><td class="px-4 py-3">經常性</td></tr>
+              <tr><td class="px-4 py-3">更換與淘汰</td><td class="px-4 py-3">按生命周期更換設備及回收處理</td><td class="px-4 py-3">周期性</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>示範假設（只作規劃參考，非實際報價）：</strong>假設一個約 60 平方米、供 30 名學生使用的 STEAM 教室，購置成本佔三至五年總持有成本約四至五成；耗材與軟件授權合共約兩至三成；保養與技術支援約一成半至兩成半；其餘為更換與淘汰的預留。實際比例會因設備組合、使用頻率與保養安排而顯著不同，宜按校情自行估算。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/steam-classroom-setup-hong-kong-13.webp" alt="圓餅圖：STEAM 教室三至五年總持有成本的組成——購置、耗材、軟件授權、保養維修、技術支援與更換" title="圓餅圖：STEAM 教室三至五年總持有成本的組成——購置、耗材、軟件授權、保養維修、技術支援與更換" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">圖中比例為示範假設，只作規劃參考，實際以報價為準</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">資助學校採購 STEAM 設備，要否進行招標？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">視乎金額。按教育局通告第 4/2013 號，$5,000 元以上至 $50,000 須最少兩個口頭報價；$50,000 元以上至 $200,000 須最少五個書面報價；$200,000 元以上須最少五名供應商投標，並由標書批核委員會審批。學校不得分拆訂單迴避程序。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">優質教育基金可否用來單純購買設備或裝修教室？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以。基金不會支持單純的校舍改善工程或物資購置。計劃須以推行校本課程設計及／或學生支援措施為目標，相關的校舍改善工程與物資購置只可作為計劃的配套。申請前宜先釐清計劃目標與設備用途的關係。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">「『智』啟學教」撥款計劃與優質教育基金有何分別？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">「『智』啟學教」由教育局於 2025 年 12 月推出，成功申請的公帑資助中小學可獲一筆過 50 萬元，用於購置、訂閱或租用人工智能教學裝置與服務，以及資助學生活動；不得用於裝修工程及教師修讀課程。優質教育基金則資助以校本課程設計或學生支援措施為目標的計劃。同一項開支不可重複申請，兩份文件的項目清單要分開擬定。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">設備的耗材與軟件年費可以由哪項資源支付？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">資助學校的經常性「資訊科技綜合津貼」屬「擴大的營辦開支整筆津貼」下的津貼項目，可用於購買資訊科技消耗品、學與教數碼資源（包括軟件及版權的年費／續期費）、互聯網連接及保安服務費用，以及技術支援服務。實際運用須遵照相關通函及運用指引的規定。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">3D 打印機與雷射切割機在安裝上有什麼特別要求？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">兩者都涉及氣味、煙霧或廢氣，因此要設通風與排氣安排，雷射切割機必須配合抽風系統，並選用具安全認證、設有緊急停止裝置與防護罩的型號。同時要考慮電力負載、防火設備與學生動線，宜在採購前先確認場地條件。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">設備要多久才需要更換？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">沒有一致答案，主要取決於設備的終止支援日期、實際使用頻率與保養狀況。宜為每項設備記錄採購日期、保養到期日與軟件終止支援日期，預早規劃更換，避免在學期中突然停用。淘汰設備可透過環保署的電腦回收計劃處理。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">採購時要一併考慮哪些持續成本？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">除了購置金額，應一併預算耗材（線材、雷射材料、電子零件）、軟件授權或訂閱續期年費、保養與維修、技術支援人力，以及設備更換與淘汰的預留。以三至五年為期計算總持有成本，比單看購置價更能反映實際負擔。本文所列比例均為示範假設。</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">需要協助規劃 STEAM 教室的設備與採購？</p>
+          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供學校數碼項目的技術與採購支援，由設備清單、相容性與空間評估，到採購文件、資助申請支援及上線後維護安排，可以協助學校由需求盤點到落地一併處理。</p>
+          <p><a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校數碼項目服務</a>　·　<a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請攻略</a></p>
+        </div>
+
+        <p>STEAM 教室的成敗，往往不在於買了多少設備，而在於設備之間能否協作、耗材與授權能否持續、空間與電力配套是否足夠，以及採購與維護是否有制度可依。先由技術考量與採購程序入手，再逐項落實，比單靠一張設備清單更可靠。本文所有金額與比例均為示範假設，只作規劃參考，實際費用以正式報價及官方文件為準。</p>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.edb.gov.hk/attachment/tc/common/EDBC13004C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通告第 4/2013 號《資助學校採購程序》</a> — 採購財政限額、口頭報價／書面報價／招標安排、批核人員、不得分拆訂單及 12 個月重複採購規定</li>
+            <li><a href="https://www.edb.gov.hk/attachment/tc/sch-admin/fin-management/procurement-procedures-in-aided-schools/Guidelines%20on%20Procurement%20Procedures_TC.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局《資助學校採購程序指引》（更新於 2025 年 10 月）</a> — 邀請書面報價／招標的通知期、掛號邀請、單一報價／招標程序及供應商選擇</li>
+            <li><a href="https://www.edb.gov.hk/tc/edu-system/primary-secondary/applicable-to-primary-secondary/it-in-edu/citg.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資訊科技綜合津貼</a> — 消耗品、學與教數碼資源（軟件及版權年費）、互聯網及保安服務、技術支援服務的可用範圍</li>
+            <li><a href="https://www.qef.org.hk/tc/application_guide/dfp_program.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：公帑資助學校專項撥款計劃</a> — 資助宗旨、申請資格、累計申請額、計劃年期及申請期</li>
+            <li><a href="https://applications.edb.gov.hk/circular/upload/EDBCM/EDBCM26096E.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通函第 96/2026 號（2026 年 6 月 26 日）</a> — 2026/27 學年優質教育基金各項撥款計劃、專項撥款計劃新階段、優先主題及累計申請額調整</li>
+            <li><a href="https://www.info.gov.hk/gia/general/202512/16/P2025121600257.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：教育局推出「『智』啟學教」撥款計劃（2025 年 12 月 16 日）</a> — 一筆過 50 萬元撥款、撥款用途、發放時間及可使用學年</li>
+            <li><a href="https://www.qef.org.hk/tc/reference/tips.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：申請小錦囊</a> — 不受資助的計劃類別及開支範圍</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
+  // ─── Article 38：數字教育工具技術選型指南 ───
+  {
+    id: 38,
+    slug: "digital-education-tools-hong-kong-schools",
+    title: "數字教育工具如何選擇：香港學校須考慮的技術與整合因素",
+    excerpt:
+      "香港學校選擇數字教育工具，關鍵不在功能多寡，而在能否與現有平台整合、資料能否互通、長遠能否維護。本文從技術角度說明數字教育工具的五類分工、六個評估維度（系統整合、單一登入、資料互通、行動裝置支援、離線可用、無障礙）、與 eClass 等平台的共存方式、學生資料保護要求，以及採購程序與總持有成本的考慮。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/digital-education-tools-hong-kong-schools.webp",
+    tags: ["數字教育", "教育科技", "系統整合", "單一登入", "學生資料私隱", "學校採購", "eClass"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">香港學校引入數字教育工具時，最常見的困難並非「有沒有工具可用」，而是「這套工具能否與現有系統整合、資料能否互通、日後由誰維護」。教育局已要求學校把數字教育納入學校發展計劃，加上「『智』啟學教」等撥款陸續到位，學校在短期內要作出大量採購與技術決定。本文只從技術與落地角度出發，說明數字教育工具的分類、評估維度、與現有平台的共存方式、學生資料保護要求，以及採購與維護要考慮的事項，協助學校資訊科技統籌人員把選擇的標準講清楚。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">選擇數字教育工具，第一步不是比較功能，而是<strong>先分清它在學校系統中扮演哪一類角色</strong>（學習管理、互動課堂、評估、協作或內容製作），再以六個技術維度評估：<strong>與現有系統的整合能力、是否支援單一登入、資料能否互通及匯出、行動裝置支援、離線可用程度、無障礙程度</strong>。香港學校大多已在使用 eClass、CloudSAMS 等平台，因此新工具應以「<strong>補足與共存</strong>」為定位，而非假設全面取代。任何涉及學生個人資料的工具，都要符合《個人資料（私隱）條例》的六項保障資料原則；採購則要跟教育局通告第 4/2013 號的報價與招標程序，並把整合、匯出與維護條款寫入文件。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 本文重點</p>
+          <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>數字教育工具可按功能分為五類，每類的整合方式與採購考慮都不同。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>技術評估有六個維度，其中單一登入與資料互通是最容易被低估的環節。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>與 eClass 等現有平台共存，關鍵在於整合接口，而非更換平台。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>學生資料保護要符合私隱條例六項原則，並以合約約束資料處理者。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>採購要按通告第 4/2013 號的金額分級，並計算總持有成本與匯出安排。</span></li></ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、數字教育工具的實際分類</h2>
+        <p>「數字教育工具」是一個統稱，涵蓋功能差別很大的產品。學校若不先分類，很容易出現兩種情況：買了功能重疊的兩套工具，或者買了一套工具卻發現它其實取代不了原有平台的角色。從技術角度，學校常用的工具有以下五類。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">分類</th><th class="px-4 py-3 text-left">主要用途</th><th class="px-4 py-3 text-left">常見技術特徵</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>學習管理系統</strong></td><td class="px-4 py-3">派發教材、收發作業、記錄學習進度</td><td class="px-4 py-3">帳戶體系、課程結構、資料庫儲存學習紀錄</td></tr>
+              <tr><td class="px-4 py-3"><strong>互動課堂工具</strong></td><td class="px-4 py-3">課堂即時回應、投票、分組活動</td><td class="px-4 py-3">即時通訊、低延遲、常需與學生裝置連線</td></tr>
+              <tr><td class="px-4 py-3"><strong>評估工具</strong></td><td class="px-4 py-3">測驗、練習、自動評分與數據分析</td><td class="px-4 py-3">題庫、評分引擎、成績匯出格式</td></tr>
+              <tr><td class="px-4 py-3"><strong>協作工具</strong></td><td class="px-4 py-3">文件共編、雲端硬碟、通訊與行事曆</td><td class="px-4 py-3">多用戶權限、版本控制、雲端儲存</td></tr>
+              <tr><td class="px-4 py-3"><strong>內容製作工具</strong></td><td class="px-4 py-3">製作影片、簡報、互動教材</td><td class="px-4 py-3">多媒體處理、輸出標準格式（如 SCORM）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>分類的作用，在於回答一個具體問題：這套工具是「補充某一環節」，還是「企圖取代整個平台」。學習管理系統通常牽涉大量資料儲存與帳戶管理，轉換成本高；互動課堂與內容製作工具則相對獨立，較容易試用與替換。理解這一點，才不會把短期試用的工具，當成長期基礎設施來採購。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-1.webp" alt="決策示意圖：學校判斷數字教育工具屬補足某一環節，還是企圖取代整個現有平台" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先判斷工具是「補足」還是「取代」，直接影響採購與推行策略</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-2.webp" alt="示意圖：數字教育工具分為學習管理、互動課堂、評估、協作與內容製作五類及其技術特徵" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">五類工具角色不同，先分類再評估，可避免功能重疊或角色錯配</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、技術評估的六個維度</h2>
+        <p>同一類工具的功能表看起來差別不大，真正決定成敗的是技術與整合層面。學校在評估時，建議逐一檢查以下六個維度，並要求供應商提供可驗證的答案，而非口頭承諾。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">維度</th><th class="px-4 py-3 text-left">要問清楚的技術問題</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>系統整合</strong></td><td class="px-4 py-3">是否提供 API？是否支援業界標準（如 LTI、SCORM、OneRoster）？能否與 CloudSAMS、eClass 對接？</td></tr>
+              <tr><td class="px-4 py-3"><strong>單一登入</strong></td><td class="px-4 py-3">支援哪種協定（SAML 2.0、OAuth 2.0／OpenID Connect、LDAP）？可對接學校的統一登入系統還是 Google／Microsoft 帳戶？</td></tr>
+              <tr><td class="px-4 py-3"><strong>資料互通</strong></td><td class="px-4 py-3">資料能不能完整匯出？格式是否開放？匯出有否額外收費或設時限？</td></tr>
+              <tr><td class="px-4 py-3"><strong>行動裝置支援</strong></td><td class="px-4 py-3">是否有 iOS／Android 應用程式？是否支援平板與不同螢幕尺寸？能否配合學校的行動裝置管理（MDM）？</td></tr>
+              <tr><td class="px-4 py-3"><strong>離線可用</strong></td><td class="px-4 py-3">網絡中斷時能否繼續操作？資料恢復連線後如何同步？</td></tr>
+              <tr><td class="px-4 py-3"><strong>無障礙</strong></td><td class="px-4 py-3">是否符合 W3C《無障礙網頁內容指引》2.1 的 AA 級別？</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>六個維度之中，<strong>單一登入</strong>與<strong>資料互通</strong>最容易被低估。若學生與教師要在多套工具之間重複登入、帳戶要人手開設與停用，行政負擔會迅速累積，亦增加帳戶洩漏風險。單一登入讓學校以既有帳戶體系集中管理身分，支援 SAML 2.0 或 OAuth 2.0／OpenID Connect 的工具較容易接入；資料互通則決定學校日後能否把學習紀錄匯出、統計或轉到另一套系統。</p>
+        <p>行動裝置方面，香港不少學校已為學生配發平板電腦，並以行動裝置管理（MDM）軟件統一設定。工具若能配合 MDM 部署，教師才可以按課堂需要限制裝置功能；反之，若工具要求個別安裝或個別登入，會令課堂管理變得困難。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-3.webp" alt="示意圖：教師透過行動裝置管理軟件統一設定班級平板電腦，限制課堂可使用的功能" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">工具能否配合 MDM 部署，直接影響教師管理課堂裝置的難易</figcaption>
+        </figure>
+
+        <p>離線可用則關係到網絡穩定性——部分課室或禮堂的無線覆蓋未必理想，工具在離線時若完全無法運作，會直接影響使用。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-4.webp" alt="圖表：評估數字教育工具的六個技術維度，包括系統整合、單一登入、資料互通、行動裝置支援、離線可用與無障礙" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">六個維度中，單一登入與資料互通最影響長遠維護成本</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-5.webp" alt="示意圖：學生與教師透過單一登入介面接入多套數字教育工具，避免重複開設帳戶" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">單一登入讓學校集中管理身分，減少人手開設與停用帳戶的工作</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、與現有平台共存：整合而非取代</h2>
+        <p>香港學校很少在「完全沒有系統」的情況下引入新工具，多數已在運作綜合平台與校管系統。以 eClass 校園綜合平台為例，它把學校日常工作分為資訊服務、教學管理工具、行政管理工具及基本設定四部分，並包含電子通告、課堂點名系統、網上家課表等功能；教育局的 CloudSAMS 雲端校管系統則負責學校行政與學生資料呈報。新工具的合理定位，是在這些平台之上補足未覆蓋的環節。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">整合方式</th><th class="px-4 py-3 text-left">技術做法</th><th class="px-4 py-3 text-left">適用情況</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">單一登入對接</td><td class="px-4 py-3">以 SAML／OpenID Connect 接入既有帳戶體系</td><td class="px-4 py-3">工具本身有獨立介面，只需共用登入</td></tr>
+              <tr><td class="px-4 py-3">資料同步</td><td class="px-4 py-3">透過 API 或名冊標準（如 OneRoster）同步學生班別資料</td><td class="px-4 py-3">需要把現有平台的班別、名單帶入新工具</td></tr>
+              <tr><td class="px-4 py-3">成績回寫</td><td class="px-4 py-3">評估工具的成績經 API 匯回校務或成績系統</td><td class="px-4 py-3">避免教師重複輸入分數</td></tr>
+              <tr><td class="px-4 py-3">嵌入式顯示</td><td class="px-4 py-3">以嵌入框架（iframe）或單一登入捷徑置於平台首頁</td><td class="px-4 py-3">讓師生由同一入口進入工具</td></tr>
+              <tr><td class="px-4 py-3">內容標準</td><td class="px-4 py-3">教材以 SCORM 等標準格式輸出，供平台載入</td><td class="px-4 py-3">教材需要跨平台重用</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>整合的實際價值，在於避免同一批資料在多個系統重複存在。若選科資料、班別名單或成績要在兩處分別輸入，不但耗費人力，更會出現兩邊紀錄不一致的情況，日後統計與呈報都可能出錯。因此評估新工具時，應優先考慮「能否與現有平台交換資料」，而不是只看它自身功能有多豐富。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-6.webp" alt="示意圖：新工具與 eClass、CloudSAMS 現有平台之間的五種整合方式，由單一登入到內容標準" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">整合的核心是用單一來源的資料，減少重複輸入與不一致</figcaption>
+        </figure>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 整合評估的實用做法</p>
+          <p class="text-gray-700 leading-relaxed">要求供應商在示範環境中，實際示範一次「由現有平台名單同步至新工具」的流程，並提供 API 文件或整合案例。口頭表示「可以整合」與實際上能在學校環境完成，是兩件不同的事。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、資料私隱與學生資料保護</h2>
+        <p>數字教育工具幾乎必然涉及學生個人資料，包括姓名、班別、學號、出席紀錄與學習表現。香港學校處理這些資料，受《個人資料（私隱）條例》（第 486 章）規管，須符合六項保障資料原則。個人資料私隱專員公署過往處理的學校個案中，曾有一宗學校在未通知家長的情況下，把學生的姓名、班別和學號提供給網絡程式供應商開設帳戶，並以學生的出生日期作為預設密碼，最終被家長投訴。這個個案正好說明採購數字教育工具時最常忽略的環節。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">保障資料原則</th><th class="px-4 py-3 text-left">對數字教育工具的具體要求</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>原則 1：收集目的及方式</strong></td><td class="px-4 py-3">只收集工具運作必須的資料；以合法公平方式收集，並提供收集個人資料聲明</td></tr>
+              <tr><td class="px-4 py-3"><strong>原則 2：準確性及保留</strong></td><td class="px-4 py-3">資料要準確；完成用途後在合理時間內刪除，不得無限期保留</td></tr>
+              <tr><td class="px-4 py-3"><strong>原則 3：使用限制</strong></td><td class="px-4 py-3">不得用於原定或直接相關以外的目的；轉移或披露須取得訂明同意</td></tr>
+              <tr><td class="px-4 py-3"><strong>原則 4：保安</strong></td><td class="px-4 py-3">採取切實可行步驟保障資料，包括以合約約束資料處理者</td></tr>
+              <tr><td class="px-4 py-3"><strong>原則 5：透明度</strong></td><td class="px-4 py-3">公開個人資料政策、持有資料種類及用途</td></tr>
+              <tr><td class="px-4 py-3"><strong>原則 6：查閱及改正</strong></td><td class="px-4 py-3">家長與學生可查閱及改正資料，學校須於 40 天內依從要求</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>在採購層面，應把幾項要求直接寫入合約：工具供應商作為<strong>資料處理者</strong>，須以合約規範防止資料被未獲准許地查閱、處理或轉移；供應商不得把學生資料用於訓練模型或作其他商業用途；資料儲存位置、備份機制與退場時的刪除安排要清楚列明。學校亦應為學生帳戶訂立書面政策，說明開設帳戶的目的、學校的管理權限以及安全使用方式，並以通告形式告知家長。個人資料私隱專員公署亦曾與教育局合作舉辦學校層面的講座，並出版「兒童網上私隱——給家長及老師的建議」等資料，可作為校本指引的參考基礎。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-7.webp" alt="圖表：《個人資料（私隱）條例》六項保障資料原則對數字教育工具的具體要求" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">六項原則之中，使用限制與保安最常在被忽略的合約條款中出現</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-8.webp" alt="示意圖：學校、家長與工具供應商三方的資料流向，以及以合約約束資料處理者的關係" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">供應商屬於資料處理者，學校仍為資料使用者，須以合約約束其處理方式</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、採購與維護要考慮的事項</h2>
+        <p>資助學校運用政府津貼採購物料與服務，須依循《教育局通告第 4/2013 號》及《資助學校採購程序指引》。金額決定採用哪一級程序，學校亦不得以分拆訂單、分期採購或縮短合約期等方式迴避限額。了解這套程序，有助學校在採購數字教育工具時把文件一次寫清楚。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">採購金額</th><th class="px-4 py-3 text-left">一般程序要求</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">港幣 5,000 元以下</td><td class="px-4 py-3">由校內適當職級人員證明採購屬必須、價格公平合理，並由校長或副校長批核</td></tr>
+              <tr><td class="px-4 py-3">5,000 元以上至 50,000 元</td><td class="px-4 py-3">邀請最少兩個口頭報價</td></tr>
+              <tr><td class="px-4 py-3">50,000 元以上至 200,000 元</td><td class="px-4 py-3">邀請最少五個書面報價</td></tr>
+              <tr><td class="px-4 py-3">超過 200,000 元</td><td class="px-4 py-3">邀請最少五名供應商投標</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>除程序之外，學校應同時評估<strong>總持有成本</strong>。工具的價錢通常只反映訂閱或授權費用，實際支出還包括：與現有系統整合的一次性開發費、師生培訓、硬件或裝置需要、技術支援年費，以及日後資料匯出或退場的安排。部分工具把資料匯出、API 存取或額外帳戶列為附加收費項目，若在採購階段沒有問清楚，長遠成本可能遠高於最初報價。</p>
+        <p>供應商支援方面，建議要求書面承諾服務水平，例如回應時間、指定聯絡人、保養期長短，以及工具更新或停止支援時的通知安排。學校亦要考慮本地支援能力：系統在學期初或考試期出現問題時，能否及時獲得支援，直接影響日常運作。最後，合約應訂明<strong>資料與設定的擁有權、匯出方式與退場安排</strong>，確保日後更換工具時，學校仍能取回自己的資料。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-9.webp" alt="圖表：資助學校採購數字教育工具時，四個金額分級對應的報價與招標程序" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">金額決定程序，學校亦不得以分拆或其他方式迴避限額</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-10.webp" alt="示意圖：數字教育工具的總持有成本組成，包括授權、整合、培訓、硬件、支援與匯出" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">最初報價以外，整合、培訓與匯出安排往往才是長遠成本所在</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、常見技術陷阱</h2>
+        <p>以下情況在學校引入數字教育工具時反覆出現。它們多數不是工具本身的問題，而是評估階段漏問了關鍵技術問題。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">技術陷阱</th><th class="px-4 py-3 text-left">後果</th><th class="px-4 py-3 text-left">避免方法</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">沒有單一登入，須人手開設帳戶</td><td class="px-4 py-3">帳戶管理工作量大，離校學生帳戶易被遺漏</td><td class="px-4 py-3">把 SSO 支援列為必要條件</td></tr>
+              <tr><td class="px-4 py-3">資料匯出要額外收費或設時限</td><td class="px-4 py-3">退場時難以取回資料</td><td class="px-4 py-3">在合約寫明匯出格式與費用</td></tr>
+              <tr><td class="px-4 py-3">與現有平台功能重疊</td><td class="px-4 py-3">同一批資料兩邊輸入，出現不一致</td><td class="px-4 py-3">採購前先做整合與重疊評估</td></tr>
+              <tr><td class="px-4 py-3">忽略無障礙要求</td><td class="px-4 py-3">部分學生無法使用，亦影響對外發布</td><td class="px-4 py-3">要求符合 WCAG 2.1 AA</td></tr>
+              <tr><td class="px-4 py-3">以出生日期等作預設密碼</td><td class="px-4 py-3">帳戶容易被猜中，構成資料保安風險</td><td class="px-4 py-3">要求高強度預設密碼及首次登入更改</td></tr>
+              <tr><td class="px-4 py-3">未列明資料儲存位置與備份</td><td class="px-4 py-3">難以評估保安與合規風險</td><td class="px-4 py-3">在合約訂明儲存位置與備份機制</td></tr>
+              <tr><td class="px-4 py-3">只比較功能，未測試實際整合</td><td class="px-4 py-3">上線後才發現無法對接</td><td class="px-4 py-3">要求示範環境中的實際整合展示</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>這些陷阱有一個共通點：它們大多可以在採購階段以書面條款解決，但如果留到上線後才發現，補救成本會高得多。因此學校在撰寫報價或招標文件時，應把技術與整合要求寫成可驗證的條文，而非籠統的「需支援整合」。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-11.webp" alt="示意圖：把技術要求寫成報價或招標文件中的可驗證條文，而非籠統描述" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把「需支援整合」改寫為可驗證的技術條文，可避免上線後才發現問題</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-12.webp" alt="圖表：學校引入數字教育工具時常見的七個技術陷阱及其避免方法" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">多數技術陷阱可在採購階段以書面條款預先解決</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、由需求到上線的評估流程</h2>
+        <p>把上述考量整合起來，學校引入數字教育工具時，建議依以下次序推進，每一步都留下書面紀錄，以便日後審核與交接。</p>
+        <ol class="list-decimal pl-5 space-y-2 text-gray-700 my-4">
+          <li><strong>確認角色與需求</strong>——先判斷工具屬於哪一類，補足哪一環節，是否與現有平台重疊</li>
+          <li><strong>技術評估</strong>——按六個維度逐項檢查，要求供應商提供可驗證的說明</li>
+          <li><strong>整合可行性確認</strong>——在示範環境測試與現有平台的對接</li>
+          <li><strong>資料保護審視</strong>——核對工具是否符合六項保障資料原則，並擬定合約條款</li>
+          <li><strong>核對採購程序</strong>——按金額決定報價或招標，並擬定技術規格與評審準則</li>
+          <li><strong>計算總持有成本</strong>——包含整合、培訓、硬件、支援與匯出安排</li>
+          <li><strong>簽約與落實</strong>——訂明交付成果、保養期、服務水平與退場安排</li>
+          <li><strong>上線後檢視</strong>——安排指定聯絡人跟進，並定期檢視使用情況與保安設定</li>
+        </ol>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/digital-education-tools-hong-kong-schools-13.webp" alt="流程圖：由確認需求、技術評估、整合測試、資料保護審視到簽約與上線後檢視的八個步驟" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">每一步都留下書面紀錄，可以簡化日後的審核與交接</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校選擇數字教育工具，第一步應該做什麼？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">先分類，再評估。判斷工具屬於學習管理、互動課堂、評估、協作還是內容製作，並確認它是補足哪一環節、是否與現有平台重疊。分類清楚後，才按系統整合、單一登入、資料互通、行動裝置支援、離線可用與無障礙六個維度逐項評估。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">單一登入為何如此重要？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">學校若同時使用多套工具，每次都要另行開設與停用帳戶，行政負擔會迅速累積，離校學生的帳戶亦容易被遺漏而構成保安風險。支援 SAML 2.0 或 OAuth 2.0／OpenID Connect 的工具，可以接入學校既有的帳戶體系，集中管理身分，減少重複工作。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">新工具應該取代 eClass 等現有平台嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">一般不建議假設全面取代。香港學校多數已在運作綜合平台與校管系統，全面更換會令全校師生及家長重新適應，風險與成本都高。較穩妥的定位是補足現有平台未覆蓋的環節，並透過單一登入、資料同步或 API 與現有平台交換資料，減少重複輸入。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">工具供應商可否使用學生的個人資料？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">學校是資料使用者，供應商屬於資料處理者。個人資料只可用於收集時所述明或直接相關的用途，不得未經訂明同意用於新目的。學校應在合約中訂明供應商不得把學生資料用於訓練模型或作其他商業用途，並以合約約束其處理、儲存及刪除方式，符合《個人資料（私隱）條例》保障資料第 3 及第 4 原則。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">無障礙要求適用於數字教育工具嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">適用。香港政府早於 1999 年已把無障礙網頁要求納入相關政府指引，以 W3C《無障礙網頁內容指引》（WCAG）為標準。學校在評估時，可要求工具達到 WCAG 2.1 的 AA 級別，確保有不同需要的學生均能使用，亦方便對外發布相關內容。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校採購數字教育工具，要取幾多份報價？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按《教育局通告第 4/2013 號》及《資助學校採購程序指引》，金額決定程序：5,000 元以上至 50,000 元一般須邀請最少兩個口頭報價；50,000 元以上至 200,000 元一般須邀請最少五個書面報價；超過 200,000 元一般須邀請最少五名供應商投標。學校亦不得分拆訂單或以其他方式迴避限額。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">日後想更換工具，資料可以取回嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">這取決於合約條款。建議在採購階段就訂明資料匯出的格式、方式與費用，以及退場時的刪除安排。若合約沒有寫清楚，部分工具會把資料匯出或 API 存取列為額外收費，令學校日後難以取回自己的資料。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">離線可用對選型有幾重要？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">要視乎使用場景。部分課室或禮堂的無線覆蓋未必理想，若工具在網絡中斷時完全無法運作，會直接影響課堂。評估時應問清楚：離線時能否繼續操作，以及恢復連線後資料如何同步，避免出現資料遺失或重複。</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">想找專業團隊協助評估與整合數字教育工具？</p>
+          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供學校網站、校務系統、系統整合與技術顧問服務，熟悉資助學校的採購程序與學生資料保護要求，可以協助你由需求盤點、技術評估、整合測試到報價文件一併處理。</p>
+          <p><a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校數碼方案</a>　·　<a href="/blog/school-management-system-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">校務系統選型比較</a></p>
+        </div>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.edb.gov.hk/tc/edu-system/primary-secondary/applicable-to-primary-secondary/it-in-edu/index.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：數字教育</a> — 《中小學數字教育發展藍圖》（教育局通告第 11/2026 號）、數字教育策略發展督導委員會、優質教育基金預留二十億元推展數字教育策略</li>
+            <li><a href="https://www.edb.gov.hk/tc/about-edb/press/cleartheair/20260204.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：「『智』啟學教」撥款計劃正面睇</a> — 「『智』啟學教」撥款計劃的用途與重點</li>
+            <li><a href="https://www.info.gov.hk/gia/general/202506/30/P2025063000801p.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：教育局與香港教育城攜手舉辦全港首屆「數字教育周2025」</a> — 「電子學習配套計劃」首批項目成果、數字教育四個重點方向</li>
+            <li><a href="https://www.edb.gov.hk/tc/sch-admin/fin-management/procurement-procedures-in-aided-schools/procurement_procedures_in_aided_schs.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資助學校採購程序的參考資料</a> — 《教育局通告第 4/2013 號》與《資助學校採購程序指引》，報價與招標金額分級</li>
+            <li><a href="https://applications.edb.gov.hk/circular/upload/EDBC/EDBC13004C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通告第 4/2013 號：資助學校採購程序</a> — 採購程序、報價與招標金額門檻、禁止分拆訂單</li>
+            <li><a href="https://www.pcpd.org.hk/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署</a> — 《個人資料（私隱）條例》六項保障資料原則、學校處理學生資料的個案與指引、兒童網上私隱建議</li>
+            <li><a href="https://www.eclass.com.hk/product/eclass-ip/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">eClass：校園綜合平台</a> — 平台四大組成部分、電子通告、課堂點名系統等功能</li>
+            <li><a href="https://www.w3.org/Translations/WCAG21-zh/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">W3C：《無障礙網頁內容指引》（WCAG）2.1 中文版</a> — AA 級別無障礙標準</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
   // ─── Article 37：由 idea 到 MVP 指南 ───
   {
     id: 37,
