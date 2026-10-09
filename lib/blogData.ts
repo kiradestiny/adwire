@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/hong-kong-public-sector-system-procurement-guide.webp",
     tags: ["政府採購", "公營機構", "NGO", "系統開發", "GITP", "SOA-QPS5", "報價流程"],
     content: `
-        <p class="lead text-xl text-gray-600 mb-8">政府部門、公營機構同 NGO 要採購系統或網站，程序與商業客戶完全不同：要跟《物料供應及採購規例》、要符合報價限額、要處理電子付款，NGO 另外須按《整筆撥款津助手冊》的採購指引收取足夠標書。本文整理實際要求——包括 GITP 名單、SOA-QPS5 承辦商協議、$135 萬門檻、電子付款安排與標書必寫項目，幫負責報價的同事一次過釐清。</p>
+        <p class="lead text-xl text-gray-600 mb-8">政府部門、公營機構與 NGO 要採購系統或網站，程序與商業客戶完全不同：要跟《物料供應及採購規例》、要符合報價限額、要處理電子付款，NGO 另外須按《整筆撥款津助手冊》的採購指引收取足夠標書。本文整理實際要求——包括 GITP 名單、SOA-QPS5 承辦商協議、$135 萬門檻、電子付款安排與標書必寫項目，幫負責報價的同事一次過釐清。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
@@ -60,11 +60,11 @@ export const blogPosts: BlogPost[] = [
 
         <figure class="blog-figure my-10">
         <img src="/blog/figures/hong-kong-public-sector-system-procurement-guide-1.webp" alt="比較圖：商業客戶與政府公營機構在採購方式、報價要求、供應商名單、合約條款及付款安排上的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
-        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">商業客戶比功能價錢；公營機構先比程序合規、可審計性與供應商資歷</figcaption>
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">商業客戶比較功能與價錢；公營機構先比程序合規、可審計性與供應商資歷</figcaption>
         </figure>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、政府採購門檻：何時一定要公開招標</h3>
-        <p>政府採購程序受《物料供應及採購規例》規管，並由財務通告及財經事務及庫務局通函補充。金額決定用邊種程序：</p>
+        <p>政府採購程序受《物料供應及採購規例》規管，並由財務通告及財經事務及庫務局通函補充。金額決定採用哪一種程序：</p>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
           <table class="w-full text-sm">
@@ -124,10 +124,10 @@ export const blogPosts: BlogPost[] = [
           </table>
         </div>
 
-        <p>甲類同丙類再分「小型」與「大型」項目組別，<strong>小型組別涵蓋合約價值港幣 300 萬元或以下</strong>的項目；<strong>大型組別涵蓋超過 300 萬元但不超過 2,000 萬元</strong>的項目。乙類不設組別，合約價值不超過 2,000 萬元。標書評審的技術／價格評分比重，甲類為 70:30、乙類 60:40、丙類 50:50。</p>
+        <p>甲類與丙類再分「小型」與「大型」項目組別，<strong>小型組別涵蓋合約價值港幣 300 萬元或以下</strong>的項目；<strong>大型組別涵蓋超過 300 萬元但不超過 2,000 萬元</strong>的項目。乙類不設組別，合約價值不超過 2,000 萬元。標書評審的技術／價格評分比重，甲類為 70:30、乙類 60:40、丙類 50:50。</p>
         <p>運作分兩階段：政府先透過公開招標甄選承辦商並訂立常備承辦協議；之後各政策局及部門在有效期內，就個別項目邀請相關類別與組別的承辦商提交技術及價格建議書，按評分批出服務合約。截至 2024 年 8 月 31 日，SOA-QPS5 下已批出 1,696 份服務合約，累計金額約 26.85 億元；約五成合約在邀請後 30 個工作天內批出，超過九成在 60 個工作天內批出。</p>
 
-        <p>經數字政策辦公室中央統籌及供應商名單表列安排的採購，政府近三年合約總值如下——可以查看到這個市場有幾大：</p>
+        <p>經數字政策辦公室中央統籌及供應商名單表列安排的採購，政府近三年合約總值如下——可以查看到這個市場有多大：</p>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
           <table class="w-full text-sm">
@@ -164,7 +164,7 @@ export const blogPosts: BlogPost[] = [
         <p>付款條件與辦法載於招標文件。物料供應合約通常收貨時付款；高價或複雜合約可能按服務表現目標分階段付款；服務合約一貫按服務表現目標或已提供服務分階段付款。<strong>所有應付款項一般應在認收交付項目後 30 個曆日內清繳。</strong></p>
         <p>另外一個重點：<strong>政府由 2025 年 6 月 1 日起推出的採購項目，全面採用電子方式付款，不再提供實體支票</strong>。除銀行轉帳外，供應商可透過「轉數快」（FPS）向採購部門提供香港身份證號碼或轉數快識別碼作收款。2025 年 6 月 1 日前推出的採購項目不受影響。</p>
         <ul class="list-disc pl-5 space-y-2 text-gray-700 my-4">
-          <li>報價或投標時，記得同時提供收款安排（銀行轉帳或 FPS 識別碼）</li>
+          <li>報價或投標時，謹記同時提供收款安排（銀行轉帳或 FPS 識別碼）</li>
           <li>合約可能按里程碑分期付款，現金流要按此規劃</li>
           <li>付款期由「認收交付項目」起計，交付驗收文件要齊全</li>
         </ul>
@@ -213,15 +213,15 @@ export const blogPosts: BlogPost[] = [
 
         <figure class="blog-figure my-10">
         <img src="/blog/figures/hong-kong-public-sector-system-procurement-guide-7.webp" alt="清單圖示：標書與報價文件必須寫清楚的八個項目" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
-        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">八項之中，最常被忽略：數據所有權、知識產權同遷出安排</figcaption>
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">八項之中，最常被忽略：數據所有權、知識產權與遷出安排</figcaption>
         </figure>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、如何判斷一間供應商是否熟悉公營項目</h3>
         <p>公營機構採購系統，最擔心的是中標後跟進不足。以下是幾個可以問清楚的環節：</p>
         <ul class="list-disc pl-5 space-y-2 text-gray-700 my-4">
           <li><strong>有否處理過類似規模與程序</strong>——報價、標書、驗收文件是否熟悉</li>
-          <li><strong>會不會協助你準備採購文件</strong>——例如規格、評審準則、合約條款</li>
-          <li><strong>保安與私隱評估由哪個做</strong>——是自備能力還是外判</li>
+          <li><strong>是否會協助你準備採購文件</strong>——例如規格、評審準則、合約條款</li>
+          <li><strong>保安與私隱評估由誰負責</strong>——是自備能力還是外判</li>
           <li><strong>資料與原始碼的交付方式</strong>——是交付原始碼，還是只交付成品</li>
           <li><strong>上線後支援</strong>——是否有指定聯絡人、回應時間承諾、保養期長短</li>
           <li><strong>遷出安排</strong>——日後換供應商，資料與系統如何交接</li>
@@ -229,7 +229,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 一句提醒</p>
-          <p class="text-gray-700 leading-relaxed">公營項目的風險通常不是「做不到」，而是「做得到但程序不齊全」。選擇供應商時，除了技術能力，要一併查看對方能否處理採購文件、保安私隱評估同驗收紀錄。</p>
+          <p class="text-gray-700 leading-relaxed">公營項目的風險通常不是「做不到」，而是「做得到但程序不齊全」。選擇供應商時，除了技術能力，要一併查看對方能否處理採購文件、保安私隱評估與驗收紀錄。</p>
         </div>
 
         <figure class="blog-figure my-10">
@@ -237,7 +237,7 @@ export const blogPosts: BlogPost[] = [
         <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">技術能力以外，程序能力同樣是評估重點</figcaption>
         </figure>
 
-        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見踩雷位</h3>
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見失誤</h3>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
           <table class="w-full text-sm">
@@ -257,7 +257,7 @@ export const blogPosts: BlogPost[] = [
 
         <figure class="blog-figure my-10">
         <img src="/blog/figures/hong-kong-public-sector-system-procurement-guide-9.webp" alt="圖示：公營及 NGO 系統項目常見的六個採購踩雷位" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
-        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">大部分「踩雷」發生在文件同程序，而不是技術本身</figcaption>
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">大部分問題發生在文件與程序，而不是技術本身</figcaption>
         </figure>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、由需求到批出合約：實際流程</h3>
@@ -268,7 +268,7 @@ export const blogPosts: BlogPost[] = [
           <li><strong>發出邀請或招標</strong>——GITP／SOA-QPS 走邀請；超限額走公開招標</li>
           <li><strong>收取標書與評審</strong>——NGO 一般須收不少於 5 份；按技術及價格評分</li>
           <li><strong>批出與簽約</strong>——投標委員會審批後簽署合約，訂明交付與付款里程碑</li>
-          <li><strong>交付同驗收</strong>——按里程碑認收，之後一般 30 日內電子付款</li>
+          <li><strong>交付與驗收</strong>——按里程碑認收，之後一般 30 日內電子付款</li>
         </ol>
 
         <figure class="blog-figure my-10">
@@ -277,7 +277,7 @@ export const blogPosts: BlogPost[] = [
         </figure>
 
         <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十一、公營／NGO 最常採購的系統類型</h3>
-        <p>了解常見項目類型，可以協助你判斷自己的需求屬於哪一類，亦直接影響採用哪一種採購程序同要準備什麼文件。</p>
+        <p>了解常見項目類型，可以協助你判斷自己的需求屬於哪一類，亦直接影響採用哪一種採購程序與要準備什麼文件。</p>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
           <table class="w-full text-sm">
@@ -341,7 +341,7 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">公營機構採購系統，同一般商業項目最大分別是什麼？</h4>
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">公營機構採購系統，與一般商業項目最大分別是什麼？</h4>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
             <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大分別是程序與文件要求：採購方式按金額受規例限制、供應商可能須列入名單、標書要涵蓋數據所有權與知識產權等條款、並要通過保安及私隱評估。技術要求本身未必比商業項目複雜，但合規與可審計性的要求明顯較高。</p>
           </div>
