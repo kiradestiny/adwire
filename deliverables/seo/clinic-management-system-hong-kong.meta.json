@@ -1,0 +1,13 @@
+{
+  "id": 36,
+  "slug": "clinic-management-system-hong-kong",
+  "title": "診所管理系統如何選擇：預約、病歷、收費與合規（香港診所指南）",
+  "excerpt": "香港診所數碼化營運，須先釐清預約、排班、病歷、收費與對賬五條主線。本文整理診所管理系統的六大模組、自建與現成的比較框架、減少 no-show 的預約安排、收費與保險對賬，以及最易被忽略的病人資料合規要求，包括《個人資料（私隱）條例》六項保障資料原則、醫健通取覽原則與資料外洩處理。",
+  "date": "2026-10-09",
+  "category": "System Dev",
+  "readTime": "13 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/clinic-management-system-hong-kong.webp",
+  "tags": ["診所管理系統", "診所預約系統", "電子病歷", "病人資料私隱", "個人資料私隱條例", "醫健通", "系統開發", "香港診所"],
+  "comment": "Article 36：診所管理系統選擇指南"
+}

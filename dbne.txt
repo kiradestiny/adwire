@@ -1,0 +1,451 @@
+                                                                   Guidance Note
+
+Guidance on Data Breach Handling and
+Data Breach Notifications
+
+INTRODUCTION                                                       (b) from which it is practicable for the identity
+                                                                        of the individual to be directly or indirectly
+Good data breach handling makes good business                           ascertained; and
+sense
+                                                                   (c) in a form in which access to or processing of the
+A good data breach handling policy and practice is                      data is practicable.
+not only useful for containing the damage caused
+by a breach, but also demonstrate the data user's                  What is a data breach?
+responsibility and accountability when tackling the
+problem, by formulating a clear action plan that                   A data breach is generally regarded as a suspected
+can be followed in the event of a data breach. In                  or actual breach of the security of personal data
+addition to enabling the data subjects affected by                 held by a data user2, which exposes the personal
+the breach to take appropriate protective measures,                data of data subject(s) to the risk of unauthorised or
+data breach notifications can help reduce the risk of              accidental access, processing, erasure, loss or use.
+litigation and maintain the data user's goodwill and
+business relationships, and in some cases the public's                The following are some examples of data
+confidence in the organisation.                                       breaches:
+                                                                      ии The loss of personal data stored on devices
+This guidance is aimed at assisting data users to
+prepare for and handle data breaches, to prevent                           such as laptop computers, USB flash drives,
+recurrence and to mitigate the loss and damage                             portable hard disks or backup tapes
+caused to the data subjects involved, particularly                    ии The improper handling of personal data,
+when sensitive personal data is involved.                                  such as improper disposal, sending emails
+                                                                           to unintended parties or the unauthorised
+What is personal data?                                                     access of databases by employees
+                                                                      ии A database containing personal data that
+Data breach incidents often involve the personal                           is hacked or accessed by outsiders without
+data of individuals, such as customers, service users,                     authorisation
+employees and job applicants of organisations.                        ии The disclosure of personal data to a third
+Under the Personal Data (Privacy) Ordinance                                party who obtained the data by deception
+(Chapter 486 of the Laws of Hong Kong) (PDPO),                        ии The leakage of data caused by the installation
+personal data means any data1                                              of file-sharing software on a computer
+
+(a) relating directly or indirectly to a living
+     individual;
+
+1 Section 2(1) of the PDPO.
+
+2 Under section 2(1) of the PDPO, a "data user", in relation to personal data, means a person who, either alone or jointly or in common with
+       other persons, controls the collection, holding, processing or use of the data.
+
+Guidance on Data Breach Handling and Data Breach Notifications  1  June 2023
+A data breach may amount to a contravention of                     З System misconfigurations
+Data Protection Principle (DPP) 4(1) and (2) in
+Schedule 1 to the PDPO. DPP 4(1) provides that                         System configuration and administration errors
+a data user shall take all reasonably practicable                      can cause data breaches. Examples include
+steps to ensure that the personal data it holds is                     unauthorised access to personal data where data
+protected against unauthorised or accidental access,                   systems allow access without authentications or
+processing, erasure, loss or use, having particular                    access-rights controls.
+regard to:
+                                                                   З Loss of physical documents or portable devices
+(a) the kind of data and the harm that could result
+     if any of those things should occur;                              Data breaches often result from the loss of
+                                                                       physical documents or portable devices
+(b) the physical location where the data is stored;                    containing personal data, such as letters,
+                                                                       completed forms, USB storage devices or laptop
+(c) any security measures incorporated (whether                        computers. Data processors contracted to handle
+     by automated means or otherwise) into any                         personal data on a data user's behalf may also
+     equipment in which the data is stored;                            inadvertently cause data loss.
+
+(d) any measures taken for ensuring the integrity,                 З Improper/wrongful disposal of personal data
+     prudence and competence of persons having
+     access to the data; and                                           Documents in various formats that contain
+                                                                       personal data (e.g., hard disks, paper files, USB
+(e) any measures taken for ensuring the secure                         drives or other types of data storage devices)
+     transmission of the data.                                         may be accidentally or improperly disposed
+                                                                       of without adhering to organisational policies
+DPP 4(2) provides that if a data user engages a                        concerning document destruction, and thus the
+data processor,3 whether within or outside Hong                        data contained in such documents may be at risk.
+Kong, to process personal data on the data user's
+behalf, the data user must adopt contractual or                    З Inadvertent disclosure by email or by post
+other means, to prevent unauthorised or accidental
+access, processing, erasure, loss or use of the data                   Digital files or physical documents containing
+transferred to the data processor for processing.                      personal data can be inadvertently sent
+                                                                       to unintended recipients, resulting in the
+What are the common causes of data breaches in                         unauthorised disclosure of attachments that may
+Hong Kong?                                                             contain personal data.
+
+Data breaches may result from a variety of causes.                 З Staff negligence/misconduct
+Some common causes include:
+                                                                       This mainly refers to situations where staff of an
+З Cyberattacks                                                         organisation who have been granted valid access
+                                                                       rights mishandle personal data either purposely,
+    Given the value of personal data, organisations                    accidentally and/or maliciously.
+    may fall prey to cyberattacks (e.g., ransomware,
+    brute force attacks, distributed denial-of-
+    service attacks or phishing), which may result
+    in unauthorised access to, or even exfiltration
+    of, the personal data stored in their servers or
+    databases.
+
+3 According to DPP 2(4) and DPP4(3), "data processor" means a person who processes personal data on behalf of another person and does not
+       process the data for any of the person's own purposes.
+
+Guidance on Data Breach Handling and Data Breach Notifications  2  June 2023
+PREPARING FOR CONTINGENCY ­ DATA BREACH RESPONSE PLAN
+
+A data breach response plan is a document setting                     ии A contact list with contact details of all
+out how an organisation will respond in the event                         breach response team members (e.g., the
+of a data breach. A comprehensive data breach                             core management, chief data protection
+response plan helps ensure a quick response to and                        officer, information technology experts,
+effective management of a data breach. The plan                           risk management and human resources
+should outline a set of procedures to be followed                         professionals)
+in the event of a data breach and the data user's
+strategy for identifying, containing, assessing and                   ии A risk assessment workflow to assess the
+managing the impact brought about by the incident                         likelihood and severity of the harm caused
+from start to finish. A prompt response to a data                         to the affected data subjects as a result of
+breach may substantially minimise and contain the                         the breach
+impact of a breach.
+                                                                      ии A containment strategy for containing
+   The plan is recommended to cover the                                   and remedying the breach
+   following aspects (non-exhaustive):
+   ии A description of what constitutes a data                        ии A communication plan covering the
+                                                                          criteria and threshold for determining
+        breach with examples tailored to the                              whether the affected data subjects,
+        nature of the organisation, and the criteria                      regulatory authorities and other
+        that trigger the implementation of the data                       relevant parties should be notified;
+        breach response plan                                              the kind of information that must be
+   ии A n i n t e r n a l i n c i d e n t n o t i f i c a t i o n         provided; the point of contact in the
+        procedure to escalate the breach to the                           organisation responsible for liaising with
+        senior management, the data protection                            the stakeholders; and the methods of
+        officer and/or dedicated data breach                              notification
+        response team, incorporating a standard
+        form to facilitate the reporting of the                       ии A n i n v e s t i g a t i o n p r o c e d u r e f o r
+        required information                                              investigating the breach and reporting the
+   ии T h e d e s i g n a t i o n o f t h e r o l e s a n d               results to the senior management
+        responsibilities of members of the
+        dedicated breach response team (e.g., the                     ии A record-keeping policy to ensure that
+        data protection officer may assume overall                        the incident is properly documented as
+        responsibility for handling a data breach                         the relevant records may be required by
+        incident; the information technology                              regulatory authorities or law enforcement
+        department for identifying the location of                        agencies
+        potentially compromised data and taking
+        remedial measures; and the customer                           ии A post-incident review mechanism for
+        service department for addressing the                             identifying areas that require improvement
+        issues of affected individuals and for                            to prevent future recurrence
+        providing updates to customers)
+                                                                      ии A training or drill plan to ensure that all
+                                                                          relevant staff can follow the procedures
+                                                                          properly when dealing with a data breach
+
+Guidance on Data Breach Handling and Data Breach Notifications     3  June 2023
+HANDLING DATA BREACHES                                             Depending on the categories of personal
+                                                                   data involved and the severity of the breach,
+The proper handling and management of a data                       the following containment measures (non-
+breach demonstrates the data user's commitment to                  exhaustive) may be considered:
+tackling the problem and may substantially reduce
+the impact of a breach on affected individuals                     ии Conducting a thorough search for the lost
+and the potential reputational damage to the                           items containing personal data
+organisation. The following steps are recommended
+when handling a data breach.                                       ии Requesting the unintended recipients of
+                                                                       emails/letters/fax to delete or return the
+Step 1: Immediate gathering of essential information                   mistakenly sent documents
+As a starting point, the data user shall promptly
+gather all relevant information of the data                        ии Requesting internet companies to remove
+breach to assess the impact on data subjects and                       any relevant cached links from their search
+to identify appropriate mitigation measures.                           engines
+Questions such as the following should be
+addressed:                                                         ии Shutting down or isolating the compromised/
+                                                                       breached system/server and thoroughly
+З When did the breach occur?                                           checking whether other interconnected
+                                                                       systems containing personal data are
+З Where did the breach occur?                                          affected
+
+З How was the breach detected and by whom?                         ии Disabling system functions that may be
+                                                                       relevant to the breach
+З What was the cause of the breach?
+                                                                   ии Fixing any bugs or errors that may have
+З What kind of personal data was involved?                             caused the breach
+
+З How many data subjects might be affected?                        ии Alerting banks or credit card companies,
+                                                                       which may help reduce the risk of financial
+З What harm may have been caused to those                              losses for the affected data subjects
+    affected individuals?
+                                                                   ии Keeping records of the occurrence of the
+The staff members who first discover the breach                        breach and all follow-up actions taken to
+should consider whether to escalate the incident                       facilitate investigations and for the taking
+to the dedicated data breach response team/senior                      of corrective actions
+management/data protection officer, according
+to the procedures laid down in the data breach                     ии Notifying the relevant law enforcement
+response plan.                                                         agencies if identity theft or other criminal
+                                                                       activities have been or are likely to be
+Step 2: Containing the data breach                                     committed
+After detecting the breach and conducting
+an initial assessment, the data user should                        ии Requiring the data processor to take
+immediately take steps to contain the breach as                        immediate remedial measures and to
+effectively as possible. Remedial actions to lessen                    notify the data user of the progress in the
+the harm or damage that may be caused to the                           event that the data breach is caused by an
+affected data subjects should be taken.                                act or omission by the data processor
+
+                                                                   ии Remotely wiping a lost or stolen electronic
+                                                                       device
+
+Guidance on Data Breach Handling and Data Breach Notifications  4  June 2023
+   ии Changing users' passwords and system                         ии The circumstances of the data breach:
+        configurations to block any (further)                          online data leakage is difficult to be
+        unauthorised access                                            effectively contained and the further
+                                                                       dissemination and use of the leaked data
+   ии Removing the access rights of users                              is thus a risk. However, if the recipients of
+        suspected to have committed or                                 the data are known and traceable, the data
+        contributed to the data breach                                 breach may be easier to contain
+
+   ии Keeping a proper record of the compromised                   ии The nature of harm
+        system for further investigation
+                                                                   ии The likelihood of identity theft or fraud:
+   ии Considering whether technical assistance                         sometimes, the leaked data, either
+        is required                                                    independently in itself or when combined
+                                                                       with other data, can facilitate the
+Step 3: Assessing the risk of harm                                     commission of identity theft or fraud. For
+Once all essential information has been gathered,                      example, a combination of Hong Kong
+the data users should then ensure that they                            Identity Card information, date of birth,
+understand the risks of harm that may be caused to                     address, credit card details and bank
+the affected individuals, so that they can take steps                  account information is more likely to result
+to limit the impact. The possible harm caused by a                     in identity theft
+data breach may include:
+                                                                   ии Whether a backup of the lost data is
+З Threats to personal safety                                           available
+
+З Identity theft                                                   ии Whether the leaked data are adequately
+                                                                       encrypted, anonymised or otherwise
+З Financial loss                                                       rendered inaccessible, e.g., if access is
+                                                                       password-protected
+З Humiliation or loss of dignity, damage to
+    reputation or relationships                                    ии The duration of the breach
+
+З Loss of business or employment opportunities                     ии Whether the breach is an isolated incident
+                                                                       or a systematic problem
+   The extent of the harm suffered by the
+   affected data subjects in a data breach                         ии In the case of physical loss, whether the
+   depends on:                                                         lost items have been found before they
+                                                                       could be accessed or copied
+   ии The kind and sensitivity of the personal
+        data being leaked: generally, the more                     ии Whether effective mitigation/remedial
+        sensitive the data, the higher the risk of                     measures have been taken after the breach
+        harm that may be caused to the affected                        has occurred
+        data subjects
+                                                                   ии The ability of the data subjects to avoid or
+   ии The amount of personal data involved:                            mitigate possible harm
+        in general, the greater the volume of
+        personal data leaked, the more serious the                 ии The affected data subjects' reasonable
+        consequences will be                                           expectations of personal data privacy
+
+Guidance on Data Breach Handling and Data Breach Notifications  5  June 2023
+The result of an assessment may reveal a real risk                 Step 5: Documenting the breach
+of harm, for example, when a database containing
+personal particulars, contact details and financial                A data user should learn from the data breach
+data is accidentally leaked online through file-                   incident, facilitate a post-breach review and improve
+sharing software, many breaches may entail. On the                 personal data handling practices as appropriate. A
+other hand, a lower risk of harm may be involved in,               comprehensive record of the incident is therefore
+for example, the loss of a USB flash drive containing              required, which should include all facts relating to
+securely encrypted data which may not be sensitive                 the breach, ranging from details of the breach and
+in nature, or when the lost or misplaced device                    its effects to the containment and remedial actions
+containing personal data has subsequently been                     taken by the data user. Organisations that are
+found and the personal data does not appear to                     required to comply with the laws and regulations
+have been accessed.                                                of other jurisdictions should also consider
+                                                                   whether there are any mandatory documentation
+Step 4: Considering giving data breach                             requirements under those laws and regulations6.
+           notifications
+
+When deciding whether to report a breach to the
+affected data subjects, the PCPD and other law
+enforcement agencies, the data user should take into
+account the potential consequences of a breach for
+the affected individuals, how serious or substantial
+these are, and how likely they are to happen. The
+consequences of failing to give notification should
+also be duly considered.
+
+In general, the data user should notify the
+PCPD and the affected data subjects as soon as
+practicable after becoming aware of the data
+breach, particularly if the data breach is likely to
+result in a real risk of harm to those affected data
+subjects. Data users subject to other regulatory
+requirements may also need to report data breaches
+in accordance with the relevant statutory provisions,
+codes of practice, rules or guidelines.4 Notification
+obligations under the laws and regulations of other
+jurisdictions5 may also be triggered. If necessary, the
+data user should seek professional advice regarding
+compliance with such requirements.
+
+4 For instance, the disclosure obligations under the Listing Rule apply to listed companies. The guidelines promulgated by the Hong Kong
+       Monetary Authority about reporting data breaches apply to authorised institutions.
+
+5 A data breach suffered by a local entity may be subject to the mandatory notification requirements that are in place in other jurisdictions,
+       such as the General Data Protection Regulation of the European Union and the Personal Information Protection Law of the Mainland,
+       depending on the circumstances of each case.
+
+6 For example, the General Data Protection Regulation of the European Union requires the data controllers to keep documentation of all data
+       breaches.
+
+Guidance on Data Breach Handling and Data Breach Notifications  6  June 2023
+DATA BREACH NOTIFICATIONS
+
+A data breach notification is a formal notification                What should be included in the notification?
+given by the data user to the relevant parties
+including the affected data subjects and the                          Depending on the circumstances of the case, a
+PCPD. This can help to:                                               data breach notification may include:
+
+З Draw the affected data subjects' attention to                       ии A general description of what occurred
+    take proactive steps or measures to mitigate                      ии The date and time of the breach and its
+    any potential harm or damage, for example,
+    to protect their physical safety, reputation or                        duration (or an estimate)
+    financial position;                                               ии The date and time when the breach was
+
+З Enable the relevant authorities to undertake                             detected
+    appropriate investigative or follow-up actions;                   ии The source of the breach (either the data
+
+З Demonstrate the data user's commitment to                                user or the third party that processed the
+    robust personal data privacy management by                             personal data on its behalf )
+    adhering to the principles of transparency and                    ии Basic information about the type of breach
+    accountability;                                                   ии A list of the types of personal data involved
+                                                                      ии The categories and approximate number
+З Raise public awareness, for example in situations                        of data subjects involved
+    if public health or security is affected by the data              ии The categories and approximate number
+    breach; and                                                            of personal data records involved
+                                                                      ии An assessment of the risk of harm (such
+З Obtain appropriate advice from the PCPD in                               as identity theft or fraud) that could result
+    terms of promptly responding to the breach                             from the breach
+    and improving personal data systems and                           ии A description of the measures taken or to
+    policies, thus preventing the recurrence of similar                    be taken to mitigate the loss or to prevent
+    incidents.                                                             further unauthorised access to and/or
+                                                                           leakage of personal data
+To whom should the notification be given?                             ии The contact information of the data
+The data user should consider the circumstances of                         breach response team or of a staff member
+the case and decide whether any of the following                           designated to handle the data breach
+parties should be notified as soon as practicable:                    ии Information and advice on the actions
+                                                                           the data subjects can take to protect
+З The affected data subjects                                               themselves from any adverse effects of
+                                                                           the breach and from identity theft or fraud
+З The PCPD                                                                 (e.g., resetting passwords, being alert to
+                                                                           phishing emails or fraudulent activity
+З Law enforcement agencies other than the PCPD                             on their accounts, contacting financial
+                                                                           institutions to change their credit card
+З Any relevant regulators                                                  details, requesting that credit reference
+                                                                           agencies suspend any provision of their
+З Other parties who may be able to take remedial                           credit reports to third parties)
+    actions, such as protecting the personal data
+    privacy and the interests of the data subjects
+    affected (for example, Internet companies like
+    Google and Yahoo may assist to remove relevant
+    cached links from their search engines)
+
+Guidance on Data Breach Handling and Data Breach Notifications  7  June 2023
+Data users should consider the circumstances of                    How to notify?
+the case and seek legal advice if they are uncertain
+about the content of the information to be included                З Notification to the data subjects
+in the notification.
+                                                                   The data subjects can be notified directly by phone,
+When to notify?                                                    in writing, via email or in person.
+
+A notification must be given in sufficient time for its            When a direct data breach notification is not
+benefits to be maximised, in particular to reduce the              practicable in the circumstan ces, for example, if
+risk of harm caused to the affected data subjects and              data subjects are not immediately identifiable or if
+to maintain the data user's goodwill. A notification               public interest exists, then public announcements,
+should generally be given as soon as practicable                   newspaper advertisements or announcements on
+after becoming aware of the incident, regardless                   websites or social media platforms may be more
+of the progress of any internal investigation. If                  effective. If a data breach results in particularly
+the data user is initially unable to provide full details          serious harm or affects a large number of individuals,
+about the breach, providing as much information                    using multiple methods to publicise the breach is a
+as possible in the notification is still desirable.                reasonable approach.
+After the full details of the incident are revealed, all
+information should be submitted to the PCPD and                    З Notification to the PCPD
+other law enforcement agencies without delay.
+                                                                   Data users are advised to use the PCPD's Data
+As there may be specified notification time frames                 Breach Notification Form7 when reporting a
+in other jurisdictions, if notification to overseas                data breach to the PCPD. They may submit the
+regulatory authorities is required, the data user                  completed form to the PCPD online, by fax, in person
+should seek professional advice, if necessary, and                 or by post. Oral notifications are not accepted. If the
+ensure that the notification is made within the                    data user needs help in completing this form, please
+statutory time limit in accordance with the relevant               contact us.
+requirements.
+
+7 Available at https://www.pcpd.org.hk/english/enforcement/data_breach_notification/dbn.html
+
+Guidance on Data Breach Handling and Data Breach Notifications  8                             June 2023
+LESSON LEARNT: PREVENTING RECURRENCE
+
+Preventing data breaches by taking measures in                     З The revision or promulgation of relevant privacy
+advance is always preferable. Investigations into                      policies and practices in light of the data breach.
+data breaches can provide insights into measures
+for ensuring personal data security and can                        З The effectiveness of the detection of and
+identify any insufficiencies or inadequacies. The                      response to the data breach.
+data user should therefore learn from the data
+breach, review how personal data are handled                       З The strengthening of the monitoring and
+to identify the root of the problem and devise a                       supervision mechanisms for employees, agents
+clear strategy to prevent the future recurrence                        and data processors.
+of similar incidents. The review should take into
+consideration:                                                     З The provision of on-the-job training to promote
+                                                                       privacy awareness and to enhance the prudence,
+З Improvements in the security of personal data                        competence and integrity of employees who
+    handling processes. The level of security should                   handle personal data.
+    be tailored to the sensitivity of the personal data
+    and the risks inherent in handling them.                       З The implementation of data ethics and
+                                                                       accountability principles in the organisation9.
+З The control of individual access rights to personal
+    data. The principles of"need-to-know"and                       З The data processor engagement policy and
+   "need-to-access"should be adhered to.                               the review process for the contractual terms
+                                                                       concerning the protection of personal data
+З The adequacy of IT security measures in                              privacy, such as ensuring that the data processor
+    protecting personal data from hacking,                             takes appropriate data security measures and
+    unauthorised or accidental access, processing,                     immediately reports any data breach10.
+    erasure, loss or use8.
+
+8 See the Guidance Note on Data Security Measures for Information and Communications Technology issued by the PCPD, which is available at
+       https://www.pcpd.org.hk/english/resources_centre/publications/files/guidance_datasecurity_e.pdf
+
+9 See the Privacy Management Programme: A Best Practice Guide issued by the PCPD, which is available at
+       https://www.pcpd.org.hk/english/publications/files/PMP_guide_e.pdf
+
+10 See the information leaflet on Outsourcing the Processing of Personal Data to Data Processors issued by the PCPD, which is available at
+       https://www.pcpd.org.hk/english/resources_centre/publications/files/dataprocessors_e.pdf
+
+Guidance on Data Breach Handling and Data Breach Notifications  9  June 2023
+                                                                    PCPD website
+                                                                     pcpd.org.hk
+
+                                                                       Download
+                                                                    this publication
+
+Enquiry Hotline  : (852) 2827 2827
+Fax              : (852) 2877 7026
+Address          : Room 1303, 13/F, Dah Sing Financial Centre, 248 Queen's Road East, Wanchai, Hong Kong
+Email            : communications@pcpd.org.hk
+
+Copyright
+
+This publication is licensed under a Creative Commons Attribution 4.0 International (CC BY 4.0) licence. In essence, you are free to share
+and adapt this publication, as long as you attribute the work to the office of the Privacy Commissioner for Personal Data, Hong Kong.
+For details, please visit creativecommons.org/licenses/by/4.0.
+
+Disclaimer
+The information and suggestions provided in this publication are for general reference only. They do not serve as an exhaustive guide
+to the application of the law. The Privacy Commissioner makes no express or implied warranties of accuracy or fitness for a particular
+purpose or use with respect to the information and suggestions set out in this publication. The information and suggestions provided
+will not affect the functions and powers conferred upon the Privacy Commissioner under the Personal Data (Privacy) Ordinance.
+Organisations are advised to seek professional advice on the circumstances relating to individual data breaches as they see fit.
+
+First published in June 2010
+October 2015 (First Revision)
+January 2019 (Second Revision)
+June 2023 (Third Revision)
+
+Guidance on Data Breach Handling and Data Breach Notifications  10                                        June 2023
+

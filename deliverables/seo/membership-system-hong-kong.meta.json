@@ -1,0 +1,13 @@
+{
+  "id": 34,
+  "slug": "membership-system-hong-kong",
+  "title": "會員系統選擇指南：SaaS 月費、買斷與訂造開發成本比較（香港店主）",
+  "excerpt": "開店做會員制度，應該用 SaaS 月費、買斷授權，還是找人訂造開發？本文逐項拆解三種模式的收費結構、三年總成本示範計算、常見隱藏成本（交易費、訊息推送費、加值模組、資料匯出），並說明會員資料的擁有權與《個人資料（私隱）條例》的合規要求，附零售、餐飲與美容業需求差異表及選擇檢查清單。所有金額均為示範假設。",
+  "date": "2026-10-09",
+  "category": "System Dev",
+  "readTime": "14 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/membership-system-hong-kong.webp",
+  "tags": ["會員系統", "SaaS", "訂造開發", "POS 整合", "個人資料私隱", "香港零售", "系統開發"],
+  "comment": "Article 34：會員系統選擇指南"
+}

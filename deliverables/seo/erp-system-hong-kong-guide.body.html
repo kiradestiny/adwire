@@ -1,0 +1,318 @@
+<p class="lead text-xl text-gray-600 mb-8">企業要更換 ERP，最常問的問題不是「哪一套最好」，而是「應該買現成套裝，還是找人訂造」。本文為香港中小企至大企業的 IT 主管與營運總監而寫：由 ERP 與 CRM、會計、庫存系統的分別講起，用六大維度比較套裝與訂造，附三年總成本（TCO）示範計算、導入失敗的常見原因、六步選型流程，以及一份可以直接使用的評分檢查清單。</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+  <p class="text-gray-700 leading-relaxed">ERP 是一套把財務、採購、庫存、銷售、人力資源與報表連成單一資料來源的系統，核心價值在於<strong>消除系統孤島、減少重複工序</strong>。套裝與訂造沒有絕對優劣：<strong>套裝勝在功能齊全、導入較快、生態成熟、維護成本可預期</strong>；<strong>訂造勝在貼合獨特流程、不受標準框架限制</strong>。香港大部分中小企適合「以套裝為主、只訂造關鍵介面與整合」；流程高度特殊（例如特殊製造、法規密集行業）才值得大幅訂造。決策關鍵不是「哪一個便宜」，而是<strong>三年總成本（TCO）與流程契合度</strong>。</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 本文重點</p>
+  <ul class="space-y-2">
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>ERP 解決的是「跨部門資料不一致」，不是單純把會計軟件升級</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>套裝與訂造用六大維度比較：功能覆蓋、客製彈性、導入時間、總成本、維護、升級與鎖定</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>比較要用三年 TCO，不能只看首年報價；隱藏成本往往決定成敗</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>導入失敗多數源於流程梳理不足、變更管理缺失與資源錯配，而非技術本身</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>中小企宜分期上線，先做核心財務與庫存，再逐步擴展模組</span></li>
+  </ul>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-1.webp" alt="示意圖：企業各部門各自使用不同系統形成資料孤島，以及 ERP 整合後的單一資料來源" title="示意圖：企業各部門各自使用不同系統形成資料孤島，以及 ERP 整合後的單一資料來源" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">ERP 的核心價值：把各自為政的系統連成單一資料來源</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、ERP 到底是什麼（與 CRM、會計、庫存系統的分別）</h2>
+<p>企業資源規劃（Enterprise Resource Planning，ERP）是一套<strong>共用單一資料庫的整合式管理系統</strong>。它的重點不是某一個功能特別強，而是讓財務、採購、庫存、銷售、人力資源等部門使用<strong>同一份資料</strong>，避免各自為政、重複輸入。</p>
+<p>很多人把 ERP 與 CRM、會計系統、庫存系統混為一談。四者關係可以這樣理解：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">系統類型</th><th class="px-4 py-3 text-left">主要目的</th><th class="px-4 py-3 text-left">核心資料</th><th class="px-4 py-3 text-left">與 ERP 的關係</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">ERP</td><td class="px-4 py-3">整合全公司後台流程</td><td class="px-4 py-3">財務、採購、庫存、銷售、人事</td><td class="px-4 py-3">主幹，涵蓋其餘系統</td></tr>
+      <tr><td class="px-4 py-3">CRM</td><td class="px-4 py-3">管理客戶關係與銷售漏斗</td><td class="px-4 py-3">客戶、商機、聯絡紀錄</td><td class="px-4 py-3">多為 ERP 的銷售端延伸或外接</td></tr>
+      <tr><td class="px-4 py-3">會計系統</td><td class="px-4 py-3">記帳、報稅、財務報表</td><td class="px-4 py-3">總帳、應收應付</td><td class="px-4 py-3">ERP 的財務模組，或獨立對接</td></tr>
+      <tr><td class="px-4 py-3">庫存／倉儲系統</td><td class="px-4 py-3">追蹤貨品與出入庫</td><td class="px-4 py-3">存貨、批次、位置</td><td class="px-4 py-3">ERP 的庫存模組，或獨立對接</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>判斷是否需要 ERP 的簡單問題是：<strong>你的痛點是否橫跨多個部門？</strong>如果只是「會計想換一套好用的記帳軟件」，那可能只需要會計系統；如果「同一批貨，銷售、倉庫、財務各自有一份數字且對不上」，那正是 ERP 要解決的問題。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-2.webp" alt="比較圖：ERP 與 CRM、會計系統、庫存系統在主要目的、核心資料及與 ERP 關係上的分別" title="比較圖：ERP 與 CRM、會計系統、庫存系統在主要目的、核心資料及與 ERP 關係上的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">ERP 是主幹；CRM、會計與庫存系統可以是它的模組，也可以是外接系統</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、香港企業常見的 ERP 範圍</h2>
+<p>不同行業的 ERP 側重不同，但香港企業最常見的範圍大致圍繞六個模組。先釐清自己需要哪幾個，是控制預算與導入風險的第一步。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">模組</th><th class="px-4 py-3 text-left">典型功能</th><th class="px-4 py-3 text-left">常見行業側重</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">財務</td><td class="px-4 py-3">總帳、應收應付、發票、對帳</td><td class="px-4 py-3">全部行業的必備模組</td></tr>
+      <tr><td class="px-4 py-3">採購</td><td class="px-4 py-3">請購、採購單、供應商管理、收貨</td><td class="px-4 py-3">貿易、零售、製造</td></tr>
+      <tr><td class="px-4 py-3">庫存</td><td class="px-4 py-3">出入庫、批次序號、盤點、多倉</td><td class="px-4 py-3">零售、批發、餐飲</td></tr>
+      <tr><td class="px-4 py-3">銷售</td><td class="px-4 py-3">報價、訂單、送貨、退貨</td><td class="px-4 py-3">零售、貿易、B2B 銷售</td></tr>
+      <tr><td class="px-4 py-3">人力資源</td><td class="px-4 py-3">考勤、薪酬、假期、強積金</td><td class="px-4 py-3">人力密集的服務業</td></tr>
+      <tr><td class="px-4 py-3">報表</td><td class="px-4 py-3">儀表板、管理報表、成本分析</td><td class="px-4 py-3">管理層決策需要</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>實務上不必一次過全部上線。以香港中小企而言，<strong>財務加庫存</strong>通常是最優先的核心；採購與銷售緊隨其後；人力資源與進階報表可以留待第二、第三階段。先做核心，除了節省首年成本，亦可以讓員工逐步適應，降低整體風險。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-3.webp" alt="圖表：香港企業最常見的六個 ERP 模組，由財務、採購、庫存、銷售到人力資源與報表" title="圖表：香港企業最常見的六個 ERP 模組，由財務、採購、庫存、銷售到人力資源與報表" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">財務與庫存通常是核心，其餘模組可按階段加入</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、套裝與訂造：六個比較維度</h2>
+<p>「套裝」指購買現成的商業軟件（例如市場上的雲端 ERP 產品）；「訂造」指委託開發商按你的流程由零開發或大幅改造。兩者不是非此即彼，市場上亦常見「套裝加少量客製」的混合模式。以下六個維度是最常影響決策的比較點。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">比較維度</th><th class="px-4 py-3 text-left">套裝</th><th class="px-4 py-3 text-left">訂造</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>功能覆蓋</strong></td><td class="px-4 py-3">模組齊全，行業最佳實務已內建</td><td class="px-4 py-3">只做你指定的功能，貼合實際流程</td></tr>
+      <tr><td class="px-4 py-3"><strong>客製彈性</strong></td><td class="px-4 py-3">受標準框架限制，客製有上限</td><td class="px-4 py-3">高度自由，流程可完全按需設計</td></tr>
+      <tr><td class="px-4 py-3"><strong>導入時間</strong></td><td class="px-4 py-3">較快，通常以週至數月計</td><td class="px-4 py-3">較長，視範圍由數月至一年以上</td></tr>
+      <tr><td class="px-4 py-3"><strong>總成本</strong></td><td class="px-4 py-3">首年較低，成本可預期</td><td class="px-4 py-3">首年較高，需求變更易追加預算</td></tr>
+      <tr><td class="px-4 py-3"><strong>維護</strong></td><td class="px-4 py-3">由原廠支援，版本持續更新</td><td class="px-4 py-3">多依賴原開發商，轉換成本高</td></tr>
+      <tr><td class="px-4 py-3"><strong>升級與鎖定</strong></td><td class="px-4 py-3">升級較順，但受供應商生態鎖定</td><td class="px-4 py-3">升級靠自己，原始碼在手上則較少鎖定</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>一個實用的判斷原則：<strong>如果你的流程屬於行業主流，套裝通常更划算；如果你的流程正是競爭優勢所在，才值得訂造。</strong>把訂造留給「標準產品做不到、又直接影響生意」的部分，其餘用套裝，往往是香港企業最平衡的做法。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-4.webp" alt="決策圖：按流程是否屬於行業主流，判斷應選擇套裝、混合模式還是訂造 ERP" title="決策圖：按流程是否屬於行業主流，判斷應選擇套裝、混合模式還是訂造 ERP" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">流程屬主流用套裝；流程是核心競爭力才訂造，其餘採混合模式</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、三年總成本（TCO）示範計算</h2>
+<p>比較 ERP 最常見的錯誤，是只看首年報價。真正要比較的是<strong>三年總成本（Total Cost of Ownership，TCO）</strong>，包括授權、導入、資料遷移、客製、維護、雲端與內部人力。</p>
+<p>以下是一個<strong>示範計算</strong>，用以說明比較方法。假設一間 50 人、30 個系統使用者的香港貿易公司，需要財務、庫存、銷售三個模組。<strong>數字純屬示範假設，並非任何供應商的實際報價</strong>，實際金額須以正式報價為準。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">成本項目</th><th class="px-4 py-3 text-left">套裝（示範假設）</th><th class="px-4 py-3 text-left">訂造（示範假設）</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">首年：授權／訂閱</td><td class="px-4 py-3">30 用戶 × 約 $500／月 × 12 ＝ 約 $180,000</td><td class="px-4 py-3">無授權費</td></tr>
+      <tr><td class="px-4 py-3">首年：開發／導入設定</td><td class="px-4 py-3">約 $120,000</td><td class="px-4 py-3">約 $600,000（按範圍與工時估算）</td></tr>
+      <tr><td class="px-4 py-3">首年：資料遷移與雲端</td><td class="px-4 py-3">約 $40,000</td><td class="px-4 py-3">約 $80,000</td></tr>
+      <tr><td class="px-4 py-3"><strong>首年小計</strong></td><td class="px-4 py-3"><strong>約 $340,000</strong></td><td class="px-4 py-3"><strong>約 $680,000</strong></td></tr>
+      <tr><td class="px-4 py-3">第二年：訂閱＋維護＋小改動</td><td class="px-4 py-3">約 $200,000</td><td class="px-4 py-3">約 $210,000（維護約為開發費 20%）</td></tr>
+      <tr><td class="px-4 py-3">第三年：訂閱＋維護＋小改動</td><td class="px-4 py-3">約 $200,000</td><td class="px-4 py-3">約 $210,000</td></tr>
+      <tr><td class="px-4 py-3"><strong>三年合計</strong></td><td class="px-4 py-3"><strong>約 $740,000</strong></td><td class="px-4 py-3"><strong>約 $1,100,000</strong></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>示範結果顯示：<strong>套裝的首年與三年成本都較低，但差距會隨時間收窄</strong>。原因是訂造在第二、三年只需要維護與小額增補，而套裝的訂閱費每年持續。若訂造能帶來顯著的流程優勢或收入提升，長遠仍有機會回本；反之，若訂造只是為了「好看」，成本會變成純支出。</p>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 最容易漏算的隱藏成本</p>
+  <ul class="list-disc pl-5 space-y-2 text-gray-700">
+    <li><strong>資料清理與遷移</strong>——舊資料不乾淨，遷移工時往往超出預期</li>
+    <li><strong>整合費用</strong>——與現有電商、CRM、支付或物流系統對接</li>
+    <li><strong>培訓與變更管理</strong>——員工適應新流程的時間與成本</li>
+    <li><strong>內部人力</strong>——項目期間抽調同事參與梳理與測試的機會成本</li>
+    <li><strong>需求變更</strong>——訂造項目最常見的追加預算來源</li>
+  </ul>
+</div>
+
+<p>政府資助方面須留意現況：<strong>「科技券」（TVP）已於 2024 年 12 月 31 日後停止接受新申請</strong>，而<strong>「數碼轉型支援先導計劃」亦已於 2025 年 5 月截止申請</strong>，政府正研究優化並加入人工智能及網絡安全方案，目標於稍後推出新一輪。規劃預算時不宜假設資助仍然可即時申請，應先以自有資金為基礎，再留意官方最新公布。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-5.webp" alt="圖表：套裝與訂造 ERP 三年總成本的示範比較，顯示首年及三年合計的差距" title="圖表：套裝與訂造 ERP 三年總成本的示範比較，顯示首年及三年合計的差距" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">示範數字僅供說明比較方法，實際以正式報價為準</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-6.webp" alt="圖示：ERP 項目最常被漏算的五類隱藏成本，包括資料遷移、整合、培訓、內部人力與需求變更" title="圖示：ERP 項目最常被漏算的五類隱藏成本，包括資料遷移、整合、培訓、內部人力與需求變更" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">決定 TCO 高低的，往往是這些不在首年報價上的項目</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、導入失敗的常見原因與風險控制</h2>
+<p>ERP 導入失敗在業界相當普遍。國際顧問公司 Panorama Consulting 的《2024 ERP Report》指出，受訪企業的項目成本中位數為 45 萬美元、工期中位數為 15.5 個月；超出預算最常見的原因是「意料之外的額外技術需求」，而超出工期最常見的原因是「資源限制」。值得注意的是，該報告的樣本以中大型企業為主，香港中小企的規模與風險特徵會有所不同。</p>
+<p>以下是香港企業最常遇到的失敗原因與對應控制方法：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">常見原因</th><th class="px-4 py-3 text-left">徵兆</th><th class="px-4 py-3 text-left">風險控制</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">流程梳理不足</td><td class="px-4 py-3">直接跳到選軟件，未定義需求</td><td class="px-4 py-3">先做工序盤點與需求文件</td></tr>
+      <tr><td class="px-4 py-3">變更管理缺失</td><td class="px-4 py-3">前線抗拒、繼續用舊流程</td><td class="px-4 py-3">及早溝通、設種子用戶與培訓</td></tr>
+      <tr><td class="px-4 py-3">高層參與不足</td><td class="px-4 py-3">項目淪為 IT 部門單打獨鬥</td><td class="px-4 py-3">由管理層擔任項目贊助人</td></tr>
+      <tr><td class="px-4 py-3">資料質素差</td><td class="px-4 py-3">舊資料重複、缺漏</td><td class="px-4 py-3">上線前多輪清理與驗證</td></tr>
+      <tr><td class="px-4 py-3">範圍失控</td><td class="px-4 py-3">需求不斷增加、預算追不上</td><td class="px-4 py-3">訂立變更控制流程與分期交付</td></tr>
+      <tr><td class="px-4 py-3">資源錯配</td><td class="px-4 py-3">內部人手不足、進度一再延後</td><td class="px-4 py-3">預留專責人手與緩衝時間</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-7.webp" alt="圖示：ERP 導入風險控制的四個重點，包括需求文件、變更控制、高層參與與分期交付" title="圖示：ERP 導入風險控制的四個重點，包括需求文件、變更控制、高層參與與分期交付" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">對應失敗原因的風險控制措施</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-8.webp" alt="圖示：ERP 導入失敗的六個常見原因，由流程梳理不足、變更管理缺失到資源錯配" title="圖示：ERP 導入失敗的六個常見原因，由流程梳理不足、變更管理缺失到資源錯配" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">失敗多數不是技術問題，而是流程、人與資源的問題</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、選型流程六步</h2>
+<p>把選型當作一個有次序的項目，可以大幅減少「買錯」的風險。建議按以下六步推進：</p>
+<ol class="list-decimal pl-5 space-y-2 text-gray-700 my-4">
+  <li><strong>需求盤點</strong>——列出各部門痛點、必須功能與期望成果，分清「必要」與「想要」</li>
+  <li><strong>流程梳理</strong>——把現有工序畫出來，找出重複、斷點與可標準化的部分</li>
+  <li><strong>建立短名單</strong>——按行業適配度、規模與預算篩選三至五個方案</li>
+  <li><strong>示範與 PoC</strong>——要求針對你的真實流程做示範或概念驗證，不要只看通用簡報</li>
+  <li><strong>報價與合約</strong>——逐項核對範圍、交付成果、付款里程碑與支援安排</li>
+  <li><strong>分期上線</strong>——先做核心模組，驗收後再擴展，降低一次過失敗的風險</li>
+</ol>
+<p>這六步之中，<strong>第一與第二步最容易被跳過，卻最影響結果</strong>。若企業內部沒有相關經驗，可以考慮引入獨立顧問協助梳理需求與評審方案，避免被單一供應商的示範牽着走。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-9.webp" alt="流程圖：ERP 選型的六個步驟，由需求盤點、流程梳理到分期上線" title="流程圖：ERP 選型的六個步驟，由需求盤點、流程梳理到分期上線" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">由需求盤點開始，到分期上線結束，六步有序推進</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、中小企分期導入路線圖</h2>
+<p>中小企資源有限，最忌一次過更換整套系統。分期導入可以讓每一步都有可見成果，亦讓員工有時間適應。一個常見的三階段路線如下：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">重點</th><th class="px-4 py-3 text-left">目標</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">第一階段（0–6 個月）</td><td class="px-4 py-3">財務與庫存核心上線，完成資料遷移與基礎培訓</td><td class="px-4 py-3">統一基本資料，解決對數問題</td></tr>
+      <tr><td class="px-4 py-3">第二階段（6–12 個月）</td><td class="px-4 py-3">加入採購與銷售，打通訂單到收款流程</td><td class="px-4 py-3">減少重複輸入，提升營運效率</td></tr>
+      <tr><td class="px-4 py-3">第三階段（12 個月後）</td><td class="px-4 py-3">人力資源、管理報表與系統整合，按需加入 AI 或自動化</td><td class="px-4 py-3">以數據支持決策與擴展</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>分期導入的另一個好處，是<strong>讓每一階段都能獨立驗收與量度成效</strong>。若某一階段成效不理想，可以在下一階段調整方向，而不必推倒重來。對需要向管理層證明投資回報的 IT 主管而言，這種「小步驗證」的方式更容易取得持續支持。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-10.webp" alt="路線圖：中小企 ERP 分期導入的三個階段，由核心財務庫存到整合與自動化" title="路線圖：中小企 ERP 分期導入的三個階段，由核心財務庫存到整合與自動化" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先核心、後擴展，每階段獨立驗收，降低整體風險</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、評分表與檢查清單</h2>
+<p>在比較幾個方案時，可以按以下維度評分（每項 1 至 5 分），把主觀感覺變成可比較的分數。建議先為每項設定權重，再乘以分數加總。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">評分項目</th><th class="px-4 py-3 text-left">要問的問題</th><th class="px-4 py-3 text-left">權重建議</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">流程契合度</td><td class="px-4 py-3">方案能否覆蓋你 80% 的核心流程？</td><td class="px-4 py-3">高</td></tr>
+      <tr><td class="px-4 py-3">整合能力</td><td class="px-4 py-3">能否與現有電商、CRM、支付系統對接？</td><td class="px-4 py-3">高</td></tr>
+      <tr><td class="px-4 py-3">總成本透明度</td><td class="px-4 py-3">三年 TCO 是否清楚，有否隱藏收費？</td><td class="px-4 py-3">高</td></tr>
+      <tr><td class="px-4 py-3">導入時間</td><td class="px-4 py-3">上線時間表是否現實、有否里程碑？</td><td class="px-4 py-3">中</td></tr>
+      <tr><td class="px-4 py-3">支援與維護</td><td class="px-4 py-3">回應時間、保養期、指定聯絡人是否明確？</td><td class="px-4 py-3">中</td></tr>
+      <tr><td class="px-4 py-3">升級與鎖定</td><td class="px-4 py-3">日後升級與遷出資料是否容易？</td><td class="px-4 py-3">中</td></tr>
+      <tr><td class="px-4 py-3">供應商資歷</td><td class="px-4 py-3">有否同類行業與規模的實際經驗？</td><td class="px-4 py-3">中</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>檢查清單方面，簽約前務必確認：<strong>資料所有權與匯出方式、知識產權歸屬、服務水平承諾、資料遷入與遷出安排、以及付款里程碑</strong>。這幾項若寫得不清楚，最容易在交付後出現爭議。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-11.webp" alt="表格圖示：ERP 選型的七個評分項目，包括流程契合度、整合能力、總成本透明度與支援維護" title="表格圖示：ERP 選型的七個評分項目，包括流程契合度、整合能力、總成本透明度與支援維護" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把主觀比較變成可加權的分數，決策更有依據</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/erp-system-hong-kong-guide-12.webp" alt="清單圖示：ERP 簽約前必須確認的五個項目，包括資料所有權、知識產權、服務水平、遷出安排與付款里程碑" title="清單圖示：ERP 簽約前必須確認的五個項目，包括資料所有權、知識產權、服務水平、遷出安排與付款里程碑" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">簽約前把這五項寫清楚，可避免日後爭議</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+<div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ERP 與 CRM、會計系統有什麼分別？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">ERP 是整合全公司後台流程的主幹，涵蓋財務、採購、庫存、銷售與人力資源，共用單一資料庫；CRM 專注客戶關係與銷售漏斗；會計系統專注記帳與報稅；庫存系統專注貨品與出入庫。後三者可以是 ERP 的模組，也可以是外接系統。若痛點只涉及單一職能，未必需要整套 ERP。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">套裝 ERP 還是訂造 ERP 比較好？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">沒有絕對答案，取決於流程是否屬於行業主流。流程屬主流、追求快速上線與可預期成本，套裝通常更划算；流程是核心競爭力、標準產品做不到，才值得訂造。香港大部分中小企適合「以套裝為主，只訂造關鍵介面與整合」的混合模式。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ERP 項目一般要多少錢？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">金額差距極大，取決於用戶數、模組數量、客製程度與是否整合現有系統。本文的三年 TCO 示範顯示，一間 50 人、30 個使用者的公司，套裝三年約數十萬元，訂造可達百萬元以上。以上僅為示範假設，實際必須以供應商正式報價為準，並逐項核對隱藏成本。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ERP 導入為什麼會失敗？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見原因包括流程梳理不足、變更管理缺失、高層參與不足、資料質素差、範圍失控與資源錯配。Panorama Consulting《2024 ERP Report》指出，超出預算最常見的原因是意料之外的額外技術需求，超出工期最常見的原因是資源限制。控制方法包括先做需求文件、設變更控制流程與分期交付。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">中小企應該一次過更換整套 ERP 嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">一般不建議。分期導入可以讓每階段獨立驗收與量度成效，先做財務與庫存核心，再逐步加入採購、銷售、人力資源與報表。這種方式降低一次過失敗的風險，亦讓員工有時間適應，並更容易向管理層證明投資回報。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">現在還有政府資助可以申請 ERP 嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">須留意現況：「科技券」（TVP）已於 2024 年 12 月 31 日後停止接受新申請；「數碼轉型支援先導計劃」亦已於 2025 年 5 月截止申請。政府正研究優化先導計劃，加入人工智能及網絡安全方案，目標稍後推出新一輪。規劃時宜先以自有資金為基礎，並留意官方最新公布。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">如何避免被 ERP 供應商鎖定？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">簽約前確認資料所有權與匯出方式、原始碼或設計檔的交付安排，以及日後遷出系統的配合條款。訂造項目若能取得原始碼，鎖定風險較低；套裝項目則要了解資料可否完整匯出、格式是否開放。把這些寫入合約，比事後補救有效得多。</p>
+  </div>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">想找人協助你選型與導入 ERP？</p>
+  <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供系統開發、ERP／CRM 及內部工具、系統整合與技術顧問服務，可以協助你由需求盤點、流程梳理、方案評審到報價文件一併處理。</p>
+  <p><a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a>　·　<a href="/services/consulting/" class="text-[#0f4c81] font-bold hover:underline">技術顧問服務</a>　·　<a href="/blog/crm-system-selection-guide-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">CRM 系統選型指南</a></p>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+<p>ERP 不是越大越好，也不是越貴越好。對香港企業而言，選型的核心問題只有三個：<strong>痛點是否橫跨多個部門、流程是否屬於行業主流、三年總成本是否負擔得起</strong>。把訂造留給真正影響競爭力的部分，其餘用套裝並分期上線，是大部分企業最平衡的取法。決策前做好需求盤點與流程梳理，並用評分表把主觀比較變成可量度的分數，就能大幅降低「導入失敗」的風險。</p>
+
+<div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+  <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+  <ul class="space-y-1">
+    <li><a href="https://www.info.gov.hk/gia/general/202602/25/P2026022500279.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港政府新聞公報：立法會二題——支援中小企業數碼轉型的措施</a> — 「科技券」已於 2024 年 12 月 31 日後停止接受新申請；「數碼轉型支援先導計劃」資助上限 5 萬元、已於 2025 年 5 月截止申請，政府擬優化並加入人工智能及網絡安全方案</li>
+    <li><a href="https://www.info.gov.hk/gia/general/202412/13/P2024121300383.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港政府新聞公報：政府宣布將停止接受「科技券」申請</a> — 創新科技署宣布 2024 年 12 月 31 日後停止接受「科技券」新申請及原因</li>
+    <li><a href="https://tvp.itf.gov.hk/zh-HK" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">創新科技署：科技券（TVP）官方網站</a> — 計劃狀態通告：2024 年 12 月 31 日後停止接受新申請</li>
+    <li><a href="https://4439340.fs1.hubspotusercontent-na1.net/hubfs/4439340/Reports/ERP%20Report/2024-erp-report-panorama-consulting-group.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Panorama Consulting Group：《2024 ERP Report》</a> — 項目成本中位數 45 萬美元、工期中位數 15.5 個月；超預算主因為額外技術需求，超工期主因為資源限制</li>
+    <li><a href="https://www.hkpc.org/zh-HK/our-services/digital-transformation/digital-transformation-support" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港生產力促進局：數碼轉型支援</a> — 香港企業數碼化指數及中小企數碼轉型的常見障礙（資金、系統整合、技術支援）</li>
+  </ul>
+</div>

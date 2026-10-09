@@ -1,0 +1,317 @@
+<p class="lead text-xl text-gray-600 mb-8">手上有一個產品意念，卻沒有技術背景，最常卡住的三個問題是：不知道要做多少才算「夠」、不知道要花多少錢、不知道怎樣把自己的想法寫成開發商看得懂的內容。本文由香港創業者的角度出發，拆解由 idea 到 MVP 的完整流程——如何劃定範圍、怎樣分期、需求文件與報價單應該寫什麼、如何判斷一間開發公司是否可靠，並附上可即用的清單與示範預算框架。</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+  <p class="text-gray-700 leading-relaxed">MVP（最小可行產品）不是「做小一點的完整產品」，而是<strong>用最低成本驗證最核心假設</strong>的那一個功能組合。做 MVP 之前，你必須先寫好一份<strong>需求文件</strong>（寫清楚目標用戶、核心流程、功能優先次序、成功指標與預算範圍），再要求開發商提供<strong>分項報價單</strong>（範圍、交付物、里程碑、付款條件、知識產權、保養）。分期交付（Phase 1／2／3）是把大項目風險切細的關鍵：先做能上線驗證的最小版本，再按市場反應加功能，比一次過報一個「完整產品」的價錢穩健得多。</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 本文重點</p>
+  <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>MVP 與完整產品是兩種不同的東西：前者驗證假設，後者交付規模</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>開發前要準備 5 樣東西：目標用戶與痛點、核心流程、功能優先次序、成功指標、預算範圍</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>需求文件與報價單各有固定結構，寫得清楚可減少九成爭議</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>同一份需求，不同公司報價可以相差數倍，原因多在範圍與技術選型</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>判斷開發公司要看「必問問題」與「危險信號」，不能只看價錢</span></li></ul>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先分清 MVP 與完整產品：範圍控制是第一步</h2>
+<p>「最小可行產品」（Minimum Viable Product，MVP）的概念源自初創方法論，核心是用最少資源做出一個可以交到真實用戶手上、並取得真實回饋的版本。它與「完整產品」的最大分別，在於<strong>目的不同</strong>：MVP 的目的是驗證假設（用戶是否真的需要、是否願意付費），完整產品的目的是規模化交付。很多創業者第一次找開發商報價，會把心中想像的「完整產品」直接講出來，結果報價單動輒數十萬，項目一做就是半年，中途市場已經改變。</p>
+<p>範圍控制的第一個動作，是把想法分成三層：<strong>必須有（must-have）</strong>、<strong>應該有（should-have）</strong>、<strong>可以有（nice-to-have）</strong>。MVP 只做「必須有」的第一層，其餘留待驗證後再加。以下對照表可以幫你快速定位：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">比較項目</th><th class="px-4 py-3 text-left">MVP</th><th class="px-4 py-3 text-left">完整產品</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">目的</td><td class="px-4 py-3">驗證最核心假設</td><td class="px-4 py-3">規模化交付與營運</td></tr>
+      <tr><td class="px-4 py-3">功能範圍</td><td class="px-4 py-3">只做「必須有」的核心流程</td><td class="px-4 py-3">覆蓋全部功能與邊緣情況</td></tr>
+      <tr><td class="px-4 py-3">用戶數量</td><td class="px-4 py-3">小範圍真實用戶或試用者</td><td class="px-4 py-3">開放予目標市場</td></tr>
+      <tr><td class="px-4 py-3">完成度</td><td class="px-4 py-3">可用但不追求完美</td><td class="px-4 py-3">穩定、可維護、可擴展</td></tr>
+      <tr><td class="px-4 py-3">時間與成本</td><td class="px-4 py-3">較短、較低</td><td class="px-4 py-3">較長、較高</td></tr>
+      <tr><td class="px-4 py-3">風險</td><td class="px-4 py-3">低（快速試錯）</td><td class="px-4 py-3">高（一次投入大）</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-1.webp" alt="比較圖：MVP 與完整產品在目的、功能範圍、用戶數量、完成度、時間成本與風險上的分別" title="MVP 與完整產品的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">MVP 的目標是驗證假設，不是交付一個「縮小版的完整產品」</figcaption>
+</figure>
+
+<p>一個實用的判斷準則：如果你的 MVP 需要超過 3 個月才能上線，或者功能清單超過 10 項，它很可能已經不是 MVP，而是完整產品的第一期。範圍越大，報價越高，風險越集中，中途「推倒重來」的代價也越大。</p>
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-2.webp" alt="示意圖：判斷一個需求是否仍屬 MVP 的兩個準則，即上線時間少於三個月及功能少於十項" title="示意圖：判斷一個需求是否仍屬 MVP 的兩個準則，即上線時間少於三個月及功能少於十項" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">超過三個月或十項功能，通常已屬完整產品第一期，而非 MVP</figcaption>
+</figure>
+
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、動手開發前應該準備的 5 樣東西</h2>
+<p>開發商最怕遇到的客戶，是「我有一個很棒的想法，你先幫我做出來」。這種溝通方式幾乎必然導致報價失準與後期爭議。相反，如果你在接觸開發商之前已經準備好以下五樣東西，報價會快、準、而且可比較。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">準備項目</th><th class="px-4 py-3 text-left">要回答的問題</th><th class="px-4 py-3 text-left">寫得好的樣貌</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>1. 目標用戶與痛點</strong></td><td class="px-4 py-3">誰會用？他們今天如何解決這個問題？</td><td class="px-4 py-3">一句話描述用戶與其現有痛點，而非「所有人」</td></tr>
+      <tr><td class="px-4 py-3"><strong>2. 核心流程</strong></td><td class="px-4 py-3">用戶由進入到完成目標，要經過哪幾步？</td><td class="px-4 py-3">3 至 7 個步驟的流程圖或文字描述</td></tr>
+      <tr><td class="px-4 py-3"><strong>3. 功能優先次序</strong></td><td class="px-4 py-3">哪些必須有、哪些可以有？</td><td class="px-4 py-3">分三層列出功能清單</td></tr>
+      <tr><td class="px-4 py-3"><strong>4. 成功指標</strong></td><td class="px-4 py-3">怎樣算成功？用什麼數字衡量？</td><td class="px-4 py-3">具體、可量度的目標（例如註冊數、完成率）</td></tr>
+      <tr><td class="px-4 py-3"><strong>5. 預算範圍</strong></td><td class="px-4 py-3">你可以投入多少？是固定還是可彈性調整？</td><td class="px-4 py-3">一個上下限區間，而非單一數字</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-3.webp" alt="圖表：開發前應準備的五項資料，包括目標用戶與痛點、核心流程、功能優先次序、成功指標及預算範圍" title="開發前應準備的五項資料" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">準備好這五樣，報價會更快、更準、更可比</figcaption>
+</figure>
+
+<p>其中「成功指標」最常被忽略。如果你連「怎樣算成功」都講不清楚，開發商就無法幫你安排功能優先次序，也無法在交付時判斷是否達標。建議用一個數字作為 MVP 的唯一北極星指標，例如「首月有 100 位用戶完成核心流程」。</p>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、需求文件應該包含什麼（附結構清單）</h2>
+<p>需求文件（有時稱產品需求文件、PRD）是把你的想法翻譯成開發語言的橋樑。它不需要寫得漂亮，但必須寫得<strong>具體、可驗收</strong>。以下結構適合大多數中小型 MVP 項目，你可以直接照著填。</p>
+
+<ul class="space-y-2 my-6">
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>項目背景與目標</strong>——為什麼做這個產品，想解決什麼問題，成功指標是什麼</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>目標用戶與使用情境</strong>——用戶是誰、在什麼情況下使用、現有替代方案是什麼</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>功能清單與優先次序</strong>——分「必須有／應該有／可以有」三層逐項列出</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>核心流程</strong>——由進入到完成目標的步驟，附簡單流程圖或編號描述</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>畫面與互動要求</strong>——參考的介面、品牌風格、必要欄位與操作</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>技術與平台要求</strong>——手機 App／網頁／後台、支援的系統版本、是否需要與現有系統整合</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>資料與私隱要求</strong>——會收集什麼個人資料、如何處理與保存</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>範圍外事項</strong>——明確寫明本期不做什麼，避免後期無限擴張</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>交付與驗收準則</strong>——什麼狀態算完成、由誰驗收、驗收標準是什麼</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>時間與預算範圍</strong>——期望上線時間與可投入預算區間</span></li>
+</ul>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-4.webp" alt="清單圖示：需求文件的十個結構項目，由項目背景、目標用戶到交付驗收準則" title="需求文件的結構清單" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">需求文件不必長，但每一項都要「可驗收」——即能判斷做了還是沒做</figcaption>
+</figure>
+
+<p>如果涉及個人資料，你亦應在需求文件內列明私隱要求。香港《個人資料（私隱）條例》（第 486 章）設有六項保障資料原則，涵蓋個人資料的收集、使用、處理、保存、保安、查閱與改正。個人資料私隱專員公署特別為流動應用程式開發者發出《開發流動應用程式最佳行事方式指引》，提醒委託開發的一方（即你）同樣有責任——包括提供《收集個人資料聲明》與《私隱政策聲明》。在需求階段就把這一項寫清楚，可以省去日後改動的成本。</p>
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-5.webp" alt="示意圖：在需求階段已納入個人資料私隱要求，包括收集個人資料聲明與私隱政策聲明" title="示意圖：在需求階段已納入個人資料私隱要求，包括收集個人資料聲明與私隱政策聲明" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把私隱要求寫在需求階段，可省去日後大幅改動的成本</figcaption>
+</figure>
+
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、報價單應該包含什麼</h2>
+<p>一份專業的報價單，不只是「一個總價」。它應該讓你清楚知道錢花在哪裡、什麼時候交付、日後有爭議時依據什麼。以下六項缺一不可：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">報價單項目</th><th class="px-4 py-3 text-left">應該寫清楚的內容</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>範圍</strong></td><td class="px-4 py-3">逐項列出包含的功能，並明確寫出「不包括」的項目</td></tr>
+      <tr><td class="px-4 py-3"><strong>交付物</strong></td><td class="px-4 py-3">成品形式（App、網站、後台）、是否交付原始碼與設計檔</td></tr>
+      <tr><td class="px-4 py-3"><strong>里程碑</strong></td><td class="px-4 py-3">分階段的交付時間表與每階段成果</td></tr>
+      <tr><td class="px-4 py-3"><strong>付款條件</strong></td><td class="px-4 py-3">分幾期付款、每期比例、觸發付款的條件</td></tr>
+      <tr><td class="px-4 py-3"><strong>知識產權</strong></td><td class="px-4 py-3">原始碼、設計、內容的擁有權與使用權歸誰</td></tr>
+      <tr><td class="px-4 py-3"><strong>保養與支援</strong></td><td class="px-4 py-3">保養期長短、支援範圍、回應時間、額外收費標準</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-6.webp" alt="圖表：專業報價單應包含的六個項目，包括範圍、交付物、里程碑、付款條件、知識產權及保養支援" title="報價單應包含的六個項目" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">缺任何一項，日後都可能成為爭議點——尤其是知識產權與保養範圍</figcaption>
+</figure>
+
+<p><strong>知識產權一項尤其重要。</strong>根據香港《版權條例》（第 528 章），電腦程式屬於文學作品並自動受版權保護。若你委託一間公司開發，而合約沒有明確規定版權歸屬，版權仍然屬於開發方，你只取得一項可為「委託時可合理預料的目的」使用作品的專用特許。若要把版權轉讓給你，轉讓必須以書面作出並由轉讓人簽署，否則無效。因此，報價單與合約必須白紙黑字寫清楚原始碼與設計檔的版權誰屬。</p>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、分期策略：Phase 1／2／3 如何劃分</h2>
+<p>把項目一次過做完，風險最高；分三期交付，是把風險切細、把現金流拉順的實務做法。三期的分工大致如下：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">目標</th><th class="px-4 py-3 text-left">典型內容</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>Phase 1：MVP</strong></td><td class="px-4 py-3">驗證核心假設</td><td class="px-4 py-3">核心流程、基本帳戶、最少必要功能，能上線讓真實用戶試用</td></tr>
+      <tr><td class="px-4 py-3"><strong>Phase 2：優化</strong></td><td class="px-4 py-3">按回饋改善與補功能</td><td class="px-4 py-3">用戶回饋的功能、體驗優化、效能與穩定性提升</td></tr>
+      <tr><td class="px-4 py-3"><strong>Phase 3：擴展</strong></td><td class="px-4 py-3">規模化與營運</td><td class="px-4 py-3">進階功能、整合第三方服務、後台管理、數據報表</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-7.webp" alt="流程圖：MVP 項目分三期交付，由 Phase 1 驗證假設、Phase 2 優化功能到 Phase 3 規模化擴展" title="MVP 三期分期策略" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先做能上線驗證的最小版本，再按市場反應加功能</figcaption>
+</figure>
+
+<p>分期策略的另一個好處是<strong>可議價</strong>。當你把需求分成三期，開發商可以針對第一期報一個較低的價錢，你亦可以用第一期成果去爭取資助、投資或客戶，再決定是否進入第二期。這比一次過簽一份大合約穩健得多。</p>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、報價相差很遠的 6 個原因</h2>
+<p>同一份需求，不同公司報價可以相差數倍，這是創業者最困惑的地方。差距通常來自以下六個因素：</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">因素</th><th class="px-4 py-3 text-left">為何造成價差</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>1. 範圍理解</strong></td><td class="px-4 py-3">需求寫得含糊，各公司自行假設，做的東西不一樣</td></tr>
+      <tr><td class="px-4 py-3"><strong>2. 技術選型</strong></td><td class="px-4 py-3">原生開發、跨平台框架或現成平台，成本與工時差別很大</td></tr>
+      <tr><td class="px-4 py-3"><strong>3. 人力配置</strong></td><td class="px-4 py-3">資深工程師、初級工程師或外判團隊，時薪與效率不同</td></tr>
+      <tr><td class="px-4 py-3"><strong>4. 第三方服務</strong></td><td class="px-4 py-3">金流、短訊、雲端、地圖等外部服務的月費與整合成本</td></tr>
+      <tr><td class="px-4 py-3"><strong>5. 設計深度</strong></td><td class="px-4 py-3">套用範本、客製介面或完整品牌設計，投入差距大</td></tr>
+      <tr><td class="px-4 py-3"><strong>6. 保養與支援</strong></td><td class="px-4 py-3">是否包含保養期、回應時間承諾，會計入整體報價</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-8.webp" alt="圖表：造成開發報價相差很遠的六個原因，包括範圍理解、技術選型、人力、第三方服務、設計深度及保養" title="報價相差很遠的六個原因" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">價差不是「邊間平邊間貴」，而是各公司理解與執行的範圍不同——所以需求文件要寫得夠具體</figcaption>
+</figure>
+
+<p>要讓報價可比，最有效的方法是<strong>用同一份需求文件去問每一間公司</strong>，並要求對方逐項分拆報價。當報價單有分項，你就能看出價差是來自範圍、技術還是設計，而不是盲目比較總價。</p>
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-9.webp" alt="示意圖：用同一份需求文件向多間開發公司索取分項報價，令報價可逐項比較" title="示意圖：用同一份需求文件向多間開發公司索取分項報價，令報價可逐項比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">同一份需求、逐項分拆，報價才真正可比</figcaption>
+</figure>
+
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、如何判斷一間開發公司是否可靠</h2>
+<p>選錯開發公司的代價，往往比報價高低更大。以下是見面時必問的問題，以及幾個危險信號。</p>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">✅ 必問的六條問題</p>
+  <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>你做過類似規模與性質的項目嗎？可否看案例或作品？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>項目由誰負責？是本地團隊還是外判？溝通與回應如何安排？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>會不會交付原始碼與設計檔？日後我可以找其他公司接手嗎？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>報價是分項還是總價？範圍變更時如何計算額外費用？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>保養期多長？上線後發現問題由誰處理、回應時間是多少？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>個人資料與系統保安如何處理？有沒有私隱政策與收集個人資料聲明？</span></li></ul>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-10.webp" alt="圖示：選擇開發公司時必問的六條問題，由過往案例、團隊安排到原始碼交付與保養" title="選擇開發公司必問的六條問題" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">最關鍵的兩條：會不會交付原始碼，以及日後能否由其他公司接手</figcaption>
+</figure>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">🚩 危險信號</p>
+  <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>未看清楚需求就急著報一個「全包價」，拒絕分項說明</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>報價遠低於市場，但對技術細節含糊其辭</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>堅持不交付原始碼，或只提供「租用」形式</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>沒有正式合約或報價單，只憑口頭承諾</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>付款要求一次過付清或首期比例過高</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>不願意在合約內寫明知識產權與保養條款</span></li></ul>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-11.webp" alt="圖示：選擇開發公司時應留意的六個危險信號，包括拒絕分項報價、不交付原始碼及無正式合約" title="開發公司的危險信號" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">便宜的報價，往往在「原始碼」與「保養」兩處隱藏了成本</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、預算規劃：示範範圍（非真實報價）</h2>
+<p>很多創業者最想知道的是「大概要多少錢」。以下是一個<strong>示範框架</strong>，用來幫你理解不同複雜度項目的相對成本結構，<strong>並非任何公司的真實報價</strong>，實際價錢會因範圍、技術選型、團隊與時間而大幅不同。你應該以開發商按你的需求文件提供的正式報價單為準。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">項目類型</th><th class="px-4 py-3 text-left">相對成本</th><th class="px-4 py-3 text-left">主要成本來源</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">簡單驗證型 MVP</td><td class="px-4 py-3">較低</td><td class="px-4 py-3">單一核心流程、套用現成框架或平台</td></tr>
+      <tr><td class="px-4 py-3">中等複雜度 App／網站</td><td class="px-4 py-3">中</td><td class="px-4 py-3">多個功能模組、帳戶系統、客製設計</td></tr>
+      <tr><td class="px-4 py-3">含後台與整合的系統</td><td class="px-4 py-3">較高</td><td class="px-4 py-3">管理後台、第三方服務整合、權限與報表</td></tr>
+      <tr><td class="px-4 py-3">持續保養與支援</td><td class="px-4 py-3">按年計</td><td class="px-4 py-3">伺服器、更新維護、技術支援、功能微調</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-12.webp" alt="圖表：不同複雜度項目的相對成本結構，由簡單驗證型 MVP 到含後台整合的系統" title="預算規劃示範框架" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先了解成本結構，再比較報價，比單純比總價更有意義</figcaption>
+</figure>
+
+<p>若你想降低自付成本，可以留意香港現行的初創與中小企資助計劃（以下資料為撰寫時查核，申請前請以官方最新公布為準）：</p>
+
+<ul class="space-y-2 my-6">
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>數碼港創意微型基金（CCMF）</strong>——為具備雛型概念的早期初創提供最高港幣 10 萬元種子基金</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>數碼港培育計劃（CIP）</strong>——24 個月培育期，最高港幣 50 萬元財務資助及 20 萬元駐場租金補貼</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>香港科技園 Ideation 計劃</strong>——為期一年，最高港幣 10 萬元種子基金，按里程碑分階段發放</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>BUD 專項基金</strong>——資助非上市企業發展品牌及拓展市場，每家企業累計資助上限港幣 700 萬元，一般申請每宗上限 80 萬元，政府與企業按 1：3 配對</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>科技券（TVP）</strong>——已於 2024 年 12 月 31 日起停止接受新申請，規劃時不宜再以此為預算來源</span></li>
+</ul>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/idea-to-mvp-hong-kong-13.webp" alt="圖表：香港可協助初創降低開發成本的資助計劃，包括數碼港 CCMF、CIP、科技園 Ideation 及 BUD 專項基金" title="香港初創資助計劃概覽" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">資助可降低自付成本，但各有資格與配對要求，申請前須查核官方最新指引</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+<div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">MVP 同完整產品有什麼分別？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">MVP（最小可行產品）的目的是用最低成本驗證最核心假設，功能範圍只涵蓋「必須有」的核心流程，完成度以「可用」為準；完整產品的目的則是規模化交付，覆蓋全部功能與邊緣情況，追求穩定、可維護與可擴展。如果你手上那份需求需要超過三個月才能上線，或功能清單超過十項，它很可能已經屬於完整產品而非 MVP。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">寫 App 或開發系統大概要多少錢？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">價錢取決於範圍、技術選型、設計深度、第三方服務與保養安排，沒有一個通用數字。與其追問「大概幾錢」，更實際的做法是先寫好需求文件，再用同一份需求向數間開發商索取分項報價單，比較各項成本結構。分項報價能讓你看出價差來自範圍還是技術，而不是盲目比較總價。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">我沒有技術背景，可以自己寫需求文件嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以。需求文件不需要技術術語，只需要具體與可驗收。你可以按本文第三節的十項結構填寫：項目背景、目標用戶、功能優先次序、核心流程、畫面要求、技術平台、資料與私隱、範圍外事項、交付驗收準則、時間與預算。寫不清楚的地方，可以在與開發商溝通時一併釐清，並把結論寫回文件。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">為什麼不同開發公司報價差那麼遠？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">主要原因有六個：對範圍的理解不同、技術選型不同、人力配置不同、第三方服務成本不同、設計深度不同，以及是否包含保養與支援。需求寫得含糊時，各公司會自行假設要做什麼，結果自然報價不一。用同一份具體需求去問，並要求分項報價，是讓報價可比較的最有效方法。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">報價單一定要寫知識產權歸屬嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">一定要。根據香港《版權條例》（第 528 章），電腦程式屬文學作品並自動受版權保護。若委託合約沒有明確規定版權歸屬，版權仍屬開發方，委託人只取得可為委託目的使用作品的專用特許；若要轉讓版權，轉讓必須以書面作出並由轉讓人簽署，否則無效。因此合約必須白紙黑字寫清楚原始碼與設計檔的版權誰屬。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">分期交付有什麼好處？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">分期（例如 Phase 1 做 MVP、Phase 2 優化、Phase 3 擴展）可以把大項目的風險切細、把現金流拉順，並讓你先用第一期成果去驗證市場、爭取資助或客戶，再決定是否進入下一期。分期亦令報價更有彈性，因為開發商可以針對第一期報一個較低的價錢，你毋須一次過簽一份大合約。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">開發 App 涉及個人資料，要注意什麼？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">香港《個人資料（私隱）條例》（第 486 章）設有六項保障資料原則，涵蓋個人資料的收集、使用、處理、保存、保安、查閱與改正。委託他人開發應用程式的一方同樣有責任，包括提供《收集個人資料聲明》與《私隱政策聲明》，並在合約內要求開發方採取適當保安措施。個人資料私隱專員公署就流動應用程式開發發出最佳行事方式指引，建議在需求階段就把私隱要求寫清楚。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港有沒有資助可以幫補開發費用？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">有。數碼港創意微型基金（CCMF）提供最高港幣 10 萬元種子基金；數碼港培育計劃（CIP）提供最高港幣 50 萬元財務資助及 20 萬元駐場租金補貼；香港科技園 Ideation 計劃提供最高港幣 10 萬元種子基金；BUD 專項基金為非上市企業提供累計上限港幣 700 萬元的資助（一般申請每宗上限 80 萬元，政府與企業按 1：3 配對）。須注意科技券（TVP）已於 2024 年 12 月 31 日起停止接受新申請。各計劃的資格與條款會不時更新，申請前應查核官方最新公布。</p>
+  </div>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、總結</h2>
+<p>由 idea 到 MVP，成功的關鍵不在於找到「最便宜」的開發公司，而在於你自己先把範圍、分期與需求想清楚。記住三件事：<strong>第一，MVP 是驗證工具，不是縮小版完整產品</strong>，功能清單要狠心砍到只剩「必須有」；<strong>第二，需求文件寫得越具體，報價越準、爭議越少</strong>，尤其是資料、私隱與範圍外事項；<strong>第三，報價單與合約必須寫清楚知識產權與保養條款</strong>，因為版權預設屬於開發方，不寫就沒有保障。</p>
+<p>當你把這三步做好，開發商會視你為專業客戶，報價與交付質素都會不同。反之，一個含糊的想法只會換來一個含糊的報價，最終吃虧的還是你自己。</p>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">想由 idea 走到可上線的 MVP？</p>
+  <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供系統開發、App 與網站開發，以及技術顧問服務，可以協助你由需求盤點、範圍劃定、分期規劃到報價文件一併處理，令你的想法順利變成可驗證的產品。</p>
+  <p><a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a>　·　<a href="/services/consulting/" class="text-[#0f4c81] font-bold hover:underline">技術顧問服務</a>　·　<a href="/blog/app-development-cost-guide-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">App 開發成本指南</a></p>
+</div>
+
+<div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+  <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+  <ul class="space-y-1">
+    <li><a href="https://www.elegislation.gov.hk/hk/cap528!zh-Hant-HK" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">電子版香港法例：《版權條例》（第 528 章）</a> — 作者為版權第一擁有人、僱員作品、委託作品的版權歸屬及版權轉讓須以書面作出的規定</li>
+    <li><a href="https://www.ipd.gov.hk/tc/copyright/index.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">知識產權署：版權</a> — 版權為自動賦予的權利、電腦程式屬文學作品及毋須註冊的說明</li>
+    <li><a href="https://www.pcpd.org.hk/tc_chi/resources_centre/publications/files/apps_developers_c.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：保障個人資料私隱——流動應用程式開發商及其委託人須知</a> — 六項保障資料原則、收集個人資料聲明、私隱政策聲明及委託人的責任</li>
+    <li><a href="https://www.cyberport.hk/zh-hk/entrepreneurship/realise_your_entrepreneurial_dreams/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港數碼港管理有限公司：實現創業夢</a> — 數碼港創意微型基金（最高 10 萬元種子基金）及培育計劃（最高 50 萬元財務資助及 20 萬元租金補貼）</li>
+    <li><a href="https://www.hkstp.org/zh-hk/programmes/ideation" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港科技園：Ideation 計劃</a> — 為期一年、最高港幣 10 萬元種子基金並按里程碑分階段發放</li>
+    <li><a href="https://www.tid.gov.hk/tc/our_work/support_for_trade_industry/bud.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">工業貿易署：BUD 專項基金</a> — 每家企業累計資助上限 700 萬元、一般申請每宗上限 80 萬元及 1：3 配對比率</li>
+    <li><a href="https://tvp.itf.gov.hk/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">創新科技署：科技券（TVP）</a> — 計劃已於 2024 年 12 月 31 日起停止接受新申請</li>
+  </ul>
+</div>

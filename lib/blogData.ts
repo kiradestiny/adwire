@@ -17,6 +17,1703 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // ─── Article 37：由 idea 到 MVP 指南 ───
+  {
+    id: 37,
+    slug: "idea-to-mvp-hong-kong",
+    title: "由 Idea 到 MVP：範圍、分期與報價單應該寫什麼（香港創業者指南）",
+    excerpt:
+      "有產品意念但沒有技術背景，最常卡住的是不知道要做多少、要花多少錢、怎樣寫需求。本文由香港創業者角度出發，拆解由 idea 到 MVP 的完整流程：如何劃定範圍、怎樣分期交付、需求文件與報價單應該包含什麼、如何判斷開發公司是否可靠，並附上可即用的清單與示範預算框架。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/idea-to-mvp-hong-kong.webp",
+    tags: ["MVP", "產品開發", "寫App價錢", "需求文件", "報價單", "系統開發", "香港創業"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">手上有一個產品意念，卻沒有技術背景，最常卡住的三個問題是：不知道要做多少才算「夠」、不知道要花多少錢、不知道怎樣把自己的想法寫成開發商看得懂的內容。本文由香港創業者的角度出發，拆解由 idea 到 MVP 的完整流程——如何劃定範圍、怎樣分期、需求文件與報價單應該寫什麼、如何判斷一間開發公司是否可靠，並附上可即用的清單與示範預算框架。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">MVP（最小可行產品）不是「做小一點的完整產品」，而是<strong>用最低成本驗證最核心假設</strong>的那一個功能組合。做 MVP 之前，你必須先寫好一份<strong>需求文件</strong>（寫清楚目標用戶、核心流程、功能優先次序、成功指標與預算範圍），再要求開發商提供<strong>分項報價單</strong>（範圍、交付物、里程碑、付款條件、知識產權、保養）。分期交付（Phase 1／2／3）是把大項目風險切細的關鍵：先做能上線驗證的最小版本，再按市場反應加功能，比一次過報一個「完整產品」的價錢穩健得多。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 本文重點</p>
+          <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>MVP 與完整產品是兩種不同的東西：前者驗證假設，後者交付規模</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>開發前要準備 5 樣東西：目標用戶與痛點、核心流程、功能優先次序、成功指標、預算範圍</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>需求文件與報價單各有固定結構，寫得清楚可減少九成爭議</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>同一份需求，不同公司報價可以相差數倍，原因多在範圍與技術選型</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>判斷開發公司要看「必問問題」與「危險信號」，不能只看價錢</span></li></ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先分清 MVP 與完整產品：範圍控制是第一步</h2>
+        <p>「最小可行產品」（Minimum Viable Product，MVP）的概念源自初創方法論，核心是用最少資源做出一個可以交到真實用戶手上、並取得真實回饋的版本。它與「完整產品」的最大分別，在於<strong>目的不同</strong>：MVP 的目的是驗證假設（用戶是否真的需要、是否願意付費），完整產品的目的是規模化交付。很多創業者第一次找開發商報價，會把心中想像的「完整產品」直接講出來，結果報價單動輒數十萬，項目一做就是半年，中途市場已經改變。</p>
+        <p>範圍控制的第一個動作，是把想法分成三層：<strong>必須有（must-have）</strong>、<strong>應該有（should-have）</strong>、<strong>可以有（nice-to-have）</strong>。MVP 只做「必須有」的第一層，其餘留待驗證後再加。以下對照表可以幫你快速定位：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">比較項目</th><th class="px-4 py-3 text-left">MVP</th><th class="px-4 py-3 text-left">完整產品</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">目的</td><td class="px-4 py-3">驗證最核心假設</td><td class="px-4 py-3">規模化交付與營運</td></tr>
+              <tr><td class="px-4 py-3">功能範圍</td><td class="px-4 py-3">只做「必須有」的核心流程</td><td class="px-4 py-3">覆蓋全部功能與邊緣情況</td></tr>
+              <tr><td class="px-4 py-3">用戶數量</td><td class="px-4 py-3">小範圍真實用戶或試用者</td><td class="px-4 py-3">開放予目標市場</td></tr>
+              <tr><td class="px-4 py-3">完成度</td><td class="px-4 py-3">可用但不追求完美</td><td class="px-4 py-3">穩定、可維護、可擴展</td></tr>
+              <tr><td class="px-4 py-3">時間與成本</td><td class="px-4 py-3">較短、較低</td><td class="px-4 py-3">較長、較高</td></tr>
+              <tr><td class="px-4 py-3">風險</td><td class="px-4 py-3">低（快速試錯）</td><td class="px-4 py-3">高（一次投入大）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-1.webp" alt="比較圖：MVP 與完整產品在目的、功能範圍、用戶數量、完成度、時間成本與風險上的分別" title="MVP 與完整產品的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">MVP 的目標是驗證假設，不是交付一個「縮小版的完整產品」</figcaption>
+        </figure>
+
+        <p>一個實用的判斷準則：如果你的 MVP 需要超過 3 個月才能上線，或者功能清單超過 10 項，它很可能已經不是 MVP，而是完整產品的第一期。範圍越大，報價越高，風險越集中，中途「推倒重來」的代價也越大。</p>
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-2.webp" alt="示意圖：判斷一個需求是否仍屬 MVP 的兩個準則，即上線時間少於三個月及功能少於十項" title="示意圖：判斷一個需求是否仍屬 MVP 的兩個準則，即上線時間少於三個月及功能少於十項" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">超過三個月或十項功能，通常已屬完整產品第一期，而非 MVP</figcaption>
+        </figure>
+
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、動手開發前應該準備的 5 樣東西</h2>
+        <p>開發商最怕遇到的客戶，是「我有一個很棒的想法，你先幫我做出來」。這種溝通方式幾乎必然導致報價失準與後期爭議。相反，如果你在接觸開發商之前已經準備好以下五樣東西，報價會快、準、而且可比較。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">準備項目</th><th class="px-4 py-3 text-left">要回答的問題</th><th class="px-4 py-3 text-left">寫得好的樣貌</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>1. 目標用戶與痛點</strong></td><td class="px-4 py-3">誰會用？他們今天如何解決這個問題？</td><td class="px-4 py-3">一句話描述用戶與其現有痛點，而非「所有人」</td></tr>
+              <tr><td class="px-4 py-3"><strong>2. 核心流程</strong></td><td class="px-4 py-3">用戶由進入到完成目標，要經過哪幾步？</td><td class="px-4 py-3">3 至 7 個步驟的流程圖或文字描述</td></tr>
+              <tr><td class="px-4 py-3"><strong>3. 功能優先次序</strong></td><td class="px-4 py-3">哪些必須有、哪些可以有？</td><td class="px-4 py-3">分三層列出功能清單</td></tr>
+              <tr><td class="px-4 py-3"><strong>4. 成功指標</strong></td><td class="px-4 py-3">怎樣算成功？用什麼數字衡量？</td><td class="px-4 py-3">具體、可量度的目標（例如註冊數、完成率）</td></tr>
+              <tr><td class="px-4 py-3"><strong>5. 預算範圍</strong></td><td class="px-4 py-3">你可以投入多少？是固定還是可彈性調整？</td><td class="px-4 py-3">一個上下限區間，而非單一數字</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-3.webp" alt="圖表：開發前應準備的五項資料，包括目標用戶與痛點、核心流程、功能優先次序、成功指標及預算範圍" title="開發前應準備的五項資料" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">準備好這五樣，報價會更快、更準、更可比</figcaption>
+        </figure>
+
+        <p>其中「成功指標」最常被忽略。如果你連「怎樣算成功」都講不清楚，開發商就無法幫你安排功能優先次序，也無法在交付時判斷是否達標。建議用一個數字作為 MVP 的唯一北極星指標，例如「首月有 100 位用戶完成核心流程」。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、需求文件應該包含什麼（附結構清單）</h2>
+        <p>需求文件（有時稱產品需求文件、PRD）是把你的想法翻譯成開發語言的橋樑。它不需要寫得漂亮，但必須寫得<strong>具體、可驗收</strong>。以下結構適合大多數中小型 MVP 項目，你可以直接照著填。</p>
+
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>項目背景與目標</strong>——為什麼做這個產品，想解決什麼問題，成功指標是什麼</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>目標用戶與使用情境</strong>——用戶是誰、在什麼情況下使用、現有替代方案是什麼</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>功能清單與優先次序</strong>——分「必須有／應該有／可以有」三層逐項列出</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>核心流程</strong>——由進入到完成目標的步驟，附簡單流程圖或編號描述</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>畫面與互動要求</strong>——參考的介面、品牌風格、必要欄位與操作</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>技術與平台要求</strong>——手機 App／網頁／後台、支援的系統版本、是否需要與現有系統整合</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>資料與私隱要求</strong>——會收集什麼個人資料、如何處理與保存</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>範圍外事項</strong>——明確寫明本期不做什麼，避免後期無限擴張</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>交付與驗收準則</strong>——什麼狀態算完成、由誰驗收、驗收標準是什麼</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>時間與預算範圍</strong>——期望上線時間與可投入預算區間</span></li>
+        </ul>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-4.webp" alt="清單圖示：需求文件的十個結構項目，由項目背景、目標用戶到交付驗收準則" title="需求文件的結構清單" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">需求文件不必長，但每一項都要「可驗收」——即能判斷做了還是沒做</figcaption>
+        </figure>
+
+        <p>如果涉及個人資料，你亦應在需求文件內列明私隱要求。香港《個人資料（私隱）條例》（第 486 章）設有六項保障資料原則，涵蓋個人資料的收集、使用、處理、保存、保安、查閱與改正。個人資料私隱專員公署特別為流動應用程式開發者發出《開發流動應用程式最佳行事方式指引》，提醒委託開發的一方（即你）同樣有責任——包括提供《收集個人資料聲明》與《私隱政策聲明》。在需求階段就把這一項寫清楚，可以省去日後改動的成本。</p>
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-5.webp" alt="示意圖：在需求階段已納入個人資料私隱要求，包括收集個人資料聲明與私隱政策聲明" title="示意圖：在需求階段已納入個人資料私隱要求，包括收集個人資料聲明與私隱政策聲明" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把私隱要求寫在需求階段，可省去日後大幅改動的成本</figcaption>
+        </figure>
+
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、報價單應該包含什麼</h2>
+        <p>一份專業的報價單，不只是「一個總價」。它應該讓你清楚知道錢花在哪裡、什麼時候交付、日後有爭議時依據什麼。以下六項缺一不可：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">報價單項目</th><th class="px-4 py-3 text-left">應該寫清楚的內容</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>範圍</strong></td><td class="px-4 py-3">逐項列出包含的功能，並明確寫出「不包括」的項目</td></tr>
+              <tr><td class="px-4 py-3"><strong>交付物</strong></td><td class="px-4 py-3">成品形式（App、網站、後台）、是否交付原始碼與設計檔</td></tr>
+              <tr><td class="px-4 py-3"><strong>里程碑</strong></td><td class="px-4 py-3">分階段的交付時間表與每階段成果</td></tr>
+              <tr><td class="px-4 py-3"><strong>付款條件</strong></td><td class="px-4 py-3">分幾期付款、每期比例、觸發付款的條件</td></tr>
+              <tr><td class="px-4 py-3"><strong>知識產權</strong></td><td class="px-4 py-3">原始碼、設計、內容的擁有權與使用權歸誰</td></tr>
+              <tr><td class="px-4 py-3"><strong>保養與支援</strong></td><td class="px-4 py-3">保養期長短、支援範圍、回應時間、額外收費標準</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-6.webp" alt="圖表：專業報價單應包含的六個項目，包括範圍、交付物、里程碑、付款條件、知識產權及保養支援" title="報價單應包含的六個項目" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">缺任何一項，日後都可能成為爭議點——尤其是知識產權與保養範圍</figcaption>
+        </figure>
+
+        <p><strong>知識產權一項尤其重要。</strong>根據香港《版權條例》（第 528 章），電腦程式屬於文學作品並自動受版權保護。若你委託一間公司開發，而合約沒有明確規定版權歸屬，版權仍然屬於開發方，你只取得一項可為「委託時可合理預料的目的」使用作品的專用特許。若要把版權轉讓給你，轉讓必須以書面作出並由轉讓人簽署，否則無效。因此，報價單與合約必須白紙黑字寫清楚原始碼與設計檔的版權誰屬。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、分期策略：Phase 1／2／3 如何劃分</h2>
+        <p>把項目一次過做完，風險最高；分三期交付，是把風險切細、把現金流拉順的實務做法。三期的分工大致如下：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">目標</th><th class="px-4 py-3 text-left">典型內容</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>Phase 1：MVP</strong></td><td class="px-4 py-3">驗證核心假設</td><td class="px-4 py-3">核心流程、基本帳戶、最少必要功能，能上線讓真實用戶試用</td></tr>
+              <tr><td class="px-4 py-3"><strong>Phase 2：優化</strong></td><td class="px-4 py-3">按回饋改善與補功能</td><td class="px-4 py-3">用戶回饋的功能、體驗優化、效能與穩定性提升</td></tr>
+              <tr><td class="px-4 py-3"><strong>Phase 3：擴展</strong></td><td class="px-4 py-3">規模化與營運</td><td class="px-4 py-3">進階功能、整合第三方服務、後台管理、數據報表</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-7.webp" alt="流程圖：MVP 項目分三期交付，由 Phase 1 驗證假設、Phase 2 優化功能到 Phase 3 規模化擴展" title="MVP 三期分期策略" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先做能上線驗證的最小版本，再按市場反應加功能</figcaption>
+        </figure>
+
+        <p>分期策略的另一個好處是<strong>可議價</strong>。當你把需求分成三期，開發商可以針對第一期報一個較低的價錢，你亦可以用第一期成果去爭取資助、投資或客戶，再決定是否進入第二期。這比一次過簽一份大合約穩健得多。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、報價相差很遠的 6 個原因</h2>
+        <p>同一份需求，不同公司報價可以相差數倍，這是創業者最困惑的地方。差距通常來自以下六個因素：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">因素</th><th class="px-4 py-3 text-left">為何造成價差</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>1. 範圍理解</strong></td><td class="px-4 py-3">需求寫得含糊，各公司自行假設，做的東西不一樣</td></tr>
+              <tr><td class="px-4 py-3"><strong>2. 技術選型</strong></td><td class="px-4 py-3">原生開發、跨平台框架或現成平台，成本與工時差別很大</td></tr>
+              <tr><td class="px-4 py-3"><strong>3. 人力配置</strong></td><td class="px-4 py-3">資深工程師、初級工程師或外判團隊，時薪與效率不同</td></tr>
+              <tr><td class="px-4 py-3"><strong>4. 第三方服務</strong></td><td class="px-4 py-3">金流、短訊、雲端、地圖等外部服務的月費與整合成本</td></tr>
+              <tr><td class="px-4 py-3"><strong>5. 設計深度</strong></td><td class="px-4 py-3">套用範本、客製介面或完整品牌設計，投入差距大</td></tr>
+              <tr><td class="px-4 py-3"><strong>6. 保養與支援</strong></td><td class="px-4 py-3">是否包含保養期、回應時間承諾，會計入整體報價</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-8.webp" alt="圖表：造成開發報價相差很遠的六個原因，包括範圍理解、技術選型、人力、第三方服務、設計深度及保養" title="報價相差很遠的六個原因" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">價差不是「邊間平邊間貴」，而是各公司理解與執行的範圍不同——所以需求文件要寫得夠具體</figcaption>
+        </figure>
+
+        <p>要讓報價可比，最有效的方法是<strong>用同一份需求文件去問每一間公司</strong>，並要求對方逐項分拆報價。當報價單有分項，你就能看出價差是來自範圍、技術還是設計，而不是盲目比較總價。</p>
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-9.webp" alt="示意圖：用同一份需求文件向多間開發公司索取分項報價，令報價可逐項比較" title="示意圖：用同一份需求文件向多間開發公司索取分項報價，令報價可逐項比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">同一份需求、逐項分拆，報價才真正可比</figcaption>
+        </figure>
+
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、如何判斷一間開發公司是否可靠</h2>
+        <p>選錯開發公司的代價，往往比報價高低更大。以下是見面時必問的問題，以及幾個危險信號。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">✅ 必問的六條問題</p>
+          <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>你做過類似規模與性質的項目嗎？可否看案例或作品？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>項目由誰負責？是本地團隊還是外判？溝通與回應如何安排？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>會不會交付原始碼與設計檔？日後我可以找其他公司接手嗎？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>報價是分項還是總價？範圍變更時如何計算額外費用？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>保養期多長？上線後發現問題由誰處理、回應時間是多少？</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>個人資料與系統保安如何處理？有沒有私隱政策與收集個人資料聲明？</span></li></ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-10.webp" alt="圖示：選擇開發公司時必問的六條問題，由過往案例、團隊安排到原始碼交付與保養" title="選擇開發公司必問的六條問題" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">最關鍵的兩條：會不會交付原始碼，以及日後能否由其他公司接手</figcaption>
+        </figure>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">🚩 危險信號</p>
+          <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>未看清楚需求就急著報一個「全包價」，拒絕分項說明</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>報價遠低於市場，但對技術細節含糊其辭</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>堅持不交付原始碼，或只提供「租用」形式</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>沒有正式合約或報價單，只憑口頭承諾</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>付款要求一次過付清或首期比例過高</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>不願意在合約內寫明知識產權與保養條款</span></li></ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-11.webp" alt="圖示：選擇開發公司時應留意的六個危險信號，包括拒絕分項報價、不交付原始碼及無正式合約" title="開發公司的危險信號" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">便宜的報價，往往在「原始碼」與「保養」兩處隱藏了成本</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、預算規劃：示範範圍（非真實報價）</h2>
+        <p>很多創業者最想知道的是「大概要多少錢」。以下是一個<strong>示範框架</strong>，用來幫你理解不同複雜度項目的相對成本結構，<strong>並非任何公司的真實報價</strong>，實際價錢會因範圍、技術選型、團隊與時間而大幅不同。你應該以開發商按你的需求文件提供的正式報價單為準。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">項目類型</th><th class="px-4 py-3 text-left">相對成本</th><th class="px-4 py-3 text-left">主要成本來源</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">簡單驗證型 MVP</td><td class="px-4 py-3">較低</td><td class="px-4 py-3">單一核心流程、套用現成框架或平台</td></tr>
+              <tr><td class="px-4 py-3">中等複雜度 App／網站</td><td class="px-4 py-3">中</td><td class="px-4 py-3">多個功能模組、帳戶系統、客製設計</td></tr>
+              <tr><td class="px-4 py-3">含後台與整合的系統</td><td class="px-4 py-3">較高</td><td class="px-4 py-3">管理後台、第三方服務整合、權限與報表</td></tr>
+              <tr><td class="px-4 py-3">持續保養與支援</td><td class="px-4 py-3">按年計</td><td class="px-4 py-3">伺服器、更新維護、技術支援、功能微調</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-12.webp" alt="圖表：不同複雜度項目的相對成本結構，由簡單驗證型 MVP 到含後台整合的系統" title="預算規劃示範框架" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先了解成本結構，再比較報價，比單純比總價更有意義</figcaption>
+        </figure>
+
+        <p>若你想降低自付成本，可以留意香港現行的初創與中小企資助計劃（以下資料為撰寫時查核，申請前請以官方最新公布為準）：</p>
+
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>數碼港創意微型基金（CCMF）</strong>——為具備雛型概念的早期初創提供最高港幣 10 萬元種子基金</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>數碼港培育計劃（CIP）</strong>——24 個月培育期，最高港幣 50 萬元財務資助及 20 萬元駐場租金補貼</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>香港科技園 Ideation 計劃</strong>——為期一年，最高港幣 10 萬元種子基金，按里程碑分階段發放</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>BUD 專項基金</strong>——資助非上市企業發展品牌及拓展市場，每家企業累計資助上限港幣 700 萬元，一般申請每宗上限 80 萬元，政府與企業按 1：3 配對</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>科技券（TVP）</strong>——已於 2024 年 12 月 31 日起停止接受新申請，規劃時不宜再以此為預算來源</span></li>
+        </ul>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/idea-to-mvp-hong-kong-13.webp" alt="圖表：香港可協助初創降低開發成本的資助計劃，包括數碼港 CCMF、CIP、科技園 Ideation 及 BUD 專項基金" title="香港初創資助計劃概覽" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">資助可降低自付成本，但各有資格與配對要求，申請前須查核官方最新指引</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">MVP 同完整產品有什麼分別？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">MVP（最小可行產品）的目的是用最低成本驗證最核心假設，功能範圍只涵蓋「必須有」的核心流程，完成度以「可用」為準；完整產品的目的則是規模化交付，覆蓋全部功能與邊緣情況，追求穩定、可維護與可擴展。如果你手上那份需求需要超過三個月才能上線，或功能清單超過十項，它很可能已經屬於完整產品而非 MVP。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">寫 App 或開發系統大概要多少錢？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">價錢取決於範圍、技術選型、設計深度、第三方服務與保養安排，沒有一個通用數字。與其追問「大概幾錢」，更實際的做法是先寫好需求文件，再用同一份需求向數間開發商索取分項報價單，比較各項成本結構。分項報價能讓你看出價差來自範圍還是技術，而不是盲目比較總價。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">我沒有技術背景，可以自己寫需求文件嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以。需求文件不需要技術術語，只需要具體與可驗收。你可以按本文第三節的十項結構填寫：項目背景、目標用戶、功能優先次序、核心流程、畫面要求、技術平台、資料與私隱、範圍外事項、交付驗收準則、時間與預算。寫不清楚的地方，可以在與開發商溝通時一併釐清，並把結論寫回文件。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">為什麼不同開發公司報價差那麼遠？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">主要原因有六個：對範圍的理解不同、技術選型不同、人力配置不同、第三方服務成本不同、設計深度不同，以及是否包含保養與支援。需求寫得含糊時，各公司會自行假設要做什麼，結果自然報價不一。用同一份具體需求去問，並要求分項報價，是讓報價可比較的最有效方法。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">報價單一定要寫知識產權歸屬嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">一定要。根據香港《版權條例》（第 528 章），電腦程式屬文學作品並自動受版權保護。若委託合約沒有明確規定版權歸屬，版權仍屬開發方，委託人只取得可為委託目的使用作品的專用特許；若要轉讓版權，轉讓必須以書面作出並由轉讓人簽署，否則無效。因此合約必須白紙黑字寫清楚原始碼與設計檔的版權誰屬。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">分期交付有什麼好處？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">分期（例如 Phase 1 做 MVP、Phase 2 優化、Phase 3 擴展）可以把大項目的風險切細、把現金流拉順，並讓你先用第一期成果去驗證市場、爭取資助或客戶，再決定是否進入下一期。分期亦令報價更有彈性，因為開發商可以針對第一期報一個較低的價錢，你毋須一次過簽一份大合約。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">開發 App 涉及個人資料，要注意什麼？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">香港《個人資料（私隱）條例》（第 486 章）設有六項保障資料原則，涵蓋個人資料的收集、使用、處理、保存、保安、查閱與改正。委託他人開發應用程式的一方同樣有責任，包括提供《收集個人資料聲明》與《私隱政策聲明》，並在合約內要求開發方採取適當保安措施。個人資料私隱專員公署就流動應用程式開發發出最佳行事方式指引，建議在需求階段就把私隱要求寫清楚。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港有沒有資助可以幫補開發費用？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">有。數碼港創意微型基金（CCMF）提供最高港幣 10 萬元種子基金；數碼港培育計劃（CIP）提供最高港幣 50 萬元財務資助及 20 萬元駐場租金補貼；香港科技園 Ideation 計劃提供最高港幣 10 萬元種子基金；BUD 專項基金為非上市企業提供累計上限港幣 700 萬元的資助（一般申請每宗上限 80 萬元，政府與企業按 1：3 配對）。須注意科技券（TVP）已於 2024 年 12 月 31 日起停止接受新申請。各計劃的資格與條款會不時更新，申請前應查核官方最新公布。</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、總結</h2>
+        <p>由 idea 到 MVP，成功的關鍵不在於找到「最便宜」的開發公司，而在於你自己先把範圍、分期與需求想清楚。記住三件事：<strong>第一，MVP 是驗證工具，不是縮小版完整產品</strong>，功能清單要狠心砍到只剩「必須有」；<strong>第二，需求文件寫得越具體，報價越準、爭議越少</strong>，尤其是資料、私隱與範圍外事項；<strong>第三，報價單與合約必須寫清楚知識產權與保養條款</strong>，因為版權預設屬於開發方，不寫就沒有保障。</p>
+        <p>當你把這三步做好，開發商會視你為專業客戶，報價與交付質素都會不同。反之，一個含糊的想法只會換來一個含糊的報價，最終吃虧的還是你自己。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">想由 idea 走到可上線的 MVP？</p>
+          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供系統開發、App 與網站開發，以及技術顧問服務，可以協助你由需求盤點、範圍劃定、分期規劃到報價文件一併處理，令你的想法順利變成可驗證的產品。</p>
+          <p><a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a>　·　<a href="/services/consulting/" class="text-[#0f4c81] font-bold hover:underline">技術顧問服務</a>　·　<a href="/blog/app-development-cost-guide-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">App 開發成本指南</a></p>
+        </div>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.elegislation.gov.hk/hk/cap528!zh-Hant-HK" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">電子版香港法例：《版權條例》（第 528 章）</a> — 作者為版權第一擁有人、僱員作品、委託作品的版權歸屬及版權轉讓須以書面作出的規定</li>
+            <li><a href="https://www.ipd.gov.hk/tc/copyright/index.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">知識產權署：版權</a> — 版權為自動賦予的權利、電腦程式屬文學作品及毋須註冊的說明</li>
+            <li><a href="https://www.pcpd.org.hk/tc_chi/resources_centre/publications/files/apps_developers_c.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：保障個人資料私隱——流動應用程式開發商及其委託人須知</a> — 六項保障資料原則、收集個人資料聲明、私隱政策聲明及委託人的責任</li>
+            <li><a href="https://www.cyberport.hk/zh-hk/entrepreneurship/realise_your_entrepreneurial_dreams/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港數碼港管理有限公司：實現創業夢</a> — 數碼港創意微型基金（最高 10 萬元種子基金）及培育計劃（最高 50 萬元財務資助及 20 萬元租金補貼）</li>
+            <li><a href="https://www.hkstp.org/zh-hk/programmes/ideation" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港科技園：Ideation 計劃</a> — 為期一年、最高港幣 10 萬元種子基金並按里程碑分階段發放</li>
+            <li><a href="https://www.tid.gov.hk/tc/our_work/support_for_trade_industry/bud.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">工業貿易署：BUD 專項基金</a> — 每家企業累計資助上限 700 萬元、一般申請每宗上限 80 萬元及 1：3 配對比率</li>
+            <li><a href="https://tvp.itf.gov.hk/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">創新科技署：科技券（TVP）</a> — 計劃已於 2024 年 12 月 31 日起停止接受新申請</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
+  // ─── Article 36：診所管理系統選擇指南 ───
+  {
+    id: 36,
+    slug: "clinic-management-system-hong-kong",
+    title: "診所管理系統如何選擇：預約、病歷、收費與合規（香港診所指南）",
+    excerpt:
+      "香港診所數碼化營運，須先釐清預約、排班、病歷、收費與對賬五條主線。本文整理診所管理系統的六大模組、自建與現成的比較框架、減少 no-show 的預約安排、收費與保險對賬，以及最易被忽略的病人資料合規要求，包括《個人資料（私隱）條例》六項保障資料原則、醫健通取覽原則與資料外洩處理。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/clinic-management-system-hong-kong.webp",
+    tags: ["診所管理系統", "診所預約系統", "電子病歷", "病人資料私隱", "個人資料私隱條例", "醫健通", "系統開發", "香港診所"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">診所每日要處理預約、排班、病歷、收費與對賬，若仍靠電話、WhatsApp 與手寫紙本，出錯與遺漏幾乎無可避免。本文從香港診所老闆與醫務行政的角度出發，拆解診所管理系統應包含的功能、自建與現成方案的取捨、減少 no-show 的預約安排、收費與保險對賬流程，以及最容易被忽略的病人資料合規要求，幫你在採購前一次過釐清重點。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">選擇診所管理系統，關鍵不在功能多寡，而在<strong>能否打通預約、病歷、收費與對賬四條主線，並符合香港的病人資料合規要求</strong>。規模小、流程標準的診所，多數適合現成方案（月費 SaaS）；流程特殊、要與化驗或保險系統深度整合、或希望資料完全自持的診所，則值得考慮訂造。無論哪一種，都要確認系統能否設定「病人正接受其護理」與「有需要知道」的取覽權限、能否按《個人資料（私隱）條例》的六項保障資料原則處理病歷，以及日後可否完整匯出資料。合規部分必須以官方最新公布為準，本文不構成法律或醫療建議。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 本文重點</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>診所最常見的營運缺口：預約分散、病歷紙本化、收費與保險對賬靠人手</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>診所管理系統的六大模組：預約、排班、電子病歷、收費與發票、庫存、報表</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>自建與現成的比較框架，以及三年總成本的考慮方式</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>減少 no-show 的提醒安排，以及收費與保險對賬的做法</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>病人資料合規：六項保障資料原則、醫健通取覽原則與資料外洩處理</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>與現有 POS、會計、化驗系統整合，以及導入與驗收流程</span></li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、診所日常營運的系統缺口</h2>
+        <p>大部分診所的數碼化不是「由零開始」，而是「幾個工具各自為政」。電話預約記錄在一本簿，覆診提醒靠 WhatsApp 人手發，病歷寫在紙本或舊電腦，收費與保險索償另外用試算表處理。這種拼湊方式在小規模時尚可應付，一旦診所增加醫生、擴充分店或病人量上升，問題便會集中爆發。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">營運環節</th><th class="px-4 py-3 text-left">常見的拼湊做法</th><th class="px-4 py-3 text-left">造成的問題</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">預約</td><td class="px-4 py-3">電話、WhatsApp、紙本預約簿</td><td class="px-4 py-3">重複預約、時段衝突、漏覆診</td></tr>
+              <tr><td class="px-4 py-3">排班</td><td class="px-4 py-3">試算表、白板</td><td class="px-4 py-3">醫生與護士檔期難協調</td></tr>
+              <tr><td class="px-4 py-3">病歷</td><td class="px-4 py-3">紙本、舊電腦單機軟件</td><td class="px-4 py-3">難以搜尋、難以互通、佔空間</td></tr>
+              <tr><td class="px-4 py-3">收費</td><td class="px-4 py-3">人手開單、現金或轉數快</td><td class="px-4 py-3">漏收、找錯數、難核對</td></tr>
+              <tr><td class="px-4 py-3">對賬</td><td class="px-4 py-3">保險索償逐張人手填</td><td class="px-4 py-3">延誤、被退回、現金流受壓</td></tr>
+              <tr><td class="px-4 py-3">庫存</td><td class="px-4 py-3">憑記憶或紙本記錄</td><td class="px-4 py-3">藥物或耗材缺貨、過期</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-1.webp" alt="示意圖：香港診所常見的營運缺口，由預約分散、病歷紙本化到收費與對賬靠人手處理" title="診所常見營運缺口" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">問題往往不在單一環節，而在幾個工具之間沒有連起來</figcaption>
+        </figure>
+
+        <p>這些缺口的共同根源是「資料分散」。同一位病人的預約、病歷與收費若分散在三個地方，前線同事每次都要重複輸入，出錯率自然上升。診所管理系統的價值，正是把這些環節集中在同一個病人檔案之下。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、診所管理系統包含什麼</h2>
+        <p>一套完整的診所管理系統，通常由以下六個模組組成。不同供應商的命名各異，但核心功能大同小異。採購時可按此清單逐項核對，避免日後才發現某個環節「沒有做」。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">模組</th><th class="px-4 py-3 text-left">核心功能</th><th class="px-4 py-3 text-left">對診所的實際作用</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">預約</td><td class="px-4 py-3">時段管理、網上或電話預約、提醒</td><td class="px-4 py-3">減少重複預約與 no-show</td></tr>
+              <tr><td class="px-4 py-3">排班</td><td class="px-4 py-3">醫生、護士、診室檔期</td><td class="px-4 py-3">協調人手，避免時段超載</td></tr>
+              <tr><td class="px-4 py-3">電子病歷／就診紀錄</td><td class="px-4 py-3">病歷、診斷、處方、過敏紀錄</td><td class="px-4 py-3">快速查閱，支援互通</td></tr>
+              <tr><td class="px-4 py-3">收費與發票</td><td class="px-4 py-3">開單、收費、發票、保險索償</td><td class="px-4 py-3">減少漏收，加快對賬</td></tr>
+              <tr><td class="px-4 py-3">庫存</td><td class="px-4 py-3">藥物、耗材進出與到期日</td><td class="px-4 py-3">避免缺貨與過期</td></tr>
+              <tr><td class="px-4 py-3">報表</td><td class="px-4 py-3">營運、財務、病人統計</td><td class="px-4 py-3">支援管理決策與審計</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-2.webp" alt="圖表：診所管理系統的六大模組，包括預約、排班、電子病歷、收費與發票、庫存及報表" title="診所管理系統六大模組" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">六個模組共用同一份病人檔案，是系統與拼湊工具的最大分別</figcaption>
+        </figure>
+
+        <p>值得留意「電子病歷」與「就診紀錄」的分別。部分系統只記錄每次到診的收費與簡單備註，並非完整的臨床病歷。若診所希望日後與醫健通（eHealth）互通，便要選用能存放及互通電子健康紀錄的系統，相關要求可參考醫健通醫護提供者指南。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、自建還是現成：比較框架</h2>
+        <p>「應該買現成，還是找人訂造」是診所最常問的問題。答案取決於流程的標準程度、整合需求與預算安排，並非「訂造一定較好」。下表列出兩者的主要分別。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">考慮因素</th><th class="px-4 py-3 text-left">現成方案（多為月費 SaaS）</th><th class="px-4 py-3 text-left">訂造系統</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">初期成本</td><td class="px-4 py-3">低至中</td><td class="px-4 py-3">較高</td></tr>
+              <tr><td class="px-4 py-3">長期成本</td><td class="px-4 py-3">按月或按年累積</td><td class="px-4 py-3">一次過投入，另計維護</td></tr>
+              <tr><td class="px-4 py-3">上線速度</td><td class="px-4 py-3">快，數日至數週</td><td class="px-4 py-3">慢，需數月開發</td></tr>
+              <tr><td class="px-4 py-3">貼合流程</td><td class="px-4 py-3">需遷就標準流程</td><td class="px-4 py-3">完全按診所流程設計</td></tr>
+              <tr><td class="px-4 py-3">整合能力</td><td class="px-4 py-3">限於供應商提供的接口</td><td class="px-4 py-3">可按需要與化驗、保險對接</td></tr>
+              <tr><td class="px-4 py-3">資料所有權</td><td class="px-4 py-3">存放於供應商平台，須確認可匯出</td><td class="px-4 py-3">可部署於診所自持環境</td></tr>
+              <tr><td class="px-4 py-3">功能更新</td><td class="px-4 py-3">供應商統一更新</td><td class="px-4 py-3">按合約維護，更新需另行安排</td></tr>
+              <tr><td class="px-4 py-3">適用情況</td><td class="px-4 py-3">流程標準、規模較小</td><td class="px-4 py-3">流程特殊、整合需求高</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-3.webp" alt="比較圖：診所現成管理系統與訂造系統在成本、上線速度、整合能力與資料所有權上的分別" title="自建與現成分別" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">沒有絕對較好，重點是流程標準程度與整合需求</figcaption>
+        </figure>
+
+        <p>比較成本時，只看「買入價」容易失準。現成方案的月費會逐年累積，訂造系統則要計入日後的維護與更新。建議以三年為期，把月費、導入費、維護費與轉換成本一併列出，再作比較。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、預約與提醒：減少 no-show 的做法</h2>
+        <p>No-show（病人爽約）直接影響診所的時段運用與收入。減少 no-show 的關鍵不在「催得夠多」，而在提醒是否及時、渠道是否合適、取消是否方便。系統化的預約安排通常包含以下幾個環節。</p>
+
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>線上自助預約</strong>——讓病人自行選擇時段，減少電話來回與人手記錄錯誤</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>自動提醒</strong>——於預約前一至兩日經短訊或即時通訊發送提醒，並附上改期或取消的連結</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>候補名單</strong>——當有人取消時，自動通知候補病人填補時段</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>到診狀態追蹤</strong>——記錄已到診、未到診與取消，作為日後調整的依據</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>覆診提醒</strong>——針對慢性病或療程病人，按週期自動提示覆診</span></li>
+        </ul>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-4.webp" alt="流程圖：由病人線上預約、系統自動提醒、到診或取消，到候補填補時段的預約流程" title="預約與提醒流程" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">提醒要及時，改期與取消要方便，才真正降低 no-show</figcaption>
+        </figure>
+
+        <p>提醒渠道宜按病人習慣設定，並保留「不需提醒」的選項。發送提醒涉及使用病人聯絡資料，屬《個人資料（私隱）條例》下的個人資料使用，須符合第三項保障資料原則（個人資料的使用），即只能用於收集時所述明的目的或直接有關的目的。若同時用作推廣，則須另行符合條例第 6A 部關於直接促銷的規定。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、收費與保險對賬</h2>
+        <p>收費與對賬是診所最耗人手的環節。收費若靠人手開單，容易漏收或找錯數；保險索償若逐張手填，則容易延誤及被退回。系統化處理可以把「開單、收款、索償、對賬」串成一條流程，並保留完整紀錄。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">環節</th><th class="px-4 py-3 text-left">人手做法</th><th class="px-4 py-3 text-left">系統做法</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">開單</td><td class="px-4 py-3">手寫或逐項輸入</td><td class="px-4 py-3">按診症自動帶入收費項目</td></tr>
+              <tr><td class="px-4 py-3">收款</td><td class="px-4 py-3">現金、轉數快逐筆記錄</td><td class="px-4 py-3">收款方式統一記錄，自動對應單據</td></tr>
+              <tr><td class="px-4 py-3">醫療券</td><td class="px-4 py-3">人手核對餘額</td><td class="px-4 py-3">與醫健通（資助）系統對接扣款</td></tr>
+              <tr><td class="px-4 py-3">保險索償</td><td class="px-4 py-3">逐張填寫索償表</td><td class="px-4 py-3">由病歷與收費自動生成索償資料</td></tr>
+              <tr><td class="px-4 py-3">對賬</td><td class="px-4 py-3">月底人手核對</td><td class="px-4 py-3">即時報表，顯示未收與已收</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>香港診所常見的資助工具是長者醫療券計劃。按醫療券計劃官方資料，合資格長者每年獲發定額醫療券，並設累積上限；診所可透過醫健通（資助）系統為長者開設戶口並扣款。此外，「長者醫療券獎賞先導計劃」會向使用指定基層醫療服務達一定金額的長者發放獎賞，該計劃已延長至 2028 年 12 月 31 日。實際金額、資格與安排以醫療券計劃官方最新公布為準。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-5.webp" alt="流程圖：診所由診症開單、收款、醫療券扣款到保險索償與月底對賬的收費流程" title="收費與對賬流程" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把開單、收款、索償與對賬串成一條流程，才真正省人手</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、病人資料與合規</h2>
+        <p>病人資料屬於敏感個人資料。在香港，處理病歷須遵守《個人資料（私隱）條例》（第 486 章）及附表 1 訂明的<strong>六項保障資料原則</strong>；若涉及醫健通，亦須同時遵守《電子健康系統條例》（第 625 章）及相關實務守則。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">保障資料原則</th><th class="px-4 py-3 text-left">對診所的要求</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">第 1 原則：收集個人資料的目的及方式</td><td class="px-4 py-3">只收集與診症直接有關的合法目的所需資料，方式合法且公平</td></tr>
+              <tr><td class="px-4 py-3">第 2 原則：個人資料的準確性及保留期間</td><td class="px-4 py-3">病歷須準確，並只保留至達到目的所需的時間</td></tr>
+              <tr><td class="px-4 py-3">第 3 原則：個人資料的使用</td><td class="px-4 py-3">不得用於收集時所述明以外的目的，包括直接促銷</td></tr>
+              <tr><td class="px-4 py-3">第 4 原則：個人資料的保安</td><td class="px-4 py-3">採取切實可行步驟防止未獲准許或意外的查閱、處理、刪除、喪失或使用</td></tr>
+              <tr><td class="px-4 py-3">第 5 原則：資訊須在一般情況下可提供</td><td class="px-4 py-3">公開所持有的資料類別及用途、處理查閱要求的政策</td></tr>
+              <tr><td class="px-4 py-3">第 6 原則：查閱個人資料及改正個人資料</td><td class="px-4 py-3">容許病人查閱及改正其個人資料</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-6.webp" alt="圖表：《個人資料（私隱）條例》六項保障資料原則，以及對診所處理病歷的具體要求" title="六項保障資料原則" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">系統的權限、紀錄與匯出功能，都要對應這六項原則</figcaption>
+        </figure>
+
+        <p>在取覽權限方面，私隱專員公署就醫護機構處理醫健通電子健康紀錄發出指引，要求醫護機構按「<strong>病人正接受其護理</strong>」（patient-under-care）及「<strong>有需要知道</strong>」（need-to-know）原則，設定合適而不過度的取覽權限，並在員工守則中訂明保密要求。系統應支援按職能設定取覽權限、定期檢視權限，以及員工離職後盡快取消其權限。此外，所有取覽活動應被記錄，以供審核。</p>
+
+        <p>在資料保安方面，指引建議的實際做法包括：設定螢幕顯示避免第三者看到病歷、考慮使用防窺濾鏡、在非登記地點取覽時先作風險評估、妥善保管下載或列印的病歷，以及就攜帶式儲存裝置制定使用指引。若系統聘用資料處理者代為處理個人資料，診所仍須以合約或其他方法，確保資料獲得同等保障。</p>
+
+        <p>在資料外洩方面，現行條例以自願通報為主。私隱專員公署的《資料外洩事故的處理及通報指引》建議，一旦發生資料外洩，應盡快評估影響、採取補救措施，並在切實可行範圍內盡快通知公署及受影響人士，尤其是外洩可能對當事人造成真實傷害風險的情況。指引亦建議診所預先訂立資料外洩應變計劃，涵蓋內部通報、風險評估、控制措施、紀錄保存與事後檢討。政府正研究修訂條例，方向包括設立強制性資料外洩通報機制、直接規管資料處理者、要求制訂資料保留政策及加重罰則，實際立法內容以官方公布為準。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">⚠️ 重要聲明</p>
+          <p class="text-gray-700 leading-relaxed">本文只就診所管理系統的合規考慮作一般性介紹，<strong>不構成法律或醫療建議</strong>。個人資料處理、病歷保存與醫健通參與等事宜，涉及具體法例與個別情況，請諮詢律師、私隱專業人員或相關專業意見，並以個人資料私隱專員公署及相關政府部門的最新官方公布為準。</p>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-7.webp" alt="示意圖：病人資料的生命週期，由收集、使用、保安、保留到查閱及改正，對應六項保障資料原則" title="病人資料生命週期" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">合規不是單一步驟，而是貫穿資料收集到刪除的整個週期</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-8.webp" alt="流程圖：診所處理資料外洩事故的五個步驟，包括收集資訊、控制外洩、評估風險、考慮通報及記錄檢討" title="資料外洩應變步驟" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">預先訂立應變計劃，比事後補救更能減低傷害</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、與現有系統整合</h2>
+        <p>診所很少只使用一套系統。收銀可能用 POS，記賬用會計軟件，化驗結果來自化驗所，部分診所另有會員或積分系統。若這些系統之間沒有連繫，同事仍要重複輸入。整合的目標，是讓資料在系統之間單向或雙向流動，減少人手搬運。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">現有系統</th><th class="px-4 py-3 text-left">整合目的</th><th class="px-4 py-3 text-left">常見做法</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">POS／收銀</td><td class="px-4 py-3">收費與收款一致</td><td class="px-4 py-3">由管理系統生成單據，POS 記錄收款</td></tr>
+              <tr><td class="px-4 py-3">會計軟件</td><td class="px-4 py-3">收入與支出自動入賬</td><td class="px-4 py-3">定期匯出交易或透過接口同步</td></tr>
+              <tr><td class="px-4 py-3">化驗所</td><td class="px-4 py-3">化驗結果直接歸入病歷</td><td class="px-4 py-3">以標準格式接收結果並存入檔案</td></tr>
+              <tr><td class="px-4 py-3">醫健通</td><td class="px-4 py-3">存放及取覽電子健康紀錄</td><td class="px-4 py-3">採用經認證並已連通醫健通的系統</td></tr>
+              <tr><td class="px-4 py-3">保險公司</td><td class="px-4 py-3">加快索償處理</td><td class="px-4 py-3">由病歷生成索償所需資料</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>整合能力往往是現成方案與訂造系統的分水嶺。若診所的化驗或保險流程特殊，現成方案未必提供對應接口，此時訂造或另行開發中介程式的價值便會浮現。採購時應直接問清楚：供應商提供哪些接口、接口是否額外收費、日後新增系統能否配合。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-9.webp" alt="示意圖：診所管理系統與 POS、會計軟件、化驗所、醫健通及保險公司之間的整合關係" title="與現有系統整合" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">整合做得不好，同事仍要人手搬資料，系統效益大打折扣</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、導入流程與驗收</h2>
+        <p>診所管理系統的導入，成敗多數不在技術，而在流程梳理與資料搬遷。舊系統的資料能否順利轉移、前線同事能否適應新流程，往往是最大風險。以下是建議的導入流程。</p>
+
+        <ol class="list-decimal pl-5 space-y-2 text-gray-700 my-4">
+          <li><strong>需求盤點</strong>——列出各環節現有做法、痛點與必要功能，分清「必須」與「想要」</li>
+          <li><strong>選型與評估</strong>——按標準程度與整合需求，決定現成或訂造，並比較三年總成本</li>
+          <li><strong>舊資料搬遷計劃</strong>——確認哪些病人、病歷與收費紀錄要轉移，以及格式與清理方式</li>
+          <li><strong>權限與合規設定</strong>——按「病人正接受其護理」及「有需要知道」原則設定取覽權限</li>
+          <li><strong>整合測試</strong>——與 POS、會計、化驗或醫健通作實際對接測試</li>
+          <li><strong>培訓與試行</strong>——先於部分診室或時段試行，收集前線意見再調整</li>
+          <li><strong>正式上線與驗收</strong>——按預先訂明的驗收標準逐項核對，並保留紀錄</li>
+        </ol>
+
+        <p>驗收是導入階段最常被忽略的一步。若合約只寫「交付系統」，日後出現爭議便難以判斷是否達標。建議在合約中訂明驗收清單，逐項列明要通過的測試，例如資料搬遷完整度、權限設定正確性、整合對接成功率與報表準確性。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 驗收清單建議項目</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>舊系統病人、病歷與收費資料的搬遷完整度</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>取覽權限設定是否按職能區分，員工離職後可否即時取消</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>取覽與操作紀錄是否完整，能否供審核</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>與 POS、會計、化驗或醫健通的對接是否正常</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>收費、發票與報表數字是否準確</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>資料可否完整匯出，日後換系統能否交接</span></li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-10.webp" alt="流程圖：診所管理系統導入的七個步驟，由需求盤點、選型、資料搬遷到正式上線與驗收" title="導入流程七步" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先梳理流程與資料，再談技術，導入風險會低很多</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/clinic-management-system-hong-kong-11.webp" alt="清單圖示：診所管理系統驗收時應逐項核對的六個項目，包括資料搬遷、權限、紀錄與匯出" title="驗收清單" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">驗收清單寫得越具體，日後爭議越少</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">診所規模小，是否一定要用管理系統？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定，但當預約、病歷與收費開始分散在幾個工具，出錯率與人手成本便會上升。規模小的診所可先從預約與收費兩個模組入手，採用月費較低的現成方案，日後再按需要擴充。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">現成方案與訂造系統，哪一個較划算？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">沒有絕對答案。現成方案上線快、初期成本低，但月費會逐年累積；訂造系統初期投入較高，但流程貼合度與整合能力較強。建議以三年為期，把月費、導入費、維護費與轉換成本一併比較。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">舊系統的病歷資料可以搬到新系統嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">技術上多數可以，但成效取決於舊系統能否匯出結構化資料。若舊資料只有掃描影像或紙本，便需要額外處理。建議在選型階段先確認舊系統的匯出格式，並把搬遷完整度列入驗收清單。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">診所管理系統要符合哪些病人資料法規？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">處理病歷須遵守《個人資料（私隱）條例》（第 486 章）及附表 1 的六項保障資料原則；若涉及醫健通，亦須遵守《電子健康系統條例》（第 625 章）及相關實務守則。系統應支援按職能設定取覽權限、記錄取覽活動，並讓病人查閱及改正資料。具體要求以官方最新公布為準，個別情況請諮詢專業意見。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">如何減少病人 no-show？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">關鍵是提醒要及時、改期與取消要方便。系統化的做法包括線上自助預約、於預約前一至兩日自動發送提醒、設立候補名單，以及記錄到診狀態以作日後調整。提醒使用的聯絡資料須符合第三項保障資料原則，只用於所述明的目的。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">系統能否與醫健通對接？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以。醫健通以醫護機構為單位登記，診所可選用經認證並已連通醫健通的電子醫療紀錄系統，將病人的電子健康紀錄存入及取覽。取覽須符合「病人正接受其護理」及「有需要知道」原則。登記與技術安排可參考醫健通醫護提供者指南。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">資料外洩時應如何處理？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按個人資料私隱專員公署的《資料外洩事故的處理及通報指引》，應盡快收集事故資訊、控制外洩、評估對當事人的傷害風險，並在切實可行範圍內盡快通知公署及受影響人士。診所宜預先訂立應變計劃，涵蓋內部通報、控制措施、紀錄保存與事後檢討。政府正研究設立強制性通報機制，實際要求以官方公布為準。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">導入系統時最大的風險是什麼？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">多數風險在於流程梳理與舊資料搬遷，而非技術本身。若沒有先盤點流程、確認舊資料格式，或沒有訂明驗收標準，便容易在上線後出現爭議。建議在合約中列明驗收清單，並先於部分診室試行。</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>選擇診所管理系統，實質是選擇一套能把預約、病歷、收費與對賬連起來，並符合病人資料合規要求的工作方式。規模小、流程標準的診所，可先用現成方案快速上線；流程特殊、整合需求高或希望資料自持的診所，則值得評估訂造。無論選哪一種，都要確認系統能按「病人正接受其護理」及「有需要知道」原則設定權限、符合《個人資料（私隱）條例》的六項保障資料原則，並能讓診所完整匯出資料。採購前先梳理流程、訂明驗收標準，導入的風險便會大幅降低。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">需要協助規劃診所管理系統？</p>
+          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供系統開發、系統整合與技術顧問服務，可協助診所由需求盤點、選型評估到導入驗收一併處理，並在設計階段把病人資料的權限與紀錄要求納入考量。</p>
+          <p><a href="/services/healthcare/" class="text-[#0f4c81] font-bold hover:underline">醫療系統服務</a>　·　<a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a></p>
+        </div>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.pcpd.org.hk/tc_chi/data_privacy_law/6_data_protection_principles/principles.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：六項保障資料原則</a> — 六項保障資料原則的名稱及對應要求</li>
+            <li><a href="https://www.pcpd.org.hk/english/resources_centre/publications/files/eHRSS_Points_to_Notes_ENG.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：《個人資料（私隱）條例》與電子健康系統——醫護機構及醫護專業人員應注意事項</a> — 病歷屬敏感個人資料、「病人正接受其護理」及「有需要知道」原則、取覽權限、資料保安與查閱要求</li>
+            <li><a href="https://www.pcpd.org.hk/english/resources_centre/publications/files/guidance_note_dbn_e.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：資料外洩事故的處理及通報指引</a> — 資料外洩的定義、應變計劃與通報建議</li>
+            <li><a href="https://www.info.gov.hk/gia/general/202501/22/P2025012200300.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：立法會二題——防範個人資料外泄及金融罪案</a> — 現行自願通報安排、擬修例方向（強制通報、規管資料處理者、資料保留政策及罰則）</li>
+            <li><a href="https://www.ehealth.gov.hk/tc/healthcare-provider-and-professional/how-to-register/index.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">醫健通：醫護機構如何登記</a> — 以機構為單位登記、須遵守《電子健康系統條例》及實務守則、病人登記安排</li>
+            <li><a href="https://www.ehealth.gov.hk/filemanager/content/pdf/tc/hcp/hcp_registration_guide.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">醫健通：醫護提供者指南</a> — 電子健康紀錄互通、「病人正接受其護理」及「有需要知道」取覽原則、取覽活動紀錄及經認證系統</li>
+            <li><a href="https://www.hcv.gov.hk/tc/use_of_vouchers/pilot_reward_scheme.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">衞生署：長者醫療券獎賞先導計劃</a> — 醫療券獎賞安排及延長至 2028 年 12 月 31 日</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
+  // ─── Article 35：ERP 系統選型指南 ───
+  {
+    id: 35,
+    slug: "erp-system-hong-kong-guide",
+    title: "ERP 系統選型指南：香港企業訂造與套裝完整比較",
+    excerpt:
+      "企業要更換 ERP，最常糾結的是買現成套裝還是找人訂造。本文為香港中小企至大企業的 IT 主管與營運總監而寫，先釐清 ERP 與 CRM、會計、庫存系統的分別，再用六大維度比較套裝與訂造，附三年總成本（TCO）示範計算、導入失敗的常見原因、六步選型流程與評分檢查清單，幫你一次過掌握選型決策所需。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/erp-system-hong-kong-guide.webp",
+    tags: ["ERP", "ERP 系統", "系統選型", "套裝 ERP", "訂造系統", "TCO", "系統整合", "香港企業"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">企業要更換 ERP，最常問的問題不是「哪一套最好」，而是「應該買現成套裝，還是找人訂造」。本文為香港中小企至大企業的 IT 主管與營運總監而寫：由 ERP 與 CRM、會計、庫存系統的分別講起，用六大維度比較套裝與訂造，附三年總成本（TCO）示範計算、導入失敗的常見原因、六步選型流程，以及一份可以直接使用的評分檢查清單。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">ERP 是一套把財務、採購、庫存、銷售、人力資源與報表連成單一資料來源的系統，核心價值在於<strong>消除系統孤島、減少重複工序</strong>。套裝與訂造沒有絕對優劣：<strong>套裝勝在功能齊全、導入較快、生態成熟、維護成本可預期</strong>；<strong>訂造勝在貼合獨特流程、不受標準框架限制</strong>。香港大部分中小企適合「以套裝為主、只訂造關鍵介面與整合」；流程高度特殊（例如特殊製造、法規密集行業）才值得大幅訂造。決策關鍵不是「哪一個便宜」，而是<strong>三年總成本（TCO）與流程契合度</strong>。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 本文重點</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>ERP 解決的是「跨部門資料不一致」，不是單純把會計軟件升級</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>套裝與訂造用六大維度比較：功能覆蓋、客製彈性、導入時間、總成本、維護、升級與鎖定</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>比較要用三年 TCO，不能只看首年報價；隱藏成本往往決定成敗</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>導入失敗多數源於流程梳理不足、變更管理缺失與資源錯配，而非技術本身</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>中小企宜分期上線，先做核心財務與庫存，再逐步擴展模組</span></li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-1.webp" alt="示意圖：企業各部門各自使用不同系統形成資料孤島，以及 ERP 整合後的單一資料來源" title="示意圖：企業各部門各自使用不同系統形成資料孤島，以及 ERP 整合後的單一資料來源" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">ERP 的核心價值：把各自為政的系統連成單一資料來源</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、ERP 到底是什麼（與 CRM、會計、庫存系統的分別）</h2>
+        <p>企業資源規劃（Enterprise Resource Planning，ERP）是一套<strong>共用單一資料庫的整合式管理系統</strong>。它的重點不是某一個功能特別強，而是讓財務、採購、庫存、銷售、人力資源等部門使用<strong>同一份資料</strong>，避免各自為政、重複輸入。</p>
+        <p>很多人把 ERP 與 CRM、會計系統、庫存系統混為一談。四者關係可以這樣理解：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">系統類型</th><th class="px-4 py-3 text-left">主要目的</th><th class="px-4 py-3 text-left">核心資料</th><th class="px-4 py-3 text-left">與 ERP 的關係</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">ERP</td><td class="px-4 py-3">整合全公司後台流程</td><td class="px-4 py-3">財務、採購、庫存、銷售、人事</td><td class="px-4 py-3">主幹，涵蓋其餘系統</td></tr>
+              <tr><td class="px-4 py-3">CRM</td><td class="px-4 py-3">管理客戶關係與銷售漏斗</td><td class="px-4 py-3">客戶、商機、聯絡紀錄</td><td class="px-4 py-3">多為 ERP 的銷售端延伸或外接</td></tr>
+              <tr><td class="px-4 py-3">會計系統</td><td class="px-4 py-3">記帳、報稅、財務報表</td><td class="px-4 py-3">總帳、應收應付</td><td class="px-4 py-3">ERP 的財務模組，或獨立對接</td></tr>
+              <tr><td class="px-4 py-3">庫存／倉儲系統</td><td class="px-4 py-3">追蹤貨品與出入庫</td><td class="px-4 py-3">存貨、批次、位置</td><td class="px-4 py-3">ERP 的庫存模組，或獨立對接</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>判斷是否需要 ERP 的簡單問題是：<strong>你的痛點是否橫跨多個部門？</strong>如果只是「會計想換一套好用的記帳軟件」，那可能只需要會計系統；如果「同一批貨，銷售、倉庫、財務各自有一份數字且對不上」，那正是 ERP 要解決的問題。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-2.webp" alt="比較圖：ERP 與 CRM、會計系統、庫存系統在主要目的、核心資料及與 ERP 關係上的分別" title="比較圖：ERP 與 CRM、會計系統、庫存系統在主要目的、核心資料及與 ERP 關係上的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">ERP 是主幹；CRM、會計與庫存系統可以是它的模組，也可以是外接系統</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、香港企業常見的 ERP 範圍</h2>
+        <p>不同行業的 ERP 側重不同，但香港企業最常見的範圍大致圍繞六個模組。先釐清自己需要哪幾個，是控制預算與導入風險的第一步。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">模組</th><th class="px-4 py-3 text-left">典型功能</th><th class="px-4 py-3 text-left">常見行業側重</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">財務</td><td class="px-4 py-3">總帳、應收應付、發票、對帳</td><td class="px-4 py-3">全部行業的必備模組</td></tr>
+              <tr><td class="px-4 py-3">採購</td><td class="px-4 py-3">請購、採購單、供應商管理、收貨</td><td class="px-4 py-3">貿易、零售、製造</td></tr>
+              <tr><td class="px-4 py-3">庫存</td><td class="px-4 py-3">出入庫、批次序號、盤點、多倉</td><td class="px-4 py-3">零售、批發、餐飲</td></tr>
+              <tr><td class="px-4 py-3">銷售</td><td class="px-4 py-3">報價、訂單、送貨、退貨</td><td class="px-4 py-3">零售、貿易、B2B 銷售</td></tr>
+              <tr><td class="px-4 py-3">人力資源</td><td class="px-4 py-3">考勤、薪酬、假期、強積金</td><td class="px-4 py-3">人力密集的服務業</td></tr>
+              <tr><td class="px-4 py-3">報表</td><td class="px-4 py-3">儀表板、管理報表、成本分析</td><td class="px-4 py-3">管理層決策需要</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>實務上不必一次過全部上線。以香港中小企而言，<strong>財務加庫存</strong>通常是最優先的核心；採購與銷售緊隨其後；人力資源與進階報表可以留待第二、第三階段。先做核心，除了節省首年成本，亦可以讓員工逐步適應，降低整體風險。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-3.webp" alt="圖表：香港企業最常見的六個 ERP 模組，由財務、採購、庫存、銷售到人力資源與報表" title="圖表：香港企業最常見的六個 ERP 模組，由財務、採購、庫存、銷售到人力資源與報表" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">財務與庫存通常是核心，其餘模組可按階段加入</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、套裝與訂造：六個比較維度</h2>
+        <p>「套裝」指購買現成的商業軟件（例如市場上的雲端 ERP 產品）；「訂造」指委託開發商按你的流程由零開發或大幅改造。兩者不是非此即彼，市場上亦常見「套裝加少量客製」的混合模式。以下六個維度是最常影響決策的比較點。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">比較維度</th><th class="px-4 py-3 text-left">套裝</th><th class="px-4 py-3 text-left">訂造</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>功能覆蓋</strong></td><td class="px-4 py-3">模組齊全，行業最佳實務已內建</td><td class="px-4 py-3">只做你指定的功能，貼合實際流程</td></tr>
+              <tr><td class="px-4 py-3"><strong>客製彈性</strong></td><td class="px-4 py-3">受標準框架限制，客製有上限</td><td class="px-4 py-3">高度自由，流程可完全按需設計</td></tr>
+              <tr><td class="px-4 py-3"><strong>導入時間</strong></td><td class="px-4 py-3">較快，通常以週至數月計</td><td class="px-4 py-3">較長，視範圍由數月至一年以上</td></tr>
+              <tr><td class="px-4 py-3"><strong>總成本</strong></td><td class="px-4 py-3">首年較低，成本可預期</td><td class="px-4 py-3">首年較高，需求變更易追加預算</td></tr>
+              <tr><td class="px-4 py-3"><strong>維護</strong></td><td class="px-4 py-3">由原廠支援，版本持續更新</td><td class="px-4 py-3">多依賴原開發商，轉換成本高</td></tr>
+              <tr><td class="px-4 py-3"><strong>升級與鎖定</strong></td><td class="px-4 py-3">升級較順，但受供應商生態鎖定</td><td class="px-4 py-3">升級靠自己，原始碼在手上則較少鎖定</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>一個實用的判斷原則：<strong>如果你的流程屬於行業主流，套裝通常更划算；如果你的流程正是競爭優勢所在，才值得訂造。</strong>把訂造留給「標準產品做不到、又直接影響生意」的部分，其餘用套裝，往往是香港企業最平衡的做法。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-4.webp" alt="決策圖：按流程是否屬於行業主流，判斷應選擇套裝、混合模式還是訂造 ERP" title="決策圖：按流程是否屬於行業主流，判斷應選擇套裝、混合模式還是訂造 ERP" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">流程屬主流用套裝；流程是核心競爭力才訂造，其餘採混合模式</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、三年總成本（TCO）示範計算</h2>
+        <p>比較 ERP 最常見的錯誤，是只看首年報價。真正要比較的是<strong>三年總成本（Total Cost of Ownership，TCO）</strong>，包括授權、導入、資料遷移、客製、維護、雲端與內部人力。</p>
+        <p>以下是一個<strong>示範計算</strong>，用以說明比較方法。假設一間 50 人、30 個系統使用者的香港貿易公司，需要財務、庫存、銷售三個模組。<strong>數字純屬示範假設，並非任何供應商的實際報價</strong>，實際金額須以正式報價為準。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">成本項目</th><th class="px-4 py-3 text-left">套裝（示範假設）</th><th class="px-4 py-3 text-left">訂造（示範假設）</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">首年：授權／訂閱</td><td class="px-4 py-3">30 用戶 × 約 $500／月 × 12 ＝ 約 $180,000</td><td class="px-4 py-3">無授權費</td></tr>
+              <tr><td class="px-4 py-3">首年：開發／導入設定</td><td class="px-4 py-3">約 $120,000</td><td class="px-4 py-3">約 $600,000（按範圍與工時估算）</td></tr>
+              <tr><td class="px-4 py-3">首年：資料遷移與雲端</td><td class="px-4 py-3">約 $40,000</td><td class="px-4 py-3">約 $80,000</td></tr>
+              <tr><td class="px-4 py-3"><strong>首年小計</strong></td><td class="px-4 py-3"><strong>約 $340,000</strong></td><td class="px-4 py-3"><strong>約 $680,000</strong></td></tr>
+              <tr><td class="px-4 py-3">第二年：訂閱＋維護＋小改動</td><td class="px-4 py-3">約 $200,000</td><td class="px-4 py-3">約 $210,000（維護約為開發費 20%）</td></tr>
+              <tr><td class="px-4 py-3">第三年：訂閱＋維護＋小改動</td><td class="px-4 py-3">約 $200,000</td><td class="px-4 py-3">約 $210,000</td></tr>
+              <tr><td class="px-4 py-3"><strong>三年合計</strong></td><td class="px-4 py-3"><strong>約 $740,000</strong></td><td class="px-4 py-3"><strong>約 $1,100,000</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>示範結果顯示：<strong>套裝的首年與三年成本都較低，但差距會隨時間收窄</strong>。原因是訂造在第二、三年只需要維護與小額增補，而套裝的訂閱費每年持續。若訂造能帶來顯著的流程優勢或收入提升，長遠仍有機會回本；反之，若訂造只是為了「好看」，成本會變成純支出。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 最容易漏算的隱藏成本</p>
+          <ul class="list-disc pl-5 space-y-2 text-gray-700">
+            <li><strong>資料清理與遷移</strong>——舊資料不乾淨，遷移工時往往超出預期</li>
+            <li><strong>整合費用</strong>——與現有電商、CRM、支付或物流系統對接</li>
+            <li><strong>培訓與變更管理</strong>——員工適應新流程的時間與成本</li>
+            <li><strong>內部人力</strong>——項目期間抽調同事參與梳理與測試的機會成本</li>
+            <li><strong>需求變更</strong>——訂造項目最常見的追加預算來源</li>
+          </ul>
+        </div>
+
+        <p>政府資助方面須留意現況：<strong>「科技券」（TVP）已於 2024 年 12 月 31 日後停止接受新申請</strong>，而<strong>「數碼轉型支援先導計劃」亦已於 2025 年 5 月截止申請</strong>，政府正研究優化並加入人工智能及網絡安全方案，目標於稍後推出新一輪。規劃預算時不宜假設資助仍然可即時申請，應先以自有資金為基礎，再留意官方最新公布。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-5.webp" alt="圖表：套裝與訂造 ERP 三年總成本的示範比較，顯示首年及三年合計的差距" title="圖表：套裝與訂造 ERP 三年總成本的示範比較，顯示首年及三年合計的差距" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">示範數字僅供說明比較方法，實際以正式報價為準</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-6.webp" alt="圖示：ERP 項目最常被漏算的五類隱藏成本，包括資料遷移、整合、培訓、內部人力與需求變更" title="圖示：ERP 項目最常被漏算的五類隱藏成本，包括資料遷移、整合、培訓、內部人力與需求變更" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">決定 TCO 高低的，往往是這些不在首年報價上的項目</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、導入失敗的常見原因與風險控制</h2>
+        <p>ERP 導入失敗在業界相當普遍。國際顧問公司 Panorama Consulting 的《2024 ERP Report》指出，受訪企業的項目成本中位數為 45 萬美元、工期中位數為 15.5 個月；超出預算最常見的原因是「意料之外的額外技術需求」，而超出工期最常見的原因是「資源限制」。值得注意的是，該報告的樣本以中大型企業為主，香港中小企的規模與風險特徵會有所不同。</p>
+        <p>以下是香港企業最常遇到的失敗原因與對應控制方法：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">常見原因</th><th class="px-4 py-3 text-left">徵兆</th><th class="px-4 py-3 text-left">風險控制</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">流程梳理不足</td><td class="px-4 py-3">直接跳到選軟件，未定義需求</td><td class="px-4 py-3">先做工序盤點與需求文件</td></tr>
+              <tr><td class="px-4 py-3">變更管理缺失</td><td class="px-4 py-3">前線抗拒、繼續用舊流程</td><td class="px-4 py-3">及早溝通、設種子用戶與培訓</td></tr>
+              <tr><td class="px-4 py-3">高層參與不足</td><td class="px-4 py-3">項目淪為 IT 部門單打獨鬥</td><td class="px-4 py-3">由管理層擔任項目贊助人</td></tr>
+              <tr><td class="px-4 py-3">資料質素差</td><td class="px-4 py-3">舊資料重複、缺漏</td><td class="px-4 py-3">上線前多輪清理與驗證</td></tr>
+              <tr><td class="px-4 py-3">範圍失控</td><td class="px-4 py-3">需求不斷增加、預算追不上</td><td class="px-4 py-3">訂立變更控制流程與分期交付</td></tr>
+              <tr><td class="px-4 py-3">資源錯配</td><td class="px-4 py-3">內部人手不足、進度一再延後</td><td class="px-4 py-3">預留專責人手與緩衝時間</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-7.webp" alt="圖示：ERP 導入風險控制的四個重點，包括需求文件、變更控制、高層參與與分期交付" title="圖示：ERP 導入風險控制的四個重點，包括需求文件、變更控制、高層參與與分期交付" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">對應失敗原因的風險控制措施</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-8.webp" alt="圖示：ERP 導入失敗的六個常見原因，由流程梳理不足、變更管理缺失到資源錯配" title="圖示：ERP 導入失敗的六個常見原因，由流程梳理不足、變更管理缺失到資源錯配" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">失敗多數不是技術問題，而是流程、人與資源的問題</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、選型流程六步</h2>
+        <p>把選型當作一個有次序的項目，可以大幅減少「買錯」的風險。建議按以下六步推進：</p>
+        <ol class="list-decimal pl-5 space-y-2 text-gray-700 my-4">
+          <li><strong>需求盤點</strong>——列出各部門痛點、必須功能與期望成果，分清「必要」與「想要」</li>
+          <li><strong>流程梳理</strong>——把現有工序畫出來，找出重複、斷點與可標準化的部分</li>
+          <li><strong>建立短名單</strong>——按行業適配度、規模與預算篩選三至五個方案</li>
+          <li><strong>示範與 PoC</strong>——要求針對你的真實流程做示範或概念驗證，不要只看通用簡報</li>
+          <li><strong>報價與合約</strong>——逐項核對範圍、交付成果、付款里程碑與支援安排</li>
+          <li><strong>分期上線</strong>——先做核心模組，驗收後再擴展，降低一次過失敗的風險</li>
+        </ol>
+        <p>這六步之中，<strong>第一與第二步最容易被跳過，卻最影響結果</strong>。若企業內部沒有相關經驗，可以考慮引入獨立顧問協助梳理需求與評審方案，避免被單一供應商的示範牽着走。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-9.webp" alt="流程圖：ERP 選型的六個步驟，由需求盤點、流程梳理到分期上線" title="流程圖：ERP 選型的六個步驟，由需求盤點、流程梳理到分期上線" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">由需求盤點開始，到分期上線結束，六步有序推進</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、中小企分期導入路線圖</h2>
+        <p>中小企資源有限，最忌一次過更換整套系統。分期導入可以讓每一步都有可見成果，亦讓員工有時間適應。一個常見的三階段路線如下：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">重點</th><th class="px-4 py-3 text-left">目標</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">第一階段（0–6 個月）</td><td class="px-4 py-3">財務與庫存核心上線，完成資料遷移與基礎培訓</td><td class="px-4 py-3">統一基本資料，解決對數問題</td></tr>
+              <tr><td class="px-4 py-3">第二階段（6–12 個月）</td><td class="px-4 py-3">加入採購與銷售，打通訂單到收款流程</td><td class="px-4 py-3">減少重複輸入，提升營運效率</td></tr>
+              <tr><td class="px-4 py-3">第三階段（12 個月後）</td><td class="px-4 py-3">人力資源、管理報表與系統整合，按需加入 AI 或自動化</td><td class="px-4 py-3">以數據支持決策與擴展</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>分期導入的另一個好處，是<strong>讓每一階段都能獨立驗收與量度成效</strong>。若某一階段成效不理想，可以在下一階段調整方向，而不必推倒重來。對需要向管理層證明投資回報的 IT 主管而言，這種「小步驗證」的方式更容易取得持續支持。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-10.webp" alt="路線圖：中小企 ERP 分期導入的三個階段，由核心財務庫存到整合與自動化" title="路線圖：中小企 ERP 分期導入的三個階段，由核心財務庫存到整合與自動化" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先核心、後擴展，每階段獨立驗收，降低整體風險</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、評分表與檢查清單</h2>
+        <p>在比較幾個方案時，可以按以下維度評分（每項 1 至 5 分），把主觀感覺變成可比較的分數。建議先為每項設定權重，再乘以分數加總。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">評分項目</th><th class="px-4 py-3 text-left">要問的問題</th><th class="px-4 py-3 text-left">權重建議</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">流程契合度</td><td class="px-4 py-3">方案能否覆蓋你 80% 的核心流程？</td><td class="px-4 py-3">高</td></tr>
+              <tr><td class="px-4 py-3">整合能力</td><td class="px-4 py-3">能否與現有電商、CRM、支付系統對接？</td><td class="px-4 py-3">高</td></tr>
+              <tr><td class="px-4 py-3">總成本透明度</td><td class="px-4 py-3">三年 TCO 是否清楚，有否隱藏收費？</td><td class="px-4 py-3">高</td></tr>
+              <tr><td class="px-4 py-3">導入時間</td><td class="px-4 py-3">上線時間表是否現實、有否里程碑？</td><td class="px-4 py-3">中</td></tr>
+              <tr><td class="px-4 py-3">支援與維護</td><td class="px-4 py-3">回應時間、保養期、指定聯絡人是否明確？</td><td class="px-4 py-3">中</td></tr>
+              <tr><td class="px-4 py-3">升級與鎖定</td><td class="px-4 py-3">日後升級與遷出資料是否容易？</td><td class="px-4 py-3">中</td></tr>
+              <tr><td class="px-4 py-3">供應商資歷</td><td class="px-4 py-3">有否同類行業與規模的實際經驗？</td><td class="px-4 py-3">中</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>檢查清單方面，簽約前務必確認：<strong>資料所有權與匯出方式、知識產權歸屬、服務水平承諾、資料遷入與遷出安排、以及付款里程碑</strong>。這幾項若寫得不清楚，最容易在交付後出現爭議。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-11.webp" alt="表格圖示：ERP 選型的七個評分項目，包括流程契合度、整合能力、總成本透明度與支援維護" title="表格圖示：ERP 選型的七個評分項目，包括流程契合度、整合能力、總成本透明度與支援維護" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把主觀比較變成可加權的分數，決策更有依據</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/erp-system-hong-kong-guide-12.webp" alt="清單圖示：ERP 簽約前必須確認的五個項目，包括資料所有權、知識產權、服務水平、遷出安排與付款里程碑" title="清單圖示：ERP 簽約前必須確認的五個項目，包括資料所有權、知識產權、服務水平、遷出安排與付款里程碑" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">簽約前把這五項寫清楚，可避免日後爭議</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ERP 與 CRM、會計系統有什麼分別？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">ERP 是整合全公司後台流程的主幹，涵蓋財務、採購、庫存、銷售與人力資源，共用單一資料庫；CRM 專注客戶關係與銷售漏斗；會計系統專注記帳與報稅；庫存系統專注貨品與出入庫。後三者可以是 ERP 的模組，也可以是外接系統。若痛點只涉及單一職能，未必需要整套 ERP。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">套裝 ERP 還是訂造 ERP 比較好？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">沒有絕對答案，取決於流程是否屬於行業主流。流程屬主流、追求快速上線與可預期成本，套裝通常更划算；流程是核心競爭力、標準產品做不到，才值得訂造。香港大部分中小企適合「以套裝為主，只訂造關鍵介面與整合」的混合模式。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ERP 項目一般要多少錢？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">金額差距極大，取決於用戶數、模組數量、客製程度與是否整合現有系統。本文的三年 TCO 示範顯示，一間 50 人、30 個使用者的公司，套裝三年約數十萬元，訂造可達百萬元以上。以上僅為示範假設，實際必須以供應商正式報價為準，並逐項核對隱藏成本。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">ERP 導入為什麼會失敗？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">常見原因包括流程梳理不足、變更管理缺失、高層參與不足、資料質素差、範圍失控與資源錯配。Panorama Consulting《2024 ERP Report》指出，超出預算最常見的原因是意料之外的額外技術需求，超出工期最常見的原因是資源限制。控制方法包括先做需求文件、設變更控制流程與分期交付。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">中小企應該一次過更換整套 ERP 嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">一般不建議。分期導入可以讓每階段獨立驗收與量度成效，先做財務與庫存核心，再逐步加入採購、銷售、人力資源與報表。這種方式降低一次過失敗的風險，亦讓員工有時間適應，並更容易向管理層證明投資回報。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">現在還有政府資助可以申請 ERP 嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">須留意現況：「科技券」（TVP）已於 2024 年 12 月 31 日後停止接受新申請；「數碼轉型支援先導計劃」亦已於 2025 年 5 月截止申請。政府正研究優化先導計劃，加入人工智能及網絡安全方案，目標稍後推出新一輪。規劃時宜先以自有資金為基礎，並留意官方最新公布。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">如何避免被 ERP 供應商鎖定？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">簽約前確認資料所有權與匯出方式、原始碼或設計檔的交付安排，以及日後遷出系統的配合條款。訂造項目若能取得原始碼，鎖定風險較低；套裝項目則要了解資料可否完整匯出、格式是否開放。把這些寫入合約，比事後補救有效得多。</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">想找人協助你選型與導入 ERP？</p>
+          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供系統開發、ERP／CRM 及內部工具、系統整合與技術顧問服務，可以協助你由需求盤點、流程梳理、方案評審到報價文件一併處理。</p>
+          <p><a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a>　·　<a href="/services/consulting/" class="text-[#0f4c81] font-bold hover:underline">技術顧問服務</a>　·　<a href="/blog/crm-system-selection-guide-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">CRM 系統選型指南</a></p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>ERP 不是越大越好，也不是越貴越好。對香港企業而言，選型的核心問題只有三個：<strong>痛點是否橫跨多個部門、流程是否屬於行業主流、三年總成本是否負擔得起</strong>。把訂造留給真正影響競爭力的部分，其餘用套裝並分期上線，是大部分企業最平衡的取法。決策前做好需求盤點與流程梳理，並用評分表把主觀比較變成可量度的分數，就能大幅降低「導入失敗」的風險。</p>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.info.gov.hk/gia/general/202602/25/P2026022500279.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港政府新聞公報：立法會二題——支援中小企業數碼轉型的措施</a> — 「科技券」已於 2024 年 12 月 31 日後停止接受新申請；「數碼轉型支援先導計劃」資助上限 5 萬元、已於 2025 年 5 月截止申請，政府擬優化並加入人工智能及網絡安全方案</li>
+            <li><a href="https://www.info.gov.hk/gia/general/202412/13/P2024121300383.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港政府新聞公報：政府宣布將停止接受「科技券」申請</a> — 創新科技署宣布 2024 年 12 月 31 日後停止接受「科技券」新申請及原因</li>
+            <li><a href="https://tvp.itf.gov.hk/zh-HK" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">創新科技署：科技券（TVP）官方網站</a> — 計劃狀態通告：2024 年 12 月 31 日後停止接受新申請</li>
+            <li><a href="https://4439340.fs1.hubspotusercontent-na1.net/hubfs/4439340/Reports/ERP%20Report/2024-erp-report-panorama-consulting-group.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Panorama Consulting Group：《2024 ERP Report》</a> — 項目成本中位數 45 萬美元、工期中位數 15.5 個月；超預算主因為額外技術需求，超工期主因為資源限制</li>
+            <li><a href="https://www.hkpc.org/zh-HK/our-services/digital-transformation/digital-transformation-support" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港生產力促進局：數碼轉型支援</a> — 香港企業數碼化指數及中小企數碼轉型的常見障礙（資金、系統整合、技術支援）</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
+  // ─── Article 34：會員系統選擇指南 ───
+  {
+    id: 34,
+    slug: "membership-system-hong-kong",
+    title: "會員系統選擇指南：SaaS 月費、買斷與訂造開發成本比較（香港店主）",
+    excerpt:
+      "開店做會員制度，應該用 SaaS 月費、買斷授權，還是找人訂造開發？本文逐項拆解三種模式的收費結構、三年總成本示範計算、常見隱藏成本（交易費、訊息推送費、加值模組、資料匯出），並說明會員資料的擁有權與《個人資料（私隱）條例》的合規要求，附零售、餐飲與美容業需求差異表及選擇檢查清單。所有金額均為示範假設。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "14 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/membership-system-hong-kong.webp",
+    tags: ["會員系統", "SaaS", "訂造開發", "POS 整合", "個人資料私隱", "香港零售", "系統開發"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">開店做會員制度，最先遇到的問題通常不是「要不要做」，而是「應該用 SaaS 月費、買斷授權，還是找人訂造開發」。三種模式的收費結構完全不同：一種按月繳費，一種一次過付款，一種按需求量身訂造。本文逐項拆解每種模式包含什麼、三年總成本大概落在哪個範圍、有哪些容易被忽略的隱藏收費，並說明會員資料的擁有權與《個人資料（私隱）條例》的合規要求，最後附上零售、餐飲與美容業的需求差異表與選擇檢查清單，讓店主在比較報價前先想清楚自己的實際需要。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">單店、需求標準、想盡快開業，<strong>SaaS 月費制</strong>通常起步最快、前期成本最低，但長期要計算月費累積與資料歸屬。預算有限、希望一次過付清、日後不再繳月費，可考慮<strong>買斷授權</strong>，但要留意維護、升級與伺服器費用往往另計。<strong>訂造開發</strong>前期投入最高，適合需要打通 POS、網店、預約或多店管理的店主，長遠較有彈性，但必須在合約寫清楚資料擁有權與匯出安排。本文所有金額均為<strong>示範假設</strong>，並非真實報價。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>會員系統的核心模組：會員檔案、積分、優惠券、等級、儲值、訊息推送、報表，缺一不可。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>三種模式各有取捨：SaaS 前期便宜、買斷一次付清、訂造最有彈性但最貴。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>比較時不要只看月費，要算三年總成本（TCO），包括交易費、訊息費與加值模組。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>會員資料的擁有權與匯出權，必須在合約寫清楚，否則日後換系統可能搬不走資料。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>以會員資料做直接促銷，受《個人資料（私隱）條例》第 6A 部規管，須先取得當事人同意。</span></li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、會員系統包含什麼</h2>
+        <p>很多店主以為會員系統只是「儲分」，其實一套完整系統通常包含以下模組。比較方案時最常見的陷阱，是某一邊把某模組列為標準功能，另一邊卻當作加值項目收費，令報價無法直接比較。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">模組</th><th class="px-4 py-3 text-left">作用</th><th class="px-4 py-3 text-left">常見收費方式</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">會員檔案</td><td class="px-4 py-3">姓名、電話、生日、消費紀錄、標籤分群</td><td class="px-4 py-3">多數包含在基本方案</td></tr>
+              <tr><td class="px-4 py-3">積分制度</td><td class="px-4 py-3">消費累積積分、兌換獎賞、有效期設定</td><td class="px-4 py-3">基本方案或加值模組</td></tr>
+              <tr><td class="px-4 py-3">優惠券</td><td class="px-4 py-3">折扣券、現金券、生日券、限時活動</td><td class="px-4 py-3">部分方案需加購</td></tr>
+              <tr><td class="px-4 py-3">會員等級</td><td class="px-4 py-3">按消費金額分級、不同折扣與待遇</td><td class="px-4 py-3">進階方案常見</td></tr>
+              <tr><td class="px-4 py-3">儲值／預付</td><td class="px-4 py-3">客人預先充值、扣款、餘額查詢</td><td class="px-4 py-3">常涉交易手續費</td></tr>
+              <tr><td class="px-4 py-3">訊息推送</td><td class="px-4 py-3">SMS、WhatsApp、App 推送通知</td><td class="px-4 py-3">按訊息量收費</td></tr>
+              <tr><td class="px-4 py-3">報表分析</td><td class="px-4 py-3">會員增長、回購率、消費分佈、活躍度</td><td class="px-4 py-3">基礎報表免費，進階另計</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-1.webp" alt="圖示：會員系統的七大核心模組，包括會員檔案、積分、優惠券、等級、儲值、訊息推送與報表" title="會員系統的七大核心模組" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">一套完整的會員系統由七個模組組成，比較方案時要逐項對照是否包含</figcaption>
+        </figure>
+
+        <p>「儲值」與「訊息推送」兩項，往往是報價單上看不見的長期成本來源，會在第四章詳述。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、三種模式比較：SaaS 月費、買斷授權、訂造開發</h2>
+        <p>香港店主最常接觸的三種模式，收費邏輯完全不同。下表先作整體比較，再逐項說明。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">比較項目</th><th class="px-4 py-3 text-left">SaaS 月費</th><th class="px-4 py-3 text-left">買斷授權</th><th class="px-4 py-3 text-left">訂造開發</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">前期成本</td><td class="px-4 py-3">低（按月繳）</td><td class="px-4 py-3">中（一次過）</td><td class="px-4 py-3">高（一次過）</td></tr>
+              <tr><td class="px-4 py-3">收費模式</td><td class="px-4 py-3">月費或年費，按店數／會員數遞增</td><td class="px-4 py-3">一次性授權費 ＋ 年度維護費</td><td class="px-4 py-3">按需求報價，分期付款</td></tr>
+              <tr><td class="px-4 py-3">功能彈性</td><td class="px-4 py-3">固定功能，少量設定選項</td><td class="px-4 py-3">固定功能，可自訂有限</td><td class="px-4 py-3">完全按需求訂造</td></tr>
+              <tr><td class="px-4 py-3">資料存放</td><td class="px-4 py-3">供應商雲端</td><td class="px-4 py-3">自備或指定伺服器</td><td class="px-4 py-3">可約定存放位置</td></tr>
+              <tr><td class="px-4 py-3">系統更新</td><td class="px-4 py-3">自動更新，已含月費</td><td class="px-4 py-3">需另購升級或維護</td><td class="px-4 py-3">按合約另行安排</td></tr>
+              <tr><td class="px-4 py-3">換系統難度</td><td class="px-4 py-3">視供應商匯出功能</td><td class="px-4 py-3">中等，資料在自有環境</td><td class="px-4 py-3">低，原始碼與資料可交付</td></tr>
+              <tr><td class="px-4 py-3">適合對象</td><td class="px-4 py-3">單店、需求標準、盡快開業</td><td class="px-4 py-3">預算固定、不想長期繳費</td><td class="px-4 py-3">多店、需整合、需求特殊</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-2.webp" alt="比較圖：SaaS 月費、買斷授權與訂造開發三種會員系統模式在前期成本、功能彈性與適合對象上的分別" title="三種會員系統模式比較" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">三種模式沒有絕對優劣，關鍵在於店數、需求複雜度與現金流安排</figcaption>
+        </figure>
+
+        <p><strong>SaaS 月費制</strong>開通快、前期投入低，系統由供應商維護與更新，店主不需處理伺服器與技術問題。缺點是功能固定、月費長期累積，資料通常存放在供應商雲端，能否完整匯出取決於供應商是否提供匯出功能。</p>
+        <p><strong>買斷授權</strong>是一次過支付授權費，之後系統歸自己使用，不再繳月費。但授權費通常不含伺服器寄存、維護、升級與技術支援，這些往往按年另計；功能在購買時已固定，日後新需求仍可能需額外開發。</p>
+        <p><strong>訂造開發</strong>按店主實際流程度身設計，彈性最大，能打通 POS、網店、預約系統與會員資料。前期投入最高、開發時間最長，但原始碼與資料的擁有權可在合約清楚約定，日後擴充或更換系統相對容易。是否值得，取決於業務流程有多特殊、整合需求有多複雜。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、三年總成本示範計算</h2>
+        <p>比較方案時，只看「每月多少錢」很容易被誤導，真正應該比較的是三年總成本（Total Cost of Ownership）。以下以<strong>示範假設</strong>計算，數字純屬示範，並非任何供應商的真實報價。</p>
+
+        <p><strong>示範假設（單店，約 3,000 名會員）：</strong></p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>SaaS 月費方案：每月 HK$600（示範假設）</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>買斷授權：一次過 HK$15,000，年度維護 HK$4,500（示範假設）</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>訂造開發：一次過 HK$100,000，年度維護為開發費的 15%，即 HK$15,000（示範假設）</span></li>
+        </ul>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">模式</th><th class="px-4 py-3 text-left">第一年</th><th class="px-4 py-3 text-left">第二年</th><th class="px-4 py-3 text-left">第三年</th><th class="px-4 py-3 text-left">三年合計</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">SaaS 月費</td><td class="px-4 py-3">HK$7,200</td><td class="px-4 py-3">HK$7,200</td><td class="px-4 py-3">HK$7,200</td><td class="px-4 py-3"><strong>HK$21,600</strong></td></tr>
+              <tr><td class="px-4 py-3">買斷授權</td><td class="px-4 py-3">HK$19,500</td><td class="px-4 py-3">HK$4,500</td><td class="px-4 py-3">HK$4,500</td><td class="px-4 py-3"><strong>HK$28,500</strong></td></tr>
+              <tr><td class="px-4 py-3">訂造開發</td><td class="px-4 py-3">HK$115,000</td><td class="px-4 py-3">HK$15,000</td><td class="px-4 py-3">HK$15,000</td><td class="px-4 py-3"><strong>HK$145,000</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>以這個示範假設計算，單店三年總成本以 SaaS 月費最低，買斷授權略高，訂造開發明顯最高。但這個結論只在「需求標準、單店、不需整合」的前提下成立。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-3.webp" alt="柱狀圖：單店情境下三種會員系統模式的三年總成本示範比較" title="單店三年總成本示範比較" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">單店示範：SaaS 三年約 HK$21,600、買斷約 HK$28,500、訂造約 HK$145,000（示範假設）</figcaption>
+        </figure>
+
+        <p><strong>示範假設（三間分店，需中央管理會員與積分互通）：</strong>情況會明顯不同。SaaS 通常按店數加收月費，而訂造開發的邊際成本較低——多一間分店的額外成本遠低於多開一個 SaaS 帳號。以下為示範計算：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">模式</th><th class="px-4 py-3 text-left">三年成本組成（示範）</th><th class="px-4 py-3 text-left">三年合計</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">SaaS 月費</td><td class="px-4 py-3">HK$1,800／月 × 36 個月</td><td class="px-4 py-3"><strong>HK$64,800</strong></td></tr>
+              <tr><td class="px-4 py-3">買斷授權</td><td class="px-4 py-3">授權 HK$15,000 × 3 店 ＋ 中央模組 HK$8,000 ＋ 維護 HK$12,000／年 × 3</td><td class="px-4 py-3"><strong>HK$89,000</strong></td></tr>
+              <tr><td class="px-4 py-3">訂造開發</td><td class="px-4 py-3">開發 HK$180,000 ＋ 維護 HK$27,000／年 × 3</td><td class="px-4 py-3"><strong>HK$261,000</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>即使在三店情境，SaaS 的三年成本仍然最低。訂造開發之所以昂貴，是因為前期開發投入大；但如果業務有大量整合需求（POS、網店、預約、庫存同步），訂造可以省下多套系統重複付費與人工對賬的成本，實際價值須一併計算。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-4.webp" alt="比較圖：三間分店情境下三種會員系統模式的三年總成本示範，並顯示多店時 SaaS 月費遞增的情況" title="多店三年總成本示範比較" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">多店示範：SaaS 按月費乘以店數遞增，訂造的邊際成本相對較低（示範假設）</figcaption>
+        </figure>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 如何用這張表</p>
+          <p class="text-gray-700 leading-relaxed">把上表當作計算模板：索取報價後，把月費／授權費、維護費、交易費、訊息費四欄填進去，再乘以三年，這樣比單看月費更接近真實開支。所有數字均為示範假設，實際須向供應商確認。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、隱藏成本：報價單上未必寫的費用</h2>
+        <p>很多店主在簽約後才發現，實際支出比報價高出不少。以下四類是會員系統最常見的隱藏成本，比較方案時務必逐項問清楚。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">隱藏成本</th><th class="px-4 py-3 text-left">說明</th><th class="px-4 py-3 text-left">要注意什麼</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">交易手續費</td><td class="px-4 py-3">儲值、線上付款、電子券核銷按交易金額抽成</td><td class="px-4 py-3">問清楚比率與是否有最低收費</td></tr>
+              <tr><td class="px-4 py-3">訊息推送費</td><td class="px-4 py-3">SMS、WhatsApp 按發送量計費</td><td class="px-4 py-3">估算每月推送量與單價</td></tr>
+              <tr><td class="px-4 py-3">加值模組</td><td class="px-4 py-3">進階報表、多店管理、預約功能、API 串接</td><td class="px-4 py-3">確認基本方案是否已包含所需功能</td></tr>
+              <tr><td class="px-4 py-3">資料匯出</td><td class="px-4 py-3">匯出會員資料、遷移或客製報表可能收費</td><td class="px-4 py-3">簽約前確認匯出是否免費、格式為何</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>以訊息推送為例，WhatsApp 是香港零售與餐飲業最常用的會員觸達渠道之一。Meta 自 2025 年 7 月 1 日起，把 WhatsApp Business 平台全面改為按送達訊息計費，並把訊息分為推廣、實用、驗證與服務四類；在 24 小時客戶服務窗口內回覆客人的服務訊息免費，推廣類訊息則按市場與類別收費。第三方服務商就香港市場公布的推廣訊息指示價約為每則 US$0.05 至 US$0.08（示範參考）。假設每月發送 5,000 則推廣訊息，以每則 US$0.05 示範計算，即每月約 HK$1,950，一年近 HK$23,400，很可能比會員系統本身的月費還要高。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-5.webp" alt="圖示：會員系統四類常見隱藏成本，包括交易手續費、訊息推送費、加值模組與資料匯出費" title="會員系統的隱藏成本" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">報價單上最常被忽略的四類成本，訊息推送往往是長期支出最大的一項</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、會員資料擁有權與合規</h2>
+        <p>會員系統最核心的資產，其實是那批會員資料。資料屬於誰、存放在哪裡、日後能否完整取回，是選擇系統時最易被忽略、卻最影響長遠的一環。</p>
+
+        <p><strong>資料擁有權。</strong>使用 SaaS 方案時，資料一般存放在供應商雲端，店主須確認合約是否寫明：資料擁有權歸店主、可隨時完整匯出（常見為 CSV 或 Excel）、以及停止服務後供應商會否保留或刪除資料。買斷與訂造方案較容易約定資料與原始碼的交付。無論哪一種，都建議在合約寫入「資料所有權」「匯出安排」與「終止服務後的資料處理」三項。</p>
+
+        <p><strong>合規要求。</strong>會員資料屬於《個人資料（私隱）條例》（第 486 章）下的「個人資料」，店主作為「資料使用者」，須遵守條例附表一的六項保障資料原則。與會員系統最相關的幾項如下：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">保障資料原則</th><th class="px-4 py-3 text-left">對會員系統的實際要求</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">原則 1：收集目的及方式</td><td class="px-4 py-3">入會時須告知收集目的、資料可能轉移給哪類人士、是否必須提供、以及查閱與改正的權利</td></tr>
+              <tr><td class="px-4 py-3">原則 2：準確性及保留期間</td><td class="px-4 py-3">資料須準確，並在達到目的後刪除，不應無限期保留</td></tr>
+              <tr><td class="px-4 py-3">原則 3：資料的使用</td><td class="px-4 py-3">用於原目的以外的新用途，須先取得會員同意</td></tr>
+              <tr><td class="px-4 py-3">原則 4：資料保安</td><td class="px-4 py-3">須採取切實可行步驟保障資料，防止未經授權查閱或外洩</td></tr>
+              <tr><td class="px-4 py-3">原則 5：透明度</td><td class="px-4 py-3">須公開私隱政策，說明持有資料種類與主要用途</td></tr>
+              <tr><td class="px-4 py-3">原則 6：查閱及改正</td><td class="px-4 py-3">會員有權查閱及改正自己的資料，系統須支援相關流程</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>另外，條例第 6A 部就「直接促銷」設有專門規定：店主如擬使用會員資料作直接促銷（例如發送優惠推廣），須先取得會員「知情的同意」，沉默不構成同意；如擬把資料提供予第三方作促銷，更須事先取得書面同意。違反直接促銷規定屬刑事罪行，最高可被判罰款港幣 50 萬元及監禁 3 年；為得益而把資料提供予第三方，最高罰款港幣 100 萬元及監禁 5 年。因此，入會表格與私隱聲明必須載明資料用途、是否用於推廣、以及會員如何撤回同意。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-6.webp" alt="圖示：《個人資料（私隱）條例》六項保障資料原則與會員系統收集、使用會員資料時的合規要求" title="會員資料與《個人資料（私隱）條例》合規" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">會員資料受《個人資料（私隱）條例》規管，以資料作推廣前須先取得同意</figcaption>
+        </figure>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 一句提醒</p>
+          <p class="text-gray-700 leading-relaxed">選擇會員系統時，把「資料可否完整匯出」列為必要條件。若供應商不提供匯出功能，等於會員資料被鎖在對方系統內，日後想換系統也搬不走。簽約前先要求對方示範匯出流程，並在合約寫明。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、打通 POS、網店與 WhatsApp</h2>
+        <p>現時店主最常遇到的問題，是 POS、網店與會員系統各自為政，同一名客人在線上與線下被當成兩個人，積分不能通用，消費紀錄也對不上。打通這幾套系統，正是訂造開發最主要的價值。</p>
+
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>POS 與會員：</strong>收銀時即時識別會員、累積積分、使用優惠券，離線時的交易亦要能同步。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>網店與會員：</strong>線上線下共用同一會員帳號，積分與等級互通，避免重複註冊。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>WhatsApp 與會員：</strong>透過 WhatsApp Business 平台發送會員通知與推廣，並記錄訊息紀錄。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>庫存與訂單：</strong>線上訂單與門店銷售共用庫存，減少超賣與缺貨。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>對賬報表：</strong>把 POS、網店、會員與付款資料匯總成單一報表。</span></li>
+        </ul>
+
+        <p>如果選用 SaaS 方案，要確認它是否提供 API 或既有的 POS／網店串接功能。若現有系統沒有對接能力，往往需要額外開發中介程式，成本可能比會員系統本身更高——這也是很多多店店主最終選擇訂造的原因。相關成本考量，可參考本站另一篇關於 <a href="/blog/pos-system-hong-kong-total-cost/" class="text-[#0f4c81] font-bold hover:underline">POS 系統總成本</a> 的分析。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-7.webp" alt="架構示意圖：會員系統與 POS、網店、WhatsApp、庫存及付款系統的整合關係" title="會員系統與 POS、網店、WhatsApp 的整合" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">打通 POS、網店與 WhatsApp，讓同一名客人在線上線下共用同一會員身份</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、零售、餐飲與美容：需求差異</h2>
+        <p>不同業態對會員系統的需求差異很大，同一套方案在零售店順手，在美容院卻可能完全不夠用。下表按三種常見業態整理主要差異。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">需求</th><th class="px-4 py-3 text-left">零售</th><th class="px-4 py-3 text-left">餐飲</th><th class="px-4 py-3 text-left">美容／健身</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">核心功能</td><td class="px-4 py-3">積分、優惠券、等級</td><td class="px-4 py-3">儲值、集點、快結帳</td><td class="px-4 py-3">儲值套票、預約、療程紀錄</td></tr>
+              <tr><td class="px-4 py-3">儲值需求</td><td class="px-4 py-3">較低</td><td class="px-4 py-3">中（預付餐飲金）</td><td class="px-4 py-3">高（套票、療程包）</td></tr>
+              <tr><td class="px-4 py-3">預約功能</td><td class="px-4 py-3">少用</td><td class="px-4 py-3">部分需要（訂座）</td><td class="px-4 py-3">必須（技師、房間排程）</td></tr>
+              <tr><td class="px-4 py-3">訊息推送</td><td class="px-4 py-3">新品、促銷</td><td class="px-4 py-3">優惠、節慶推廣</td><td class="px-4 py-3">療程提醒、回訪通知</td></tr>
+              <tr><td class="px-4 py-3">與 POS 整合</td><td class="px-4 py-3">必要</td><td class="px-4 py-3">必要（下單即扣點）</td><td class="px-4 py-3">中（多為前台結帳）</td></tr>
+              <tr><td class="px-4 py-3">建議模式</td><td class="px-4 py-3">SaaS 或買斷</td><td class="px-4 py-3">SaaS 或訂造</td><td class="px-4 py-3">訂造或垂直方案</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>零售業需求最標準，SaaS 方案通常已足夠；餐飲業強調結帳速度與儲值，若 POS 與會員要即時互通，往往需要整合；美容與健身業涉及套票、療程與預約排程，標準 SaaS 大多無法直接支援，通常需要訂造或垂直行業方案。選擇前，先把自己的業務流程寫清楚，再對照上表判斷落在哪一類。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-8.webp" alt="比較圖：零售、餐飲與美容健身三種業態對會員系統在核心功能、儲值、預約與 POS 整合上的需求差異" title="零售、餐飲、美容的會員系統需求差異" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">業態決定需求：美容健身最需要預約與套票，零售最標準，餐飲重結帳速度</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、選擇檢查清單</h2>
+        <p>比較報價之前，先逐項確認以下問題。把答案寫下來再索取報價，會比單看價錢更有效。</p>
+
+        <ol class="list-decimal pl-5 space-y-2 text-gray-700 my-4">
+          <li><strong>需求清單：</strong>需要哪些模組？積分、儲值、優惠券、等級、預約，哪些是必要，哪些是加分？</li>
+          <li><strong>店數與會員規模：</strong>單店還是多店？現有多少會員，預計三年後增長到多少？</li>
+          <li><strong>整合需求：</strong>是否需要打通 POS、網店、WhatsApp 或庫存系統？現有系統是否支援 API？</li>
+          <li><strong>資料擁有權：</strong>合約有否寫明資料歸自己、可完整匯出、終止服務後的處理？</li>
+          <li><strong>成本全貌：</strong>除了月費或授權費，交易費、訊息費、維護費、加值模組各是多少？</li>
+          <li><strong>合規安排：</strong>入會表格與私隱聲明是否符合條例要求？是否載明推廣用途與撤回同意的方法？</li>
+          <li><strong>上線與支援：</strong>上線需時多久？有否指定聯絡人、回應時間承諾與保養期？</li>
+          <li><strong>遷出安排：</strong>日後更換系統，資料與設定如何交接？是否額外收費？</li>
+        </ol>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-9.webp" alt="清單圖示：選擇會員系統前應確認的八個問題，涵蓋需求、整合、資料擁有權、成本與合規" title="選擇會員系統的檢查清單" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把八項答案寫下來再索取報價，比單純比較價錢更接近真實需要</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">SaaS 月費與買斷授權，長遠哪個較便宜？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">視乎使用年期與店數。以本文示範假設計算，單店三年總成本以 SaaS 月費最低；但年期越長、店數越多，SaaS 月費會持續累積，買斷授權的成本則相對固定。買斷要留意授權費通常不含維護、升級與伺服器費用，須一併計入再比較。實際數字必須向供應商索取正式報價。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">會員資料在 SaaS 系統內，屬於我還是供應商？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按《個人資料（私隱）條例》，店主作為「資料使用者」，對會員資料的收集、持有與使用負責，因此資料應歸店主所有。但實際上資料存放在供應商的雲端，能否完整取回取決於合約條款。簽約前務必確認合約寫明資料擁有權歸店主、可隨時完整匯出，以及終止服務後的資料處理安排。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">訂造開發是不是一定比 SaaS 貴？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">前期投入一定較高，但總成本不一定。如果業務需要打通多套系統（POS、網店、預約、庫存），訂造可以一次過整合，省下多套 SaaS 的重複月費與人工對賬成本。單店、需求標準的情況，SaaS 通常更划算；多店、整合需求複雜的情況，訂造的長遠價值較高。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">用會員資料發送推廣訊息，需要注意什麼？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">《個人資料（私隱）條例》第 6A 部規定，使用個人資料作直接促銷前，須先取得當事人知情的同意，沉默不構成同意。入會表格與私隱聲明須清楚說明資料會否用於推廣、涉及哪些類別的促銷目的，以及會員可如何撤回同意。違反直接促銷規定屬刑事罪行，最高可被判罰款港幣 50 萬元及監禁 3 年。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">WhatsApp 推送會員訊息要收費嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">要。Meta 自 2025 年 7 月 1 日起，把 WhatsApp Business 平台全面改為按送達訊息計費，並把訊息分為推廣、實用、驗證與服務四類。在 24 小時客戶服務窗口內回覆客人的服務訊息免費，推廣類訊息則按市場與類別收費。實際單價以服務商報價為準，估算成本時應把每月推送量乘以單價計入總成本。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">單店小店需要用到訂造會員系統嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">多數情況下不需要。單店、需求標準（積分、優惠券、基本報表）的店主，SaaS 月費方案通常已足夠。只有在需要打通 POS 與網店、多店管理或有特殊流程時，訂造開發才明顯划算。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">換系統時，會員資料搬得走嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">取決於原系統是否提供匯出功能與合約條款。簽約前應要求供應商示範匯出流程，確認可匯出完整會員資料（常見為 CSV 或 Excel），並在合約寫明匯出安排與終止服務後的資料處理。若供應商不提供匯出功能，日後更換系統將十分困難。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">報價單上的「月費」是否已包含所有功能？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定。常見情況是基本月費只含部分模組，進階報表、多店管理、預約、API 串接、訊息推送與交易手續費往往另行收費。比較報價時，應要求供應商逐項列出各項收費，避免日後出現預算落差。</p>
+          </div>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-10.webp" alt="示意圖：店主選擇會員系統時的決策流程，由確認需求、比較三年總成本到核對資料擁有權與合規" title="會員系統選擇決策流程" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先確認需求與整合範圍，再比較三年總成本，最後核對資料擁有權與合規安排</figcaption>
+        </figure>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">想找人評估你的會員系統需求？</p>
+          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供系統開發、網站及 App 開發、系統整合與技術顧問服務，可以協助你盤點會員系統需求、比較不同模式的總成本，並處理 POS、網店與會員系統的整合。歡迎先與我們討論你的實際流程。</p>
+          <p><a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a>　·　<a href="/blog/pos-system-hong-kong-total-cost/" class="text-[#0f4c81] font-bold hover:underline">POS 系統總成本分析</a></p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>選擇會員系統，本質上是在「前期投入」與「長期成本」之間取捨。SaaS 月費開通快、前期便宜，適合單店與標準需求；買斷授權一次付清、成本較固定，但要計入維護與升級；訂造開發前期最貴，卻最有彈性，適合多店與需要打通多套系統的業務。無論選哪一種，都應該以三年總成本為基準比較，把交易費、訊息費、加值模組與資料匯出一併計入。同時，會員資料的擁有權與《個人資料（私隱）條例》的合規要求，必須在簽約前釐清，尤其以資料作直接促銷時，須先取得會員同意。</p>
+        <p>本文所有成本數字均為<strong>示範假設</strong>，並非任何供應商的真實報價。實際選擇前，請向供應商索取正式報價，並按檢查清單逐項核對。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/membership-system-hong-kong-11.webp" alt="總結圖示：會員系統三種模式的取捨，以及三年總成本、資料擁有權與合規三個決策重點" title="會員系統選擇總結" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">以三年總成本為基準比較，並在簽約前釐清資料擁有權與合規責任</figcaption>
+        </figure>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.pcpd.org.hk/tc_chi/data_privacy_law/ordinance_at_a_Glance/ordinance.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：《個人資料（私隱）條例》簡介</a> — 六項保障資料原則、第 6A 部直接促銷規定及罰則（最高罰款港幣 50 萬元及監禁 3 年；為得益提供資料予第三方最高罰款港幣 100 萬元及監禁 5 年）</li>
+            <li><a href="https://www.elegislation.gov.hk/hk/cap486!zh-Hant-HK" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">電子版香港法例：第 486 章《個人資料（私隱）條例》</a> — 條例全文、保障資料原則及第 6A 部條文</li>
+            <li><a href="https://business.whatsapp.com/products/platform-pricing" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">WhatsApp Business 平台定價</a> — 自 2025 年 7 月 1 日起按送達訊息計費、四類訊息（推廣／實用／驗證／服務）及 24 小時服務窗口免費安排</li>
+            <li><a href="https://www.pcpd.org.hk/tc_chi/education_training/individuals/public_seminars/files/PDPO_chi_2023.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：《個人資料（私隱）條例》講座資料</a> — 六項保障資料原則與收集個人資料聲明應載明事項</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
+  // ─── Article 33：學校選擇系統供應商指南 ───
+  {
+    id: 33,
+    slug: "school-it-vendor-quotation-guide",
+    title: "香港學校如何選擇系統供應商：報價流程與必問 5 條問題",
+    excerpt:
+      "資助學校採購校務系統或學校網站，須依循教育局《資助學校採購程序指引》：5,000 元以上至 50,000 元須邀請最少兩個口頭報價，50,000 元以上至 200,000 元須最少五個書面報價，200,000 元以上須最少五名供應商投標。本文整理報價必備項目、比較供應商的六個維度、面試必問五條問題、報價陷阱與評分表建議，協助資訊科技統籌老師在有限時間內完成一次合規而可靠的採購。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/school-it-vendor-quotation-guide.webp",
+    tags: ["學校採購", "資助學校", "系統供應商", "報價流程", "校務系統", "學校網站設計", "教育局指引"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">學校要採購校務系統、網站或內聯網，多數由資訊科技統籌老師或資訊科技主任一人包辦：既要理解教學需要，又要處理報價、比較與採購文件。資助學校的採購程序受教育局《資助學校採購程序指引》規管，報價門檻、份數與批核人員都有明確要求；文件寫得不清楚，隨時被要求補交，甚至影響審計。本文整理由報價程序、報價必備項目，到面試供應商的必問問題，協助你在有限時間內完成一次合規而可靠的採購。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">資助學校採購系統或網站，須按每次採購的金額決定程序：<strong>5,000 元以上至 50,000 元須邀請最少兩個口頭報價；50,000 元以上至 200,000 元須邀請最少五個書面報價；200,000 元以上須邀請最少五名供應商投標。</strong>學校不得分拆訂單以避開門檻，亦須把同類物料及服務集中在同一報價附表內。一份可比較的報價，必須列明功能範圍、交付物、時間表、保養、培訓與付款條件。面試供應商時，最關鍵是問清楚交貨後由誰跟進、資料與原始碼誰屬，以及日後遷出的安排。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📋 本文重點</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>採購程序按金額分四級，門檻、份數與批核人員在《資助學校採購程序指引》有明文規定。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>教育局在指引附件提供「報價／投標價格分目範本」，本身就是一份報價應包含項目的清單。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>比較供應商可用六個維度，重點是交貨後的跟進、資料擁有權與保養條款。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>面試供應商有五條必問問題，每條都要問清楚「好答案」與「壞答案」的分別。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>報價文件寫得越具體，日後驗收與審計越順；評分制度須在邀請文件中預先說明。</span></li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、學校採購程序的基本要求</h2>
+        <p>資助學校運用政府津貼採購物料、服務或進行小型修葺工程，須依循教育局通告第 4/2013 號「資助學校採購程序」，以及該通告所指的《資助學校採購程序指引》（更新於 2025 年 10 月）。採購程序是外評與審計的必查項目，因此報價文件的完整程度，直接影響學校能否向校董會與教育局交代。</p>
+        <p>採用哪一種採購程序，主要取決於每次採購的金額。現行的財政限額、相應安排與批核人員如下：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">財政限額（每次採購）</th><th class="px-4 py-3 text-left">採購安排</th><th class="px-4 py-3 text-left">批核人員</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">5,000 元或以下</td><td class="px-4 py-3">毋須公開競投，但校內適當職級人員須證明採購是必須的及價格公平合理</td><td class="px-4 py-3">校長／副校長</td></tr>
+              <tr><td class="px-4 py-3">5,000 元以上至 50,000 元</td><td class="px-4 py-3">邀請最少<strong>兩個口頭報價</strong></td><td class="px-4 py-3">校長／副校長</td></tr>
+              <tr><td class="px-4 py-3">50,000 元以上至 200,000 元</td><td class="px-4 py-3">邀請最少<strong>五個書面報價</strong></td><td class="px-4 py-3">校長</td></tr>
+              <tr><td class="px-4 py-3">200,000 元以上</td><td class="px-4 py-3">邀請最少<strong>五名供應商投標</strong></td><td class="px-4 py-3">標書批核委員會（成員包括校監／校董、校長、一名教師及一名家長教師會代表或家長校董）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-1.webp" alt="階梯圖：資助學校採購按金額分四級，由免競投到須邀請五名供應商投標" title="階梯圖：資助學校採購按金額分四級，由免競投到須邀請五名供應商投標" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">金額決定程序與批核人員：50,000 元是口頭報價與書面報價的分界，200,000 元是報價與招標的分界</figcaption>
+        </figure>
+
+        <p>學校亦須留意三項防止繞過門檻的規定：學校只有在 12 個月內採購項目的累積價值不超過 50,000 元及 200,000 元的情況下，才可分別以口頭報價及書面報價方式重複採購同一類項目；學校不得分拆訂單，藉以避免遵守批核報價單或標書的規定；亦不應藉着分期採購或縮短合約期來避開財政限額。</p>
+        <p>邀請書面報價或招標的日期與截止日期，一般應相隔最少三周；緊急情況下可經校長批准縮短至兩個完整工作周，並須把原因記錄在案。供應商提交的書面報價單或標書，由截止日期起計 90 天內仍然有效，學校應在有效期屆滿前發出訂單。所有報價及招標文件，包括「書面報價／投標摘要及批核紀錄表」，須保留三個曆年以供查核。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-2.webp" alt="時間線圖：學校由發出報價邀請、三周通知期、截止、90 天報價有效期到三個曆年存檔的流程" title="時間線圖：學校由發出報價邀請、三周通知期、截止、90 天報價有效期到三個曆年存檔的流程" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">由邀請到存檔都有時間規定：最少三周通知、90 天報價有效期、文件保留三個曆年</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、一份報價應該包含的項目</h2>
+        <p>不少學校收到報價後，才發現無法比較，原因是每間供應商報價的項目與格式都不同。其實教育局在《資助學校採購程序指引》的附件中，已提供「報價／投標價格分目範本」，其中針對管理資訊系統的一份，把費用分為四部分：硬件、軟件、開發費用，以及持續保養及支援（包括每年保養費用與每年牌照費用）。培訓服務另有獨立的分目範本，按每一課堂的培訓人員費用、教材費用及其他費用逐項列出。</p>
+        <p>換言之，學校可以要求供應商按這個結構報價，令各份報價可直接比較。一份完整的系統或網站報價，建議至少涵蓋以下項目：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">項目</th><th class="px-4 py-3 text-left">應該寫清楚的內容</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">功能清單</td><td class="px-4 py-3">逐項列出包含的功能與不包括的功能，避免「基本系統」等模糊字眼</td></tr>
+              <tr><td class="px-4 py-3">交付物</td><td class="px-4 py-3">系統、原始碼或使用權、設計檔、帳戶、操作手冊、培訓教材</td></tr>
+              <tr><td class="px-4 py-3">時間表</td><td class="px-4 py-3">分階段交付日期、測試與驗收時間、上線日期</td></tr>
+              <tr><td class="px-4 py-3">保養與支援</td><td class="px-4 py-3">保養期長短、回應時間、每年保養費用與牌照費用</td></tr>
+              <tr><td class="px-4 py-3">培訓</td><td class="px-4 py-3">培訓對象、課堂數目、每課費用、教材安排</td></tr>
+              <tr><td class="px-4 py-3">付款條件</td><td class="px-4 py-3">按里程碑分期的比例、付款期、收款方式</td></tr>
+              <tr><td class="px-4 py-3">資料與知識產權</td><td class="px-4 py-3">資料擁有權、匯出方式、原始碼歸屬、日後遷出安排</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-3.webp" alt="清單圖示：一份學校系統報價應包含的七個項目，由功能清單到資料與知識產權" title="清單圖示：一份學校系統報價應包含的七個項目，由功能清單到資料與知識產權" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">教育局指引的分目範本本身就可作為報價清單的起點</figcaption>
+        </figure>
+
+        <p>值得注意的是，報價分項不只是方便比較，亦是日後驗收與付款的依據。若報價只寫一個總價，中標後雙方對「包什麼、不包什麼」的理解容易出現落差。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-4.webp" alt="分目結構圖：管理資訊系統報價範本分為硬件、軟件、開發費用及持續保養支援四部分" title="分目結構圖：管理資訊系統報價範本分為硬件、軟件、開發費用及持續保養支援四部分" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">按分目報價，學校才可直接比較不同供應商，並把持續費用一併計算</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、比較供應商的六個維度</h2>
+        <p>學校採購系統，最怕的不是「做不到」，而是交貨後「沒有人跟」。比較供應商時，除了技術能力，建議一併用以下六個維度評估：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">維度</th><th class="px-4 py-3 text-left">要查看什麼</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">技術能力</td><td class="px-4 py-3">是否有同類系統的實際案例、能否處理你需要的整合與保安要求</td></tr>
+              <tr><td class="px-4 py-3">學校經驗</td><td class="px-4 py-3">是否熟悉學校運作、學生資料與家長溝通場景，是否處理過採購文件</td></tr>
+              <tr><td class="px-4 py-3">交貨後跟進</td><td class="px-4 py-3">有否指定聯絡人、回應時間承諾、保養期內外的支援安排</td></tr>
+              <tr><td class="px-4 py-3">資料擁有權</td><td class="px-4 py-3">資料屬於學校還是供應商、可否隨時匯出、存放於何處</td></tr>
+              <tr><td class="px-4 py-3">報價透明度</td><td class="px-4 py-3">是否按分目報價、有否列明隱藏費用、保養與續約收費是否清楚</td></tr>
+              <tr><td class="px-4 py-3">保養條款</td><td class="px-4 py-3">保養範圍、排除項目、續約價格調整機制、合約期長短</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>這六個維度之中，最常被忽略的是「資料擁有權」與「交貨後跟進」。學校的學生資料、成績與家長聯絡資料屬於敏感個人資料，若系統設計成資料只可留在供應商的平台、難以匯出，日後即使對服務不滿意，也難以更換供應商。相關的資料處理與系統選擇考量，可參考<a href="/blog/school-management-system-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">校務管理系統的選擇</a>一文。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-5.webp" alt="雷達圖：評估學校系統供應商的六個維度，由技術能力到保養條款" title="雷達圖：評估學校系統供應商的六個維度，由技術能力到保養條款" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">技術能力以外，資料擁有權與交貨後跟進同樣是關鍵</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、面試供應商必問的五條問題</h2>
+        <p>報價單看不到的東西，要靠面試問出來。以下五條問題，每條都附上「為什麼要問」、好答案與壞答案的特徵，方便你在會議中即時判斷。</p>
+
+        <p><strong>問題一：系統交付後，由誰負責跟進？回應時間是多少？</strong></p>
+        <p>為什麼要問：學校最怕交貨後找不到人。這條問題直接測試供應商的支援安排是否具體。好答案會說出指定聯絡人、支援渠道與回應時間承諾（例如一個工作日內回覆），並寫入合約。壞答案則是「有問題隨時找我們」這類沒有承諾的說法，或回應時間含糊、只靠一個流動電話號碼。</p>
+
+        <p><strong>問題二：系統內的資料與原始碼屬於誰？學校可否隨時完整匯出？</strong></p>
+        <p>為什麼要問：資料擁有權決定學校日後是否被綁死。好答案會明確表示資料屬於學校、提供匯出功能（例如匯出成通用格式），並說明原始碼或使用權的安排。壞答案是把資料說成屬於供應商、匯出要額外收費，或迴避原始碼與資料歸屬問題。</p>
+
+        <p><strong>問題三：系統依賴哪一個平台或第三方服務？日後可否轉移到其他環境？</strong></p>
+        <p>為什麼要問：若系統深度綁定某個封閉平台，日後轉移成本極高。好答案會說明所用的技術與平台、轉移的可行性與大致成本。壞答案是不願透露技術細節，或以「我們平台最好，不用轉」帶過。</p>
+
+        <p><strong>問題四：保養範圍包括什麼？不包括什麼？每年收費如何計算？</strong></p>
+        <p>為什麼要問：保養是長期支出，亦是最容易出現爭議之處。好答案會列出保養涵蓋的項目、排除項目（例如新增功能另行報價），以及每年保養費與牌照費的計算方式。壞答案是把所有問題都推說「包括在內」，但沒有書面範圍。</p>
+
+        <p><strong>問題五：培訓與交接如何安排？離職或更換供應商時如何交接？</strong></p>
+        <p>為什麼要問：學校人事會變動，交接安排決定系統能否延續使用。好答案會提供培訓課堂、教材，並承諾提供交接文件與過渡期支援。壞答案是不提供書面教材、不承諾交接，或把交接視為額外收費項目。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 一句提醒</p>
+          <p class="text-gray-700 leading-relaxed">面試時最好把答案記錄下來，並要求寫入報價或合約。口頭承諾在日後出現爭議時，往往無法作為依據。</p>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-6.webp" alt="示意圖：面試系統供應商時的五條必問問題，涵蓋支援、資料擁有權、平台、保養與交接" title="示意圖：面試系統供應商時的五條必問問題，涵蓋支援、資料擁有權、平台、保養與交接" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">五條問題分別針對支援、資料、平台、保養與交接五個風險點</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-7.webp" alt="對照圖：面試供應商時的好答案與壞答案特徵比較" title="對照圖：面試供應商時的好答案與壞答案特徵比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">好答案具體、可寫入合約；壞答案含糊、只靠口頭承諾</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、報價陷阱：四種常見情況</h2>
+        <p>學校採購系統時，以下四種報價陷阱最常見，值得在評審階段逐一核對：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">陷阱</th><th class="px-4 py-3 text-left">表現形式</th><th class="px-4 py-3 text-left">如何應對</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">隱藏收費</td><td class="px-4 py-3">報價只列開發費，保養、牌照、培訓、資料匯出另行收費</td><td class="px-4 py-3">要求按分目報價，列明所有持續性費用</td></tr>
+              <tr><td class="px-4 py-3">範圍模糊</td><td class="px-4 py-3">只寫「提供校務系統」，沒有功能與不包括項目的清單</td><td class="px-4 py-3">要求逐項功能對照表，寫明不包括什麼</td></tr>
+              <tr><td class="px-4 py-3">綁定平台</td><td class="px-4 py-3">系統只能在供應商平台運作，資料難以帶走</td><td class="px-4 py-3">要求資料匯出功能與遷出安排寫入合約</td></tr>
+              <tr><td class="px-4 py-3">資料搬出費</td><td class="px-4 py-3">日後轉換供應商時，索取高額資料匯出或遷移費用</td><td class="px-4 py-3">在報價階段先問清楚遷出收費</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-8.webp" alt="圖示：學校採購系統報價的四種常見陷阱，包括隱藏收費、範圍模糊、綁定平台與資料搬出費" title="圖示：學校採購系統報價的四種常見陷阱，包括隱藏收費、範圍模糊、綁定平台與資料搬出費" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">四種陷阱的共同根源，是報價文件寫得不夠具體</figcaption>
+        </figure>
+
+        <p>應對這些陷阱，說到底就是把口頭承諾變成書面條款。學校可在邀請文件中要求供應商逐項填寫價格分目與功能清單，並把資料匯出、遷出與保養範圍列為必須回答的項目。指引亦提醒學校，如書面報價或投標文件內容不可接受（例如所有報價均不符合規格、價錢過份偏高、條件無法接受），批核人員可指示修訂規格及條款後重新邀請報價或招標。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-9.webp" alt="示意圖：把口頭承諾寫入報價與合約，將資料匯出與保養範圍列為必須回答的項目" title="示意圖：把口頭承諾寫入報價與合約，將資料匯出與保養範圍列為必須回答的項目" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">防範陷阱的核心，是把口頭承諾化為書面條款</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、如何撰寫需求文件</h2>
+        <p>需求文件（規格）是整個採購的核心。指引指出，資助學校不須使用深奧的術語，只須以容易清晰理解的一般用語擬定所需物料或服務的規格；撰寫時如有需要，可考慮諮詢具備相關知識的校內同工，例如採購電腦時可邀請校內電腦科教師或資訊科技人員提供意見，這一點對資訊科技統籌老師尤其有用。</p>
+        <p>一份實用的系統需求文件，建議包含以下部分：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>背景與目的</strong>——為什麼要採購、要解決什麼教學或行政問題。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>功能需求</strong>——逐項列出必須具備與希望具備的功能，並寫明不包括什麼。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>用戶與規模</strong>——使用人數、班級數目、資料量，方便供應商評估工作量。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>整合需求</strong>——是否需要與現有系統、點名系統或內聯網對接。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>保安與私隱</strong>——學生個人資料的處理、存取權限與備份要求。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>交付物與驗收準則</strong>——要交付什麼、用什麼標準驗收。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>培訓與保養</strong>——培訓對象與課堂數目、保養範圍與年期。</span></li>
+        </ul>
+        <p>把需求寫清楚，好處不只是報價更可比，亦令日後驗收有據可依。若學校需要外部的技術意見協助擬定規格，可參考<a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校資訊科技服務</a>。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-10.webp" alt="文件結構圖：一份學校系統需求文件的七個組成部分" title="文件結構圖：一份學校系統需求文件的七個組成部分" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">需求文件愈具體，報價愈可比，驗收爭議愈少</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、評分表建議</h2>
+        <p>若學校打算採用評分制度評審報價，須留意一項規定：學校必須在邀請書面報價或招標的文件中，清楚說明預先設定的評審準則及評分制度，供有意競投者參考。一般而言，如使用評分制度，應推薦接納獲最高整體評分的報價單或標書；如不選取出價較低者，則應記錄不選取的理據。</p>
+        <p>以下為一個評分表框架，可因應校本需要調整比重。價格比重不宜過高，否則容易犧牲交貨後的支援質素：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">評分項目</th><th class="px-4 py-3 text-left">建議比重</th><th class="px-4 py-3 text-left">評分要點</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">功能符合度</td><td class="px-4 py-3">30%</td><td class="px-4 py-3">是否逐項回應需求文件的功能清單</td></tr>
+              <tr><td class="px-4 py-3">價格</td><td class="px-4 py-3">25%</td><td class="px-4 py-3">按分目比較，並計入持續保養與牌照費</td></tr>
+              <tr><td class="px-4 py-3">技術與保安</td><td class="px-4 py-3">15%</td><td class="px-4 py-3">技術方案、資料保安、備份與權限設計</td></tr>
+              <tr><td class="px-4 py-3">相關經驗</td><td class="px-4 py-3">10%</td><td class="px-4 py-3">同類學校項目案例與參考</td></tr>
+              <tr><td class="px-4 py-3">支援與保養</td><td class="px-4 py-3">15%</td><td class="px-4 py-3">回應時間、保養範圍、遷出安排</td></tr>
+              <tr><td class="px-4 py-3">培訓與交接</td><td class="px-4 py-3">5%</td><td class="px-4 py-3">培訓課堂、教材、交接文件</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>比重只是起點，學校應按項目性質調整。例如校務系統涉及大量學生個人資料，可提高技術與保安的比重；純網站重建則可提高功能與設計的比重。評分準則必須在邀請文件中預先公布，才符合程序要求。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-11.webp" alt="表格圖：學校系統採購的評分表建議，六個項目與建議比重" title="表格圖：學校系統採購的評分表建議，六個項目與建議比重" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">評分比重應在邀請文件中預先公布，並記錄評審結果</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校採購系統需要邀請多少份報價？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按《資助學校採購程序指引》，5,000 元以上至 50,000 元的採購須邀請最少兩個口頭報價；50,000 元以上至 200,000 元須邀請最少五個書面報價；200,000 元以上須邀請最少五名供應商投標。如不能邀請足夠數目的供應商，學校須把情況記錄在案，並事先取得校董會或法團校董會的批准。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校可否把一個系統拆成幾張訂單，避開招標門檻？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以。指引明文規定學校不得分拆訂單，藉以避免遵守批核報價單或標書的規定；學校亦不應藉着分期採購或縮短合約期來避開財政限額。學校須把同類的物料和服務集中收錄在同一報價或投標附表內，然後才邀請供應商競投。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">由發出邀請到截止報價，學校須預留多少時間？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">邀請書面報價或招標的日期與截止日期，一般應相隔最少三周；緊急情況下可經校長批准縮短至兩個完整工作周，但須把原因記錄在案。供應商提交的報價單或標書，由截止日期起計 90 天內仍然有效，學校應在有效期屆滿前發出訂單。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校是否一定要選擇報價最低的供應商？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">一般而言，學校應選取符合規格而出價最低的報價單或標書；如使用評分制度，則一般應推薦接納獲最高整體評分的報價單或標書。學校亦有酌情權不選取出價最低者，但必須記錄不選取的理據，以確保公平及公正。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">報價要保留多久？遺失了怎麼辦？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">學校應在發出訂單後，保留所有收到的書面報價單或標書正本，以及所有書面報價或投標文件，包括「書面報價／投標摘要及批核紀錄表」，為期三個曆年，以供查核。採購紀錄是外評與審計的必查項目，因此文件須妥善存檔。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校採購系統時，最常被忽略的是什麼？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最常被忽略的是資料擁有權與日後遷出安排。學校的學生資料、成績與家長聯絡資料屬於敏感個人資料，若系統設計成資料只可留在供應商平台、難以匯出，日後即使對服務不滿意，也難以更換供應商。建議在報價階段就把資料匯出、原始碼歸屬與遷出收費寫入文件。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校可否只邀請一間供應商報價？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">學校應盡可能透過公開競投方式採購，只有在具備充分理據、且採用競投方法不能有效獲取所需物料及服務的情況下，才能採用單一報價或招標程序。單一報價須事先取得批准：50,000 元或以下的採購須獲有關科主任或指定職級教職員批准；50,000 元以上的採購須獲校董會或法團校董會批准，並記錄理據。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校沒有資訊科技專才，如何撰寫系統規格？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">指引指出，學校不須使用深奧的術語，只須以容易清晰理解的一般用語擬定規格，並可在有需要時諮詢具備相關知識的校內同工，例如採購電腦時可邀請校內電腦科教師或資訊科技人員提供意見。如校內意見仍然不足，亦可考慮尋求外部技術顧問協助擬定功能清單與評審準則。</p>
+          </div>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-it-vendor-quotation-guide-12.webp" alt="流程圖：由確認需求、判斷採購程序、撰寫規格到報價評審、批核與存檔的學校採購流程" title="流程圖：由確認需求、判斷採購程序、撰寫規格到報價評審、批核與存檔的學校採購流程" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先確認程序，再寫規格與報價文件，最後按批核層級完成並存檔</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>學校採購系統或網站，程序與比較方法同樣重要。程序方面，先按金額判斷屬口頭報價、書面報價還是招標，確保份數、通知期與批核人員符合《資助學校採購程序指引》；比較方面，用六個維度評估供應商，並在面試時問清支援、資料擁有權、平台、保養與交接五條問題。把口頭承諾寫入報價與合約，並把評分準則預先公布，日後驗收與審計都會順利得多。</p>
+        <p>ADWire 提供學校系統、網站與應用程式開發，熟悉資助學校的採購文件要求，可協助由需求盤點、規格擬定到報價文件一併處理，並在系統交付後提供持續支援。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">需要協助準備學校系統採購？</p>
+          <p class="text-gray-700 leading-relaxed mb-3">無論是校務系統、學校網站還是內聯網，ADWire 都能協助你梳理需求、擬定規格與報價文件，令採購程序更順暢。</p>
+          <p><a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校資訊科技服務</a>　·　<a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a>　·　<a href="/blog/school-management-system-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">校務管理系統選擇指南</a></p>
+        </div>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.edb.gov.hk/attachment/tc/sch-admin/fin-management/procurement-procedures-in-aided-schools/Guidelines%20on%20Procurement%20Procedures_TC.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：《資助學校採購程序指引》（更新於 2025 年 10 月）</a> — 採購財政限額與批核人員、口頭／書面報價份數、不得分拆訂單、12 個月累積價值規定、三周通知期、報價 90 天有效期、三個曆年存檔、報價分目範本（附件 VI）及單一報價程序</li>
+            <li><a href="https://applications.edb.gov.hk/circular/upload/EDBC/EDBC13004C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通告第 4/2013 號「資助學校採購程序」</a> — 取代教育局通告第 15/2007 號，訂明財政限額、批核人員、防止分拆訂單及供應商邀請安排</li>
+            <li><a href="https://www.edb.gov.hk/tc/sch-admin/fin-management/procurement-procedures-in-aided-schools/procurement_procedures_in_aided_schs.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資助學校採購程序的參考資料</a> — 通告、指引及簡介會文件的官方下載頁</li>
+            <li><a href="https://www.edb.gov.hk/attachment/en/sch-admin/fin-management/procurement-procedures-in-aided-schools/Procurement%20Procedures%20in%20Aided%20Schools_FAQs.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：「資助學校採購程序」常見問題（更新於 2025 年 10 月）</a> — 以掛號方式邀請最少 5 個書面報價、書面報價一式兩份、逾期標書處理、選取最低價及記錄不選取理據、評分制度須預先說明、合約不得擅改等實務問題</li>
+            <li><a href="https://www.edb.gov.hk/attachment/en/sch-admin/fin-management/ref-materials-on-fin-management-seminars-for-aided-schools/FM_seminars_FAQs_2023.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資助學校財務管理常見問題</a> — 撰寫規格可諮詢校內電腦科教師或資訊科技人員、保養合約期以不超過三年為宜、單一報價／招標程序</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
   // ─── Article 32：POS／收銀系統 3 年總成本比較 ───
   {
     id: 32,

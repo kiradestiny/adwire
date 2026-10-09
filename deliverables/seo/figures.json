@@ -1,5 +1,325 @@
 [
  {
+  "slug": "idea-to-mvp-hong-kong",
+  "figs": [
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-1.webp",
+    "alt": "比較圖：MVP 與完整產品在目的、功能範圍、用戶數量、完成度、時間成本與風險上的分別",
+    "cap": "MVP 的目標是驗證假設，不是交付一個「縮小版的完整產品」"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-2.webp",
+    "alt": "示意圖：判斷一個需求是否仍屬 MVP 的兩個準則，即上線時間少於三個月及功能少於十項",
+    "cap": "超過三個月或十項功能，通常已屬完整產品第一期，而非 MVP"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-3.webp",
+    "alt": "圖表：開發前應準備的五項資料，包括目標用戶與痛點、核心流程、功能優先次序、成功指標及預算範圍",
+    "cap": "準備好這五樣，報價會更快、更準、更可比"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-4.webp",
+    "alt": "清單圖示：需求文件的十個結構項目，由項目背景、目標用戶到交付驗收準則",
+    "cap": "需求文件不必長，但每一項都要「可驗收」——即能判斷做了還是沒做"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-5.webp",
+    "alt": "示意圖：在需求階段已納入個人資料私隱要求，包括收集個人資料聲明與私隱政策聲明",
+    "cap": "把私隱要求寫在需求階段，可省去日後大幅改動的成本"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-6.webp",
+    "alt": "圖表：專業報價單應包含的六個項目，包括範圍、交付物、里程碑、付款條件、知識產權及保養支援",
+    "cap": "缺任何一項，日後都可能成為爭議點——尤其是知識產權與保養範圍"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-7.webp",
+    "alt": "流程圖：MVP 項目分三期交付，由 Phase 1 驗證假設、Phase 2 優化功能到 Phase 3 規模化擴展",
+    "cap": "先做能上線驗證的最小版本，再按市場反應加功能"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-8.webp",
+    "alt": "圖表：造成開發報價相差很遠的六個原因，包括範圍理解、技術選型、人力、第三方服務、設計深度及保養",
+    "cap": "價差不是「邊間平邊間貴」，而是各公司理解與執行的範圍不同——所以需求文件要寫得夠具體"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-9.webp",
+    "alt": "示意圖：用同一份需求文件向多間開發公司索取分項報價，令報價可逐項比較",
+    "cap": "同一份需求、逐項分拆，報價才真正可比"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-10.webp",
+    "alt": "圖示：選擇開發公司時必問的六條問題，由過往案例、團隊安排到原始碼交付與保養",
+    "cap": "最關鍵的兩條：會不會交付原始碼，以及日後能否由其他公司接手"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-11.webp",
+    "alt": "圖示：選擇開發公司時應留意的六個危險信號，包括拒絕分項報價、不交付原始碼及無正式合約",
+    "cap": "便宜的報價，往往在「原始碼」與「保養」兩處隱藏了成本"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-12.webp",
+    "alt": "圖表：不同複雜度項目的相對成本結構，由簡單驗證型 MVP 到含後台整合的系統",
+    "cap": "先了解成本結構，再比較報價，比單純比總價更有意義"
+   },
+   {
+    "src": "/blog/figures/idea-to-mvp-hong-kong-13.webp",
+    "alt": "圖表：香港可協助初創降低開發成本的資助計劃，包括數碼港 CCMF、CIP、科技園 Ideation 及 BUD 專項基金",
+    "cap": "資助可降低自付成本，但各有資格與配對要求，申請前須查核官方最新指引"
+   }
+  ]
+ },
+ {
+  "slug": "clinic-management-system-hong-kong",
+  "figs": [
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-1.webp",
+    "alt": "示意圖：香港診所常見的營運缺口，由預約分散、病歷紙本化到收費與對賬靠人手處理",
+    "cap": "問題往往不在單一環節，而在幾個工具之間沒有連起來"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-2.webp",
+    "alt": "圖表：診所管理系統的六大模組，包括預約、排班、電子病歷、收費與發票、庫存及報表",
+    "cap": "六個模組共用同一份病人檔案，是系統與拼湊工具的最大分別"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-3.webp",
+    "alt": "比較圖：診所現成管理系統與訂造系統在成本、上線速度、整合能力與資料所有權上的分別",
+    "cap": "沒有絕對較好，重點是流程標準程度與整合需求"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-4.webp",
+    "alt": "流程圖：由病人線上預約、系統自動提醒、到診或取消，到候補填補時段的預約流程",
+    "cap": "提醒要及時，改期與取消要方便，才真正降低 no-show"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-5.webp",
+    "alt": "流程圖：診所由診症開單、收款、醫療券扣款到保險索償與月底對賬的收費流程",
+    "cap": "把開單、收款、索償與對賬串成一條流程，才真正省人手"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-6.webp",
+    "alt": "圖表：《個人資料（私隱）條例》六項保障資料原則，以及對診所處理病歷的具體要求",
+    "cap": "系統的權限、紀錄與匯出功能，都要對應這六項原則"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-7.webp",
+    "alt": "示意圖：病人資料的生命週期，由收集、使用、保安、保留到查閱及改正，對應六項保障資料原則",
+    "cap": "合規不是單一步驟，而是貫穿資料收集到刪除的整個週期"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-8.webp",
+    "alt": "流程圖：診所處理資料外洩事故的五個步驟，包括收集資訊、控制外洩、評估風險、考慮通報及記錄檢討",
+    "cap": "預先訂立應變計劃，比事後補救更能減低傷害"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-9.webp",
+    "alt": "示意圖：診所管理系統與 POS、會計軟件、化驗所、醫健通及保險公司之間的整合關係",
+    "cap": "整合做得不好，同事仍要人手搬資料，系統效益大打折扣"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-10.webp",
+    "alt": "流程圖：診所管理系統導入的七個步驟，由需求盤點、選型、資料搬遷到正式上線與驗收",
+    "cap": "先梳理流程與資料，再談技術，導入風險會低很多"
+   },
+   {
+    "src": "/blog/figures/clinic-management-system-hong-kong-11.webp",
+    "alt": "清單圖示：診所管理系統驗收時應逐項核對的六個項目，包括資料搬遷、權限、紀錄與匯出",
+    "cap": "驗收清單寫得越具體，日後爭議越少"
+   }
+  ]
+ },
+ {
+  "slug": "erp-system-hong-kong-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-1.webp",
+    "alt": "示意圖：企業各部門各自使用不同系統形成資料孤島，以及 ERP 整合後的單一資料來源",
+    "cap": "ERP 的核心價值：把各自為政的系統連成單一資料來源"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-2.webp",
+    "alt": "比較圖：ERP 與 CRM、會計系統、庫存系統在主要目的、核心資料及與 ERP 關係上的分別",
+    "cap": "ERP 是主幹；CRM、會計與庫存系統可以是它的模組，也可以是外接系統"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-3.webp",
+    "alt": "圖表：香港企業最常見的六個 ERP 模組，由財務、採購、庫存、銷售到人力資源與報表",
+    "cap": "財務與庫存通常是核心，其餘模組可按階段加入"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-4.webp",
+    "alt": "決策圖：按流程是否屬於行業主流，判斷應選擇套裝、混合模式還是訂造 ERP",
+    "cap": "流程屬主流用套裝；流程是核心競爭力才訂造，其餘採混合模式"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-5.webp",
+    "alt": "圖表：套裝與訂造 ERP 三年總成本的示範比較，顯示首年及三年合計的差距",
+    "cap": "示範數字僅供說明比較方法，實際以正式報價為準"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-6.webp",
+    "alt": "圖示：ERP 項目最常被漏算的五類隱藏成本，包括資料遷移、整合、培訓、內部人力與需求變更",
+    "cap": "決定 TCO 高低的，往往是這些不在首年報價上的項目"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-7.webp",
+    "alt": "圖示：ERP 導入風險控制的四個重點，包括需求文件、變更控制、高層參與與分期交付",
+    "cap": "對應失敗原因的風險控制措施"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-8.webp",
+    "alt": "圖示：ERP 導入失敗的六個常見原因，由流程梳理不足、變更管理缺失到資源錯配",
+    "cap": "失敗多數不是技術問題，而是流程、人與資源的問題"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-9.webp",
+    "alt": "流程圖：ERP 選型的六個步驟，由需求盤點、流程梳理到分期上線",
+    "cap": "由需求盤點開始，到分期上線結束，六步有序推進"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-10.webp",
+    "alt": "路線圖：中小企 ERP 分期導入的三個階段，由核心財務庫存到整合與自動化",
+    "cap": "先核心、後擴展，每階段獨立驗收，降低整體風險"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-11.webp",
+    "alt": "表格圖示：ERP 選型的七個評分項目，包括流程契合度、整合能力、總成本透明度與支援維護",
+    "cap": "把主觀比較變成可加權的分數，決策更有依據"
+   },
+   {
+    "src": "/blog/figures/erp-system-hong-kong-guide-12.webp",
+    "alt": "清單圖示：ERP 簽約前必須確認的五個項目，包括資料所有權、知識產權、服務水平、遷出安排與付款里程碑",
+    "cap": "簽約前把這五項寫清楚，可避免日後爭議"
+   }
+  ]
+ },
+ {
+  "slug": "membership-system-hong-kong",
+  "figs": [
+   {
+    "src": "/blog/figures/membership-system-hong-kong-1.webp",
+    "alt": "圖示：會員系統的七大核心模組，包括會員檔案、積分、優惠券、等級、儲值、訊息推送與報表",
+    "cap": "一套完整的會員系統由七個模組組成，比較方案時要逐項對照是否包含"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-2.webp",
+    "alt": "比較圖：SaaS 月費、買斷授權與訂造開發三種會員系統模式在前期成本、功能彈性與適合對象上的分別",
+    "cap": "三種模式沒有絕對優劣，關鍵在於店數、需求複雜度與現金流安排"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-3.webp",
+    "alt": "柱狀圖：單店情境下三種會員系統模式的三年總成本示範比較",
+    "cap": "單店示範：SaaS 三年約 HK$21,600、買斷約 HK$28,500、訂造約 HK$145,000（示範假設）"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-4.webp",
+    "alt": "比較圖：三間分店情境下三種會員系統模式的三年總成本示範，並顯示多店時 SaaS 月費遞增的情況",
+    "cap": "多店示範：SaaS 按月費乘以店數遞增，訂造的邊際成本相對較低（示範假設）"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-5.webp",
+    "alt": "圖示：會員系統四類常見隱藏成本，包括交易手續費、訊息推送費、加值模組與資料匯出費",
+    "cap": "報價單上最常被忽略的四類成本，訊息推送往往是長期支出最大的一項"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-6.webp",
+    "alt": "圖示：《個人資料（私隱）條例》六項保障資料原則與會員系統收集、使用會員資料時的合規要求",
+    "cap": "會員資料受《個人資料（私隱）條例》規管，以資料作推廣前須先取得同意"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-7.webp",
+    "alt": "架構示意圖：會員系統與 POS、網店、WhatsApp、庫存及付款系統的整合關係",
+    "cap": "打通 POS、網店與 WhatsApp，讓同一名客人在線上線下共用同一會員身份"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-8.webp",
+    "alt": "比較圖：零售、餐飲與美容健身三種業態對會員系統在核心功能、儲值、預約與 POS 整合上的需求差異",
+    "cap": "業態決定需求：美容健身最需要預約與套票，零售最標準，餐飲重結帳速度"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-9.webp",
+    "alt": "清單圖示：選擇會員系統前應確認的八個問題，涵蓋需求、整合、資料擁有權、成本與合規",
+    "cap": "把八項答案寫下來再索取報價，比單純比較價錢更接近真實需要"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-10.webp",
+    "alt": "示意圖：店主選擇會員系統時的決策流程，由確認需求、比較三年總成本到核對資料擁有權與合規",
+    "cap": "先確認需求與整合範圍，再比較三年總成本，最後核對資料擁有權與合規安排"
+   },
+   {
+    "src": "/blog/figures/membership-system-hong-kong-11.webp",
+    "alt": "總結圖示：會員系統三種模式的取捨，以及三年總成本、資料擁有權與合規三個決策重點",
+    "cap": "以三年總成本為基準比較，並在簽約前釐清資料擁有權與合規責任"
+   }
+  ]
+ },
+ {
+  "slug": "school-it-vendor-quotation-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-1.webp",
+    "alt": "階梯圖：資助學校採購按金額分四級，由免競投到須邀請五名供應商投標",
+    "cap": "金額決定程序與批核人員：50,000 元是口頭報價與書面報價的分界，200,000 元是報價與招標的分界"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-2.webp",
+    "alt": "時間線圖：學校由發出報價邀請、三周通知期、截止、90 天報價有效期到三個曆年存檔的流程",
+    "cap": "由邀請到存檔都有時間規定：最少三周通知、90 天報價有效期、文件保留三個曆年"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-3.webp",
+    "alt": "清單圖示：一份學校系統報價應包含的七個項目，由功能清單到資料與知識產權",
+    "cap": "教育局指引的分目範本本身就可作為報價清單的起點"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-4.webp",
+    "alt": "分目結構圖：管理資訊系統報價範本分為硬件、軟件、開發費用及持續保養支援四部分",
+    "cap": "按分目報價，學校才可直接比較不同供應商，並把持續費用一併計算"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-5.webp",
+    "alt": "雷達圖：評估學校系統供應商的六個維度，由技術能力到保養條款",
+    "cap": "技術能力以外，資料擁有權與交貨後跟進同樣是關鍵"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-6.webp",
+    "alt": "示意圖：面試系統供應商時的五條必問問題，涵蓋支援、資料擁有權、平台、保養與交接",
+    "cap": "五條問題分別針對支援、資料、平台、保養與交接五個風險點"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-7.webp",
+    "alt": "對照圖：面試供應商時的好答案與壞答案特徵比較",
+    "cap": "好答案具體、可寫入合約；壞答案含糊、只靠口頭承諾"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-8.webp",
+    "alt": "圖示：學校採購系統報價的四種常見陷阱，包括隱藏收費、範圍模糊、綁定平台與資料搬出費",
+    "cap": "四種陷阱的共同根源，是報價文件寫得不夠具體"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-9.webp",
+    "alt": "示意圖：把口頭承諾寫入報價與合約，將資料匯出與保養範圍列為必須回答的項目",
+    "cap": "防範陷阱的核心，是把口頭承諾化為書面條款"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-10.webp",
+    "alt": "文件結構圖：一份學校系統需求文件的七個組成部分",
+    "cap": "需求文件愈具體，報價愈可比，驗收爭議愈少"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-11.webp",
+    "alt": "表格圖：學校系統採購的評分表建議，六個項目與建議比重",
+    "cap": "評分比重應在邀請文件中預先公布，並記錄評審結果"
+   },
+   {
+    "src": "/blog/figures/school-it-vendor-quotation-guide-12.webp",
+    "alt": "流程圖：由確認需求、判斷採購程序、撰寫規格到報價評審、批核與存檔的學校採購流程",
+    "cap": "先確認程序，再寫規格與報價文件，最後按批核層級完成並存檔"
+   }
+  ]
+ },
+ {
   "slug": "pos-system-hong-kong-total-cost",
   "figs": [
    {
