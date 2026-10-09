@@ -17,6 +17,10 @@ on:
         description: '要抓的頁面路徑（確認 HTML 有引用）'
         required: true
         default: '/blog/'
+      needle:
+        description: '在 webroot 檔案內搜尋的字串（留空則不搜）'
+        required: false
+        default: 'article-cta .cta-btn'
 
 permissions:
   contents: read
@@ -38,6 +42,7 @@ jobs:
           SG_PATH: ${{ secrets.SITEGROUND_PATH }}
           PATHS: ${{ github.event.inputs.paths }}
           PAGE: ${{ github.event.inputs.page }}
+          NEEDLE: ${{ github.event.inputs.needle }}
         run: |
           set -uo pipefail
           ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
@@ -81,4 +86,20 @@ jobs:
           echo ""
           echo "  頁面上所有 /blog/*.webp 引用（前 20）："
           grep -o '/blog/[A-Za-z0-9._-]*\.webp' /tmp/page.html 2>/dev/null | sort -u | head -20
+          echo ""
+          echo "===== ④ webroot 檔案內容搜尋（needle）====="
+          NEEDLE="${NEEDLE}"
+          if [ -n "\$NEEDLE" ]; then
+            for P in ${PATHS}; do
+              F="\$WEB/\$P"
+              [ -f "\$F" ] || continue
+              N=\$(grep -c -- "\$NEEDLE" "\$F" 2>/dev/null || echo 0)
+              printf '  %-58s 命中 %s\n' "\$P" "\$N"
+            done
+            echo "  --- 全站 CSS/HTML 內搜尋（前 5 個檔案）---"
+            grep -rl -- "\$NEEDLE" "\$WEB/_next/static/css/" 2>/dev/null | head -5 | while read -r g; do
+              echo "     CSS: \${g#\$WEB/}"
+            done
+          fi
+          echo "✅ 完成"
           REMOTE
