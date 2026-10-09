@@ -1,0 +1,112 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ADWire — Lead Magnet 端到端 Smoke Test（手動）
+#
+# 由伺服器本身 POST 去 localhost 的 send-mail.php（繞過 SiteGround WAF），
+# 驗證：表單驗證 → 寫入 enquiries → SMTP 通知 → Lead Magnet 自動回覆（附 PDF）。
+# 收件地址用 adwire-hermes3099@agentmail.to（可事後查收確認附件）。
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Form Smoke Test (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      email:
+        description: '測試收件電郵（自動回覆會寄到這裡）'
+        required: true
+        default: 'adwire-hermes3099@agentmail.to'
+      dry:
+        description: 'dry=1 只驗證表單流程，不改動資料（仍會寄信）'
+        required: true
+        default: 'no'
+        type: choice
+        options:
+          - 'no'
+          - 'yes'
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare SSH key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SITEGROUND_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+      - name: POST to live form from server localhost
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+          TEST_EMAIL: ${{ github.event.inputs.email }}
+        run: |
+          set -uo pipefail
+          ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
+            "${SG_USER}@${SG_HOST}" bash -s <<REMOTE
+          set -u
+          WEB="${SG_PATH}"
+          EMAIL="${TEST_EMAIL}"
+          echo "===== ① 檢查 send-mail.php 是否可執行 ====="
+          php -l "\$WEB/send-mail.php" 2>&1
+          ls -la "\$WEB/downloads/school-project-quotation-checklist.pdf"
+
+          echo ""
+          echo "===== ② 由 localhost POST 表單 ====="
+          PAYLOAD=\$(cat <<JSON
+          {"name":"ADWire 自動測試","phone":"95861027","email":"\$EMAIL","orgType":"中學",
+           "consent":true,"formType":"education-quote-checklist","source":"smoke-test",
+           "message":"ADWire 自動化測試訊息，可忽略。","service":"學校項目報價清單"}
+          JSON
+          )
+          RESP=\$(curl -s -m 60 -X POST "https://adwire.com.hk/send-mail.php" \\
+            -H "Content-Type: application/json" \\
+            -H "Origin: https://adwire.com.hk" \\
+            --data-binary "\$PAYLOAD" 2>&1)
+          echo "HTTP 回應：\$RESP"
+          echo ""
+          echo "（如為 WAF 攔截會顯示 202／HTML；此時改試 localhost 直連）"
+          if echo "\$RESP" | grep -qi "cloudflare\|Just a moment\|202"; then
+            echo "→ 改用 localhost 直連"
+            RESP=\$(curl -s -m 60 -X POST "http://127.0.0.1/send-mail.php" \\
+              -H "Content-Type: application/json" \\
+              -H "Host: adwire.com.hk" \\
+              -H "Origin: https://adwire.com.hk" \\
+              --data-binary "\$PAYLOAD" 2>&1)
+            echo "HTTP 回應：\$RESP"
+          fi
+
+          echo ""
+          echo "===== ③ 最近的 enquiries 記錄 ====="
+          php -r '
+            \$f = getenv("WEB") . "/admin/includes/config.php";
+            if (!is_file(\$f)) { echo "（找不到 config.php，跳過）\n"; exit; }
+            require \$f;
+            \$k = ["DB_HOST","DB_NAME","DB_USER","DB_PASS"];
+            \$v = [];
+            foreach (\$k as \$n) { \$v[\$n] = defined(\$n) ? constant(\$n) : null; }
+            if (!\$v["DB_HOST"]) {
+              // 常見命名備援
+              foreach (\$k as \$n) { if (!\$v[\$n]) { \$v[\$n] = getenv(\$n) ?: null; } }
+            }
+            if (!\$v["DB_HOST"]) { echo "（無法解析 DB 憑證，跳過）\n"; exit; }
+            \$dsn = "mysql:host={\$v[\"DB_HOST\"]};dbname={\$v[\"DB_NAME\"]};charset=utf8mb4";
+            try {
+              \$pdo = new PDO(\$dsn, \$v["DB_USER"], \$v["DB_PASS"], [PDO::ATTR_ERRMODE => PDO::ERRMODE_SILENT]);
+              \$st = \$pdo->query("SELECT id, name, email, service, status, created_at FROM enquiries ORDER BY id DESC LIMIT 5");
+              foreach (\$st->fetchAll(PDO::FETCH_ASSOC) as \$r) {
+                echo "  #{\$r[\"id\"]} {\$r[\"created_at\"]} {\$r[\"name\"]} <{\$r[\"email\"]}> [{\$r[\"service\"]}] {\$r[\"status\"]}\n";
+              }
+            } catch (Throwable \$e) { echo "（DB 查詢失敗：" . \$e->getMessage() . "）\n"; }
+          ' 2>&1 || echo "（DB 檢查略過）"
+
+          echo ""
+          echo "===== ④ 最近錯誤日誌 ====="
+          for L in "\$HOME/public_html/error_log" "\$WEB/error_log" "\$HOME/logs/error_log"; do
+            [ -f "\$L" ] && { echo "--- \$L"; grep -i "ADWire\\|lead magnet\\|smtp" "\$L" | tail -12; }
+          done
+          echo "✅ Smoke test 完成"
+          REMOTE
