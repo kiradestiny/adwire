@@ -17,6 +17,989 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // ─── Article 32：POS／收銀系統 3 年總成本比較 ───
+  {
+    id: 32,
+    slug: "pos-system-hong-kong-total-cost",
+    title: "POS／收銀系統月費 vs 買斷：3 年總成本比較（香港店主必看）",
+    excerpt:
+      "「月費便宜」不等於「總成本低」。本文用公開資料與可核對的支付費率，把月費 SaaS、一次買斷、自訂開發三種收銀系統模式的三年總成本（TCO）放在同一框架比較，標示示範假設與真實收費，並拆解交易手續費、加值模組、硬件、資料匯出與合約綁定等隱藏成本，附零售與餐飲差異表及 10 條簽約清單，助香港店主決定。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/pos-system-hong-kong-total-cost.webp",
+    tags: ["POS 系統", "收銀系統", "三年總成本", "TCO", "買斷", "月費 SaaS", "交易手續費", "會員系統", "電子支付"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">很多店主採購收銀系統時，第一眼看到的是「免費開戶」、「月費低至 HK$XXX」這類宣傳，很容易把月費當成主要成本。但真正決定三年花費多少的，往往不是月費本身，而是硬件、加值模組、交易手續費，以及合約綁定與資料搬遷的風險。本文用公開資料與可核對的收費標準，把「月費 SaaS」、「一次買斷」、「自訂開發」三種模式的三年總成本（TCO）放在同一框架比較，並標示哪些是示範假設、哪些是供應商真實收費，方便香港零售與餐飲店主做決定。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">「月費便宜」不等於「總成本低」。以單店三年期計算，月費 SaaS 的軟硬件成本通常最低（示範假設約 HK$2.7 萬），買斷授權介乎中間（約 HK$3.6 萬），自訂開發最高（約 HK$18 萬）——<strong>但三者之中佔比最大的往往是交易手續費（示範假設約 HK$7.8 萬），這筆錢付給支付服務商，與採用哪一種 POS 模式基本無關</strong>。選擇時應先分清「付給 POS 供應商的錢」與「付給支付服務商的錢」，再用三年總成本比較，而非只看月費標價。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>三種模式的分別：<strong>月費 SaaS＝租用</strong>（資料多在供應商雲端）；<strong>買斷＝擁有授權</strong>（資料可自存）；<strong>自訂開發＝擁有系統</strong>（彈性最高、起始成本亦最高）。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>三年總成本包含五類：軟件費／授權、硬件、加值模組、交易手續費、維護與更新。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>交易手續費通常最貴，卻是付給支付服務商（銀行、儲值支付工具持牌人），不是 POS 供應商。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>香港信用卡商戶折扣率（MDR）常見約 1.5%–2.2%；八達通商用版資金轉賬費約 1.3%–1.5%；轉數快（FPS）本身不向商戶收費。</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>簽約前必須問清楚：資料可否完整匯出、加值模組是否另收月費、合約綁定與違約條款。</span></li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-1.webp" alt="月費與買斷兩種收銀系統方案的三年總成本對比示意圖" title="月費與買斷兩種收銀系統方案的三年總成本對比示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">月費看似便宜，但三年累加後不一定比買斷划算，關鍵是計齊所有成本項目</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、POS 系統實際包含什麼</h2>
+        <p>「POS 系統」常被簡化成「一部收銀機」，實際上它是一組模組。理解每個模組的收費方式，才看得懂報價單的「已包含」與「加購」項目。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">模組</th><th class="px-4 py-3 text-left">主要功能</th><th class="px-4 py-3 text-left">常見收費方式</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">收銀結賬</td><td class="px-4 py-3">掃碼、開單、收款、找續、退貨</td><td class="px-4 py-3">多數包含在基本方案</td></tr>
+              <tr><td class="px-4 py-3">商品與庫存</td><td class="px-4 py-3">貨品、條碼、進銷存、補貨提醒</td><td class="px-4 py-3">基本或加值模組</td></tr>
+              <tr><td class="px-4 py-3">會員與積分</td><td class="px-4 py-3">會員登記、儲值、優惠券、點數</td><td class="px-4 py-3">常列為加值模組，另收月費</td></tr>
+              <tr><td class="px-4 py-3">對賬與報表</td><td class="px-4 py-3">日結、多店匯總、毛利分析</td><td class="px-4 py-3">進階報表多數加購</td></tr>
+              <tr><td class="px-4 py-3">支付整合</td><td class="px-4 py-3">信用卡、八達通、FPS、電子錢包</td><td class="px-4 py-3">交易手續費另計</td></tr>
+              <tr><td class="px-4 py-3">線上線下打通</td><td class="px-4 py-3">網店、外賣平台、會員同步</td><td class="px-4 py-3">加值或需整合開發</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>報價單最常出現的落差，是「基本月費」只包收銀與簡單報表，<strong>會員、庫存、多店管理與線上線下打通往往逐項收費</strong>。比較時應先列出自己需要的模組，再要求對方按清單報價，避免日後逐項補購推高成本。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-2.webp" alt="收銀系統六大模組：收銀、庫存、會員、報表、支付整合、線上線下打通" title="收銀系統六大模組：收銀、庫存、會員、報表、支付整合、線上線下打通" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">「POS」是一組模組而非單一功能，會員、庫存與線上打通通常屬加值收費</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、三種收費模式：月費、買斷、自訂開發</h2>
+        <p>市面收銀方案大致可歸為三種收費模式，分別不只在價錢，更在於資料放在誰手上、功能彈性多大，以及日後換系統的成本。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">比較項目</th><th class="px-4 py-3 text-left">月費 SaaS（雲端訂閱）</th><th class="px-4 py-3 text-left">買斷授權（一次購入）</th><th class="px-4 py-3 text-left">自訂開發</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">起始成本</td><td class="px-4 py-3">低（月費為主）</td><td class="px-4 py-3">中（一次付授權費）</td><td class="px-4 py-3">高（一次付開發費）</td></tr>
+              <tr><td class="px-4 py-3">每月經常性支出</td><td class="px-4 py-3">軟件月費＋加值模組</td><td class="px-4 py-3">維護／更新年費為主</td><td class="px-4 py-3">維護合約為主</td></tr>
+              <tr><td class="px-4 py-3">資料存放位置</td><td class="px-4 py-3">供應商雲端</td><td class="px-4 py-3">多數可自存或指定伺服器</td><td class="px-4 py-3">自選（可自存）</td></tr>
+              <tr><td class="px-4 py-3">功能彈性</td><td class="px-4 py-3">受平台框架限制</td><td class="px-4 py-3">中等，視授權版本</td><td class="px-4 py-3">最高，按需求開發</td></tr>
+              <tr><td class="px-4 py-3">系統相容風險</td><td class="px-4 py-3">低，供應商持續更新</td><td class="px-4 py-3">中，需自行承擔過時</td><td class="px-4 py-3">中，需自行安排維護</td></tr>
+              <tr><td class="px-4 py-3">轉換／搬遷成本</td><td class="px-4 py-3">視匯出能力而定</td><td class="px-4 py-3">較低（資料在手）</td><td class="px-4 py-3">最高（系統需重做）</td></tr>
+              <tr><td class="px-4 py-3">適合對象</td><td class="px-4 py-3">單店、想快速開業、無 IT 人手</td><td class="px-4 py-3">長期穩定、重視資料掌控</td><td class="px-4 py-3">流程特殊、多店或需深度整合</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>值得注意的是，<strong>「買斷」在香港市場常指一次付清軟件授權</strong>，但之後通常仍要付年度維護或更新費，以換取版本升級與技術支援。換言之，買斷只是把「每月付」變成「一次付加每年維護」，並非從此沒有經常性開支。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-3.webp" alt="月費 SaaS、買斷授權與自訂開發三種收費模式的比較示意圖" title="月費 SaaS、買斷授權與自訂開發三種收費模式的比較示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">三種模式的分別在於資料歸屬、功能彈性與日後搬遷成本，不只在月費高低</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、三年總成本計算（示範假設）</h2>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">⚠️ 重要說明：以下全屬示範假設</p>
+          <p class="text-gray-700 leading-relaxed">下表所有金額都是<strong>示範假設</strong>，只為展示「如何計算三年總成本」，<strong>並非任何供應商的真實報價，亦不代表市場劃一價格</strong>。實際價錢視乎供應商、功能、店數、交易量與議價結果，差異可以很大，請以正式報價為準。</p>
+        </div>
+
+        <p>以下為比較用的<strong>示範假設</strong>：單店、每月營業額 HK$200,000、電子支付佔 60%、平均交易費率 1.8%、三年（36 個月）。費率取 1.8% 是參考第四節公開收費標準的中位水平；三模式共用相同交易量假設，故交易手續費金額相同。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">三年成本項目（單店）</th><th class="px-4 py-3 text-left">模式 A：月費 SaaS</th><th class="px-4 py-3 text-left">模式 B：買斷授權</th><th class="px-4 py-3 text-left">模式 C：自訂開發</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">一次性軟件費／授權／開發</td><td class="px-4 py-3">開通設定 HK$1,500</td><td class="px-4 py-3">授權 HK$18,000</td><td class="px-4 py-3">開發 HK$120,000</td></tr>
+              <tr><td class="px-4 py-3">軟件月費（×36 個月）</td><td class="px-4 py-3">HK$400／月＝HK$14,400</td><td class="px-4 py-3">不適用</td><td class="px-4 py-3">不適用</td></tr>
+              <tr><td class="px-4 py-3">加值模組（×36 個月）</td><td class="px-4 py-3">HK$200／月＝HK$7,200</td><td class="px-4 py-3">一次 HK$4,000</td><td class="px-4 py-3">已含於開發費</td></tr>
+              <tr><td class="px-4 py-3">硬件（收銀機／打印機／錢箱）</td><td class="px-4 py-3">HK$3,500</td><td class="px-4 py-3">HK$6,000</td><td class="px-4 py-3">HK$8,000</td></tr>
+              <tr><td class="px-4 py-3">維護／更新（每年約授權或開發費 15%）</td><td class="px-4 py-3">已含於月費</td><td class="px-4 py-3">HK$8,100</td><td class="px-4 py-3">HK$54,000</td></tr>
+              <tr><td class="px-4 py-3">交易手續費（三年，三模式相同）</td><td class="px-4 py-3">HK$77,760</td><td class="px-4 py-3">HK$77,760</td><td class="px-4 py-3">HK$77,760</td></tr>
+              <tr class="bg-gray-50 font-bold"><td class="px-4 py-3">三年總成本</td><td class="px-4 py-3">HK$104,360</td><td class="px-4 py-3">HK$113,860</td><td class="px-4 py-3">HK$259,760</td></tr>
+              <tr class="bg-gray-50"><td class="px-4 py-3">扣除交易手續費後（即付給 POS 供應商的部分）</td><td class="px-4 py-3">HK$26,600</td><td class="px-4 py-3">HK$36,100</td><td class="px-4 py-3">HK$182,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>放在同一框架後可見兩個重點。第一，<strong>交易手續費（示範假設 HK$77,760）在三個模式中金額相同</strong>，因為它取決於營業額與支付方式，而非哪一套 POS。第二，由 POS 模式帶動的成本，月費 SaaS 最低、買斷略高、自訂開發最高——單店而言，自訂開發要回本通常需同時取代多項現成訂閱（POS、會員、網店、報表各一套）。</p>
+
+        <p>店數增加時，月費 SaaS 的軟件費與加值模組按店數增加，自訂開發的系統只做一次、之後每店只需硬件與設定，因此<strong>自訂開發在「店數較多、流程特殊」時較有機會追回差距</strong>。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">三年總成本（示範假設）</th><th class="px-4 py-3 text-left">模式 A：月費 SaaS</th><th class="px-4 py-3 text-left">模式 B：買斷授權</th><th class="px-4 py-3 text-left">模式 C：自訂開發</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">單店</td><td class="px-4 py-3">HK$104,360</td><td class="px-4 py-3">HK$113,860</td><td class="px-4 py-3">HK$259,760</td></tr>
+              <tr><td class="px-4 py-3">三間店</td><td class="px-4 py-3">HK$313,080</td><td class="px-4 py-3">HK$341,580</td><td class="px-4 py-3">HK$431,280</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-4.webp" alt="收銀系統三年總成本計算表，列出月費、買斷與自訂開發的各項成本" title="收銀系統三年總成本計算表，列出月費、買斷與自訂開發的各項成本" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">三年的成本要逐項列出：授權、硬件、加值模組、維護與交易手續費，全部金額均為示範假設</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-5.webp" alt="單店與三間店的收銀系統三年總成本比較長條圖" title="單店與三間店的收銀系統三年總成本比較長條圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">店數增加時月費按店數增加，自訂開發的系統開發費卻只需付一次</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、最常被忽略的隱藏成本</h2>
+        <p>很多店主比較方案時只計算「月費 × 月數」，結果簽約後才發現成本比預期高。以下幾項是最常被忽略的隱藏成本。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">隱藏成本</th><th class="px-4 py-3 text-left">說明</th><th class="px-4 py-3 text-left">如何避免</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">交易手續費</td><td class="px-4 py-3">按交易額百分比計算，長期金額可觀，且付給支付服務商而非 POS 供應商</td><td class="px-4 py-3">把三年手續費一併計入總成本</td></tr>
+              <tr><td class="px-4 py-3">加值模組</td><td class="px-4 py-3">會員、庫存、多店、進階報表常另收月費</td><td class="px-4 py-3">按需要模組清單報價</td></tr>
+              <tr><td class="px-4 py-3">硬件與配件</td><td class="px-4 py-3">收銀機、打印機、掃碼槍、錢箱可能另購或月租</td><td class="px-4 py-3">確認硬件是買斷還是租用</td></tr>
+              <tr><td class="px-4 py-3">資料匯出費</td><td class="px-4 py-3">部分供應商就匯出資料或報表另行收費</td><td class="px-4 py-3">簽約前先問清楚匯出安排</td></tr>
+              <tr><td class="px-4 py-3">合約綁定與違約金</td><td class="px-4 py-3">多年綁定、中途離場可能要付違約費</td><td class="px-4 py-3">看清合約年期與退出條款</td></tr>
+              <tr><td class="px-4 py-3">設定與啟動費</td><td class="px-4 py-3">開戶、安裝、員工培訓可能收一次性費用</td><td class="px-4 py-3">要求列明一次性收費清單</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>交易手續費最容易被低估。香港信用卡交易一般涉及商戶折扣率（Merchant Discount Rate，MDR）：金管局在信用卡業務監管政策文件中指出，收單機構可就商戶的交易處理、服務或開戶收費，並普遍就信用卡交易徵收折扣率，費率可與商戶商議。公開收費表亦顯示，Visa／Mastercard 交易費約 1.5% 至 2.2%，部分方案另設每月手續費。</p>
+        <p>電子錢包方面，八達通公布非交通行業的資金轉賬費為 1.5%（最低 HK$1），商用版應用程式推廣期優惠 1.3%。轉數快（FPS）方面，營運機構香港銀行同業結算有限公司（HKICL）在商戶常見問題中明確表示，<strong>FPS 不會向商戶收取費用</strong>，商戶收款收費由銀行或持牌人決定。可見<strong>支付方式不同，費率差異可以很大，直接影響三年總成本。</strong></p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-6.webp" alt="收銀系統最常被忽略的五項隱藏成本示意圖" title="收銀系統最常被忽略的五項隱藏成本示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">交易手續費、加值模組、硬件、匯出費與合約綁定，是報價單最常「看不到」的項目</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-7.webp" alt="交易手續費去向示意圖：交易手續費付給銀行或支付服務商而非 POS 供應商" title="交易手續費去向示意圖：交易手續費付給銀行或支付服務商而非 POS 供應商" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">交易手續費付給收單銀行或支付服務商，與採用哪一套 POS 系統無直接關係</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、資料擁有權與搬遷風險</h2>
+        <p>月費 SaaS 最常被忽略的長期風險，是資料的擁有權與搬遷成本。當會員名單、銷售紀錄與庫存資料都存放於供應商雲端時，一旦想換系統，「資料能否完整匯出、匯出什麼格式、是否收費」會直接決定轉換成本。</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>資料匯出格式。</strong>理想是可匯出成通用 CSV 或 Excel，而非只能以自家工具開啟的專有格式。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>匯出是否收費。</strong>部分供應商就一次匯出或歷史報表另收費用，簽約前應問清楚。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>資料所有權條款。</strong>合約應寫明資料屬於商戶，供應商只是代為儲存與處理。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>停止服務後的安排。</strong>了解終止合約後資料保留多久、以什麼方式交回。</span></li>
+        </ul>
+        <p>相對而言，買斷授權與自訂開發的資料多數可存放在商戶指定的伺服器或帳戶，搬遷時主動權較大；代價是商戶要自行處理備份、保安與系統更新。選擇哪一種，取決於你重視「省事」還是「掌控」。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-8.webp" alt="資料擁有權與搬遷風險示意圖，比較雲端與自存兩種資料存放方式" title="資料擁有權與搬遷風險示意圖，比較雲端與自存兩種資料存放方式" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">簽約前先確認資料能否完整匯出，是降低日後搬遷風險最有效的一步</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、打通會員系統、網店與電子支付</h2>
+        <p>對零售與餐飲店主而言，POS 的價值不只在收錢，更在於能否把線下與線上的資料串連起來；以下三個方向最關鍵。</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>會員系統。</strong>線下登記的會員可在網店登入、累積積分、用優惠券，避免線上線下各有一套名單。會員系統常是獨立收費模組，選型時要一併考慮。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>網店同步。</strong>同一件貨品的庫存應在門店與網店之間同步，否則容易出現線上有貨、到店卻缺貨。若正考慮自建電商網站，可先了解<a href="/blog/hong-kong-ecommerce-website-guide/" class="text-[#0f4c81] font-bold hover:underline">開網店與自建電商網站的分別</a>。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>電子支付整合。</strong>信用卡、八達通、FPS、電子錢包的收款應直接反映在 POS 對賬中，減少人手對數；各方式費率與到賬時間不同，要一併考慮成本與現金流。</span></li>
+        </ul>
+        <p>需留意的是，<strong>這些整合往往不在「基本月費」之內</strong>，而是按項目收費或需要整合開發。比較方案時應把「打通會員、網店、電子支付」列為需求，而非等開業後才補做。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-9.webp" alt="POS 系統打通會員、網店與電子支付的整合示意圖" title="POS 系統打通會員、網店與電子支付的整合示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">會員、庫存與電子支付的線上線下打通，通常屬加值或整合項目而非基本功能</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、零售與餐飲：需求差異</h2>
+        <p>零售與餐飲對 POS 的需求不同，選型時要看清自己的行業重點。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">需求重點</th><th class="px-4 py-3 text-left">零售</th><th class="px-4 py-3 text-left">餐飲</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">商品管理</td><td class="px-4 py-3">條碼、尺碼顏色、多規格、退換貨</td><td class="px-4 py-3">菜單、套餐、加配、售罄停售</td></tr>
+              <tr><td class="px-4 py-3">點單流程</td><td class="px-4 py-3">收銀、批量掃碼、快速結賬</td><td class="px-4 py-3">堂食、外賣、分單、加單、桌號</td></tr>
+              <tr><td class="px-4 py-3">庫存</td><td class="px-4 py-3">進銷存、補貨提醒、盤點</td><td class="px-4 py-3">食材用量、成本、損耗</td></tr>
+              <tr><td class="px-4 py-3">會員</td><td class="px-4 py-3">積分、儲值、生日優惠</td><td class="px-4 py-3">常客優惠、訂座、儲值</td></tr>
+              <tr><td class="px-4 py-3">常見支付</td><td class="px-4 py-3">信用卡、八達通、電子錢包</td><td class="px-4 py-3">信用卡、八達通、FPS、電子錢包</td></tr>
+              <tr><td class="px-4 py-3">線上整合</td><td class="px-4 py-3">網店庫存同步、取貨</td><td class="px-4 py-3">外賣平台、線上點餐</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>餐飲尤其看重落單與出單效率，例如前台下單後廚房同步出單；零售則較看重庫存準確與線上線下同步。兩者若共用同一套會員系統，往往需要額外整合。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-10.webp" alt="零售與餐飲對收銀系統需求的差異比較表" title="零售與餐飲對收銀系統需求的差異比較表" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">零售重庫存與線上同步，餐飲重落單與出單效率，選型重點不同</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、選擇檢查清單（10 條）</h2>
+        <p>簽約前建議逐項確認以下十點，答案越具體，日後越少爭議。</p>
+        <ol class="list-decimal pl-5 space-y-2 text-gray-700 my-4">
+          <li><strong>三年總成本</strong>——軟件、硬件、加值模組、維護與交易手續費一併列出。</li>
+          <li><strong>交易費率</strong>——各支付方式（信用卡、八達通、FPS、電子錢包）的費率。</li>
+          <li><strong>加值模組</strong>——會員、庫存、多店、進階報表是否另收月費，金額多少。</li>
+          <li><strong>硬件安排</strong>——是買斷還是月租，日後維修誰負責。</li>
+          <li><strong>資料擁有權</strong>——合約是否寫明資料屬於商戶。</li>
+          <li><strong>資料匯出</strong>——可否完整匯出，格式是什麼，是否收費。</li>
+          <li><strong>合約年期與違約條款</strong>——綁定幾年，中途離場有何費用。</li>
+          <li><strong>整合能力</strong>——可否接通現有或計劃中的網店、會員與支付。</li>
+          <li><strong>支援與服務水平</strong>——回應時間、保養期、是否有指定聯絡人。</li>
+          <li><strong>遷出安排</strong>——日後換供應商時，資料與系統如何交接。</li>
+        </ol>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-11.webp" alt="選擇收銀系統前應核對的十項檢查清單示意圖" title="選擇收銀系統前應核對的十項檢查清單示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">十項之中最常被忽略：資料匯出、合約綁定與遷出安排</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">月費 SaaS 和一次買斷，哪一種三年後更便宜？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">沒有必然答案。以示範假設的單店情況，月費 SaaS 三年總成本略低於買斷，但差距很小；若店數增加或買斷含較多一次性模組，差距可能反轉。關鍵是把功能需求列清單，再用三年總成本比較，而非只比標價。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">交易手續費是付給 POS 供應商嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。交易手續費一般付給收單銀行或支付服務商，與哪一套 POS 系統無直接關係。POS 供應商有時與支付商合作提供整合方案，但費率由支付商釐定。金管局指出，收單機構可就商戶的交易處理或開戶收費，並普遍就信用卡交易徵收折扣率，費率可與商戶商議。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港信用卡和電子支付的收費大約是多少？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">公開收費表顯示，Visa／Mastercard 交易費一般約 1.5% 至 2.2%，部分方案另設每月手續費，實際視收單機構、卡種與交易量而定。八達通非交通行業資金轉賬費為 1.5%（最低 HK$1），推廣期優惠 1.3%。轉數快（FPS）本身不向商戶收費，但銀行或支付商仍可就服務收費。實際費率須向收單機構查詢。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">「買斷」之後是否完全沒有經常性支出？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">實務上很少。買斷通常指一次付清軟件授權，但之後多數仍要付年度維護或更新費，以換取版本升級與技術支援。買斷只是把「每月付」變成「一次付加每年維護」，並非從此沒有經常性開支。簽約時應問清維護費計算與調價機制。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">月費 SaaS 的資料可以拿回來嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">視供應商而定。理想安排是可完整匯出成通用 CSV 或 Excel，且不收費。簽約前應在合約寫明資料屬於商戶，並問清楚匯出格式、是否收費，以及終止服務後資料保留多久、如何交回。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">何時才值得考慮自訂開發 POS？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">當流程限制明顯拖慢營運、需與現有系統深度整合、店數較多，或同時取代多項現成訂閱時，自訂開發才較有機會回本。單店而言，其三年成本一般遠高於現成方案（示範假設約 HK$18 萬對比月費約 HK$2.7 萬），不建議只為一個功能開發。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">零售和餐飲可否用同一套 POS？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但要確認系統同時支援兩邊核心流程。零售重視條碼、多規格與線上庫存同步；餐飲重視落單、出單與桌號管理。若同一品牌同時經營兩者，選型時應確認能否分開設定兩類流程，以及會員資料可否共用。</p>
+          </div>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-12.webp" alt="收銀系統常見問題示意圖，涵蓋成本、手續費與資料擁有權" title="收銀系統常見問題示意圖，涵蓋成本、手續費與資料擁有權" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">最常被問到的問題集中在成本結構、手續費歸屬與資料能否帶走</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、總結</h2>
+        <p>收銀系統的選擇，核心不是「月費最便宜」，而是「三年總成本與資料掌控」是否配合你的生意。月費 SaaS 起始成本低、上手快，但要留意加值模組與匯出限制；買斷授權彈性較高、資料多在自己手上，但要承擔維護與過時風險；自訂開發彈性最高，起始成本與維護責任同樣最高。無論選哪一種，都應把交易手續費、硬件、加值模組與合約條款一併計入三年總成本再決定。</p>
+        <p>本文所有金額均為示範假設，只作計算方法示範，實際以你收到的正式報價為準。若需協助盤點需求、比較方案或整合會員、網店與電子支付，可了解 ADWire 的<a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a>，由需求梳理到上線支援一併處理。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/pos-system-hong-kong-total-cost-13.webp" alt="收銀系統選型總結示意圖：以三年總成本與資料掌控作決定" title="收銀系統選型總結示意圖：以三年總成本與資料掌控作決定" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先分清「付給 POS 供應商」與「付給支付服務商」的錢，再用三年總成本比較</figcaption>
+        </figure>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://fps.hkicl.com.hk/chi/fps/merchants/frequently_asked_questions.php" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港銀行同業結算有限公司（HKICL）：轉數快商戶常見問題</a> — 轉數快不會向商戶收費；商戶收款收費由銀行或持牌人釐定</li>
+            <li><a href="https://www.hktmerchantservices.com/home/en/pdf/CVS_Price_Table.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">HKT Merchant Services：服務收費表</a> — Visa／Mastercard 交易費約 1.5%–2.2%、每月手續費 HK$250；線上收款 Tap &amp; Go／FPS 1.3%</li>
+            <li><a href="https://www.octopus.com.hk/tc/business/become-a-merchant/business-octopus-app/fee/index.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">八達通：商用版八達通應用程式手續費標準收費</a> — 非交通行業資金轉賬費為轉賬金額 1.5%（最低 1 元）；推廣期優惠 1.3%</li>
+            <li><a href="https://brdr.hkma.gov.hk/eng/doc-ldg/docId/getPdf/20260312-3-EN/20260312-3-EN.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：信用卡業務監管政策手冊（諮詢文件 CR-S-5）</a> — 收單機構可就商戶徵收交易處理與開戶費用，並普遍徵收信用卡折扣率</li>
+            <li><a href="https://www.hkma.gov.hk/chi/regulatory-resources/registers/register-of-svf-licensees/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：儲值支付工具持牌人紀錄冊</a> — 支付服務提供者須持牌（八達通、AlipayHK、HKT Payment 等）</li>
+            <li><a href="https://www.hkma.gov.hk/chi/key-functions/international-financial-centre/stored-value-facilities-and-retail-payment-systems/regulatory-regime-for-stored-value-facilities/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：儲值支付工具的監管制度</a> — 《支付系統及儲值支付工具條例》下的儲值支付工具發牌制度</li>
+          </ul>
+          <p class="mt-3">附註：本文第三節成本數字均為<strong>示範假設</strong>，並非供應商真實報價；第四節支付費率引用上述公開收費標準，實際以相關機構最新公布及正式報價為準。</p>
+        </div>
+
+    `,
+  },
+
+  // ─── Article 31：香港學校校務系統選擇指南 ───
+  {
+    id: 31,
+    slug: "school-management-system-hong-kong",
+    title: "校務系統、點名系統如何選擇？香港學校自訂 vs 現成完整比較",
+    excerpt:
+      "香港學校選校務系統或點名系統，應先弄清楚現有平台的分工。本文比較自訂開發與現成平台的六大維度（資料擁有權、客製彈性、整合能力、三年總成本、維護與升級），說明校務系統包含的模組、QR 碼／智能卡／App／人臉辨識點名技術的實際限制與私隱要求，以及與 eClass、CloudSAMS 共存的整合方式，並整理資助學校的採購報價份數與驗收、培訓、保養標準，協助學校負責人作出有依據的決定。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "12 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/school-management-system-hong-kong.webp",
+    tags: ["校務系統", "點名系統", "考勤系統", "eClass", "學校系統開發", "香港學校", "採購流程", "私隱"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">香港學校採購校務系統或點名系統時，常遇到同一個問題：應該採用現成綜合平台，還是按校本需要委託開發？兩種做法各有適用情況，關鍵在於學校規模、現有平台、資料擁有權要求與長遠維護能力。本文以香港教育制度與資助學校採購規則為基礎，比較自訂與現成的分別，說明校務系統包含的模組、點名技術的實際限制、與現有平台共存的整合方式，以及驗收要留意的交付與保養條款。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">大部分香港中小學同時使用<strong>現成綜合平台</strong>（例如 eClass 校園綜合平台、CloudSAMS 雲端校管系統）處理日常行政、教學與家校通訊，而<strong>自訂開發</strong>最適合補足現成平台未覆蓋的部分——例如校本計分規則、特別室考勤與跨系統統計報表。關鍵不是「哪一種較好」，而是<strong>哪些功能沿用現成、哪些值得自訂</strong>。同時要留意：資助學校採購須跟教育局通告第 4/2013 號及《資助學校採購程序指引》，<strong>5 萬元以上至 20 萬元的採購一般須邀請最少 5 個書面報價，超過 20 萬元則須邀請最少 5 名供應商投標</strong>。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 本文重點</p>
+          <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>香港學校多數是在 eClass、CloudSAMS 等現有平台之上補足，重點是「共存與整合」，不是「二選一取代」。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>自訂與現成的分別集中在六個維度：資料擁有權、客製彈性、整合能力、三年總成本、維護與升級。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>點名技術各有實際限制：QR 碼易被代掃、智能卡須帶卡、App 打卡依賴手機、人臉辨識受《私隱條例》與私隱公署指引約束。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>採購報價份數由金額決定；標書要寫清楚資料擁有權、知識產權與私隱評估。</span></li></ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、香港學校系統版圖：現有平台怎樣分工</h2>
+        <p>要判斷校務系統應自訂還是現成，第一步是弄清楚學校現時已在用什麼。學校日常運作牽涉多個平台與硬件，它們並非互相取代，而是各有分工。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">系統類別</th><th class="px-4 py-3 text-left">常見例子</th><th class="px-4 py-3 text-left">主要用途</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">校園綜合平台</td><td class="px-4 py-3">eClass 校園綜合平台</td><td class="px-4 py-3">結合網上教學、行政與通訊，供教職員、學生及家長處理事務</td></tr>
+              <tr><td class="px-4 py-3">教育局校管系統</td><td class="px-4 py-3">CloudSAMS 雲端校管系統、STIMS 學生資料管理系統</td><td class="px-4 py-3">學校行政、學生紀錄、向教育局呈報資料</td></tr>
+              <tr><td class="px-4 py-3">考勤硬件</td><td class="px-4 py-3">智能卡／RFID 讀卡器、QR 碼、App</td><td class="px-4 py-3">記錄學生及教職員的到校、離校與課堂出席</td></tr>
+              <tr><td class="px-4 py-3">繳費</td><td class="px-4 py-3">電子繳費模組、繳費通告</td><td class="px-4 py-3">收取堂費、活動費及代收費用</td></tr>
+              <tr><td class="px-4 py-3">家校通訊</td><td class="px-4 py-3">家長 App、電子通告系統</td><td class="px-4 py-3">發布通告、請假、即時訊息、活動報名</td></tr>
+              <tr><td class="px-4 py-3">學校網站</td><td class="px-4 py-3">校網（CMS）</td><td class="px-4 py-3">對外發布資訊、收生資料、學校形象</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>關鍵觀察：<strong>學校很少出現「完全沒有系統」的情況</strong>。多數學校已在用一套綜合平台，家長透過 App 簽通告、看考勤的習慣亦已建立。因此新系統推行時都要回答：它是取代現有平台，還是在其上補足？實務上補足與共存遠比全面取代多，因為全面更換涉及全校家長與教師重新適應，風險與成本都高。另外，香港學校受《教育條例》及《資助則例》規管，學生資料要經教育局系統呈報，直接套用境外產品往往要再做本地化調整。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-1.webp" alt="示意圖：香港學校常見系統分工，由綜合平台、教育局校管系統到考勤硬件、繳費與家校通訊" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">香港學校的數碼運作是多個平台的組合，新系統的角色通常是補足而非取代</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-2.webp" alt="示意圖：學校新系統推行時的三種定位，取代現有平台、與現有平台共存、或補足現有平台缺口" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">推行前先釐清定位：補足或共存的推行風險，一般遠低於全面取代</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、校務系統實際包含什麼：模組清單</h2>
+        <p>「校務系統」是統稱，涵蓋範圍很廣。採購前先列出學校真正需要的模組，可避免買了用不到的功能，或低估整合工作量。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">模組</th><th class="px-4 py-3 text-left">實際內容</th><th class="px-4 py-3 text-left">現成平台能否覆蓋</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">考勤與點名</td><td class="px-4 py-3">到校／離校、課堂點名、缺課紀錄、家長通知</td><td class="px-4 py-3">多數可，但校本規則或特別室考勤常要補足</td></tr>
+              <tr><td class="px-4 py-3">學生成績</td><td class="px-4 py-3">分數輸入、計分規則、成績表、排名</td><td class="px-4 py-3">一般，但校本計分與分組規則差異大</td></tr>
+              <tr><td class="px-4 py-3">收費與繳費</td><td class="px-4 py-3">繳費通告、收款紀錄、對帳</td><td class="px-4 py-3">多數可</td></tr>
+              <tr><td class="px-4 py-3">通告與通訊</td><td class="px-4 py-3">電子通告、簽閱、推播、即時訊息</td><td class="px-4 py-3">多數可</td></tr>
+              <tr><td class="px-4 py-3">學生紀錄</td><td class="px-4 py-3">個人資料、班別、出席、獎懲、學習進程</td><td class="px-4 py-3">部分；與教育局呈報相關</td></tr>
+              <tr><td class="px-4 py-3">統計與報表</td><td class="px-4 py-3">出席率、收費、活動、校情儀表板</td><td class="px-4 py-3">有限；跨系統統計多須自訂</td></tr>
+              <tr><td class="px-4 py-3">課外活動</td><td class="px-4 py-3">報名、出席、收費、場地預約</td><td class="px-4 py-3">部分</td></tr>
+              <tr><td class="px-4 py-3">教職員考勤</td><td class="px-4 py-3">到校、離校、假期、代課紀錄</td><td class="px-4 py-3">部分</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>看清清單後，邏輯就清楚：<strong>屬於「通用、已有標準做法」的功能，現成平台通常更快更便宜；屬於「校本、獨有、需與其他系統串連」的功能，自訂價值才會顯現。</strong>例如標準電子通告，現成平台已成熟；但「按校本分班與計分規則產生排名，並匯出到教育局呈報格式」的需求，就很難由通用產品直接滿足。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-3.webp" alt="圖表：校務系統常見模組，由考勤、成績、收費、通告、學生紀錄到統計報表" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先列清楚需要的模組，再判斷哪些沿用現成、哪些值得自訂</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、自訂 vs 現成：六大比較維度</h2>
+        <p>把「自訂」與「現成」放在同一框架比較，比逐項功能對照更有用。以下六個維度是決策時最常忽略的部分。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">比較維度</th><th class="px-4 py-3 text-left">現成平台</th><th class="px-4 py-3 text-left">自訂開發</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>資料擁有權</strong></td><td class="px-4 py-3">資料多存於供應商平台，匯出能力視產品而定</td><td class="px-4 py-3">可約定資料與原始碼歸學校所有，存放位置由學校決定</td></tr>
+              <tr><td class="px-4 py-3"><strong>客製彈性</strong></td><td class="px-4 py-3">跟隨產品路線圖，校本需求未必獲優先處理</td><td class="px-4 py-3">按校本流程設計，改動由學校主導</td></tr>
+              <tr><td class="px-4 py-3"><strong>整合能力</strong></td><td class="px-4 py-3">限於產品已提供的接口或匯出格式</td><td class="px-4 py-3">可度身接駁現有平台、教育局系統及硬件</td></tr>
+              <tr><td class="px-4 py-3"><strong>三年總成本</strong></td><td class="px-4 py-3">訂閱／授權費屬經常性支出，逐用戶或逐模組計</td><td class="px-4 py-3">前期投入較高，其後以保養費為主，長遠攤分可能較低</td></tr>
+              <tr><td class="px-4 py-3"><strong>維護</strong></td><td class="px-4 py-3">由供應商負責，學校依賴對方回應速度</td><td class="px-4 py-3">須有保養安排，學校要保留技術文件與聯絡人</td></tr>
+              <tr><td class="px-4 py-3"><strong>升級</strong></td><td class="px-4 py-3">供應商統一更新，但可能改變既有操作習慣</td><td class="px-4 py-3">按學校時間表更新，可控制節奏，但須自行規劃</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>六項之中，最常被低估的是<strong>「三年總成本」</strong>與<strong>「資料擁有權」</strong>。現成平台訂閱費看似較低，但累積數年的用戶與模組費，加上額外加購，可能相當可觀；自訂系統前期投入較高，但資料與原始碼歸學校，日後轉換供應商或加新功能時議價能力較強。現成平台的優勢則是即時可用、不需自行承擔技術風險；比較時應問「哪個的總成本與風險，與本校規模和人力相稱」。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-4.webp" alt="比較圖：自訂系統與現成平台在資料擁有權、客製、整合、總成本、維護與升級六個維度的分別" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">六大維度之中，資料擁有權與三年總成本最常被低估</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、點名與考勤技術比較：四種做法的實際限制</h2>
+        <p>點名系統是校務系統中最常單獨採購、技術選擇最多的一環。以下四種做法的重點不在技術是否新穎，而在真實校園環境下的限制。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">技術</th><th class="px-4 py-3 text-left">運作方式</th><th class="px-4 py-3 text-left">優點</th><th class="px-4 py-3 text-left">主要限制</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">QR 碼</td><td class="px-4 py-3">學生掃描課室或校門的二維碼</td><td class="px-4 py-3">成本低、無須硬件、推行快</td><td class="px-4 py-3">容易被截圖或轉發代掃，難證明本人在場</td></tr>
+              <tr><td class="px-4 py-3">智能卡／RFID</td><td class="px-4 py-3">拍卡記錄到校、離校時間</td><td class="px-4 py-3">毋須接觸手機、可同時作門禁及繳費</td><td class="px-4 py-3">須隨身帶卡，忘帶或損壞即無法記錄</td></tr>
+              <tr><td class="px-4 py-3">App 打卡</td><td class="px-4 py-3">學生或教師以手機程式簽到</td><td class="px-4 py-3">整合通知與請假、免額外讀卡器</td><td class="px-4 py-3">依賴手機與網絡，涉及裝置管理與定位私隱</td></tr>
+              <tr><td class="px-4 py-3">人臉辨識</td><td class="px-4 py-3">以鏡頭拍取容貌作比對</td><td class="px-4 py-3">非接觸、通行速度快</td><td class="px-4 py-3">屬敏感個人資料，受《私隱條例》及私隱公署指引約束</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>關於人臉辨識，學校尤其要留意合規。個人資料私隱專員公署的《收集及使用生物辨識資料指引》指出，容貌、指紋、虹膜等屬較敏感的個人資料，機構決定收集前應先評估<strong>必要性與相稱性</strong>，即考慮能否用較少侵犯私隱的方法（例如智能卡）達到同一目的；同時要進行<strong>私隱影響評估</strong>、提供清晰說明與知情選擇，並做到資料最小化與加密儲存，亦建議由原始影像抽取特徵值儲存並銷毀原始樣本。實務上，許多學校日常考勤用智能卡或 App，人臉辨識只用於特定場景（例如考試核對身分），並以家長同意為前提。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-5.webp" alt="比較圖：QR 碼、智能卡、App 打卡與人臉辨識四種點名技術的優點與實際限制" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">四種點名技術各有代價，技術選擇應由目的與私隱風險倒推</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-6.webp" alt="示意圖：人臉辨識考勤的私隱考量，包括必要性與相稱性、私隱影響評估、知情選擇及資料最小化" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">採用人臉辨識前，學校須先處理生物辨識資料的合規要求</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、家校通訊：與現有平台共存還是取代</h2>
+        <p>家校通訊是家長感受最直接、也最難全面更換的部分。家長已安裝並習慣現有平台，而這個習慣是所有學校共用的。若學校自行開發全新的家長 App，等於要求全校家長重新下載與學習，推行阻力相當大。</p>
+        <p>因此，家校通訊的合理方向通常是<strong>共存</strong>而非取代：日常電子通告、請假、繳費、考勤通知沿用家長已習慣的平台；學校只在處理現有平台未覆蓋的校本流程時，才以網頁或輕量模組補足，並盡量沿用同一套登入與通知方式，減少家長的學習成本。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 判斷準則：誰在用、改動成本有多高</p>
+          <p class="text-gray-700 leading-relaxed">涉及全校家長的功能（通告、繳費、考勤通知）改動成本高，宜沿用現成平台；涉及教師或行政內部的功能（統計、報表、特別室考勤、校本計分）用家人數有限，自訂的彈性效益較大。以「用家人數 × 改動成本」判斷，通常較易得出合理結論。</p>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-7.webp" alt="示意圖：家校通訊以共存為主，家長沿用現有平台，學校以輕量模組補足校本流程" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">涉及全校家長的環節改動成本最高，一般以沿用現有平台較穩妥</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、與 eClass 等現有平台共存的整合方式</h2>
+        <p>若學校決定自訂部分功能並保留現有平台，整合方式就是成敗關鍵。以下是幾種常見的整合層次，由淺入深排列。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">整合方式</th><th class="px-4 py-3 text-left">做法</th><th class="px-4 py-3 text-left">適用情況</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">檔案匯入／匯出</td><td class="px-4 py-3">以 CSV 或 Excel 定期交換學生名單、考勤及成績</td><td class="px-4 py-3">即時性要求不高、平台未開放接口</td></tr>
+              <tr><td class="px-4 py-3">資料庫或 API 對接</td><td class="px-4 py-3">透過平台提供的接口讀寫資料，雙向同步</td><td class="px-4 py-3">平台提供 API，且需即時更新</td></tr>
+              <tr><td class="px-4 py-3">單一登入（SSO）</td><td class="px-4 py-3">沿用同一組帳戶登入自訂系統，減少密碼管理</td><td class="px-4 py-3">自訂系統有多個校內使用者</td></tr>
+              <tr><td class="px-4 py-3">中介同步層</td><td class="px-4 py-3">以獨立服務定時對帳，處理格式與欄位差異</td><td class="px-4 py-3">兩邊資料結構不同、需要清洗與比對</td></tr>
+              <tr><td class="px-4 py-3">硬件整合</td><td class="px-4 py-3">讀卡器、感應器把紀錄送到自訂系統</td><td class="px-4 py-3">考勤硬件與平台本身未打通</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>整合最易被低估的兩處：一是<strong>資料格式與定義的差異</strong>（例如對「班別」、「缺席原因」的編碼不同），二是<strong>現有平台未必開放接口</strong>。報價階段便應要求供應商寫明整合方式、需哪一方配合、平台不提供接口時的替代方案與出錯處理流程。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-8.webp" alt="圖表：自訂系統與現有平台整合的五個層次，由檔案交換、API 對接、單一登入到中介同步層及硬件整合" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">整合方式由淺入深，報價時就要列明假設與替代方案</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、報價流程：學校通常要幾多份報價</h2>
+        <p>資助學校的採購程序受《資助學校採購程序指引》及通告第 4/2013 號規管，報價份數主要由金額決定，並不得為迴避程序而分拆訂單。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">採購金額</th><th class="px-4 py-3 text-left">一般所需的競爭性程序</th><th class="px-4 py-3 text-left">批核人員</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">5,000 元或以下</td><td class="px-4 py-3">毋須公開競投，但須由適當職級人員證明公平合理</td><td class="px-4 py-3">有關科主任或校方指定人員</td></tr>
+              <tr><td class="px-4 py-3">5,000 元以上至 50,000 元</td><td class="px-4 py-3">邀請最少 2 個口頭報價</td><td class="px-4 py-3">校長／副校長</td></tr>
+              <tr><td class="px-4 py-3">50,000 元以上至 200,000 元</td><td class="px-4 py-3">邀請最少 5 個書面報價</td><td class="px-4 py-3">校長</td></tr>
+              <tr><td class="px-4 py-3">200,000 元以上</td><td class="px-4 py-3">邀請最少 5 名供應商投標</td><td class="px-4 py-3">標書批核委員會</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>另外，學校<strong>不得分拆訂單</strong>以迴避批核或報價程序，同類物料與服務應集中在同一報價或投標附表內。邀請書面報價或招標的日期與截止日期一般應相隔<strong>最少三周</strong>。若供應商數目有限、未能邀請足夠數目，學校須記錄在案並事先取得校董會批准。學校應盡可能以公開競投採購，<strong>只有具充分理據</strong>（例如服務只由單一供應商提供）才可採用單一報價或招標程序，並須事先獲批准及記錄。</p>
+        <p>對學校的實際意義是：<strong>採購校務系統這類金額較高的項目，往往落在「20 萬元以上須投標」的一檔</strong>，因此標書的規格、評審準則與評分制度要預先寫清楚，供受邀供應商參考。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-9.webp" alt="階梯圖：資助學校採購金額門檻，由口頭報價、書面報價到投標的報價份數要求" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">金額決定報價份數與批核層級；校務系統採購多數落在須投標的一檔</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、驗收標準：交付物、培訓、保養期</h2>
+        <p>系統是否「收貨」，應在合約階段寫清楚，而非上線後才爭論。以下建議在標書與合約中逐項列明驗收項目。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">驗收項目</th><th class="px-4 py-3 text-left">要寫清楚的內容</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">功能與範圍</td><td class="px-4 py-3">逐項列出要做什麼、不做什麼，以可測試的條件描述</td></tr>
+              <tr><td class="px-4 py-3">交付物</td><td class="px-4 py-3">系統、資料庫結構、技術文件、原始碼是否交付</td></tr>
+              <tr><td class="px-4 py-3">資料擁有權</td><td class="px-4 py-3">資料屬於學校、存放位置、能否隨時匯出</td></tr>
+              <tr><td class="px-4 py-3">知識產權</td><td class="px-4 py-3">原始碼與設計檔的擁有權及使用權</td></tr>
+              <tr><td class="px-4 py-3">保安與私隱</td><td class="px-4 py-3">由誰進行保安風險評估及私隱影響評估、交付什麼報告</td></tr>
+              <tr><td class="px-4 py-3">培訓</td><td class="px-4 py-3">培訓對象、場次、教材、上線後支援窗口</td></tr>
+              <tr><td class="px-4 py-3">保養期與服務水平</td><td class="px-4 py-3">保養期長度、回應時間、指定聯絡人、修復承諾</td></tr>
+              <tr><td class="px-4 py-3">備份與遷出</td><td class="px-4 py-3">備份頻率、還原測試、日後轉換供應商的交接安排</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>其中<strong>「原始碼是否交付」</strong>與<strong>「日後遷出安排」</strong>最常被忽略，卻直接影響學校的長遠議價能力。若只取得成品、不取得原始碼，日後更換供應商時可能無法延續，形成依賴。建議標書階段就問清楚：原始碼、資料庫結構與技術文件是否一併交付；若否，合約結束時學校可取回什麼形式的資料。保養期方面，一般做法是設一段保養期，期內修正缺陷不另收費，期後轉為年度保養；範圍、回應時間與收費方式應寫清楚。若以優質教育基金或校本撥款支付部分費用，要注意資助屬一次過性質，<strong>計劃完結後的經常性開支（包括維修保養）一般不在資助範圍內</strong>，單純的物資購置亦不受支持。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-10.webp" alt="清單圖示：校務系統驗收應約定的項目，由功能範圍、交付物、資料擁有權到培訓及保養期" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">原始碼交付與遷出安排，直接影響學校日後的議價能力</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港學校現時普遍使用什麼校務系統？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">大部分學校同時使用多個平台：校園綜合平台（例如 eClass）處理教學、行政與家校通訊；教育局提供雲端校管系統（CloudSAMS）及學生資料管理系統（STIMS）供學校處理行政與呈報學生資料；另有考勤硬件、繳費模組與學校網站，多數學校是「多平台並用」，而非單一系統。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">自訂系統一定比現成平台好嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定。現成平台的優勢是即時可用、由供應商承擔技術風險；自訂開發的價值在於校本流程、資料擁有權與整合彈性，但需學校投入需求整理與長遠保養。較務實的做法是「現成平台處理通用功能，自訂模組補足校本需要」，而非全盤取代。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校採購校務系統，一般要收取多少份報價？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按《資助學校採購程序指引》及教育局通告第 4/2013 號，5,000 元以上至 50,000 元一般須邀請最少 2 個口頭報價；50,000 元以上至 200,000 元須邀請最少 5 個書面報價；200,000 元以上須邀請最少 5 名供應商投標。系統項目金額多數較高，通常落在須投標的一檔。學校不得為迴避程序而分拆訂單，實際以學校現行指引為準。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校可以用人臉辨識做點名嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">技術上可行，但受法規與私隱考慮約束。個人資料私隱專員公署的《收集及使用生物辨識資料指引》指出，容貌屬敏感個人資料，收集前應評估必要性與相稱性，考慮能否用較少侵犯私隱的方法，並進行私隱影響評估及做到資料最小化。學校若要採用，建議以家長同意為前提，並考慮只用於特定場景，日常考勤改用較低敏感度的方式。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">自訂系統的資料可以搬走嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">這取決於合約條款。建議在標書與合約中約定資料擁有權歸學校、存放位置、以及學校能否隨時匯出完整資料；同時問清楚原始碼、資料庫結構與技術文件是否一併交付，以及日後轉換供應商的交接安排。若只交付成品而不交付原始碼，學校日後可能難以延續，形成依賴。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">沒有專責 IT 團隊的學校，可以維護自訂系統嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但要靠合約安排補足。建議在合約中約定保養期與其後的年度保養，寫明保養範圍、回應時間、指定聯絡人，並要求供應商提供技術文件與培訓。學校即使沒有開發人員，只要保留技術文件與支援窗口，一般仍可維持系統運作；關鍵是不要完全依賴單一供應商而缺乏書面保障。</p>
+          </div>
+        </div>
+
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">點名系統應選 QR 碼、智能卡還是 App？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">視乎目的與場景。QR 碼成本最低但容易被代掃，適合輔助場景；智能卡毋須使用手機、可一卡多用於門禁與繳費，適合日常紀錄；App 打卡整合通知與請假，但依賴手機與網絡。實務上多數學校採用混合做法，例如到校用智能卡、課堂點名用 App，並保留人手補錄機制處理遺漏情況。</p>
+          </div>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-11.webp" alt="流程圖：校務系統決策判斷，先列模組、再比較六大維度，最後選擇沿用現成或自訂開發" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">決策次序：先列模組，再比六大維度，最後才決定沿用或自訂</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>選擇校務系統或點名系統，不是「自訂」與「現成」的二選一，而是判斷哪些功能應沿用現有平台、哪些值得自訂補足。香港學校的現實是多平台並用，比較重點落在資料擁有權、客製彈性、整合能力、三年總成本、維護與升級六個維度。技術選擇（QR、智能卡、App、人臉辨識）應由目的與私隱風險倒推，並遵守《私隱條例》及私隱公署對生物辨識資料的要求。採購上，資助學校須跟《資助學校採購程序指引》及通告第 4/2013 號，按金額決定報價份數，並在標書寫清楚資料擁有權、知識產權、保安與私隱評估、交付物與保養安排。在合約階段寫清楚，是避免交付後爭議最實際的做法。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/school-management-system-hong-kong-12.webp" alt="示意圖：校務系統由需求盤點、報價、開發、交付驗收到保養的完整週期" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">系統由需求到保養是一個週期，保養費用須與一次性撥款分開規劃</figcaption>
+        </figure>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">想為學校規劃或開發校務系統？</p>
+          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供系統開發、網站及 App 開發、系統整合與技術顧問服務，熟悉香港學校的採購文件要求與現有平台整合，可協助由需求盤點、模組規劃到報價文件一併處理。</p>
+          <p><a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">教育機構系統服務</a>　·　<a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a></p>
+        </div>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.edb.gov.hk/attachment/tc/sch-admin/fin-management/procurement-procedures-in-aided-schools/Guidelines%20on%20Procurement%20Procedures_TC.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資助學校採購程序指引</a> — 採購門檻、報價／投標份數、不得分拆訂單、邀請期最少三周</li>
+            <li><a href="https://www.edb.gov.hk/attachment/tc/edu-system/primary-secondary/applicable-to-primary-secondary/it-in-edu/rtc/202324/07_Guidelines%20on%20procurement%20procedures%20for%20aided%20schools.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資助學校採購程序指引（講解版）</a> — 通告第 4/2013 號程序、規格撰寫</li>
+            <li><a href="https://www.edb.gov.hk/attachment/tc/sch-admin/regulations/sch-admin-guide/sag_c.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：學校行政手冊</a> — 出席與缺課紀錄（3.2.2 節）、採購與財務管理</li>
+            <li><a href="https://www.edb.gov.hk/attachment/tc/edu-system/primary-secondary/spa-systems/student-info-management-system/stimsguid_chi.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：學生資料管理系統（STIMS）指引</a> — STRN 學生編號、學生資料呈報安排</li>
+            <li><a href="https://www.edb.gov.hk/attachment/en/edu-system/primary-secondary/spa-systems/student-info-management-system/STIM_2025.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：學生資料管理系統運作（簡報）</a> — STIMS、CloudSAMS、CDS 的資料流程</li>
+            <li><a href="https://www.pcpd.org.hk/english/resources_centre/publications/files/GN_biometric_e.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：收集及使用生物辨識資料指引</a> — 生物辨識資料的私隱影響評估與資料最小化</li>
+            <li><a href="https://www.qef.org.hk/tc/application_guide/dfp_program.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：公帑資助學校專項撥款計劃</a> — 第十七期申請期、累計申請額上限、資助不包括完結後的經常性開支</li>
+            <li><a href="https://applications.edb.gov.hk/circular/upload/EDBCM/EDBCM26096C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通函第 96/2026 號</a> — 專項撥款計劃的申請期與安排</li>
+            <li><a href="https://www.eclass.com.hk/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">eClass（博文教育亞洲）官方網站</a> — 校園綜合平台功能（作例子說明）</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
+  // ─── Article 30：QEF 優質教育基金申請攻略 ───
+  {
+    id: 30,
+    slug: "qef-application-guide-hong-kong-schools",
+    title: "QEF 優質教育基金申請全攻略：300 萬上限如何用盡（附校本 AI 計劃組成）",
+    excerpt:
+      "優質教育基金（QEF）第 17 期申請期由 2026 年 10 月至 2027 年 1 月，每所公帑資助學校累計申請額上限由 200 萬元提高至 300 萬元。本文整理上限計算、可買與不可買項目、校本 AI／數字教育計劃組成、外購服務、採購報價門檻、常見被拒原因，以及由計劃書到撥款的時間線。",
+    date: "2026-10-09",
+    updatedAt: "2026-10-09",
+    category: "System Dev",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/qef-application-guide-hong-kong-schools.webp",
+    tags: ["優質教育基金", "QEF", "學校資助", "數字教育", "STEAM 教育", "校本計劃", "系統開發"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">優質教育基金（QEF）第 17 期專項撥款計劃的申請期為 2026 年 10 月至 2027 年 1 月，正值學校撰寫計劃書的黃金時間。新階段把每所公帑資助學校的累計申請額由 200 萬元提高至 300 萬元，計劃須以校本課程設計及／或學生支援措施為目標，推行期一般不超過三年，而 STEAM 教育和數字教育正是優先主題之一。本文整理申請期、上限計算方法、可買與不可買的項目、一個校本 AI／數字教育計劃應如何組成、採購與報價要求、常見被拒原因，以及由計劃書到撥款的完整時間線，供校長、副校長及負責統籌的教師部署。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">第 17 期申請期是 <strong>2026 年 10 月至 2027 年 1 月</strong>；每所公帑資助學校的<strong>累計申請額上限為 300 萬元</strong>，並包括 2018/19 學年起透過專項撥款計劃已獲的撥款。計劃必須以<strong>校本課程設計及／或學生支援措施為目標</strong>，相關的校舍改善工程及物資購置可以一併申請，但不得單純為添置設備或改善校舍而提出。計劃推行期一般不超過三年，<strong>STEAM 教育和數字教育是優先主題之一</strong>。採購金額超過 5 萬元至 135 萬元，須最少索取<strong>五份書面報價</strong>；超過 135 萬元則須採用競爭性投標程序。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>第 17 期為 2026 年 10 月至 2027 年 1 月，第 18 期為 2027 年 4 月至 7 月，每學年分兩期接受申請</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>300 萬元是「累計申請額」，已獲的撥款會從中扣減，不是每期額外多發 300 萬元</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>計劃須扣連校本課程或學生支援，單純美化校園、添置設備一律不獲支持</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>撥款屬一次性，設備的日常保養、保險、公用事業費用須由學校自行承擔</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>評審看五個範疇：計劃需要、計劃可行性、財政預算、預期成果，以及成果的延續及推廣</span></li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-1.webp" alt="圖示：優質教育基金第17期申請期由2026年10月至2027年1月，每校累計申請額上限300萬元" title="圖示：優質教育基金第17期申請期由2026年10月至2027年1月，每校累計申請額上限300萬元" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">第 17 期申請期開緊，學校宜在 2026 年年底前完成計劃構思與預算</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、QEF 第 17 期是甚麼、何時申請</h2>
+        <p>優質教育基金於 1998 年成立，資助具創意、能豐富學生學習經歷及具校本意念的計劃。除了「優先主題」，基金另設「公帑資助學校專項撥款計劃」（專項撥款計劃），讓公帑資助學校及已參加幼稚園教育計劃的幼稚園申請撥款，推行校本課程設計及／或學生支援措施。第 17 期屬於 2026/27 學年的第一期申請。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">項目</th><th class="px-4 py-3 text-left">內容</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">第 17 期申請期</td><td class="px-4 py-3">2026 年 10 月至 2027 年 1 月</td></tr>
+              <tr><td class="px-4 py-3">第 18 期申請期</td><td class="px-4 py-3">2027 年 4 月至 2027 年 7 月</td></tr>
+              <tr><td class="px-4 py-3">申請主體</td><td class="px-4 py-3">公帑資助學校（官立、資助（含特殊學校）、按位津貼、直接資助計劃學校）；已參加幼稚園教育計劃的幼稚園</td></tr>
+              <tr><td class="px-4 py-3">累計申請額上限</td><td class="px-4 py-3">小學、中學及特殊學校 300 萬元；幼稚園 70 萬元</td></tr>
+              <tr><td class="px-4 py-3">計劃年期</td><td class="px-4 py-3">一般不超過三年</td></tr>
+              <tr><td class="px-4 py-3">申請方式</td><td class="px-4 py-3">透過基金網站「網上計劃管理系統」提交電子申請表格及計劃書</td></tr>
+              <tr><td class="px-4 py-3">申請名額</td><td class="px-4 py-3">與基金其他撥款計劃分開處理，不受現行申請名額限制，可提交一個或多個申請</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>基金在 2025/26 學年推出四個優先主題，包括 STEAM 教育和數字教育、國民教育、正面價值觀和學生的身心健康，以及學校管治和領導。學校可以參照優先主題提交計劃，也可以按校本需要提交創新計劃。以 STEAM 教育和數字教育為例，主題旨在推動中小學 STEAM 教育與數字教育、在各教育領域應用創新科技、提升學生運用創新科技解決問題的能力，並鼓勵教師把創新科技融入學與教和評估循環。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-2.webp" alt="圖表：優質教育基金四個優先主題，包括STEAM教育和數字教育、國民教育、正面價值觀和學生的身心健康、學校管治和領導" title="圖表：優質教育基金四個優先主題，包括STEAM教育和數字教育、國民教育、正面價值觀和學生的身心健康、學校管治和領導" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">STEAM 教育和數字教育是其中一個優先主題，最貼近校本 AI 計劃的方向</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、300 萬上限如何計算、可買與不可買</h2>
+        <p>很多學校把「300 萬元」理解為每期可申請的額度，這是誤解。300 萬元是<strong>累計申請額</strong>，計算範圍由 2018/19 學年起透過專項撥款計劃已獲的撥款一併計入。換言之，學校要用「300 萬元減去已獲撥款」才是新階段可動用的餘額。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 累計申請額計算例子</p>
+          <p class="text-gray-700 leading-relaxed mb-3">假設一所公帑資助學校於 2018/19 學年至 2025/26 學年期間，透過專項撥款計劃已獲基金撥款 <strong>180 萬元</strong>，新階段的累計申請額提高至 <strong>120 萬元</strong>（300 萬元減 180 萬元）。另一種情況：若該校在 2025/26 學年底尚未用罄的累計申請額為 20 萬元，新階段累計申請額則提高至 120 萬元。兩者的關鍵都在於「300 萬元是累計上限，不是額外加發」。</p>
+          <p class="text-gray-700 leading-relaxed">學校可透過基金網站「網上計劃管理系統」查閱過往的計劃申請紀錄，先確認自己實際可動用的餘額，再決定計劃規模。</p>
+        </div>
+
+        <p>資助範圍明確以校本課程設計及／或學生支援措施為目標，相關的校舍改善工程及物資購置可以一併申請，但必須與課程或學生支援扣連。基金屬一次性資助，獲批計劃不得對基金造成經常性的財政負擔，亦不得重複政府已在進行或將會進行的計劃，或與其他政府資源重複申請。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">可以申請</th><th class="px-4 py-3 text-left">不可以申請</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">校本課程設計及教材開發</td><td class="px-4 py-3">單純美化校園的工程</td></tr>
+              <tr><td class="px-4 py-3">學生支援措施</td><td class="px-4 py-3">純粹添置設備、與課程無關的物資</td></tr>
+              <tr><td class="px-4 py-3">與課程扣連的校舍改善工程</td><td class="px-4 py-3">已獲其他政府資源資助的項目</td></tr>
+              <tr><td class="px-4 py-3">推行計劃所需的物資購置</td><td class="px-4 py-3">酬酢開支、獎品、食物費用</td></tr>
+              <tr><td class="px-4 py-3">外購服務及人手（如培訓、系統開發）</td><td class="px-4 py-3">設備保養費、保險費、公用事業服務收費</td></tr>
+              <tr><td class="px-4 py-3">計劃完結所需的審計費用</td><td class="px-4 py-3">開展業務的費用、學校恆常活動開支</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-3.webp" alt="比較圖：優質教育基金可以申請與不可以申請的項目，可申請者須扣連校本課程或學生支援" title="比較圖：優質教育基金可以申請與不可以申請的項目，可申請者須扣連校本課程或學生支援" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">一條分界線：是否與校本課程設計或學生支援措施扣連</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-4.webp" alt="示意圖：300萬元累計申請額的計算方法，已獲撥款會從上限中扣減" title="示意圖：300萬元累計申請額的計算方法，已獲撥款會從上限中扣減" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先查紀錄確認餘額，300 萬元減去已獲撥款才是可動用金額</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、如何組成一個「校本 AI／數字教育」計劃</h2>
+        <p>數字教育與 STEAM 既是優先主題，也是最容易組成兩至三年計劃的方向。要符合評審要求，計劃必須先確立一個與校本發展扣連的目標，再安排推行期、可量度的指標，以及所需的服務與人手。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 一個三年計劃的組成框架</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>計劃目標</strong>——針對校本需要，例如在若干科目推行 AI 輔助教學、提升學生的數字素養，並扣連相關學習領域</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>推行期</strong>——一般不超過三年；常見做法是第一年建立基建與採購，第二、三年落實課程與評估</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>可量度指標</strong>——受惠學生人數、參與科目與級別數目、教師培訓次數、發展的教學例子數量</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>外購服務及人手</strong>——資助範圍涵蓋服務及人手，可以外購系統開發、平台支援及教師培訓，但須確保所購服務扣連計劃目標</span></li>
+          </ul>
+        </div>
+
+        <p>撰寫計劃書時有幾個「宜」與「不宜」。宜具備校本創新元素、配合校本及學生需要、扣連相關學習領域或科目，並列明具體施行方案及活動詳情；不宜依賴服務、設備或工程供應商提供的計劃書範本，亦不宜純粹為添置設備或校舍改善而申請。基金的申請小錦囊特別提醒，目標要清晰、具體、簡明扼要，避免空泛、對象不明或目標過多而失去焦點。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-5.webp" alt="圖示：一個優質教育基金三年計劃的組成框架，包括計劃目標、推行期、可量度指標與外購服務" title="圖示：一個優質教育基金三年計劃的組成框架，包括計劃目標、推行期、可量度指標與外購服務" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先定目標，再配推行期與指標，最後才決定需要外購甚麼服務</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、一個技術計劃應包含甚麼</h2>
+        <p>若計劃涉及系統、平台或設備，計劃書應同時交代技術與教學兩條主線，否則容易被質疑「為買而買」。以下四個部分建議逐項寫明。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">部分</th><th class="px-4 py-3 text-left">要寫清楚的內容</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">需求</td><td class="px-4 py-3">校本痛點、使用對象、科目與級別範圍、與現有平台（如內聯網、學習管理系統）的關係</td></tr>
+              <tr><td class="px-4 py-3">系統／設備</td><td class="px-4 py-3">功能與規格、技術要求、相容性、資料存放位置、帳戶與權限設計</td></tr>
+              <tr><td class="px-4 py-3">培訓</td><td class="px-4 py-3">教師培訓的時數與內容、共備安排、技術支援與聯絡人</td></tr>
+              <tr><td class="px-4 py-3">成效量度</td><td class="px-4 py-3">量化指標（使用率、受惠人數）與質性證據（課堂觀察、學生作品）、檢討與延續機制</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>基金為不同項目設有<strong>價格標準</strong>作參考，例如基本電腦套裝約 9,300 元、平板電腦約 3,400 元、多媒體投影機約 8,300 元，教學助理月薪參考範圍為 14,400 至 15,600 元等。學校制訂預算時，應本着節約原則審慎考慮成本效益，薪酬須按資歷及經驗計算，並須符合《最低工資條例》的規定。價格標準會不時調整，提交申請前應查閱最新版本。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-6.webp" alt="圖表：技術計劃應包含的四個部分，由需求、系統設備、培訓到成效量度" title="圖表：技術計劃應包含的四個部分，由需求、系統設備、培訓到成效量度" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">技術與教學兩條主線並列，才不會被質疑「為買而買」</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-7.webp" alt="示意圖：優質教育基金的價格標準，為設備與人手薪酬提供參考金額" title="示意圖：優質教育基金的價格標準，為設備與人手薪酬提供參考金額" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">基金設有價格標準作參考，制訂預算時須節約並計出理據</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、申報開支與採購要注意甚麼</h2>
+        <p>撥款獲批後，學校須遵守《優質教育基金人事管理及採購指引》。基金的採購程序大致與政府《物料供應及採購規例》的要求一致，採購金額決定須索取多少份報價。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">採購價值（港元）</th><th class="px-4 py-3 text-left">最低報價要求</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">5,000 元或以下</td><td class="px-4 py-3">可直接採購，無須競爭性投標，但須確保價格公平合理</td></tr>
+              <tr><td class="px-4 py-3">超過 5,000 元至 50,000 元</td><td class="px-4 py-3">最少索取兩份口頭或書面報價</td></tr>
+              <tr><td class="px-4 py-3">超過 50,000 元至 1,350,000 元</td><td class="px-4 py-3">最少索取五份書面報價單</td></tr>
+              <tr><td class="px-4 py-3">超過 1,350,000 元</td><td class="px-4 py-3">須採用競爭性投標程序</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>除了報價門檻，學校須留意以下幾點。第一，採購須以公開、公平及具競爭性的方式進行，邀請報價與審批應由不同職員負責。第二，不得把單項採購分拆為多項訂單，以令價格低於指定限額，藉此規避採購程序。第三，若計劃團隊本身具備完成計劃所需的專業技術，則不能把這些專業技術工作外判。第四，採購須考慮維護國家安全的責任，並在採購文件中載列反賄賂及誠信條款，可參考廉政公署的防貪資源。</p>
+
+        <p>在開支紀錄方面，受款學校須在香港註冊的持牌銀行開立獨立港元帳戶，或以獨立會計分類帳列明所有相關收支。計劃期間的開支只限協議書訂明的開始日期至結束日期內產生者；計劃完結時如有未用罄撥款，須退還基金。受款學校亦須備存所有正式收據、付款憑證及帳簿，由計劃協議有效期至完結後最少七年，以供查閱。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-8.webp" alt="圖表：優質教育基金的採購報價門檻，由5000元以下到超過135萬元的分級要求" title="圖表：優質教育基金的採購報價門檻，由5000元以下到超過135萬元的分級要求" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">5 萬元以上至 135 萬元須收五份書面報價，是最常觸及的門檻</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、常見被拒或被質疑的原因</h2>
+        <p>從基金的申請小錦囊與常見問題可見，被拒原因多數與計劃設計有關，而非技術能力不足。以下幾類最常見。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">情況</th><th class="px-4 py-3 text-left">問題所在</th><th class="px-4 py-3 text-left">建議做法</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">純粹添置設備或校舍改善</td><td class="px-4 py-3">未扣連校本課程或學生支援</td><td class="px-4 py-3">把設備寫成施行目標所需工具</td></tr>
+              <tr><td class="px-4 py-3">計劃以學校恆常活動為目標</td><td class="px-4 py-3">例如申請資助恆常的導師費</td><td class="px-4 py-3">聚焦新措施或創新元素</td></tr>
+              <tr><td class="px-4 py-3">缺乏創新元素</td><td class="px-4 py-3">例如坊間已普及的活動</td><td class="px-4 py-3">加入校本或跨科設計</td></tr>
+              <tr><td class="px-4 py-3">需求行為與目標不符</td><td class="px-4 py-3">活動難以達到計劃目標</td><td class="px-4 py-3">逐項對應目標與量度指標</td></tr>
+              <tr><td class="px-4 py-3">沿用供應商範本</td><td class="px-4 py-3">計劃書欠缺校本考量</td><td class="px-4 py-3">由校內團隊主導撰寫</td></tr>
+              <tr><td class="px-4 py-3">目標空泛或對象不明</td><td class="px-4 py-3">未能顯示受惠對象與需要</td><td class="px-4 py-3">寫明科目、級別與人數</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-9.webp" alt="圖示：優質教育基金申請常見被拒或被質疑的六個原因" title="圖示：優質教育基金申請常見被拒或被質疑的六個原因" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">多數問題出在計劃設計與校本扣連，而非技術本身</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、由計劃書到撥款的時間線</h2>
+        <p>掌握時間線有助學校安排人手與採購。由提交申請到撥款，一般經過以下階段。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">要做的事</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">1. 查核餘額</td><td class="px-4 py-3">在「網上計劃管理系統」查閱過往申請紀錄，確認可動用累計申請額</td></tr>
+              <tr><td class="px-4 py-3">2. 構思計劃</td><td class="px-4 py-3">確立校本目標、推行期、指標與預算，扣連優先主題</td></tr>
+              <tr><td class="px-4 py-3">3. 提交申請</td><td class="px-4 py-3">第 17 期於 2026 年 10 月至 2027 年 1 月透過「網上計劃管理系統」提交</td></tr>
+              <tr><td class="px-4 py-3">4. 評審</td><td class="px-4 py-3">評審及監察專責委員會按五個範疇審批，基金分批發放結果</td></tr>
+              <tr><td class="px-4 py-3">5. 簽訂協議書</td><td class="px-4 py-3">接獲獲批通知後，與基金簽訂載列撥款條件的協議書</td></tr>
+              <tr><td class="px-4 py-3">6. 推行計劃</td><td class="px-4 py-3">簽訂協議書後才可開展，按採購程序執行並定期提交報告</td></tr>
+              <tr><td class="px-4 py-3">7. 完結與報告</td><td class="px-4 py-3">提交計劃總結報告及財務總結報告，未用罄撥款須退還基金</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>值得注意：基金只會根據計劃書的書面內容評審，除應基金要求外，提交申請後自行補充的資料概不受理。此外，受款學校須按要求提交定期報告；若逾期提交或欠交報告，有可能導致基金延後與該校簽訂任何新的計劃協議書。因此計劃書一次寫得完整，比日後補交更省事。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-10.webp" alt="流程圖：優質教育基金由查核餘額、構思計劃、提交申請、評審、簽約到推行與報告的七個階段" title="流程圖：優質教育基金由查核餘額、構思計劃、提交申請、評審、簽約到推行與報告的七個階段" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">第一步是查閱餘額，而非立即撰寫計劃書</figcaption>
+        </figure>
+
+        <p>與此同時，學校亦可以留意其他數字教育資源。教育局在優質教育基金預留 20 億元推進中小學數字教育，其中撥出約 5 億元推行為期三年的「『智』啟學教」撥款計劃，成功申請的學校可獲一筆過 50 萬元，用於購置、訂閱或租用推動人工智能輔助教學的裝置與服務，以及資助學生活動。該計劃與專項撥款計劃方向相近，學校在規劃校本 AI 項目時，可一併考慮兩個資源的運用時序。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-11.webp" alt="示意圖：優質教育基金專項撥款計劃與智啟學教撥款計劃的方向與關係" title="示意圖：優質教育基金專項撥款計劃與智啟學教撥款計劃的方向與關係" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">兩個資源方向相近，規劃時可一併考慮運用時序</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">QEF 第 17 期何時接受申請？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">第 17 期專項撥款計劃的申請期為 2026 年 10 月至 2027 年 1 月。基金每學年分兩期接受申請，直至 2028/29 學年；第 18 期申請期為 2027 年 4 月至 2027 年 7 月。學校須透過基金網站的「網上計劃管理系統」提交電子申請表格及計劃書。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">300 萬元上限是每期可申請的金額嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。300 萬元是每所公帑資助學校的累計申請額上限，並包括 2018/19 學年起透過專項撥款計劃已獲的撥款。學校實際可動用的金額，是 300 萬元減去已獲撥款的餘額。學校可透過「網上計劃管理系統」查閱過往申請紀錄以確認餘額。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">計劃可以只用來買設備或做校舍工程嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以。基金資助以校本課程設計及／或學生支援措施為目標的計劃，不會支持單純的校舍改善工程或物資購置。設備與工程必須與推行校本課程或學生支援扣連，例如單純美化校園的工程不會獲支持。設備的日常保養、保險及公用事業費用亦須由學校自行承擔。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">計劃可以外購服務及人手嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，資助範圍涵蓋服務及人手，包括外購系統開發、平台支援及教師培訓。但若計劃團隊本身已具備完成計劃所需的專業技術，則不能把這些專業技術工作外判。外購時須採用公開、公平及具競爭性的採購程序，並確保所購服務扣連計劃目標。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">採購時需要收取多少份報價？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按《優質教育基金人事管理及採購指引》，採購價值超過 5,000 元至 50,000 元須最少索取兩份口頭或書面報價；超過 50,000 元至 1,350,000 元須最少索取五份書面報價單；超過 1,350,000 元須採用競爭性投標程序。5,000 元或以下可直接採購，但須確保價格公平合理，亦不得把採購分拆以規避程序。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">計劃年期有何限制？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">每個申請計劃的實施年期一般不超過三年。常見的三年安排是第一年建立基建及採購，第二、三年落實課程與評估。獲批計劃在簽訂協議書後才可開展，並須在撥款計劃進行期間定期提交報告，完結後提交計劃總結報告及財務總結報告。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">計劃成果的版權屬誰？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">基金資助所有計劃開發所得的內容、成果和成品均受知識產權保障。除非另有指明，否則成品內的版權及其他知識產權的擁有人為教育局常任秘書長法團。受款學校亦須提交所有計劃成品，並同意基金及相關政府部門使用以作宣傳及推廣之用。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">如果計劃有餘款，學校可以保留嗎？</h3>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以。獲批撥款的個別計劃完結時如有未用罄撥款，受款學校須將餘款退還基金。受款學校亦須開立獨立港元帳戶或以獨立會計分類帳列明所有相關收支，並備存正式收據及帳簿至計劃完結後最少七年，以供基金及獲授權政府人員查閱。</p>
+          </div>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-12.webp" alt="圖示：優質教育基金常見問題摘要，涵蓋申請期、上限、可買項目、採購與版權" title="圖示：優質教育基金常見問題摘要，涵蓋申請期、上限、可買項目、採購與版權" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">申請前後的關鍵問題，逐一釐清可減少補交與爭議</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>QEF 第 17 期正值申請期，300 萬元的累計申請額、三年推行期與 STEAM／數字教育優先主題，正好對應學校現時的校本 AI 發展需要。要用盡上限，關鍵不在「買得多」，而在「計劃設計得清楚」：先查核累計餘額，確立扣連校本課程或學生支援的目標，寫明可量度的指標，再按採購門檻安排報價，並在簽訂協議書後才開展。把設備、系統與培訓都寫成達成課程目標的手段，而非目的本身，計劃書的說服力自然提高。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/qef-application-guide-hong-kong-schools-13.webp" alt="圖示：用好優質教育基金的三個要訣，查核餘額、扣連校本課程、按採購門檻執行" title="圖示：用好優質教育基金的三個要訣，查核餘額、扣連校本課程、按採購門檻執行" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">用盡上限的關鍵在計劃設計，而不在採購金額</figcaption>
+        </figure>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">需要協助撰寫校本 AI／數字教育計劃？</p>
+          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供學校網站、校務系統、AI 教學工具整合及技術顧問服務，熟悉資助計劃的計劃書要求與採購程序，可以協助你由需求盤點、計劃組成、規格擬定到報價文件一併處理。</p>
+          <p><a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">教育界數碼服務</a>　·　<a href="/blog/hong-kong-government-ai-digital-funding/" class="text-[#0f4c81] font-bold hover:underline">香港 AI 數碼轉型資助</a>　·　<a href="/services/consulting/" class="text-[#0f4c81] font-bold hover:underline">技術顧問服務</a></p>
+        </div>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.qef.org.hk/tc/application_guide/files/dfp_guide_to_applicants.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：公帑資助學校專項撥款計劃申請指引</a> — 累計申請額（200 萬提高至 300 萬、幼稚園 50 萬提高至 70 萬）、申請期（第 17、18 期）、計劃年期、評審五範疇、受款人責任及知識產權</li>
+            <li><a href="https://www.qef.org.hk/tc/application_guide/dfp_program.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：公帑資助學校專項撥款計劃（計劃特色）</a> — 申請資格、參考撥款金額上限、申請日期</li>
+            <li><a href="https://applications.edb.gov.hk/circular/upload/EDBCM/EDBCM26096C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通函第 96/2026 號：優質教育基金撥款計劃</a> — 新階段專項撥款計劃、累計申請額計算例子、四個優先主題及 STEAM 教育和數字教育詳情</li>
+            <li><a href="https://www.qef.org.hk/tc/application_guide/files/dfp_qna.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：專項撥款計劃常見問題及答案</a> — 不獲資助的項目（如單純校舍改善及物資購置）、計劃年期、經常性開支安排</li>
+            <li><a href="https://www.qef.org.hk/tc/application_guide/files/pricing_standards.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：價格標準</a> — 職員薪酬及資訊科技器材的參考價格</li>
+            <li><a href="https://www.qef.org.hk/tc/project_management/files/general_guidelines_staff_administration9re.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：人事管理及採購指引</a> — 採購報價門檻（5,000／50,000／1,350,000 元）、透明度與公平競爭、不得分拆採購、外判規定及維護國家安全義務</li>
+            <li><a href="https://www.qef.org.hk/tc/application_guide/dfp_tips.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：申請小錦囊</a> — 計劃書宜與不宜、常見不獲支持的題材及財政預算項目</li>
+            <li><a href="https://www.info.gov.hk/gia/general/202512/16/P2025121600257.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：教育局推出「『智』啟學教」撥款計劃</a> — 基金預留 20 億元推動數字教育、撥出約 5 億元推行三年計劃、每校一筆過 50 萬元及使用期限</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
   // ─── Article 29：公營／NGO 系統採購指南 ───
   {
     id: 29,

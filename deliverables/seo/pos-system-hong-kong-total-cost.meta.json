@@ -1,0 +1,13 @@
+{
+  "id": 32,
+  "slug": "pos-system-hong-kong-total-cost",
+  "title": "POS／收銀系統月費 vs 買斷：3 年總成本比較（香港店主必看）",
+  "excerpt": "「月費便宜」不等於「總成本低」。本文用公開資料與可核對的支付費率，把月費 SaaS、一次買斷、自訂開發三種收銀系統模式的三年總成本（TCO）放在同一框架比較，標示示範假設與真實收費，並拆解交易手續費、加值模組、硬件、資料匯出與合約綁定等隱藏成本，附零售與餐飲差異表及 10 條簽約清單，助香港店主決定。",
+  "date": "2026-10-09",
+  "category": "System Dev",
+  "readTime": "13 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/pos-system-hong-kong-total-cost.webp",
+  "tags": ["POS 系統", "收銀系統", "三年總成本", "TCO", "買斷", "月費 SaaS", "交易手續費", "會員系統", "電子支付"],
+  "comment": "Article 32：POS／收銀系統 3 年總成本比較"
+}

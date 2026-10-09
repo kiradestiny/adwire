@@ -89,6 +89,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: '/services/ai/',         lastModified: SERVICE_LAST_UPDATED },
     { url: '/services/china-market/',      lastModified: SERVICE_LAST_UPDATED },
     { url: '/services/hong-kong-market/',  lastModified: SERVICE_LAST_UPDATED },
+    { url: '/services/education/',         lastModified: SERVICE_LAST_UPDATED },
+    { url: '/services/consulting/',        lastModified: SERVICE_LAST_UPDATED },
+    { url: '/services/healthcare/',        lastModified: SERVICE_LAST_UPDATED },
   ].map((route) => ({
     ...route,
     lastModified: SERVICE_PAGE_LAST_UPDATED[route.url] ?? route.lastModified,

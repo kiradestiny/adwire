@@ -1,0 +1,303 @@
+<p class="lead text-xl text-gray-600 mb-8">香港學校採購校務系統或點名系統時，常遇到同一個問題：應該採用現成綜合平台，還是按校本需要委託開發？兩種做法各有適用情況，關鍵在於學校規模、現有平台、資料擁有權要求與長遠維護能力。本文以香港教育制度與資助學校採購規則為基礎，比較自訂與現成的分別，說明校務系統包含的模組、點名技術的實際限制、與現有平台共存的整合方式，以及驗收要留意的交付與保養條款。</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+  <p class="text-gray-700 leading-relaxed">大部分香港中小學同時使用<strong>現成綜合平台</strong>（例如 eClass 校園綜合平台、CloudSAMS 雲端校管系統）處理日常行政、教學與家校通訊，而<strong>自訂開發</strong>最適合補足現成平台未覆蓋的部分——例如校本計分規則、特別室考勤與跨系統統計報表。關鍵不是「哪一種較好」，而是<strong>哪些功能沿用現成、哪些值得自訂</strong>。同時要留意：資助學校採購須跟教育局通告第 4/2013 號及《資助學校採購程序指引》，<strong>5 萬元以上至 20 萬元的採購一般須邀請最少 5 個書面報價，超過 20 萬元則須邀請最少 5 名供應商投標</strong>。</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 本文重點</p>
+  <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>香港學校多數是在 eClass、CloudSAMS 等現有平台之上補足，重點是「共存與整合」，不是「二選一取代」。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>自訂與現成的分別集中在六個維度：資料擁有權、客製彈性、整合能力、三年總成本、維護與升級。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>點名技術各有實際限制：QR 碼易被代掃、智能卡須帶卡、App 打卡依賴手機、人臉辨識受《私隱條例》與私隱公署指引約束。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>採購報價份數由金額決定；標書要寫清楚資料擁有權、知識產權與私隱評估。</span></li></ul>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、香港學校系統版圖：現有平台怎樣分工</h2>
+<p>要判斷校務系統應自訂還是現成，第一步是弄清楚學校現時已在用什麼。學校日常運作牽涉多個平台與硬件，它們並非互相取代，而是各有分工。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">系統類別</th><th class="px-4 py-3 text-left">常見例子</th><th class="px-4 py-3 text-left">主要用途</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">校園綜合平台</td><td class="px-4 py-3">eClass 校園綜合平台</td><td class="px-4 py-3">結合網上教學、行政與通訊，供教職員、學生及家長處理事務</td></tr>
+      <tr><td class="px-4 py-3">教育局校管系統</td><td class="px-4 py-3">CloudSAMS 雲端校管系統、STIMS 學生資料管理系統</td><td class="px-4 py-3">學校行政、學生紀錄、向教育局呈報資料</td></tr>
+      <tr><td class="px-4 py-3">考勤硬件</td><td class="px-4 py-3">智能卡／RFID 讀卡器、QR 碼、App</td><td class="px-4 py-3">記錄學生及教職員的到校、離校與課堂出席</td></tr>
+      <tr><td class="px-4 py-3">繳費</td><td class="px-4 py-3">電子繳費模組、繳費通告</td><td class="px-4 py-3">收取堂費、活動費及代收費用</td></tr>
+      <tr><td class="px-4 py-3">家校通訊</td><td class="px-4 py-3">家長 App、電子通告系統</td><td class="px-4 py-3">發布通告、請假、即時訊息、活動報名</td></tr>
+      <tr><td class="px-4 py-3">學校網站</td><td class="px-4 py-3">校網（CMS）</td><td class="px-4 py-3">對外發布資訊、收生資料、學校形象</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>關鍵觀察：<strong>學校很少出現「完全沒有系統」的情況</strong>。多數學校已在用一套綜合平台，家長透過 App 簽通告、看考勤的習慣亦已建立。因此新系統推行時都要回答：它是取代現有平台，還是在其上補足？實務上補足與共存遠比全面取代多，因為全面更換涉及全校家長與教師重新適應，風險與成本都高。另外，香港學校受《教育條例》及《資助則例》規管，學生資料要經教育局系統呈報，直接套用境外產品往往要再做本地化調整。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-1.webp" alt="示意圖：香港學校常見系統分工，由綜合平台、教育局校管系統到考勤硬件、繳費與家校通訊" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">香港學校的數碼運作是多個平台的組合，新系統的角色通常是補足而非取代</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-2.webp" alt="示意圖：學校新系統推行時的三種定位，取代現有平台、與現有平台共存、或補足現有平台缺口" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">推行前先釐清定位：補足或共存的推行風險，一般遠低於全面取代</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、校務系統實際包含什麼：模組清單</h2>
+<p>「校務系統」是統稱，涵蓋範圍很廣。採購前先列出學校真正需要的模組，可避免買了用不到的功能，或低估整合工作量。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">模組</th><th class="px-4 py-3 text-left">實際內容</th><th class="px-4 py-3 text-left">現成平台能否覆蓋</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">考勤與點名</td><td class="px-4 py-3">到校／離校、課堂點名、缺課紀錄、家長通知</td><td class="px-4 py-3">多數可，但校本規則或特別室考勤常要補足</td></tr>
+      <tr><td class="px-4 py-3">學生成績</td><td class="px-4 py-3">分數輸入、計分規則、成績表、排名</td><td class="px-4 py-3">一般，但校本計分與分組規則差異大</td></tr>
+      <tr><td class="px-4 py-3">收費與繳費</td><td class="px-4 py-3">繳費通告、收款紀錄、對帳</td><td class="px-4 py-3">多數可</td></tr>
+      <tr><td class="px-4 py-3">通告與通訊</td><td class="px-4 py-3">電子通告、簽閱、推播、即時訊息</td><td class="px-4 py-3">多數可</td></tr>
+      <tr><td class="px-4 py-3">學生紀錄</td><td class="px-4 py-3">個人資料、班別、出席、獎懲、學習進程</td><td class="px-4 py-3">部分；與教育局呈報相關</td></tr>
+      <tr><td class="px-4 py-3">統計與報表</td><td class="px-4 py-3">出席率、收費、活動、校情儀表板</td><td class="px-4 py-3">有限；跨系統統計多須自訂</td></tr>
+      <tr><td class="px-4 py-3">課外活動</td><td class="px-4 py-3">報名、出席、收費、場地預約</td><td class="px-4 py-3">部分</td></tr>
+      <tr><td class="px-4 py-3">教職員考勤</td><td class="px-4 py-3">到校、離校、假期、代課紀錄</td><td class="px-4 py-3">部分</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>看清清單後，邏輯就清楚：<strong>屬於「通用、已有標準做法」的功能，現成平台通常更快更便宜；屬於「校本、獨有、需與其他系統串連」的功能，自訂價值才會顯現。</strong>例如標準電子通告，現成平台已成熟；但「按校本分班與計分規則產生排名，並匯出到教育局呈報格式」的需求，就很難由通用產品直接滿足。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-3.webp" alt="圖表：校務系統常見模組，由考勤、成績、收費、通告、學生紀錄到統計報表" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先列清楚需要的模組，再判斷哪些沿用現成、哪些值得自訂</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、自訂 vs 現成：六大比較維度</h2>
+<p>把「自訂」與「現成」放在同一框架比較，比逐項功能對照更有用。以下六個維度是決策時最常忽略的部分。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">比較維度</th><th class="px-4 py-3 text-left">現成平台</th><th class="px-4 py-3 text-left">自訂開發</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>資料擁有權</strong></td><td class="px-4 py-3">資料多存於供應商平台，匯出能力視產品而定</td><td class="px-4 py-3">可約定資料與原始碼歸學校所有，存放位置由學校決定</td></tr>
+      <tr><td class="px-4 py-3"><strong>客製彈性</strong></td><td class="px-4 py-3">跟隨產品路線圖，校本需求未必獲優先處理</td><td class="px-4 py-3">按校本流程設計，改動由學校主導</td></tr>
+      <tr><td class="px-4 py-3"><strong>整合能力</strong></td><td class="px-4 py-3">限於產品已提供的接口或匯出格式</td><td class="px-4 py-3">可度身接駁現有平台、教育局系統及硬件</td></tr>
+      <tr><td class="px-4 py-3"><strong>三年總成本</strong></td><td class="px-4 py-3">訂閱／授權費屬經常性支出，逐用戶或逐模組計</td><td class="px-4 py-3">前期投入較高，其後以保養費為主，長遠攤分可能較低</td></tr>
+      <tr><td class="px-4 py-3"><strong>維護</strong></td><td class="px-4 py-3">由供應商負責，學校依賴對方回應速度</td><td class="px-4 py-3">須有保養安排，學校要保留技術文件與聯絡人</td></tr>
+      <tr><td class="px-4 py-3"><strong>升級</strong></td><td class="px-4 py-3">供應商統一更新，但可能改變既有操作習慣</td><td class="px-4 py-3">按學校時間表更新，可控制節奏，但須自行規劃</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>六項之中，最常被低估的是<strong>「三年總成本」</strong>與<strong>「資料擁有權」</strong>。現成平台訂閱費看似較低，但累積數年的用戶與模組費，加上額外加購，可能相當可觀；自訂系統前期投入較高，但資料與原始碼歸學校，日後轉換供應商或加新功能時議價能力較強。現成平台的優勢則是即時可用、不需自行承擔技術風險；比較時應問「哪個的總成本與風險，與本校規模和人力相稱」。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-4.webp" alt="比較圖：自訂系統與現成平台在資料擁有權、客製、整合、總成本、維護與升級六個維度的分別" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">六大維度之中，資料擁有權與三年總成本最常被低估</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、點名與考勤技術比較：四種做法的實際限制</h2>
+<p>點名系統是校務系統中最常單獨採購、技術選擇最多的一環。以下四種做法的重點不在技術是否新穎，而在真實校園環境下的限制。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">技術</th><th class="px-4 py-3 text-left">運作方式</th><th class="px-4 py-3 text-left">優點</th><th class="px-4 py-3 text-left">主要限制</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">QR 碼</td><td class="px-4 py-3">學生掃描課室或校門的二維碼</td><td class="px-4 py-3">成本低、無須硬件、推行快</td><td class="px-4 py-3">容易被截圖或轉發代掃，難證明本人在場</td></tr>
+      <tr><td class="px-4 py-3">智能卡／RFID</td><td class="px-4 py-3">拍卡記錄到校、離校時間</td><td class="px-4 py-3">毋須接觸手機、可同時作門禁及繳費</td><td class="px-4 py-3">須隨身帶卡，忘帶或損壞即無法記錄</td></tr>
+      <tr><td class="px-4 py-3">App 打卡</td><td class="px-4 py-3">學生或教師以手機程式簽到</td><td class="px-4 py-3">整合通知與請假、免額外讀卡器</td><td class="px-4 py-3">依賴手機與網絡，涉及裝置管理與定位私隱</td></tr>
+      <tr><td class="px-4 py-3">人臉辨識</td><td class="px-4 py-3">以鏡頭拍取容貌作比對</td><td class="px-4 py-3">非接觸、通行速度快</td><td class="px-4 py-3">屬敏感個人資料，受《私隱條例》及私隱公署指引約束</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>關於人臉辨識，學校尤其要留意合規。個人資料私隱專員公署的《收集及使用生物辨識資料指引》指出，容貌、指紋、虹膜等屬較敏感的個人資料，機構決定收集前應先評估<strong>必要性與相稱性</strong>，即考慮能否用較少侵犯私隱的方法（例如智能卡）達到同一目的；同時要進行<strong>私隱影響評估</strong>、提供清晰說明與知情選擇，並做到資料最小化與加密儲存，亦建議由原始影像抽取特徵值儲存並銷毀原始樣本。實務上，許多學校日常考勤用智能卡或 App，人臉辨識只用於特定場景（例如考試核對身分），並以家長同意為前提。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-5.webp" alt="比較圖：QR 碼、智能卡、App 打卡與人臉辨識四種點名技術的優點與實際限制" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">四種點名技術各有代價，技術選擇應由目的與私隱風險倒推</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-6.webp" alt="示意圖：人臉辨識考勤的私隱考量，包括必要性與相稱性、私隱影響評估、知情選擇及資料最小化" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">採用人臉辨識前，學校須先處理生物辨識資料的合規要求</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、家校通訊：與現有平台共存還是取代</h2>
+<p>家校通訊是家長感受最直接、也最難全面更換的部分。家長已安裝並習慣現有平台，而這個習慣是所有學校共用的。若學校自行開發全新的家長 App，等於要求全校家長重新下載與學習，推行阻力相當大。</p>
+<p>因此，家校通訊的合理方向通常是<strong>共存</strong>而非取代：日常電子通告、請假、繳費、考勤通知沿用家長已習慣的平台；學校只在處理現有平台未覆蓋的校本流程時，才以網頁或輕量模組補足，並盡量沿用同一套登入與通知方式，減少家長的學習成本。</p>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 判斷準則：誰在用、改動成本有多高</p>
+  <p class="text-gray-700 leading-relaxed">涉及全校家長的功能（通告、繳費、考勤通知）改動成本高，宜沿用現成平台；涉及教師或行政內部的功能（統計、報表、特別室考勤、校本計分）用家人數有限，自訂的彈性效益較大。以「用家人數 × 改動成本」判斷，通常較易得出合理結論。</p>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-7.webp" alt="示意圖：家校通訊以共存為主，家長沿用現有平台，學校以輕量模組補足校本流程" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">涉及全校家長的環節改動成本最高，一般以沿用現有平台較穩妥</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、與 eClass 等現有平台共存的整合方式</h2>
+<p>若學校決定自訂部分功能並保留現有平台，整合方式就是成敗關鍵。以下是幾種常見的整合層次，由淺入深排列。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">整合方式</th><th class="px-4 py-3 text-left">做法</th><th class="px-4 py-3 text-left">適用情況</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">檔案匯入／匯出</td><td class="px-4 py-3">以 CSV 或 Excel 定期交換學生名單、考勤及成績</td><td class="px-4 py-3">即時性要求不高、平台未開放接口</td></tr>
+      <tr><td class="px-4 py-3">資料庫或 API 對接</td><td class="px-4 py-3">透過平台提供的接口讀寫資料，雙向同步</td><td class="px-4 py-3">平台提供 API，且需即時更新</td></tr>
+      <tr><td class="px-4 py-3">單一登入（SSO）</td><td class="px-4 py-3">沿用同一組帳戶登入自訂系統，減少密碼管理</td><td class="px-4 py-3">自訂系統有多個校內使用者</td></tr>
+      <tr><td class="px-4 py-3">中介同步層</td><td class="px-4 py-3">以獨立服務定時對帳，處理格式與欄位差異</td><td class="px-4 py-3">兩邊資料結構不同、需要清洗與比對</td></tr>
+      <tr><td class="px-4 py-3">硬件整合</td><td class="px-4 py-3">讀卡器、感應器把紀錄送到自訂系統</td><td class="px-4 py-3">考勤硬件與平台本身未打通</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>整合最易被低估的兩處：一是<strong>資料格式與定義的差異</strong>（例如對「班別」、「缺席原因」的編碼不同），二是<strong>現有平台未必開放接口</strong>。報價階段便應要求供應商寫明整合方式、需哪一方配合、平台不提供接口時的替代方案與出錯處理流程。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-8.webp" alt="圖表：自訂系統與現有平台整合的五個層次，由檔案交換、API 對接、單一登入到中介同步層及硬件整合" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">整合方式由淺入深，報價時就要列明假設與替代方案</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、報價流程：學校通常要幾多份報價</h2>
+<p>資助學校的採購程序受《資助學校採購程序指引》及通告第 4/2013 號規管，報價份數主要由金額決定，並不得為迴避程序而分拆訂單。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">採購金額</th><th class="px-4 py-3 text-left">一般所需的競爭性程序</th><th class="px-4 py-3 text-left">批核人員</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">5,000 元或以下</td><td class="px-4 py-3">毋須公開競投，但須由適當職級人員證明公平合理</td><td class="px-4 py-3">有關科主任或校方指定人員</td></tr>
+      <tr><td class="px-4 py-3">5,000 元以上至 50,000 元</td><td class="px-4 py-3">邀請最少 2 個口頭報價</td><td class="px-4 py-3">校長／副校長</td></tr>
+      <tr><td class="px-4 py-3">50,000 元以上至 200,000 元</td><td class="px-4 py-3">邀請最少 5 個書面報價</td><td class="px-4 py-3">校長</td></tr>
+      <tr><td class="px-4 py-3">200,000 元以上</td><td class="px-4 py-3">邀請最少 5 名供應商投標</td><td class="px-4 py-3">標書批核委員會</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>另外，學校<strong>不得分拆訂單</strong>以迴避批核或報價程序，同類物料與服務應集中在同一報價或投標附表內。邀請書面報價或招標的日期與截止日期一般應相隔<strong>最少三周</strong>。若供應商數目有限、未能邀請足夠數目，學校須記錄在案並事先取得校董會批准。學校應盡可能以公開競投採購，<strong>只有具充分理據</strong>（例如服務只由單一供應商提供）才可採用單一報價或招標程序，並須事先獲批准及記錄。</p>
+<p>對學校的實際意義是：<strong>採購校務系統這類金額較高的項目，往往落在「20 萬元以上須投標」的一檔</strong>，因此標書的規格、評審準則與評分制度要預先寫清楚，供受邀供應商參考。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-9.webp" alt="階梯圖：資助學校採購金額門檻，由口頭報價、書面報價到投標的報價份數要求" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">金額決定報價份數與批核層級；校務系統採購多數落在須投標的一檔</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、驗收標準：交付物、培訓、保養期</h2>
+<p>系統是否「收貨」，應在合約階段寫清楚，而非上線後才爭論。以下建議在標書與合約中逐項列明驗收項目。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">驗收項目</th><th class="px-4 py-3 text-left">要寫清楚的內容</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">功能與範圍</td><td class="px-4 py-3">逐項列出要做什麼、不做什麼，以可測試的條件描述</td></tr>
+      <tr><td class="px-4 py-3">交付物</td><td class="px-4 py-3">系統、資料庫結構、技術文件、原始碼是否交付</td></tr>
+      <tr><td class="px-4 py-3">資料擁有權</td><td class="px-4 py-3">資料屬於學校、存放位置、能否隨時匯出</td></tr>
+      <tr><td class="px-4 py-3">知識產權</td><td class="px-4 py-3">原始碼與設計檔的擁有權及使用權</td></tr>
+      <tr><td class="px-4 py-3">保安與私隱</td><td class="px-4 py-3">由誰進行保安風險評估及私隱影響評估、交付什麼報告</td></tr>
+      <tr><td class="px-4 py-3">培訓</td><td class="px-4 py-3">培訓對象、場次、教材、上線後支援窗口</td></tr>
+      <tr><td class="px-4 py-3">保養期與服務水平</td><td class="px-4 py-3">保養期長度、回應時間、指定聯絡人、修復承諾</td></tr>
+      <tr><td class="px-4 py-3">備份與遷出</td><td class="px-4 py-3">備份頻率、還原測試、日後轉換供應商的交接安排</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>其中<strong>「原始碼是否交付」</strong>與<strong>「日後遷出安排」</strong>最常被忽略，卻直接影響學校的長遠議價能力。若只取得成品、不取得原始碼，日後更換供應商時可能無法延續，形成依賴。建議標書階段就問清楚：原始碼、資料庫結構與技術文件是否一併交付；若否，合約結束時學校可取回什麼形式的資料。保養期方面，一般做法是設一段保養期，期內修正缺陷不另收費，期後轉為年度保養；範圍、回應時間與收費方式應寫清楚。若以優質教育基金或校本撥款支付部分費用，要注意資助屬一次過性質，<strong>計劃完結後的經常性開支（包括維修保養）一般不在資助範圍內</strong>，單純的物資購置亦不受支持。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-10.webp" alt="清單圖示：校務系統驗收應約定的項目，由功能範圍、交付物、資料擁有權到培訓及保養期" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">原始碼交付與遷出安排，直接影響學校日後的議價能力</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+<div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港學校現時普遍使用什麼校務系統？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">大部分學校同時使用多個平台：校園綜合平台（例如 eClass）處理教學、行政與家校通訊；教育局提供雲端校管系統（CloudSAMS）及學生資料管理系統（STIMS）供學校處理行政與呈報學生資料；另有考勤硬件、繳費模組與學校網站，多數學校是「多平台並用」，而非單一系統。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">自訂系統一定比現成平台好嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定。現成平台的優勢是即時可用、由供應商承擔技術風險；自訂開發的價值在於校本流程、資料擁有權與整合彈性，但需學校投入需求整理與長遠保養。較務實的做法是「現成平台處理通用功能，自訂模組補足校本需要」，而非全盤取代。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校採購校務系統，一般要收取多少份報價？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按《資助學校採購程序指引》及教育局通告第 4/2013 號，5,000 元以上至 50,000 元一般須邀請最少 2 個口頭報價；50,000 元以上至 200,000 元須邀請最少 5 個書面報價；200,000 元以上須邀請最少 5 名供應商投標。系統項目金額多數較高，通常落在須投標的一檔。學校不得為迴避程序而分拆訂單，實際以學校現行指引為準。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校可以用人臉辨識做點名嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">技術上可行，但受法規與私隱考慮約束。個人資料私隱專員公署的《收集及使用生物辨識資料指引》指出，容貌屬敏感個人資料，收集前應評估必要性與相稱性，考慮能否用較少侵犯私隱的方法，並進行私隱影響評估及做到資料最小化。學校若要採用，建議以家長同意為前提，並考慮只用於特定場景，日常考勤改用較低敏感度的方式。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">自訂系統的資料可以搬走嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">這取決於合約條款。建議在標書與合約中約定資料擁有權歸學校、存放位置、以及學校能否隨時匯出完整資料；同時問清楚原始碼、資料庫結構與技術文件是否一併交付，以及日後轉換供應商的交接安排。若只交付成品而不交付原始碼，學校日後可能難以延續，形成依賴。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">沒有專責 IT 團隊的學校，可以維護自訂系統嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但要靠合約安排補足。建議在合約中約定保養期與其後的年度保養，寫明保養範圍、回應時間、指定聯絡人，並要求供應商提供技術文件與培訓。學校即使沒有開發人員，只要保留技術文件與支援窗口，一般仍可維持系統運作；關鍵是不要完全依賴單一供應商而缺乏書面保障。</p>
+  </div>
+</div>
+
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">點名系統應選 QR 碼、智能卡還是 App？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">視乎目的與場景。QR 碼成本最低但容易被代掃，適合輔助場景；智能卡毋須使用手機、可一卡多用於門禁與繳費，適合日常紀錄；App 打卡整合通知與請假，但依賴手機與網絡。實務上多數學校採用混合做法，例如到校用智能卡、課堂點名用 App，並保留人手補錄機制處理遺漏情況。</p>
+  </div>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-11.webp" alt="流程圖：校務系統決策判斷，先列模組、再比較六大維度，最後選擇沿用現成或自訂開發" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">決策次序：先列模組，再比六大維度，最後才決定沿用或自訂</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+<p>選擇校務系統或點名系統，不是「自訂」與「現成」的二選一，而是判斷哪些功能應沿用現有平台、哪些值得自訂補足。香港學校的現實是多平台並用，比較重點落在資料擁有權、客製彈性、整合能力、三年總成本、維護與升級六個維度。技術選擇（QR、智能卡、App、人臉辨識）應由目的與私隱風險倒推，並遵守《私隱條例》及私隱公署對生物辨識資料的要求。採購上，資助學校須跟《資助學校採購程序指引》及通告第 4/2013 號，按金額決定報價份數，並在標書寫清楚資料擁有權、知識產權、保安與私隱評估、交付物與保養安排。在合約階段寫清楚，是避免交付後爭議最實際的做法。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/school-management-system-hong-kong-12.webp" alt="示意圖：校務系統由需求盤點、報價、開發、交付驗收到保養的完整週期" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">系統由需求到保養是一個週期，保養費用須與一次性撥款分開規劃</figcaption>
+</figure>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">想為學校規劃或開發校務系統？</p>
+  <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供系統開發、網站及 App 開發、系統整合與技術顧問服務，熟悉香港學校的採購文件要求與現有平台整合，可協助由需求盤點、模組規劃到報價文件一併處理。</p>
+  <p><a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">教育機構系統服務</a>　·　<a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a></p>
+</div>
+
+<div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+  <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+  <ul class="space-y-1">
+    <li><a href="https://www.edb.gov.hk/attachment/tc/sch-admin/fin-management/procurement-procedures-in-aided-schools/Guidelines%20on%20Procurement%20Procedures_TC.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資助學校採購程序指引</a> — 採購門檻、報價／投標份數、不得分拆訂單、邀請期最少三周</li>
+    <li><a href="https://www.edb.gov.hk/attachment/tc/edu-system/primary-secondary/applicable-to-primary-secondary/it-in-edu/rtc/202324/07_Guidelines%20on%20procurement%20procedures%20for%20aided%20schools.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資助學校採購程序指引（講解版）</a> — 通告第 4/2013 號程序、規格撰寫</li>
+    <li><a href="https://www.edb.gov.hk/attachment/tc/sch-admin/regulations/sch-admin-guide/sag_c.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：學校行政手冊</a> — 出席與缺課紀錄（3.2.2 節）、採購與財務管理</li>
+    <li><a href="https://www.edb.gov.hk/attachment/tc/edu-system/primary-secondary/spa-systems/student-info-management-system/stimsguid_chi.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：學生資料管理系統（STIMS）指引</a> — STRN 學生編號、學生資料呈報安排</li>
+    <li><a href="https://www.edb.gov.hk/attachment/en/edu-system/primary-secondary/spa-systems/student-info-management-system/STIM_2025.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：學生資料管理系統運作（簡報）</a> — STIMS、CloudSAMS、CDS 的資料流程</li>
+    <li><a href="https://www.pcpd.org.hk/english/resources_centre/publications/files/GN_biometric_e.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署：收集及使用生物辨識資料指引</a> — 生物辨識資料的私隱影響評估與資料最小化</li>
+    <li><a href="https://www.qef.org.hk/tc/application_guide/dfp_program.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">優質教育基金：公帑資助學校專項撥款計劃</a> — 第十七期申請期、累計申請額上限、資助不包括完結後的經常性開支</li>
+    <li><a href="https://applications.edb.gov.hk/circular/upload/EDBCM/EDBCM26096C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通函第 96/2026 號</a> — 專項撥款計劃的申請期與安排</li>
+    <li><a href="https://www.eclass.com.hk/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">eClass（博文教育亞洲）官方網站</a> — 校園綜合平台功能（作例子說明）</li>
+  </ul>
+</div>

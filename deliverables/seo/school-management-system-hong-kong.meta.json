@@ -1,0 +1,22 @@
+{
+  "id": 31,
+  "slug": "school-management-system-hong-kong",
+  "title": "校務系統、點名系統如何選擇？香港學校自訂 vs 現成完整比較",
+  "excerpt": "香港學校選校務系統或點名系統，應先弄清楚現有平台的分工。本文比較自訂開發與現成平台的六大維度（資料擁有權、客製彈性、整合能力、三年總成本、維護與升級），說明校務系統包含的模組、QR 碼／智能卡／App／人臉辨識點名技術的實際限制與私隱要求，以及與 eClass、CloudSAMS 共存的整合方式，並整理資助學校的採購報價份數與驗收、培訓、保養標準，協助學校負責人作出有依據的決定。",
+  "date": "2026-10-09",
+  "category": "System Dev",
+  "readTime": "12 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/school-management-system-hong-kong.webp",
+  "tags": [
+    "校務系統",
+    "點名系統",
+    "考勤系統",
+    "eClass",
+    "學校系統開發",
+    "香港學校",
+    "採購流程",
+    "私隱"
+  ],
+  "comment": "Article 31：香港學校校務系統選擇指南"
+}

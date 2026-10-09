@@ -1,0 +1,1632 @@
+[
+ {
+  "slug": "pos-system-hong-kong-total-cost",
+  "figs": [
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-1.webp",
+    "alt": "月費與買斷兩種收銀系統方案的三年總成本對比示意圖",
+    "cap": "月費看似便宜，但三年累加後不一定比買斷划算，關鍵是計齊所有成本項目"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-2.webp",
+    "alt": "收銀系統六大模組：收銀、庫存、會員、報表、支付整合、線上線下打通",
+    "cap": "「POS」是一組模組而非單一功能，會員、庫存與線上打通通常屬加值收費"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-3.webp",
+    "alt": "月費 SaaS、買斷授權與自訂開發三種收費模式的比較示意圖",
+    "cap": "三種模式的分別在於資料歸屬、功能彈性與日後搬遷成本，不只在月費高低"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-4.webp",
+    "alt": "收銀系統三年總成本計算表，列出月費、買斷與自訂開發的各項成本",
+    "cap": "三年的成本要逐項列出：授權、硬件、加值模組、維護與交易手續費，全部金額均為示範假設"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-5.webp",
+    "alt": "單店與三間店的收銀系統三年總成本比較長條圖",
+    "cap": "店數增加時月費按店數增加，自訂開發的系統開發費卻只需付一次"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-6.webp",
+    "alt": "收銀系統最常被忽略的五項隱藏成本示意圖",
+    "cap": "交易手續費、加值模組、硬件、匯出費與合約綁定，是報價單最常「看不到」的項目"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-7.webp",
+    "alt": "交易手續費去向示意圖：交易手續費付給銀行或支付服務商而非 POS 供應商",
+    "cap": "交易手續費付給收單銀行或支付服務商，與採用哪一套 POS 系統無直接關係"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-8.webp",
+    "alt": "資料擁有權與搬遷風險示意圖，比較雲端與自存兩種資料存放方式",
+    "cap": "簽約前先確認資料能否完整匯出，是降低日後搬遷風險最有效的一步"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-9.webp",
+    "alt": "POS 系統打通會員、網店與電子支付的整合示意圖",
+    "cap": "會員、庫存與電子支付的線上線下打通，通常屬加值或整合項目而非基本功能"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-10.webp",
+    "alt": "零售與餐飲對收銀系統需求的差異比較表",
+    "cap": "零售重庫存與線上同步，餐飲重落單與出單效率，選型重點不同"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-11.webp",
+    "alt": "選擇收銀系統前應核對的十項檢查清單示意圖",
+    "cap": "十項之中最常被忽略：資料匯出、合約綁定與遷出安排"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-12.webp",
+    "alt": "收銀系統常見問題示意圖，涵蓋成本、手續費與資料擁有權",
+    "cap": "最常被問到的問題集中在成本結構、手續費歸屬與資料能否帶走"
+   },
+   {
+    "src": "/blog/figures/pos-system-hong-kong-total-cost-13.webp",
+    "alt": "收銀系統選型總結示意圖：以三年總成本與資料掌控作決定",
+    "cap": "先分清「付給 POS 供應商」與「付給支付服務商」的錢，再用三年總成本比較"
+   }
+  ]
+ },
+ {
+  "slug": "school-management-system-hong-kong",
+  "figs": [
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-1.webp",
+    "alt": "示意圖：香港學校常見系統分工，由綜合平台、教育局校管系統到考勤硬件、繳費與家校通訊",
+    "cap": "香港學校的數碼運作是多個平台的組合，新系統的角色通常是補足而非取代"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-2.webp",
+    "alt": "示意圖：學校新系統推行時的三種定位，取代現有平台、與現有平台共存、或補足現有平台缺口",
+    "cap": "推行前先釐清定位：補足或共存的推行風險，一般遠低於全面取代"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-3.webp",
+    "alt": "圖表：校務系統常見模組，由考勤、成績、收費、通告、學生紀錄到統計報表",
+    "cap": "先列清楚需要的模組，再判斷哪些沿用現成、哪些值得自訂"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-4.webp",
+    "alt": "比較圖：自訂系統與現成平台在資料擁有權、客製、整合、總成本、維護與升級六個維度的分別",
+    "cap": "六大維度之中，資料擁有權與三年總成本最常被低估"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-5.webp",
+    "alt": "比較圖：QR 碼、智能卡、App 打卡與人臉辨識四種點名技術的優點與實際限制",
+    "cap": "四種點名技術各有代價，技術選擇應由目的與私隱風險倒推"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-6.webp",
+    "alt": "示意圖：人臉辨識考勤的私隱考量，包括必要性與相稱性、私隱影響評估、知情選擇及資料最小化",
+    "cap": "採用人臉辨識前，學校須先處理生物辨識資料的合規要求"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-7.webp",
+    "alt": "示意圖：家校通訊以共存為主，家長沿用現有平台，學校以輕量模組補足校本流程",
+    "cap": "涉及全校家長的環節改動成本最高，一般以沿用現有平台較穩妥"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-8.webp",
+    "alt": "圖表：自訂系統與現有平台整合的五個層次，由檔案交換、API 對接、單一登入到中介同步層及硬件整合",
+    "cap": "整合方式由淺入深，報價時就要列明假設與替代方案"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-9.webp",
+    "alt": "階梯圖：資助學校採購金額門檻，由口頭報價、書面報價到投標的報價份數要求",
+    "cap": "金額決定報價份數與批核層級；校務系統採購多數落在須投標的一檔"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-10.webp",
+    "alt": "清單圖示：校務系統驗收應約定的項目，由功能範圍、交付物、資料擁有權到培訓及保養期",
+    "cap": "原始碼交付與遷出安排，直接影響學校日後的議價能力"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-11.webp",
+    "alt": "流程圖：校務系統決策判斷，先列模組、再比較六大維度，最後選擇沿用現成或自訂開發",
+    "cap": "決策次序：先列模組，再比六大維度，最後才決定沿用或自訂"
+   },
+   {
+    "src": "/blog/figures/school-management-system-hong-kong-12.webp",
+    "alt": "示意圖：校務系統由需求盤點、報價、開發、交付驗收到保養的完整週期",
+    "cap": "系統由需求到保養是一個週期，保養費用須與一次性撥款分開規劃"
+   }
+  ]
+ },
+ {
+  "slug": "qef-application-guide-hong-kong-schools",
+  "figs": [
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-1.webp",
+    "alt": "圖示：優質教育基金第17期申請期由2026年10月至2027年1月，每校累計申請額上限300萬元",
+    "cap": "第 17 期申請期開緊，學校宜在 2026 年年底前完成計劃構思與預算"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-2.webp",
+    "alt": "圖表：優質教育基金四個優先主題，包括STEAM教育和數字教育、國民教育、正面價值觀和學生的身心健康、學校管治和領導",
+    "cap": "STEAM 教育和數字教育是其中一個優先主題，最貼近校本 AI 計劃的方向"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-3.webp",
+    "alt": "比較圖：優質教育基金可以申請與不可以申請的項目，可申請者須扣連校本課程或學生支援",
+    "cap": "一條分界線：是否與校本課程設計或學生支援措施扣連"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-4.webp",
+    "alt": "示意圖：300萬元累計申請額的計算方法，已獲撥款會從上限中扣減",
+    "cap": "先查紀錄確認餘額，300 萬元減去已獲撥款才是可動用金額"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-5.webp",
+    "alt": "圖示：一個優質教育基金三年計劃的組成框架，包括計劃目標、推行期、可量度指標與外購服務",
+    "cap": "先定目標，再配推行期與指標，最後才決定需要外購甚麼服務"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-6.webp",
+    "alt": "圖表：技術計劃應包含的四個部分，由需求、系統設備、培訓到成效量度",
+    "cap": "技術與教學兩條主線並列，才不會被質疑「為買而買」"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-7.webp",
+    "alt": "示意圖：優質教育基金的價格標準，為設備與人手薪酬提供參考金額",
+    "cap": "基金設有價格標準作參考，制訂預算時須節約並計出理據"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-8.webp",
+    "alt": "圖表：優質教育基金的採購報價門檻，由5000元以下到超過135萬元的分級要求",
+    "cap": "5 萬元以上至 135 萬元須收五份書面報價，是最常觸及的門檻"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-9.webp",
+    "alt": "圖示：優質教育基金申請常見被拒或被質疑的六個原因",
+    "cap": "多數問題出在計劃設計與校本扣連，而非技術本身"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-10.webp",
+    "alt": "流程圖：優質教育基金由查核餘額、構思計劃、提交申請、評審、簽約到推行與報告的七個階段",
+    "cap": "第一步是查閱餘額，而非立即撰寫計劃書"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-11.webp",
+    "alt": "示意圖：優質教育基金專項撥款計劃與智啟學教撥款計劃的方向與關係",
+    "cap": "兩個資源方向相近，規劃時可一併考慮運用時序"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-12.webp",
+    "alt": "圖示：優質教育基金常見問題摘要，涵蓋申請期、上限、可買項目、採購與版權",
+    "cap": "申請前後的關鍵問題，逐一釐清可減少補交與爭議"
+   },
+   {
+    "src": "/blog/figures/qef-application-guide-hong-kong-schools-13.webp",
+    "alt": "圖示：用好優質教育基金的三個要訣，查核餘額、扣連校本課程、按採購門檻執行",
+    "cap": "用盡上限的關鍵在計劃設計，而不在採購金額"
+   }
+  ]
+ },
+ {
+  "slug": "hong-kong-public-sector-system-procurement-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-1.webp",
+    "alt": "比較圖：商業客戶與政府公營機構在採購方式、報價要求、供應商名單、合約條款及付款安排上的分別",
+    "cap": "商業客戶比較功能與價錢；公營機構先比程序合規、可審計性與供應商資歷"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-2.webp",
+    "alt": "階梯圖：政府採購由報價程序到公開招標的三個金額門檻，以及對應的投標委員會審批層級",
+    "cap": "金額決定程序，亦決定由哪個投標委員會審批"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-3.webp",
+    "alt": "示意圖：政府部門透過電子採購系統向 GITP 通知名單內供應商發出報價邀請的流程",
+    "cap": "GITP 是「名單＋電子採購」的組合，不是另一個招標平台"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-4.webp",
+    "alt": "圖表：SOA-QPS5 三個服務類別與小型、大型項目組別的金額分界",
+    "cap": "甲／丙類分小型（≤300 萬）與大型（>300 萬至 ≤2,000 萬）"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-5.webp",
+    "alt": "示意圖：政府採購由交付認收到 30 日內電子付款的時間線",
+    "cap": "2025 年 6 月起新採購不再有支票，只走銀行轉帳或轉數快"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-6.webp",
+    "alt": "圖表：NGO 資訊科技採購文件要涵蓋的五個範圍，由硬件軟件到保安私隱及合約條款",
+    "cap": "NGO 標書範圍比一般商業合約廣，尤其是保安、私隱與資料所有權"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-7.webp",
+    "alt": "清單圖示：標書與報價文件必須寫清楚的八個項目",
+    "cap": "八項之中，最常被忽略：數據所有權、知識產權與遷出安排"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-8.webp",
+    "alt": "圖示：評估公營項目供應商時應查問的六個範疇",
+    "cap": "技術能力以外，程序能力同樣是評估重點"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-9.webp",
+    "alt": "圖示：公營及 NGO 系統項目常見的六個採購踩雷位",
+    "cap": "大部分問題發生在文件與程序，而不是技術本身"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-10.webp",
+    "alt": "流程圖：由確認需求、核對採購程序、擬定規格到批出合約及驗收付款的七個步驟",
+    "cap": "第一步不是寫標書，而是先確認程序"
+   },
+   {
+    "src": "/blog/figures/hong-kong-public-sector-system-procurement-guide-11.webp",
+    "alt": "圖表：公營及 NGO 最常採購的七類系統，由機構網站到自動化及 AI 應用",
+    "cap": "不同類型對應不同驗收標準，報價時要一併寫清楚"
+   }
+  ]
+ },
+ {
+  "slug": "hong-kong-ecommerce-website-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/hong-kong-ecommerce-website-guide-1.webp",
+    "alt": "平台方案＝租用，自建網站＝擁有：成本結構、功能上限與資料歸屬都不同",
+    "cap": "平台方案＝租用，自建網站＝擁有：成本結構、功能上限與資料歸屬都不同"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ecommerce-website-guide-2.webp",
+    "alt": "平台方案選模板、上載產品即可開賣，起點低但功能受平台限制",
+    "cap": "平台方案選模板、上載產品即可開賣，起點低但功能受平台限制"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ecommerce-website-guide-3.webp",
+    "alt": "自建電商網站可與 CRM、ERP、庫存及 POS 系統整合",
+    "cap": "自建電商網站可與 CRM、ERP、庫存及 POS 系統整合"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ecommerce-website-guide-4.webp",
+    "alt": "用三年總成本（TCO）比較：月費、手續費、外掛與維護一併計入",
+    "cap": "用三年總成本（TCO）比較：月費、手續費、外掛與維護一併計入"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ecommerce-website-guide-5.webp",
+    "alt": "香港經營網店須辦理商業登記，營業地址須為實體地址",
+    "cap": "香港經營網店須辦理商業登記，營業地址須為實體地址"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ecommerce-website-guide-6.webp",
+    "alt": "收款與物流選擇（信用卡、FPS、PayMe、八達通）會影響結帳與轉換",
+    "cap": "收款與物流選擇（信用卡、FPS、PayMe、八達通）會影響結帳與轉換"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ecommerce-website-guide-7.webp",
+    "alt": "轉換關鍵：結帳步驟、運費透明度、行動裝置體驗與信任訊號",
+    "cap": "轉換關鍵：結帳步驟、運費透明度、行動裝置體驗與信任訊號"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ecommerce-website-guide-8.webp",
+    "alt": "電商 SEO：結構化資料、URL 結構、導覽與分頁影響可見度",
+    "cap": "電商 SEO：結構化資料、URL 結構、導覽與分頁影響可見度"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ecommerce-website-guide-9.webp",
+    "alt": "簽約前核對：範圍、擁有權、手續費與資料遷移",
+    "cap": "簽約前核對：範圍、擁有權、手續費與資料遷移"
+   }
+  ]
+ },
+ {
+  "slug": "xiaohongshu-marketing-hong-kong-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-3.webp",
+    "alt": "重點概念說明",
+    "cap": "重點概念說明"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-2026-1.webp",
+    "alt": "小紅書推薦流與搜尋雙軌的內容累積示意圖",
+    "cap": "小紅書同時以推薦流與搜尋觸及用戶，本文聚焦較可累積的搜尋資產。"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-4.webp",
+    "alt": "本文聚焦搜尋資產，原因不是否定推薦流",
+    "cap": "本文聚焦搜尋資產，原因不是否定推薦流"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-5.webp",
+    "alt": "用戶會主動搜尋「香港」「港版」「香港代購」這類字眼",
+    "cap": "用戶會主動搜尋「香港」「港版」「香港代購」這類字眼"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-2026-2.webp",
+    "alt": "香港品牌投入小紅書前的適用條件檢查清單",
+    "cap": "先判斷客群是否以搜尋解決需求，再核對賬號資質、承接與合規，才決定是否投入。"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-6.webp",
+    "alt": "企業專業號面向品牌主體，個人號面向個人創作者",
+    "cap": "企業專業號面向品牌主體，個人號面向個人創作者"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-7.webp",
+    "alt": "小紅書的站內投放工具主要分兩類用途：薯條用於為單篇筆記加熱",
+    "cap": "小紅書的站內投放工具主要分兩類用途：薯條用於為單篇筆記加熱"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-8.webp",
+    "alt": "我們不會在這裡列出一個「標準價」",
+    "cap": "我們不會在這裡列出一個「標準價」"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-9.webp",
+    "alt": "不是列產品名，而是列客群會問的問題",
+    "cap": "不是列產品名，而是列客群會問的問題"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-10.webp",
+    "alt": "渠道負責時機小紅書建立產品認知與搜尋資產第一階段抖音擴大觸及",
+    "cap": "渠道負責時機小紅書建立產品認知與搜尋資產第一階段抖音擴大觸及"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-11.webp",
+    "alt": "域外適用管轄。收集時應有告知與合法基礎",
+    "cap": "域外適用管轄。收集時應有告知與合法基礎"
+   },
+   {
+    "src": "/blog/figures/xiaohongshu-marketing-hong-kong-guide-12.webp",
+    "alt": "的內容直接搬過去：小紅書用戶期待「真實分享」的語氣",
+    "cap": "的內容直接搬過去：小紅書用戶期待「真實分享」的語氣"
+   }
+  ]
+ },
+ {
+  "slug": "kol-marketing-hong-kong-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-3.webp",
+    "alt": "收費由幾百元一帖到十幾萬元一帖都有",
+    "cap": "收費由幾百元一帖到十幾萬元一帖都有"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-2026-1.webp",
+    "alt": "KOL 五個層級與主要用途對照圖",
+    "cap": "不同層級負責不同任務，報價須連同交付與使用權比較。"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-4.webp",
+    "alt": "萬粉絲的帳號，如果受眾七成在台灣、東南亞或內地",
+    "cap": "萬粉絲的帳號，如果受眾七成在台灣、東南亞或內地"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-5.webp",
+    "alt": "收費以「十萬」為單位起跳，通常按個別項目議價",
+    "cap": "收費以「十萬」為單位起跳，通常按個別項目議價"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-6.webp",
+    "alt": "所以同一行數字不代表同一批人",
+    "cap": "所以同一行數字不代表同一批人"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-2026-2.webp",
+    "alt": "KOL 合作前的合規與量度檢查清單",
+    "cap": "合作前逐項核實，避免違規與歸因失效。"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-7.webp",
+    "alt": "分母（觸及人數、曝光或追蹤者）",
+    "cap": "分母（觸及人數、曝光或追蹤者）"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-8.webp",
+    "alt": "數千至一萬多粉絲真實試用、口碑種草中低素人幾百至幾千",
+    "cap": "數千至一萬多粉絲真實試用、口碑種草中低素人幾百至幾千"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-9.webp",
+    "alt": "與素人的合作同樣要合規：贈品與付費屬品牌內容",
+    "cap": "與素人的合作同樣要合規：贈品與付費屬品牌內容"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-10.webp",
+    "alt": "觸及人數：有多少獨立帳號看到內容",
+    "cap": "觸及人數：有多少獨立帳號看到內容"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-11.webp",
+    "alt": "短片製作快、單價較低，但內容生命週期短，需要靠投放延續",
+    "cap": "短片製作快、單價較低，但內容生命週期短，需要靠投放延續"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-12.webp",
+    "alt": "完全沒有歸因設計：合作完之後只有一堆截圖與讚好數字",
+    "cap": "完全沒有歸因設計：合作完之後只有一堆截圖與讚好數字"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-13.webp",
+    "alt": "打頭陣。篩選與核實：按四個維度逐一檢查",
+    "cap": "打頭陣。篩選與核實：按四個維度逐一檢查"
+   },
+   {
+    "src": "/blog/figures/kol-marketing-hong-kong-guide-14.webp",
+    "alt": "選到購買粉絲的帳號：互動數據與真實受眾不符",
+    "cap": "選到購買粉絲的帳號：互動數據與真實受眾不符"
+   }
+  ]
+ },
+ {
+  "slug": "video-production-hong-kong-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-3.webp",
+    "alt": "先講結論企業影片沒有一個「標準價」",
+    "cap": "先講結論企業影片沒有一個「標準價」"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-4.webp",
+    "alt": "另一個極端是客戶只比較價錢",
+    "cap": "另一個極端是客戶只比較價錢"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-2026-1.webp",
+    "alt": "企業影片製作七個階段與改動成本示意圖",
+    "cap": "改動成本由前期到後期逐級上升，前期準備即保險。"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-5.webp",
+    "alt": "分鐘。這類影片對拍攝細節要求較高：產品的外觀",
+    "cap": "分鐘。這類影片對拍攝細節要求較高：產品的外觀"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-6.webp",
+    "alt": "活動紀錄用於發佈會、展會、研討會、週年晚宴、開幕典禮等場合",
+    "cap": "活動紀錄用於發佈會、展會、研討會、週年晚宴、開幕典禮等場合"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-7.webp",
+    "alt": "影片類型主要用途常見片長製作重點企業宣傳片官網首頁",
+    "cap": "影片類型主要用途常見片長製作重點企業宣傳片官網首頁"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-8.webp",
+    "alt": "交付物：腳本定稿、分鏡圖或鏡頭表",
+    "cap": "交付物：腳本定稿、分鏡圖或鏡頭表"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-9.webp",
+    "alt": "初剪把素材按腳本組合成一個完整版本",
+    "cap": "初剪把素材按腳本組合成一個完整版本"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-10.webp",
+    "alt": "交付物：最終成品檔案、字幕檔、平台比例版本",
+    "cap": "交付物：最終成品檔案、字幕檔、平台比例版本"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-2026-2.webp",
+    "alt": "企業影片報價構成逐項檢查清單",
+    "cap": "比較報價要逐項對範圍，不要只比較總數。"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-11.webp",
+    "alt": "市面上並沒有一個可靠的公開標準價",
+    "cap": "市面上並沒有一個可靠的公開標準價"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-12.webp",
+    "alt": "產品動畫，工作量可以相差十幾倍",
+    "cap": "產品動畫，工作量可以相差十幾倍"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-13.webp",
+    "alt": "配樂有三種常見來源：免版稅音樂庫、委託原創音樂、現成商業歌曲",
+    "cap": "配樂有三種常見來源：免版稅音樂庫、委託原創音樂、現成商業歌曲"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-14.webp",
+    "alt": "要求逐項列明，不要接受一個總數當你收到的報價只有一個總數",
+    "cap": "要求逐項列明，不要接受一個總數當你收到的報價只有一個總數"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-15.webp",
+    "alt": "是否包含付費廣告投放",
+    "cap": "是否包含付費廣告投放"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-16.webp",
+    "alt": "作品集是客戶唯一可以在簽約前看到的證據",
+    "cap": "作品集是客戶唯一可以在簽約前看到的證據"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-17.webp",
+    "alt": "如果對方對這些問題沒有清楚答案",
+    "cap": "如果對方對這些問題沒有清楚答案"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-18.webp",
+    "alt": "八、影片完成之後：與廣告及社交媒體的配合",
+    "cap": "八、影片完成之後：與廣告及社交媒體的配合"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-19.webp",
+    "alt": "都是企業影片的實際用途。這些場景對影片的要求不同",
+    "cap": "都是企業影片的實際用途。這些場景對影片的要求不同"
+   },
+   {
+    "src": "/blog/figures/video-production-hong-kong-guide-20.webp",
+    "alt": "社交媒體管理：香港企業外判代管服務如何選擇",
+    "cap": "社交媒體管理：香港企業外判代管服務如何選擇"
+   }
+  ]
+ },
+ {
+  "slug": "social-media-management-hong-kong-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-3.webp",
+    "alt": "先講結論社交媒體管理不是「幫你出帖」這麼簡單",
+    "cap": "先講結論社交媒體管理不是「幫你出帖」這麼簡單"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-4.webp",
+    "alt": "內容企劃是決定「講什麼、為誰講、幾時講」的工作",
+    "cap": "內容企劃是決定「講什麼、為誰講、幾時講」的工作"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-5.webp",
+    "alt": "每個月需要整理：追蹤數變化",
+    "cap": "每個月需要整理：追蹤數變化"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-2026-1.webp",
+    "alt": "自聘與外判社交媒體管理的總成本對照圖",
+    "cap": "自聘與外判應以同範圍總成本比較，而非只比月費。"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-6.webp",
+    "alt": "請一位負責社交媒體的同事",
+    "cap": "請一位負責社交媒體的同事"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-7.webp",
+    "alt": "月基本發文，設計與文案可能較簡單",
+    "cap": "月基本發文，設計與文案可能較簡單"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-8.webp",
+    "alt": "按每月帖數分級平台數量同一內容發去多個平台",
+    "cap": "按每月帖數分級平台數量同一內容發去多個平台"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-2026-2.webp",
+    "alt": "社交媒體帳戶安全與交接檢查清單",
+    "cap": "帳戶所有權、權限與退出安排應在合約寫明。"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-9.webp",
+    "alt": "較成熟的用戶群，地區與興趣社群活躍圖文帖",
+    "cap": "較成熟的用戶群，地區與興趣社群活躍圖文帖"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-10.webp",
+    "alt": "原因有三。第一，讚好不需要成本",
+    "cap": "原因有三。第一，讚好不需要成本"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-11.webp",
+    "alt": "相關服務如果你想比較自組團隊同外判代管的實際差異",
+    "cap": "相關服務如果你想比較自組團隊同外判代管的實際差異"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-12.webp",
+    "alt": "這是查詢轉化的關鍵環節，卻最常被列為附加項",
+    "cap": "這是查詢轉化的關鍵環節，卻最常被列為附加項"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-13.webp",
+    "alt": "自然觸及在香港的覆蓋有限",
+    "cap": "自然觸及在香港的覆蓋有限"
+   },
+   {
+    "src": "/blog/figures/social-media-management-hong-kong-guide-14.webp",
+    "alt": "標籤）；配樂、字體、照片與影片素材要確認商用授權並保留證明",
+    "cap": "標籤）；配樂、字體、照片與影片素材要確認商用授權並保留證明"
+   }
+  ]
+ },
+ {
+  "slug": "china-market-strategy-hong-kong",
+  "figs": [
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-3.webp",
+    "alt": "先講結論內地推廣不是「一次開齊五個平台」的遊戲",
+    "cap": "先講結論內地推廣不是「一次開齊五個平台」的遊戲"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-4.webp",
+    "alt": "主動搜尋為主的平台，需要的是「搜尋資產」：關鍵字佈局",
+    "cap": "主動搜尋為主的平台，需要的是「搜尋資產」：關鍵字佈局"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-2026-1.webp",
+    "alt": "內地五個平台選擇判斷矩陣示意圖",
+    "cap": "選平台跟著客群被發現的方式走，而不是跟著最紅的平台走。"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-5.webp",
+    "alt": "萬家一年內新增的供給量已相當於一個大型市場一",
+    "cap": "萬家一年內新增的供給量已相當於一個大型市場一"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-6.webp",
+    "alt": "訂單核銷率與金額核銷率不是同一回事",
+    "cap": "訂單核銷率與金額核銷率不是同一回事"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-7.webp",
+    "alt": "平台用戶行為較適合的品類較不適合的情況典型用",
+    "cap": "平台用戶行為較適合的品類較不適合的情況典型用"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-8.webp",
+    "alt": "反過來，如果你的品類是價格敏感、決策快、視覺吸引力強的消費品",
+    "cap": "反過來，如果你的品類是價格敏感、決策快、視覺吸引力強的消費品"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-2026-2.webp",
+    "alt": "內地推廣四筆預算結構示意圖",
+    "cap": "四筆預算缺一筆都會拖慢進度，最常見的錯誤是全押投放。"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-9.webp",
+    "alt": "這是最常見、也最貴的錯誤",
+    "cap": "這是最常見、也最貴的錯誤"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-10.webp",
+    "alt": "以下六項是香港品牌進入內地市場時反覆出現的問題",
+    "cap": "以下六項是香港品牌進入內地市場時反覆出現的問題"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-11.webp",
+    "alt": "其中「一次做五個平台」是最常見的起手式錯誤",
+    "cap": "其中「一次做五個平台」是最常見的起手式錯誤"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-12.webp",
+    "alt": "內地推廣的成效量度應該分成三層，由淺入深",
+    "cap": "內地推廣的成效量度應該分成三層，由淺入深"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-13.webp",
+    "alt": "搜尋數據是最容易被忽略、但最有長期價值的一層",
+    "cap": "搜尋數據是最容易被忽略、但最有長期價值的一層"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-14.webp",
+    "alt": "因此比較穩妥的做法，是在推廣計劃開始前就先了",
+    "cap": "因此比較穩妥的做法，是在推廣計劃開始前就先了"
+   },
+   {
+    "src": "/blog/figures/china-market-strategy-hong-kong-15.webp",
+    "alt": "時，須有告知與合法基礎，並處理委託代營運、保留與刪除",
+    "cap": "時，須有告知與合法基礎，並處理委託代營運、保留與刪除"
+   }
+  ]
+ },
+ {
+  "slug": "ai-reduce-hong-kong-business-labour-cost",
+  "figs": [
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-3.webp",
+    "alt": "在香港企業的滲透已經發生",
+    "cap": "在香港企業的滲透已經發生"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-4.webp",
+    "alt": "的說法都不成立。判斷自身位置時",
+    "cap": "的說法都不成立。判斷自身位置時"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-5.webp",
+    "alt": "月）。這一點與「減少人手」直接相關",
+    "cap": "月）。這一點與「減少人手」直接相關"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-2026-1.webp",
+    "alt": "AI 減低人手成本五步流程圖：盤點工序、算成本、查資料、試點、設停止條件",
+    "cap": "五步評估：先算人力時間，再看工具"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-6.webp",
+    "alt": "時，第一個問題是「工具幾錢一個月」",
+    "cap": "時，第一個問題是「工具幾錢一個月」"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-7.webp",
+    "alt": "沙盒結果，是目前香港最具體的效益數據之一",
+    "cap": "沙盒結果，是目前香港最具體的效益數據之一"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-8.webp",
+    "alt": "工序類型常見例子適合程度財務及合規個案摘要",
+    "cap": "工序類型常見例子適合程度財務及合規個案摘要"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-2026-2.webp",
+    "alt": "表格比較財務、行政、客服、內容及判斷類工序適合 AI 化的程度",
+    "cap": "不同工序交由 AI 處理的適合程度"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-9.webp",
+    "alt": "相關服務減人手成本最實際的切入點通常是重複工序",
+    "cap": "相關服務減人手成本最實際的切入點通常是重複工序"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-10.webp",
+    "alt": "開始，而不是由「哪個工序的工時最貴、輸出格式最固定」開始",
+    "cap": "開始，而不是由「哪個工序的工時最貴、輸出格式最固定」開始"
+   },
+   {
+    "src": "/blog/figures/ai-reduce-hong-kong-business-labour-cost-11.webp",
+    "alt": "月）。應在開始前寫明：在什麼時間點、用什麼指標",
+    "cap": "月）。應在開始前寫明：在什麼時間點、用什麼指標"
+   }
+  ]
+ },
+ {
+  "slug": "ai-agent-hong-kong-business-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-3.webp",
+    "alt": "AI Agent 與 RPA 的分工：一個負責推理規劃，一個按規則執行",
+    "cap": "AI Agent 與 RPA 的分工：一個負責推理規劃，一個按規則執行"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-1.webp",
+    "alt": "比較聊天機械人、RPA 與 AI Agent 在驅動方式、流程路徑、異常處理及成本可預測性的差異",
+    "cap": "三種自動化形態的驅動方式、流程路徑與異常處理比較"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-4.webp",
+    "alt": "三份權威定義並排比對：IBM、UiPath、Anthropic 的側重點各異",
+    "cap": "三份權威定義並排比對：IBM、UiPath、Anthropic 的側重點各異"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-5.webp",
+    "alt": "由單純問答到自主執行：能力愈強，開發工時與風險等級完全不同",
+    "cap": "由單純問答到自主執行：能力愈強，開發工時與風險等級完全不同"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-2.webp",
+    "alt": "AI Agent 導入五步流程圖：工序盤點、成本量化、設覆核點、試點、量度後擴大",
+    "cap": "由工序盤點到擴大的務實導入步驟"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-6.webp",
+    "alt": "IBM 的三階段運作架構，第三階段的反思與人工介入最常被忽略",
+    "cap": "IBM 的三階段運作架構，第三階段的反思與人工介入最常被忽略"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-7.webp",
+    "alt": "公開案例的實際數字：客服對話量、解決時間與成本改善",
+    "cap": "公開案例的實際數字：客服對話量、解決時間與成本改善"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-8.webp",
+    "alt": "同一組市場數字互相矛盾，原因是每家機構的「定義範圍」不同",
+    "cap": "同一組市場數字互相矛盾，原因是每家機構的「定義範圍」不同"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-9.webp",
+    "alt": "Token 用量與運行成本可以相差數十倍，令報價極難預先確定",
+    "cap": "Token 用量與運行成本可以相差數十倍，令報價極難預先確定"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-10.webp",
+    "alt": "人工交接機制：偵測不滿訊號時，連同完整對話脈絡轉交真人",
+    "cap": "人工交接機制：偵測不滿訊號時，連同完整對話脈絡轉交真人"
+   },
+   {
+    "src": "/blog/figures/ai-agent-hong-kong-business-guide-2026-11.webp",
+    "alt": "香港政府的 AI 應用與科研投入：政務環節自動化與研發院",
+    "cap": "香港政府的 AI 應用與科研投入：政務環節自動化與研發院"
+   }
+  ]
+ },
+ {
+  "slug": "hong-kong-ai-chatbot-customer-service-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-3.webp",
+    "alt": "對話式各有硬限制，現時實務上主流做法是混合架構",
+    "cap": "對話式各有硬限制，現時實務上主流做法是混合架構"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-2026-1.webp",
+    "alt": "比較規則式、意圖識別與 LLM 對話式三代 Chatbot 的能力與限制",
+    "cap": "三代技術的分野及各自的硬限制"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-4.webp",
+    "alt": "代：規則式關鍵字比對加決策樹只回答預設答案客",
+    "cap": "代：規則式關鍵字比對加決策樹只回答預設答案客"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-5.webp",
+    "alt": "三代不是單純的取代關係。業界目前較務實的做法是混合架構",
+    "cap": "三代不是單純的取代關係。業界目前較務實的做法是混合架構"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-2026-2.webp",
+    "alt": "AI 客服上線前驗收清單：知識庫版本、轉人手機制、敏感詞、上下文交接、PCPD 合規",
+    "cap": "Chatbot 上線前的五項驗收要點"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-6.webp",
+    "alt": "而客戶服務是首要應用場景",
+    "cap": "而客戶服務是首要應用場景"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-7.webp",
+    "alt": "範本費適合有技術團隊自行開發的企業",
+    "cap": "範本費適合有技術團隊自行開發的企業"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-8.webp",
+    "alt": "上調。坊間二手來源的數字互相矛盾",
+    "cap": "上調。坊間二手來源的數字互相矛盾"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-9.webp",
+    "alt": "的成敗多數取決於知識庫整理同系統接駁，不是介面",
+    "cap": "的成敗多數取決於知識庫整理同系統接駁，不是介面"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-10.webp",
+    "alt": "換句話說，幻覺不只是模型能力問題",
+    "cap": "換句話說，幻覺不只是模型能力問題"
+   },
+   {
+    "src": "/blog/figures/hong-kong-ai-chatbot-customer-service-guide-11.webp",
+    "alt": "時自動交接真人；另外在低信心",
+    "cap": "時自動交接真人；另外在低信心"
+   }
+  ]
+ },
+ {
+  "slug": "ai-automation-roi-hong-kong",
+  "figs": [
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-3.webp",
+    "alt": "先講結論自動化是否值得投資，取決於三件事",
+    "cap": "先講結論自動化是否值得投資，取決於三件事"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-4.webp",
+    "alt": "訂閱平台月費、用戶數授權、附加模組報價單上最顯眼",
+    "cap": "訂閱平台月費、用戶數授權、附加模組報價單上最顯眼"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-2026-1.webp",
+    "alt": "AI 自動化投資評估三大公式：ROI、NPV 與回收期，配合 10% 折現率",
+    "cap": "ROI、NPV 與回收期的計算邏輯"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-5.webp",
+    "alt": "成本現值。它回答「這項投資在折現之後，淨值多少錢」",
+    "cap": "成本現值。它回答「這項投資在折現之後，淨值多少錢」"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-2026-2.webp",
+    "alt": "AI 自動化四類成本：授權、實作、維護、培訓，說明不能只計授權費",
+    "cap": "常見被低估的三類非授權成本"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-6.webp",
+    "alt": "除了供應商委託的研究，也有獨立機構的調查值得參考",
+    "cap": "除了供應商委託的研究，也有獨立機構的調查值得參考"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-7.webp",
+    "alt": "對中小企而言，這個訊號尤其重要",
+    "cap": "對中小企而言，這個訊號尤其重要"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-8.webp",
+    "alt": "的調查則覆蓋大量仍在試行階段的企業",
+    "cap": "的調查則覆蓋大量仍在試行階段的企業"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-9.webp",
+    "alt": "時薪」量化，另外計算合規事件避免所帶來的價值",
+    "cap": "時薪」量化，另外計算合規事件避免所帶來的價值"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-10.webp",
+    "alt": "萬人。這意味着大部分本地企業的流程規模",
+    "cap": "萬人。這意味着大部分本地企業的流程規模"
+   },
+   {
+    "src": "/blog/figures/ai-automation-roi-hong-kong-11.webp",
+    "alt": "的四類列出授權、實作、持續管理、培訓與人力投入",
+    "cap": "的四類列出授權、實作、持續管理、培訓與人力投入"
+   }
+  ]
+ },
+ {
+  "slug": "geo-generative-engine-optimization-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-3.webp",
+    "alt": "同一個縮寫兩種意思：地理定位 vs 生成式引擎優化",
+    "cap": "同一個縮寫兩種意思：地理定位 vs 生成式引擎優化"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-1.webp",
+    "alt": "GEO 有效與無效做法對照圖：引用來源、統計數字、引文有效；關鍵字堆砌、llms.txt、FAQ Schema 無效",
+    "cap": "依 KDD 2024 論文與 Google 官方指引整理的 GEO 做法對照。"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-4.webp",
+    "alt": "GEO 的三個核心結論一句講完",
+    "cap": "GEO 的三個核心結論一句講完"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-2.webp",
+    "alt": "流程圖：網站被爬取與索引後，經 RAG 檢索與 query fan-out 生成 AI 答案，曝光由 Search Console 報告",
+    "cap": "Google AI 功能的內容取用流程，說明曝光不等於點擊。"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-5.webp",
+    "alt": "Google 官方立場：為 AI 搜尋優化，本質仍是 SEO",
+    "cap": "Google 官方立場：為 AI 搜尋優化，本質仍是 SEO"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-6.webp",
+    "alt": "控制內容在 AI 功能呈現的開關各自獨立，不應混為一談",
+    "cap": "控制內容在 AI 功能呈現的開關各自獨立，不應混為一談"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-7.webp",
+    "alt": "不同 AI 平台的內容選取機制各異，沒有一套通吃的做法",
+    "cap": "不同 AI 平台的內容選取機制各異，沒有一套通吃的做法"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-8.webp",
+    "alt": "AI 摘要出現後點擊明顯下降，但被引用頁多數仍有傳統排名",
+    "cap": "AI 摘要出現後點擊明顯下降，但被引用頁多數仍有傳統排名"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-9.webp",
+    "alt": "論文的 40% 提升有其受控條件，不能當商業成效承諾",
+    "cap": "論文的 40% 提升有其受控條件，不能當商業成效承諾"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-10.webp",
+    "alt": "結構化資料應保留以維持 rich results，但不為 GEO 而加特殊標記",
+    "cap": "結構化資料應保留以維持 rich results，但不為 GEO 而加特殊標記"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-11.webp",
+    "alt": "量度 GEO：Search Console 的生成式 AI 成效報告可細分頁面與地區",
+    "cap": "量度 GEO：Search Console 的生成式 AI 成效報告可細分頁面與地區"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-12.webp",
+    "alt": "llms.txt：Google 明言 Search 不使用，建立它無益亦無害",
+    "cap": "llms.txt：Google 明言 Search 不使用，建立它無益亦無害"
+   },
+   {
+    "src": "/blog/figures/geo-generative-engine-optimization-guide-2026-13.webp",
+    "alt": "Google 明言不需要的四件事：AI 文字檔、特殊標記、chunking、為 AI 重寫",
+    "cap": "Google 明言不需要的四件事：AI 文字檔、特殊標記、chunking、為 AI 重寫"
+   }
+  ]
+ },
+ {
+  "slug": "how-to-choose-seo-company-hong-kong",
+  "figs": [
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-3.webp",
+    "alt": "上排名第一。任何這樣講的人，都應該直接跳過",
+    "cap": "上排名第一。任何這樣講的人，都應該直接跳過"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-4.webp",
+    "alt": "指出，其自動化排名系統會檢視搜尋索引中數千億個網頁與其他內容",
+    "cap": "指出，其自動化排名系統會檢視搜尋索引中數千億個網頁與其他內容"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-2026-1.webp",
+    "alt": "對照圖：選擇 SEO 公司的官方判準（案例、官方依據、只讀權限）與危險信號（保證排名、特殊關係、要求回連）",
+    "cap": "左欄為 Google 官方建議的核查準則，右欄為官方點名的危險信號。"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-5.webp",
+    "alt": "是否清楚官方準則，還是只知道坊間流傳的做法預計有甚麼成果",
+    "cap": "是否清楚官方準則，還是只知道坊間流傳的做法預計有甚麼成果"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-6.webp",
+    "alt": "公司、網路顧問或服務商」",
+    "cap": "公司、網路顧問或服務商」"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-7.webp",
+    "alt": "稽核報告若只有「你的網站有很多問題」這類判斷",
+    "cap": "稽核報告若只有「你的網站有很多問題」這類判斷"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-8.webp",
+    "alt": "搜尋官方準則來佐證主張。反過來",
+    "cap": "搜尋官方準則來佐證主張。反過來"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-2026-2.webp",
+    "alt": "清單圖：合約應寫清楚交付範圍、權限、報表、資產歸屬與終止安排",
+    "cap": "合作前應寫入合約的五項，避免口頭承諾。"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-9.webp",
+    "alt": "市場的收費模式主要有兩種",
+    "cap": "市場的收費模式主要有兩種"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-10.webp",
+    "alt": "來源：以下為香港業界公開文章",
+    "cap": "來源：以下為香港業界公開文章"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-11.webp",
+    "alt": "違規手法官方定義與例子對客戶的實際影響濫填關",
+    "cap": "違規手法官方定義與例子對客戶的實際影響濫填關"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-12.webp",
+    "alt": "公司，可以直接對照我們的交付清單同量度方式",
+    "cap": "公司，可以直接對照我們的交付清單同量度方式"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-13.webp",
+    "alt": "點擊、電話撥打。曝光與點擊上升但查詢沒有增加",
+    "cap": "點擊、電話撥打。曝光與點擊上升但查詢沒有增加"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-14.webp",
+    "alt": "答案引擎最佳化）加入服務清單",
+    "cap": "答案引擎最佳化）加入服務清單"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-15.webp",
+    "alt": "每月具體交付甚麼：多少篇文章",
+    "cap": "每月具體交付甚麼：多少篇文章"
+   },
+   {
+    "src": "/blog/figures/how-to-choose-seo-company-hong-kong-16.webp",
+    "alt": "比較欄目要問清楚甚麼每月交付清單文章篇數",
+    "cap": "比較欄目要問清楚甚麼每月交付清單文章篇數"
+   }
+  ]
+ },
+ {
+  "slug": "crm-system-selection-guide-hong-kong",
+  "figs": [
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-3.webp",
+    "alt": "年起就被定義為一種商業策略",
+    "cap": "年起就被定義為一種商業策略"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-2026-1.webp",
+    "alt": "CRM 選型五步流程：定義問題、定流程、篩平台、真實試用、小範圍上線",
+    "cap": "先定流程，再選平台的五個步驟"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-4.webp",
+    "alt": "指由供應商託管、你按月或按年付費使用的模式",
+    "cap": "指由供應商託管、你按月或按年付費使用的模式"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-2026-2.webp",
+    "alt": "比較 SaaS 訂閱與自建 CRM 在成本、維護、客製與適用情境上的差異",
+    "cap": "兩種交付方式在不同維度的結構差異"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-5.webp",
+    "alt": "供自訂翻譯。若你的前線同事不諳英文",
+    "cap": "供自訂翻譯。若你的前線同事不諳英文"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-6.webp",
+    "alt": "語言支援級別、稅務局：業務記錄保存規定",
+    "cap": "語言支援級別、稅務局：業務記錄保存規定"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-7.webp",
+    "alt": "功能使用量上升，屬於浮動成本",
+    "cap": "功能使用量上升，屬於浮動成本"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-8.webp",
+    "alt": "項目失敗」這類數字。這些數字的來源其實相當集中，而且年代久遠",
+    "cap": "項目失敗」這類數字。這些數字的來源其實相當集中，而且年代久遠"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-9.webp",
+    "alt": "年的數據，只為說明「流傳甚廣的失敗率從何而來」",
+    "cap": "年的數據，只為說明「流傳甚廣的失敗率從何而來」"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-10.webp",
+    "alt": "訂閱自建成本透明度各平台公開訂閱價",
+    "cap": "訂閱自建成本透明度各平台公開訂閱價"
+   },
+   {
+    "src": "/blog/figures/crm-system-selection-guide-hong-kong-11.webp",
+    "alt": "先讓一個團隊用一至兩個月",
+    "cap": "先讓一個團隊用一至兩個月"
+   }
+  ]
+ },
+ {
+  "slug": "core-web-vitals-website-speed-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-3.webp",
+    "alt": "團隊整理，結合香港本地實戰經驗與最新行業數據",
+    "cap": "團隊整理，結合香港本地實戰經驗與最新行業數據"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-2026-1.webp",
+    "alt": "圖表：Core Web Vitals 三項指標的官方門檻與第 75 百分位、手機桌面分開量度",
+    "cap": "Core Web Vitals 官方良好門檻與量度條件。"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-4.webp",
+    "alt": "的頁面載入體驗須達標，換個角度講",
+    "cap": "的頁面載入體驗須達標，換個角度講"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-5.webp",
+    "alt": "達標就等於排名上升」這種講法",
+    "cap": "達標就等於排名上升」這種講法"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-6.webp",
+    "alt": "以手機版的內容作索引與排名",
+    "cap": "以手機版的內容作索引與排名"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-2026-2.webp",
+    "alt": "流程圖：LCP 拆成 TTFB、資源載入延遲、載入時間與渲染延遲四段，並標示優化手法",
+    "cap": "把 LCP 拆成四段以定位樽頸，並對應優化手法。"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-7.webp",
+    "alt": "而字型與後備字型的大小不一致",
+    "cap": "而字型與後備字型的大小不一致"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-8.webp",
+    "alt": "差通常來自三類問題：輸入延遲（主執行緒忙於處理其他工作）",
+    "cap": "差通常來自三類問題：輸入延遲（主執行緒忙於處理其他工作）"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-9.webp",
+    "alt": "相關服務速度問題多數要改到網站底層，不是加個外掛就搞掂",
+    "cap": "相關服務速度問題多數要改到網站底層，不是加個外掛就搞掂"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-10.webp",
+    "alt": "日視窗計算，因此反映的是「近四星期」的表現",
+    "cap": "日視窗計算，因此反映的是「近四星期」的表現"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-11.webp",
+    "alt": "的實地數據，而非只信桌面測試結果",
+    "cap": "的實地數據，而非只信桌面測試結果"
+   },
+   {
+    "src": "/blog/figures/core-web-vitals-website-speed-guide-12.webp",
+    "alt": "例如主題或外掛過於臃腫、載入了大量無法控制的第三方腳本",
+    "cap": "例如主題或外掛過於臃腫、載入了大量無法控制的第三方腳本"
+   }
+  ]
+ },
+ {
+  "slug": "app-development-cost-guide-hong-kong",
+  "figs": [
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-3.webp",
+    "alt": "App 開發成本由範圍決定，不是由「App」這個字決定",
+    "cap": "App 開發成本由範圍決定，不是由「App」這個字決定"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-4.webp",
+    "alt": "內部工具多數用網頁應用更快更平，不一定需要手機 App",
+    "cap": "內部工具多數用網頁應用更快更平，不一定需要手機 App"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-1.webp",
+    "alt": "對照圖：原生 App、跨平台 App、網頁應用的成本結構與適用情境",
+    "cap": "先分清要哪一類 App，報價才有比較基礎。"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-5.webp",
+    "alt": "平台數量：原生開發兩套，跨平台可共用大部分程式碼",
+    "cap": "平台數量：原生開發兩套，跨平台可共用大部分程式碼"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-6.webp",
+    "alt": "用一個籠統數字開始討論，往往演變成後期爭議",
+    "cap": "用一個籠統數字開始討論，往往演變成後期爭議"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-7.webp",
+    "alt": "收到報價後值得問清楚的五條問題",
+    "cap": "收到報價後值得問清楚的五條問題"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-2.webp",
+    "alt": "流程圖：PoC、MVP、正式上線三階段的驗證目的與成功條件",
+    "cap": "分三關設定成功條件與退出標準，及早發現方向錯誤。"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-8.webp",
+    "alt": "由需求梳理到上架的標準開發流程與每階段產出",
+    "cap": "由需求梳理到上架的標準開發流程與每階段產出"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-9.webp",
+    "alt": "項目失敗多與需求定位、範圍控制與數據準備有關",
+    "cap": "項目失敗多與需求定位、範圍控制與數據準備有關"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-10.webp",
+    "alt": "三組失敗率數據樣本與指標各異，不能相加或互推",
+    "cap": "三組失敗率數據樣本與指標各異，不能相加或互推"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-11.webp",
+    "alt": "上線後仍有經常性支出：開發者帳戶年費與法規合規成本",
+    "cap": "上線後仍有經常性支出：開發者帳戶年費與法規合規成本"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-12.webp",
+    "alt": "先做 MVP 驗證市場，確認需求再擴充功能",
+    "cap": "先做 MVP 驗證市場，確認需求再擴充功能"
+   },
+   {
+    "src": "/blog/figures/app-development-cost-guide-hong-kong-2026-13.webp",
+    "alt": "準備需求文件：釐清平台要求的關鍵一問",
+    "cap": "準備需求文件：釐清平台要求的關鍵一問"
+   }
+  ]
+ },
+ {
+  "slug": "hong-kong-government-ai-digital-funding",
+  "figs": [
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-3.webp",
+    "alt": "政府出一半」的文章，那些資料已經過時",
+    "cap": "政府出一半」的文章，那些資料已經過時"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-4.webp",
+    "alt": "每宗上限配對比例目標市場",
+    "cap": "每宗上限配對比例目標市場"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-5.webp",
+    "alt": "日，優化版的資助模式、範圍、額度與申請細節仍未公布",
+    "cap": "日，優化版的資助模式、範圍、額度與申請細節仍未公布"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-6.webp",
+    "alt": "個月內完成，須由香港企業自行執行，不設首期撥款",
+    "cap": "個月內完成，須由香港企業自行執行，不設首期撥款"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-7.webp",
+    "alt": "月推出，以配對形式資助本地企業讓員工接受高端科技培訓",
+    "cap": "月推出，以配對形式資助本地企業讓員工接受高端科技培訓"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-8.webp",
+    "alt": "願景，創新科技及工業局統籌「全民",
+    "cap": "願景，創新科技及工業局統籌「全民"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-2026-1.webp",
+    "alt": "BUD 專項基金 1:3 配對資金結構圖，顯示政府資助 25%、企業現金承擔 75% 的比例",
+    "cap": "BUD 專項基金自 2025 年 3 月 14 日起，政府最多承擔核准開支 25%，企業須以現金承擔不少於 75%。"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-9.webp",
+    "alt": "對現金流的實際影響由於企業要先用現金墊付大部分開支",
+    "cap": "對現金流的實際影響由於企業要先用現金墊付大部分開支"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-10.webp",
+    "alt": "商業登記證及公司註冊證明",
+    "cap": "商業登記證及公司註冊證明"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-2026-2.webp",
+    "alt": "BUD 專項基金一般申請、申請易、電商易三條軌道的資助上限比較圖",
+    "cap": "BUD 專項基金三條申請軌道各有每宗上限，但共用每間企業累計 HK$700 萬及最多 70 個項目的上限。"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-11.webp",
+    "alt": "準備及遞交申請：整理文件與項目建議書",
+    "cap": "準備及遞交申請：整理文件與項目建議書"
+   },
+   {
+    "src": "/blog/figures/hong-kong-government-ai-digital-funding-12.webp",
+    "alt": "先買方案，後看資格資助計劃各有行業範圍",
+    "cap": "先買方案，後看資格資助計劃各有行業範圍"
+   }
+  ]
+ },
+ {
+  "slug": "rpa-hong-kong-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/rpa-hong-kong-guide-3.webp",
+    "alt": "適合高頻、重複、規則固定",
+    "cap": "適合高頻、重複、規則固定"
+   },
+   {
+    "src": "/blog/figures/rpa-hong-kong-guide-4.webp",
+    "alt": "在員工的桌面電腦上執行，由員工即時觸發",
+    "cap": "在員工的桌面電腦上執行，由員工即時觸發"
+   },
+   {
+    "src": "/blog/figures/rpa-hong-kong-guide-2026-1.webp",
+    "alt": "混合自動化流程：AI Agent 理解與判斷、RPA 穩定執行、例外交人手",
+    "cap": "以發票處理示範 AI 與 RPA 的分工"
+   },
+   {
+    "src": "/blog/figures/rpa-hong-kong-guide-5.webp",
+    "alt": "會計發票錄入、應付帳款核對",
+    "cap": "會計發票錄入、應付帳款核對"
+   },
+   {
+    "src": "/blog/figures/rpa-hong-kong-guide-2026-2.webp",
+    "alt": "表格比較 RPA 機械人與 AI Agent 的運作邏輯、資料、變化處理、成本與適用場景",
+    "cap": "RPA 與 AI Agent 的分工對照"
+   },
+   {
+    "src": "/blog/figures/rpa-hong-kong-guide-6.webp",
+    "alt": "運作邏輯固定規則，預先寫好的步驟理解目標",
+    "cap": "運作邏輯固定規則，預先寫好的步驟理解目標"
+   },
+   {
+    "src": "/blog/figures/rpa-hong-kong-guide-7.webp",
+    "alt": "項目UiPathPowerAutomateZ",
+    "cap": "項目UiPathPowerAutomateZ"
+   },
+   {
+    "src": "/blog/figures/rpa-hong-kong-guide-8.webp",
+    "alt": "香港企業的現實考量香港生產力促進局的調查顯示",
+    "cap": "香港企業的現實考量香港生產力促進局的調查顯示"
+   },
+   {
+    "src": "/blog/figures/rpa-hong-kong-guide-9.webp",
+    "alt": "一開始就選錯流程選流程是項目成敗的決定性因素",
+    "cap": "一開始就選錯流程選流程是項目成敗的決定性因素"
+   }
+  ]
+ },
+ {
+  "slug": "hong-kong-web-design-pricing-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-3.webp",
+    "alt": "香港網頁設計公開報價橫跨很闊，平台平均價並非市場統計",
+    "cap": "香港網頁設計公開報價橫跨很闊，平台平均價並非市場統計"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-4.webp",
+    "alt": "平台刊載數字須連同來源與日期理解，避免混淆不同定義",
+    "cap": "平台刊載數字須連同來源與日期理解，避免混淆不同定義"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-5.webp",
+    "alt": "頁數只是成本，不是價值；切合搜尋意圖更有生意",
+    "cap": "頁數只是成本，不是價值；切合搜尋意圖更有生意"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-1.webp",
+    "alt": "圖表：香港網頁設計三個價位層級與其包含的規劃、搜尋結構、維護差異",
+    "cap": "三個價位層級的分別，在於是否包含規劃與搜尋結構。"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-6.webp",
+    "alt": "模板套用的限制：版面由模板決定，業務流程要遷就模板",
+    "cap": "模板套用的限制：版面由模板決定，業務流程要遷就模板"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-7.webp",
+    "alt": "頁數、功能複雜度與語言數量是影響報價的主要因素",
+    "cap": "頁數、功能複雜度與語言數量是影響報價的主要因素"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-2.webp",
+    "alt": "清單圖：八個網頁設計報價陷阱，包括不含事項、原始碼歸屬、包 SEO 定義與付款條件",
+    "cap": "逐一核對八個常見報價陷阱，可於簽約前完成。"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-8.webp",
+    "alt": "香港網頁設計的標準七階段流程",
+    "cap": "香港網頁設計的標準七階段流程"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-9.webp",
+    "alt": "把一次性建站與三年續費一併計算，才是完整 TCO",
+    "cap": "把一次性建站與三年續費一併計算，才是完整 TCO"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-10.webp",
+    "alt": "報價陷阱：只列包含項目，未寫明「不包含」什麼",
+    "cap": "報價陷阱：只列包含項目，未寫明「不包含」什麼"
+   },
+   {
+    "src": "/blog/figures/hong-kong-web-design-pricing-guide-2026-11.webp",
+    "alt": "驗收應涵蓋裝置測試、表單送達、支付測試與原始碼交付",
+    "cap": "驗收應涵蓋裝置測試、表單送達、支付測試與原始碼交付"
+   }
+  ]
+ },
+ {
+  "slug": "ai-solution-hong-kong-enterprise-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/ai-solution-hong-kong-enterprise-guide-2026-1.webp",
+    "alt": "企業 AI 導入三階段路線圖：診斷、試點、擴展與治理",
+    "cap": "由診斷到擴展的低風險路線圖"
+   },
+   {
+    "src": "/blog/figures/ai-solution-hong-kong-enterprise-guide-2026-2.webp",
+    "alt": "香港 2026-27 預算案 AI 相關措施與金額清單",
+    "cap": "與企業 AI 化相關的官方措施及金額"
+   }
+  ]
+ },
+ {
+  "slug": "hong-kong-brand-china-market-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/hong-kong-brand-china-market-guide-2026-1.webp",
+    "alt": "內地五大平台分工與用戶行為對照圖",
+    "cap": "不同平台負責發現、引爆、承接與公信力，數字須附統計期。"
+   },
+   {
+    "src": "/blog/figures/hong-kong-brand-china-market-guide-2026-2.webp",
+    "alt": "香港品牌進入內地前的合規檢查清單",
+    "cap": "投放前先完成資格與合規 gate，再談內容與投放。"
+   }
+  ]
+ },
+ {
+  "slug": "google-meta-ads-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/google-meta-ads-guide-2026-1.webp",
+    "alt": "Google 與 Meta 廣告渠道分工示意圖",
+    "cap": "Google Search 捕捉高意圖，Meta 與 Demand Gen 承擔發現與認知。"
+   },
+   {
+    "src": "/blog/figures/google-meta-ads-guide-2026-2.webp",
+    "alt": "廣告投放前追蹤與合規檢查清單",
+    "cap": "上線前先確保追蹤正確與資料合規，否則 AI 會學錯。"
+   }
+  ]
+ },
+ {
+  "slug": "hong-kong-seo-geo-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/hong-kong-seo-geo-guide-2026-1.webp",
+    "alt": "流程圖：香港 SEO 與 GEO 五步實施路線圖，由技術基礎到本地搜尋、多語、AI 內容表達與量度",
+    "cap": "由技術基礎到量度的五步路線圖，共用基礎、分開追蹤。"
+   },
+   {
+    "src": "/blog/figures/hong-kong-seo-geo-guide-2026-2.webp",
+    "alt": "對照圖：AI 曝光、人工抽樣、referral 三類數據的來源與注意事項",
+    "cap": "AI 曝光、抽樣與 referral 是三類不同數據，不可混為同一指標。"
+   }
+  ]
+ },
+ {
+  "slug": "seo-vs-geo",
+  "figs": [
+   {
+    "src": "/blog/figures/seo-vs-geo-2025-1.webp",
+    "alt": "對照圖：SEO 與 GEO 的目標、量度工具與共用基礎比較",
+    "cap": "SEO 與 GEO 的目標、量度與共用基礎比較。"
+   },
+   {
+    "src": "/blog/figures/seo-vs-geo-2025-2.webp",
+    "alt": "流程圖：按網站狀況決定先做 SEO、本地 SEO 或加入 GEO 的決策路徑",
+    "cap": "按你的情況決定先做 SEO 還是加 GEO。"
+   }
+  ]
+ },
+ {
+  "slug": "short-video-marketing-guide",
+  "figs": [
+   {
+    "src": "/blog/figures/short-video-marketing-guide-1.webp",
+    "alt": "漏斗圖：短視頻的吸引力、參與、滿意、轉換四層指標",
+    "cap": "依 YouTube 官方觀眾旅程設計的四層漏斗指標。"
+   },
+   {
+    "src": "/blog/figures/short-video-marketing-guide-2.webp",
+    "alt": "對照圖：短視頻四類內容支柱與其目的及題材示例",
+    "cap": "以內容支柱建立可持續的選題系統。"
+   }
+  ]
+ },
+ {
+  "slug": "marketing-automation-roi",
+  "figs": [
+   {
+    "src": "/blog/figures/marketing-automation-roi-1.webp",
+    "alt": "可靠工作流程的六個設計要素：觸發、去重、重試通知、人工核准、日誌、版本管理",
+    "cap": "由示範到生產必備的六項設計"
+   },
+   {
+    "src": "/blog/figures/marketing-automation-roi-2.webp",
+    "alt": "比較 Zapier、Make、n8n 的計費單位與公開起步價",
+    "cap": "三個主流自動化平台的計費與價格"
+   }
+  ]
+ },
+ {
+  "slug": "high-converting-landing-page",
+  "figs": [
+   {
+    "src": "/blog/figures/high-converting-landing-page-1.webp",
+    "alt": "流程圖：Landing Page 轉換診斷五步，由追蹤、訊息一致、速度、表單到測試",
+    "cap": "由量對到診斷再到測試的五步流程。"
+   },
+   {
+    "src": "/blog/figures/high-converting-landing-page-2.webp",
+    "alt": "對照圖：不同訪客來源對應頁面首屏應回應的訊息",
+    "cap": "頁面首屏應直接承接訪客來源的期待。"
+   }
+  ]
+ },
+ {
+  "slug": "stop-wasting-ad-budget",
+  "figs": [
+   {
+    "src": "/blog/figures/stop-wasting-ad-budget-1.webp",
+    "alt": "廣告預算流失由上而下的診斷路徑圖",
+    "cap": "由上而下檢查，先修追蹤再優化其餘環節。"
+   },
+   {
+    "src": "/blog/figures/stop-wasting-ad-budget-2.webp",
+    "alt": "廣告成效三層量度示意圖",
+    "cap": "以淨成交與利潤 ROAS 作主要決策指標，而非只看曝光。"
+   }
+  ]
+ },
+ {
+  "slug": "custom-system-efficiency",
+  "figs": [
+   {
+    "src": "/blog/figures/custom-system-efficiency-1.webp",
+    "alt": "Excel 變成風險的三個臨界點：多人同時編輯、公式權限混雜、流程依賴個人記憶",
+    "cap": "何時由 Excel 轉向系統的三個信號"
+   },
+   {
+    "src": "/blog/figures/custom-system-efficiency-2.webp",
+    "alt": "比較度身訂造與現成 SaaS 兩種做法的適用情況",
+    "cap": "不同情況下的選擇建議"
+   }
+  ]
+ }
+]

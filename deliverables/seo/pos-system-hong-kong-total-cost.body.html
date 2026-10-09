@@ -1,0 +1,313 @@
+<p class="lead text-xl text-gray-600 mb-8">很多店主採購收銀系統時，第一眼看到的是「免費開戶」、「月費低至 HK$XXX」這類宣傳，很容易把月費當成主要成本。但真正決定三年花費多少的，往往不是月費本身，而是硬件、加值模組、交易手續費，以及合約綁定與資料搬遷的風險。本文用公開資料與可核對的收費標準，把「月費 SaaS」、「一次買斷」、「自訂開發」三種模式的三年總成本（TCO）放在同一框架比較，並標示哪些是示範假設、哪些是供應商真實收費，方便香港零售與餐飲店主做決定。</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+  <p class="text-gray-700 leading-relaxed">「月費便宜」不等於「總成本低」。以單店三年期計算，月費 SaaS 的軟硬件成本通常最低（示範假設約 HK$2.7 萬），買斷授權介乎中間（約 HK$3.6 萬），自訂開發最高（約 HK$18 萬）——<strong>但三者之中佔比最大的往往是交易手續費（示範假設約 HK$7.8 萬），這筆錢付給支付服務商，與採用哪一種 POS 模式基本無關</strong>。選擇時應先分清「付給 POS 供應商的錢」與「付給支付服務商的錢」，再用三年總成本比較，而非只看月費標價。</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+  <ul class="space-y-2">
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>三種模式的分別：<strong>月費 SaaS＝租用</strong>（資料多在供應商雲端）；<strong>買斷＝擁有授權</strong>（資料可自存）；<strong>自訂開發＝擁有系統</strong>（彈性最高、起始成本亦最高）。</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>三年總成本包含五類：軟件費／授權、硬件、加值模組、交易手續費、維護與更新。</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>交易手續費通常最貴，卻是付給支付服務商（銀行、儲值支付工具持牌人），不是 POS 供應商。</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>香港信用卡商戶折扣率（MDR）常見約 1.5%–2.2%；八達通商用版資金轉賬費約 1.3%–1.5%；轉數快（FPS）本身不向商戶收費。</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>簽約前必須問清楚：資料可否完整匯出、加值模組是否另收月費、合約綁定與違約條款。</span></li>
+  </ul>
+</div>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-1.webp" alt="月費與買斷兩種收銀系統方案的三年總成本對比示意圖" title="月費與買斷兩種收銀系統方案的三年總成本對比示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">月費看似便宜，但三年累加後不一定比買斷划算，關鍵是計齊所有成本項目</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、POS 系統實際包含什麼</h2>
+<p>「POS 系統」常被簡化成「一部收銀機」，實際上它是一組模組。理解每個模組的收費方式，才看得懂報價單的「已包含」與「加購」項目。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">模組</th><th class="px-4 py-3 text-left">主要功能</th><th class="px-4 py-3 text-left">常見收費方式</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">收銀結賬</td><td class="px-4 py-3">掃碼、開單、收款、找續、退貨</td><td class="px-4 py-3">多數包含在基本方案</td></tr>
+      <tr><td class="px-4 py-3">商品與庫存</td><td class="px-4 py-3">貨品、條碼、進銷存、補貨提醒</td><td class="px-4 py-3">基本或加值模組</td></tr>
+      <tr><td class="px-4 py-3">會員與積分</td><td class="px-4 py-3">會員登記、儲值、優惠券、點數</td><td class="px-4 py-3">常列為加值模組，另收月費</td></tr>
+      <tr><td class="px-4 py-3">對賬與報表</td><td class="px-4 py-3">日結、多店匯總、毛利分析</td><td class="px-4 py-3">進階報表多數加購</td></tr>
+      <tr><td class="px-4 py-3">支付整合</td><td class="px-4 py-3">信用卡、八達通、FPS、電子錢包</td><td class="px-4 py-3">交易手續費另計</td></tr>
+      <tr><td class="px-4 py-3">線上線下打通</td><td class="px-4 py-3">網店、外賣平台、會員同步</td><td class="px-4 py-3">加值或需整合開發</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>報價單最常出現的落差，是「基本月費」只包收銀與簡單報表，<strong>會員、庫存、多店管理與線上線下打通往往逐項收費</strong>。比較時應先列出自己需要的模組，再要求對方按清單報價，避免日後逐項補購推高成本。</p>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-2.webp" alt="收銀系統六大模組：收銀、庫存、會員、報表、支付整合、線上線下打通" title="收銀系統六大模組：收銀、庫存、會員、報表、支付整合、線上線下打通" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">「POS」是一組模組而非單一功能，會員、庫存與線上打通通常屬加值收費</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、三種收費模式：月費、買斷、自訂開發</h2>
+<p>市面收銀方案大致可歸為三種收費模式，分別不只在價錢，更在於資料放在誰手上、功能彈性多大，以及日後換系統的成本。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">比較項目</th><th class="px-4 py-3 text-left">月費 SaaS（雲端訂閱）</th><th class="px-4 py-3 text-left">買斷授權（一次購入）</th><th class="px-4 py-3 text-left">自訂開發</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">起始成本</td><td class="px-4 py-3">低（月費為主）</td><td class="px-4 py-3">中（一次付授權費）</td><td class="px-4 py-3">高（一次付開發費）</td></tr>
+      <tr><td class="px-4 py-3">每月經常性支出</td><td class="px-4 py-3">軟件月費＋加值模組</td><td class="px-4 py-3">維護／更新年費為主</td><td class="px-4 py-3">維護合約為主</td></tr>
+      <tr><td class="px-4 py-3">資料存放位置</td><td class="px-4 py-3">供應商雲端</td><td class="px-4 py-3">多數可自存或指定伺服器</td><td class="px-4 py-3">自選（可自存）</td></tr>
+      <tr><td class="px-4 py-3">功能彈性</td><td class="px-4 py-3">受平台框架限制</td><td class="px-4 py-3">中等，視授權版本</td><td class="px-4 py-3">最高，按需求開發</td></tr>
+      <tr><td class="px-4 py-3">系統相容風險</td><td class="px-4 py-3">低，供應商持續更新</td><td class="px-4 py-3">中，需自行承擔過時</td><td class="px-4 py-3">中，需自行安排維護</td></tr>
+      <tr><td class="px-4 py-3">轉換／搬遷成本</td><td class="px-4 py-3">視匯出能力而定</td><td class="px-4 py-3">較低（資料在手）</td><td class="px-4 py-3">最高（系統需重做）</td></tr>
+      <tr><td class="px-4 py-3">適合對象</td><td class="px-4 py-3">單店、想快速開業、無 IT 人手</td><td class="px-4 py-3">長期穩定、重視資料掌控</td><td class="px-4 py-3">流程特殊、多店或需深度整合</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>值得注意的是，<strong>「買斷」在香港市場常指一次付清軟件授權</strong>，但之後通常仍要付年度維護或更新費，以換取版本升級與技術支援。換言之，買斷只是把「每月付」變成「一次付加每年維護」，並非從此沒有經常性開支。</p>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-3.webp" alt="月費 SaaS、買斷授權與自訂開發三種收費模式的比較示意圖" title="月費 SaaS、買斷授權與自訂開發三種收費模式的比較示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">三種模式的分別在於資料歸屬、功能彈性與日後搬遷成本，不只在月費高低</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、三年總成本計算（示範假設）</h2>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">⚠️ 重要說明：以下全屬示範假設</p>
+  <p class="text-gray-700 leading-relaxed">下表所有金額都是<strong>示範假設</strong>，只為展示「如何計算三年總成本」，<strong>並非任何供應商的真實報價，亦不代表市場劃一價格</strong>。實際價錢視乎供應商、功能、店數、交易量與議價結果，差異可以很大，請以正式報價為準。</p>
+</div>
+
+<p>以下為比較用的<strong>示範假設</strong>：單店、每月營業額 HK$200,000、電子支付佔 60%、平均交易費率 1.8%、三年（36 個月）。費率取 1.8% 是參考第四節公開收費標準的中位水平；三模式共用相同交易量假設，故交易手續費金額相同。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">三年成本項目（單店）</th><th class="px-4 py-3 text-left">模式 A：月費 SaaS</th><th class="px-4 py-3 text-left">模式 B：買斷授權</th><th class="px-4 py-3 text-left">模式 C：自訂開發</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">一次性軟件費／授權／開發</td><td class="px-4 py-3">開通設定 HK$1,500</td><td class="px-4 py-3">授權 HK$18,000</td><td class="px-4 py-3">開發 HK$120,000</td></tr>
+      <tr><td class="px-4 py-3">軟件月費（×36 個月）</td><td class="px-4 py-3">HK$400／月＝HK$14,400</td><td class="px-4 py-3">不適用</td><td class="px-4 py-3">不適用</td></tr>
+      <tr><td class="px-4 py-3">加值模組（×36 個月）</td><td class="px-4 py-3">HK$200／月＝HK$7,200</td><td class="px-4 py-3">一次 HK$4,000</td><td class="px-4 py-3">已含於開發費</td></tr>
+      <tr><td class="px-4 py-3">硬件（收銀機／打印機／錢箱）</td><td class="px-4 py-3">HK$3,500</td><td class="px-4 py-3">HK$6,000</td><td class="px-4 py-3">HK$8,000</td></tr>
+      <tr><td class="px-4 py-3">維護／更新（每年約授權或開發費 15%）</td><td class="px-4 py-3">已含於月費</td><td class="px-4 py-3">HK$8,100</td><td class="px-4 py-3">HK$54,000</td></tr>
+      <tr><td class="px-4 py-3">交易手續費（三年，三模式相同）</td><td class="px-4 py-3">HK$77,760</td><td class="px-4 py-3">HK$77,760</td><td class="px-4 py-3">HK$77,760</td></tr>
+      <tr class="bg-gray-50 font-bold"><td class="px-4 py-3">三年總成本</td><td class="px-4 py-3">HK$104,360</td><td class="px-4 py-3">HK$113,860</td><td class="px-4 py-3">HK$259,760</td></tr>
+      <tr class="bg-gray-50"><td class="px-4 py-3">扣除交易手續費後（即付給 POS 供應商的部分）</td><td class="px-4 py-3">HK$26,600</td><td class="px-4 py-3">HK$36,100</td><td class="px-4 py-3">HK$182,000</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>放在同一框架後可見兩個重點。第一，<strong>交易手續費（示範假設 HK$77,760）在三個模式中金額相同</strong>，因為它取決於營業額與支付方式，而非哪一套 POS。第二，由 POS 模式帶動的成本，月費 SaaS 最低、買斷略高、自訂開發最高——單店而言，自訂開發要回本通常需同時取代多項現成訂閱（POS、會員、網店、報表各一套）。</p>
+
+<p>店數增加時，月費 SaaS 的軟件費與加值模組按店數增加，自訂開發的系統只做一次、之後每店只需硬件與設定，因此<strong>自訂開發在「店數較多、流程特殊」時較有機會追回差距</strong>。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">三年總成本（示範假設）</th><th class="px-4 py-3 text-left">模式 A：月費 SaaS</th><th class="px-4 py-3 text-left">模式 B：買斷授權</th><th class="px-4 py-3 text-left">模式 C：自訂開發</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">單店</td><td class="px-4 py-3">HK$104,360</td><td class="px-4 py-3">HK$113,860</td><td class="px-4 py-3">HK$259,760</td></tr>
+      <tr><td class="px-4 py-3">三間店</td><td class="px-4 py-3">HK$313,080</td><td class="px-4 py-3">HK$341,580</td><td class="px-4 py-3">HK$431,280</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-4.webp" alt="收銀系統三年總成本計算表，列出月費、買斷與自訂開發的各項成本" title="收銀系統三年總成本計算表，列出月費、買斷與自訂開發的各項成本" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">三年的成本要逐項列出：授權、硬件、加值模組、維護與交易手續費，全部金額均為示範假設</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-5.webp" alt="單店與三間店的收銀系統三年總成本比較長條圖" title="單店與三間店的收銀系統三年總成本比較長條圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">店數增加時月費按店數增加，自訂開發的系統開發費卻只需付一次</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、最常被忽略的隱藏成本</h2>
+<p>很多店主比較方案時只計算「月費 × 月數」，結果簽約後才發現成本比預期高。以下幾項是最常被忽略的隱藏成本。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">隱藏成本</th><th class="px-4 py-3 text-left">說明</th><th class="px-4 py-3 text-left">如何避免</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">交易手續費</td><td class="px-4 py-3">按交易額百分比計算，長期金額可觀，且付給支付服務商而非 POS 供應商</td><td class="px-4 py-3">把三年手續費一併計入總成本</td></tr>
+      <tr><td class="px-4 py-3">加值模組</td><td class="px-4 py-3">會員、庫存、多店、進階報表常另收月費</td><td class="px-4 py-3">按需要模組清單報價</td></tr>
+      <tr><td class="px-4 py-3">硬件與配件</td><td class="px-4 py-3">收銀機、打印機、掃碼槍、錢箱可能另購或月租</td><td class="px-4 py-3">確認硬件是買斷還是租用</td></tr>
+      <tr><td class="px-4 py-3">資料匯出費</td><td class="px-4 py-3">部分供應商就匯出資料或報表另行收費</td><td class="px-4 py-3">簽約前先問清楚匯出安排</td></tr>
+      <tr><td class="px-4 py-3">合約綁定與違約金</td><td class="px-4 py-3">多年綁定、中途離場可能要付違約費</td><td class="px-4 py-3">看清合約年期與退出條款</td></tr>
+      <tr><td class="px-4 py-3">設定與啟動費</td><td class="px-4 py-3">開戶、安裝、員工培訓可能收一次性費用</td><td class="px-4 py-3">要求列明一次性收費清單</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>交易手續費最容易被低估。香港信用卡交易一般涉及商戶折扣率（Merchant Discount Rate，MDR）：金管局在信用卡業務監管政策文件中指出，收單機構可就商戶的交易處理、服務或開戶收費，並普遍就信用卡交易徵收折扣率，費率可與商戶商議。公開收費表亦顯示，Visa／Mastercard 交易費約 1.5% 至 2.2%，部分方案另設每月手續費。</p>
+<p>電子錢包方面，八達通公布非交通行業的資金轉賬費為 1.5%（最低 HK$1），商用版應用程式推廣期優惠 1.3%。轉數快（FPS）方面，營運機構香港銀行同業結算有限公司（HKICL）在商戶常見問題中明確表示，<strong>FPS 不會向商戶收取費用</strong>，商戶收款收費由銀行或持牌人決定。可見<strong>支付方式不同，費率差異可以很大，直接影響三年總成本。</strong></p>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-6.webp" alt="收銀系統最常被忽略的五項隱藏成本示意圖" title="收銀系統最常被忽略的五項隱藏成本示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">交易手續費、加值模組、硬件、匯出費與合約綁定，是報價單最常「看不到」的項目</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-7.webp" alt="交易手續費去向示意圖：交易手續費付給銀行或支付服務商而非 POS 供應商" title="交易手續費去向示意圖：交易手續費付給銀行或支付服務商而非 POS 供應商" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">交易手續費付給收單銀行或支付服務商，與採用哪一套 POS 系統無直接關係</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、資料擁有權與搬遷風險</h2>
+<p>月費 SaaS 最常被忽略的長期風險，是資料的擁有權與搬遷成本。當會員名單、銷售紀錄與庫存資料都存放於供應商雲端時，一旦想換系統，「資料能否完整匯出、匯出什麼格式、是否收費」會直接決定轉換成本。</p>
+<ul class="space-y-2 my-6">
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>資料匯出格式。</strong>理想是可匯出成通用 CSV 或 Excel，而非只能以自家工具開啟的專有格式。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>匯出是否收費。</strong>部分供應商就一次匯出或歷史報表另收費用，簽約前應問清楚。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>資料所有權條款。</strong>合約應寫明資料屬於商戶，供應商只是代為儲存與處理。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>停止服務後的安排。</strong>了解終止合約後資料保留多久、以什麼方式交回。</span></li>
+</ul>
+<p>相對而言，買斷授權與自訂開發的資料多數可存放在商戶指定的伺服器或帳戶，搬遷時主動權較大；代價是商戶要自行處理備份、保安與系統更新。選擇哪一種，取決於你重視「省事」還是「掌控」。</p>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-8.webp" alt="資料擁有權與搬遷風險示意圖，比較雲端與自存兩種資料存放方式" title="資料擁有權與搬遷風險示意圖，比較雲端與自存兩種資料存放方式" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">簽約前先確認資料能否完整匯出，是降低日後搬遷風險最有效的一步</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、打通會員系統、網店與電子支付</h2>
+<p>對零售與餐飲店主而言，POS 的價值不只在收錢，更在於能否把線下與線上的資料串連起來；以下三個方向最關鍵。</p>
+<ul class="space-y-2 my-6">
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>會員系統。</strong>線下登記的會員可在網店登入、累積積分、用優惠券，避免線上線下各有一套名單。會員系統常是獨立收費模組，選型時要一併考慮。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>網店同步。</strong>同一件貨品的庫存應在門店與網店之間同步，否則容易出現線上有貨、到店卻缺貨。若正考慮自建電商網站，可先了解<a href="/blog/hong-kong-ecommerce-website-guide/" class="text-[#0f4c81] font-bold hover:underline">開網店與自建電商網站的分別</a>。</span></li>
+  <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>電子支付整合。</strong>信用卡、八達通、FPS、電子錢包的收款應直接反映在 POS 對賬中，減少人手對數；各方式費率與到賬時間不同，要一併考慮成本與現金流。</span></li>
+</ul>
+<p>需留意的是，<strong>這些整合往往不在「基本月費」之內</strong>，而是按項目收費或需要整合開發。比較方案時應把「打通會員、網店、電子支付」列為需求，而非等開業後才補做。</p>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-9.webp" alt="POS 系統打通會員、網店與電子支付的整合示意圖" title="POS 系統打通會員、網店與電子支付的整合示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">會員、庫存與電子支付的線上線下打通，通常屬加值或整合項目而非基本功能</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、零售與餐飲：需求差異</h2>
+<p>零售與餐飲對 POS 的需求不同，選型時要看清自己的行業重點。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">需求重點</th><th class="px-4 py-3 text-left">零售</th><th class="px-4 py-3 text-left">餐飲</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">商品管理</td><td class="px-4 py-3">條碼、尺碼顏色、多規格、退換貨</td><td class="px-4 py-3">菜單、套餐、加配、售罄停售</td></tr>
+      <tr><td class="px-4 py-3">點單流程</td><td class="px-4 py-3">收銀、批量掃碼、快速結賬</td><td class="px-4 py-3">堂食、外賣、分單、加單、桌號</td></tr>
+      <tr><td class="px-4 py-3">庫存</td><td class="px-4 py-3">進銷存、補貨提醒、盤點</td><td class="px-4 py-3">食材用量、成本、損耗</td></tr>
+      <tr><td class="px-4 py-3">會員</td><td class="px-4 py-3">積分、儲值、生日優惠</td><td class="px-4 py-3">常客優惠、訂座、儲值</td></tr>
+      <tr><td class="px-4 py-3">常見支付</td><td class="px-4 py-3">信用卡、八達通、電子錢包</td><td class="px-4 py-3">信用卡、八達通、FPS、電子錢包</td></tr>
+      <tr><td class="px-4 py-3">線上整合</td><td class="px-4 py-3">網店庫存同步、取貨</td><td class="px-4 py-3">外賣平台、線上點餐</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>餐飲尤其看重落單與出單效率，例如前台下單後廚房同步出單；零售則較看重庫存準確與線上線下同步。兩者若共用同一套會員系統，往往需要額外整合。</p>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-10.webp" alt="零售與餐飲對收銀系統需求的差異比較表" title="零售與餐飲對收銀系統需求的差異比較表" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">零售重庫存與線上同步，餐飲重落單與出單效率，選型重點不同</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、選擇檢查清單（10 條）</h2>
+<p>簽約前建議逐項確認以下十點，答案越具體，日後越少爭議。</p>
+<ol class="list-decimal pl-5 space-y-2 text-gray-700 my-4">
+  <li><strong>三年總成本</strong>——軟件、硬件、加值模組、維護與交易手續費一併列出。</li>
+  <li><strong>交易費率</strong>——各支付方式（信用卡、八達通、FPS、電子錢包）的費率。</li>
+  <li><strong>加值模組</strong>——會員、庫存、多店、進階報表是否另收月費，金額多少。</li>
+  <li><strong>硬件安排</strong>——是買斷還是月租，日後維修誰負責。</li>
+  <li><strong>資料擁有權</strong>——合約是否寫明資料屬於商戶。</li>
+  <li><strong>資料匯出</strong>——可否完整匯出，格式是什麼，是否收費。</li>
+  <li><strong>合約年期與違約條款</strong>——綁定幾年，中途離場有何費用。</li>
+  <li><strong>整合能力</strong>——可否接通現有或計劃中的網店、會員與支付。</li>
+  <li><strong>支援與服務水平</strong>——回應時間、保養期、是否有指定聯絡人。</li>
+  <li><strong>遷出安排</strong>——日後換供應商時，資料與系統如何交接。</li>
+</ol>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-11.webp" alt="選擇收銀系統前應核對的十項檢查清單示意圖" title="選擇收銀系統前應核對的十項檢查清單示意圖" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">十項之中最常被忽略：資料匯出、合約綁定與遷出安排</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+
+<div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">月費 SaaS 和一次買斷，哪一種三年後更便宜？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">沒有必然答案。以示範假設的單店情況，月費 SaaS 三年總成本略低於買斷，但差距很小；若店數增加或買斷含較多一次性模組，差距可能反轉。關鍵是把功能需求列清單，再用三年總成本比較，而非只比標價。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">交易手續費是付給 POS 供應商嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。交易手續費一般付給收單銀行或支付服務商，與哪一套 POS 系統無直接關係。POS 供應商有時與支付商合作提供整合方案，但費率由支付商釐定。金管局指出，收單機構可就商戶的交易處理或開戶收費，並普遍就信用卡交易徵收折扣率，費率可與商戶商議。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">香港信用卡和電子支付的收費大約是多少？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">公開收費表顯示，Visa／Mastercard 交易費一般約 1.5% 至 2.2%，部分方案另設每月手續費，實際視收單機構、卡種與交易量而定。八達通非交通行業資金轉賬費為 1.5%（最低 HK$1），推廣期優惠 1.3%。轉數快（FPS）本身不向商戶收費，但銀行或支付商仍可就服務收費。實際費率須向收單機構查詢。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">「買斷」之後是否完全沒有經常性支出？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">實務上很少。買斷通常指一次付清軟件授權，但之後多數仍要付年度維護或更新費，以換取版本升級與技術支援。買斷只是把「每月付」變成「一次付加每年維護」，並非從此沒有經常性開支。簽約時應問清維護費計算與調價機制。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">月費 SaaS 的資料可以拿回來嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">視供應商而定。理想安排是可完整匯出成通用 CSV 或 Excel，且不收費。簽約前應在合約寫明資料屬於商戶，並問清楚匯出格式、是否收費，以及終止服務後資料保留多久、如何交回。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">何時才值得考慮自訂開發 POS？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">當流程限制明顯拖慢營運、需與現有系統深度整合、店數較多，或同時取代多項現成訂閱時，自訂開發才較有機會回本。單店而言，其三年成本一般遠高於現成方案（示範假設約 HK$18 萬對比月費約 HK$2.7 萬），不建議只為一個功能開發。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">零售和餐飲可否用同一套 POS？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但要確認系統同時支援兩邊核心流程。零售重視條碼、多規格與線上庫存同步；餐飲重視落單、出單與桌號管理。若同一品牌同時經營兩者，選型時應確認能否分開設定兩類流程，以及會員資料可否共用。</p>
+  </div>
+</div>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-12.webp" alt="收銀系統常見問題示意圖，涵蓋成本、手續費與資料擁有權" title="收銀系統常見問題示意圖，涵蓋成本、手續費與資料擁有權" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">最常被問到的問題集中在成本結構、手續費歸屬與資料能否帶走</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、總結</h2>
+<p>收銀系統的選擇，核心不是「月費最便宜」，而是「三年總成本與資料掌控」是否配合你的生意。月費 SaaS 起始成本低、上手快，但要留意加值模組與匯出限制；買斷授權彈性較高、資料多在自己手上，但要承擔維護與過時風險；自訂開發彈性最高，起始成本與維護責任同樣最高。無論選哪一種，都應把交易手續費、硬件、加值模組與合約條款一併計入三年總成本再決定。</p>
+<p>本文所有金額均為示範假設，只作計算方法示範，實際以你收到的正式報價為準。若需協助盤點需求、比較方案或整合會員、網店與電子支付，可了解 ADWire 的<a href="/services/system/" class="text-[#0f4c81] font-bold hover:underline">系統開發服務</a>，由需求梳理到上線支援一併處理。</p>
+
+<figure class="blog-figure my-10">
+  <img src="/blog/figures/pos-system-hong-kong-total-cost-13.webp" alt="收銀系統選型總結示意圖：以三年總成本與資料掌控作決定" title="收銀系統選型總結示意圖：以三年總成本與資料掌控作決定" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+  <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先分清「付給 POS 供應商」與「付給支付服務商」的錢，再用三年總成本比較</figcaption>
+</figure>
+
+<div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+  <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+  <ul class="space-y-1">
+    <li><a href="https://fps.hkicl.com.hk/chi/fps/merchants/frequently_asked_questions.php" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港銀行同業結算有限公司（HKICL）：轉數快商戶常見問題</a> — 轉數快不會向商戶收費；商戶收款收費由銀行或持牌人釐定</li>
+    <li><a href="https://www.hktmerchantservices.com/home/en/pdf/CVS_Price_Table.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">HKT Merchant Services：服務收費表</a> — Visa／Mastercard 交易費約 1.5%–2.2%、每月手續費 HK$250；線上收款 Tap &amp; Go／FPS 1.3%</li>
+    <li><a href="https://www.octopus.com.hk/tc/business/become-a-merchant/business-octopus-app/fee/index.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">八達通：商用版八達通應用程式手續費標準收費</a> — 非交通行業資金轉賬費為轉賬金額 1.5%（最低 1 元）；推廣期優惠 1.3%</li>
+    <li><a href="https://brdr.hkma.gov.hk/eng/doc-ldg/docId/getPdf/20260312-3-EN/20260312-3-EN.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：信用卡業務監管政策手冊（諮詢文件 CR-S-5）</a> — 收單機構可就商戶徵收交易處理與開戶費用，並普遍徵收信用卡折扣率</li>
+    <li><a href="https://www.hkma.gov.hk/chi/regulatory-resources/registers/register-of-svf-licensees/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：儲值支付工具持牌人紀錄冊</a> — 支付服務提供者須持牌（八達通、AlipayHK、HKT Payment 等）</li>
+    <li><a href="https://www.hkma.gov.hk/chi/key-functions/international-financial-centre/stored-value-facilities-and-retail-payment-systems/regulatory-regime-for-stored-value-facilities/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：儲值支付工具的監管制度</a> — 《支付系統及儲值支付工具條例》下的儲值支付工具發牌制度</li>
+  </ul>
+  <p class="mt-3">附註：本文第三節成本數字均為<strong>示範假設</strong>，並非供應商真實報價；第四節支付費率引用上述公開收費標準，實際以相關機構最新公布及正式報價為準。</p>
+</div>

@@ -39,6 +39,19 @@ const serviceGroups: {
     ],
   },
   {
+    group: "Consulting",
+    links: [
+      { name: "企業顧問服務",       href: "/services/consulting", emoji: "🧭", badge: "新" },
+    ],
+  },
+  {
+    group: "Industry Solutions",
+    links: [
+      { name: "學校及教育機構",     href: "/services/education",  emoji: "🏫", badge: "新" },
+      { name: "診所及醫療機構",     href: "/services/healthcare", emoji: "🏥", badge: "新" },
+    ],
+  },
+  {
     group: "Cross-border Marketing",
     links: [
       { name: "中國市場推廣",       href: "/services/china-market",     emoji: "🌏", badge: "新" },
