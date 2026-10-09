@@ -1583,15 +1583,23 @@ if (!$delivered) {
 
 if ($delivered) {
     // ── Lead Magnet：向提交者發出自動回覆（附 PDF）────────────────────
-    if ($isLeadMagnet && $mailSecret !== null) {
+    if ($isLeadMagnet && !$isSpam && $mailSecret !== null) {
         $autoReply = sendLeadMagnetAutoReply($mailSecret, $safeEmail, $safeName);
         if (strpos($autoReply, 'OK ') === 0) {
             error_log('[ADWire] lead magnet auto-reply sent: ' . $autoReply);
         } else {
             error_log('[ADWire] lead magnet auto-reply FAILED: ' . $autoReply);
         }
+    } elseif ($isLeadMagnet && $isSpam) {
+        // 防止被當成濫發工具：spam 判定時不向提交者寄信（但 enquiry 已入庫，交由人手跟進）
+        error_log('[ADWire] lead magnet auto-reply skipped (spam-flagged): score=' . $spamScore);
     }
-    jsonResponse(true, $isLeadMagnet ? '清單已發送到你的電郵，我們會盡快聯絡你！' : '查詢已發送，我們會盡快聯絡你！');
+    $okMessage = !$isLeadMagnet
+        ? '查詢已發送，我們會盡快聯絡你！'
+        : ($isSpam
+            ? '我們已收到你的資料，會盡快以人手跟進。'
+            : '清單已發送到你的電郵，我們會盡快聯絡你！');
+    jsonResponse(true, $okMessage);
 } else {
     jsonResponse(false, '發送失敗，請稍後再試或直接聯絡我們。', 500);
 }
