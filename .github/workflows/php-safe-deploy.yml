@@ -1,0 +1,115 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ADWire — 安全 PHP 部署（上傳 → php -l 檢查 → 通過才放入正式位置）
+#
+# 為何需要：
+#   send-mail.php 一旦有 syntax error，整站聯絡表單會回 500（影響真實生意）。
+#   本機冇 PHP，所以借 runner 的 SSH 做兩段式部署：
+#     ① 先 scp 到 webroot 以外的暫存目錄
+#     ② 對所有 .php 執行 php -l
+#     ③ 全部通過才 cp 入正式位置；任何一個失敗就中止，正式檔案不變
+#
+# 用法：
+#   Actions → PHP Safe Deploy → Run workflow
+#   files: 以空格分隔的 webroot 相對路徑（例：send-mail.php downloads/xxx.pdf）
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: PHP Safe Deploy (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      files:
+        description: '要部署的檔案（webroot 相對路徑，空格分隔）'
+        required: true
+        default: 'send-mail.php'
+      install:
+        description: '檢查通過後是否放入正式位置（false = 只檢查，不安裝）'
+        required: true
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare SSH key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SITEGROUND_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          echo '✅ SSH 密鑰已寫入'
+
+      - name: Upload → lint → install
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+          FILES: ${{ github.event.inputs.files }}
+          INSTALL: ${{ github.event.inputs.install }}
+        run: |
+          set -euo pipefail
+          SSH="ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new ${SG_USER}@${SG_HOST}"
+          SCP="scp -i ~/.ssh/deploy_key -P 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new"
+
+          RHOME=$($SSH 'echo $HOME' | tr -d '\r' | tail -1)
+          STAGE="$RHOME/php-staging-$(date +%Y%m%d-%H%M%S)"
+          $SSH "mkdir -p '$STAGE' && echo '✅ 暫存目錄：$STAGE'"
+
+          echo "===== ① 上傳到暫存目錄 ====="
+          for f in $FILES; do
+            if [ ! -f "$f" ]; then echo "::error::本機找不到 $f"; exit 1; fi
+            mkdir -p "$(dirname "$STAGE/$f")" 2>/dev/null || true
+            $SCP "$f" "${SG_USER}@${SG_HOST}:$STAGE/$(basename "$f")"
+            echo "  ↑ $f"
+          done
+
+          echo "===== ② php -l 檢查 ====="
+          FAIL=0
+          for f in $FILES; do
+            base=$(basename "$f")
+            case "$base" in
+              *.php)
+                echo "--- php -l $base"
+                # php -l 的錯誤會輸出到 stderr 並以非 0 結束
+                if $SSH "php -l '$STAGE/$base' 2>&1" ; then
+                  echo "  ✅ $base 語法正確"
+                else
+                  echo "  ❌ $base 語法錯誤"
+                  FAIL=1
+                fi
+                ;;
+              *)
+                echo "--- $base（非 PHP，略過語法檢查）"
+                ;;
+            esac
+          done
+          if [ "$FAIL" != "0" ]; then
+            echo "::error::有檔案未通過 php -l，已中止，正式位置未改動"
+            $SSH "rm -rf '$STAGE'"
+            exit 1
+          fi
+
+          echo "===== ③ 安裝到正式位置 ====="
+          if [ "$INSTALL" != "true" ]; then
+            echo "（install=false：只檢查，不安裝）"
+            $SSH "rm -rf '$STAGE'"
+            exit 0
+          fi
+          for f in $FILES; do
+            base=$(basename "$f")
+            dir=$(dirname "$f"); [ "$dir" = "." ] && dir=""
+            $SSH "mkdir -p '$SG_PATH/$dir' && cp -f '$STAGE/$base' '$SG_PATH/$f' && ls -la '$SG_PATH/$f'"
+          done
+
+          echo "===== ④ 部署後驗證 ====="
+          $SSH "ls -la '$SG_PATH/send-mail.php'; echo '--- downloads ---'; ls -la '$SG_PATH/downloads/' 2>/dev/null | head -12"
+          $SSH "rm -rf '$STAGE' && echo '✅ 暫存目錄已清除'"
+          echo "✅ 完成（若 send-mail.php 有問題，可用 git 還原後重新部署）"
