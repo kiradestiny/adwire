@@ -1,0 +1,176 @@
+[
+ {
+  "slug": "hong-kong-public-sector-system-procurement-guide",
+  "cat": "System Dev",
+  "img": "/blog/hong-kong-public-sector-system-procurement-guide.webp",
+  "title": "政府、公營機構及 NGO 系統開發：報價與採購要求指南（GITP／SOA-QPS5）"
+ },
+ {
+  "slug": "hong-kong-ecommerce-website-guide",
+  "cat": "Web Design",
+  "img": "/blog/hong-kong-ecommerce-website-guide.webp",
+  "title": "香港網店及電商網站指南：平台 vs 自建、成本、轉換與 SEO"
+ },
+ {
+  "slug": "xiaohongshu-marketing-hong-kong-guide",
+  "cat": "China Market",
+  "img": "/blog/xiaohongshu-marketing-hong-kong-guide-2026.webp",
+  "title": "小紅書 Marketing 攻略：香港品牌實戰指南"
+ },
+ {
+  "slug": "kol-marketing-hong-kong-guide",
+  "cat": "Digital Marketing",
+  "img": "/blog/kol-marketing-hong-kong-guide-2026.webp",
+  "title": "KOL 網紅營銷指南：香港中小企選型、報價與成效"
+ },
+ {
+  "slug": "video-production-hong-kong-guide",
+  "cat": "Production",
+  "img": "/blog/video-production-hong-kong-guide-2026.webp",
+  "title": "企業影片製作：香港公司如何選擇製作公司、報價與交付標準"
+ },
+ {
+  "slug": "social-media-management-hong-kong-guide",
+  "cat": "Digital Marketing",
+  "img": "/blog/social-media-management-hong-kong-guide-2026.webp",
+  "title": "社交媒體管理：香港企業外判代管服務如何選擇、月費與成效量度"
+ },
+ {
+  "slug": "china-market-strategy-hong-kong",
+  "cat": "China Market",
+  "img": "/blog/china-market-strategy-hong-kong-2026.webp",
+  "title": "中國市場推廣策略：香港品牌進入內地的資源分配與量度指南"
+ },
+ {
+  "slug": "ai-reduce-hong-kong-business-labour-cost",
+  "cat": "AI Technology",
+  "img": "/blog/ai-reduce-hong-kong-business-labour-cost-2026.webp",
+  "title": "AI 如何幫香港企業減低人手及營運成本？"
+ },
+ {
+  "slug": "ai-agent-hong-kong-business-guide",
+  "cat": "AI Technology",
+  "img": "/blog/ai-agent-hong-kong-business-guide-2026.webp",
+  "title": "AI Agent 是什麼？香港企業應用與 AI Agency 選擇指南"
+ },
+ {
+  "slug": "hong-kong-ai-chatbot-customer-service-guide",
+  "cat": "AI Technology",
+  "img": "/blog/hong-kong-ai-chatbot-customer-service-guide-2026.webp",
+  "title": "AI 客服及 Chatbot 選型指南：香港企業實務比較"
+ },
+ {
+  "slug": "ai-automation-roi-hong-kong",
+  "cat": "Automation",
+  "img": "/blog/ai-automation-roi-hong-kong-2026.webp",
+  "title": "AI 自動化 ROI 怎樣計？香港企業成本效益評估框架"
+ },
+ {
+  "slug": "geo-generative-engine-optimization-guide",
+  "cat": "SEO（搜尋引擎優化，Search Engine Optimization） & AI",
+  "img": "/blog/geo-generative-engine-optimization-guide-2026.webp",
+  "title": "GEO 生成式引擎優化完整指南：官方文件與學術研究怎麼說"
+ },
+ {
+  "slug": "how-to-choose-seo-company-hong-kong",
+  "cat": "SEO & AI",
+  "img": "/blog/how-to-choose-seo-company-hong-kong-2026.webp",
+  "title": "香港 SEO 公司如何選擇？Google 官方問題清單與危險信號"
+ },
+ {
+  "slug": "crm-system-selection-guide-hong-kong",
+  "cat": "System Dev",
+  "img": "/blog/crm-system-selection-guide-hong-kong-2026.webp",
+  "title": "CRM 系統選型指南：香港中小企五大平台定價與導入成本"
+ },
+ {
+  "slug": "core-web-vitals-website-speed-guide",
+  "cat": "Web Design",
+  "img": "/blog/core-web-vitals-website-speed-guide-2026.webp",
+  "title": "網站速度及 Core Web Vitals 完整指南：LCP、INP、CLS 官方標準"
+ },
+ {
+  "slug": "app-development-cost-guide-hong-kong",
+  "cat": "System Dev",
+  "img": "/blog/app-development-cost-guide-hong-kong-2026.webp",
+  "title": "App 開發及內部工具：香港企業成本結構與流程指南"
+ },
+ {
+  "slug": "hong-kong-government-ai-digital-funding",
+  "cat": "AI Technology",
+  "img": "/blog/hong-kong-government-ai-digital-funding-2026.webp",
+  "title": "香港政府 AI 及數碼轉型資助：BUD、申請易、電商易與 NITTP 完整指南"
+ },
+ {
+  "slug": "rpa-hong-kong-guide",
+  "cat": "Automation",
+  "img": "/blog/rpa-hong-kong-guide-2026.webp",
+  "title": "RPA 是什麼？香港企業機械人流程自動化導入指南"
+ },
+ {
+  "slug": "hong-kong-web-design-pricing-guide",
+  "cat": "Web Design",
+  "img": "/blog/hong-kong-web-design-pricing-guide-2026.webp",
+  "title": "香港網頁設計價錢完全指南：最新收費、報價陷阱與選擇公司的方法"
+ },
+ {
+  "slug": "ai-solution-hong-kong-enterprise-guide",
+  "cat": "AI Technology",
+  "img": "/blog/ai-solution-hong-kong-enterprise-guide-2026.webp",
+  "title": "香港企業 AI 化完全指南：政策、痛點與低風險導入路線"
+ },
+ {
+  "slug": "hong-kong-brand-china-market-guide",
+  "cat": "China Market",
+  "img": "/blog/hong-kong-brand-china-market-guide-2026.webp",
+  "title": "小紅書、抖音、微信、百度實戰攻略：香港品牌進軍內地平台指南"
+ },
+ {
+  "slug": "google-meta-ads-guide",
+  "cat": "Ads Strategy",
+  "img": "/blog/google-meta-ads-guide-2026.webp",
+  "title": "Google 與 Meta 廣告投放完全指南：AI 時代素材先行的制勝法則"
+ },
+ {
+  "slug": "hong-kong-seo-geo-guide",
+  "cat": "SEO & AI",
+  "img": "/blog/hong-kong-seo-geo-guide-2026.webp",
+  "title": "香港 SEO 實施指南：本地搜尋、多語與 AI 搜尋路線圖"
+ },
+ {
+  "slug": "seo-vs-geo",
+  "cat": "SEO & AI",
+  "img": "/blog/seo-vs-geo-2025-2026.webp",
+  "title": "SEO 與 GEO 分別是什麼？香港企業決策比較指南"
+ },
+ {
+  "slug": "short-video-marketing-guide",
+  "cat": "Social Media",
+  "img": "/blog/short-video-marketing-guide-2026.webp",
+  "title": "短視頻營銷香港：抖音、Reels、小紅書實戰攻略"
+ },
+ {
+  "slug": "marketing-automation-roi",
+  "cat": "Automation",
+  "img": "/blog/marketing-automation-roi-2026.webp",
+  "title": "流程自動化香港中小企：跨系統工作流程設計實戰"
+ },
+ {
+  "slug": "high-converting-landing-page",
+  "cat": "Web Design",
+  "img": "/blog/high-converting-landing-page-2026.webp",
+  "title": "Landing Page 優化香港：高轉換率設計與測試實戰指南"
+ },
+ {
+  "slug": "stop-wasting-ad-budget",
+  "cat": "Ads Strategy",
+  "img": "/blog/stop-wasting-ad-budget-2026.webp",
+  "title": "Facebook、Instagram 廣告優化香港：降低獲客成本實戰"
+ },
+ {
+  "slug": "custom-system-efficiency",
+  "cat": "System Dev",
+  "img": "/blog/custom-system-efficiency-2026.webp",
+  "title": "度身訂造系統香港：取代 Excel 的範圍、資料模型與權限實戰"
+ }
+]
