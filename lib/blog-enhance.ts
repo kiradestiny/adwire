@@ -37,12 +37,28 @@ function slugifyHeading(text: string, fallbackIndex: number): string {
  * 為文章內容的所有 H2/H3 加入 id，並同時輸出目錄。
  * 同時移除標題內的 emoji（heading 用純文字）。
  */
+/**
+ * 標題層級正規化 — 全站文章正文原本只用 <h3> 當主章節（H1 → H3 跳級），
+ * 對 SEO／GEO 語意、目錄層級及無障礙都不理想。
+ * 若正文完全沒有 <h2>，便把 <h3> 提升為 <h2>、<h4> 提升為 <h3>。
+ * （注意次序：必須先 h3→h2、再 h4→h3，否則會被連鎖改錯。）
+ */
+export function normalizeHeadingLevels(html: string): string {
+  if (/<h2[\s>]/i.test(html)) return html; // 已有 h2 就不再動
+  return html
+    .replace(/<h3([^>]*)>/gi, "<h2$1>")
+    .replace(/<\/h3>/gi, "</h2>")
+    .replace(/<h4([^>]*)>/gi, "<h3$1>")
+    .replace(/<\/h4>/gi, "</h3>");
+}
+
 export function buildTocAndInjectIds(html: string): { html: string; toc: TocItem[] } {
+  const normalized = normalizeHeadingLevels(html);
   const toc: TocItem[] = [];
   const usedIds = new Set<string>();
   let index = 0;
 
-  const nextHtml = html.replace(
+  const nextHtml = normalized.replace(
     /<(h2|h3)([^>]*)>([\s\S]*?)<\/\1>/gi,
     (_match, tag: string, attrs: string, inner: string) => {
       index += 1;

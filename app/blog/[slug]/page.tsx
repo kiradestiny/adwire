@@ -188,16 +188,15 @@ function FaqSchema({ faqs }: { faqs: FaqItem[] }) {
 }
 
 /* 文章目錄 — 改善可爬性及 AI 可引用性（長文適用）
+   只列主章節（H2），避免目錄過長（手機尤其重要）。
    手機版預設摺疊（<details>），避免佔滿第一屏、阻住「直接答案」；
-   桌面版常駐展開。同一份 toc 只渲染一次資料，兩邊各自顯示。 */
+   桌面版常駐展開。 */
 function TocList({ toc }: { toc: TocItem[] }) {
   return (
     <ol className="space-y-0.5 text-[0.95rem] md:text-sm">
       {toc.map((item) => (
-        <li key={item.id} className={item.level === 3 ? "toc-l3" : "toc-l2"}>
-          <a href={`#${item.id}`}>
-            {item.level === 2 ? item.text : `· ${item.text}`}
-          </a>
+        <li key={item.id} className="toc-l2">
+          <a href={`#${item.id}`}>{item.text}</a>
         </li>
       ))}
     </ol>
@@ -205,7 +204,8 @@ function TocList({ toc }: { toc: TocItem[] }) {
 }
 
 function TableOfContents({ toc }: { toc: TocItem[] }) {
-  if (toc.length < 3) return null;
+  const items = toc.filter((item) => item.level === 2);
+  if (items.length < 3) return null;
   return (
     <>
       {/* 手機：摺疊式目錄 */}
@@ -229,7 +229,7 @@ function TableOfContents({ toc }: { toc: TocItem[] }) {
           </svg>
         </summary>
         <div className="px-5 pb-5 pt-3 border-t border-gray-100">
-          <TocList toc={toc} />
+          <TocList toc={items} />
         </div>
       </details>
 
@@ -241,7 +241,7 @@ function TableOfContents({ toc }: { toc: TocItem[] }) {
         <h2 className="text-sm font-bold text-[#0f4c81] uppercase tracking-wider mb-4">
           文章目錄
         </h2>
-        <TocList toc={toc} />
+        <TocList toc={items} />
       </nav>
     </>
   );
