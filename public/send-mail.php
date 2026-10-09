@@ -648,6 +648,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // ── Rate Limit Check ──────────────────────────────────────────────────
 // [FIX #2] 使用較可信的來源 IP，避免 X-Forwarded-For 被偽造
 $clientIp = getClientIp();
+// 內部請求（由伺服器本身發出，例如部署後的 smoke test）：
+//   只認 REMOTE_ADDR 為 loopback —— 此值由伺服器設定，無法由外部偽造。
+//   用途：內部測試沒有瀏覽器、無法取得 Turnstile token，否則會被誤判為 spam。
+//   這只是「免去缺 token 的罰分」，其餘 spam 檢查一律照跑。
+$isInternalRequest = in_array($clientIp, ['127.0.0.1', '::1'], true);
 
 if (!checkRateLimit('ip', $clientIp, 60, 3)) {
     header('Retry-After: 60');
@@ -1008,8 +1013,10 @@ if ($gibberishFields !== []) {
 // 門檻：>= 55 分 → 隔離（標記 spam，仍然保存記錄、仍然寄通知）
 // 冇附帶 Turnstile token：前端表單一定會帶，缺咗屬強烈機械人訊號。
 // 用評分而非硬性拒收 —— 避免「真客被 ad-blocker 擋住 Turnstile script」時白白走客。
-if ($turnstileStatus === 'missing') {
+if ($turnstileStatus === 'missing' && !$isInternalRequest) {
     addSpamScore($spamScore, $spamReasons, 60, '未通過 Cloudflare Turnstile 驗證（提交未附帶 token）');
+} elseif ($turnstileStatus === 'missing' && $isInternalRequest) {
+    error_log('[ADWire] turnstile missing but internal request (loopback) → 免罰分');
 }
 
 $isSpam = $spamScore >= 55;

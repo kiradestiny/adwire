@@ -75,7 +75,8 @@ jobs:
            "service":"學校項目報價清單"}
           JSON
           )
-          RESP=\$(curl -s -m 60 -X POST "https://adwire.com.hk/send-mail.php" \\
+          RESP=\$(curl -sk -m 60 -X POST "https://127.0.0.1/send-mail.php" \\
+            -H "Host: adwire.com.hk" \\
             -H "Content-Type: application/json" \\
             -H "Origin: https://adwire.com.hk" \\
             --data-binary "\$PAYLOAD" 2>&1)
