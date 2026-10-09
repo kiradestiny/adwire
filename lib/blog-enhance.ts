@@ -60,7 +60,12 @@ export function buildTocAndInjectIds(html: string): { html: string; toc: TocItem
     }
   );
 
-  return { html: nextHtml, toc };
+  // 表格自動包上可橫向捲動的容器（手機版避免字被壓扁、對位錯亂）
+  const withTableWrap = nextHtml
+    .replace(/<table([^>]*)>/gi, (_m, attrs: string) => `<div class="table-wrap"><table${attrs}>`)
+    .replace(/<\/table>/gi, "</table></div>");
+
+  return { html: withTableWrap, toc };
 }
 
 /** 移除標題文字內的 emoji（包含行內標記中的 emoji） */

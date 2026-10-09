@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
       {/* Content */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none text-gray-600">
+          <div className="article-prose max-w-none">
             <p>
               ADWire Agency Limited（下稱「我們」或「本公司」）致力於保護你的個人私隱。本私隱政策旨在說明我們如何收集、使用、披露及保護你的個人資料。
             </p>

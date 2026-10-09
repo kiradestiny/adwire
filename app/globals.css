@@ -468,3 +468,170 @@ body {
     display: none !important;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   文章內文排版 (.article-prose) — 手機優先
+   ── 修正：專案未安裝 @tailwindcss/typography，tailwind.config 的
+      plugins 為空，原本 JSX 上的 `prose prose-lg` 完全沒有產生任何
+      CSS，導致文章內的 h2/h3/p/ul/table 被 Preflight 清空樣式
+      （零行距、標題無層級、影格無框線、清單無圓點）。
+      此區塊以手機優先重寫，並取代 prose 的依賴。
+   ══════════════════════════════════════════════════════════════ */
+.article-prose {
+  color: #374151;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.95;
+  letter-spacing: 0.005em;
+  overflow-wrap: break-word;
+}
+@media (min-width: 768px) {
+  .article-prose { font-size: 1.125rem; line-height: 1.9; }
+}
+/* Preflight 清空了所有 margin，這裡補回區塊間距 */
+.article-prose > * + * { margin-top: 1.375rem; }
+@media (min-width: 768px) {
+  .article-prose > * + * { margin-top: 1.5rem; }
+}
+.article-prose p { margin: 0; }
+
+.article-prose h2 {
+  font-size: 1.375rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #0f4c81;
+  margin-top: 2.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid rgba(245, 166, 35, 0.45);
+  scroll-margin-top: 6rem;
+}
+.article-prose h3 {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #0f4c81;
+  margin-top: 2rem;
+  scroll-margin-top: 6rem;
+}
+.article-prose h4 { font-size: 1rem; font-weight: 700; color: #1f2937; }
+@media (min-width: 768px) {
+  .article-prose h2 { font-size: 1.75rem; margin-top: 3.25rem; }
+  .article-prose h3 { font-size: 1.375rem; margin-top: 2.25rem; }
+}
+.article-prose h2 + *,
+.article-prose h3 + * { margin-top: 0.9rem; }
+
+.article-prose strong { font-weight: 700; color: #111827; }
+
+.article-prose ul,
+.article-prose ol { padding-left: 1.4rem; }
+.article-prose ul { list-style: disc; }
+.article-prose ol { list-style: decimal; }
+.article-prose li { margin-top: 0.6rem; line-height: 1.85; }
+.article-prose li::marker { color: #f5a623; font-weight: 700; }
+.article-prose li > ul,
+.article-prose li > ol { margin-top: 0.6rem; }
+
+.article-prose a {
+  color: #0f4c81;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.article-prose a:hover { color: #f5a623; }
+
+.article-prose blockquote {
+  border-left: 4px solid #0f4c81;
+  background: #eff6ff;
+  padding: 0.9rem 1.1rem;
+  border-radius: 0 0.9rem 0.9rem 0;
+  color: #374151;
+}
+.article-prose blockquote p + p { margin-top: 0.75rem; }
+
+.article-prose code {
+  background: #f1f5f9;
+  border-radius: 0.35rem;
+  padding: 0.12rem 0.35rem;
+  font-size: 0.9em;
+}
+.article-prose pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 0.9rem;
+  padding: 1.1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.article-prose pre code { background: transparent; padding: 0; color: inherit; }
+
+/* ── 表格（由 lib/blog-enhance.ts 自動包上 .table-wrap）── */
+.article-prose .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.9rem;
+  background: #fff;
+  margin-top: 1.5rem;
+}
+.article-prose table {
+  width: 100%;
+  min-width: 20rem;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+.article-prose thead th {
+  background: #0f4c81;
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  vertical-align: middle;
+}
+.article-prose tbody td {
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid #eef2f7;
+  vertical-align: top;
+  text-align: left;
+}
+.article-prose tbody tr:nth-child(even) { background: #f8fafc; }
+.article-prose td strong { color: #0f4c81; }
+
+/* ── 內文圖片 ── */
+.article-prose figure.blog-figure { margin-top: 1.75rem; }
+.article-prose figure.blog-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.9rem;
+  border: 1px solid #eef2f7;
+}
+.article-prose figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: #6b7280;
+  text-align: center;
+}
+
+.article-prose hr { border: 0; border-top: 1px solid #e5e7eb; }
+
+/* ══════════════════════════════════════════════════════════════
+   文章目錄 (.article-toc) — 手機預設摺疊，桌面展開
+   ══════════════════════════════════════════════════════════════ */
+.article-toc summary { list-style: none; cursor: pointer; }
+.article-toc summary::-webkit-details-marker { display: none; }
+.article-toc .toc-chevron { transition: transform 0.2s ease; }
+.article-toc[open] .toc-chevron { transform: rotate(180deg); }
+.article-toc ol { counter-reset: toc; }
+.article-toc li a {
+  display: block;
+  padding: 0.3rem 0;
+  color: #4b5563;
+  line-height: 1.65;
+  text-decoration: none;
+}
+.article-toc li a:hover { color: #0f4c81; }
+.article-toc li.toc-l3 a { padding-left: 1.1rem; font-size: 0.9375rem; }

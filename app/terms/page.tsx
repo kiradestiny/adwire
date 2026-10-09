@@ -38,7 +38,7 @@ export default function TermsOfServicePage() {
       {/* Content */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none text-gray-600">
+          <div className="article-prose max-w-none">
             <p>
               歡迎使用 ADWire Agency Limited（下稱「我們」或「本公司」）的網站及服務。使用本網站即表示你同意遵守以下服務條款。如你不同意本條款，請停止使用本網站。
             </p>

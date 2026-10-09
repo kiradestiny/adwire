@@ -38,7 +38,7 @@ export default function DisclaimerPage() {
       {/* Content */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none text-gray-600">
+          <div className="article-prose max-w-none">
             <p>
               本網站（ADWire Agency Limited）所載的資料僅供一般參考之用。雖然我們已盡力確保資料的準確性，但我們不對該等資料的完整性、準確性、可靠性、適用性或可用性作任何明示或暗示的陳述或保證。
             </p>

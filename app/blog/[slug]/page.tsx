@@ -187,31 +187,63 @@ function FaqSchema({ faqs }: { faqs: FaqItem[] }) {
   );
 }
 
-/* 文章目錄 — 改善可爬性及 AI 可引用性（長文適用） */
+/* 文章目錄 — 改善可爬性及 AI 可引用性（長文適用）
+   手機版預設摺疊（<details>），避免佔滿第一屏、阻住「直接答案」；
+   桌面版常駐展開。同一份 toc 只渲染一次資料，兩邊各自顯示。 */
+function TocList({ toc }: { toc: TocItem[] }) {
+  return (
+    <ol className="space-y-0.5 text-[0.95rem] md:text-sm">
+      {toc.map((item) => (
+        <li key={item.id} className={item.level === 3 ? "toc-l3" : "toc-l2"}>
+          <a href={`#${item.id}`}>
+            {item.level === 2 ? item.text : `· ${item.text}`}
+          </a>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 function TableOfContents({ toc }: { toc: TocItem[] }) {
   if (toc.length < 3) return null;
   return (
-    <nav
-      aria-label="文章目錄"
-      className="bg-gray-50 border border-gray-100 rounded-2xl p-6 mb-12"
-    >
-      <h2 className="text-sm font-bold text-[#0f4c81] uppercase tracking-wider mb-4">
-        文章目錄
-      </h2>
-      <ol className="space-y-2 text-sm">
-        {toc.map((item) => (
-          <li key={item.id} className={item.level === 3 ? "pl-5" : ""}>
-            <a
-              href={`#${item.id}`}
-              className="text-gray-600 hover:text-[#0f4c81] transition-colors leading-relaxed"
-            >
-              {item.level === 2 ? "" : "· "}
-              {item.text}
-            </a>
-          </li>
-        ))}
-      </ol>
-    </nav>
+    <>
+      {/* 手機：摺疊式目錄 */}
+      <details className="article-toc md:hidden bg-gray-50 border border-gray-100 rounded-2xl mb-10 overflow-hidden">
+        <summary className="flex items-center justify-between px-5 py-4">
+          <span className="text-sm font-bold text-[#0f4c81] tracking-wide">
+            文章目錄（點擊展開）
+          </span>
+          <svg
+            className="toc-chevron shrink-0"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#0f4c81"
+            strokeWidth="2"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </summary>
+        <div className="px-5 pb-5 pt-3 border-t border-gray-100">
+          <TocList toc={toc} />
+        </div>
+      </details>
+
+      {/* 桌面：常駐目錄 */}
+      <nav
+        aria-label="文章目錄"
+        className="article-toc hidden md:block bg-gray-50 border border-gray-100 rounded-2xl p-6 mb-12"
+      >
+        <h2 className="text-sm font-bold text-[#0f4c81] uppercase tracking-wider mb-4">
+          文章目錄
+        </h2>
+        <TocList toc={toc} />
+      </nav>
+    </>
   );
 }
 
@@ -343,8 +375,8 @@ export default async function BlogPost({
       <Navbar />
 
       <article className="pt-32 pb-20">
-        {/* ── 麵包屑導航 (BreadcrumbNav) ── */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+        {/* ── 麵包屑導航 (BreadcrumbNav) — 手機隱藏，避免佔用第一屏（SEO 由 JSON-LD 承擔）── */}
+        <div className="hidden md:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
           <nav aria-label="麵包屑導航" className="flex items-center gap-1.5 text-sm text-gray-500">
             <Link
               href="/"
@@ -379,7 +411,8 @@ export default async function BlogPost({
             <ArrowLeft size={16} /> 返回所有文章
           </Link>
 
-          <div className="flex flex-wrap gap-2 mb-6">
+          {/* 標籤 — 手機隱藏（頁尾已有完整標籤），桌面保留 */}
+          <div className="hidden md:flex flex-wrap gap-2 mb-6">
             <span className="bg-[#f5a623]/10 text-[#f5a623] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
               {post.category}
             </span>
@@ -393,12 +426,12 @@ export default async function BlogPost({
             ))}
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-bold text-[#0f4c81] mb-6 leading-tight max-w-4xl">
+          <h1 className="text-[1.75rem] leading-[1.3] md:text-5xl md:leading-tight font-bold text-[#0f4c81] mb-5 md:mb-6 max-w-4xl">
             {post.title}
           </h1>
 
           {/* 文章摘要 — 方便 AI 引用的顯眼摘要區 */}
-          <p className="text-lg text-gray-600 max-w-3xl mb-8 leading-relaxed bg-blue-50 border-l-4 border-[#0f4c81] px-5 py-4 rounded-r-xl">
+          <p className="text-[1rem] md:text-lg text-gray-600 max-w-3xl mb-7 md:mb-8 leading-relaxed bg-blue-50 border-l-4 border-[#0f4c81] px-4 py-4 md:px-5 rounded-r-xl">
             {post.excerpt}
           </p>
 
@@ -427,9 +460,9 @@ export default async function BlogPost({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* 左側：主要內容 */}
           <div className="lg:col-span-2">
-            {/* 封面圖 */}
+            {/* 封面圖 — 用 aspect-video 完全對應 16:9 原圖比例，不再被裁切 */}
             <div
-              className={`w-full h-64 md:h-96 rounded-3xl bg-gradient-to-br ${post.imageColor} shadow-lg mb-12 relative overflow-hidden`}
+              className={`w-full aspect-video rounded-2xl md:rounded-3xl bg-gradient-to-br ${post.imageColor} shadow-lg mb-10 md:mb-12 relative overflow-hidden`}
             >
               {post.image ? (
                 <Image
@@ -449,7 +482,7 @@ export default async function BlogPost({
 
             {/* 文章內容（已注入 heading id、目錄 anchor 及中段 CTA）*/}
             <div
-              className="prose prose-lg prose-blue max-w-none text-gray-600 mb-16"
+              className="article-prose max-w-none mb-16"
               dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
 
