@@ -1,0 +1,57 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ADWire — 讀取伺服器 PHP error log（手動，唯讀）
+# 用途：診斷 send-mail.php 的 lead magnet / spam / SMTP 行為，無需重新提交表單。
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Read Server Log (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      grep:
+        description: '要搜尋的字串（預設 ADWire）'
+        required: true
+        default: 'ADWire'
+      lines:
+        description: '最多顯示幾行'
+        required: true
+        default: '40'
+
+permissions:
+  contents: read
+
+jobs:
+  readlog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare SSH key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SITEGROUND_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+      - name: Tail error log
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+          NEEDLE: ${{ github.event.inputs.grep }}
+          MAXLINES: ${{ github.event.inputs.lines }}
+        run: |
+          set -uo pipefail
+          ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
+            "${SG_USER}@${SG_HOST}" bash -s <<REMOTE
+          set -u
+          WEB="${SG_PATH}"
+          echo "===== 尋找 error log ====="
+          for L in "\$HOME/php_errorlog" "\$WEB/php_errorlog" "\$HOME/public_html/php_errorlog" \
+                   "\$HOME/logs/php_errorlog" "\$HOME/php_error_log" "\$WEB/error_log"; do
+            if [ -f "\$L" ]; then
+              echo "找到：\$L  （\$(wc -l < "\$L") 行，最後修改 \$(date -r "\$L" '+%Y-%m-%d %H:%M'))"
+              echo "--- 最後 ${MAXLINES} 條含『${NEEDLE}』的紀錄 ---"
+              grep -a "${NEEDLE}" "\$L" 2>/dev/null | tail -${MAXLINES}
+              echo "--- 完 ---"
+            fi
+          done
+          echo "(以上找不到任何檔案就代表 log 不在這些常見位置)"
+          REMOTE
