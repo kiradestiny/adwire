@@ -56,9 +56,13 @@ jobs:
 
           echo ""
           echo "===== ② 由 localhost POST 表單 ====="
+          # 伺服器要求「提交時間 − 表單開啟時間 >= 4 秒」，所以回填 15 秒前
+          START=\$(date -u -d '-15 seconds' +%Y-%m-%dT%H:%M:%SZ)
+          echo "formStartedAt = \$START"
           PAYLOAD=\$(cat <<JSON
           {"name":"ADWire 自動測試","phone":"95861027","email":"\$EMAIL","orgType":"中學",
            "consent":true,"formType":"education-quote-checklist","source":"smoke-test",
+           "formStartedAt":"\$START",
            "message":"ADWire 自動化測試訊息，可忽略。","service":"學校項目報價清單"}
           JSON
           )
