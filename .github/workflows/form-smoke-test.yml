@@ -64,7 +64,7 @@ jobs:
            "company":"香港示範中學","companySite":"www.example.edu.hk","orgType":"中學",
            "consent":true,"formType":"education-quote-checklist","source":"smoke-test",
            "formStartedAt":"\$START",
-           "message":"你好，我們學校正準備資訊科技項目，想了解報價流程與所需文件。謝謝。",
+           "message":"你好，我們學校正準備資訊科技項目，想了解報價流程與所需文件。謝謝。（測試 \$START）",
            "service":"學校項目報價清單"}
           JSON
           )
@@ -110,9 +110,18 @@ jobs:
           ' 2>&1 || echo "（DB 檢查略過）"
 
           echo ""
-          echo "===== ④ 最近錯誤日誌 ====="
-          for L in "\$HOME/public_html/error_log" "\$WEB/error_log" "\$HOME/logs/error_log"; do
-            [ -f "\$L" ] && { echo "--- \$L"; grep -i "ADWire\\|lead magnet\\|smtp" "\$L" | tail -12; }
+          echo "===== ④ 最近的 ADWire 錯誤日誌（含 spam 原因）====="
+          LOGFILE=\$(php -r 'echo ini_get("error_log");' 2>/dev/null)
+          echo "ini error_log = \${LOGFILE:-（空）}"
+          for L in "\$LOGFILE" "\$WEB/error_log" "\$HOME/public_html/error_log" "\$HOME/logs/error_log" "\$HOME/.logs/error_log"; do
+            if [ -n "\$L" ] && [ -f "\$L" ]; then
+              echo "--- \$L （最後 20 條 ADWire）"
+              grep -a "ADWire" "\$L" 2>/dev/null | tail -20
+              break
+            fi
           done
+          echo ""
+          echo "===== ⑤ phpinfo 關鍵設定 ====="
+          php -r 'echo "display_errors=", ini_get("display_errors"), " error_log=", ini_get("error_log"), "\n";' 2>&1
           echo "✅ Smoke test 完成"
           REMOTE
