@@ -531,14 +531,55 @@ body {
 .article-prose li > ul,
 .article-prose li > ol { margin-top: 0.6rem; }
 
-.article-prose a {
+/* 注意：必須排除自帶背景色的連結（例如 CTA 按鈕 class 內有 bg-[...]）。
+   否則 .article-prose a 的 color（specificity 0-1-1）會蓋過 Tailwind 的
+   text-white（0-1-0），變成「藍字落藍底」→ 按鈕文字隱形。 */
+.article-prose a:not([class*="bg-"]) {
   color: #0f4c81;
   font-weight: 600;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
-.article-prose a:hover { color: #f5a623; }
+.article-prose a:not([class*="bg-"]):hover { color: #f5a623; }
+/* CTA 按鈕（自帶背景）：hover 只微調底色，文字色由 Tailwind utility 決定 */
+.article-prose a[class*="bg-"] { text-decoration: none; font-weight: 700; }
+
+/* ── 文章內文中段 CTA（模板注入，不依賴 Tailwind utility，避免被 prose 規則蓋過）── */
+.article-cta {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  border: 1px solid rgba(15, 76, 129, 0.15);
+  background: rgba(15, 76, 129, 0.04);
+  border-radius: 1rem;
+}
+.article-cta .cta-title {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  color: #0f4c81;
+}
+.article-cta .cta-desc {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #4b5563;
+}
+.article-cta .cta-btn {
+  display: inline-block;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  background: #0f4c81;
+  color: #ffffff !important;          /* !important：防止任何 prose 規則把文字變藍→隱形 */
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease;
+}
+.article-cta .cta-btn:hover,
+.article-cta .cta-btn:focus-visible {
+  background: #0d4372;
+  color: #ffffff !important;
+}
 
 .article-prose blockquote {
   border-left: 4px solid #0f4c81;

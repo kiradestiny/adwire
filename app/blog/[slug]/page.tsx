@@ -352,10 +352,10 @@ export default async function BlogPost({
   const serviceLinks = getServiceLinks(post);
   // 4) 中段上下文 CTA（在第 3 個 H2 之前插入，避免短文開頭即推銷）
   const midArticleCta = `
-    <div class="my-10 rounded-2xl border border-[#0f4c81]/15 bg-[#0f4c81]/[0.04] p-6">
-      <p class="font-bold text-[#0f4c81] mb-2">想了解實際交付範圍及報價方式？</p>
-      <p class="text-gray-600 text-sm mb-4">可以先把你的需求講清楚，我們會回覆可行的做法、範圍、時間及收費方式，不需要一開始就決定合作。</p>
-      <a href="/contact" class="inline-block bg-[#0f4c81] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#0d4372] transition-colors">提交項目需求</a>
+    <div class="article-cta">
+      <p class="cta-title">想了解實際交付範圍及報價方式？</p>
+      <p class="cta-desc">可以先把你的需求講清楚，我們會回覆可行的做法、範圍、時間及收費方式，不需要一開始就決定合作。</p>
+      <a href="/contact" class="cta-btn">提交項目需求</a>
     </div>
   `;
   const contentHtml = injectMidArticleCta(contentWithIds, midArticleCta, 2);
