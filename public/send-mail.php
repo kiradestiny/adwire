@@ -1485,7 +1485,7 @@ function smtpSend(array $cfg, string $to, string $subject, string $html, string 
                 $blob = (string) ($att['data'] ?? '');
                 $body .= "--{$b}\r\n";
                 $body .= 'Content-Type: ' . (string) ($att['mime'] ?? 'application/octet-stream')
-                       . "; name="\"{$fname}\""\r\n";
+                       . "; name=\"{$fname}\"\r\n";
                 $body .= "Content-Transfer-Encoding: base64\r\n";
                 $body .= "Content-Disposition: attachment; filename=\"{$fname}\"\r\n\r\n";
                 $body .= chunk_split(base64_encode($blob), 76, "\r\n");
