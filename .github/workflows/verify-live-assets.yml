@@ -1,0 +1,84 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ADWire — 線上資產驗證（手動，唯讀）
+# 由伺服器本身檢查 webroot 檔案 + 用瀏覽器 headers 抓公開 URL，
+# 繞過本機 curl 被 SiteGround WAF 攔截的問題（202/403）。
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Verify Live Assets (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      paths:
+        description: 'webroot 相對路徑（空格分隔）'
+        required: true
+        default: 'blog/qef-application-guide-hong-kong-schools.webp blog/school-management-system-hong-kong.webp'
+      page:
+        description: '要抓的頁面路徑（確認 HTML 有引用）'
+        required: true
+        default: '/blog/'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare SSH key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SITEGROUND_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+      - name: Check files + fetch live URLs from server
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          SG_PATH: ${{ secrets.SITEGROUND_PATH }}
+          PATHS: ${{ github.event.inputs.paths }}
+          PAGE: ${{ github.event.inputs.page }}
+        run: |
+          set -uo pipefail
+          ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
+            "${SG_USER}@${SG_HOST}" bash -s <<REMOTE
+          set -u
+          WEB="${SG_PATH}"
+          echo "===== ① webroot 檔案 ====="
+          for P in ${PATHS}; do
+            if [ -f "\$WEB/\$P" ]; then
+              printf '  ✓ %-60s %s bytes  %s\n' "\$P" "\$(stat -c %s "\$WEB/\$P")" "\$(date -r "\$WEB/\$P" '+%m-%d %H:%M')"
+            else
+              printf '  ✗ %-60s MISSING\n' "\$P"
+            fi
+          done
+
+          echo ""
+          echo "===== ② 抓公開 URL（瀏覽器 headers，重試到 200）====="
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36'
+          for P in ${PATHS}; do
+            CODE=000; SIZE=0
+            for T in 1 2 3 4 5; do
+              R=\$(curl -s -o /tmp/asset.bin -w '%{http_code} %{size_download}' -A "\$UA" \\
+                    -H 'Accept: image/avif,image/webp,image/*,*/*;q=0.8' \\
+                    "https://adwire.com.hk/\$P?cb=\$RANDOM\$T" 2>/dev/null)
+              CODE=\${R%% *}; SIZE=\${R##* }
+              [ "\$CODE" = "200" ] && break
+              sleep 5
+            done
+            printf '  %-60s HTTP %s  %s bytes\n' "\$P" "\$CODE" "\$SIZE"
+          done
+
+          echo ""
+          echo "===== ③ 頁面 HTML 有否引用（\${PAGE}）====="
+          curl -s -A "\$UA" "https://adwire.com.hk\${PAGE}?cb=\$RANDOM" -o /tmp/page.html
+          echo "  頁面大小：\$(wc -c < /tmp/page.html) bytes"
+          for P in ${PATHS}; do
+            B=\$(basename "\$P")
+            N=\$(grep -o "\$B" /tmp/page.html 2>/dev/null | wc -l)
+            printf '  %-60s 出現 %s 次\n' "\$B" "\$N"
+          done
+          echo ""
+          echo "  頁面上所有 /blog/*.webp 引用（前 20）："
+          grep -o '/blog/[A-Za-z0-9._-]*\.webp' /tmp/page.html 2>/dev/null | sort -u | head -20
+          REMOTE
