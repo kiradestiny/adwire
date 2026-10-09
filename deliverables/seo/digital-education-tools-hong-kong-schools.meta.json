@@ -1,0 +1,13 @@
+{
+  "id": 38,
+  "slug": "digital-education-tools-hong-kong-schools",
+  "title": "數字教育工具如何選擇：香港學校須考慮的技術與整合因素",
+  "excerpt": "香港學校選擇數字教育工具，關鍵不在功能多寡，而在能否與現有平台整合、資料能否互通、長遠能否維護。本文從技術角度說明數字教育工具的五類分工、六個評估維度（系統整合、單一登入、資料互通、行動裝置支援、離線可用、無障礙）、與 eClass 等平台的共存方式、學生資料保護要求，以及採購程序與總持有成本的考慮。",
+  "date": "2026-10-09",
+  "category": "System Dev",
+  "readTime": "13 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/digital-education-tools-hong-kong-schools.webp",
+  "tags": ["數字教育", "教育科技", "系統整合", "單一登入", "學生資料私隱", "學校採購", "eClass"],
+  "comment": "Article 38：數字教育工具技術選型指南"
+}

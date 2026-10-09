@@ -1,0 +1,299 @@
+<p class="lead text-xl text-gray-600 mb-8">香港學校引入數字教育工具時，最常見的困難並非「有沒有工具可用」，而是「這套工具能否與現有系統整合、資料能否互通、日後由誰維護」。教育局已要求學校把數字教育納入學校發展計劃，加上「『智』啟學教」等撥款陸續到位，學校在短期內要作出大量採購與技術決定。本文只從技術與落地角度出發，說明數字教育工具的分類、評估維度、與現有平台的共存方式、學生資料保護要求，以及採購與維護要考慮的事項，協助學校資訊科技統籌人員把選擇的標準講清楚。</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+  <p class="text-gray-700 leading-relaxed">選擇數字教育工具，第一步不是比較功能，而是<strong>先分清它在學校系統中扮演哪一類角色</strong>（學習管理、互動課堂、評估、協作或內容製作），再以六個技術維度評估：<strong>與現有系統的整合能力、是否支援單一登入、資料能否互通及匯出、行動裝置支援、離線可用程度、無障礙程度</strong>。香港學校大多已在使用 eClass、CloudSAMS 等平台，因此新工具應以「<strong>補足與共存</strong>」為定位，而非假設全面取代。任何涉及學生個人資料的工具，都要符合《個人資料（私隱）條例》的六項保障資料原則；採購則要跟教育局通告第 4/2013 號的報價與招標程序，並把整合、匯出與維護條款寫入文件。</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 本文重點</p>
+  <ul class="space-y-2"><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>數字教育工具可按功能分為五類，每類的整合方式與採購考慮都不同。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>技術評估有六個維度，其中單一登入與資料互通是最容易被低估的環節。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>與 eClass 等現有平台共存，關鍵在於整合接口，而非更換平台。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>學生資料保護要符合私隱條例六項原則，並以合約約束資料處理者。</span></li><li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>採購要按通告第 4/2013 號的金額分級，並計算總持有成本與匯出安排。</span></li></ul>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、數字教育工具的實際分類</h2>
+<p>「數字教育工具」是一個統稱，涵蓋功能差別很大的產品。學校若不先分類，很容易出現兩種情況：買了功能重疊的兩套工具，或者買了一套工具卻發現它其實取代不了原有平台的角色。從技術角度，學校常用的工具有以下五類。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">分類</th><th class="px-4 py-3 text-left">主要用途</th><th class="px-4 py-3 text-left">常見技術特徵</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>學習管理系統</strong></td><td class="px-4 py-3">派發教材、收發作業、記錄學習進度</td><td class="px-4 py-3">帳戶體系、課程結構、資料庫儲存學習紀錄</td></tr>
+      <tr><td class="px-4 py-3"><strong>互動課堂工具</strong></td><td class="px-4 py-3">課堂即時回應、投票、分組活動</td><td class="px-4 py-3">即時通訊、低延遲、常需與學生裝置連線</td></tr>
+      <tr><td class="px-4 py-3"><strong>評估工具</strong></td><td class="px-4 py-3">測驗、練習、自動評分與數據分析</td><td class="px-4 py-3">題庫、評分引擎、成績匯出格式</td></tr>
+      <tr><td class="px-4 py-3"><strong>協作工具</strong></td><td class="px-4 py-3">文件共編、雲端硬碟、通訊與行事曆</td><td class="px-4 py-3">多用戶權限、版本控制、雲端儲存</td></tr>
+      <tr><td class="px-4 py-3"><strong>內容製作工具</strong></td><td class="px-4 py-3">製作影片、簡報、互動教材</td><td class="px-4 py-3">多媒體處理、輸出標準格式（如 SCORM）</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>分類的作用，在於回答一個具體問題：這套工具是「補充某一環節」，還是「企圖取代整個平台」。學習管理系統通常牽涉大量資料儲存與帳戶管理，轉換成本高；互動課堂與內容製作工具則相對獨立，較容易試用與替換。理解這一點，才不會把短期試用的工具，當成長期基礎設施來採購。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-1.webp" alt="決策示意圖：學校判斷數字教育工具屬補足某一環節，還是企圖取代整個現有平台" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先判斷工具是「補足」還是「取代」，直接影響採購與推行策略</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-2.webp" alt="示意圖：數字教育工具分為學習管理、互動課堂、評估、協作與內容製作五類及其技術特徵" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">五類工具角色不同，先分類再評估，可避免功能重疊或角色錯配</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、技術評估的六個維度</h2>
+<p>同一類工具的功能表看起來差別不大，真正決定成敗的是技術與整合層面。學校在評估時，建議逐一檢查以下六個維度，並要求供應商提供可驗證的答案，而非口頭承諾。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">維度</th><th class="px-4 py-3 text-left">要問清楚的技術問題</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>系統整合</strong></td><td class="px-4 py-3">是否提供 API？是否支援業界標準（如 LTI、SCORM、OneRoster）？能否與 CloudSAMS、eClass 對接？</td></tr>
+      <tr><td class="px-4 py-3"><strong>單一登入</strong></td><td class="px-4 py-3">支援哪種協定（SAML 2.0、OAuth 2.0／OpenID Connect、LDAP）？可對接學校的統一登入系統還是 Google／Microsoft 帳戶？</td></tr>
+      <tr><td class="px-4 py-3"><strong>資料互通</strong></td><td class="px-4 py-3">資料能不能完整匯出？格式是否開放？匯出有否額外收費或設時限？</td></tr>
+      <tr><td class="px-4 py-3"><strong>行動裝置支援</strong></td><td class="px-4 py-3">是否有 iOS／Android 應用程式？是否支援平板與不同螢幕尺寸？能否配合學校的行動裝置管理（MDM）？</td></tr>
+      <tr><td class="px-4 py-3"><strong>離線可用</strong></td><td class="px-4 py-3">網絡中斷時能否繼續操作？資料恢復連線後如何同步？</td></tr>
+      <tr><td class="px-4 py-3"><strong>無障礙</strong></td><td class="px-4 py-3">是否符合 W3C《無障礙網頁內容指引》2.1 的 AA 級別？</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>六個維度之中，<strong>單一登入</strong>與<strong>資料互通</strong>最容易被低估。若學生與教師要在多套工具之間重複登入、帳戶要人手開設與停用，行政負擔會迅速累積，亦增加帳戶洩漏風險。單一登入讓學校以既有帳戶體系集中管理身分，支援 SAML 2.0 或 OAuth 2.0／OpenID Connect 的工具較容易接入；資料互通則決定學校日後能否把學習紀錄匯出、統計或轉到另一套系統。</p>
+<p>行動裝置方面，香港不少學校已為學生配發平板電腦，並以行動裝置管理（MDM）軟件統一設定。工具若能配合 MDM 部署，教師才可以按課堂需要限制裝置功能；反之，若工具要求個別安裝或個別登入，會令課堂管理變得困難。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-3.webp" alt="示意圖：教師透過行動裝置管理軟件統一設定班級平板電腦，限制課堂可使用的功能" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">工具能否配合 MDM 部署，直接影響教師管理課堂裝置的難易</figcaption>
+</figure>
+
+<p>離線可用則關係到網絡穩定性——部分課室或禮堂的無線覆蓋未必理想，工具在離線時若完全無法運作，會直接影響使用。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-4.webp" alt="圖表：評估數字教育工具的六個技術維度，包括系統整合、單一登入、資料互通、行動裝置支援、離線可用與無障礙" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">六個維度中，單一登入與資料互通最影響長遠維護成本</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-5.webp" alt="示意圖：學生與教師透過單一登入介面接入多套數字教育工具，避免重複開設帳戶" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">單一登入讓學校集中管理身分，減少人手開設與停用帳戶的工作</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、與現有平台共存：整合而非取代</h2>
+<p>香港學校很少在「完全沒有系統」的情況下引入新工具，多數已在運作綜合平台與校管系統。以 eClass 校園綜合平台為例，它把學校日常工作分為資訊服務、教學管理工具、行政管理工具及基本設定四部分，並包含電子通告、課堂點名系統、網上家課表等功能；教育局的 CloudSAMS 雲端校管系統則負責學校行政與學生資料呈報。新工具的合理定位，是在這些平台之上補足未覆蓋的環節。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">整合方式</th><th class="px-4 py-3 text-left">技術做法</th><th class="px-4 py-3 text-left">適用情況</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">單一登入對接</td><td class="px-4 py-3">以 SAML／OpenID Connect 接入既有帳戶體系</td><td class="px-4 py-3">工具本身有獨立介面，只需共用登入</td></tr>
+      <tr><td class="px-4 py-3">資料同步</td><td class="px-4 py-3">透過 API 或名冊標準（如 OneRoster）同步學生班別資料</td><td class="px-4 py-3">需要把現有平台的班別、名單帶入新工具</td></tr>
+      <tr><td class="px-4 py-3">成績回寫</td><td class="px-4 py-3">評估工具的成績經 API 匯回校務或成績系統</td><td class="px-4 py-3">避免教師重複輸入分數</td></tr>
+      <tr><td class="px-4 py-3">嵌入式顯示</td><td class="px-4 py-3">以嵌入框架（iframe）或單一登入捷徑置於平台首頁</td><td class="px-4 py-3">讓師生由同一入口進入工具</td></tr>
+      <tr><td class="px-4 py-3">內容標準</td><td class="px-4 py-3">教材以 SCORM 等標準格式輸出，供平台載入</td><td class="px-4 py-3">教材需要跨平台重用</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>整合的實際價值，在於避免同一批資料在多個系統重複存在。若選科資料、班別名單或成績要在兩處分別輸入，不但耗費人力，更會出現兩邊紀錄不一致的情況，日後統計與呈報都可能出錯。因此評估新工具時，應優先考慮「能否與現有平台交換資料」，而不是只看它自身功能有多豐富。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-6.webp" alt="示意圖：新工具與 eClass、CloudSAMS 現有平台之間的五種整合方式，由單一登入到內容標準" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">整合的核心是用單一來源的資料，減少重複輸入與不一致</figcaption>
+</figure>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 整合評估的實用做法</p>
+  <p class="text-gray-700 leading-relaxed">要求供應商在示範環境中，實際示範一次「由現有平台名單同步至新工具」的流程，並提供 API 文件或整合案例。口頭表示「可以整合」與實際上能在學校環境完成，是兩件不同的事。</p>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、資料私隱與學生資料保護</h2>
+<p>數字教育工具幾乎必然涉及學生個人資料，包括姓名、班別、學號、出席紀錄與學習表現。香港學校處理這些資料，受《個人資料（私隱）條例》（第 486 章）規管，須符合六項保障資料原則。個人資料私隱專員公署過往處理的學校個案中，曾有一宗學校在未通知家長的情況下，把學生的姓名、班別和學號提供給網絡程式供應商開設帳戶，並以學生的出生日期作為預設密碼，最終被家長投訴。這個個案正好說明採購數字教育工具時最常忽略的環節。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">保障資料原則</th><th class="px-4 py-3 text-left">對數字教育工具的具體要求</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>原則 1：收集目的及方式</strong></td><td class="px-4 py-3">只收集工具運作必須的資料；以合法公平方式收集，並提供收集個人資料聲明</td></tr>
+      <tr><td class="px-4 py-3"><strong>原則 2：準確性及保留</strong></td><td class="px-4 py-3">資料要準確；完成用途後在合理時間內刪除，不得無限期保留</td></tr>
+      <tr><td class="px-4 py-3"><strong>原則 3：使用限制</strong></td><td class="px-4 py-3">不得用於原定或直接相關以外的目的；轉移或披露須取得訂明同意</td></tr>
+      <tr><td class="px-4 py-3"><strong>原則 4：保安</strong></td><td class="px-4 py-3">採取切實可行步驟保障資料，包括以合約約束資料處理者</td></tr>
+      <tr><td class="px-4 py-3"><strong>原則 5：透明度</strong></td><td class="px-4 py-3">公開個人資料政策、持有資料種類及用途</td></tr>
+      <tr><td class="px-4 py-3"><strong>原則 6：查閱及改正</strong></td><td class="px-4 py-3">家長與學生可查閱及改正資料，學校須於 40 天內依從要求</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>在採購層面，應把幾項要求直接寫入合約：工具供應商作為<strong>資料處理者</strong>，須以合約規範防止資料被未獲准許地查閱、處理或轉移；供應商不得把學生資料用於訓練模型或作其他商業用途；資料儲存位置、備份機制與退場時的刪除安排要清楚列明。學校亦應為學生帳戶訂立書面政策，說明開設帳戶的目的、學校的管理權限以及安全使用方式，並以通告形式告知家長。個人資料私隱專員公署亦曾與教育局合作舉辦學校層面的講座，並出版「兒童網上私隱——給家長及老師的建議」等資料，可作為校本指引的參考基礎。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-7.webp" alt="圖表：《個人資料（私隱）條例》六項保障資料原則對數字教育工具的具體要求" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">六項原則之中，使用限制與保安最常在被忽略的合約條款中出現</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-8.webp" alt="示意圖：學校、家長與工具供應商三方的資料流向，以及以合約約束資料處理者的關係" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">供應商屬於資料處理者，學校仍為資料使用者，須以合約約束其處理方式</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、採購與維護要考慮的事項</h2>
+<p>資助學校運用政府津貼採購物料與服務，須依循《教育局通告第 4/2013 號》及《資助學校採購程序指引》。金額決定採用哪一級程序，學校亦不得以分拆訂單、分期採購或縮短合約期等方式迴避限額。了解這套程序，有助學校在採購數字教育工具時把文件一次寫清楚。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">採購金額</th><th class="px-4 py-3 text-left">一般程序要求</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">港幣 5,000 元以下</td><td class="px-4 py-3">由校內適當職級人員證明採購屬必須、價格公平合理，並由校長或副校長批核</td></tr>
+      <tr><td class="px-4 py-3">5,000 元以上至 50,000 元</td><td class="px-4 py-3">邀請最少兩個口頭報價</td></tr>
+      <tr><td class="px-4 py-3">50,000 元以上至 200,000 元</td><td class="px-4 py-3">邀請最少五個書面報價</td></tr>
+      <tr><td class="px-4 py-3">超過 200,000 元</td><td class="px-4 py-3">邀請最少五名供應商投標</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>除程序之外，學校應同時評估<strong>總持有成本</strong>。工具的價錢通常只反映訂閱或授權費用，實際支出還包括：與現有系統整合的一次性開發費、師生培訓、硬件或裝置需要、技術支援年費，以及日後資料匯出或退場的安排。部分工具把資料匯出、API 存取或額外帳戶列為附加收費項目，若在採購階段沒有問清楚，長遠成本可能遠高於最初報價。</p>
+<p>供應商支援方面，建議要求書面承諾服務水平，例如回應時間、指定聯絡人、保養期長短，以及工具更新或停止支援時的通知安排。學校亦要考慮本地支援能力：系統在學期初或考試期出現問題時，能否及時獲得支援，直接影響日常運作。最後，合約應訂明<strong>資料與設定的擁有權、匯出方式與退場安排</strong>，確保日後更換工具時，學校仍能取回自己的資料。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-9.webp" alt="圖表：資助學校採購數字教育工具時，四個金額分級對應的報價與招標程序" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">金額決定程序，學校亦不得以分拆或其他方式迴避限額</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-10.webp" alt="示意圖：數字教育工具的總持有成本組成，包括授權、整合、培訓、硬件、支援與匯出" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">最初報價以外，整合、培訓與匯出安排往往才是長遠成本所在</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、常見技術陷阱</h2>
+<p>以下情況在學校引入數字教育工具時反覆出現。它們多數不是工具本身的問題，而是評估階段漏問了關鍵技術問題。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">技術陷阱</th><th class="px-4 py-3 text-left">後果</th><th class="px-4 py-3 text-left">避免方法</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">沒有單一登入，須人手開設帳戶</td><td class="px-4 py-3">帳戶管理工作量大，離校學生帳戶易被遺漏</td><td class="px-4 py-3">把 SSO 支援列為必要條件</td></tr>
+      <tr><td class="px-4 py-3">資料匯出要額外收費或設時限</td><td class="px-4 py-3">退場時難以取回資料</td><td class="px-4 py-3">在合約寫明匯出格式與費用</td></tr>
+      <tr><td class="px-4 py-3">與現有平台功能重疊</td><td class="px-4 py-3">同一批資料兩邊輸入，出現不一致</td><td class="px-4 py-3">採購前先做整合與重疊評估</td></tr>
+      <tr><td class="px-4 py-3">忽略無障礙要求</td><td class="px-4 py-3">部分學生無法使用，亦影響對外發布</td><td class="px-4 py-3">要求符合 WCAG 2.1 AA</td></tr>
+      <tr><td class="px-4 py-3">以出生日期等作預設密碼</td><td class="px-4 py-3">帳戶容易被猜中，構成資料保安風險</td><td class="px-4 py-3">要求高強度預設密碼及首次登入更改</td></tr>
+      <tr><td class="px-4 py-3">未列明資料儲存位置與備份</td><td class="px-4 py-3">難以評估保安與合規風險</td><td class="px-4 py-3">在合約訂明儲存位置與備份機制</td></tr>
+      <tr><td class="px-4 py-3">只比較功能，未測試實際整合</td><td class="px-4 py-3">上線後才發現無法對接</td><td class="px-4 py-3">要求示範環境中的實際整合展示</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>這些陷阱有一個共通點：它們大多可以在採購階段以書面條款解決，但如果留到上線後才發現，補救成本會高得多。因此學校在撰寫報價或招標文件時，應把技術與整合要求寫成可驗證的條文，而非籠統的「需支援整合」。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-11.webp" alt="示意圖：把技術要求寫成報價或招標文件中的可驗證條文，而非籠統描述" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把「需支援整合」改寫為可驗證的技術條文，可避免上線後才發現問題</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-12.webp" alt="圖表：學校引入數字教育工具時常見的七個技術陷阱及其避免方法" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">多數技術陷阱可在採購階段以書面條款預先解決</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、由需求到上線的評估流程</h2>
+<p>把上述考量整合起來，學校引入數字教育工具時，建議依以下次序推進，每一步都留下書面紀錄，以便日後審核與交接。</p>
+<ol class="list-decimal pl-5 space-y-2 text-gray-700 my-4">
+  <li><strong>確認角色與需求</strong>——先判斷工具屬於哪一類，補足哪一環節，是否與現有平台重疊</li>
+  <li><strong>技術評估</strong>——按六個維度逐項檢查，要求供應商提供可驗證的說明</li>
+  <li><strong>整合可行性確認</strong>——在示範環境測試與現有平台的對接</li>
+  <li><strong>資料保護審視</strong>——核對工具是否符合六項保障資料原則，並擬定合約條款</li>
+  <li><strong>核對採購程序</strong>——按金額決定報價或招標，並擬定技術規格與評審準則</li>
+  <li><strong>計算總持有成本</strong>——包含整合、培訓、硬件、支援與匯出安排</li>
+  <li><strong>簽約與落實</strong>——訂明交付成果、保養期、服務水平與退場安排</li>
+  <li><strong>上線後檢視</strong>——安排指定聯絡人跟進，並定期檢視使用情況與保安設定</li>
+</ol>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/digital-education-tools-hong-kong-schools-13.webp" alt="流程圖：由確認需求、技術評估、整合測試、資料保護審視到簽約與上線後檢視的八個步驟" width="1024" height="768" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">每一步都留下書面紀錄，可以簡化日後的審核與交接</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+
+<div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校選擇數字教育工具，第一步應該做什麼？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">先分類，再評估。判斷工具屬於學習管理、互動課堂、評估、協作還是內容製作，並確認它是補足哪一環節、是否與現有平台重疊。分類清楚後，才按系統整合、單一登入、資料互通、行動裝置支援、離線可用與無障礙六個維度逐項評估。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">單一登入為何如此重要？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">學校若同時使用多套工具，每次都要另行開設與停用帳戶，行政負擔會迅速累積，離校學生的帳戶亦容易被遺漏而構成保安風險。支援 SAML 2.0 或 OAuth 2.0／OpenID Connect 的工具，可以接入學校既有的帳戶體系，集中管理身分，減少重複工作。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">新工具應該取代 eClass 等現有平台嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">一般不建議假設全面取代。香港學校多數已在運作綜合平台與校管系統，全面更換會令全校師生及家長重新適應，風險與成本都高。較穩妥的定位是補足現有平台未覆蓋的環節，並透過單一登入、資料同步或 API 與現有平台交換資料，減少重複輸入。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">工具供應商可否使用學生的個人資料？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">學校是資料使用者，供應商屬於資料處理者。個人資料只可用於收集時所述明或直接相關的用途，不得未經訂明同意用於新目的。學校應在合約中訂明供應商不得把學生資料用於訓練模型或作其他商業用途，並以合約約束其處理、儲存及刪除方式，符合《個人資料（私隱）條例》保障資料第 3 及第 4 原則。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">無障礙要求適用於數字教育工具嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">適用。香港政府早於 1999 年已把無障礙網頁要求納入相關政府指引，以 W3C《無障礙網頁內容指引》（WCAG）為標準。學校在評估時，可要求工具達到 WCAG 2.1 的 AA 級別，確保有不同需要的學生均能使用，亦方便對外發布相關內容。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校採購數字教育工具，要取幾多份報價？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按《教育局通告第 4/2013 號》及《資助學校採購程序指引》，金額決定程序：5,000 元以上至 50,000 元一般須邀請最少兩個口頭報價；50,000 元以上至 200,000 元一般須邀請最少五個書面報價；超過 200,000 元一般須邀請最少五名供應商投標。學校亦不得分拆訂單或以其他方式迴避限額。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">日後想更換工具，資料可以取回嗎？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">這取決於合約條款。建議在採購階段就訂明資料匯出的格式、方式與費用，以及退場時的刪除安排。若合約沒有寫清楚，部分工具會把資料匯出或 API 存取列為額外收費，令學校日後難以取回自己的資料。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 class="font-bold text-[#0f4c81] mb-2" itemprop="name">離線可用對選型有幾重要？</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">要視乎使用場景。部分課室或禮堂的無線覆蓋未必理想，若工具在網絡中斷時完全無法運作，會直接影響課堂。評估時應問清楚：離線時能否繼續操作，以及恢復連線後資料如何同步，避免出現資料遺失或重複。</p>
+  </div>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">想找專業團隊協助評估與整合數字教育工具？</p>
+  <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供學校網站、校務系統、系統整合與技術顧問服務，熟悉資助學校的採購程序與學生資料保護要求，可以協助你由需求盤點、技術評估、整合測試到報價文件一併處理。</p>
+  <p><a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校數碼方案</a>　·　<a href="/blog/school-management-system-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">校務系統選型比較</a></p>
+</div>
+
+<div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+  <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月9日）</p>
+  <ul class="space-y-1">
+    <li><a href="https://www.edb.gov.hk/tc/edu-system/primary-secondary/applicable-to-primary-secondary/it-in-edu/index.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：數字教育</a> — 《中小學數字教育發展藍圖》（教育局通告第 11/2026 號）、數字教育策略發展督導委員會、優質教育基金預留二十億元推展數字教育策略</li>
+    <li><a href="https://www.edb.gov.hk/tc/about-edb/press/cleartheair/20260204.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：「『智』啟學教」撥款計劃正面睇</a> — 「『智』啟學教」撥款計劃的用途與重點</li>
+    <li><a href="https://www.info.gov.hk/gia/general/202506/30/P2025063000801p.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：教育局與香港教育城攜手舉辦全港首屆「數字教育周2025」</a> — 「電子學習配套計劃」首批項目成果、數字教育四個重點方向</li>
+    <li><a href="https://www.edb.gov.hk/tc/sch-admin/fin-management/procurement-procedures-in-aided-schools/procurement_procedures_in_aided_schs.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局：資助學校採購程序的參考資料</a> — 《教育局通告第 4/2013 號》與《資助學校採購程序指引》，報價與招標金額分級</li>
+    <li><a href="https://applications.edb.gov.hk/circular/upload/EDBC/EDBC13004C.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">教育局通告第 4/2013 號：資助學校採購程序</a> — 採購程序、報價與招標金額門檻、禁止分拆訂單</li>
+    <li><a href="https://www.pcpd.org.hk/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">個人資料私隱專員公署</a> — 《個人資料（私隱）條例》六項保障資料原則、學校處理學生資料的個案與指引、兒童網上私隱建議</li>
+    <li><a href="https://www.eclass.com.hk/product/eclass-ip/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">eClass：校園綜合平台</a> — 平台四大組成部分、電子通告、課堂點名系統等功能</li>
+    <li><a href="https://www.w3.org/Translations/WCAG21-zh/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">W3C：《無障礙網頁內容指引》（WCAG）2.1 中文版</a> — AA 級別無障礙標準</li>
+  </ul>
+</div>
