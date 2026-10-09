@@ -65,10 +65,10 @@ jobs:
 
           echo "===== ① 上傳到暫存目錄 ====="
           for f in $FILES; do
-            if [ ! -f "$f" ]; then echo "::error::本機找不到 $f"; exit 1; fi
-            mkdir -p "$(dirname "$STAGE/$f")" 2>/dev/null || true
-            $SCP "$f" "${SG_USER}@${SG_HOST}:$STAGE/$(basename "$f")"
-            echo "  ↑ $f"
+            LOCAL="public/$f"
+            if [ ! -f "$LOCAL" ]; then echo "::error::本機找不到 $LOCAL"; exit 1; fi
+            $SCP "$LOCAL" "${SG_USER}@${SG_HOST}:$STAGE/$(basename "$f")"
+            echo "  ↑ $LOCAL → $STAGE/$(basename "$f")"
           done
 
           echo "===== ② php -l 檢查 ====="
