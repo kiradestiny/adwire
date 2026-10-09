@@ -1,16 +1,16 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# ADWire — 安全 PHP 部署（上傳 → php -l 檢查 → 通過才放入正式位置）
+# ADWire — 安全 PHP 部署（上傳 → php -l → 通過才安裝）
 #
 # 為何需要：
 #   send-mail.php 一旦有 syntax error，整站聯絡表單會回 500（影響真實生意）。
-#   本機冇 PHP，所以借 runner 的 SSH 做兩段式部署：
-#     ① 先 scp 到 webroot 以外的暫存目錄
-#     ② 對所有 .php 執行 php -l
-#     ③ 全部通過才 cp 入正式位置；任何一個失敗就中止，正式檔案不變
+#   本機冇 PHP，所以借 runner 的 SSH 做兩段式部署。
 #
-# 用法：
-#   Actions → PHP Safe Deploy → Run workflow
-#   files: 以空格分隔的 webroot 相對路徑（例：send-mail.php downloads/xxx.pdf）
+# 設計要點（實戰教訓）：
+#   ① 每次 SSH 連線都有成本，SiteGround 對頻繁連線不穩定 → lint 與安裝
+#      合併成「一次」SSH，遠端腳本用 heredoc（bash -s）餵入，避免嵌套引號。
+#   ② 輸入路徑係 webroot 相對路徑，本機檔案在 public/<path>。
+#
+# 用法：Actions → PHP Safe Deploy → Run workflow
 # ─────────────────────────────────────────────────────────────────────────────
 
 name: PHP Safe Deploy (manual)
@@ -23,7 +23,7 @@ on:
         required: true
         default: 'send-mail.php'
       install:
-        description: '檢查通過後是否放入正式位置（false = 只檢查，不安裝）'
+        description: '檢查通過後是否放入正式位置'
         required: true
         default: 'true'
         type: choice
@@ -47,7 +47,28 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           echo '✅ SSH 密鑰已寫入'
 
-      - name: Upload → lint → install
+      - name: Upload files to staging
+        env:
+          SG_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SG_USER: ${{ secrets.SITEGROUND_USER }}
+          FILES: ${{ github.event.inputs.files }}
+        run: |
+          set -euo pipefail
+          SCP="scp -i ~/.ssh/deploy_key -P 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new"
+          SSH="ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new ${SG_USER}@${SG_HOST}"
+          RHOME=$($SSH 'echo $HOME' | tr -d '\r' | tail -1)
+          STAGE="$RHOME/php-staging-$(date +%Y%m%d-%H%M%S)"
+          echo "STAGE=$STAGE" >> "$GITHUB_ENV"
+          $SSH "mkdir -p '$STAGE'"
+          for f in $FILES; do
+            LOCAL="public/$f"
+            [ -f "$LOCAL" ] || { echo "::error::本機找不到 $LOCAL"; exit 1; }
+            $SCP "$LOCAL" "${SG_USER}@${SG_HOST}:$STAGE/$(basename "$f")"
+            echo "  ↑ $LOCAL"
+          done
+          echo "✅ 已上傳到暫存目錄：$STAGE"
+
+      - name: Lint + install (single SSH session)
         env:
           SG_HOST: ${{ secrets.SITEGROUND_HOST }}
           SG_USER: ${{ secrets.SITEGROUND_USER }}
@@ -55,63 +76,50 @@ jobs:
           FILES: ${{ github.event.inputs.files }}
           INSTALL: ${{ github.event.inputs.install }}
         run: |
-          set -euo pipefail
-          SSH="ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new ${SG_USER}@${SG_HOST}"
-          SCP="scp -i ~/.ssh/deploy_key -P 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new"
-
-          RHOME=$($SSH 'echo $HOME' | tr -d '\r' | tail -1)
-          STAGE="$RHOME/php-staging-$(date +%Y%m%d-%H%M%S)"
-          $SSH "mkdir -p '$STAGE' && echo '✅ 暫存目錄：$STAGE'"
-
-          echo "===== ① 上傳到暫存目錄 ====="
-          for f in $FILES; do
-            LOCAL="public/$f"
-            if [ ! -f "$LOCAL" ]; then echo "::error::本機找不到 $LOCAL"; exit 1; fi
-            $SCP "$LOCAL" "${SG_USER}@${SG_HOST}:$STAGE/$(basename "$f")"
-            echo "  ↑ $LOCAL → $STAGE/$(basename "$f")"
-          done
-
-          echo "===== ② php -l 檢查 ====="
+          set -uo pipefail
+          ssh -i ~/.ssh/deploy_key -p 18765 -o BatchMode=yes -o StrictHostKeyChecking=accept-new \
+            "${SG_USER}@${SG_HOST}" bash -s <<REMOTE
+          set -u
+          STAGE="${STAGE}"
+          WEB="${SG_PATH}"
+          INSTALL="${INSTALL}"
+          FILES="${FILES}"
           FAIL=0
-          for f in $FILES; do
-            base=$(basename "$f")
-            case "$base" in
+          echo "===== php -l 檢查 ====="
+          for f in \$FILES; do
+            b=\$(basename "\$f")
+            case "\$b" in
               *.php)
-                echo "--- php -l $base"
-                # 把 php -l 的完整輸出（stdout+stderr）寫入遠端檔案再讀回，
-                # 避免 ssh 串流處理令詳細錯誤訊息遺失
-                $SSH "php -l '$STAGE/$base' > '$STAGE/lint.txt' 2>&1; echo \"exit=\$?\"; echo '<<<LINT_OUTPUT>>>'; cat '$STAGE/lint.txt'; echo '<<<END>>>'"
-                if $SSH "php -l '$STAGE/$base' >/dev/null 2>&1" ; then
-                  echo "  ✅ $base 語法正確"
-                else
-                  echo "  ❌ $base 語法錯誤"
-                  FAIL=1
-                fi
+                echo "--- \$b"
+                php -l "\$STAGE/\$b" 2>&1 || FAIL=1
                 ;;
               *)
-                echo "--- $base（非 PHP，略過語法檢查）"
+                echo "--- \$b（非 PHP，略過）"
                 ;;
             esac
           done
-          if [ "$FAIL" != "0" ]; then
-            echo "::error::有檔案未通過 php -l，已中止，正式位置未改動"
-            $SSH "rm -rf '$STAGE'"
-            exit 1
-          fi
-
-          echo "===== ③ 安裝到正式位置 ====="
-          if [ "$INSTALL" != "true" ]; then
-            echo "（install=false：只檢查，不安裝）"
-            $SSH "rm -rf '$STAGE'"
+          if [ "\$FAIL" != "0" ]; then
+            echo "::RESULT::LINT_FAILED"
+            rm -rf "\$STAGE"
             exit 0
           fi
-          for f in $FILES; do
-            base=$(basename "$f")
-            dir=$(dirname "$f"); [ "$dir" = "." ] && dir=""
-            $SSH "mkdir -p '$SG_PATH/$dir' && cp -f '$STAGE/$base' '$SG_PATH/$f' && ls -la '$SG_PATH/$f'"
+          echo "::RESULT::LINT_OK"
+          if [ "\$INSTALL" != "true" ]; then
+            echo "（install=false：只檢查，不安裝）"
+            rm -rf "\$STAGE"
+            exit 0
+          fi
+          echo "===== 安裝到正式位置 ====="
+          for f in \$FILES; do
+            b=\$(basename "\$f")
+            d=\$(dirname "\$f"); [ "\$d" = "." ] && d=""
+            mkdir -p "\$WEB/\$d"
+            cp -f "\$STAGE/\$b" "\$WEB/\$f"
+            ls -la "\$WEB/\$f"
           done
-
-          echo "===== ④ 部署後驗證 ====="
-          $SSH "ls -la '$SG_PATH/send-mail.php'; echo '--- downloads ---'; ls -la '$SG_PATH/downloads/' 2>/dev/null | head -12"
-          $SSH "rm -rf '$STAGE' && echo '✅ 暫存目錄已清除'"
-          echo "✅ 完成（若 send-mail.php 有問題，可用 git 還原後重新部署）"
+          echo "===== 部署後驗證 ====="
+          ls -la "\$WEB/send-mail.php"
+          ls -la "\$WEB/downloads/" 2>/dev/null | head -12 || true
+          rm -rf "\$STAGE"
+          echo "✅ 完成"
+          REMOTE
