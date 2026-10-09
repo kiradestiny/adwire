@@ -652,7 +652,8 @@ $clientIp = getClientIp();
 //   只認 REMOTE_ADDR 為 loopback —— 此值由伺服器設定，無法由外部偽造。
 //   用途：內部測試沒有瀏覽器、無法取得 Turnstile token，否則會被誤判為 spam。
 //   這只是「免去缺 token 的罰分」，其餘 spam 檢查一律照跑。
-$isInternalRequest = in_array($clientIp, ['127.0.0.1', '::1'], true);
+$isInternalRequest = in_array($clientIp, ['127.0.0.1', '::1'], true)
+    || ($clientIp !== '' && $clientIp === (string) ($_SERVER['SERVER_ADDR'] ?? ''));
 
 if (!checkRateLimit('ip', $clientIp, 60, 3)) {
     header('Retry-After: 60');
