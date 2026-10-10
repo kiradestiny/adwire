@@ -7,8 +7,8 @@ import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
  * Footer
  *
  * 2026-09-21 修改（詳見 deliverables/22_service-page-audit.md）：
- *   1. 🔴 修 Bug：LinkedIn 連結原為 /company/106715005/admin/dashboard/（管理後台），
- *      客人點擊會撞登入牆。改為公開公司頁 /company/106715005/。
+ *   1. 🔴 修 Bug：LinkedIn 連結原為管理後台網址，客戶點擊會撞登入牆。
+ *      2026-10-10 負責人確認公開公司頁為 https://www.linkedin.com/company/adwirehk/
  *      llms.txt 一向用的是正確版本，兩者現已一致。
  *   2. 服務列表由「10 項平鋪」改為「四大業務線分組」，Software／AI／SEO 排在
  *      Digital Marketing 之前（原本 KOL／短視頻行先），與新定位一致。
@@ -90,7 +90,7 @@ export default function Footer() {
             <SocialIcon href="https://www.facebook.com/profile.php?id=61575126092859" icon={<Facebook size={20} />} label="Facebook" />
             <SocialIcon href="https://www.instagram.com/adwire_official/" icon={<Instagram size={20} />} label="Instagram" />
             {/* 修 Bug：原本指向 /admin/dashboard/，客人點擊會撞登入牆 */}
-            <SocialIcon href="https://www.linkedin.com/company/106715005/" icon={<Linkedin size={20} />} label="LinkedIn" />
+            <SocialIcon href="https://www.linkedin.com/company/adwirehk/" icon={<Linkedin size={20} />} label="LinkedIn" />
           </div>
         </div>
 

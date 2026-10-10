@@ -49,7 +49,7 @@ export async function generateMetadata({
     title: post.title,
     description: post.excerpt,
     keywords: [...post.tags, post.category, "香港數碼營銷", "ADWire Agency"],
-    authors: [{ name: "ADWire Team", url: "https://www.linkedin.com/company/106715005/" }],
+    authors: [{ name: "ADWire Team", url: "https://www.linkedin.com/company/adwirehk/" }],
     alternates: {
       canonical: `/blog/${post.slug}/`,
     },

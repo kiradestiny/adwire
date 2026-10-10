@@ -24,11 +24,11 @@ export default function JsonLd() {
       "name": "Hong Kong Business Registration Number (BRN)",
       "value": "77898321"
     },
-    "foundingDate": "2023",
+    "foundingDate": "2025-03-24",
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61575126092859",
       "https://www.instagram.com/adwire_official/",
-      "https://www.linkedin.com/company/106715005/"
+      "https://www.linkedin.com/company/adwirehk/"
     ],
     "contactPoint": [
       {

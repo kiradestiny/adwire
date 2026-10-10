@@ -82,7 +82,7 @@ const waLink = getWhatsAppUrl("Hello ADWire, 我想查詢增長方案");
 const socialLinks = [
   { href: "https://www.facebook.com/profile.php?id=61575126092859", label: "Facebook",  Icon: Facebook  },
   { href: "https://www.instagram.com/adwire_official/",             label: "Instagram", Icon: Instagram },
-  { href: "https://www.linkedin.com/company/106715005/", label: "LinkedIn", Icon: Linkedin },
+  { href: "https://www.linkedin.com/company/adwirehk/", label: "LinkedIn", Icon: Linkedin },
 ];
 
 /* 社會認同數字 */
