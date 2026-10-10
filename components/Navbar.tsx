@@ -28,34 +28,34 @@ const serviceGroups: {
   {
     group: "AI & Automation",
     links: [
-      { name: "AI 解決方案",        href: "/services/ai",         emoji: "✨", badge: "新" },
-      { name: "企業流程自動化",     href: "/services/automation", emoji: "🤖", badge: "新" },
+      { name: "AI 解決方案",        href: "/services/ai",         emoji: "✨", badge: null },
+      { name: "企業流程自動化",     href: "/services/automation", emoji: "🤖", badge: null },
     ],
   },
   {
     group: "SEO & GEO",
     links: [
-      { name: "SEO 與 GEO 優化",    href: "/services/seo",        emoji: "🔍", badge: "重點" },
+      { name: "SEO 與 GEO 優化",    href: "/services/seo",        emoji: "🔍", badge: null },
     ],
   },
   {
     group: "Consulting",
     links: [
-      { name: "企業顧問服務",       href: "/services/consulting", emoji: "🧭", badge: "新" },
+      { name: "企業顧問服務",       href: "/services/consulting", emoji: "🧭", badge: null },
     ],
   },
   {
     group: "Industry Solutions",
     links: [
-      { name: "學校及教育機構",     href: "/services/education",  emoji: "🏫", badge: "新" },
-      { name: "診所及醫療機構",     href: "/services/healthcare", emoji: "🏥", badge: "新" },
+      { name: "學校及教育機構",     href: "/services/education",  emoji: "🏫", badge: null },
+      { name: "診所及醫療機構",     href: "/services/healthcare", emoji: "🏥", badge: null },
     ],
   },
   {
     group: "Cross-border Marketing",
     links: [
-      { name: "中國市場推廣",       href: "/services/china-market",     emoji: "🌏", badge: "新" },
-      { name: "香港市場在地化推廣", href: "/services/hong-kong-market", emoji: "🏙️", badge: "新" },
+      { name: "中國市場推廣",       href: "/services/china-market",     emoji: "🌏", badge: null },
+      { name: "香港市場在地化推廣", href: "/services/hong-kong-market", emoji: "🏙️", badge: null },
     ],
   },
   {
@@ -651,16 +651,6 @@ export default function Navbar() {
                               group-hover:text-[#0f4c81] transition-colors duration-150 leading-tight">
                               {link.name}
                             </span>
-                            {link.badge && (
-                              <span className={`absolute top-1.5 right-1.5 px-1.5 py-0.5 rounded-full
-                                text-[9px] font-bold leading-none
-                                ${link.badge === "新"
-                                  ? "bg-[#f5a623] text-white"
-                                  : "bg-[#0f4c81] text-white"
-                                }`}>
-                                {link.badge}
-                              </span>
-                            )}
                           </Link>
                         ))}
                       </div>
