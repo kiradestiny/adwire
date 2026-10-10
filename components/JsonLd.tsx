@@ -16,6 +16,14 @@ export default function JsonLd() {
       "height": 200
     },
     "description": "ADWire Agency Limited 提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻及 KOL 等數碼營銷服務，以香港市場為主。",
+    // 實體消歧義（2026-10-10）：Google AI 曾把本公司與同名／近名機構撈亂，並虛構出中文名「愛德廣告代理有限公司」。
+    // 客戶確認：本公司只有英文註冊名稱，並無中文名稱。以下欄位用於向搜尋引擎明確標示唯一實體。
+    "disambiguatingDescription": "在香港註冊的軟件開發及數碼營銷公司，註冊英文名稱為 ADWire Agency Limited（並無中文註冊名稱），官方網站為 adwire.com.hk，服務對象為香港及大灣區企業。",
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Hong Kong Business Registration Number (BRN)",
+      "value": "77898321"
+    },
     "foundingDate": "2023",
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61575126092859",
