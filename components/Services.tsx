@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import {
   Megaphone, Smartphone, BarChart3, Bot, Globe,
   Search, Code, Camera, Share2, ArrowRight, ChevronDown,
-  Cpu, MapPin, Building2
+  Cpu, MapPin, Building2, Sparkles
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -42,6 +42,16 @@ const coreServices = [
     textColor: "text-blue-500",
     bgLight: "bg-blue-50",
     border: "border-blue-100"
+  },
+  {
+    icon: Sparkles,
+    title: "AI Agency",
+    desc: "把 AI 應用開發與數碼營銷放在同一隊：由業務問題出發，決定應該用 AI 解決流程問題，還是用營銷手段帶來查詢。說明交付範圍、收費方式、風險及人工覆核安排。",
+    link: "/services/ai-agency",
+    color: "bg-fuchsia-500",
+    textColor: "text-fuchsia-500",
+    bgLight: "bg-fuchsia-50",
+    border: "border-fuchsia-100"
   }
 ];
 

@@ -87,6 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: '/services/system/',     lastModified: SERVICE_LAST_UPDATED },
     { url: '/services/automation/', lastModified: SERVICE_LAST_UPDATED },
     { url: '/services/ai/',         lastModified: SERVICE_LAST_UPDATED },
+    { url: '/services/ai-agency/',  lastModified: SERVICE_LAST_UPDATED },
     { url: '/services/china-market/',      lastModified: SERVICE_LAST_UPDATED },
     { url: '/services/hong-kong-market/',  lastModified: SERVICE_LAST_UPDATED },
     { url: '/services/education/',         lastModified: SERVICE_LAST_UPDATED },
