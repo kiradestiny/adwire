@@ -1,0 +1,952 @@
+[
+ {
+  "slug": "ai-manage-meta-google-ads",
+  "type": "表達",
+  "quote": "最容易失焦的地方是把「AI 可以幫到手」講得太籠統。",
+  "problem": "「幫到手」是粵語口語（書面語應為「幫得上忙／有幫助」）。此處引號是作者自設的概括說法，並非引述客戶原話、廣告示例或官方標題，不在豁免範圍，在全篇書面語中顯得突兀。",
+  "fix": "改為「把『AI 可以幫上忙』講得太籠統」，或「把 AI 的作用講得太籠統」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "app-development-cost-guide-hong-kong",
+  "type": "表達",
+  "quote": "App 開發報價差別最大的位在於範圍控制同後續維護。如果你想帶著清晰範圍去報價，可以先看我們的做法。",
+  "problem": "「同」作連接詞為粵語，書面語應用「與」或「及」；同段「差別最大的位在於」語序不通（「位」應作「地方」）。同一服務區塊下方「報價結構同交付里程碑」「把 App 同內部系統、審批流程接通」亦同樣用「同」。",
+  "fix": "改為「App 開發報價差別最大的地方在於範圍控制與後續維護」「報價結構與交付里程碑」「把 App 與內部系統、審批流程接通」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "app-development-cost-guide-hong-kong",
+  "type": "表達",
+  "quote": "[圖說] 分三關設定成功條件與退出標準，及早發現方向錯誤。",
+  "problem": "此圖說置於「四、功能的優先次序」之下，但「分三關設定成功條件與退出標準」實際屬第九節「PoC 到 MVP 到正式上線的驗證指標」的內容，圖文不符，讀者會以為第四節講驗證關卡。",
+  "fix": "把該圖說移到第九節，或按第四節內容（功能三層分類）重寫圖說。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "google-meta-ads-guide",
+  "type": "表達",
+  "quote": "——這個是香港廣告主過去兩年最常出現的呻吟。廣告費用年年漲，效果卻年年低",
+  "problem": "「呻吟」指因痛苦而發出的低吟，用來指廣告主普遍出現的抱怨並非中文慣用搭配，語意偏負面且突兀，讀者容易誤解作者語帶嘲諷。",
+  "fix": "改為「最常出現的抱怨」或「最常聽到的心聲」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "google-meta-ads-guide",
+  "type": "表達",
+  "quote": "素材產能同轉換追蹤是兩個最常見的瓶頸位，以下是我們的投放服務範圍。",
+  "problem": "「同」作連接詞為粵語，書面語應用「與」；同一服務區塊下一條「素材測試節奏、轉換追蹤設定同預算分配」亦同樣。",
+  "fix": "改為「素材產能與轉換追蹤是兩個最常見的瓶頸」、「轉換追蹤設定與預算分配」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "digital-education-tools-hong-kong-schools",
+  "type": "表達",
+  "quote": "學校採購數字教育工具，要取幾多份報價？",
+  "problem": "「幾多」為粵語口語（書面語應為「多少」），出現在常見問題標題中，與全文書面語不一致。",
+  "fix": "改為「要取多少份報價？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "digital-education-tools-hong-kong-schools",
+  "type": "表達",
+  "quote": "離線可用對選型有幾重要？",
+  "problem": "「幾重要」為粵語口語（書面語應為「多重要」），出現在常見問題標題中，與全文書面語不一致。",
+  "fix": "改為「離線可用對選型有多重要？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "short-video-marketing-guide",
+  "type": "表達",
+  "quote": "影片發佈後的社交媒體經營同社群回覆",
+  "problem": "「同」作連接詞為粵語，書面語應用「與」，出現在相關服務條目，與同段其他書面語條目不一致。",
+  "fix": "改為「影片發佈後的社交媒體經營與社群回覆」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "short-video-marketing-guide",
+  "type": "表達",
+  "quote": "[圖說] 依 YouTube 官方觀眾旅程設計的四層漏斗指標。",
+  "problem": "此圖說置於「二、開頭幾秒」標題之下，但「四層漏斗指標」屬第五節「量度」的內容；另一則「以內容支柱建立可持續的選題系統」置於「四、製作流程」之下，亦屬第七節「選題研究與內容矩陣」的內容。兩則圖說與所在段落不符。",
+  "fix": "把兩則圖說移到對應章節（四層漏斗移至第五節、內容支柱移至第七節），或改寫為配合所屬段落。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "hong-kong-ecommerce-website-guide",
+  "type": "表達",
+  "quote": "想開網店但不知用平台定自建？本文用官方資料講清平台（Shopify／SHOPLINE）與自建電商網站的分界",
+  "problem": "「定」作選擇連詞（即「還是／抑或」）為粵語口語，非書面語，出現在文章摘要開首，影響第一印象。",
+  "fix": "改為「想開網店但不知用平台還是自建？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "hong-kong-ecommerce-website-guide",
+  "type": "表達",
+  "quote": "第一步通常不是「用邊個平台」，而是「我應該用平台開店，還是建一個屬於自己的電商網站」",
+  "problem": "「邊個」為粵語（書面語應為「哪個」）；此處引號是作者自設的提問，並非引述客戶原話或搜尋詞，不在豁免範圍。文末總結「不是『用邊個平台最紅』」亦同樣。",
+  "fix": "改為「用哪個平台」（「不是『用哪個平台最紅』」）。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "hong-kong-ecommerce-website-guide",
+  "type": "表達",
+  "quote": "它們多數與版面「靚唔靚」無關，而是資訊與流程是否對上訪客意圖：",
+  "problem": "「靚唔靚」含粵語口語字「唔」，且屬作者自設說法而非引述原話；在書面語段落中突然插入口語，與全文語體不一致。",
+  "fix": "改為「與版面是否美觀無關，而是資訊與流程是否對上訪客意圖」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-1.json"
+ },
+ {
+  "slug": "ai-sme-productivity-hong-kong",
+  "type": "表達",
+  "quote": "### 三類工序最常見效",
+  "problem": "小標題本身殘缺且有錯：一是「最常見效」漏字，讀不通（應為「最常見成效」或「最常見用法」一類）；二是標題寫「三類工序」，但緊接的表格實際列出五項工序（會議紀錄、郵件與往來文件、Excel 與報表、簡報與文件、內部知識查找），數量與標題不符，令讀者一開頭即感混亂。",
+  "fix": "改為「五類工序最常見成效」或「五類最常見的 Copilot 應用工序」，使標題字句完整並與表格行數一致。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-2.json"
+ },
+ {
+  "slug": "crm-system-selection-guide-hong-kong",
+  "type": "表達",
+  "quote": "選擇完平台之後，真正的成本在導入同客製化。以下是我們的系統開發服務。",
+  "problem": "本文體裁為繁體中文書面語，但此句用「同」作連接詞（等於「與／及」），屬粵語口語用法，與全文其餘書面語風格不一致；同一段落下方亦重複出現「資料遷移同客製化開發」、「回覆建議同流失預警」等同類口語用法。",
+  "fix": "「同」一律改為書面語連接詞，例如：「真正的成本在於導入與客製化」、「資料遷移與客製化開發」、「回覆建議及流失預警」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-2.json"
+ },
+ {
+  "slug": "hong-kong-web-design-pricing-guide",
+  "type": "表達",
+  "quote": "入門共享主機每年約 HK$500 – 數千元；高流量或需獨立規格的規格會更高",
+  "problem": "「需獨立規格的規格」重複使用「規格」一詞，句子殘缺不通：原意應是指「需要獨立規格的主機」價格會更高，但寫成「的規格會更高」，把可以「更高」的主體（主機價格）漏掉，令讀者一時看不懂在比較什麼。",
+  "fix": "改為「高流量或需獨立規格的主機，費用會更高」，明確指出價格較高的是主機方案。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-2.json"
+ },
+ {
+  "slug": "hong-kong-web-design-pricing-guide",
+  "type": "含糊",
+  "quote": "HK$3,800 的報價，也可能收到 HK$180,000 的報價。差距不是 4 倍，而是以十倍計",
+  "problem": "所舉數字與說明對不上：HK$3,800 與 HK$180,000 相差約 47 倍，既不是「4 倍」，用「以十倍計」亦低估了實際差距；且本文開首及摘要均稱差距可達「幾十倍」。同一段內自相矛盾，讀者難以判斷究竟差距有多大。",
+  "fix": "按實際倍數修正，例如統一寫成「差距可達數十倍（HK$3,800 對 HK$180,000，相差約 47 倍）」，或刪去「不是 4 倍」這句與後文不一致的表述。",
+  "conf": "medium",
+  "verified": false,
+  "batch": "batch-2.json"
+ },
+ {
+  "slug": "hong-kong-public-sector-system-procurement-guide",
+  "type": "表達",
+  "quote": "並降低投標基本要求以鼓勵中小企與初創參與——即是話直接成為承辦商的門檻比以往低。",
+  "problem": "「即是話」屬粵語口語（等同「即係話」），與全文繁體中文書面語風格不一致，應為「即是說」。此為常見問題段落，正式書面語不宜出現口語字。",
+  "fix": "改為「——即表示直接成為承辦商的門檻比以往為低」或「——即是說……」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-2.json"
+ },
+ {
+  "slug": "video-production-hong-kong-guide",
+  "type": "表達",
+  "quote": "企業宣傳片應該做幾長？",
+  "problem": "「幾長」是粵語口語（書面語應為「多長」），出現在常見問題標題；第三節建議向製作公司提問的示例「演員的授權期限是幾長？」同樣用「幾長」，與全文書面語不一致。",
+  "fix": "改為「企業宣傳片應該做多長？」；提問示例改為「演員的授權期限是多長？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "video-production-hong-kong-guide",
+  "type": "表達",
+  "quote": "報價差距三倍通常反映在前期準備同後期標準",
+  "problem": "「同」作連接詞為粵語，書面語應用「與」或「及」；同一相關服務區塊下方「前期準備同後期標準」等條目亦同樣用「同」，與同段其他書面語條目不一致。",
+  "fix": "改為「報價差距三倍通常反映在前期準備與後期標準」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "video-production-hong-kong-guide",
+  "type": "含糊",
+  "quote": "### 六之二、拍攝許可、授權、無障礙與 AI 素材",
+  "problem": "第六節名為「常見問題與失敗原因」，第七節又叫「常見問題」，中間還插入「六之二」這種不常見的編號，目錄與內文章節命名重複、層級不一致，讀者不易分辨兩節的分工。",
+  "fix": "把第六節改名（例如「六、常見失敗模式」），第七節保留「常見問題（FAQ）」，並把「六之二」正規化為「七」，其後章節順延。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "hong-kong-ai-chatbot-customer-service-guide",
+  "type": "表達",
+  "quote": "建議設定清晰的轉人手機制，AI 無法處理時即時轉接真人",
+  "problem": "「轉人手」用詞不通，且與全文其他位置「交回真人」「交接真人」「人工升級機制」不一致，疑為「轉真人」之誤，同一則問答後半句也寫成「轉接真人」，前後用詞不一。",
+  "fix": "改為「建議設定清晰的轉真人機制，AI 無法處理時即時轉接真人」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "hong-kong-ai-chatbot-customer-service-guide",
+  "type": "可加表格",
+  "quote": "客服席位 ：常見估算為 HKD 200 至 600／席／月。團隊人數愈多，這筆費用愈顯著。",
+  "problem": "第八節「隱藏費用」以六項編號清單列出各項估算，每項都含金額區間與是否隨用量變動的說明，屬清單式／對比式內容，逐段閱讀不易比較。",
+  "fix": "在第八節清單位置加一個表格，欄位建議為「項目｜常見估算金額｜是否隨用量或人數變動」，例如：號碼託管｜US$15／號／月（SleekFlow 例）｜否；客服席位｜HKD 200–600／席／月｜是。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "rpa-hong-kong-guide",
+  "type": "表達",
+  "quote": "流程盤點、優先次序排列同 RPA 上線",
+  "problem": "「同」作連接詞為粵語，書面語應用「與」或「及」；同一相關服務區塊下一條「RPA 同 ERP、會計、HR 系統的接駁」亦同樣用「同」，與同段其他書面語條目不一致。",
+  "fix": "改為「流程盤點、優先次序排列與 RPA 上線」「RPA 與 ERP、會計、HR 系統的接駁」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "high-converting-landing-page",
+  "type": "表達",
+  "quote": "與其做一個沒有統計意義的 A/B 測試，不如改做 可用性測試",
+  "problem": "第七節「樣本不足就不要騙自己」與第九節「低流量時的替代做法」幾乎重複同一組建議（可用性測試、錄屏與訪談、分階段修正），同一段內容在相隔不遠的兩節各寫一次，讀者會誤以為是不同做法。",
+  "fix": "把相關內容集中在一處詳述（建議放第七節 A/B 測試之後），第九節只保留一句回指，或刪去重複段落。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "custom-system-efficiency",
+  "type": "表達",
+  "quote": "通常會比訂造更快、更平、維護責任也由供應商承擔",
+  "problem": "「更平」形容價格低廉屬粵語口語（書面語應為「更便宜」或「更划算」），出現在正文，與全文書面語不一致。",
+  "fix": "改為「通常會比訂造更快、更便宜、維護責任也由供應商承擔」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "custom-system-efficiency",
+  "type": "表達",
+  "quote": "只要多過一個人會改同一份表，就會出現「邊個版本最新」的問題",
+  "problem": "「邊個」為粵語（書面語應為「哪個」），「多過」亦為口語（應為「多於」）；此處引號是作者自設的概括說法，並非引述客戶原話或搜尋詞，不在豁免範圍。",
+  "fix": "改為「只要多於一個人會改同一份表，就會出現『哪個版本最新』的問題」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "custom-system-efficiency",
+  "type": "表達",
+  "quote": "量化「現時這套人手流程一年吃掉幾多工時成本」",
+  "problem": "「幾多」為粵語口語（書面語應為「多少」），引號為作者自設說法而非引述原話；同一文章另處「『一間屋幾多錢』的通用答案」「一年吃掉幾多成本」亦同樣用「幾多」。",
+  "fix": "改為「量化『現時這套人手流程一年吃掉多少工時成本』」，其餘兩處亦改為「多少」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "custom-system-efficiency",
+  "type": "表達",
+  "quote": "度身訂造系統的範圍界定、開發同交付",
+  "problem": "「同」作連接詞為粵語，書面語應用「與」或「及」，出現在相關服務條目，與同段其他書面語條目不一致。",
+  "fix": "改為「度身訂造系統的範圍界定、開發與交付」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-3.json"
+ },
+ {
+  "slug": "chatgpt-ads-hong-kong-guide",
+  "type": "表達問題",
+  "quote": "曝光、點擊與點擊率約每 15 分鐘更新一次，而支出數據可能延遲 7 至 8 小時",
+  "problem": "同一段數據更新節奏在前面已經完整講過一次，這裡再原句重述一遍（連「每 15 分鐘更新一次」「延遲 7 至 8 小時」兩組數字完全重複），讀者會以為是新資訊，實際上只是重複，拖慢閱讀節奏。",
+  "fix": "刪去這段重述，或把重點改寫成一句延伸說明（例如只補一句「因此檢視成效時宜用較長時間窗口，避免因短暫延遲而誤判」），不再重列數字。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "chatgpt-ads-hong-kong-guide",
+  "type": "表達問題",
+  "quote": "不足 200 日 | ChatGPT Ads 年度化收入運行率達 10 億美元，覆蓋超過 40 個國家",
+  "problem": "時間線表格的「日期」欄同時混入具體日期（例如 2026 年 2 月 9 日）與時距描述（「六個月內」「不足 200 日」），讀者無法把後兩列放進時間軸排序，看表時要先自行推算。",
+  "fix": "把時距類項目改為可對照的日期範圍（例如「2026 年 2 月至 8 月」），或在日期欄加註「約」字並補上起算日，令全欄統一為時間點。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "ai-agent-hong-kong-business-guide",
+  "type": "表達問題",
+  "quote": "AI Agent 可以「做嘢」，Chatbot 只是「答嘢」",
+  "problem": "「做嘢」「答嘢」是粵語口語用字，不是引述客戶原話、廣告示例或官方標題；此處只是作者自述，屬正式書面語文章內容，不應出現口語字。",
+  "fix": "改為書面語，例如「AI Agent 可以『動手做』，Chatbot 只是『回答問題』」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "ai-agent-hong-kong-business-guide",
+  "type": "表達問題",
+  "quote": "AI Agent 要真正落地，通常要同現有系統打通先有用。",
+  "problem": "整句是粵語語序（「同……打通」「先有用」），與全文正式的繁體中文書面語不一致，出現於「相關服務」引言段，讀來突兀。",
+  "fix": "改寫為書面語，例如「AI Agent 要真正落地，通常須先與現有系統整合，才能發揮作用」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "ai-agent-hong-kong-business-guide",
+  "type": "表達問題",
+  "quote": "AI Agent 設計、工具串接同權限控制",
+  "problem": "「同」在此作連接詞（等同「和」）屬粵語用法，書面語應用「與」或「及」，同一服務清單三項連續出現同類問題。",
+  "fix": "改為「AI Agent 設計、工具串接與權限控制」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "hong-kong-seo-geo-guide",
+  "type": "表達問題",
+  "quote": "如果你都有同感，呢篇文章正正是為你而寫",
+  "problem": "「呢」是粵語口語字，且此處在引號之外，並非引述客戶原話或關鍵詞，屬正文口語用字，與全文書面語風格不符。",
+  "fix": "改為「如果你都有同感，這一篇文章正是為你而寫」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "hong-kong-seo-geo-guide",
+  "type": "表達問題",
+  "quote": "SEO 需要幾耐才有效果？",
+  "problem": "FAQ 標題「幾耐」是粵語口語，正式書面語應用「多久」，且 FAQ 標題是讀者最先掃視的位置，突兀感最明顯。",
+  "fix": "改為「SEO 需要多久才有效果？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "hong-kong-seo-geo-guide",
+  "type": "表達問題",
+  "quote": "GEO 的完整定義、Google 官方立場與學術實證，集中於 GEO 完整指南 ；決策層面可先看 SEO 與 GEO 的分別 。",
+  "problem": "同一句在文中連續出現兩次（緊接兩個段落），是複製貼上的重複，讀者會以為漏讀或頁面出錯。",
+  "fix": "刪去重複的一句，只保留一次。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "hong-kong-seo-geo-guide",
+  "type": "表達問題",
+  "quote": "Google 排名同 AI 引用的做法有重疊但不完全相同",
+  "problem": "「同」作連接詞屬粵語用法，此段（相關服務引言及清單）連續多句用「同」代替「與」，與文章其餘部分的書面語風格不一致。",
+  "fix": "改為「Google 排名與 AI 引用的做法有重疊但不完全相同」，並同步修正緊接的服務清單用字。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "school-ai-project-hong-kong",
+  "type": "表達問題",
+  "quote": "若學校希望由需求盤點、技術選型、私隱評估到專案驗收一併處理",
+  "problem": "全文對同一概念混用「專案」與「項目」兩種寫法（例如目錄與正文多處寫「專案分期」「專案管理」，但第 2、7 節又寫「校本 AI 項目」），用詞前後不一致，讀者會以為兩者指不同東西。",
+  "fix": "統一為香港慣用的「項目」（如「到項目驗收一併處理」），並全篇檢查「專案」改為「項目」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "school-ai-project-hong-kong",
+  "type": "表達問題",
+  "quote": "技術方案選型：現成工具、定制開發還是混合",
+  "problem": "「定制」是大陸用詞，香港書面語應為「訂製」；文中「定制開發」在多處反覆出現，影響本地讀者的語感。",
+  "fix": "全篇「定制開發」「定制／混合」改為「訂製開發」「訂製／混合」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "school-ai-project-hong-kong",
+  "type": "過時內容",
+  "quote": "資助學校採購金額在 5 萬元至 135 萬元之間，一般須最少索取五份書面報價；超過 135 萬元則須採用公開招標程序",
+  "problem": "此處所述門檻與同站另一篇《香港學校如何選擇系統供應商》引述的《資助學校採購程序指引》門檻（50,000 元至 200,000 元須書面報價、200,000 元以上須招標）互相矛盾，兩篇同站文章對同一程序給出不同金額，讀者無法判斷哪個為準。",
+  "fix": "核對《資助學校採購程序指引》最新版本後統一數字；若此處指的是優質教育基金另行規定，須明確標明來源與適用範圍，避免與採購程序指引混淆。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-4.json"
+ },
+ {
+  "slug": "jev-ai-decision-model",
+  "type": "表達問題",
+  "quote": "軟件需要判斷「幾時不應該自動執行」，而不只是「答案對不對」",
+  "problem": "「幾時」屬粵語口語，用於一般敘述（非引述客戶原話或廣告示例），不符合站上繁體中文書面語標準。",
+  "fix": "改為「軟件需要判斷『何時不應自動執行』，而不只是『答案對不對』」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "kol-marketing-hong-kong-guide",
+  "type": "表達問題",
+  "quote": "最重要的是選擇「啱受眾」的 KOL，不是「最多粉絲」的 KOL",
+  "problem": "「啱」為粵語口語字，出現在作者本人的敘述（非引述原話、廣告示例或關鍵詞），不符書面語標準。",
+  "fix": "改為「最重要的是選擇『受眾匹配』的 KOL，而不是『最多粉絲』的 KOL」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "kol-marketing-hong-kong-guide",
+  "type": "表達問題",
+  "quote": "很多人一開始就問「邊個 KOL 最多粉絲」",
+  "problem": "「邊個」為粵語口語，屬一般行文中的口語化提問，不符書面語標準。",
+  "fix": "改為「很多人一開始就問『哪個 KOL 粉絲最多』」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "membership-system-hong-kong",
+  "type": "表達問題",
+  "quote": "第三方服務商就香港市場公布的推廣訊息指示價約為每則 US$0.05 至 US$0.08",
+  "problem": "「指示價」用詞不常見且語意不清，讀者難以判斷是指導價、建議價還是參考價。",
+  "fix": "改為「參考價」或「建議價」，例如「第三方服務商公布香港市場推廣訊息參考價約為每則 US$0.05 至 US$0.08」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "membership-system-hong-kong",
+  "type": "錯字別字",
+  "quote": "客人預先充值、扣款、餘額查詢 | 常涉交易手續費",
+  "problem": "同一欄目以「儲值／預付」為標題，內文卻用內地詞「充值」，與香港慣用「儲值」不一致。",
+  "fix": "統一改為「客人預先儲值、扣款、餘額查詢」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "school-management-system-hong-kong",
+  "type": "含糊不清",
+  "quote": "家長已安裝並習慣現有平台，而這個習慣是所有學校共用的",
+  "problem": "「這個習慣是所有學校共用的」語意含糊，字面容易被讀成「所有學校共用同一個習慣」，讀者需停頓猜測原意。",
+  "fix": "改為「家長已安裝並習慣現有平台，而這種情況在香港學校十分普遍」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "hong-kong-brand-china-market-guide",
+  "type": "錯字別字",
+  "quote": "④百度更鐘情百度系產品（百科、貼吧、百家號）",
+  "problem": "「鐘情」為別字，正確應為「鍾情」（鐘指時鐘，鍾才表示專注偏愛）。",
+  "fix": "改為「百度更鍾情百度系產品」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "hong-kong-brand-china-market-guide",
+  "type": "錯字別字",
+  "quote": "抖音帶貨合作、微信公衆號管理、百度SEM及媒體新聞稿",
+  "problem": "「衆」為「眾」的異體字，香港標準寫法應為「公眾號」；同文其他位置混用兩種寫法，前後不一致。",
+  "fix": "全篇統一改為「公眾號」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "hong-kong-brand-china-market-guide",
+  "type": "表達問題",
+  "quote": "抖音企業號管理及達人帶貨對接；微信公衆號內容運營及廣告投放",
+  "problem": "「運營」屬內地詞，香港慣用「營運」；同文第 274、363 行已用「營運」，此處用字不一致。",
+  "fix": "改為「微信公眾號內容營運及廣告投放」，全篇統一使用「營運」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "hong-kong-brand-china-market-guide",
+  "type": "表達問題",
+  "quote": "如果你想知自己的品類應該先落哪個，可以看我們的內地市場服務",
+  "problem": "「想知」與「先落」為粵語口語及行內口語用法，一般敘述句使用不符書面語標準。",
+  "fix": "改為「如果你想知道自己的品類應該先投放哪個平台，可以看我們的內地市場服務」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "hong-kong-brand-china-market-guide",
+  "type": "表達問題",
+  "quote": "小紅書、抖音、微信、百度的平台分工同預算分配",
+  "problem": "「同」作連接詞（相等於「和／與」）屬粵語用法，不符書面語標準。",
+  "fix": "改為「小紅書、抖音、微信、百度的平台分工與預算分配」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-5.json"
+ },
+ {
+  "slug": "how-to-choose-seo-company-hong-kong",
+  "type": "錯字別字",
+  "quote": "立即預約免費諮詢，讓我們為你的業務增長提供建議。 WhatsApp 即時咨詢 填寫查詢表格",
+  "problem": "同一頁面內先後出現「諮詢」與「咨詢」兩種寫法，香港標準用字為「諮詢」，用字不一致影響專業觀感。",
+  "fix": "統一改為「諮詢」（WhatsApp 即時諮詢）。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "how-to-choose-seo-company-hong-kong",
+  "type": "表達問題",
+  "quote": "請當心不斷主動寄送電子電郵給您的 SEO 公司、網路顧問或服務商",
+  "problem": "「電子電郵」語意重複（電郵本身已是電子郵件），讀起來不順，亦疑為引述 Google 原文時誤植。",
+  "fix": "改為「電子郵件」或直接寫「推銷電郵」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "china-market-strategy-hong-kong",
+  "type": "錯字別字",
+  "quote": "立即預約免費諮詢，讓我們為你的業務增長提供建議。 WhatsApp 即時咨詢 填寫查詢表格",
+  "problem": "同頁混用「諮詢」與「咨詢」，香港標準寫法為「諮詢」，用字不一致。",
+  "fix": "統一改為「諮詢」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "china-market-strategy-hong-kong",
+  "type": "表達問題",
+  "quote": "如果你想針對自己的品類同預算傾一次，可以查看我們的內地市場服務",
+  "problem": "「傾一次」為粵語口語（傾＝商談），與全文書面語風格不一致。",
+  "fix": "改為「如果你想就自己的品類與預算商談一次」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "china-market-strategy-hong-kong",
+  "type": "表達問題",
+  "quote": "內地推廣的成效要幾耐才看得到？",
+  "problem": "「幾耐」為粵語口語，出現在常見問題標題（非引述），讀者會覺突兀。",
+  "fix": "改為「內地推廣的成效要多久才看得到？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "china-market-strategy-hong-kong",
+  "type": "表達問題",
+  "quote": "香港品牌要進入內地市場，第一個要回答的問題通常不是「做邊個平台」",
+  "problem": "「邊個」為粵語口語，此處為作者自述用語而非引述客戶或搜尋詞，不符書面語標準。",
+  "fix": "改為「做哪個平台」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "xiaohongshu-marketing-hong-kong-guide",
+  "type": "錯字別字",
+  "quote": "立即預約免費諮詢，讓我們為你的業務增長提供建議。 WhatsApp 即時咨詢 填寫查詢表格",
+  "problem": "同頁混用「諮詢」與「咨詢」，香港標準寫法為「諮詢」，用字不一致。",
+  "fix": "統一改為「諮詢」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "xiaohongshu-marketing-hong-kong-guide",
+  "type": "含糊不清",
+  "quote": "有效查詢（去重）、淨成交、客戶成本 | 是否真正帶來生意；需追蹤配置才能歸因",
+  "problem": "表格列出「客戶成本」，但正文定義的卻是「成交成本」，兩個名稱前後不一，讀者難以對照。",
+  "fix": "統一為同一名稱（例如一律用「成交成本」），並在表格與正文一致說明。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "xiaohongshu-marketing-hong-kong-guide",
+  "type": "表達問題",
+  "quote": "內地《廣告法》及市場監管規則要求可識別為廣告，不能以「睇落唔似廣告」代替合規",
+  "problem": "「睇落唔似廣告」為粵語口語，此處非引述客戶原話或廣告文案，不符書面語標準。",
+  "fix": "改為「不能以『看起來不像廣告』代替合規」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "xiaohongshu-marketing-hong-kong-guide",
+  "type": "表達問題",
+  "quote": "這也是為什麼小紅書的內容策略必須由「關鍵字與題目」開始，而不是由「今個月發幾多篇」開始",
+  "problem": "「今個月」「幾多」為粵語口語，此處為作者自述而非引述，與書面語風格不符。",
+  "fix": "改為「由『這個月發多少篇』開始」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "xiaohongshu-marketing-hong-kong-guide",
+  "type": "可加表格",
+  "quote": "把風險講在前面，比事後補救實際。以下三類是香港品牌做小紅書最常遇到的",
+  "problem": "「常見風險與對策」以三段敘述式列出三組「風險＋對策」，屬平行結構，純文字較難掃讀。",
+  "fix": "改為兩欄表格（風險／對策），讀者更易逐項比對。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "idea-to-mvp-hong-kong",
+  "type": "錯字別字",
+  "quote": "立即預約免費諮詢，讓我們為你的業務增長提供建議。 WhatsApp 即時咨詢 填寫查詢表格",
+  "problem": "同頁混用「諮詢」與「咨詢」，香港標準寫法為「諮詢」，用字不一致。",
+  "fix": "統一改為「諮詢」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "idea-to-mvp-hong-kong",
+  "type": "表達問題",
+  "quote": "價差不是「邊間平邊間貴」，而是各公司理解與執行的範圍不同——所以需求文件要寫得夠具體",
+  "problem": "「邊間平邊間貴」為粵語口語，出現在圖說（非引述客戶或廣告文案），與全文書面語不一致。",
+  "fix": "改為「價差不是『哪一間便宜哪一間貴』」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "steam-classroom-setup-hong-kong",
+  "type": "錯字別字",
+  "quote": "立即預約免費諮詢，讓我們為你的業務增長提供建議。 WhatsApp 即時咨詢 填寫查詢表格",
+  "problem": "同頁混用「諮詢」與「咨詢」，香港標準寫法為「諮詢」，用字不一致。",
+  "fix": "統一改為「諮詢」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "steam-classroom-setup-hong-kong",
+  "type": "錯字別字",
+  "quote": "本文由技術與運營角度出發，整理 STEAM 教室包含的設備類型",
+  "problem": "「運營」為內地用語，香港繁體標準寫法為「營運」（同頁其他地方亦用「營運」，如前文的營辦開支）。",
+  "fix": "改為「本文由技術與營運角度出發」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-6.json"
+ },
+ {
+  "slug": "social-media-management-hong-kong-guide",
+  "type": "錯字",
+  "quote": "確保你這邊能及時提供產品資訊，因為服務商無法回答他不知道道的細節",
+  "problem": "「不知道道」是明顯重字錯字（多了一個「道」字），全篇出現兩次：理由段「因為服務商無法回答他不知道道的細節」，以及常見問題「服務商無法回答他不知道道的產品細節」。屬手民之誤，影響可信度。",
+  "fix": "改為「因為服務商無法回答他不知道的細節」及「服務商無法回答他不知道的產品細節」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "social-media-management-hong-kong-guide",
+  "type": "表達",
+  "quote": "香港企業應該做邊幾個社交平台？",
+  "problem": "常見問題標題用「邊幾個」（粵語，書面語應為「哪幾個／哪些」），與全文其他常見問題標題（如「成效應該用什麼指標去量度？」）的書面語語體不一致。",
+  "fix": "改為「香港企業應該做哪幾個社交平台？」或「應該做哪些社交平台？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "social-media-management-hong-kong-guide",
+  "type": "表達",
+  "quote": "外判社交媒體管理，同自己請人比較，哪個抵？",
+  "problem": "常見問題標題用粵語口語：「同」作連接詞（應為「與」）、「抵」作「划算／值得」（書面語應為「划算」）。此處並非引述客戶原話或用戶搜尋詞，不在豁免範圍。",
+  "fix": "改為「外判社交媒體管理，與自己請人比較，哪個划算？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "ai-automation-roi-hong-kong",
+  "type": "表達",
+  "quote": "計算 ROI 要計埋隱性成本（培訓、維護、系統整合）",
+  "problem": "「計埋」是粵語口語（書面語應為「計入／一併計算」），出現在重點摘要條目，與全篇書面語不一致。",
+  "fix": "改為「計算 ROI 要計入隱性成本（培訓、維護、系統整合）」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "ai-automation-roi-hong-kong",
+  "type": "表達",
+  "quote": "如果你想用自己公司的數字試算一次，可以查看我們點做。",
+  "problem": "「點做」是粵語口語（書面語應為「怎樣做／如何進行」），且句意含糊——「查看我們點做」沒有說明讀者實際會看到什麼，作為服務引導句指向不清。",
+  "fix": "改為「可以查看我們的評估做法」，或直接寫明服務頁面名稱，例如「可參考我們的流程自動化服務」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "ai-automation-roi-hong-kong",
+  "type": "表達",
+  "quote": "企業系統與 App 開發服務 　—　自動化流程同現有系統的整合工程",
+  "problem": "「同」作連接詞為粵語（書面語應為「與」），出現在相關服務條目，與同段其他書面語條目不一致。",
+  "fix": "改為「自動化流程與現有系統的整合工程」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "ai-automation-roi-hong-kong",
+  "type": "表達",
+  "quote": "而非「應該差唔多」的估算",
+  "problem": "「差唔多」含粵語口語（書面語應為「差不多」），此處引號是作者自設的說法，並非引述客戶原話、廣告示例或官方標題，不在豁免範圍。",
+  "fix": "改為「而非『應該差不多』的估算」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "qef-application-guide-hong-kong-schools",
+  "type": "表達",
+  "quote": "第 17 期申請期開緊，學校宜在 2026 年年底前完成計劃構思與預算",
+  "problem": "圖說用粵語口語「開緊」（進行體標記，書面語應為「正在進行」），與全篇書面語語體不一致。",
+  "fix": "改為「第 17 期申請期正在進行，學校宜在 2026 年年底前完成計劃構思與預算」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "ai-solution-hong-kong-enterprise-guide",
+  "type": "表達",
+  "quote": "一、2026 年香港的政策與資金背景：實際數字是幾多",
+  "problem": "章節標題用粵語口語「幾多」（書面語應為「多少」），與全篇書面語語體不一致，且屬目錄上的顯眼位置。",
+  "fix": "改為「一、2026 年香港的政策與資金背景：實際數字是多少」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "ai-solution-hong-kong-enterprise-guide",
+  "type": "表達",
+  "quote": "開發一個企業 AI 系統大概要幾多預算、幾耐完成？",
+  "problem": "常見問題標題連用兩個粵語口語：「幾多」（應為「多少」）與「幾耐」（應為「多久」），與全文其他書面語標題不一致。",
+  "fix": "改為「開發一個企業 AI 系統大概要多少預算、多久完成？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "ai-solution-hong-kong-enterprise-guide",
+  "type": "表達",
+  "quote": "關鍵不是公司規模，而是「這個工序一年吃掉幾多錢」。",
+  "problem": "引號內「幾多」為粵語口語（書面語應為「多少」），此處引號是作者自設的說法，並非引述客戶原話或用戶搜尋詞，不在豁免範圍。",
+  "fix": "改為「而是『這個工序一年吃掉多少錢』」。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "marketing-automation-roi",
+  "type": "表達",
+  "quote": "好多香港中小企一講到「自動化」，第一反應是「買邊個工具」。",
+  "problem": "開篇段連用粵語口語：「好多」（應為「不少／許多」）與「買邊個」（「邊個」應為「哪個」）。此處引號是作者自設的描述，並非引述客戶原話或搜尋詞，不在豁免範圍，且位於首段，影響第一印象。",
+  "fix": "改為「不少香港中小企一講到『自動化』，第一反應是『買哪個工具』」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "marketing-automation-roi",
+  "type": "表達",
+  "quote": "不是選擇 Zapier 定 Make，而是有無先設計好一條流程",
+  "problem": "「定」作選擇連詞（即「還是／抑或」）為粵語口語，非書面語，出現在首段。",
+  "fix": "改為「不是選擇 Zapier 還是 Make，而是有沒有先設計好一條流程」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "marketing-automation-roi",
+  "type": "表達",
+  "quote": "縮短回應時間同埋令流程不再依賴某一位同事的記憶。",
+  "problem": "「同埋」是粵語口語連接詞（書面語應為「與／並」），出現在最直接答案段，與全篇書面語不一致。",
+  "fix": "改為「縮短回應時間，並令流程不再依賴某一位同事的記憶」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "marketing-automation-roi",
+  "type": "表達",
+  "quote": "自動化要可靠，靠的是流程設計同錯誤處理，不是介面。",
+  "problem": "「同」作連接詞為粵語（書面語應為「與」），全篇多次出現同類用法（如「逾時提醒同每日彙整」「人工核准關卡同可查紀錄」「自動化排序同錯誤處理設計」），語體不一致。",
+  "fix": "改為「靠的是流程設計與錯誤處理」（同日整段一併改為「與」）。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "marketing-automation-roi",
+  "type": "表達",
+  "quote": "同一筆資料被手動輸入幾多次",
+  "problem": "「幾多次」是粵語口語（書面語應為「多少次」），出現在成效指標表格內，與表格其餘書面語表述不一致。",
+  "fix": "改為「同一筆資料被手動輸入多少次」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-7.json"
+ },
+ {
+  "slug": "hong-kong-government-ai-digital-funding",
+  "type": "錯字別字",
+  "quote": "選擇選並培育目標企業",
+  "problem": "「選擇選」重複同一個字，屬明顯手寫錯誤（同段講述菁英企業培育計劃的篩選動作）。",
+  "fix": "改為「甄選並培育目標企業」或「選擇並培育目標企業」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "hong-kong-government-ai-digital-funding",
+  "type": "表達問題",
+  "quote": "申請資助前通常要先有清晰的項目範圍同報價文件",
+  "problem": "以「同」作連接詞屬粵語口語寫法，不符站上繁體中文書面語標準；同段「範圍界定同技術方案」亦有同一問題。",
+  "fix": "改為「項目範圍及報價文件」，後句改為「範圍界定與技術方案」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "hong-kong-government-ai-digital-funding",
+  "type": "含糊不清",
+  "quote": "「每宗上限」指的是政府那一份的最高金額，不是項目總成本的上限。",
+  "problem": "此句與後文計算實例自相矛盾：該表列「一般申請（用盡上限）」為項目核准開支 HK$800,000、政府資助 HK$200,000（25%）、企業承擔 HK$600,000，即把 HK$800,000 當作項目總成本上限；文中亦寫「項目總成本超過每宗上限（例如一般申請項目成本達 HK$1,000,000）」。讀者無法確定 HK$800,000 究竟是政府資助上限還是項目成本上限。",
+  "fix": "統一表述：明確說明 HK$800,000 是每宗項目的政府資助上限，並改寫表格與舉例，使「項目核准開支×25%＝政府資助」的算式與上限一致。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "core-web-vitals-website-speed-guide",
+  "type": "表達問題",
+  "quote": "速度問題多數要改到網站底層，不是加個外掛就搞掂。",
+  "problem": "「搞掂」為粵語口語，出現在正文而非引號引述，不符書面語標準。",
+  "fix": "改為「不是加個外掛就能解決」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "core-web-vitals-website-speed-guide",
+  "type": "表達問題",
+  "quote": "前端重構、圖片同字體優化、快取架構",
+  "problem": "「同」作連接詞屬粵語口語；同一組服務項目另有「排名同收錄追蹤」等相同寫法。",
+  "fix": "改為「圖片與字體優化」，同組其他項目一律改用「與／及」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "ai-reduce-hong-kong-business-labour-cost",
+  "type": "表達問題",
+  "quote": "如果你想知自己公司哪裡可以落手，可以查看我們的自動化服務",
+  "problem": "「想知」「落手」均為粵語口語用字，出現在正文而非引號引述。",
+  "fix": "改為「如你想了解自己公司可以從哪裡入手，可查看我們的自動化服務」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "ai-reduce-hong-kong-business-labour-cost",
+  "type": "表達問題",
+  "quote": "需要判斷同生成能力的工序，改用 AI 應用處理",
+  "problem": "「同」作連接詞屬粵語口語寫法。",
+  "fix": "改為「需要判斷與生成能力的工序」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "ai-reduce-hong-kong-business-labour-cost",
+  "type": "表達問題",
+  "quote": "把自動化流程接駁落現有 CRM／ERP 系統",
+  "problem": "「接駁落」屬粵語口語（「駁落」），不符書面語標準。",
+  "fix": "改為「把自動化流程連接至現有 CRM／ERP 系統」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "seo-vs-geo",
+  "type": "表達問題",
+  "quote": "做了 SEO 使不使再做 GEO？",
+  "problem": "「使不使」為粵語句式，出現在常見問題標題（非引號引述）。",
+  "fix": "改為「做了 SEO 還需要做 GEO 嗎？」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "seo-vs-geo",
+  "type": "表達問題",
+  "quote": "深入的 GEO 做法與研究實證見 GEO 完整指南",
+  "problem": "同一句在第八節末連續出現兩次（相隔一行），屬重複段落，影響閱讀。",
+  "fix": "刪去重複的一次，只保留一段。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "seo-vs-geo",
+  "type": "表達問題",
+  "quote": "傳統 SEO 排名同 AI 引用的整合方案",
+  "problem": "「同」作連接詞屬粵語口語；同組服務項目「技術優化同網站結構調整」同樣。",
+  "fix": "改為「排名與 AI 引用的整合方案」，同組其他項目改用「與」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "stop-wasting-ad-budget",
+  "type": "表達問題",
+  "quote": "轉換追蹤校正、素材測試同預算重分配",
+  "problem": "「同」作連接詞屬粵語口語寫法。",
+  "fix": "改為「素材測試與預算重分配」。",
+  "conf": "high",
+  "verified": true,
+  "batch": "batch-8.json"
+ },
+ {
+  "slug": "stop-wasting-ad-budget",
+  "type": "表達問題",
+  "quote": "持續產出短影片素材，可配合 短視頻製作服務",
+  "problem": "同一段文字用「短影片」與「短視頻」兩個詞指同一事物，用詞前後不一致，令讀者以為是兩種不同素材。",
+  "fix": "統一用語（建議全篇沿用「短影片」或服務正式名稱「短視頻製作服務」其一）。",
+  "conf": "medium",
+  "verified": true,
+  "batch": "batch-8.json"
+ }
+]
