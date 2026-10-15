@@ -75,6 +75,28 @@ const routing = [
   },
 ];
 
+/* 延伸閱讀（2026-10-15 新增）
+   本頁負責「應該找哪一類供應商」（定位），Blog 文章負責「技術上實際怎樣運作」。
+   兩者互相連結，但唔搶同一組關鍵字 —— 文章主打 AI Agent／流程自動化技術字，
+   本頁主打 AI Agency／AI 廣告公司等搵供應商嘅字。 */
+const reading = [
+  {
+    title: "AI Agent 是什麼？香港企業應用完整指南",
+    href: "/blog/ai-agent-hong-kong-business-guide/",
+    desc: "定義、與 Chatbot 及 RPA 的分別、三套主流框架，以及導入成本結構與風險治理。",
+  },
+  {
+    title: "AI 自動化 ROI 怎樣計？",
+    href: "/blog/ai-automation-roi-hong-kong/",
+    desc: "香港企業如何計算自動化回報、哪些假設最容易被高估。",
+  },
+  {
+    title: "RPA 是什麼？機械人流程自動化導入指南",
+    href: "/blog/rpa-hong-kong-guide/",
+    desc: "流程本身已有明確規則時，RPA 往往比 AI Agent 更穩定、成本更低。",
+  },
+];
+
 const process = [
   { step: "01", title: "需求與現況確認", body: "了解你現有的系統、資料、人手分工及想解決的問題，並確認可量度的目標。" },
   { step: "02", title: "可行性評估", body: "評估資料是否齊備、權限是否開通、第三方平台是否允許存取。不可行的部分會直接說明。" },
@@ -279,6 +301,31 @@ export default function AiAgencyContent() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── 延伸閱讀 ───────────────────────────────────────── */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">想先了解技術細節？</h2>
+          <p className="text-gray-600 mb-8 leading-relaxed">
+            本頁講「應該找哪一類供應商」；以下文章講「實際運作與成本結構」，適合在委託前閱讀。
+          </p>
+          <ul className="space-y-3">
+            {reading.map((r) => (
+              <li key={r.href}>
+                <Link
+                  href={r.href}
+                  className="group flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 border border-gray-200 rounded-xl p-4 bg-white hover:border-[#0f4c81]/40 transition"
+                >
+                  <span className="shrink-0 font-semibold text-[#0f4c81] group-hover:underline sm:w-64">
+                    {r.title}
+                  </span>
+                  <span className="text-sm text-gray-500 leading-relaxed">{r.desc}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
