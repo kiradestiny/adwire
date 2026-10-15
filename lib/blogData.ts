@@ -376,7 +376,7 @@ export const blogPosts: BlogPost[] = [
         <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Jev 的三種提問原語有何分別？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">noul 是是非題，回傳條件為真的機率；choice 是無序選項，回傳最可能的選項；score 是有序級距，回傳機率加權平均的位置分數。三者全部在同一查詢內平行回答，且問題之間不允許有依賴關係。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">noul 屬是非題，回傳條件為真的機率；choice 是無序選項，回傳最可能的選項；score 是有序級距，回傳機率加權平均的位置分數。三者全部在同一查詢內平行回答，且問題之間不允許有依賴關係。</p>
           </div>
         </div>
 
