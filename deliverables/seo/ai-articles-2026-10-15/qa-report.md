@@ -1,7 +1,25 @@
 # 文章 QA 報告（2026-10-15）
 
-對象：3 篇新 AI 文章（`chatgpt-ads-hong-kong-guide`、`ai-sme-productivity-hong-kong`、`jev-ai-decision-model`）
+對象：4 篇新 AI 文章（`chatgpt-ads-hong-kong-guide`、`ai-sme-productivity-hong-kong`、`jev-ai-decision-model`、`ai-manage-meta-google-ads`）
 方法：程式化客觀檢查 + 實機截圖目視 + 線上 runner 探測
+
+## 零、四篇總覽
+
+| 指標 | chatgpt-ads | ai-sme | jev | ai-manage |
+|---|---|---|---|---|
+| CJK 字數 | 7,400 | 8,941 | 7,358 | 8,407 |
+| 內文圖 | 22 | 26 | 22 | 25 |
+| 表格 | 6 | 11 | 8 | 10 |
+| FAQ | 7 | 8 | 7 | 8 |
+| **每張圖覆蓋字數** | **383** | **386** | **383** | **378** |
+| 最長純文字段 | 315 | 586 | 381 | 345 |
+| 口語／簡體／禁用字 | 0 | 0 | 0 | 0 |
+| 斷圖／比例不符 | 0 | 0 | 0 | 0 |
+| 線上狀態 | 200 | 200 | 200 | 200 |
+
+現有文章基準（4 篇）：圖密度 480–587 字/圖、表格 4–8、最長純文字段 245–601。
+→ **四篇新文全部比現有更唔會「一拃字」。**
+
 
 ## 一、客觀審閱（Audit）
 
@@ -78,7 +96,29 @@
 | Jev 準確度 67.8% | **找不到一手出處**；TypeSafe 官網明言不公布公開 benchmark | ⚠️ 文中已標示「未經一手來源核實，不宜當既定事實引用」 |
 | OpenAI Decisions API 推出日 2026-10-06 | 官方文件頁未標日期；僅來自簡報 | ⚠️ 文中只寫「2026 年 10 月推出」 |
 
-## 六、待辦
+## 六、文章 D（`ai-manage-meta-google-ads`）補充
 
-- [ ] 文章 D（`ai-manage-meta-google-ads`）寫作中，完成後另做同一套 QA
-- [ ] 之後可考慮：為新 3 篇加 `BreadcrumbList` 以外嘅 `HowTo` schema（ChatGPT Ads 教學嗰篇最適合）
+| 檢查項 | 結果 |
+|---|---|
+| CJK／圖／表／FAQ | 8,407 ／ 25 ／ 10 ／ 8 |
+| 口語、簡體、禁用字 | 0 |
+| 標點／重複字／引號／超長句 | **0 問題** |
+| 斷圖／比例不符／figcaption／table-wrap | 0 ／ 0 ／ 25/25 ／ 10/10 |
+| 每張圖覆蓋字數 | **378**（優於現有基準 480–587） |
+| 最長純文字段 | 345 字（現有基準 245–601） |
+| 線上 | 200，title 正確；`/services/ads/` 已見新連結 |
+
+**事實獨立核實**：
+- Google Ads **developer token 已於 2026-09-09 退役**，存取權限改綁 Google Cloud project — 官方文件 ✅
+- Google Ads API 四級別：Test 15,000／Explorer（正式帳戶 2,880）／Basic 15,000／Standard 無限 ops/日 — 官方文件 ✅
+- Meta Marketing API Access Tier：Limited 預設／Full 須 App Review，門檻由 1,500 降至 500 次 — 官方文件 ✅
+- AI Max「14% 更多轉換」= **Google 自家內部數據（2025，非零售廣告商）**，非第三方實測 — 官方說明頁原文 ✅（文中已標明）
+- Meta Tech Provider 官方定義頁 404 → 文中只寫「Meta 設有該計劃」並標示未找到官方細節 ✅ 誠實處理
+
+## 七、尚餘可做
+
+- [ ] 為 ChatGPT Ads 教學篇加 `HowTo` schema（步驟明確，最適合）
+- [ ] GSC 觀察 2–4 週，睇四篇新文同服務頁嘅 query 歸屬
+- [ ] `advantage+`（CPC $40.37）同 `performance max`（CPC $40.90）係目前發現最高商業價值嘅字，
+      值得之後再開專頁或加厚
+
