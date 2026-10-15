@@ -1,0 +1,158 @@
+[
+ {
+  "n": 1,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-1.webp",
+  "caption": "全篇骨幹：先看清實況，再選工具，最後才是流程與管治",
+  "scene": "Wide shot of a Hong Kong SME meeting room, three staff reviewing a printed workflow roadmap on the table, laptops open, harbour view"
+ },
+ {
+  "n": 2,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-2.webp",
+  "caption": "調查數字只是起點，真正的差距在於工序有否被重新設計",
+  "scene": "Hong Kong small business owner in his forties reading a printed operations report at a cluttered desk in a small office, afternoon light"
+ },
+ {
+  "n": 3,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-3.webp",
+  "caption": "同一組數字，抽樣對象不同，可推論的範圍亦不同",
+  "scene": "Four Hong Kong managers gathered around a glass meeting table pointing at survey charts displayed on a wall screen in a boardroom"
+ },
+ {
+  "n": 4,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-4.webp",
+  "caption": "受訪比例與市場採用率是兩件事，引用時要分清楚",
+  "scene": "Close-up of a Hong Kong manager's hand highlighting figures on a printed survey summary page, coffee cup and pen on the desk"
+ },
+ {
+  "n": 5,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-5.webp",
+  "caption": "Copilot 負責初稿與整理，人負責核對與決定",
+  "scene": "Two Hong Kong office colleagues at adjacent desks typing on laptops, one taking notes from a phone meeting, open plan office with plants"
+ },
+ {
+  "n": 6,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-6.webp",
+  "caption": "授權單價只是成本的一部分，前置條件更要先確認",
+  "scene": "Hong Kong procurement staff comparing software licence quotes on a tablet during a meeting, printed brochures spread on the table"
+ },
+ {
+  "n": 7,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-7.webp",
+  "caption": "AI 只會檢索使用者本來有權看到的資料，權限鬆散便是風險來源",
+  "scene": "Hong Kong IT administrator adjusting folder permission settings on two monitors in a small server room, blue screen glow, cabling behind"
+ },
+ {
+  "n": 8,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-8.webp",
+  "caption": "生成式 AI 目前主要承擔內容生成與整理，決策仍留在人手上",
+  "scene": "Hong Kong customer service officer wearing headset answering a call while reading a response draft on screen in a call centre"
+ },
+ {
+  "n": 9,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-9.webp",
+  "caption": "先提供認可工具，再訂明可輸入資料與覆核責任",
+  "scene": "Hong Kong supervisor standing beside a projector screen briefing five seated colleagues on internal AI usage rules in a training room"
+ },
+ {
+  "n": 10,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-10.webp",
+  "caption": "治理問題本質上是流程問題，不是工具問題",
+  "scene": "Hong Kong office staff sketching a process diagram with sticky notes on a whiteboard, colleague pointing at one of the notes"
+ },
+ {
+  "n": 11,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-11.webp",
+  "caption": "兩者並非互相替代，而是流程上的先後",
+  "scene": "Split scene of two Hong Kong office desks, one worker typing alone, the other watching a dashboard with automated workflow alerts"
+ },
+ {
+  "n": 12,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-12.webp",
+  "caption": "跨系統流程的關鍵設計是「幾時停、交回給誰」",
+  "scene": "Hong Kong business analyst pointing at a large screen showing a customer enquiry flow diagram linking website chat to a sales inbox"
+ },
+ {
+  "n": 13,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-13.webp",
+  "caption": "跨部門工序的資訊要能互通，自動化才有意義",
+  "scene": "Hong Kong logistics coordinator in a small warehouse checking shipment records on a handheld tablet, racked boxes and pallet behind"
+ },
+ {
+  "n": 14,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-14.webp",
+  "caption": "接口可用性是 Agent 導入最常被低估的前置工程",
+  "scene": "Hong Kong developer reviewing API documentation on two monitors while a colleague examines a legacy desktop application on a third screen"
+ },
+ {
+  "n": 15,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-15.webp",
+  "caption": "試點要選高重複、規則清楚、錯誤成本低的工序",
+  "scene": "Hong Kong team leader gesturing at a laptop screen listing candidate processes while two colleagues discuss and take notes at a desk"
+ },
+ {
+  "n": 16,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-16.webp",
+  "caption": "沒有導入前的基準，之後任何改善都難以證明",
+  "scene": "Close view of a Hong Kong staff member writing processing times into a printed tracking sheet beside a laptop showing a spreadsheet"
+ },
+ {
+  "n": 17,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-17.webp",
+  "caption": "覆核不只要寫「由人手確認」，還要寫明由誰確認",
+  "scene": "Hong Kong manager signing a printed process approval document at a desk with a colleague standing nearby holding a folder"
+ },
+ {
+  "n": 18,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-18.webp",
+  "caption": "只看軟件單價，最容易漏掉整合與維護",
+  "scene": "Hong Kong finance officer compiling a technology cost spreadsheet on a laptop, calculator and receipts scattered on a small office desk"
+ },
+ {
+  "n": 19,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-19.webp",
+  "caption": "成本要按項目週期分段估算，而非只看首年支出",
+  "scene": "Hong Kong accounts clerk at a wooden counter reviewing an itemised project cost breakdown on a tablet, shop shelves blurred behind"
+ },
+ {
+  "n": 20,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-20.webp",
+  "caption": "把預期寫成可驗證假設，比承諾一個回報數字更可靠",
+  "scene": "Hong Kong director writing an assumption and validation method on a glass wall with marker while two colleagues observe in a meeting room"
+ },
+ {
+  "n": 21,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-21.webp",
+  "caption": "資助狀態會改變，遞交前必須回到官方頁面確認",
+  "scene": "Hong Kong SME owner at home desk browsing a Hong Kong government funding scheme webpage on a laptop, notebook with notes beside keyboard"
+ },
+ {
+  "n": 22,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-22.webp",
+  "caption": "培訓資助與工具採購資助屬不同計劃，用途不可互換",
+  "scene": "Six Hong Kong office staff attending a hands-on technology training workshop, each seated at a laptop in a bright classroom"
+ },
+ {
+  "n": 23,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-23.webp",
+  "caption": "資金到位只是起點，落地仍要靠人與流程",
+  "scene": "Hong Kong project team in a small meeting room dividing tasks on a whiteboard, funding approval letter lying on the table"
+ },
+ {
+  "n": 24,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-24.webp",
+  "caption": "最大的落差不在工具，而在流程與權限的安排",
+  "scene": "Hong Kong consultant and two client staff mapping an existing business process on paper at a round table in a glass meeting room"
+ },
+ {
+  "n": 25,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-25.webp",
+  "caption": "五個環節缺一，項目通常會停在「已購入但沒有人用」的狀態",
+  "scene": "Long horizontal photo of a Hong Kong office corridor with five glass-walled rooms, each showing a different team activity, wide angle"
+ },
+ {
+  "n": 26,
+  "file": "/blog/figures/ai-sme-productivity-hong-kong-26.webp",
+  "caption": "工序簡單、有人力、系統有接口，自行導入同樣可行",
+  "scene": "Hong Kong owner of a small trading company configuring software settings alone on a desktop computer in a compact home office"
+ }
+]

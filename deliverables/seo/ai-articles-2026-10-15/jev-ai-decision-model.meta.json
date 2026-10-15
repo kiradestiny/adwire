@@ -1,0 +1,14 @@
+{
+  "id": 43,
+  "slug": "jev-ai-decision-model",
+  "title": "Jev 是什麼？決策型 AI 模型（System One）的原理、成本與企業應用",
+  "excerpt": "Jev 是 TypeSafe AI 推出的決策型 AI 模型（System One），不生成文字，而是接收一段狀態與有型別的問題，回傳型別安全的決策、校準機率與信心分數。本文說明三種提問原語、廠商自述的成本與速度、第三方實測準確度，並釐清 Jev 與 Meta 的 JEPA 世界模型是完全不同的兩件事。",
+  "date": "2026-10-15",
+  "updatedAt": "2026-10-15",
+  "category": "AI Technology",
+  "readTime": "13 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/jev-ai-decision-model.webp",
+  "tags": ["Jev", "TypeSafe AI", "決策型 AI 模型", "System One", "world model"],
+  "comment": "AI 系列：決策型模型全景——Jev（TypeSafe AI）的技術原理、成本、第三方實測，以及與 OpenAI Decisions API、JEPA 世界模型路線的分別。"
+}

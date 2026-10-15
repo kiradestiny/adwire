@@ -17,6 +17,1397 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // ─── AI 系列：決策型模型全景——Jev（TypeSafe AI）的技術原理、成本、第三方實測，以及與 OpenAI Decisions API、JEPA 世界模型路線的分別。 ───
+  {
+    id: 43,
+    slug: "jev-ai-decision-model",
+    title: "Jev 是什麼？決策型 AI 模型（System One）的原理、成本與企業應用",
+    excerpt:
+      "Jev 是 TypeSafe AI 推出的決策型 AI 模型（System One），不生成文字，而是接收一段狀態與有型別的問題，回傳型別安全的決策、校準機率與信心分數。本文說明三種提問原語、廠商自述的成本與速度、第三方實測準確度，並釐清 Jev 與 Meta 的 JEPA 世界模型是完全不同的兩件事。",
+    date: "2026-10-15",
+    updatedAt: "2026-10-15",
+    category: "AI Technology",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/jev-ai-decision-model.webp",
+    tags: ["Jev", "TypeSafe AI", "決策型 AI 模型", "System One", "world model"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">Jev 是 TypeSafe AI 於 2026 年 9 月推出的決策型人工智能模型，屬於該公司稱為「System One Model」的新模型類別。它不生成文字、不寫句子，而是接收一段「狀態」（state）與一個有型別的提問，回傳一個有型別的決策、校準機率與信心分數，供軟件直接使用。本文從技術原理、三種提問原語、成本與速度、第三方實測準確度、市場全景（與 OpenAI Decisions API 及世界模型路線的比較），到企業落地場景與限制逐一說明，並釐清 Jev 與 Meta 的 JEPA 是兩件完全不同的事。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">Jev 是一個<strong>不生成文字、只做結構化決策的模型</strong>：輸入「狀態＋有型別的問題」，輸出「型別安全的答案＋校準機率＋信心分數」，讓軟件可以像呼叫函數一樣直接使用。它與大型語言模型（LLM）的分工不同——LLM 負責理解與生成，Jev 負責在既定的選項之間<strong>作出有機率的判斷</strong>。它與 Meta／Yann LeCun 的 JEPA 世界模型架構<strong>沒有關聯</strong>，兩者解決的是完全不同的問題。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>Jev 由 TypeSafe AI 開發，2026 年 9 月 15 日開放早期存取（early access），公司 2024 年於三藩市成立，並宣布由 DCVC 領投的 4,000 萬美元種子輪</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>它是一個「判別式」模型：只回傳有型別的決策值、機率與信心分數，不會產生自然語言文字，也不會有型別錯誤</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>三種提問原語：noul（是非題）、choice（無序選項）、score（有序評分），全部同時平行回答</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>核心賣點是「校準」——軟件需要判斷「幾時不應該自動執行」，而不只是「答案對不對」</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>廠商自稱輸入每百萬 token 收費 0.042 美元、輸出免費、延遲 70 至 500 毫秒；這些數字須理解為廠商自述</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>第三方 arXiv 評測顯示其分類與推理任務表現突出，但在複雜診斷與多步推理上明顯落後前沿 LLM</span></li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-1.webp" alt="示意圖：Jev 的輸入是一段狀態與有型別的問題，輸出是帶機率與信心的型別安全決策" title="Jev 的輸入與輸出" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">全篇的骨幹：狀態入、型別安全的決策與機率出，軟件直接使用</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、Jev 是什麼：一個不生成文字的決策模型</h2>
+        <p>要理解 Jev，最有效的方法是先放下一件事：它不是聊天機械人，也不是另一個大型語言模型。Jev 屬於「判別式」（discriminative）模型，用途是分類或迴歸，而不是生成。它接收一段「狀態」與一個或多個「有型別的問題」，然後回傳一串機率分佈——每個問題對應一個離散機率分佈，覆蓋該問題的所有既定選項。</p>
+        <p>換一個工程角度說：Jev 更像是一個「前沿智能的函數呼叫」。開發者把非結構化的狀態（例如一段客服對話、一張單據的文字內容、一份合約條文）連同結構化的問題一併送入，取回的是軟件可以直接消費的結構化答案——一個選項、一個分數、一個機率。輸出不是給人閱讀的文字，而是給程式使用的值。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">輸入「狀態＋有型別的問題」，輸出「機率＋信心」</h3>
+        <p>Jev 的官方 API 對輸入設有 64,000 token 上限，其中包括 32,000 token 的狀態，加上最長的一條問題。狀態可以是一段字串、一個 JSON 物件，或一組字串；問題則是 JSON 物件，並預先聲明選項。由於所有問題在同一查詢內平行回答，問題之間不允許有依賴關係；如果一個問題的答案取決於另一個問題，官方文件建議分兩次請求。</p>
+        <p>另一個值得留意的工程特性是：官方資料指出，即使模型在訓練時未見過某一類標籤，只要在推論時把該類別連同情境資料一併提供，它仍可進行零樣本學習。這與傳統判別式模型需要針對每個資料集重新訓練不同，也是它標榜「不需要資料專屬訓練」的原因。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-2.webp" alt="香港軟件開發人員在辦公桌前，手提電腦螢幕顯示一排機率長條，旁邊放著筆記本" title="開發者以機率形式取得決策" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">開發者拿到的不是一段文字，而是一組可直接寫入程式的機率</figcaption>
+        </figure>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">面向</th><th class="px-4 py-3 text-left">傳統大型語言模型（LLM）</th><th class="px-4 py-3 text-left">Jev（System One Model）</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>輸出</strong></td><td class="px-4 py-3">字串／生成文字，須解析與驗證</td><td class="px-4 py-3">型別安全的結構化決策值</td></tr>
+              <tr><td class="px-4 py-3"><strong>取樣方式</strong></td><td class="px-4 py-3">逐個 token 順序生成</td><td class="px-4 py-3">單次查詢內平行生成全部輸出</td></tr>
+              <tr><td class="px-4 py-3"><strong>信心</strong></td><td class="px-4 py-3">即使被要求提供，亦傾向過度自信且不穩定</td><td class="px-4 py-3">每個輸出都附校準機率與信心分數</td></tr>
+              <tr><td class="px-4 py-3"><strong>型別錯誤</strong></td><td class="px-4 py-3">可能出現，需要解析與驗證步驟</td><td class="px-4 py-3">廠商稱在結構上不可能出現</td></tr>
+              <tr><td class="px-4 py-3"><strong>主要用途</strong></td><td class="px-4 py-3">聊天、起草、程式、有人監督的任務</td><td class="px-4 py-3">分類、路由、評分、抽取、分支判斷</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-3.webp" alt="並排示意：一邊有人對著白板逐字書寫，另一邊有人單次按下決策按鈕，對比兩種輸出方式" title="逐字書寫與單次決策" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">一邊逐字寫出答案，一邊單次給出判斷，是兩種根本不同的取樣方式</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">「捨棄文字」為何反而是優勢</h3>
+        <p>TypeSafe AI 的說法是：生成文字雖然靈活，但很昂貴。當軟件需要知道「這張單據屬於哪一類」「這段引用是否真的支持結論」，它需要的不是一段解釋，而是一個可靠的判斷。放棄字串生成有幾個直接後果：輸出結構在事前已定義，模型不會產生幻覺式的內容；答案保證符合型別（type-safe），因此可以嵌入有延遲保證的系統而不會中途出錯；並且因為是平行取樣，速度可以遠快於逐字生成。</p>
+        <p>這個定位讓 Jev 更像是軟件裡的一個「模糊判斷引擎」——在傳統手寫 if-else 邏輯過於脆弱、但又未必要交給生成式模型全權處理的地方，接手「分類、路由、評分、抽取、分支」這類判斷。這與我們在<a href="/services/automation/" class="text-[#0f4c81] hover:underline">流程自動化服務</a>中反覆強調的原則一致：能由周邊程式約束的智能，才容易組成可靠的系統。</p>
+        <p>用商業語言講，LLM 是「通用但需要看管」的能力，決策模型是「範圍受限但可組合」的能力。前者適合有人把關的場景（聊天機械人、撰寫助手、程式代理），後者適合需要穩定輸出的自動化管道（大規模資料打標、即時路由）。兩者不是取代關係，而是分工。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-4.webp" alt="香港辦公室內一位主管與一位工程師指著螢幕上的流程圖，討論將判斷步驟交給哪一層系統" title="生成與決策的分工討論" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把「理解」與「判斷」分給不同工具，是可靠的組合方式</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、三個提問原語：noul、choice、score</h2>
+        <p>Jev 的問題全部是多選題，但分成三種類型，官方稱為三個原語（primitives）。它們的差別在於選項是否有順序，以及答案的形態。以下逐一說明，並各舉一個企業例子。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">原語</th><th class="px-4 py-3 text-left">問題形態</th><th class="px-4 py-3 text-left">主要回傳結果</th><th class="px-4 py-3 text-left">企業例子</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>noul</strong></td><td class="px-4 py-3">是非題（true／false）</td><td class="px-4 py-3">條件為真的機率</td><td class="px-4 py-3">判斷一段引用是否真的支持結論（事實核查把關）</td></tr>
+              <tr><td class="px-4 py-3"><strong>choice</strong></td><td class="px-4 py-3">無序選項清單</td><td class="px-4 py-3">最可能的選項（眾數）</td><td class="px-4 py-3">把客戶查詢分派到正確部門</td></tr>
+              <tr><td class="px-4 py-3"><strong>score</strong></td><td class="px-4 py-3">有序選項清單</td><td class="px-4 py-3">機率加權平均的位置分數</td><td class="px-4 py-3">按嚴重程度為問題評分</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-5.webp" alt="會議桌上擺放三組卡片，其中一組只有兩張真與假，一組散亂無序，一組按大小排列" title="三組選項卡片的對比" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">選項有沒有順序，決定了回傳值是一個類別還是一個位置</figcaption>
+        </figure>
+
+        <p>三者的運算其實很清楚。<strong>choice</strong> 的答案就是機率最高的那個選項（眾數）。<strong>noul</strong> 其實是只有兩個選項的特例，回傳「真」的機率。<strong>score</strong> 的答案則是各選項索引的機率加權平均，因此可以是小數，例如落在「輕微」與「中等」之間。至於<strong>信心分數</strong>，官方定義為機率分佈在眾數附近的集中程度——分佈越集中，信心越高；對 score 而言，信心則與分佈相對均勻分佈的平均絕對偏差有關。</p>
+        <p>這套設計的實際意義是：開發者不需要處理自由文字，只需要事先把標籤或評分級距定義好。以香港企業常見的客服分流為例，可以定義一組「產品查詢／帳單問題／技術支援／投訴／其他」的 choice，機器先把工單分派到正確佇列，再交由真人處理；若同一張工單還需要判斷「該客戶是否已表明取消意願」，則可用一條 noul 平行詢問。<strong>標籤必須事先定義</strong>，這也是後面會提到的使用限制之一。</p>
+        <p>官方亦示範過其他用法：若狀態是一個 JSON 物件（例如包含「food」與「category」兩個欄位），問題可以直接引用狀態裡的屬性，例如問「food 是否屬於 category」。這種「問題指向狀態欄位」的寫法，讓決策模型可以與既有的資料結構緊密配合，而不需要在提示中重述所有內容。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-6.webp" alt="香港客服人員戴著耳機，螢幕上顯示工單自動被分派到不同顏色佇列" title="客服工單自動分流" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">工單先由模型分派到正確佇列，再交由真人跟進，是常見的分工</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、為何「校準」才是自動化的關鍵</h2>
+        <p>「校準」（calibration）是理解 Jev 最重要的一個概念。TypeSafe AI 在介紹時提出一個關鍵論點：如果一個模型能在 95% 的情況下完成某項任務，但它無法在剩下 5% 的情況下察覺自己會出錯，那麼這項任務就無法真正自動化——因為軟件不知道何時該停下來找人。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">信心高不等於一定對，但校準的模型至少誠實</h3>
+        <p>很多模型即使被要求提供信心估計，仍然傾向過度自信，而且不一致；同一個問題問兩次，答案與信心可能不同。Jev 的設計目標是讓「信心越高、準確度越高」這個關係大致成立，並且對相似輸入回傳相似的答案。這讓軟件可以設定一個門檻：信心高於某個水平就自動執行，低於門檻就轉人工複核。第三方研究亦指出，Jev 的選項機率校準良好，且可支援「選擇性預測」（selective prediction）——即只在有把握時才作答。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-7.webp" alt="客服中心牆上顯示綠黃紅三色燈號，代表自動執行、需留意的灰色地帶與轉人工複核" title="信心門檻的三段燈號" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">自動化的分界線不是「對不對」，而是「知不知道自己不確定」</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">RLCD 與 RLHF／RLVR 的分別</h3>
+        <p>Jev 用的訓練方法叫「為校準決策的強化學習」（Reinforcement Learning for Calibrated Decisions, RLCD）。要理解它，先看它與兩種主流方法的差別。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">方法</th><th class="px-4 py-3 text-left">優化目標</th><th class="px-4 py-3 text-left">典型對應</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>RLHF</strong>（人類回饋強化學習）</td><td class="px-4 py-3">人類評分者偏好的寫作與對話回應</td><td class="px-4 py-3">聊天型模型</td></tr>
+              <tr><td class="px-4 py-3"><strong>RLVR</strong>（可驗證獎勵強化學習）</td><td class="px-4 py-3">可被程式自動驗證正確性的輸出</td><td class="px-4 py-3">數學、程式等推理模型</td></tr>
+              <tr><td class="px-4 py-3"><strong>RLCD</strong>（為校準決策的強化學習）</td><td class="px-4 py-3">在 System One 任務上，帶有認知誠實機率的答案</td><td class="px-4 py-3">Jev 等決策模型</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-8.webp" alt="桌上並排三疊文件，分別標示人類評分、程式驗證與機率校準三種不同訓練目標" title="三種訓練目標的對照" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">三種方法優化的東西不同，決定了模型最終擅長什麼</figcaption>
+        </figure>
+
+        <p>要注意的是，TypeSafe AI <strong>並未公布 Jev 的架構、權重或技術論文</strong>；公司只描述它「基於 transformer」。外部觀察者曾推測它可能建立在某個開放權重模型或 BERT 類架構之上，而 RLCD 的具體細節亦未公開，有觀察者懷疑它是「損失函數中包含懲罰校準偏差項」的監督式學習，可能涉及 Brier 分數一類的損失項。這些屬於推測，不是官方公布的技術事實。此外，Jev 的訓練資料據稱全部來自合成資料，實際組成同樣未公開。</p>
+        <p>對企業而言，架構未公開的實際含義是：無法從技術層面完全驗證其長期可靠性，只能透過自行建立評估、壓力測試與人工複核來控制風險。這也是我們建議任何決策型模型在正式導入前，都先在自己的場景上做小範圍驗證的原因。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-9.webp" alt="工程師在資料中心看著伺服器指示燈，旁邊筆記本上寫著待驗證的項目" title="未公開架構下的自行驗證" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">架構未公開時，只能靠自行評估與人工複核把關</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、成本與速度：廠商自述的數字</h2>
+        <p>Jev 最吸引注意的賣點是成本與速度。以下數字<strong>全部來自廠商官方公告</strong>，屬於廠商自述，尚未經獨立第三方全面驗證，讀者宜以此角度理解。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">項目</th><th class="px-4 py-3 text-left">廠商自述數字</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">輸入定價</td><td class="px-4 py-3">每百萬 token 0.042 美元（即每十億 token 42 美元）</td></tr>
+              <tr><td class="px-4 py-3">輸出定價</td><td class="px-4 py-3">免費（廠商稱「便宜到不值得計量」）</td></tr>
+              <tr><td class="px-4 py-3">端到端回應時間</td><td class="px-4 py-3">70 至 500 毫秒</td></tr>
+              <tr><td class="px-4 py-3">相對速度</td><td class="px-4 py-3">同級智能下快 40 至 200 倍</td></tr>
+              <tr><td class="px-4 py-3">官網標示</td><td class="px-4 py-3">「快 193.6 倍、便宜 444.6 倍」</td></tr>
+              <tr><td class="px-4 py-3">官方定價對照</td><td class="px-4 py-3">傳統 LLM 輸入每百萬 token 約 0.20 至 10 美元，輸出約為輸入的 5 倍</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-10.webp" alt="香港會計人員在電腦前比較兩張帳單，桌上有計算機與收據" title="成本比較的實務情境" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">每百萬 token 的差距，在上億次請求下會放大成可觀的營運成本</figcaption>
+        </figure>
+
+        <p>廠商本身亦主動披露了這些數字的限制。其公告指出：速度測試一般在美國西岸的筆記型電腦上執行，而服務現時亦以西岸為基地；定價透明但無法證明沒有補貼，需要長期觀察可持續性；至於「快 193.6 倍、便宜 444.6 倍」的來源，是把 Jev 與多個最聰明、最昂貴的外部模型的平均表現比較，而這些工作流程由廠商自家的能力團隊設計，可能存在偏誤，且參考答案偏向 OpenAI 與 Anthropic 的模型。這些自我披露，值得在評估時一併考慮。</p>
+        <p>對照之下，廠商亦列出傳統 LLM 的端到端回應時間可達 3 至 329 秒——足以與人對話，但嵌入程式碼時會成為瓶頸。這也是 Jev 想切入的位置：需要 100 毫秒級反應、使用者體驗敏感的應用。若你的業務涉及大量重複的判斷工序，可參考我們的<a href="/services/ai/" class="text-[#0f4c81] hover:underline">人工智能應用服務</a>了解如何評估這類方案。</p>
+        <p>值得補充的是，第三方醫療評測提供了一個獨立印證：2,823 條題目（合共 8,469 次請求，全部回傳有效答案）的總成本約為 0.08 美元，中位延遲 0.27 至 0.31 秒。這組數字雖屬特定任務，但至少說明「極低成本、次秒級延遲」並非空談。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-11.webp" alt="牆上掛著兩個時鐘，一個指針快速旋轉、一個緩慢移動，象徵毫秒與秒的差距" title="毫秒與秒的時鐘對比" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">毫秒與秒的差距，決定了 AI 能否直接嵌入即時流程</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、準確度實況：分清廠商自述與第三方實測</h2>
+        <p>評估 Jev 時，最容易出錯的地方是把不同來源的數字混為一談。必須清楚區分兩類：一是廠商自家的評估，二是獨立第三方在學術平台上發表的實測。以下先講廠商立場，再講第三方結果。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">廠商對公開 benchmark 的立場</h3>
+        <p>TypeSafe AI 在其公告中表明，他們<strong>刻意選擇不公布（not to publish）針對公開 benchmark 的表現</strong>，並計劃只在產品更新時做一次性評估。他們提倡「不要給公開 benchmark 太大權重」，鼓勵使用者自行為自己的使用場景建立評估。因此，外界流傳的某些「廠商自評準確度」數字（例如約 67.8%），<strong>無法在廠商官方頁面或第三方論文中找到一手出處</strong>，本文對這類數字的態度是：未經一手來源核實，不宜當成既定事實引用。</p>
+        <p>廠商亦公布其自家設計的「工作流程評估」（workflow evals）：不以人類標註為標準答案，而是假設存在一個正確的運算流程，並以多個最聰明、最昂貴外部模型的平均預測作為參考機率。在這個自家框架下，Jev 被描述為處於效率前緣。這屬於廠商自述，不能當作獨立驗證。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-12.webp" alt="研究人員在辦公桌前把兩疊標籤不同的評估報告分開放置，標示自家評估與第三方評估" title="自家評估與第三方評估分開" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先分清哪個數字來自誰，才能正確理解準確度</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第三方 arXiv 實測（一般任務）</h3>
+        <p>一份 2026 年 9 月 29 日提交的 arXiv 論文，對 Jev（版本 jev-1.13.0）做了零樣本評測。研究涵蓋 37 個資料集，橫跨分類、路由、自然語言推論、閱讀理解、常識推理、內容審核、法律條文分析與評分等任務，共發出 346,009 次請求，總成本低於 10 美元；作為對照，研究亦以相同請求評測了 Qwen3.8-27B 與 Gemma-4-E4B。主要結果如下。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">評測項目</th><th class="px-4 py-3 text-left">第三方實測結果</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">IMDB、SST-2、HellaSwag、ARC</td><td class="px-4 py-3">準確度達 95% 至 99%</td></tr>
+              <tr><td class="px-4 py-3">Belebele（122 種語言）</td><td class="px-4 py-3">86.7%</td></tr>
+              <tr><td class="px-4 py-3">對比 Qwen3.8-27B</td><td class="px-4 py-3">在 37 個資料集中勝出 27 個</td></tr>
+              <tr><td class="px-4 py-3">對比 Gemma-4-E4B</td><td class="px-4 py-3">全部 37 個均勝出</td></tr>
+              <tr><td class="px-4 py-3">共同弱項</td><td class="px-4 py-3">三個模型在低資源語言、細粒度或雜訊標籤、以及評分式品質判斷上均變差</td></tr>
+              <tr><td class="px-4 py-3">機率校準</td><td class="px-4 py-3">選項機率校準良好、支援選擇性預測；但二元機率相對 0.5 的固定門檻擺位不佳</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-13.webp" alt="分析師指著手提電腦螢幕上兩條比較線，一條陡峭一條平緩，桌上有咖啡" title="兩組模型的準確度比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">第三方在同一批請求上比較多個模型，結果才具參考價值</figcaption>
+        </figure>
+
+        <p>研究中一個值得留意的細節：旋轉選項順序後，Jev 的準確度不變；把問題本身抽走後，準確度跌至接近隨機——這排除了「淺層記憶」的可能，但不能完全排除「記住了問答配對」。研究亦發現，Jev 回答 MMLU 中涉及計算的題目，準確度反而高於其他 MMLU 題目（94% 對 91%），與兩個開源模型的表現相反。這份論文同時公開了程式碼、測試框架與全部原始回應，具備可重現性。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">第三方 arXiv 實測（醫療領域）</h3>
+        <p>另一份關於醫療的 arXiv 評測（2026 年 9 月首次提交，10 月 10 日修訂至第四版）以 Jev 1.13 對比 GPT-6 Sol。結果顯示 Jev 在不同醫療任務上的表現差異很大，並非全面追上前沿 LLM。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">醫療任務</th><th class="px-4 py-3 text-left">Jev</th><th class="px-4 py-3 text-left">GPT-6 Sol（中等推理）</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">PubMedQA（研究摘要）</td><td class="px-4 py-3">78.4%</td><td class="px-4 py-3">78.2%</td></tr>
+              <tr><td class="px-4 py-3">MetaMedQA</td><td class="px-4 py-3">74.8%</td><td class="px-4 py-3">82.7%</td></tr>
+              <tr><td class="px-4 py-3">DiagnosisArena-MCQ</td><td class="px-4 py-3">59.8%</td><td class="px-4 py-3">82.4%</td></tr>
+              <tr><td class="px-4 py-3">NEJM 病例挑戰</td><td class="px-4 py-3">61.8%</td><td class="px-4 py-3">82.4%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-14.webp" alt="醫生與研究人員在香港診所辦公室一起查看多個螢幕上的病例圖表" title="醫療任務的模型比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">同一模型在不同難度任務上表現懸殊，逐項驗證不可省略</figcaption>
+        </figure>
+
+        <p>研究亦指出，Jev 在 MetaMedQA 上的機率校準最好（期望校準誤差 0.063，對比 0.146）；當 Jev 給出的機率不低於 0.9 時（佔 52.9% 的問題），其準確度達 93.4%，但在相同接受比例下，GPT-6 Sol 亦同樣準確。在 DiagnosisArena-MCQ 上，Jev 的機率區辨力較弱（AUROC 0.645，對比 0.768）。速度與成本方面，中位延遲為 0.27 至 0.31 秒，全部 2,823 條題目共花費約 0.08 美元。研究結論明確：<strong>Jev 快速且便宜，在研究摘要類題目上準確度與前沿 LLM 相若，但在考試題與複雜診斷病例上明顯較低，臨床應用前必須逐項任務驗證。</strong></p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、市場全景：Jev、Decisions API 與世界模型的分別</h2>
+        <p>2026 年下半年，「決策型」與「世界模型」這兩條路線都有新動作，很容易被混為一談。這裡用一張表把它們放在一起對照，然後專門釐清 Jev 與 JEPA。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">路線</th><th class="px-4 py-3 text-left">代表</th><th class="px-4 py-3 text-left">在做什麼</th><th class="px-4 py-3 text-left">適合場景</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>決策型模型</strong></td><td class="px-4 py-3">Jev（TypeSafe AI）</td><td class="px-4 py-3">狀態＋有型別問題入，型別安全決策＋校準機率出</td><td class="px-4 py-3">分類、路由、評分、內容審核、即時判斷</td></tr>
+              <tr><td class="px-4 py-3"><strong>平台廠商決策 API</strong></td><td class="px-4 py-3">OpenAI Decisions API</td><td class="px-4 py-3">以單一模型回傳 predicate／choice／score 三種結構化答案</td><td class="px-4 py-3">在同一平台內做分類、路由、優先排序</td></tr>
+              <tr><td class="px-4 py-3"><strong>LLM＋結構化輸出</strong></td><td class="px-4 py-3">傳統 LLM 搭配 JSON schema</td><td class="px-4 py-3">生成文字後再約束成結構化物件</td><td class="px-4 py-3">需要解釋、抽取欄位、附帶說明的場景</td></tr>
+              <tr><td class="px-4 py-3"><strong>世界模型路線</strong></td><td class="px-4 py-3">JEPA／V-JEPA（Meta）</td><td class="px-4 py-3">在潛在空間學習預測，理解物理與視覺世界</td><td class="px-4 py-3">機器人、影片理解、具身智能研究</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-15.webp" alt="城市中一個四岔路口，四支不同顏色的路牌指向不同方向，行人停下選擇" title="四條路線的分岔口" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">四條路線目標各異，選錯方向會得出錯誤的比較結論</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">OpenAI Decisions API 是什麼</h3>
+        <p>OpenAI 於 2026 年 10 月推出 Decisions API（公開 beta，官方稱預計數週內正式推出）。根據官方文件，它評估文字、圖像或兩者，並回傳有型別的答案，速度約為 Responses API 的 10 倍。請求分為三部分：模型、輸入（共用證據）與問題。問題同樣分三種型別：predicate（檢查某條件是否成立，回傳 0 至 1 的機率）、choice（從提供的選項中選一個）、score（按有序級距評分，回傳機率加權平均）。目前唯一可用的模型是 gpt-6-luna，須使用專屬的 POST /v1/decisions 端點。官方文件亦建議：需要生成自訂 JSON schema 物件、抽取欄位或書面解釋時，應改用 Responses API 的結構化輸出。</p>
+        <p>把兩者並列可以看出：Jev 是專用模型、強調成本與速度與校準；Decisions API 是既有平台加上的結構化決策端點，優勢是與平台其他功能整合，並且支援圖像輸入。企業選擇時，取決於是否已在該平台、是否需要處理圖像，以及對延遲與成本的要求。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-16.webp" alt="儀表板上出現新的決策按鈕，旁邊連著既有的一整排服務圖示" title="既有平台新增決策端點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">平台型決策 API 的優勢在於與既有功能的整合程度</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">Jev 與 JEPA 是兩件完全不同的事</h3>
+        <p>這是最常被混淆的一點，必須說清楚。<strong>JEPA（Joint Embedding Predictive Architecture，聯合嵌入預測架構）</strong>是由 Meta 的 Yann LeCun 及其團隊提出的世界模型架構，屬潛在空間預測路線：模型在抽象的表示空間中學習預測缺失部分的表示，用於理解視覺或物理世界，代表成果包括 V-JEPA 等。它的目標是讓機器建立對世界的內在模型，服務於影片理解、具身智能等方向。</p>
+        <p><strong>Jev 則是 TypeSafe AI 開發的判別式決策模型</strong>，目標是讓軟件能取得可靠、帶機率的結構化判斷。兩者除了名字開頭巧合地相近之外，<strong>在開發者、技術路線、任務目標上毫無關聯</strong>：一個學世界、一個做決策；一個是研究架構、一個是商業 API。把兩者混為一談，會得出錯誤的結論。若你想深入了解 AI 應用於企業流程的路線，可延伸閱讀<a href="/blog/ai-agent-hong-kong-business-guide/" class="text-[#0f4c81] hover:underline">香港企業 AI Agent 指南</a>與<a href="/blog/ai-solution-hong-kong-enterprise-guide/" class="text-[#0f4c81] hover:underline">企業 AI 方案指南</a>。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-17.webp" alt="分屏對照：左邊是機器人在房間內感知環境，右邊是軟件收到一串決策機率" title="世界模型與決策模型的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">一個學習世界的運作，一個作出範圍明確的判斷，兩者毫不相干</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、企業實際應用場景</h2>
+        <p>決策型模型最適合的，是那些「判斷頻密、選項有限、需要一致性、又不想每次都交給生成式模型」的工序。以下整理幾類在香港企業環境中特別常見的場景。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">場景</th><th class="px-4 py-3 text-left">做法</th><th class="px-4 py-3 text-left">用到的原語</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3"><strong>客服分流</strong></td><td class="px-4 py-3">把查詢或工單分派到正確部門佇列</td><td class="px-4 py-3">choice</td></tr>
+              <tr><td class="px-4 py-3"><strong>單據分類</strong></td><td class="px-4 py-3">把發票、收據、報價單歸入既定類別</td><td class="px-4 py-3">choice</td></tr>
+              <tr><td class="px-4 py-3"><strong>審批判斷</strong></td><td class="px-4 py-3">按風險或嚴重程度為個案評分排序</td><td class="px-4 py-3">score</td></tr>
+              <tr><td class="px-4 py-3"><strong>內容審核</strong></td><td class="px-4 py-3">判斷留言或貼文是否違反既定準則</td><td class="px-4 py-3">noul</td></tr>
+              <tr><td class="px-4 py-3"><strong>Agent 前後 guardrail</strong></td><td class="px-4 py-3">檢查 LLM 提示、推理軌跡或輸出是否越界</td><td class="px-4 py-3">noul／score</td></tr>
+              <tr><td class="px-4 py-3"><strong>事實核查把關</strong></td><td class="px-4 py-3">判斷引用是否真的支持結論</td><td class="px-4 py-3">noul</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-18.webp" alt="香港倉庫內一名員工掃描條碼，把包裹分送到不同顏色標示的輸送帶上" title="包裹掃描與自動分流" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">重複而選項有限的判斷工序，最適合交給決策模型處理</figcaption>
+        </figure>
+
+        <p>其中最後兩類值得展開。「Agent 前後 guardrail」指的是在一個自動化流程裡，用決策模型為生成式模型的輸入輸出把關：例如判斷某段提示是否屬於越獄嘗試、某段推理是否偏離任務、某項輸出是否與來源相符。第三方研究亦確認 Jev 被設計用於資訊存取流程中的小型決策，例如路由查詢、檢查依據、審核內容或按評分標準打分。</p>
+        <p>真正可靠的實際工作流程通常包含大量獨立、可分解的問題，行為精細而依賴機率而非離散決策；最終結果是離散分支，但到達答案的過程涉及大量領域工程，需要高度一致地執行。這說明決策模型不是取代整個系統，而是嵌入既有流程，作為其中一層可控的判斷。這種組合方式的好處，是每個環節的責任清楚：模型負責作出判斷，周邊程式負責執行，而人負責處理例外情況，出錯時也較容易定位。想落實這類設計，可參考<a href="/services/automation/" class="text-[#0f4c81] hover:underline">流程自動化服務</a>與<a href="/blog/rpa-hong-kong-guide/" class="text-[#0f4c81] hover:underline">香港 RPA 指南</a>。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-19.webp" alt="大廈大堂的保安人員在閘口逐一檢查證件，把訪客引導到不同方向" title="閘口把關的情境" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把關一層放在流程前後，是決策模型最常見的價值所在</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、限制與風險</h2>
+        <p>任何工具都有邊界，決策型模型也不例外。以下幾項是導入前必須理解的限制。</p>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>無法解釋自己如何得出結論</strong>：Jev 只回傳機率分佈，不會說明理由；需要可解釋性的場景要另作安排。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>多步推理較弱</strong>：問題之間不允許依賴，複雜推理須拆成多次請求，或交由其他模型處理。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>標籤與評分級距須事先定義</strong>：選項定得不準，輸出就無用；這是一項前期工程工作。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>在部分任務上明顯落後前沿 LLM</strong>：第三方醫療評測顯示，複雜診斷病例的準確度大幅落後，須逐項任務驗證。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>架構未公開</strong>：官方未發布技術論文或權重，長期可靠性與可審計性須自行評估。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>機率門檻須自行校準</strong>：第三方研究指出，二元機率相對固定門檻的擺位並不理想，須以自身資料重新調校。</span></li>
+        </ul>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">導入前的兩點提醒</p>
+          <p class="text-blue-900 text-sm leading-relaxed">第一，廠商自述的成本、速度與校準表現，與第三方實測的任務準確度是兩回事，評估時應分開處理，並用自己場景的資料建立評估。第二，決策模型只適合選項有限、判斷頻密的工序；涉及複雜推理、需要解釋或涉及高風險決策的環節，仍須保留人工複核。</p>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-20.webp" alt="辦公室一角擺放一個黃色警示三角標誌，旁邊是正在運作的機械臂" title="限制與風險的警示" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">理解邊界與理解優點同樣重要，否則容易誤用之</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Jev 是一個大型語言模型（LLM）嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。Jev 是一個判別式模型，用於分類或迴歸，不會生成自然語言文字。它接收狀態與有型別的問題，回傳有型別的決策值、機率估計與信心分數，輸出供軟件直接使用而非供人閱讀。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Jev 與 Meta 的 JEPA 有什麼關聯？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">並無關聯，只是名字開頭相近。JEPA（聯合嵌入預測架構）是 Meta 的 Yann LeCun 團隊提出的世界模型架構，在潛在空間學習預測，用於理解視覺與物理世界；Jev 則是 TypeSafe AI 開發的判別式決策模型。兩者的開發者、技術路線與任務目標都不同。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Jev 的三種提問原語有何分別？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">noul 是是非題，回傳條件為真的機率；choice 是無序選項，回傳最可能的選項；score 是有序級距，回傳機率加權平均的位置分數。三者全部在同一查詢內平行回答，且問題之間不允許有依賴關係。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Jev 的定價與速度數字可靠嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">這些數字來自廠商官方公告，屬廠商自述，須以此角度理解。廠商自稱輸入每百萬 token 0.042 美元、輸出免費、延遲 70 至 500 毫秒、同級智能下快 40 至 200 倍；廠商亦主動披露測試環境、定價可能補貼及參考基準偏誤等限制。使用前宜用自己的場景建立評估。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Jev 有第三方獨立驗證嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">有，但結果因任務而異。一份 arXiv 論文以 37 個資料集、346,009 次請求實測，Jev 在多項分類與推理任務上達 95% 至 99%，並勝過對照的 Qwen 與 Gemma；但另一份醫療評測顯示，Jev 在複雜診斷病例上的準確度明顯落後 GPT-6 Sol。廠商本身則表明刻意不公布公開 benchmark 分數。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Jev 與 OpenAI Decisions API 該如何選擇？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">兩者都回傳結構化決策，但定位不同。Jev 是專用模型，強調成本、速度與校準；OpenAI Decisions API 是在既有平台上新增的決策端點，優勢是與平台其他功能整合，目前只支援 gpt-6-luna。選擇取決於是否已在該平台、是否需要圖像輸入，以及對延遲與成本的要求。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">決策型模型可以完全取代人手判斷嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不應如此。它適合選項有限、判斷頻密的工序，並可透過信心門檻決定何時自動執行、何時轉人工。但對於需要解釋、多步推理或高風險的決策，仍須保留人工複核。校準的價值正在於讓系統知道何時「不應該自動做」。</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>Jev 代表了一條與生成式 AI 不同的路線：不是讓模型寫得更好，而是讓模型判斷得更可靠、更便宜、更快，並把「不確定」誠實地交回軟件。它與 LLM 不是互相取代，而是分工——LLM 負責理解與生成，決策模型負責在既定選項之間作出有機率的判斷。評估這類工具時，最關鍵的原則是<strong>分清廠商自述與第三方實測</strong>，並用自己場景的資料建立評估。</p>
+        <p>從 2026 年的市場動向看，決策能力正由研究概念走向可用的 API：TypeSafe AI 的 Jev 走專用模型路線，OpenAI 的 Decisions API 走平台整合路線，兩者都指向同一個方向——讓人工智能成為軟件可以依賴的一層，而不是一段需要人看管的文字。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-21.webp" alt="總結示意圖：一邊是負責理解與生成的模型，一邊是負責機率判斷的決策模型" title="生成與決策的分工" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">生成與決策分工，才是可靠的企業 AI 架構</figcaption>
+        </figure>
+
+        <p>若你希望把這類決策能力落實到客服分流、單據分類、審批判斷或 Agent 把關等流程，可參考我們的<a href="/services/ai/" class="text-[#0f4c81] font-bold hover:underline">人工智能應用服務</a>與<a href="/services/automation/" class="text-[#0f4c81] font-bold hover:underline">流程自動化服務</a>，由流程盤點、模型選型到人工複核點設計一併處理。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/jev-ai-decision-model-22.webp" alt="香港辦公室團隊圍著玻璃白板討論流程，板上貼滿不同顏色的便利貼" title="團隊規劃決策自動化" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">由流程盤點到複核點設計，是導入決策模型的第一步</figcaption>
+        </figure>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月15日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.typesafe.ai/blog/introducing-system-one-models-and-jev" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">TypeSafe AI：Introducing System One Models &amp; Jev（2026年9月15日）</a> — 廠商官方公告：RLCD、三個原語、輸入 0.042 美元/MTok、輸出免費、70 至 500 毫秒、快 40 至 200 倍；並表明刻意不公布公開 benchmark 分數</li>
+            <li><a href="https://en.wikipedia.org/wiki/Jev_(AI_model)" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Wikipedia：Jev (AI model)</a> — 2026年9月15日 limited early access、US$40M seed（DCVC 領投）、2024 年三藩市成立、判別式模型、RLCD、輸入上限 64k token、三種問題型別定義</li>
+            <li><a href="https://developers.openai.com/api/docs/guides/decisions" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI：Decisions API 文件</a> — 公開 beta；predicate／choice／score 三種問題型別；目前僅支援 gpt-6-luna；約為 Responses API 的 10 倍速度；POST /v1/decisions</li>
+            <li><a href="https://arxiv.org/abs/2609.37647" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">arXiv:2609.37647：Evaluating and Benchmarking the System One Model Jev（2026年9月29日）</a> — 第三方實測：37 個資料集、346,009 次請求、成本低於 US$10、IMDB／SST-2／HellaSwag／ARC 達 95–99%、Belebele 122 語言 86.7%、勝 Qwen 27/37</li>
+            <li><a href="https://arxiv.org/abs/2609.34024" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">arXiv:2609.34024：Jev in Medicine: A Benchmark Evaluation（2026年9月27日提交，10月10日修訂）</a> — 第三方實測：2,823 題共約 US$0.08、中位延遲 0.27–0.31 秒；PubMedQA 78.4%、MetaMedQA 74.8%、DiagnosisArena 59.8%、NEJM 61.8%</li>
+            <li><a href="https://en.wikipedia.org/wiki/Jevons_paradox" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Wikipedia：Jevons paradox</a> — 模型命名源自 19 世紀經濟學家 William Stanley Jevons；效率提升反而增加資源消耗</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
+  // ─── AI 系列：香港中小企由 Copilot 到 AI Agent 的效率提升與落地實務 ───
+  {
+    id: 42,
+    slug: "ai-sme-productivity-hong-kong",
+    title: "AI 提升工作效率：香港中小企 Copilot 與 AI Agent 落地指南",
+    excerpt:
+      "香港中小企如何用 AI 提升工作效率？本文以生產力局、金管局與政府統計處的一手調查數據，說明本地企業的實際使用情況與常見誤讀，比較輔助型工具與人工智能代理的分工，整理由選擇工序、量度成效到設計人工覆核點的實作路線，並查核四項政府資助計劃的最新狀態，以及解釋工具買回來為何不等於落地。",
+    date: "2026-10-15",
+    updatedAt: "2026-10-15",
+    category: "AI Technology",
+    readTime: "21 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/ai-sme-productivity-hong-kong.webp",
+    tags: ["AI 提升工作效率", "Microsoft 365 Copilot", "AI Agent", "香港中小企", "數碼轉型", "AI 自動化"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">香港中小企想用 AI 提升工作效率，通常會由 Microsoft 365 Copilot 這類「輔助個人」的工具入手，再逐步走到 AI Agent 這類「執行跨系統流程」的方案。本文用一手調查數據講清楚香港企業實際的 AI 使用情況，比較 Copilot 類工具與 AI Agent 的分工，整理由選工序、量度成效到設計人工覆核點的實作路線，並查核 TVP、DTSSP、BUD 與 NITTP 四項政府資助的最新狀態，最後說明為何工具買回來不等於落地。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">對香港中小企而言，提升工作效率的路徑通常是<strong>先用 Copilot 類工具處理重複的個人工序</strong>（會議紀錄、郵件草擬、Excel 整理、簡報），<strong>再用 AI Agent 接通跨系統的多步驟流程</strong>（例如由查詢到報價到錄入系統）。工具本身只是起點；成敗取決於<strong>有否先盤點流程、是否接通現有系統、權限如何設計、員工是否受訓，以及上線後有沒有人持續維護</strong>。政府資助方面，<strong>TVP 已於 2024 年 12 月 31 日後停止接受新申請，DTSPP 現行一輪已截止</strong>，BUD 與 NITTP 仍在運作並各有更新。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>香港 AI 使用數據屬「調查受訪者比例」，不等於全港市場採用率；引用時必須連同調查機構、樣本量與調查期一併說明</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>Copilot 類工具定位是「輔助個人完成單一任務」，AI Agent 定位是「執行跨系統、多步驟流程」，兩者並非互相替代，而是分工</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>Microsoft 365 Copilot 的授權需要合格的 Microsoft 365 方案，並有 300 個使用者的上限，購買前要先核對現有授權</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>實作路線建議由「高重複、規則清楚、錯誤成本低」的工序開始，並在流程中寫明人工覆核點</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>成本要計總持有成本：授權、整合、訓練、維護與日後遷移，不應只看軟件單價</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>資助會隨政策改變：TVP 已停止新申請、DTSSP 現行一輪已截止、BUD 與 NITTP 有更新，遞交前必須查官方頁面</span></li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-1.webp" alt="流程圖：香港中小企由 Copilot 類工具到 AI Agent 的效率提升路徑" title="由 Copilot 到 AI Agent 的效率提升路徑" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">全篇骨幹：先看清實況，再選工具，最後才是流程與管治</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、2026 年香港中小企用 AI 的實況</h2>
+        <p>討論「AI 能否提升效率」之前，先要弄清楚香港企業實際上做到哪一步。坊間不少文章把某一項調查的受訪比例寫成「市場採用率」，兩者並不相同：調查受訪者的回答只反映該批樣本的情況，抽樣方法、行業分布與公司規模都會影響結果。以下表格列出幾項與香港中小企直接相關的一手調查，並註明機構、調查期與樣本量。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">調查</th><th class="px-4 py-3 text-left">調查期與樣本</th><th class="px-4 py-3 text-left">主要發現</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">生產力局《2025 年香港企業 AI 應用趨勢調查》</td><td class="px-4 py-3">2025 年 9 月調查，成功訪問約 800 間本地企業（發布日期 2025 年 10 月 23 日）</td><td class="px-4 py-3">88% 受訪企業員工已在日常工作使用 AI 工具；92% 計劃逐步引入 AI 至工作流程，其中 24% 計劃一年內全面引入；45% 已設有正式認可的 AI 平台，而當中有 54% 表示暫無完善 AI 治理政策</td></tr>
+              <tr><td class="px-4 py-3">生產力局「渣打香港中小企領先營商指數」2026 年第一季</td><td class="px-4 py-3">2025 年 11 至 12 月調查，第 55 次，成功訪問 819 家本地中小企（公布日期 2026 年 1 月 15 日）</td><td class="px-4 py-3">七成半中小企較 2024 年擴大 AI 應用；近六成（59%）曾使用 AI 的受訪中小企現正使用多於一種類別的 AI 工具；綜合營商指數 43.9</td></tr>
+              <tr><td class="px-4 py-3">金管局轄下香港金融研究院《金融服務業生成式 AI》研究</td><td class="px-4 py-3">調查與訪談金融機構（發布日期 2025 年 4 月 9 日）</td><td class="px-4 py-3">75% 受訪金融機構已落實至少一個生成式 AI 用例，或正在試行與設計；預期三至五年內升至 87%</td></tr>
+              <tr><td class="px-4 py-3">金管局「大數據分析及人工智能應用」調查</td><td class="px-4 py-3">2024 年 5 月進行，涵蓋 28 間主要服務零售客戶的認可機構</td><td class="px-4 py-3">75% 受訪機構採用或計劃採用大數據分析及人工智能；39% 採用或計劃採用生成式 AI，用例多集中於內部功能如摘要、翻譯、程式編寫</td></tr>
+              <tr><td class="px-4 py-3">政府統計處《二零二五年資訊科技在工商業的使用情況和普及程度統計調查報告》</td><td class="px-4 py-3">2025 年 3 月至 12 月進行（出版日期 2026 年 2 月 27 日）</td><td class="px-4 py-3">99% 公司有使用電腦及／或智能手機作業務用途；57% 公司具有網絡存在；資訊及通訊業比例（85%）最高，運輸、倉庫及速遞服務業（34%）最低</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-2.webp" alt="香港中小企辦公室內主管翻閱營運報表的場景" title="香港中小企營運實況" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">調查數字只是起點，真正的差距在於工序有否被重新設計</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">調查數字怎麼讀：受訪比例不等於市場採用率</h3>
+        <p>上表的百分比全部屬於「受訪者比例」。以生產力局該項調查為例，樣本約 800 間企業，而行業涵蓋金融、製造、零售與專業服務，而據媒體引述發布會資料，其中約 43% 屬 200 人以上規模；換言之，結果較能反映中大型企業的情況，未必等同全港中小企整體的分布。同樣，金管局的調查對象是認可機構與金融機構，屬於受監管、資源較充足的行業，其採納比例不宜直接搬到餐飲、零售或工程等行業。</p>
+        <p>另一個常見誤讀，是把「曾經使用」與「已嵌入流程」混為一談。同類調查顯示，多數企業仍主要把 AI 用於高重複性或行政性工作，離「全面釋放 AI 潛能」尚有距離；生產力局的調查亦指出，企業在深化應用時面對的五大挑戰依次為缺乏 AI 專才與培訓、數據私隱與安全顧慮、難以與現有系統整合、員工抗拒或準備不足，以及成本壓力。這五項正好對應本文後半部分的落地條件。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-3.webp" alt="會議室內管理層圍繞調查報告討論數字的場景" title="管理層解讀調查數字" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">同一組數字，抽樣對象不同，可推論的範圍亦不同</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-4.webp" alt="特寫：香港主管的手在印刷的調查摘要上標示數字" title="引用調查數字要分清範圍" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">受訪比例與市場採用率是兩件事，引用時要分清楚</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、Microsoft 365 Copilot 在香港中小企的實務用法</h2>
+        <p>對已經使用 Microsoft 365 的公司而言，Microsoft 365 Copilot 通常是門檻最低的起點，原因是它直接嵌入 Word、Excel、PowerPoint、Outlook 與 Teams，而這些工具本來就在日常運作之中。它的設計前提是「以使用者本身有權存取的資料為範圍」，因此不會繞過既有的權限設定。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">三類工序最常見效</h3>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">工序</th><th class="px-4 py-3 text-left">Copilot 可以協助的部分</th><th class="px-4 py-3 text-left">仍須人手負責的部分</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">會議紀錄</td><td class="px-4 py-3">於 Teams 會議中整理討論重點與待辦事項草稿，會後快速成稿</td><td class="px-4 py-3">核對是否漏記、確認待辦事項的負責人與期限、判斷哪些內容不宜記錄</td></tr>
+              <tr><td class="px-4 py-3">郵件與往來文件</td><td class="px-4 py-3">按上下文草擬回覆、改寫語氣、整理長郵件串的重點</td><td class="px-4 py-3">對外承諾、價格與條款的確認；涉及客戶個人資料的內容須先判斷可否輸入</td></tr>
+              <tr><td class="px-4 py-3">Excel 與報表</td><td class="px-4 py-3">協助建立公式、解釋數據變化、初步分析趨勢並產生摘要</td><td class="px-4 py-3">核對數據來源與口徑、檢查計算邏輯、為對外披露的數字負最終責任</td></tr>
+              <tr><td class="px-4 py-3">簡報與文件</td><td class="px-4 py-3">由既有文件生成初稿、調整結構、統一用語風格</td><td class="px-4 py-3">事實查核、品牌與法規用語的把關、決定最終版本</td></tr>
+              <tr><td class="px-4 py-3">內部知識查找</td><td class="px-4 py-3">在權限範圍內檢索公司文件、政策與歷史紀錄，並附出處</td><td class="px-4 py-3">確認版本是否最新、判斷資料是否仍適用</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>值得留意的是，Copilot 的輸出屬於「草稿」性質。它可能生成語調自然但內容不準確的文字，這種情況在需要精確數字或法律條款的場景尤其危險。務實的做法是把 Copilot 放在流程的「中段」——由它完成初稿與整理，而由人在「發出前」把關。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-5.webp" alt="香港辦公室同事在電腦前處理會議紀錄與郵件的場景" title="Copilot 協助日常工序" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">Copilot 負責初稿與整理，人負責核對與決定</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">授權模式與成本（官方定價，查閱日期 2026 年 10 月 15 日）</h3>
+        <p>Microsoft 香港特別行政區定價頁列出商務用 Copilot 方案。以下價格為該頁在 2026 年 10 月 15 日的顯示值，貨幣以美元標示，屬未含稅的建議零售價，實際價格會因推廣、經銷渠道與合約期而變動。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">方案</th><th class="px-4 py-3 text-left">計費方式</th><th class="px-4 py-3 text-left">標示價格（每用戶每月）</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">Microsoft 365 Copilot Business（附加授權）</td><td class="px-4 py-3">按年付費</td><td class="px-4 py-3">原價 21.00 美元，頁面同時標示推廣價 18.00 美元</td></tr>
+              <tr><td class="px-4 py-3">Microsoft 365 Copilot Business（附加授權）</td><td class="px-4 py-3">按月付費</td><td class="px-4 py-3">25.20 美元</td></tr>
+              <tr><td class="px-4 py-3">Microsoft 365 商務標準版 + Copilot Business</td><td class="px-4 py-3">按年付費</td><td class="px-4 py-3">23.50 美元</td></tr>
+              <tr><td class="px-4 py-3">Microsoft 365 商務標準版 + Copilot Business</td><td class="px-4 py-3">按月付費</td><td class="px-4 py-3">28.20 美元</td></tr>
+              <tr><td class="px-4 py-3">Microsoft 365 商務進階版 + Copilot Business</td><td class="px-4 py-3">按年付費</td><td class="px-4 py-3">32.00 美元</td></tr>
+              <tr><td class="px-4 py-3">Microsoft 365 商務進階版 + Copilot Business</td><td class="px-4 py-3">按月付費</td><td class="px-4 py-3">38.40 美元</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">購買前要核對的三件事</p>
+          <p class="text-blue-900 text-sm leading-relaxed">一、Copilot 附加授權需要合格的 Microsoft 365 方案，並非獨立購買即可使用；二、官方頁面列明最多 300 個使用者，規模較大的公司要另行安排；三、市場與授權狀況會影響個別方案的供應，落單前應由經銷渠道確認。</p>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-6.webp" alt="香港公司採購人員在會議中比較軟件授權方案的場景" title="授權方案比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">授權單價只是成本的一部分，前置條件更要先確認</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">香港可用性與採購渠道</h3>
+        <p>Microsoft 香港特別行政區定價頁可選擇香港與澳門為計費地區，並列出上述商務方案，反映 Copilot 商務授權在香港屬可選項目。除直接向 Microsoft 購買，香港中小企亦可透過雲端方案供應商渠道；香港貿發局的 T-box 轉型沙盒計劃就與 Microsoft 合作推出 AI 採用計劃，向中小企提供折扣授權與導入培訓，其中 Microsoft 365 Copilot Business 以 15% 折扣計算、即每用戶每月 18 美元（原價 21 美元），最多 300 個新授權，優惠期至 2026 年 12 月 31 日。</p>
+        <p>在合規層面，Copilot 的資料處理範圍以使用者的既有權限為界，這對中小企是優點也是提醒：優點是不會因為導入 AI 而出現新的資料外洩途徑；提醒是如果本身的檔案權限設定寬鬆，Copilot 同樣會把這些檔案的內容納入可檢索範圍。因此，導入前先整理權限，往往比選哪一個方案更關鍵。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-7.webp" alt="香港資訊科技人員檢查公司檔案權限設定的場景" title="導入前的權限整理" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">AI 只會檢索使用者本來有權看到的資料，權限鬆散便是風險來源</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、香港企業實際用 AI 做什麼</h2>
+        <p>把不同調查放在一起看，香港企業目前最常見的 AI 用途集中在幾類行政與溝通工序。以下整理屬歸納性描述，並註明來源，未經核實的推算不會寫成統計結論。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">用途</th><th class="px-4 py-3 text-left">常見做法</th><th class="px-4 py-3 text-left">主要風險</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">客戶服務</td><td class="px-4 py-3">草擬回覆、整理常見問題、輔助客服人員查找資料（生產力局調查列為主要應用範圍之一）</td><td class="px-4 py-3">回覆錯誤或語氣不當；承諾超出公司政策</td></tr>
+              <tr><td class="px-4 py-3">數據分析</td><td class="px-4 py-3">整理銷售與營運數據、找出異常、生成摘要（同屬調查列出的主要應用範圍）</td><td class="px-4 py-3">口徑不一致、把相關誤讀為因果</td></tr>
+              <tr><td class="px-4 py-3">市場推廣</td><td class="px-4 py-3">撰寫文案初稿、生成素材構思、整理競品資料（同屬調查列出的主要應用範圍）</td><td class="px-4 py-3">事實與優惠資訊出錯；用語不合規</td></tr>
+              <tr><td class="px-4 py-3">寫作與翻譯</td><td class="px-4 py-3">中英文互譯、改寫、統一行文風格；金融業受訪機構亦以摘要與翻譯為主要生成式 AI 用例</td><td class="px-4 py-3">專業術語失準；譯文須人手覆核後才對外使用</td></tr>
+              <tr><td class="px-4 py-3">摘要與文件處理</td><td class="px-4 py-3">長文件摘要、表格資料抽取、文件分類</td><td class="px-4 py-3">遺漏關鍵條款；抽取結果須抽樣核對</td></tr>
+              <tr><td class="px-4 py-3">程式與腳本</td><td class="px-4 py-3">協助編寫內部小工具、除錯、解釋既有程式碼</td><td class="px-4 py-3">安全漏洞；未經測試即部署至正式環境</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>這批用途有一個共同特徵：它們都是「內容生成與整理」，而非「業務決策」。生成式 AI 在這一層的價值相對穩定，因為輸出最終仍由人判斷；一旦把它的輸出直接接上付款、下單或客戶通知等具外部效果的動作，風險等級就會明顯上升。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-8.webp" alt="香港客服同事一邊接聽電話一邊查看電腦資料的場景" title="客戶服務與 AI 輔助" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">生成式 AI 目前主要承擔內容生成與整理，決策仍留在人手上</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">由「員工私下使用」到「公司准用」</h3>
+        <p>生產力局調查中有一個數字值得管理層留意：45% 受訪企業已設有正式認可的 AI 平台供員工使用，而當中有 54% 表示暫無完善 AI 治理政策。這意味不少公司的實際情況是「員工已經在用，但公司未有規則」。員工私下使用外部的免費工具，最大的問題不是效率，而是資料去向不明：客戶名單、報價、設計圖或個人資料一旦貼進未經批准的服務，公司無從掌握。</p>
+        <p>比較務實的第一步，是先在企業授權範圍內提供一個認可的工具，並同時訂明三條界線：哪些工具可以使用、哪些資料不可以輸入、輸出在使用前由誰核對。把這三條寫進內部指引，比單純買授權更能降低風險。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-9.webp" alt="香港公司主管向同事講解內部 AI 使用指引的場景" title="訂立內部使用指引" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先提供認可工具，再訂明可輸入資料與覆核責任</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-10.webp" alt="香港辦公室白板上寫著流程與權限分工的討論場景" title="流程與權限分工" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">治理問題本質上是流程問題，不是工具問題</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、AI Agent 與 Copilot 類工具的分工</h2>
+        <p>當個人層面的工具用得順暢之後，下一個問題通常是「能否讓系統自己跑完整條流程」。這時要分清兩類東西：Copilot 類工具是輔助個人完成單一任務，AI Agent 則是執行跨系統、多步驟的流程。前者以「人」為中心，後者以「流程」為中心。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">Copilot 類工具：輔助個人完成單一任務</h3>
+        <p>這類工具的特性是：由人發起、以人的權限為界、輸出交回人處理。它的價值在於壓縮單一任務的處理時間，例如把一段會議錄音變成待辦清單。由於每一步都有人看著，導入風險相對可控，亦不需要改動現有系統。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">AI Agent：執行跨系統、多步驟流程</h3>
+        <p>Agent 的特性是：由事件或排程觸發、跨越多個系統、需要自行判斷下一步。例如客戶在網站提交查詢後，Agent 讀取查詢內容、在客戶管理系統建立紀錄、按產品目錄生成報價草稿、再交由同事確認後發出。這類方案的效益明顯較高，但前置條件同樣較多：系統之間必須有可用的接口、權限必須精細到「只做該做的事」、錯誤處理與回退機制必須事先設計。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">比較項</th><th class="px-4 py-3 text-left">Copilot 類工具</th><th class="px-4 py-3 text-left">AI Agent</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">觸發方式</td><td class="px-4 py-3">由人主動發起</td><td class="px-4 py-3">由事件、排程或訊息觸發</td></tr>
+              <tr><td class="px-4 py-3">覆蓋範圍</td><td class="px-4 py-3">單一任務、單一應用為主</td><td class="px-4 py-3">跨系統、多步驟流程</td></tr>
+              <tr><td class="px-4 py-3">導入前置</td><td class="px-4 py-3">主要是授權與權限整理</td><td class="px-4 py-3">需要系統接口、權限設計、錯誤處理與監控</td></tr>
+              <tr><td class="px-4 py-3">出錯時的影響</td><td class="px-4 py-3">限於單次輸出的草稿</td><td class="px-4 py-3">可能牽動多個系統的資料狀態</td></tr>
+              <tr><td class="px-4 py-3">適合的起步時機</td><td class="px-4 py-3">任何階段，尤其適合第一步</td><td class="px-4 py-3">流程已標準化、數據可用、有明確覆核點之後</td></tr>
+              <tr><td class="px-4 py-3">維護需求</td><td class="px-4 py-3">以使用者支援為主</td><td class="px-4 py-3">需要持續監察、版本管理與例外處理</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-11.webp" alt="比較圖：Copilot 類工具與 AI Agent 在觸發方式與覆蓋範圍上的分別" title="Copilot 與 AI Agent 的分工" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">兩者並非互相替代，而是流程上的先後</figcaption>
+        </figure>
+
+        <p>要把 Agent 落地，至少要滿足三個技術條件。第一，流程本身已經標準化：如果同一件事每次做法都不同，Agent 無從跟隨。第二，涉及的系統有可用接口：不少中小企的舊系統或自建工具未必提供應用程式介面，需要先補上中間層。第三，有明確的停止條件與覆核點：Agent 必須知道在什麼情況下停止並交由人接手，而不是自行猜測。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-12.webp" alt="流程圖：客戶查詢經 AI Agent 串接多個系統並回到人手確認的路徑" title="Agent 串接流程示意" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">跨系統流程的關鍵設計是「幾時停、交回給誰」</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-13.webp" alt="香港物流人員在小型貨倉用手提裝置核對貨單" title="跨系統資料流通" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">跨部門工序的資訊要能互通，自動化才有意義</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-14.webp" alt="香港資訊技術人員檢查系統接口文件的場景" title="系統接口與整合前置" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">接口可用性是 Agent 導入最常被低估的前置工程</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、實作路線：由哪個工序開始、如何量度、人工覆核點</h2>
+        <p>推行 AI 專案最常見的失敗模式是「一次過想做太多」。較穩健的做法是先選一個工序做試點，跑通之後才擴展。以下整理選擇第一個工序的條件、量度方式與覆核設計。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">選第一個工序的四個條件</h3>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">條件</th><th class="px-4 py-3 text-left">說明</th><th class="px-4 py-3 text-left">不宜作起點的工序</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">高重複</td><td class="px-4 py-3">每天或每週都要做，批量較大，改善後累積效果明顯</td><td class="px-4 py-3">一年只做數次、每次做法都不同的工序</td></tr>
+              <tr><td class="px-4 py-3">規則清楚</td><td class="px-4 py-3">輸入輸出格式固定，判斷標準可以寫成文字</td><td class="px-4 py-3">依賴大量經驗判斷、難以言傳的工序</td></tr>
+              <tr><td class="px-4 py-3">錯誤成本低</td><td class="px-4 py-3">出錯後可補救，不會即時造成對外損失或法律責任</td><td class="px-4 py-3">涉及對外承諾、付款、合規申報的工序</td></tr>
+              <tr><td class="px-4 py-3">可量度</td><td class="px-4 py-3">處理時間、件數或返工率本來就有紀錄</td><td class="px-4 py-3">完全沒有紀錄、無法建立對照基準的工序</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-15.webp" alt="香港辦公室主管與同事在螢幕前挑選試點工序的場景" title="挑選試點工序" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">試點要選高重複、規則清楚、錯誤成本低的工序</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">如何量度：三個層次</h3>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">層次</th><th class="px-4 py-3 text-left">可觀察的指標例子</th><th class="px-4 py-3 text-left">注意事項</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">使用情況</td><td class="px-4 py-3">實際使用人數、使用頻次、涵蓋工序數目</td><td class="px-4 py-3">使用率高不等於有成效，可能只是好奇試用</td></tr>
+              <tr><td class="px-4 py-3">工序表現</td><td class="px-4 py-3">單件處理時間、返工比率、需要人手修正的比例</td><td class="px-4 py-3">必須與導入前的基準比較，否則無法判別變化</td></tr>
+              <tr><td class="px-4 py-3">業務結果</td><td class="px-4 py-3">回應時間、交件準時率、客戶投訴數目等營運指標</td><td class="px-4 py-3">業務結果受多個因素影響，宜作長期觀察而非即時歸因</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>量度最容易被忽略的是「基準」。若導入前沒有記錄處理時間與返工比率，之後就很難說明改變的幅度。因此建議在試點開始前，先花時間記錄現狀，哪怕只是抽樣一週的數據。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-16.webp" alt="香港同事在表格上記錄工序處理時間作為基準數據的場景" title="建立量度基準" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">沒有導入前的基準，之後任何改善都難以證明</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">人工覆核點要寫入流程</h3>
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">風險等級</th><th class="px-4 py-3 text-left">例子</th><th class="px-4 py-3 text-left">建議覆核方式</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">低</td><td class="px-4 py-3">內部參考的會議摘要、資料整理</td><td class="px-4 py-3">抽查即可，使用者自行判斷</td></tr>
+              <tr><td class="px-4 py-3">中</td><td class="px-4 py-3">對外文件初稿、報價草稿、客服回覆建議</td><td class="px-4 py-3">發出前由指定同事逐份確認</td></tr>
+              <tr><td class="px-4 py-3">高</td><td class="px-4 py-3">涉及金額、合約條款、個人資料或合規申報</td><td class="px-4 py-3">由負責人確認並留下紀錄，保留可追溯的審核軌跡</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>覆核安排必須寫在流程文件之中，並指名負責人。若只寫「須經人手確認」而沒有指定是誰，實際上往往等於沒有人確認。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-17.webp" alt="香港主管在流程文件上簽署確認的場景" title="人工覆核點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">覆核不只要寫「由人手確認」，還要寫明由誰確認</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、成本與效益框架</h2>
+        <p>評估 AI 投資時，最不應該做的事是承諾一個特定的回報數字。回報取決於工序特性、使用率、數據質素與管理配合程度，這些條件在每一家公司都不同。較務實的做法，是把成本列全，並把預期效益寫成可驗證的假設。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">成本項目</th><th class="px-4 py-3 text-left">性質</th><th class="px-4 py-3 text-left">容易低估之處</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">軟件授權</td><td class="px-4 py-3">經常性，按用戶或用量計算</td><td class="px-4 py-3">只算試點人數，未計擴展後的授權數目</td></tr>
+              <tr><td class="px-4 py-3">整合工程</td><td class="px-4 py-3">一次性為主</td><td class="px-4 py-3">舊系統缺接口、資料格式不一致時的工作量</td></tr>
+              <tr><td class="px-4 py-3">流程盤點與設計</td><td class="px-4 py-3">一次性</td><td class="px-4 py-3">常被視為「不用做」，但直接決定成敗</td></tr>
+              <tr><td class="px-4 py-3">權限與保安設定</td><td class="px-4 py-3">一次性，之後需定期檢視</td><td class="px-4 py-3">檔案權限整理的工時</td></tr>
+              <tr><td class="px-4 py-3">員工訓練與變更管理</td><td class="px-4 py-3">一次性加上持續補課</td><td class="px-4 py-3">新人入職與流程改動後的重複訓練</td></tr>
+              <tr><td class="px-4 py-3">持續維護與支援</td><td class="px-4 py-3">經常性</td><td class="px-4 py-3">模型與系統更新後需要重新測試的部分</td></tr>
+              <tr><td class="px-4 py-3">日後遷移</td><td class="px-4 py-3">一次性，發生在轉換方案時</td><td class="px-4 py-3">資料匯出限制與流程重做的成本</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-18.webp" alt="香港財務人員在電腦前整理資訊科技項目成本項目的場景" title="總持有成本組成" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">只看軟件單價，最容易漏掉整合與維護</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-19.webp" alt="香港職員在櫃檯前用平板檢視項目成本分項" title="成本按項目週期分段估算" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">成本要按項目週期分段估算，而非只看首年支出</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">把效益寫成可驗證的假設</h3>
+        <p>與其寫「可節省三成時間」，不如寫成假設並設定驗證方式。例如：「假設在試點工序中，草擬回覆的平均時間由十五分鐘縮短至八分鐘，而覆核時間增加兩分鐘，淨變化為每日節省若干分鐘；驗證方式為期四週的抽樣計時，若首兩週未見變化則檢視培訓與流程設計。」這樣的寫法既容易被管理層檢視，亦不會把未經證實的數字當成承諾。</p>
+        <p>另一個常被忽略的效益面向是品質與一致性。回覆用語統一、文件格式一致、遺漏項減少，這些改善不容易換算成金額，但對客戶體驗與內部返工率的影響實際存在。建議同樣以抽樣比較的方式記錄，而不是憑印象判斷。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-20.webp" alt="香港管理層在白板上寫下假設與驗證方法的討論場景" title="把效益寫成可驗證假設" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把預期寫成可驗證假設，比承諾一個回報數字更可靠</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、香港政府資助最新狀態</h2>
+        <p>政府資助會隨政策檢討而改變，網上流傳的舊資料經常已經失效。以下四項計劃的狀態以官方頁面為準，並註明查核日期。遞交申請前，務必重新查閱官方公布。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">計劃</th><th class="px-4 py-3 text-left">最新狀態（查核日期 2026 年 10 月 15 日）</th><th class="px-4 py-3 text-left">資助重點</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">科技券計劃（TVP）</td><td class="px-4 py-3">已於 2024 年 12 月 31 日後停止接受新申請</td><td class="px-4 py-3">累計批出 38,440 宗申請，平均每宗約 175,800 元，惠及 35,805 家企業或機構</td></tr>
+              <tr><td class="px-4 py-3">數碼轉型支援先導計劃（DTSPP）</td><td class="px-4 py-3">現行一輪已截止，官網顯示「已截止申請」；優化版細節截至查核日仍未公布</td><td class="px-4 py-3">1:1 配對，最多資助項目總開支 50% 或 5 萬元（以較低者為準）</td></tr>
+              <tr><td class="px-4 py-3">BUD 專項基金</td><td class="px-4 py-3">持續接受申請，2026 年 6 月 15 日起實施優化措施</td><td class="px-4 py-3">每企業累計資助上限 700 萬元；資助地域擴大至 48 個經濟體；「申請易」每宗上限增至 15 萬元</td></tr>
+              <tr><td class="px-4 py-3">新型工業化及科技培訓計劃（NITTP）</td><td class="px-4 py-3">全年接受申請；2025 年 8 月 1 日起合併入「新型工業化支援計劃」並調整安排</td><td class="px-4 py-3">1:1 配對資助企業人員接受高端科技培訓；每間公司每財政年度上限 25 萬元</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-21.webp" alt="香港中小企負責人在電腦前查看政府資助計劃網頁的場景" title="查核資助計劃最新狀態" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">資助狀態會改變，遞交前必須回到官方頁面確認</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">科技券已經停止新申請</h3>
+        <p>創新科技署在 2024 年就科技券進行全面檢討，考慮到計劃已達至最初設立的目的，決定在 2024 年 12 月 31 日後停止接受新申請。截至該時點，計劃累計批出 38,440 宗申請，平均每宗獲批資助約 175,800 元，惠及 35,805 家企業或機構，獲批項目主要來自批發及零售、食肆及酒店、工程等行業。若現時仍有供應商以「科技券」名義招攬，值得核對其說法是否仍然成立。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">數碼轉型支援先導計劃現行一輪已截止</h3>
+        <p>此計劃以一對一配對方式提供資助，對象為餐飲、零售（不包括餐飲）、旅遊及個人服務業，全職員工少於 50 名的中小企，政府已預留五億元。中小企資助申請已於 2025 年 5 月截止，計劃官網現時顯示「已截止申請」。政府表示正研究優化方案，加入人工智能及網絡安全數碼方案，預計需額外撥款約三億元，目標在 2026 年下半年諮詢立法會後推出；截至本文查核日期，優化版的資格、資助額與申請時間表仍未公布。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">BUD 專項基金持續優化</h3>
+        <p>BUD 專項基金資助非上市香港企業發展品牌、升級轉型及拓展營銷。由 2026 年 6 月 15 日起，資助地域範圍擴大至 48 個經濟體；「申請易」每宗申請資助上限由 10 萬元增加 50% 至 15 萬元，處理時間為 30 個工作天；政府亦為包含人工智能元素的項目提供更針對性資助。中小企業市場推廣基金已於 2026 年 7 月 1 日整合至 BUD 專項基金。需要注意的是，基金的資助比例已由 1:1 調整至 1:3，即政府最多資助核准開支的 25%，企業須以現金承擔其餘部分；一般申請與「電商易」每個核准項目的資助上限為 80 萬元，而企業在任何時間獲批的政府核准撥款總數不得超過 80 萬元。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">NITTP 專注培訓而非工具採購</h3>
+        <p>新型工業化及科技培訓計劃於 2018 年 8 月推出，以配對形式資助本地企業人員接受高端科技培訓，全年接受申請，秘書處由職業訓練局擔任。由 2025 年 8 月 1 日起，計劃合併入創新及科技基金下的「新型工業化支援計劃」，配對比例調整為 1:1，每間公司每個財政年度的資助上限由 50 萬元調整為 25 萬元，每名學員每財政年度限讀一個課程。這項計劃的定位是人才培訓，不能用於購置軟件或系統。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-22.webp" alt="香港培訓室內員工參加科技培訓課程的場景" title="科技培訓資助" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">培訓資助與工具採購資助屬不同計劃，用途不可互換</figcaption>
+        </figure>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">資助不等於落地</p>
+          <p class="text-blue-900 text-sm leading-relaxed">資助只解決資金部分。即使成功取得資助，流程設計、系統整合、權限安排與員工訓練仍要有人負責。把資助金額當成項目可行性證明的想法，往往導致系統上線後無人使用。</p>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-23.webp" alt="香港公司會議室內團隊討論資助與項目分工的場景" title="資助只是項目一部分" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">資金到位只是起點，落地仍要靠人與流程</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、為何需要專業團隊協助落地</h2>
+        <p>市場上的 AI 工具本身並不難買。真正決定成敗的，是工具與公司現有流程之間的落差。以下整理五個最常見的落地缺口，以及自行處理與交由專業團隊處理的分別。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">落地缺口</th><th class="px-4 py-3 text-left">自行處理的常見結果</th><th class="px-4 py-3 text-left">專業團隊切入點</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">流程盤點</td><td class="px-4 py-3">直接購買工具，之後才發現對不上現有工序</td><td class="px-4 py-3">先梳理工序、輸入輸出與例外情況，再決定自動化範圍</td></tr>
+              <tr><td class="px-4 py-3">系統整合</td><td class="px-4 py-3">工具之間各自為政，員工要在多個系統之間複製貼上</td><td class="px-4 py-3">建立中間層與接口，讓資料在系統之間流動</td></tr>
+              <tr><td class="px-4 py-3">權限設計</td><td class="px-4 py-3">沿用舊有寬鬆權限，AI 可檢索的範圍過大</td><td class="px-4 py-3">按角色重整權限，令 AI 的存取範圍與職責一致</td></tr>
+              <tr><td class="px-4 py-3">員工訓練</td><td class="px-4 py-3">派發帳號後即算完成，使用率長期偏低</td><td class="px-4 py-3">按崗位設計培訓與情境練習，並建立內部使用指引</td></tr>
+              <tr><td class="px-4 py-3">持續維護</td><td class="px-4 py-3">上線後無人跟進，系統與流程逐漸脫節</td><td class="px-4 py-3">定期檢視成效、處理例外情況、隨業務變化調整</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-24.webp" alt="香港顧問團隊與客戶在會議室梳理業務流程的場景" title="落地缺口與切入點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">最大的落差不在工具，而在流程與權限的安排</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">五個落地環節</h3>
+        <p>具體而言，一個完整的導入過程通常包含五個環節。第一是<strong>流程盤點</strong>：把工序逐步寫下來，標明輸入、輸出、例外情況與現時耗時。第二是<strong>系統整合</strong>：確認資料來源、需要哪些接口、由誰維護；這一步往往是工時最集中的部分。第三是<strong>權限設計</strong>：按職責重整檔案與系統權限，確保 AI 的存取範圍與使用者權責一致。第四是<strong>員工訓練</strong>：不只教操作，更要教判斷——什麼情況下不可信任輸出、什麼內容不可輸入。第五是<strong>持續維護</strong>：定期檢視成效與例外個案，隨業務變化調整流程。</p>
+        <p>這五個環節之中，第一與第二項最難自行完成，因為它們需要跨越部門、動用系統與技術知識，而日常營運本身已經佔用大部分人力。這正是不少公司即使已購入授權，實際使用率仍然偏低的原因。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-25.webp" alt="流程圖：由流程盤點、系統整合、權限設計、員工訓練到持續維護的五個落地環節" title="五個落地環節" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">五個環節缺一，項目通常會停在「已購入但沒有人用」的狀態</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">什麼情況可以自行處理</h3>
+        <p>並非每個項目都需要外援。若公司的工序簡單、現有系統已提供完整接口，而內部又有具備相關經驗的技術人員，自行導入完全可行。反之，若流程橫跨多個部門、涉及多個互不相通的系統、或需要處理客戶個人資料，則宜先取得專業評估再決定做法。判斷的關鍵不是公司規模，而是流程複雜度與技術人力。</p>
+
+        <figure class="blog-figure my-10">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-26.webp" alt="香港小型公司負責人自行在電腦前設定軟件流程的場景" title="自行處理的適用情況" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">工序簡單、有人力、系統有接口，自行導入同樣可行</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港中小企應該由 Copilot 類工具還是 AI Agent 開始？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">一般建議先由 Copilot 類工具開始。這類工具以個人任務為單位、以使用者既有權限為界，導入前置條件較少，亦不需要改動現有系統。待流程標準化、數據可用、覆核點明確之後，再考慮以 AI Agent 接通跨系統的多步驟流程。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">調查顯示八成以上企業員工使用 AI，是否代表香港大部分公司已經用好 AI？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以這樣推論。該數字出自生產力局《2025 年香港企業 AI 應用趨勢調查》，2025 年 9 月訪問約 800 間本地企業，屬受訪者比例，並非全港市場採用率。同一調查亦顯示多數企業仍主要把 AI 用於高重複性或行政性工作，與全面融入業務流程尚有距離。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">購買 Microsoft 365 Copilot 有什麼前置條件？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按 Microsoft 香港特別行政區定價頁的說明，Copilot 附加授權需要合格的 Microsoft 365 方案，並非獨立購買即可使用，頁面亦列明最多 300 個使用者。價格、供應情況與推廣安排會隨市場及經銷渠道變動，建議落單前由經銷渠道確認最新條款。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">AI 產生的內容可否直接用於對外文件？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不建議。生成式 AI 可能產生語氣自然但事實不準確的內容。務實做法是把 AI 輸出視為草稿，由指定人員在發出前核對，並為涉及金額、合約條款與個人資料的內容保留審核紀錄。覆核安排應寫入流程文件並指名負責人。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">如何量度 AI 導入是否有效？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議分三層觀察：使用情況（人數與頻次）、工序表現（處理時間、返工比率）、業務結果（回應時間、交件準時率等）。關鍵是導入前先建立基準數據，否則之後難以判別變化。業務結果受多個因素影響，宜作長期觀察而非即時歸因。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">科技券（TVP）現在仍然可以申請嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以。按創新科技及工業局在立法會的書面答覆，科技券計劃已於 2024 年 12 月 31 日後停止接受新申請。若仍有供應商以科技券名義招攬，建議核對其說法是否仍然成立。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">數碼轉型支援先導計劃（DTSPP）優化版幾時可以申請？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">截至 2026 年 10 月 15 日，計劃官網仍顯示「已截止申請」，優化版的資格、資助額與申請時間表尚未公布。政府較早前表示正研究加入人工智能及網絡安全數碼方案，預計需額外撥款約三億元，目標在 2026 年下半年諮詢立法會後推出。實際安排請以官方最新公布為準。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">什麼情況下需要找專業團隊協助？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">當流程橫跨多個部門、涉及多個互不相通的系統，或需要處理客戶個人資料時，專業評估通常能減少重做。若工序簡單、現有系統已有完整接口、內部亦有具備經驗的技術人員，自行導入同樣可行。判斷關鍵是流程複雜度與技術人力，而非公司規模。</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>AI 提升效率的關鍵，通常在工具之外。香港企業目前普遍已在日常工作中接觸 AI，但多數仍停留在行政與重複性工序；要進一步走到跨系統流程自動化，就需要流程盤點、系統整合、權限設計、員工訓練與持續維護這五個環節配合。資助方面，科技券已經停止新申請，數碼轉型支援先導計劃現行一輪亦已截止，BUD 專項基金與新型工業化及科技培訓計劃則持續運作並各有更新，遞交前務必查閱官方頁面。</p>
+        <p>若希望由流程盤點、方案選型、系統整合到員工訓練一併處理，可參考我們的<a href="/services/ai/" class="text-[#0f4c81] font-bold hover:underline">人工智能應用服務</a>、<a href="/services/automation/" class="text-[#0f4c81] font-bold hover:underline">流程自動化方案</a>，以及<a href="/services/ai-agency/" class="text-[#0f4c81] font-bold hover:underline">AI Agency 服務</a>。想先理解 Agent 的運作方式，可延伸閱讀<a href="/blog/ai-agent-hong-kong-business-guide/" class="text-[#0f4c81] font-bold hover:underline">香港企業 AI Agent 應用指南</a>與<a href="/blog/rpa-hong-kong-guide/" class="text-[#0f4c81] font-bold hover:underline">RPA 流程自動化指南</a>；如要評估成本結構，亦可參考<a href="/blog/ai-automation-roi-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">AI 自動化的成本與效益分析</a>。</p>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026 年 10 月 15 日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://www.microsoft.com/zh-hk/microsoft-365-copilot/pricing" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Microsoft：Microsoft 365 Copilot 方案與定價（香港特別行政區）</a> — 標示價格、需合格方案、最多 300 個使用者</li>
+            <li><a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Microsoft Learn：Microsoft Copilot 概覽</a> — 授權層級、以 Microsoft Graph 接地、權限範圍控制</li>
+            <li><a href="https://learn.microsoft.com/en-us/partner-center/announcements/2026-october" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Microsoft Learn：Partner Center 公布（2026 年 10 月）</a> — 雲端方案供應商渠道的用量計費安排</li>
+            <li><a href="https://smereachout.hkpc.org/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港生產力促進局：《2025 年香港企業 AI 應用趨勢調查》（2025 年 10 月 23 日發布）</a> — 2025 年 9 月訪問約 800 間企業；88% 員工使用 AI；54% 受訪平台無治理政策</li>
+            <li><a href="https://www.hkpc.org/zh-HK/about-us/media-centre/press-releases/2026/sme-index-2026-q1" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港生產力促進局：「渣打香港中小企領先營商指數」2026 年第一季（2026 年 1 月 15 日）</a> — 訪問 819 家中小企；七成半較 2024 年擴大 AI 應用</li>
+            <li><a href="https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/04/20250409-3/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：香港金融研究院《金融服務業生成式 AI》研究（2025 年 4 月 9 日）</a> — 75% 受訪機構已落實或正試行生成式 AI</li>
+            <li><a href="https://brdr.hkma.gov.hk/eng/doc-ldg/docId/getPdf/20241125-2-EN/20241125-2-EN.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：大數據分析及人工智能應用調查結果（2024 年 11 月）</a> — 調查 28 間認可機構；75% 採用或計劃採用，39% 涉及生成式 AI</li>
+            <li><a href="https://www.info.gov.hk/gia/general/202602/27/P2026022700340.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：《二零二五年資訊科技在工商業的使用情況和普及程度統計調查報告》出版（2026 年 2 月 27 日）</a> — 99% 公司使用電腦或智能手機，57% 有網絡存在</li>
+            <li><a href="https://www.info.gov.hk/gia/general/202602/25/P2026022500279.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：立法會二題「支援中小企業數碼轉型的措施」（2026 年 2 月 25 日）</a> — 科技券停止新申請及批出數字；先導計劃優化方向與額外撥款</li>
+            <li><a href="https://www.smefund.tid.gov.hk/tc_chi/bud/bud_home.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">工業貿易署：發展品牌、升級轉型及拓展內銷市場的專項基金（更新日期 2026 年 6 月 29 日）</a> — 資助地域擴至 48 個經濟體、「申請易」上限增至 15 萬元</li>
+            <li><a href="https://www.legco.gov.hk/yr2026/chinese/fc/fc/papers/f26-07c.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">立法會財務委員會討論文件 FCR(2026-27)7（2026 年 4 月）</a> — 資助比例由 1:1 調整至 1:3、每項目上限調整至 80 萬元</li>
+            <li><a href="https://www.itf.gov.hk/en/funding-programmes/promoting-new-industrialisation/new-industrialisation-support-scheme/nittp/index.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">創新及科技基金：新型工業化及科技培訓計劃（NITTP）</a> — 2018 年推出；2025 年 8 月起 1:1 配對、每年上限 25 萬元</li>
+            <li><a href="https://dtspp.cyberport.hk/zh-hk/%e9%a6%96%e9%a0%81/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">數碼港：數碼轉型支援先導計劃（DTSPP）</a> — 1:1 配對、最多資助 50% 或 5 萬元</li>
+            <li><a href="https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/03/20260305-3/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：監管機構推出生成式人工智能沙盒++（2026 年 3 月 5 日）</a> — 擴展至銀行、證券、保險及強積金業界</li>
+            <li><a href="https://www.policyaddress.gov.hk/2026/tc/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">《行政長官 2026 年施政報告》（2026 年 9 月 16 日）</a> — 優化先導計劃、擴大 BUD 資助地域、拓展「數碼不求人」平台</li>
+            <li><a href="https://smesupport.hktdc.com/en/s/sme-microsoft" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港貿易發展局：T-box 與 Microsoft 合作的 AI 採用計劃</a> — 折扣授權與導入培訓，優惠期至 2026 年 12 月 31 日</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
+  // ─── AI 系列：ChatGPT 廣告香港指南 ───
+  {
+    id: 41,
+    slug: "chatgpt-ads-hong-kong-guide",
+    title: "ChatGPT Ads 廣告教學：香港企業如何開戶、投放與優化",
+    excerpt:
+      "ChatGPT 廣告是 OpenAI 在 ChatGPT 對話介面內投放的付費廣告，只向免費與 Go 方案用戶顯示。本文以官方文件為據，說明它與 Google 與 Meta 廣告的分別、發展時間線、各地區可用性與每日最低預算、開戶流程、帳戶限制、受眾定位與量度設定，並解釋為何香港註冊實體今日未能自助開戶、香港企業可行的三條路徑，以及開戶與投放的常見錯誤與風險。",
+    date: "2026-10-15",
+    updatedAt: "2026-10-15",
+    category: "Ads Strategy",
+    readTime: "15 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/chatgpt-ads-hong-kong-guide.webp",
+    tags: ["ChatGPT Ads", "ChatGPT 廣告", "OpenAI 廣告", "香港", "廣告投放", "AI 營銷"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">ChatGPT 廣告（ChatGPT Ads）是 OpenAI 在 ChatGPT 對話介面內直接投放的付費廣告，以贊助卡形式顯示在回應文字的下方。對香港企業而言，最需要先弄清楚的一點是「香港是否已經開放」：截至 2026 年 10 月，香港仍不在 OpenAI 自助開戶的 63 個國家名單之內。本文以 OpenAI 官方文件為據，逐一說明 ChatGPT 廣告的運作方式、它與 Google 與 Meta 廣告的分別、各地區的可用性與每日最低預算、開戶流程、帳戶限制、受眾定位與量度設定，以及香港企業今日可行的三條路徑。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">ChatGPT 廣告是 ChatGPT 免費與 Go 方案用戶在回應下方看到的贊助卡。香港註冊企業今日未能在香港自助開戶，因為香港不在 63 個可自助開戶的國家名單；但仍可經 OpenAI 的代理商夥伴，或以已開放地區註冊的實體投放。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>ChatGPT 廣告只向免費與 Go 方案用戶顯示，Plus、Pro、Business、Enterprise 與 Edu 帳戶完全沒有廣告</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>配對邏輯不是關鍵字，而是對話的意圖與情境，配合廣告主提供的情境提示</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>由 2026 年 2 月美國試行，到 2026 年 9 月覆蓋超過 60 個國家，前後不足一年</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>OpenAI 官方自助開戶名單共 63 個國家，香港不在名單之內</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>每日最低預算按計費貨幣而定，例如美元 25、新加坡幣 4、新台幣 60、日圓 2,500</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>新自助帳戶初期只可投本國，須完成身份驗證與本國消費才可投其他國家</span></li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-1.webp" alt="路線圖：由 ChatGPT 廣告概念、地區可用性、開戶流程、投放設定到量度與優化的完整教學框架" title="ChatGPT 廣告教學框架" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">全篇骨幹：由概念、地區可用性、開戶流程到投放與量度</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、ChatGPT 廣告是什麼：與 Google／Meta 廣告的分別</h2>
+        <p>ChatGPT 廣告是 OpenAI 首個由官方直接營運的廣告版位，廣告以一張贊助卡形式，出現在 ChatGPT 回應文字的下方，並清楚標示為贊助內容，與模型的答案分開顯示。它與搜尋廣告最大的分別，在於配對邏輯：ChatGPT 廣告不靠關鍵字比對，而是判斷使用者當下對話的意圖與情境，再決定是否顯示相關廣告。</p>
+        <p>OpenAI 表明，廣告不會影響 ChatGPT 給出的答案，廣告系統與對話模型分開運作，廣告主無法塑造、排序或改動 ChatGPT 的回應，亦不會取得使用者的對話內容或個人資料。這一點對於講求品牌信任的香港企業尤其重要：投放 ChatGPT 廣告並不代表品牌可以直接控制 AI 的推薦結果。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">廣告的顯示位置與格式</h3>
+        <p>按 OpenAI 官方說明，一個 ChatGPT 廣告單位由六個部分組成，缺一不可。撰寫素材與規劃設計時，須逐一預備：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>廣告主名稱</strong>：在帳戶層級設定，顯示於每一個廣告之上</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>網站圖示（Favicon）</strong>：即品牌標誌，在帳戶層級設定，須能在細小尺寸下辨識</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>標題</strong>：使用者最先讀到的文字，須點明產品價值</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>說明文字</strong>：補充標題，說明適用對象與使用時機</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>落地頁連結</strong>：建議加入 UTM 追蹤參數，方便在其他分析工具中辨識來自 ChatGPT 的流量</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>圖片素材</strong>：廣告單位內的視覺元素</span></li>
+        </ul>
+        <p>哪一類人會看到廣告，這一點決定整個媒體規劃的數學。ChatGPT 廣告只向使用免費（Free）與 Go 方案的用戶顯示；Plus、Pro、Business、Enterprise 與 Edu 帳戶完全沒有廣告。同時，OpenAI 不會向被判定為未滿 18 歲的帳戶顯示廣告。換言之，如果你的目標客群幾乎必然是 Plus 或 Pro 訂閱者，你在 ChatGPT 廣告上可觸及的庫存，會比 ChatGPT 整體用戶基數小得多。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-2.webp" alt="圖解：一個 ChatGPT 廣告單位的六個組成部分，包括廣告主名稱、網站圖示、標題、說明文字、落地頁連結與圖片素材" title="ChatGPT 廣告單位的組成" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">一個 ChatGPT 廣告單位由六個部分組成，缺一不可</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">與 Google 搜尋及 Meta 廣告的分別</h3>
+        <p>三者的差別不只在介面，而在於配對邏輯、可見用戶與定位能力。以下表格比較三者，方便判斷 ChatGPT 廣告在整體媒體組合中的位置。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="text-left px-5 py-3 font-semibold">比較項目</th><th class="text-left px-5 py-3 font-semibold">ChatGPT 廣告</th><th class="text-left px-5 py-3 font-semibold">Google 搜尋廣告</th><th class="text-left px-5 py-3 font-semibold">Meta 廣告</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3">配對邏輯</td><td class="px-5 py-3">對話意圖與情境，配以廣告主提供的情境提示</td><td class="px-5 py-3">關鍵字與搜尋意圖</td><td class="px-5 py-3">用戶興趣與行為訊號</td></tr>
+              <tr><td class="px-5 py-3">可見用戶</td><td class="px-5 py-3">只向免費與 Go 方案用戶顯示</td><td class="px-5 py-3">所有搜尋用戶</td><td class="px-5 py-3">所有 Facebook 與 Instagram 用戶</td></tr>
+              <tr><td class="px-5 py-3">主要目標</td><td class="px-5 py-3">曝光、點擊與轉換（轉換支援 oCPC 與 oCPM）</td><td class="px-5 py-3">搜尋、購物與轉換</td><td class="px-5 py-3">品牌認知與轉換</td></tr>
+              <tr><td class="px-5 py-3">競價方式</td><td class="px-5 py-3">相關性加權第二價拍賣；CPC 建議起始上限美元 3 至 5</td><td class="px-5 py-3">關鍵字競價與品質分</td><td class="px-5 py-3">競價與投遞優化</td></tr>
+              <tr><td class="px-5 py-3">受眾定位</td><td class="px-5 py-3">國家、平台與第一方自訂受眾；無人口統計與相似受眾</td><td class="px-5 py-3">關鍵字、地區、裝置、人口統計</td><td class="px-5 py-3">人口統計、興趣、自訂與相似受眾</td></tr>
+              <tr><td class="px-5 py-3">廣告環境</td><td class="px-5 py-3">對話式，處於決策過程之中</td><td class="px-5 py-3">搜尋結果頁</td><td class="px-5 py-3">社交動態與限時動態</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>由此可見，ChatGPT 廣告並非用來取代 Google 或 Meta，它是一個額外的探索與評估渠道。它缺乏人口統計與相似受眾定位，庫存集中於免費與 Go 方案用戶，且不在敏感主題（例如個人健康、精神健康與政治）附近顯示。若你的策略高度依賴受眾切分，這個渠道未必適合；若你希望在用戶比較與決策的對話時刻出現，則值得測試。</p>
+        <p>從行銷漏斗的角度看，ChatGPT 廣告的價值在於使用者在對話中比較與決策的時刻。使用者在 ChatGPT 內往往已經表達目標、條件與限制，廣告若能在這個過程中提供實用的補充資訊，較有機會被視為協助而非干擾。反過來說，如果品牌的訊息只有促銷口號，在這種以實用性為先的環境中，成效一般較弱。這也是為何素材與情境提示的質素，往往比競價高低更影響成敗。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-3.webp" alt="比較圖：ChatGPT 廣告、Google 搜尋廣告與 Meta 廣告在配對邏輯、可見用戶、目標、競價與受眾定位上的分別" title="三個廣告渠道的比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">對話意圖配對，與關鍵字配對是兩種不同的邏輯</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、發展時間線：由美國試行到覆蓋超過 60 個國家</h2>
+        <p>ChatGPT 廣告的擴展速度，是理解這個渠道的重要背景。由首次測試到覆蓋超過 60 個國家，前後不足一年，而且每一次地區擴展都同步開放自助 Ads Manager 與代理商夥伴渠道。以下時間線全部取自 OpenAI 官方公告與說明中心。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="text-left px-5 py-3 font-semibold">日期</th><th class="text-left px-5 py-3 font-semibold">事件</th><th class="text-left px-5 py-3 font-semibold">一手來源</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3">2026 年 2 月 9 日</td><td class="px-5 py-3">美國開始在 ChatGPT 測試廣告，先向免費與 Go 方案用戶顯示</td><td class="px-5 py-3">OpenAI Help Center</td></tr>
+              <tr><td class="px-5 py-3">2026 年 5 月 5 日</td><td class="px-5 py-3">推出 Ads Manager 自助測試版，新增每次點擊成本（CPC）競價與 Conversions API</td><td class="px-5 py-3">OpenAI（New ways to buy ChatGPT ads）</td></tr>
+              <tr><td class="px-5 py-3">六個月內</td><td class="px-5 py-3">由美國擴展至另外八個市場</td><td class="px-5 py-3">OpenAI（ChatGPT Ads expands across Europe）</td></tr>
+              <tr><td class="px-5 py-3">2026 年 8 月 18 日</td><td class="px-5 py-3">宣布擴展至 31 個歐洲市場，包括德國、法國、西班牙、意大利等</td><td class="px-5 py-3">OpenAI（ChatGPT Ads expands across Europe）</td></tr>
+              <tr><td class="px-5 py-3">2026 年 8 月 31 日</td><td class="px-5 py-3">31 個歐洲市場正式開放自助 Ads Manager</td><td class="px-5 py-3">OpenAI（同文更新說明）</td></tr>
+              <tr><td class="px-5 py-3">不足 200 日</td><td class="px-5 py-3">ChatGPT Ads 年度化收入運行率達 10 億美元，覆蓋超過 40 個國家，自助登陸印度、歐洲、中東與北非</td><td class="px-5 py-3">OpenAI（A milestone in expanding access to AI）</td></tr>
+              <tr><td class="px-5 py-3">2026 年 9 月 23 日</td><td class="px-5 py-3">擴展至印尼、馬來西亞、菲律賓、新加坡、泰國、越南與台灣，總覆蓋超過 60 個國家</td><td class="px-5 py-3">OpenAI（ChatGPT Ads expands to Southeast Asia and Taiwan）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">為何這條時間線對香港企業重要</h3>
+        <p>這條時間線說明兩件事。第一，這個渠道仍在快速演變，功能與覆蓋範圍每隔數月就會更新一次，今日的限制未必是明日的限制。第二，東南亞與台灣在 2026 年 9 月已經開放，意味著鄰近香港的多個市場都已可用，唯獨香港仍未列入官方自助名單。這正是香港企業最容易踩空的位置：眼見地區一個接一個開放，卻未察覺香港本身不在名單之內。</p>
+        <p>因此，任何「香港已經開放」的說法都是不準確的。正確理解是：OpenAI 的自助開戶資格，取決於廣告主與付費主體的註冊地，而不是廣告想投放到的地區。</p>
+        <p>另一個值得留意的趨勢，是夥伴生態的擴張。OpenAI 在五月推出 Ads Manager 時，已列出多家代理商與技術夥伴；到覆蓋超過 40 個國家時，技術與量度夥伴的數目增至超過 50 家。對香港企業而言，這代表即使未能自助開戶，市場上仍有成熟的中介與工具，可以協助購買、管理與量度 ChatGPT 廣告。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-4.webp" alt="時間線圖：由 2026 年 2 月美國試行，到 5 月推出自助 Ads Manager，8 月擴展歐洲，9 月擴展東南亞與台灣" title="ChatGPT 廣告發展時間線" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">由 2026 年 2 月美國試行到 9 月擴展東南亞，前後不足一年</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-5.webp" alt="示意圖：每一次地區擴展都同時開放自助 Ads Manager 與代理商夥伴渠道兩種買法" title="兩種購買渠道並行" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">每一次擴展都同時開放自助 Ads Manager 與代理商夥伴渠道</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、地區可用性與每日最低預算：香港的實際處境</h2>
+        <p>OpenAI 在說明中心列出「Ads Manager 可用性」國家名單，並訂明一項關鍵條件：要使用自助 Ads Manager，將要投放與被計費的法人實體，必須位於名單上列為可用的國家。這一點直接決定香港註冊企業能否自助開戶。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">六十三個可自助開戶的國家（香港不在名單）</h3>
+        <p>按 OpenAI 官方名單（本文整理日期為 2026 年 10 月），自助開戶國家共 63 個。以下按地區整理，分區數字為本文按官方名單歸類所得：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>美洲（4）</strong>：美國、加拿大、墨西哥、巴西</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>亞太（12）</strong>：澳洲、新西蘭、印度、印尼、日本、韓國、馬來西亞、菲律賓、新加坡、台灣、泰國、越南</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>歐洲（32）</strong>：奧地利、比利時、保加利亞、克羅地亞、塞浦路斯、捷克、丹麥、愛沙尼亞、芬蘭、法國、德國、希臘、匈牙利、冰島、愛爾蘭、意大利、拉脫維亞、列支敦士登、立陶宛、盧森堡、馬耳他、荷蘭、挪威、波蘭、葡萄牙、羅馬尼亞、斯洛伐克、斯洛文尼亞、西班牙、瑞典、瑞士、英國</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>中東（11）</strong>：巴林、伊拉克、以色列、約旦、科威特、黎巴嫩、阿曼、卡塔爾、沙特阿拉伯、阿聯酋、土耳其</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>北非（4）</strong>：阿爾及利亞、埃及、摩洛哥、突尼斯</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>未列出</strong>：香港、中國內地及其他未在名單上的地區。OpenAI 表示，若你的國家未列出，仍可在 ads.openai.com 登記帳戶，待該國開放時收到通知</span></li>
+        </ul>
+
+        <p>由此可見，<strong>香港註冊實體今日未能以香港名義自助開戶</strong>。這不是「即將開放」的傳聞，而是官方名單的現況。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-6.webp" alt="世界地圖示意圖：六十三個可自助開戶國家分佈，香港與中國內地不在名單之內" title="自助開戶國家分佈" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">香港不在 63 個自助開戶名單，須以其他方式投放</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">每日最低預算對照表</h3>
+        <p>每日最低預算按廣告帳戶的計費貨幣而定。以下為 OpenAI 官方「Minimum Campaign Spend」表所載金額，供規劃預算時參考。表中可見，不同市場的最低門檻差別很大。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="text-left px-5 py-3 font-semibold">計費貨幣</th><th class="text-left px-5 py-3 font-semibold">每日最低預算</th><th class="text-left px-5 py-3 font-semibold">對應市場舉例</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3">美元（USD）</td><td class="px-5 py-3">25 USD</td><td class="px-5 py-3">美國</td></tr>
+              <tr><td class="px-5 py-3">新加坡幣（SGD）</td><td class="px-5 py-3">4.00 SGD</td><td class="px-5 py-3">新加坡</td></tr>
+              <tr><td class="px-5 py-3">新台幣（TWD）</td><td class="px-5 py-3">60.00 TWD</td><td class="px-5 py-3">台灣</td></tr>
+              <tr><td class="px-5 py-3">日圓（JPY）</td><td class="px-5 py-3">2,500 JPY</td><td class="px-5 py-3">日本</td></tr>
+              <tr><td class="px-5 py-3">韓圜（KRW）</td><td class="px-5 py-3">25,000 KRW</td><td class="px-5 py-3">韓國</td></tr>
+              <tr><td class="px-5 py-3">歐元（EUR）</td><td class="px-5 py-3">15 EUR</td><td class="px-5 py-3">多個歐洲市場</td></tr>
+              <tr><td class="px-5 py-3">英鎊（GBP）</td><td class="px-5 py-3">15 GBP</td><td class="px-5 py-3">英國</td></tr>
+              <tr><td class="px-5 py-3">馬來西亞令吉（MYR）</td><td class="px-5 py-3">5.50 MYR</td><td class="px-5 py-3">馬來西亞</td></tr>
+              <tr><td class="px-5 py-3">泰銖（THB）</td><td class="px-5 py-3">33.00 THB</td><td class="px-5 py-3">泰國</td></tr>
+              <tr><td class="px-5 py-3">越南盾（VND）</td><td class="px-5 py-3">19,000 VND</td><td class="px-5 py-3">越南</td></tr>
+              <tr><td class="px-5 py-3">澳元（AUD）</td><td class="px-5 py-3">25 AUD</td><td class="px-5 py-3">澳洲</td></tr>
+              <tr><td class="px-5 py-3">加元（CAD）</td><td class="px-5 py-3">25 CAD</td><td class="px-5 py-3">加拿大</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>最低預算只是入場門檻，並非建議預算。OpenAI 亦建議新手先由每日預算入手，待掌握投遞與成效數據之後，才考慮改用活動總預算。</p>
+        <p>要留意，最低預算表所載金額只是入場門檻，實際每次點擊或每千次曝光的成本，仍取決於競價與廣告相關性。OpenAI 建議 CPC 活動以每次點擊美元 3 至 5 為起始上限，但這屬建議值，並非實際成交價。相關性加權的拍賣意味著，一個切題而競價適中的廣告，有機會勝過競價較高但離題的廣告。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-7.webp" alt="圖表：ChatGPT 廣告每日最低預算按計費貨幣而定，包括美元、日圓、新台幣與新加坡幣等" title="每日最低預算對照" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">每日最低預算按計費貨幣而定，最低由新加坡幣四元起</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">香港企業今日可行的三條路徑</h3>
+        <p>既然香港註冊實體未能自助開戶，香港企業若想測試這個渠道，實務上只有三條路：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>經代理商與夥伴渠道</strong>：OpenAI 的代理商夥伴（包括 Dentsu、Havas Media、Omnicom Media、Publicis Groupe 與 WPP）與技術夥伴可協助企業購買 ChatGPT 廣告，不受自助開戶名單的地區限制</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>以已開放地區註冊的實體投放</strong>：若企業在已開放國家（例如新加坡、台灣或英國）有註冊實體，可由該實體開戶並投放</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>登記候補並等待開放</strong>：在 ads.openai.com 登記帳戶，待香港列入名單後收到通知</span></li>
+        </ul>
+        <p>要注意的是，帳戶的國家、貨幣與時區必須與實際註冊地一致，不能為開戶而填寫非註冊地的國家。以不實資料開戶，可能無法通過審查，或影響日後的付款與帳戶狀態。</p>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">香港企業的實務建議</p>
+          <p class="text-blue-900 text-sm leading-relaxed">不要把「香港已開放」當成前提去規劃預算。先確認企業是否持有已開放地區的註冊實體；若沒有，與熟悉 OpenAI 夥伴渠道的團隊合作，是目前最直接的可行方式。</p>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-8.webp" alt="路徑圖：香港企業投放 ChatGPT 廣告的三條可行路徑，包括夥伴渠道、境外註冊實體與登記候補" title="香港企業的三條路徑" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">香港企業今日的三條可行路徑：夥伴渠道、境外實體、等待開放</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、開戶流程與帳戶設定（Ads Manager Beta）</h2>
+        <p>OpenAI 的 Ads Manager Beta 提供兩條開戶起點：一是在註冊過程中輸入網站網址，先建立第一個廣告與活動；二是略過廣告建立步驟，直接進入 Ads Manager 建立帳戶。兩條路徑最後都在 Ads Manager 內完成設定。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">開戶五步</h3>
+        <ol class="space-y-2 my-6 list-decimal list-inside">
+          <li><strong>登入或建立帳戶</strong>：前往 ads.openai.com，以日常使用的 OpenAI 帳戶登入，或即時建立帳戶</li>
+          <li><strong>選擇起點</strong>：輸入網站網址讓系統協助建立第一個廣告，或略過此步直接進入 Ads Manager</li>
+          <li><strong>填寫廣告主資料</strong>：輸入廣告主名稱及其他必要資料，建立廣告主帳戶</li>
+          <li><strong>設定付款方式</strong>：在 Billing 頁面輸入信用卡資料與帳單資料（例如公司名稱、帳單地址、發票電郵）；付款設定完成前，活動無法投遞</li>
+          <li><strong>確認標誌與帳戶名稱，並邀請協作者</strong>：在 Settings 內確認標誌、帳戶名稱、品牌名稱與法定名稱；如需要，可邀請同事並指派 Admin、Member 或 Viewer 角色</li>
+        </ol>
+        <p>廣告提交後須通過 OpenAI 的政策審查才會上線。OpenAI 的說明強調，審查、帳戶狀態、付款設定、活動狀態與預算排程，都會影響廣告能否開始投遞。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-9.webp" alt="流程圖：Ads Manager 開戶五步，由登入、選擇起點、填寫資料、設定付款到確認名稱並邀請協作者" title="Ads Manager 開戶五步" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">開戶流程由網站開始，逐步建立廣告帳戶</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">帳戶名稱、品牌名稱與法定名稱的分工</h3>
+        <p>Ads Manager 使用三個名稱，各有用途，可以相同，也可以分別設定。開戶時輸入的單一廣告主名稱，會同時成為帳戶名稱、品牌名稱與法定名稱，日後可分別修改：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>帳戶名稱</strong>：在 Ads Manager 內辨識與管理帳戶之用</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>品牌名稱</strong>：公開顯示於 ChatGPT 廣告旁的品牌名稱</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>法定名稱</strong>：企業的註冊名稱，用於計費與商業驗證；修改時會觸發審查</span></li>
+        </ul>
+
+        <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">🔴 開戶前務必確認三項設定</p>
+          <p class="text-blue-900 text-sm leading-relaxed">OpenAI 官方說明指出，帳戶的<strong>國家或地區、貨幣與時區</strong>，在帳戶建立之後無法更改。提交前必須逐一核對，因為這三項一旦設定錯誤，將無法在原帳戶上修正。</p>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-10.webp" alt="提醒圖：帳戶的國家、貨幣與時區在建立後無法更改，必須在提交前確認" title="開戶後不可更改的三項設定" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">國家、貨幣與時區在開戶後不可更改，務必先確認</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">新自助帳戶初期只可投本國</h3>
+        <p>部分新自助廣告帳戶，初期只可在帳戶所屬的「本國」投放廣告。即使你在活動中選擇其他國家，也無法覆蓋這項限制。只有當身份驗證獲得通過，並在本國累積達到所需的廣告消費之後，帳戶才會自動具備投放到其他支援國家的資格。僅建立活動或設定預算並不足夠。</p>
+        <p>這項規則對以境外實體開戶的香港企業尤其關鍵：新帳戶必須先在該實體所屬國家實際投放並消費，之後才有機會把廣告擴展至其他市場。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-11.webp" alt="示意圖：新自助帳戶初期只可投放本國，須完成身份驗證與本國消費才可投其他國家" title="新帳戶的本國投放限制" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">新帳戶先在所屬國家投放並消費，方可擴展至其他市場</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、投放設定：目標、預算、受眾與定位限制</h2>
+        <p>活動（Campaign）定義整體的廣告目標與預算，其下包含廣告群組（Ad group）與廣告。每個活動包含活動標題、目標、轉換事件（如選用轉換目標）、預算、開始與結束日期、目標國家、目標平台，以及可選的自訂受眾。目標一旦設定，就決定計價與投遞優化的方向。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">三個活動目標</h3>
+        <p>OpenAI 的 Ads Manager 提供三個目標，各對應不同的計費方式與優化方向：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="text-left px-5 py-3 font-semibold">目標</th><th class="text-left px-5 py-3 font-semibold">計費方式</th><th class="text-left px-5 py-3 font-semibold">適用場景</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3"><strong>Views</strong></td><td class="px-5 py-3">每千次曝光（CPM）</td><td class="px-5 py-3">品牌曝光、廣泛觸及</td></tr>
+              <tr><td class="px-5 py-3"><strong>Clicks</strong></td><td class="px-5 py-3">每次有效點擊（CPC）</td><td class="px-5 py-3">帶動網站流量、註冊</td></tr>
+              <tr><td class="px-5 py-3"><strong>Conversions</strong></td><td class="px-5 py-3">按有效點擊（oCPC）或按千次曝光（oCPM）</td><td class="px-5 py-3">優化至指定轉換事件（購買、註冊、提交查詢）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>值得留意：選用轉換目標時，你仍然只按有效點擊或曝光付費，而不是按轉換付費。另外，活動目標與計費選項在活動建立後不能就地更改，需要以複製活動的方式處理。OpenAI 亦指出，CPC 活動建議以每次點擊美元 3 至 5 為起始上限，系統會提供競價強度提示，顯示競價是否可能限制投遞。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-12.webp" alt="表格圖：ChatGPT 廣告三個活動目標 Views、Clicks 與 Conversions 對應的計費方式與適用場景" title="三個活動目標" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">三個目標決定計費方式與投遞優化方向</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">預算設定：每日預算與活動總預算</h3>
+        <p>活動預算控制整個活動內所有廣告的支出，你可選擇「活動總預算」或「每日預算」。兩者的控制力度不同：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>活動總預算</strong>：設定整個活動期間的總支出上限，是控制總支出的較嚴方式</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>每日預算</strong>：設定平均每日支出目標，屬於投遞目標，個別日子的實際支出可能高於或低於設定值；單日支出不會超過設定值的兩倍，七日內總支出不會超過設定值的七倍</span></li>
+        </ul>
+        <p>預算週期以廣告帳戶所在時區的星期日至星期六計算。如果活動在一週內提早用盡額度，即使仍標示為啟用，也可能暫停投遞直至下一個預算週期。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-13.webp" alt="圖解：每日預算與活動總預算的分別，以及每日預算的兩倍與七倍上限規則" title="預算設定的兩種方式" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">預算分為每日預算與活動總預算，各有限制</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">情境提示不是關鍵字</h3>
+        <p>ChatGPT 廣告沒有關鍵字比對。取而代之的是「情境提示」（Context hints），在廣告群組層級設定，用完整、具體的句子描述你的產品或服務適用於哪些對話、主題或情況。例如「為首次備戰五公里賽事的初學者而設的緩震日常跑鞋」，比單寫「跑鞋」更能提供有用的情境。</p>
+        <p>OpenAI 明確指出，情境提示不是精確比對的關鍵字，也不是定位規則，不保證廣告會在特定對話或受眾中投遞。配對會綜合考慮當前對話的意圖、落地頁、標題與說明，以及在用戶啟用廣告個人化時的更廣泛 ChatGPT 使用訊號。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-14.webp" alt="對比圖：情境提示是完整描述句子，而非一連串關鍵字" title="情境提示與關鍵字的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">情境提示是描述句子，不是關鍵字清單</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">自訂受眾與歐洲經濟區、瑞士的限制</h3>
+        <p>活動可設定包含或排除自訂受眾。要留意兩項限制。第一，納入（inclusion）自訂受眾需要至少 25,000 名已配對用戶，排除（exclusion）則可用較小的受眾；受眾成員可以加入、移除或替換，而無須重建受眾或重新設定活動。第二，針對歐洲經濟區（EEA）或瑞士投放的活動，在當地廣告個人化尚未提供期間，應避免使用自訂受眾。</p>
+        <p>此外，活動可設定目標平台，包括 Android 應用、Android 網頁、桌面網頁、iOS 應用與 iOS 網頁；在 Insights 內亦可按平台細分成效。目標地區方面，新產品目錄活動只支援國家層級的地理定位，其他活動則可在支援的情況下定位至州、城市、市場與郵區。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">素材最佳實務</h3>
+        <p>OpenAI 就用戶體驗與成效，提供幾項素材指引。這些屬官方建議，並非成效保證，但在製作素材時值得參考：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>以效益為先</strong>：說明實際價值、適用對象與使用時機，而非只靠口號或通用行動呼籲</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>為覆蓋而建</strong>：同一產品預備多組標題與說明變化，讓系統有更多機會找到相關配對</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>素材彼此區分</strong>：每一組變化應帶出不同角度，而非重複同一訊息</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>落地頁對應</strong>：連結至最相關的產品、系列或內容頁，而非一律連到首頁</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>符合廣告政策</strong>：素材、圖片與落地頁須符合 OpenAI 的廣告政策，誤導或不相符的廣告可能被拒</span></li>
+        </ul>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-15.webp" alt="圖解：自訂受眾只支援第一方名單，納入需要最少兩萬五千名已配對用戶" title="自訂受眾的門檻" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">自訂受眾只支援第一方名單，納入最少兩萬五千人</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-16.webp" alt="示意圖：歐洲經濟區與瑞士暫無廣告個人化，投放時應避免使用自訂受眾" title="歐洲經濟區與瑞士的限制" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">EEA 與瑞士暫無廣告個人化，投放策略須另行考慮</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、量度、常見錯誤與風險</h2>
+        <p>沒有一套可靠的量度，任何廣告渠道都難以優化。ChatGPT 廣告的量度工具包括 OpenAI Pixel、Conversions API 與第三方整合，並以相關性加權的第二價拍賣作為核心機制。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">量度工具與報表</h3>
+        <p>Ads Manager Beta 的報表目前包括曝光、點擊、支出、點擊率、平均每次點擊成本、平均千次曝光成本與轉換。曝光、點擊與點擊率的數據約每 15 分鐘更新一次；支出數據可能延遲 7 至 8 小時，因此顯示為零並不一定代表沒有產生費用。要量度轉換，須在 Ads Manager 設定轉換追蹤，可透過 Conversions API 或 JavaScript Pixel 完成；轉換優化活動亦要求帳戶已設定轉換追蹤，並使用受支援的標準轉換事件。</p>
+        <p>此外，你亦可在落地頁網址加入靜態追蹤參數（例如 UTM 參數），這些參數會隨廣告點擊保留，方便在現有分析工具中辨識來自 ChatGPT 的流量。將 ChatGPT 廣告的量度與 Google Analytics 等工具對照，有助建立一致的成效視角。</p>
+        <p>量度數據的更新節奏，同樣影響優化判斷。曝光、點擊與點擊率約每 15 分鐘更新一次，而支出數據可能延遲 7 至 8 小時。這意味著即時的支出顯示，並不適合用作判斷活動是否正在花錢的依據；檢視成效時，宜以較完整的時間窗口看待數據，避免因短暫的顯示延遲而誤判。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="text-left px-5 py-3 font-semibold">量度工具</th><th class="text-left px-5 py-3 font-semibold">用途</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3"><strong>OpenAI Pixel</strong></td><td class="px-5 py-3">在網站上追蹤廣告互動後的轉換事件</td></tr>
+              <tr><td class="px-5 py-3"><strong>Conversions API</strong></td><td class="px-5 py-3">以伺服器端方式回傳轉換，提升量度完整度</td></tr>
+              <tr><td class="px-5 py-3"><strong>UTM 參數</strong></td><td class="px-5 py-3">在現有分析工具中辨識來自 ChatGPT 的流量</td></tr>
+              <tr><td class="px-5 py-3"><strong>第三方整合</strong></td><td class="px-5 py-3">與外部量度與技術夥伴對照成效</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-17.webp" alt="量度圖：OpenAI Pixel、Conversions API、UTM 參數與第三方整合在 ChatGPT 廣告量度中的角色" title="ChatGPT 廣告的量度工具" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">OpenAI Pixel 與 Conversions API 是量度轉換的基礎</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">常見錯誤</h3>
+        <p>投放 ChatGPT 廣告最容易出錯的地方，多半與帳戶設定和地區規則有關。以下幾項須特別留意。</p>
+        <p>素材與排程相關的失誤同樣常見。例如首次建立活動時，OpenAI 未必會顯示開始與結束日期的選項，這些設定要在活動建立後編輯，或建立下一個活動時才會出現。若只為查看這些設定而先行發布活動，廣告有可能在未設定排程之前就開始投遞。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="text-left px-5 py-3 font-semibold">常見錯誤</th><th class="text-left px-5 py-3 font-semibold">後果</th><th class="text-left px-5 py-3 font-semibold">正確做法</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-5 py-3">以香港註冊實體填寫非註冊地國家</td><td class="px-5 py-3">可能無法通過審查，或影響付款與帳戶狀態</td><td class="px-5 py-3">帳戶國家須與實際註冊地一致</td></tr>
+              <tr><td class="px-5 py-3">新帳戶一開始就選擇多個國家</td><td class="px-5 py-3">系統只允許本國投放，其他國家不生效</td><td class="px-5 py-3">先在本國累積消費並完成身份驗證</td></tr>
+              <tr><td class="px-5 py-3">把情境提示當作關鍵字堆砌</td><td class="px-5 py-3">配對無效，觸及與成效下降</td><td class="px-5 py-3">用完整具體的句子描述使用情境</td></tr>
+              <tr><td class="px-5 py-3">忽略 EEA 與瑞士無廣告個人化</td><td class="px-5 py-3">自訂受眾無法生效</td><td class="px-5 py-3">該區廣告避免使用自訂受眾</td></tr>
+              <tr><td class="px-5 py-3">只看曝光與點擊，不理轉換</td><td class="px-5 py-3">無法判斷真實成效</td><td class="px-5 py-3">設定 Pixel 與 Conversions API</td></tr>
+              <tr><td class="px-5 py-3">未預留審查時間就期望即日上線</td><td class="px-5 py-3">廣告未通過審查即無法投遞</td><td class="px-5 py-3">預留審查與帳戶狀態確認時間</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-18.webp" alt="錯誤清單圖：投放 ChatGPT 廣告的常見錯誤，包括填寫非註冊地國家、忽略本國限制與未設定量度" title="常見錯誤清單" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">開戶最常見的失誤是填寫非註冊地國家</figcaption>
+        </figure>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">風險與合規考量</h3>
+        <p>除操作層面的錯誤，尚有幾項須從策略層面考慮的風險：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>受眾受限</strong>：廣告只向免費與 Go 方案用戶顯示，付費方案用戶（包括企業採購決策者）完全看不到，庫存與整體用戶基數不對等</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>敏感主題不出廣告</strong>：個人健康、精神健康與政治等情境不會顯示廣告，部分受規管行業另有較嚴的資格要求</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>渠道仍在演變</strong>：產品屬測試階段，功能、覆蓋與量度能力持續變動，規劃時須保留調整空間</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>不可控制 AI 答案</strong>：廣告不影響 ChatGPT 的答案，品牌不能藉此直接影響 AI 的推薦內容</span></li>
+        </ul>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-19.webp" alt="風險圖：ChatGPT 廣告的四項策略風險，包括受眾受限、敏感主題排除、渠道演變與不可控制 AI 答案" title="策略層面的風險" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">廣告只向免費與 Go 方案用戶顯示，須調整成效期望</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">常見問題</h2>
+
+        <div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港企業今日可以自助開設 ChatGPT 廣告帳戶嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以。按 OpenAI 官方 Ads Manager 可用性名單（共 63 個國家，本文整理日期為 2026 年 10 月），香港不在名單之內。自助開戶資格取決於投放與計費的法人實體註冊地。香港企業可改經 OpenAI 的代理商與夥伴渠道，或使用已開放地區註冊的實體投放。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">哪些 ChatGPT 用戶會看到廣告？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">廣告只向使用免費（Free）與 Go 方案的用戶顯示。Plus、Pro、Business、Enterprise 與 Edu 帳戶沒有任何廣告，OpenAI 亦不會向被判定為未滿 18 歲的帳戶顯示廣告。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">ChatGPT 廣告的最低預算是多少？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最低每日預算按廣告帳戶的計費貨幣而定。按 OpenAI 官方資料，美元為 25、新加坡幣為 4.00、新台幣為 60.00、日圓為 2,500、歐元為 15、英鎊為 15。最低預算只是入場門檻，並非建議預算。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">帳戶的國家、貨幣與時區可以之後更改嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以。按 OpenAI 官方說明，帳戶的國家或地區、貨幣與時區在帳戶建立之後無法更改。提交前必須逐一核對，若設定錯誤，只能建立新的帳戶處理。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">ChatGPT 廣告與 Google、Meta 廣告有何分別？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">最大分別在於配對邏輯與可見用戶。ChatGPT 廣告不靠關鍵字，而是判斷對話的意圖與情境，並只向免費與 Go 方案用戶顯示；Google 與 Meta 廣告則以關鍵字或興趣與行為訊號配對，覆蓋所有用戶。ChatGPT 廣告亦缺乏人口統計與相似受眾定位，宜視為額外的探索與評估渠道。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">新自助帳戶可以一開始就投放到多個國家嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">部分新自助帳戶初期只可在帳戶所屬的「本國」投放，選擇其他國家也不會繞過這項限制。只有當身份驗證獲得通過，並在本國累積達到所需的廣告消費之後，帳戶才會自動具備投放到其他支援國家的資格。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">在歐洲經濟區或瑞士投放有何特別限制？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">在廣告個人化尚未於當地提供期間，針對歐洲經濟區（EEA）或瑞士投放的活動應避免使用自訂受眾。此外，納入自訂受眾需要至少 25,000 名已配對用戶，排除則可用較小的受眾。</p>
+          </div>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-20.webp" alt="圖示：ChatGPT 廣告常見問題集中在可用性、最低預算與帳戶限制三方面" title="常見問題總覽" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">常見問題集中在可用性、成本與帳戶限制三方面</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+        <p>ChatGPT 廣告是一個仍在快速演變、但值得香港企業提早理解的新渠道。它的核心事實是：廣告只向免費與 Go 方案用戶顯示，配對靠對話意圖而非關鍵字，而香港註冊實體今日仍未能自助開戶。與其相信「香港已開放」的傳言，不如先確認企業是否持有已開放地區的實體，並評估是否透過 OpenAI 的夥伴渠道投放。</p>
+        <p>如果你希望由可用性評估、開戶、素材與情境提示設計，到量度與優化一併處理，可參考我們的<a href="/services/ads/" class="text-[#0f4c81] font-bold hover:underline">廣告投放服務</a>、<a href="/services/ai-agency/" class="text-[#0f4c81] font-bold hover:underline">AI 代理商服務</a>，以及<a href="/services/ai/" class="text-[#0f4c81] font-bold hover:underline">人工智能應用服務</a>，理解由渠道選擇到成效量度的完整流程。亦可延伸閱讀<a href="/blog/ai-solution-hong-kong-enterprise-guide/" class="text-[#0f4c81] font-bold hover:underline">企業 AI 方案指南</a>。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-21.webp" alt="總結圖：掌握可用性、投放設定與量度，是投放 ChatGPT 廣告的三項基礎" title="投放 ChatGPT 廣告的三項基礎" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">掌握可用性、設定與量度，是投放 ChatGPT 廣告的基礎</figcaption>
+        </figure>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/chatgpt-ads-hong-kong-guide-22.webp" alt="圖示：香港企業可將 ChatGPT 廣告的開戶與代操交由熟悉夥伴渠道的團隊處理" title="交由夥伴渠道處理" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">香港企業可將開戶與代操交由熟悉夥伴渠道的團隊處理</figcaption>
+        </figure>
+
+        <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+          <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月15日）</p>
+          <ul class="space-y-1">
+            <li><a href="https://openai.com/index/new-ways-to-buy-chatgpt-ads/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI：New ways to buy ChatGPT ads（2026年5月5日）</a> — Ads Manager 自助測試版、CPC 競價、Conversions API、代理商與技術夥伴名單</li>
+            <li><a href="https://openai.com/index/chatgpt-ads-expands-across-europe/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI：ChatGPT Ads expands across Europe（2026年8月18日；8月31日更新）</a> — 擴展至 31 個歐洲市場、自助 Ads Manager 開放</li>
+            <li><a href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI：A milestone in expanding access to AI（2026年）</a> — 不足 200 日達 10 億美元年度化運行率、超過 40 個國家、自助登陸印度歐洲中東北非</li>
+            <li><a href="https://openai.com/index/chatgpt-ads-expands-southeast-asia-taiwan/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI：ChatGPT Ads expands to Southeast Asia and Taiwan（2026年9月23日）</a> — 印尼、馬來西亞、菲律賓、新加坡、泰國、越南與台灣；總覆蓋超過 60 個國家</li>
+            <li><a href="https://help.openai.com/en/articles/20001210-create-campaigns-for-chatgpt-ads" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI Help Center：Create Campaigns for ChatGPT Ads</a> — 活動目標、預算、每日最低預算表、新自助帳戶本國投放限制、EEA 與瑞士限制</li>
+            <li><a href="https://help.openai.com/en/articles/20001245-ads-manager-availability" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI Help Center：Ads Manager Availability</a> — 63 個自助開戶國家名單（香港不在名單）</li>
+            <li><a href="https://help.openai.com/en/articles/20001207-ads-in-chatgpt-the-basics" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI Help Center：Ads in ChatGPT: The Basics</a> — 廣告格式、相關性加權第二價拍賣、CPC 建議上限、報表與量度</li>
+            <li><a href="https://help.openai.com/en/articles/20001047-ads-in-chatgpt" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI Help Center：Ads in ChatGPT</a> — 2026年2月9日美國開始測試、可見廣告的方案、廣告控制選項</li>
+            <li><a href="https://help.openai.com/en/articles/20001213-ads-manager-account-setup" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">OpenAI Help Center：Ads Manager Account Setup</a> — 開戶步驟、帳戶品牌與法定名稱、國家貨幣時區不可更改</li>
+          </ul>
+        </div>
+
+    `,
+  },
+
   // ─── Article 40：學校 AI 項目技術指南 ───
   {
     id: 40,

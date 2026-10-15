@@ -660,6 +660,11 @@ export default function AiServiceContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a href="/blog/jev-ai-decision-model/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">Jev 是什麼？決策型 AI 模型的原理與企業應用</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">判斷、分流、評分這一類「小型判斷」佔 AI 項目成本的比例很高 —— 這一篇說明決策型模型（System One）與傳統 LLM 的分工，以及甚麼工序值得改用這類模型。</p>
+            </a>
+
             <a href="/services/ai-agency/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
               <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI Agency 服務（定位與選擇指南）</h3>
               <p className="text-sm text-gray-600 leading-relaxed">本頁講「技術上怎樣做」；若你還在評估應該找哪一類供應商、或者不確定要 AI 開發抑或數碼營銷，先看這一頁的分工與判斷標準。</p>

@@ -1,0 +1,144 @@
+{
+ "volumes": {
+  "ai 廣告管理": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "ai 管理廣告": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "ai 廣告優化": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "ai 投放廣告": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "智能投放": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "HIGH"
+  },
+  "廣告自動化": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "自動化廣告": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "meta 廣告 api": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "facebook 廣告 api": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "google ads api": {
+   "volume": 70,
+   "cpc": 1.8,
+   "competition": "LOW"
+  },
+  "廣告 api": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "marketing api": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "meta 廣告 自動化": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "google 廣告 自動化": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "廣告報表 自動化": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "廣告數據分析": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "廣告代操": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null
+  },
+  "ppc 自動化": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "廣告優化工具": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "ai 廣告工具": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "meta ads ai": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "HIGH"
+  },
+  "google ads ai": {
+   "volume": 10,
+   "cpc": 22.63,
+   "competition": "LOW"
+  },
+  "performance max": {
+   "volume": 70,
+   "cpc": 40.9,
+   "competition": "LOW"
+  },
+  "advantage+": {
+   "volume": 1300,
+   "cpc": 40.37,
+   "competition": "LOW"
+  },
+  "ai max": {
+   "volume": 110,
+   "cpc": null,
+   "competition": "LOW"
+  },
+  "智能出價": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "廣告自動化工具": {
+   "volume": null,
+   "cpc": null,
+   "competition": null
+  },
+  "廣告管理工具": {
+   "volume": 90,
+   "cpc": 3.44,
+   "competition": "MEDIUM"
+  }
+ }
+}

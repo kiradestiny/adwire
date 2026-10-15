@@ -651,6 +651,38 @@ export default function AdsServiceContent() {
         </div>
       </section>
 
+      {/* 11b. 延伸閱讀（2026-10-15）：廣告頁原本完全冇 blog 內鏈 */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">延伸閱讀</h2>
+          <p className="text-gray-500 mb-10">投放之前，先看清各渠道的特性與實際可用地區。</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a
+              href="/blog/chatgpt-ads-hong-kong-guide/"
+              className="group bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-all"
+            >
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">
+                ChatGPT Ads 廣告教學：香港企業如何開戶、投放與優化
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                 ChatGPT 廣告是什麼、與 Google 與 Meta 廣告的分別、各地區可用性與每日最低預算、開戶流程與帳戶限制。
+              </p>
+            </a>
+            <a
+              href="/blog/google-meta-ads-guide/"
+              className="group bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-all"
+            >
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">
+                Google 與 Meta 廣告投放完全指南
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                兩大平台的投放策略、素材先行的做法，以及成效量度與歸因方式。
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* 12. 常見問題 FAQ */}
       <section
         className="py-20 bg-white"

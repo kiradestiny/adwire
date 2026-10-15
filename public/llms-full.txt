@@ -457,6 +457,24 @@ ADWire 提供傳統 SEO + GEO 雙軌優化服務：
 - **標籤：** 電商網站, 網店, 網上商店, 網店設計, Shopify 香港, 電子商務
 - **連結：** https://adwire.com.hk/blog/hong-kong-ecommerce-website-guide
 
+### 5.41 ChatGPT Ads 廣告教學：香港企業如何開戶、投放與優化
+- **標題：** ChatGPT Ads 廣告教學：香港企業如何開戶、投放與優化
+- **摘要：** ChatGPT 廣告是 OpenAI 在 ChatGPT 對話介面內投放的付費廣告，只向免費與 Go 方案用戶顯示。本文以官方文件為據，說明它與 Google 與 Meta 廣告的分別、發展時間線、各地區可用性與每日最低預算、開戶流程、帳戶限制、受眾定位與量度設定，並解釋為何香港註冊實體今日未能自助開戶、香港企業可行的三條路徑，以及開戶與投放的常見錯誤與風險。
+- **標籤：** ChatGPT Ads, ChatGPT 廣告, OpenAI 廣告, 香港, 廣告投放, AI 營銷
+- **連結：** https://adwire.com.hk/blog/chatgpt-ads-hong-kong-guide
+
+### 5.42 AI 提升工作效率：香港中小企 Copilot 與 AI Agent 落地指南
+- **標題：** AI 提升工作效率：香港中小企 Copilot 與 AI Agent 落地指南
+- **摘要：** 香港中小企如何用 AI 提升工作效率？本文以生產力局、金管局與政府統計處的一手調查數據，說明本地企業的實際使用情況與常見誤讀，比較輔助型工具與人工智能代理的分工，整理由選擇工序、量度成效到設計人工覆核點的實作路線，並查核四項政府資助計劃的最新狀態，以及解釋工具買回來為何不等於落地。
+- **標籤：** AI 提升工作效率, Microsoft 365 Copilot, AI Agent, 香港中小企, 數碼轉型, AI 自動化
+- **連結：** https://adwire.com.hk/blog/ai-sme-productivity-hong-kong
+
+### 5.43 Jev 是什麼？決策型 AI 模型（System One）的原理、成本與企業應用
+- **標題：** Jev 是什麼？決策型 AI 模型（System One）的原理、成本與企業應用
+- **摘要：** Jev 是 TypeSafe AI 推出的決策型 AI 模型（System One），不生成文字，而是接收一段狀態與有型別的問題，回傳型別安全的決策、校準機率與信心分數。本文說明三種提問原語、廠商自述的成本與速度、第三方實測準確度，並釐清 Jev 與 Meta 的 JEPA 世界模型是完全不同的兩件事。
+- **標籤：** Jev, TypeSafe AI, 決策型 AI 模型, System One, world model
+- **連結：** https://adwire.com.hk/blog/jev-ai-decision-model
+
 ## 6. 網站地圖與重要頁面 (Sitemap & Key Pages)
 - [XML Sitemap](https://adwire.com.hk/sitemap.xml)
 - [LLMs Index](https://adwire.com.hk/llms.txt)

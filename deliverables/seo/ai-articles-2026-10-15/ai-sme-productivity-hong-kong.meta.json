@@ -1,0 +1,14 @@
+{
+  "id": 42,
+  "slug": "ai-sme-productivity-hong-kong",
+  "title": "AI 提升工作效率：香港中小企 Copilot 與 AI Agent 落地指南",
+  "excerpt": "香港中小企如何用 AI 提升工作效率？本文以生產力局、金管局與政府統計處的一手調查數據，說明本地企業的實際使用情況與常見誤讀，比較輔助型工具與人工智能代理的分工，整理由選擇工序、量度成效到設計人工覆核點的實作路線，並查核四項政府資助計劃的最新狀態，以及解釋工具買回來為何不等於落地。",
+  "date": "2026-10-15",
+  "updatedAt": "2026-10-15",
+  "category": "AI Technology",
+  "readTime": "21 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/ai-sme-productivity-hong-kong.webp",
+  "tags": ["AI 提升工作效率", "Microsoft 365 Copilot", "AI Agent", "香港中小企", "數碼轉型", "AI 自動化"],
+  "comment": "AI 系列：香港中小企由 Copilot 到 AI Agent 的效率提升與落地實務"
+}

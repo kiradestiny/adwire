@@ -1,0 +1,484 @@
+<p class="lead text-xl text-gray-600 mb-8">香港中小企想用 AI 提升工作效率，通常會由 Microsoft 365 Copilot 這類「輔助個人」的工具入手，再逐步走到 AI Agent 這類「執行跨系統流程」的方案。本文用一手調查數據講清楚香港企業實際的 AI 使用情況，比較 Copilot 類工具與 AI Agent 的分工，整理由選工序、量度成效到設計人工覆核點的實作路線，並查核 TVP、DTSSP、BUD 與 NITTP 四項政府資助的最新狀態，最後說明為何工具買回來不等於落地。</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+  <p class="text-gray-700 leading-relaxed">對香港中小企而言，提升工作效率的路徑通常是<strong>先用 Copilot 類工具處理重複的個人工序</strong>（會議紀錄、郵件草擬、Excel 整理、簡報），<strong>再用 AI Agent 接通跨系統的多步驟流程</strong>（例如由查詢到報價到錄入系統）。工具本身只是起點；成敗取決於<strong>有否先盤點流程、是否接通現有系統、權限如何設計、員工是否受訓，以及上線後有沒有人持續維護</strong>。政府資助方面，<strong>TVP 已於 2024 年 12 月 31 日後停止接受新申請，DTSPP 現行一輪已截止</strong>，BUD 與 NITTP 仍在運作並各有更新。</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+  <ul class="space-y-2">
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>香港 AI 使用數據屬「調查受訪者比例」，不等於全港市場採用率；引用時必須連同調查機構、樣本量與調查期一併說明</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>Copilot 類工具定位是「輔助個人完成單一任務」，AI Agent 定位是「執行跨系統、多步驟流程」，兩者並非互相替代，而是分工</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>Microsoft 365 Copilot 的授權需要合格的 Microsoft 365 方案，並有 300 個使用者的上限，購買前要先核對現有授權</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>實作路線建議由「高重複、規則清楚、錯誤成本低」的工序開始，並在流程中寫明人工覆核點</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>成本要計總持有成本：授權、整合、訓練、維護與日後遷移，不應只看軟件單價</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>資助會隨政策改變：TVP 已停止新申請、DTSSP 現行一輪已截止、BUD 與 NITTP 有更新，遞交前必須查官方頁面</span></li>
+  </ul>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-1.webp" alt="流程圖：香港中小企由 Copilot 類工具到 AI Agent 的效率提升路徑" title="由 Copilot 到 AI Agent 的效率提升路徑" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">全篇骨幹：先看清實況，再選工具，最後才是流程與管治</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、2026 年香港中小企用 AI 的實況</h2>
+<p>討論「AI 能否提升效率」之前，先要弄清楚香港企業實際上做到哪一步。坊間不少文章把某一項調查的受訪比例寫成「市場採用率」，兩者並不相同：調查受訪者的回答只反映該批樣本的情況，抽樣方法、行業分布與公司規模都會影響結果。以下表格列出幾項與香港中小企直接相關的一手調查，並註明機構、調查期與樣本量。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">調查</th><th class="px-4 py-3 text-left">調查期與樣本</th><th class="px-4 py-3 text-left">主要發現</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">生產力局《2025 年香港企業 AI 應用趨勢調查》</td><td class="px-4 py-3">2025 年 9 月調查，成功訪問約 800 間本地企業（發布日期 2025 年 10 月 23 日）</td><td class="px-4 py-3">88% 受訪企業員工已在日常工作使用 AI 工具；92% 計劃逐步引入 AI 至工作流程，其中 24% 計劃一年內全面引入；45% 已設有正式認可的 AI 平台，而當中有 54% 表示暫無完善 AI 治理政策</td></tr>
+      <tr><td class="px-4 py-3">生產力局「渣打香港中小企領先營商指數」2026 年第一季</td><td class="px-4 py-3">2025 年 11 至 12 月調查，第 55 次，成功訪問 819 家本地中小企（公布日期 2026 年 1 月 15 日）</td><td class="px-4 py-3">七成半中小企較 2024 年擴大 AI 應用；近六成（59%）曾使用 AI 的受訪中小企現正使用多於一種類別的 AI 工具；綜合營商指數 43.9</td></tr>
+      <tr><td class="px-4 py-3">金管局轄下香港金融研究院《金融服務業生成式 AI》研究</td><td class="px-4 py-3">調查與訪談金融機構（發布日期 2025 年 4 月 9 日）</td><td class="px-4 py-3">75% 受訪金融機構已落實至少一個生成式 AI 用例，或正在試行與設計；預期三至五年內升至 87%</td></tr>
+      <tr><td class="px-4 py-3">金管局「大數據分析及人工智能應用」調查</td><td class="px-4 py-3">2024 年 5 月進行，涵蓋 28 間主要服務零售客戶的認可機構</td><td class="px-4 py-3">75% 受訪機構採用或計劃採用大數據分析及人工智能；39% 採用或計劃採用生成式 AI，用例多集中於內部功能如摘要、翻譯、程式編寫</td></tr>
+      <tr><td class="px-4 py-3">政府統計處《二零二五年資訊科技在工商業的使用情況和普及程度統計調查報告》</td><td class="px-4 py-3">2025 年 3 月至 12 月進行（出版日期 2026 年 2 月 27 日）</td><td class="px-4 py-3">99% 公司有使用電腦及／或智能手機作業務用途；57% 公司具有網絡存在；資訊及通訊業比例（85%）最高，運輸、倉庫及速遞服務業（34%）最低</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-2.webp" alt="香港中小企辦公室內主管翻閱營運報表的場景" title="香港中小企營運實況" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">調查數字只是起點，真正的差距在於工序有否被重新設計</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">調查數字怎麼讀：受訪比例不等於市場採用率</h3>
+<p>上表的百分比全部屬於「受訪者比例」。以生產力局該項調查為例，樣本約 800 間企業，而行業涵蓋金融、製造、零售與專業服務，而據媒體引述發布會資料，其中約 43% 屬 200 人以上規模；換言之，結果較能反映中大型企業的情況，未必等同全港中小企整體的分布。同樣，金管局的調查對象是認可機構與金融機構，屬於受監管、資源較充足的行業，其採納比例不宜直接搬到餐飲、零售或工程等行業。</p>
+<p>另一個常見誤讀，是把「曾經使用」與「已嵌入流程」混為一談。同類調查顯示，多數企業仍主要把 AI 用於高重複性或行政性工作，離「全面釋放 AI 潛能」尚有距離；生產力局的調查亦指出，企業在深化應用時面對的五大挑戰依次為缺乏 AI 專才與培訓、數據私隱與安全顧慮、難以與現有系統整合、員工抗拒或準備不足，以及成本壓力。這五項正好對應本文後半部分的落地條件。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-3.webp" alt="會議室內管理層圍繞調查報告討論數字的場景" title="管理層解讀調查數字" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">同一組數字，抽樣對象不同，可推論的範圍亦不同</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-4.webp" alt="特寫：香港主管的手在印刷的調查摘要上標示數字" title="引用調查數字要分清範圍" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">受訪比例與市場採用率是兩件事，引用時要分清楚</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、Microsoft 365 Copilot 在香港中小企的實務用法</h2>
+<p>對已經使用 Microsoft 365 的公司而言，Microsoft 365 Copilot 通常是門檻最低的起點，原因是它直接嵌入 Word、Excel、PowerPoint、Outlook 與 Teams，而這些工具本來就在日常運作之中。它的設計前提是「以使用者本身有權存取的資料為範圍」，因此不會繞過既有的權限設定。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">三類工序最常見效</h3>
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">工序</th><th class="px-4 py-3 text-left">Copilot 可以協助的部分</th><th class="px-4 py-3 text-left">仍須人手負責的部分</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">會議紀錄</td><td class="px-4 py-3">於 Teams 會議中整理討論重點與待辦事項草稿，會後快速成稿</td><td class="px-4 py-3">核對是否漏記、確認待辦事項的負責人與期限、判斷哪些內容不宜記錄</td></tr>
+      <tr><td class="px-4 py-3">郵件與往來文件</td><td class="px-4 py-3">按上下文草擬回覆、改寫語氣、整理長郵件串的重點</td><td class="px-4 py-3">對外承諾、價格與條款的確認；涉及客戶個人資料的內容須先判斷可否輸入</td></tr>
+      <tr><td class="px-4 py-3">Excel 與報表</td><td class="px-4 py-3">協助建立公式、解釋數據變化、初步分析趨勢並產生摘要</td><td class="px-4 py-3">核對數據來源與口徑、檢查計算邏輯、為對外披露的數字負最終責任</td></tr>
+      <tr><td class="px-4 py-3">簡報與文件</td><td class="px-4 py-3">由既有文件生成初稿、調整結構、統一用語風格</td><td class="px-4 py-3">事實查核、品牌與法規用語的把關、決定最終版本</td></tr>
+      <tr><td class="px-4 py-3">內部知識查找</td><td class="px-4 py-3">在權限範圍內檢索公司文件、政策與歷史紀錄，並附出處</td><td class="px-4 py-3">確認版本是否最新、判斷資料是否仍適用</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>值得留意的是，Copilot 的輸出屬於「草稿」性質。它可能生成語調自然但內容不準確的文字，這種情況在需要精確數字或法律條款的場景尤其危險。務實的做法是把 Copilot 放在流程的「中段」——由它完成初稿與整理，而由人在「發出前」把關。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-5.webp" alt="香港辦公室同事在電腦前處理會議紀錄與郵件的場景" title="Copilot 協助日常工序" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">Copilot 負責初稿與整理，人負責核對與決定</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">授權模式與成本（官方定價，查閱日期 2026 年 10 月 15 日）</h3>
+<p>Microsoft 香港特別行政區定價頁列出商務用 Copilot 方案。以下價格為該頁在 2026 年 10 月 15 日的顯示值，貨幣以美元標示，屬未含稅的建議零售價，實際價格會因推廣、經銷渠道與合約期而變動。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">方案</th><th class="px-4 py-3 text-left">計費方式</th><th class="px-4 py-3 text-left">標示價格（每用戶每月）</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">Microsoft 365 Copilot Business（附加授權）</td><td class="px-4 py-3">按年付費</td><td class="px-4 py-3">原價 21.00 美元，頁面同時標示推廣價 18.00 美元</td></tr>
+      <tr><td class="px-4 py-3">Microsoft 365 Copilot Business（附加授權）</td><td class="px-4 py-3">按月付費</td><td class="px-4 py-3">25.20 美元</td></tr>
+      <tr><td class="px-4 py-3">Microsoft 365 商務標準版 + Copilot Business</td><td class="px-4 py-3">按年付費</td><td class="px-4 py-3">23.50 美元</td></tr>
+      <tr><td class="px-4 py-3">Microsoft 365 商務標準版 + Copilot Business</td><td class="px-4 py-3">按月付費</td><td class="px-4 py-3">28.20 美元</td></tr>
+      <tr><td class="px-4 py-3">Microsoft 365 商務進階版 + Copilot Business</td><td class="px-4 py-3">按年付費</td><td class="px-4 py-3">32.00 美元</td></tr>
+      <tr><td class="px-4 py-3">Microsoft 365 商務進階版 + Copilot Business</td><td class="px-4 py-3">按月付費</td><td class="px-4 py-3">38.40 美元</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2">購買前要核對的三件事</p>
+  <p class="text-blue-900 text-sm leading-relaxed">一、Copilot 附加授權需要合格的 Microsoft 365 方案，並非獨立購買即可使用；二、官方頁面列明最多 300 個使用者，規模較大的公司要另行安排；三、市場與授權狀況會影響個別方案的供應，落單前應由經銷渠道確認。</p>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-6.webp" alt="香港公司採購人員在會議中比較軟件授權方案的場景" title="授權方案比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">授權單價只是成本的一部分，前置條件更要先確認</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">香港可用性與採購渠道</h3>
+<p>Microsoft 香港特別行政區定價頁可選擇香港與澳門為計費地區，並列出上述商務方案，反映 Copilot 商務授權在香港屬可選項目。除直接向 Microsoft 購買，香港中小企亦可透過雲端方案供應商渠道；香港貿發局的 T-box 轉型沙盒計劃就與 Microsoft 合作推出 AI 採用計劃，向中小企提供折扣授權與導入培訓，其中 Microsoft 365 Copilot Business 以 15% 折扣計算、即每用戶每月 18 美元（原價 21 美元），最多 300 個新授權，優惠期至 2026 年 12 月 31 日。</p>
+<p>在合規層面，Copilot 的資料處理範圍以使用者的既有權限為界，這對中小企是優點也是提醒：優點是不會因為導入 AI 而出現新的資料外洩途徑；提醒是如果本身的檔案權限設定寬鬆，Copilot 同樣會把這些檔案的內容納入可檢索範圍。因此，導入前先整理權限，往往比選哪一個方案更關鍵。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-7.webp" alt="香港資訊科技人員檢查公司檔案權限設定的場景" title="導入前的權限整理" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">AI 只會檢索使用者本來有權看到的資料，權限鬆散便是風險來源</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、香港企業實際用 AI 做什麼</h2>
+<p>把不同調查放在一起看，香港企業目前最常見的 AI 用途集中在幾類行政與溝通工序。以下整理屬歸納性描述，並註明來源，未經核實的推算不會寫成統計結論。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">用途</th><th class="px-4 py-3 text-left">常見做法</th><th class="px-4 py-3 text-left">主要風險</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">客戶服務</td><td class="px-4 py-3">草擬回覆、整理常見問題、輔助客服人員查找資料（生產力局調查列為主要應用範圍之一）</td><td class="px-4 py-3">回覆錯誤或語氣不當；承諾超出公司政策</td></tr>
+      <tr><td class="px-4 py-3">數據分析</td><td class="px-4 py-3">整理銷售與營運數據、找出異常、生成摘要（同屬調查列出的主要應用範圍）</td><td class="px-4 py-3">口徑不一致、把相關誤讀為因果</td></tr>
+      <tr><td class="px-4 py-3">市場推廣</td><td class="px-4 py-3">撰寫文案初稿、生成素材構思、整理競品資料（同屬調查列出的主要應用範圍）</td><td class="px-4 py-3">事實與優惠資訊出錯；用語不合規</td></tr>
+      <tr><td class="px-4 py-3">寫作與翻譯</td><td class="px-4 py-3">中英文互譯、改寫、統一行文風格；金融業受訪機構亦以摘要與翻譯為主要生成式 AI 用例</td><td class="px-4 py-3">專業術語失準；譯文須人手覆核後才對外使用</td></tr>
+      <tr><td class="px-4 py-3">摘要與文件處理</td><td class="px-4 py-3">長文件摘要、表格資料抽取、文件分類</td><td class="px-4 py-3">遺漏關鍵條款；抽取結果須抽樣核對</td></tr>
+      <tr><td class="px-4 py-3">程式與腳本</td><td class="px-4 py-3">協助編寫內部小工具、除錯、解釋既有程式碼</td><td class="px-4 py-3">安全漏洞；未經測試即部署至正式環境</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>這批用途有一個共同特徵：它們都是「內容生成與整理」，而非「業務決策」。生成式 AI 在這一層的價值相對穩定，因為輸出最終仍由人判斷；一旦把它的輸出直接接上付款、下單或客戶通知等具外部效果的動作，風險等級就會明顯上升。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-8.webp" alt="香港客服同事一邊接聽電話一邊查看電腦資料的場景" title="客戶服務與 AI 輔助" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">生成式 AI 目前主要承擔內容生成與整理，決策仍留在人手上</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">由「員工私下使用」到「公司准用」</h3>
+<p>生產力局調查中有一個數字值得管理層留意：45% 受訪企業已設有正式認可的 AI 平台供員工使用，而當中有 54% 表示暫無完善 AI 治理政策。這意味不少公司的實際情況是「員工已經在用，但公司未有規則」。員工私下使用外部的免費工具，最大的問題不是效率，而是資料去向不明：客戶名單、報價、設計圖或個人資料一旦貼進未經批准的服務，公司無從掌握。</p>
+<p>比較務實的第一步，是先在企業授權範圍內提供一個認可的工具，並同時訂明三條界線：哪些工具可以使用、哪些資料不可以輸入、輸出在使用前由誰核對。把這三條寫進內部指引，比單純買授權更能降低風險。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-9.webp" alt="香港公司主管向同事講解內部 AI 使用指引的場景" title="訂立內部使用指引" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先提供認可工具，再訂明可輸入資料與覆核責任</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-10.webp" alt="香港辦公室白板上寫著流程與權限分工的討論場景" title="流程與權限分工" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">治理問題本質上是流程問題，不是工具問題</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、AI Agent 與 Copilot 類工具的分工</h2>
+<p>當個人層面的工具用得順暢之後，下一個問題通常是「能否讓系統自己跑完整條流程」。這時要分清兩類東西：Copilot 類工具是輔助個人完成單一任務，AI Agent 則是執行跨系統、多步驟的流程。前者以「人」為中心，後者以「流程」為中心。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">Copilot 類工具：輔助個人完成單一任務</h3>
+<p>這類工具的特性是：由人發起、以人的權限為界、輸出交回人處理。它的價值在於壓縮單一任務的處理時間，例如把一段會議錄音變成待辦清單。由於每一步都有人看著，導入風險相對可控，亦不需要改動現有系統。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">AI Agent：執行跨系統、多步驟流程</h3>
+<p>Agent 的特性是：由事件或排程觸發、跨越多個系統、需要自行判斷下一步。例如客戶在網站提交查詢後，Agent 讀取查詢內容、在客戶管理系統建立紀錄、按產品目錄生成報價草稿、再交由同事確認後發出。這類方案的效益明顯較高，但前置條件同樣較多：系統之間必須有可用的接口、權限必須精細到「只做該做的事」、錯誤處理與回退機制必須事先設計。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">比較項</th><th class="px-4 py-3 text-left">Copilot 類工具</th><th class="px-4 py-3 text-left">AI Agent</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">觸發方式</td><td class="px-4 py-3">由人主動發起</td><td class="px-4 py-3">由事件、排程或訊息觸發</td></tr>
+      <tr><td class="px-4 py-3">覆蓋範圍</td><td class="px-4 py-3">單一任務、單一應用為主</td><td class="px-4 py-3">跨系統、多步驟流程</td></tr>
+      <tr><td class="px-4 py-3">導入前置</td><td class="px-4 py-3">主要是授權與權限整理</td><td class="px-4 py-3">需要系統接口、權限設計、錯誤處理與監控</td></tr>
+      <tr><td class="px-4 py-3">出錯時的影響</td><td class="px-4 py-3">限於單次輸出的草稿</td><td class="px-4 py-3">可能牽動多個系統的資料狀態</td></tr>
+      <tr><td class="px-4 py-3">適合的起步時機</td><td class="px-4 py-3">任何階段，尤其適合第一步</td><td class="px-4 py-3">流程已標準化、數據可用、有明確覆核點之後</td></tr>
+      <tr><td class="px-4 py-3">維護需求</td><td class="px-4 py-3">以使用者支援為主</td><td class="px-4 py-3">需要持續監察、版本管理與例外處理</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-11.webp" alt="比較圖：Copilot 類工具與 AI Agent 在觸發方式與覆蓋範圍上的分別" title="Copilot 與 AI Agent 的分工" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">兩者並非互相替代，而是流程上的先後</figcaption>
+</figure>
+
+<p>要把 Agent 落地，至少要滿足三個技術條件。第一，流程本身已經標準化：如果同一件事每次做法都不同，Agent 無從跟隨。第二，涉及的系統有可用接口：不少中小企的舊系統或自建工具未必提供應用程式介面，需要先補上中間層。第三，有明確的停止條件與覆核點：Agent 必須知道在什麼情況下停止並交由人接手，而不是自行猜測。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-12.webp" alt="流程圖：客戶查詢經 AI Agent 串接多個系統並回到人手確認的路徑" title="Agent 串接流程示意" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">跨系統流程的關鍵設計是「幾時停、交回給誰」</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-13.webp" alt="香港物流人員在小型貨倉用手提裝置核對貨單" title="跨系統資料流通" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">跨部門工序的資訊要能互通，自動化才有意義</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-14.webp" alt="香港資訊技術人員檢查系統接口文件的場景" title="系統接口與整合前置" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">接口可用性是 Agent 導入最常被低估的前置工程</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、實作路線：由哪個工序開始、如何量度、人工覆核點</h2>
+<p>推行 AI 專案最常見的失敗模式是「一次過想做太多」。較穩健的做法是先選一個工序做試點，跑通之後才擴展。以下整理選擇第一個工序的條件、量度方式與覆核設計。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">選第一個工序的四個條件</h3>
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">條件</th><th class="px-4 py-3 text-left">說明</th><th class="px-4 py-3 text-left">不宜作起點的工序</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">高重複</td><td class="px-4 py-3">每天或每週都要做，批量較大，改善後累積效果明顯</td><td class="px-4 py-3">一年只做數次、每次做法都不同的工序</td></tr>
+      <tr><td class="px-4 py-3">規則清楚</td><td class="px-4 py-3">輸入輸出格式固定，判斷標準可以寫成文字</td><td class="px-4 py-3">依賴大量經驗判斷、難以言傳的工序</td></tr>
+      <tr><td class="px-4 py-3">錯誤成本低</td><td class="px-4 py-3">出錯後可補救，不會即時造成對外損失或法律責任</td><td class="px-4 py-3">涉及對外承諾、付款、合規申報的工序</td></tr>
+      <tr><td class="px-4 py-3">可量度</td><td class="px-4 py-3">處理時間、件數或返工率本來就有紀錄</td><td class="px-4 py-3">完全沒有紀錄、無法建立對照基準的工序</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-15.webp" alt="香港辦公室主管與同事在螢幕前挑選試點工序的場景" title="挑選試點工序" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">試點要選高重複、規則清楚、錯誤成本低的工序</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">如何量度：三個層次</h3>
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">層次</th><th class="px-4 py-3 text-left">可觀察的指標例子</th><th class="px-4 py-3 text-left">注意事項</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">使用情況</td><td class="px-4 py-3">實際使用人數、使用頻次、涵蓋工序數目</td><td class="px-4 py-3">使用率高不等於有成效，可能只是好奇試用</td></tr>
+      <tr><td class="px-4 py-3">工序表現</td><td class="px-4 py-3">單件處理時間、返工比率、需要人手修正的比例</td><td class="px-4 py-3">必須與導入前的基準比較，否則無法判別變化</td></tr>
+      <tr><td class="px-4 py-3">業務結果</td><td class="px-4 py-3">回應時間、交件準時率、客戶投訴數目等營運指標</td><td class="px-4 py-3">業務結果受多個因素影響，宜作長期觀察而非即時歸因</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>量度最容易被忽略的是「基準」。若導入前沒有記錄處理時間與返工比率，之後就很難說明改變的幅度。因此建議在試點開始前，先花時間記錄現狀，哪怕只是抽樣一週的數據。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-16.webp" alt="香港同事在表格上記錄工序處理時間作為基準數據的場景" title="建立量度基準" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">沒有導入前的基準，之後任何改善都難以證明</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">人工覆核點要寫入流程</h3>
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">風險等級</th><th class="px-4 py-3 text-left">例子</th><th class="px-4 py-3 text-left">建議覆核方式</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">低</td><td class="px-4 py-3">內部參考的會議摘要、資料整理</td><td class="px-4 py-3">抽查即可，使用者自行判斷</td></tr>
+      <tr><td class="px-4 py-3">中</td><td class="px-4 py-3">對外文件初稿、報價草稿、客服回覆建議</td><td class="px-4 py-3">發出前由指定同事逐份確認</td></tr>
+      <tr><td class="px-4 py-3">高</td><td class="px-4 py-3">涉及金額、合約條款、個人資料或合規申報</td><td class="px-4 py-3">由負責人確認並留下紀錄，保留可追溯的審核軌跡</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>覆核安排必須寫在流程文件之中，並指名負責人。若只寫「須經人手確認」而沒有指定是誰，實際上往往等於沒有人確認。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-17.webp" alt="香港主管在流程文件上簽署確認的場景" title="人工覆核點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">覆核不只要寫「由人手確認」，還要寫明由誰確認</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、成本與效益框架</h2>
+<p>評估 AI 投資時，最不應該做的事是承諾一個特定的回報數字。回報取決於工序特性、使用率、數據質素與管理配合程度，這些條件在每一家公司都不同。較務實的做法，是把成本列全，並把預期效益寫成可驗證的假設。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">成本項目</th><th class="px-4 py-3 text-left">性質</th><th class="px-4 py-3 text-left">容易低估之處</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">軟件授權</td><td class="px-4 py-3">經常性，按用戶或用量計算</td><td class="px-4 py-3">只算試點人數，未計擴展後的授權數目</td></tr>
+      <tr><td class="px-4 py-3">整合工程</td><td class="px-4 py-3">一次性為主</td><td class="px-4 py-3">舊系統缺接口、資料格式不一致時的工作量</td></tr>
+      <tr><td class="px-4 py-3">流程盤點與設計</td><td class="px-4 py-3">一次性</td><td class="px-4 py-3">常被視為「不用做」，但直接決定成敗</td></tr>
+      <tr><td class="px-4 py-3">權限與保安設定</td><td class="px-4 py-3">一次性，之後需定期檢視</td><td class="px-4 py-3">檔案權限整理的工時</td></tr>
+      <tr><td class="px-4 py-3">員工訓練與變更管理</td><td class="px-4 py-3">一次性加上持續補課</td><td class="px-4 py-3">新人入職與流程改動後的重複訓練</td></tr>
+      <tr><td class="px-4 py-3">持續維護與支援</td><td class="px-4 py-3">經常性</td><td class="px-4 py-3">模型與系統更新後需要重新測試的部分</td></tr>
+      <tr><td class="px-4 py-3">日後遷移</td><td class="px-4 py-3">一次性，發生在轉換方案時</td><td class="px-4 py-3">資料匯出限制與流程重做的成本</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-18.webp" alt="香港財務人員在電腦前整理資訊科技項目成本項目的場景" title="總持有成本組成" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">只看軟件單價，最容易漏掉整合與維護</figcaption>
+</figure>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-19.webp" alt="香港職員在櫃檯前用平板檢視項目成本分項" title="成本按項目週期分段估算" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">成本要按項目週期分段估算，而非只看首年支出</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">把效益寫成可驗證的假設</h3>
+<p>與其寫「可節省三成時間」，不如寫成假設並設定驗證方式。例如：「假設在試點工序中，草擬回覆的平均時間由十五分鐘縮短至八分鐘，而覆核時間增加兩分鐘，淨變化為每日節省若干分鐘；驗證方式為期四週的抽樣計時，若首兩週未見變化則檢視培訓與流程設計。」這樣的寫法既容易被管理層檢視，亦不會把未經證實的數字當成承諾。</p>
+<p>另一個常被忽略的效益面向是品質與一致性。回覆用語統一、文件格式一致、遺漏項減少，這些改善不容易換算成金額，但對客戶體驗與內部返工率的影響實際存在。建議同樣以抽樣比較的方式記錄，而不是憑印象判斷。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-20.webp" alt="香港管理層在白板上寫下假設與驗證方法的討論場景" title="把效益寫成可驗證假設" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">把預期寫成可驗證假設，比承諾一個回報數字更可靠</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、香港政府資助最新狀態</h2>
+<p>政府資助會隨政策檢討而改變，網上流傳的舊資料經常已經失效。以下四項計劃的狀態以官方頁面為準，並註明查核日期。遞交申請前，務必重新查閱官方公布。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">計劃</th><th class="px-4 py-3 text-left">最新狀態（查核日期 2026 年 10 月 15 日）</th><th class="px-4 py-3 text-left">資助重點</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">科技券計劃（TVP）</td><td class="px-4 py-3">已於 2024 年 12 月 31 日後停止接受新申請</td><td class="px-4 py-3">累計批出 38,440 宗申請，平均每宗約 175,800 元，惠及 35,805 家企業或機構</td></tr>
+      <tr><td class="px-4 py-3">數碼轉型支援先導計劃（DTSPP）</td><td class="px-4 py-3">現行一輪已截止，官網顯示「已截止申請」；優化版細節截至查核日仍未公布</td><td class="px-4 py-3">1:1 配對，最多資助項目總開支 50% 或 5 萬元（以較低者為準）</td></tr>
+      <tr><td class="px-4 py-3">BUD 專項基金</td><td class="px-4 py-3">持續接受申請，2026 年 6 月 15 日起實施優化措施</td><td class="px-4 py-3">每企業累計資助上限 700 萬元；資助地域擴大至 48 個經濟體；「申請易」每宗上限增至 15 萬元</td></tr>
+      <tr><td class="px-4 py-3">新型工業化及科技培訓計劃（NITTP）</td><td class="px-4 py-3">全年接受申請；2025 年 8 月 1 日起合併入「新型工業化支援計劃」並調整安排</td><td class="px-4 py-3">1:1 配對資助企業人員接受高端科技培訓；每間公司每財政年度上限 25 萬元</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-21.webp" alt="香港中小企負責人在電腦前查看政府資助計劃網頁的場景" title="查核資助計劃最新狀態" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">資助狀態會改變，遞交前必須回到官方頁面確認</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">科技券已經停止新申請</h3>
+<p>創新科技署在 2024 年就科技券進行全面檢討，考慮到計劃已達至最初設立的目的，決定在 2024 年 12 月 31 日後停止接受新申請。截至該時點，計劃累計批出 38,440 宗申請，平均每宗獲批資助約 175,800 元，惠及 35,805 家企業或機構，獲批項目主要來自批發及零售、食肆及酒店、工程等行業。若現時仍有供應商以「科技券」名義招攬，值得核對其說法是否仍然成立。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">數碼轉型支援先導計劃現行一輪已截止</h3>
+<p>此計劃以一對一配對方式提供資助，對象為餐飲、零售（不包括餐飲）、旅遊及個人服務業，全職員工少於 50 名的中小企，政府已預留五億元。中小企資助申請已於 2025 年 5 月截止，計劃官網現時顯示「已截止申請」。政府表示正研究優化方案，加入人工智能及網絡安全數碼方案，預計需額外撥款約三億元，目標在 2026 年下半年諮詢立法會後推出；截至本文查核日期，優化版的資格、資助額與申請時間表仍未公布。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">BUD 專項基金持續優化</h3>
+<p>BUD 專項基金資助非上市香港企業發展品牌、升級轉型及拓展營銷。由 2026 年 6 月 15 日起，資助地域範圍擴大至 48 個經濟體；「申請易」每宗申請資助上限由 10 萬元增加 50% 至 15 萬元，處理時間為 30 個工作天；政府亦為包含人工智能元素的項目提供更針對性資助。中小企業市場推廣基金已於 2026 年 7 月 1 日整合至 BUD 專項基金。需要注意的是，基金的資助比例已由 1:1 調整至 1:3，即政府最多資助核准開支的 25%，企業須以現金承擔其餘部分；一般申請與「電商易」每個核准項目的資助上限為 80 萬元，而企業在任何時間獲批的政府核准撥款總數不得超過 80 萬元。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">NITTP 專注培訓而非工具採購</h3>
+<p>新型工業化及科技培訓計劃於 2018 年 8 月推出，以配對形式資助本地企業人員接受高端科技培訓，全年接受申請，秘書處由職業訓練局擔任。由 2025 年 8 月 1 日起，計劃合併入創新及科技基金下的「新型工業化支援計劃」，配對比例調整為 1:1，每間公司每個財政年度的資助上限由 50 萬元調整為 25 萬元，每名學員每財政年度限讀一個課程。這項計劃的定位是人才培訓，不能用於購置軟件或系統。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-22.webp" alt="香港培訓室內員工參加科技培訓課程的場景" title="科技培訓資助" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">培訓資助與工具採購資助屬不同計劃，用途不可互換</figcaption>
+</figure>
+
+<div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2">資助不等於落地</p>
+  <p class="text-blue-900 text-sm leading-relaxed">資助只解決資金部分。即使成功取得資助，流程設計、系統整合、權限安排與員工訓練仍要有人負責。把資助金額當成項目可行性證明的想法，往往導致系統上線後無人使用。</p>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-23.webp" alt="香港公司會議室內團隊討論資助與項目分工的場景" title="資助只是項目一部分" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">資金到位只是起點，落地仍要靠人與流程</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、為何需要專業團隊協助落地</h2>
+<p>市場上的 AI 工具本身並不難買。真正決定成敗的，是工具與公司現有流程之間的落差。以下整理五個最常見的落地缺口，以及自行處理與交由專業團隊處理的分別。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">落地缺口</th><th class="px-4 py-3 text-left">自行處理的常見結果</th><th class="px-4 py-3 text-left">專業團隊切入點</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">流程盤點</td><td class="px-4 py-3">直接購買工具，之後才發現對不上現有工序</td><td class="px-4 py-3">先梳理工序、輸入輸出與例外情況，再決定自動化範圍</td></tr>
+      <tr><td class="px-4 py-3">系統整合</td><td class="px-4 py-3">工具之間各自為政，員工要在多個系統之間複製貼上</td><td class="px-4 py-3">建立中間層與接口，讓資料在系統之間流動</td></tr>
+      <tr><td class="px-4 py-3">權限設計</td><td class="px-4 py-3">沿用舊有寬鬆權限，AI 可檢索的範圍過大</td><td class="px-4 py-3">按角色重整權限，令 AI 的存取範圍與職責一致</td></tr>
+      <tr><td class="px-4 py-3">員工訓練</td><td class="px-4 py-3">派發帳號後即算完成，使用率長期偏低</td><td class="px-4 py-3">按崗位設計培訓與情境練習，並建立內部使用指引</td></tr>
+      <tr><td class="px-4 py-3">持續維護</td><td class="px-4 py-3">上線後無人跟進，系統與流程逐漸脫節</td><td class="px-4 py-3">定期檢視成效、處理例外情況、隨業務變化調整</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-24.webp" alt="香港顧問團隊與客戶在會議室梳理業務流程的場景" title="落地缺口與切入點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">最大的落差不在工具，而在流程與權限的安排</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">五個落地環節</h3>
+<p>具體而言，一個完整的導入過程通常包含五個環節。第一是<strong>流程盤點</strong>：把工序逐步寫下來，標明輸入、輸出、例外情況與現時耗時。第二是<strong>系統整合</strong>：確認資料來源、需要哪些接口、由誰維護；這一步往往是工時最集中的部分。第三是<strong>權限設計</strong>：按職責重整檔案與系統權限，確保 AI 的存取範圍與使用者權責一致。第四是<strong>員工訓練</strong>：不只教操作，更要教判斷——什麼情況下不可信任輸出、什麼內容不可輸入。第五是<strong>持續維護</strong>：定期檢視成效與例外個案，隨業務變化調整流程。</p>
+<p>這五個環節之中，第一與第二項最難自行完成，因為它們需要跨越部門、動用系統與技術知識，而日常營運本身已經佔用大部分人力。這正是不少公司即使已購入授權，實際使用率仍然偏低的原因。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-25.webp" alt="流程圖：由流程盤點、系統整合、權限設計、員工訓練到持續維護的五個落地環節" title="五個落地環節" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">五個環節缺一，項目通常會停在「已購入但沒有人用」的狀態</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">什麼情況可以自行處理</h3>
+<p>並非每個項目都需要外援。若公司的工序簡單、現有系統已提供完整接口，而內部又有具備相關經驗的技術人員，自行導入完全可行。反之，若流程橫跨多個部門、涉及多個互不相通的系統、或需要處理客戶個人資料，則宜先取得專業評估再決定做法。判斷的關鍵不是公司規模，而是流程複雜度與技術人力。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-sme-productivity-hong-kong-26.webp" alt="香港小型公司負責人自行在電腦前設定軟件流程的場景" title="自行處理的適用情況" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">工序簡單、有人力、系統有接口，自行導入同樣可行</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">常見問題</h2>
+
+<div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">香港中小企應該由 Copilot 類工具還是 AI Agent 開始？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">一般建議先由 Copilot 類工具開始。這類工具以個人任務為單位、以使用者既有權限為界，導入前置條件較少，亦不需要改動現有系統。待流程標準化、數據可用、覆核點明確之後，再考慮以 AI Agent 接通跨系統的多步驟流程。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">調查顯示八成以上企業員工使用 AI，是否代表香港大部分公司已經用好 AI？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以這樣推論。該數字出自生產力局《2025 年香港企業 AI 應用趨勢調查》，2025 年 9 月訪問約 800 間本地企業，屬受訪者比例，並非全港市場採用率。同一調查亦顯示多數企業仍主要把 AI 用於高重複性或行政性工作，與全面融入業務流程尚有距離。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">購買 Microsoft 365 Copilot 有什麼前置條件？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按 Microsoft 香港特別行政區定價頁的說明，Copilot 附加授權需要合格的 Microsoft 365 方案，並非獨立購買即可使用，頁面亦列明最多 300 個使用者。價格、供應情況與推廣安排會隨市場及經銷渠道變動，建議落單前由經銷渠道確認最新條款。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">AI 產生的內容可否直接用於對外文件？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不建議。生成式 AI 可能產生語氣自然但事實不準確的內容。務實做法是把 AI 輸出視為草稿，由指定人員在發出前核對，並為涉及金額、合約條款與個人資料的內容保留審核紀錄。覆核安排應寫入流程文件並指名負責人。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">如何量度 AI 導入是否有效？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議分三層觀察：使用情況（人數與頻次）、工序表現（處理時間、返工比率）、業務結果（回應時間、交件準時率等）。關鍵是導入前先建立基準數據，否則之後難以判別變化。業務結果受多個因素影響，宜作長期觀察而非即時歸因。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">科技券（TVP）現在仍然可以申請嗎？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不可以。按創新科技及工業局在立法會的書面答覆，科技券計劃已於 2024 年 12 月 31 日後停止接受新申請。若仍有供應商以科技券名義招攬，建議核對其說法是否仍然成立。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">數碼轉型支援先導計劃（DTSPP）優化版幾時可以申請？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">截至 2026 年 10 月 15 日，計劃官網仍顯示「已截止申請」，優化版的資格、資助額與申請時間表尚未公布。政府較早前表示正研究加入人工智能及網絡安全數碼方案，預計需額外撥款約三億元，目標在 2026 年下半年諮詢立法會後推出。實際安排請以官方最新公布為準。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">什麼情況下需要找專業團隊協助？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">當流程橫跨多個部門、涉及多個互不相通的系統，或需要處理客戶個人資料時，專業評估通常能減少重做。若工序簡單、現有系統已有完整接口、內部亦有具備經驗的技術人員，自行導入同樣可行。判斷關鍵是流程複雜度與技術人力，而非公司規模。</p>
+  </div>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+<p>AI 提升效率的關鍵，通常在工具之外。香港企業目前普遍已在日常工作中接觸 AI，但多數仍停留在行政與重複性工序；要進一步走到跨系統流程自動化，就需要流程盤點、系統整合、權限設計、員工訓練與持續維護這五個環節配合。資助方面，科技券已經停止新申請，數碼轉型支援先導計劃現行一輪亦已截止，BUD 專項基金與新型工業化及科技培訓計劃則持續運作並各有更新，遞交前務必查閱官方頁面。</p>
+<p>若希望由流程盤點、方案選型、系統整合到員工訓練一併處理，可參考我們的<a href="/services/ai/" class="text-[#0f4c81] font-bold hover:underline">人工智能應用服務</a>、<a href="/services/automation/" class="text-[#0f4c81] font-bold hover:underline">流程自動化方案</a>，以及<a href="/services/ai-agency/" class="text-[#0f4c81] font-bold hover:underline">AI Agency 服務</a>。想先理解 Agent 的運作方式，可延伸閱讀<a href="/blog/ai-agent-hong-kong-business-guide/" class="text-[#0f4c81] font-bold hover:underline">香港企業 AI Agent 應用指南</a>與<a href="/blog/rpa-hong-kong-guide/" class="text-[#0f4c81] font-bold hover:underline">RPA 流程自動化指南</a>；如要評估成本結構，亦可參考<a href="/blog/ai-automation-roi-hong-kong/" class="text-[#0f4c81] font-bold hover:underline">AI 自動化的成本與效益分析</a>。</p>
+
+<div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+  <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026 年 10 月 15 日）</p>
+  <ul class="space-y-1">
+    <li><a href="https://www.microsoft.com/zh-hk/microsoft-365-copilot/pricing" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Microsoft：Microsoft 365 Copilot 方案與定價（香港特別行政區）</a> — 標示價格、需合格方案、最多 300 個使用者</li>
+    <li><a href="https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Microsoft Learn：Microsoft Copilot 概覽</a> — 授權層級、以 Microsoft Graph 接地、權限範圍控制</li>
+    <li><a href="https://learn.microsoft.com/en-us/partner-center/announcements/2026-october" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Microsoft Learn：Partner Center 公布（2026 年 10 月）</a> — 雲端方案供應商渠道的用量計費安排</li>
+    <li><a href="https://smereachout.hkpc.org/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港生產力促進局：《2025 年香港企業 AI 應用趨勢調查》（2025 年 10 月 23 日發布）</a> — 2025 年 9 月訪問約 800 間企業；88% 員工使用 AI；54% 受訪平台無治理政策</li>
+    <li><a href="https://www.hkpc.org/zh-HK/about-us/media-centre/press-releases/2026/sme-index-2026-q1" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港生產力促進局：「渣打香港中小企領先營商指數」2026 年第一季（2026 年 1 月 15 日）</a> — 訪問 819 家中小企；七成半較 2024 年擴大 AI 應用</li>
+    <li><a href="https://www.hkma.gov.hk/eng/news-and-media/press-releases/2025/04/20250409-3/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：香港金融研究院《金融服務業生成式 AI》研究（2025 年 4 月 9 日）</a> — 75% 受訪機構已落實或正試行生成式 AI</li>
+    <li><a href="https://brdr.hkma.gov.hk/eng/doc-ldg/docId/getPdf/20241125-2-EN/20241125-2-EN.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：大數據分析及人工智能應用調查結果（2024 年 11 月）</a> — 調查 28 間認可機構；75% 採用或計劃採用，39% 涉及生成式 AI</li>
+    <li><a href="https://www.info.gov.hk/gia/general/202602/27/P2026022700340.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：《二零二五年資訊科技在工商業的使用情況和普及程度統計調查報告》出版（2026 年 2 月 27 日）</a> — 99% 公司使用電腦或智能手機，57% 有網絡存在</li>
+    <li><a href="https://www.info.gov.hk/gia/general/202602/25/P2026022500279.htm" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">政府新聞公報：立法會二題「支援中小企業數碼轉型的措施」（2026 年 2 月 25 日）</a> — 科技券停止新申請及批出數字；先導計劃優化方向與額外撥款</li>
+    <li><a href="https://www.smefund.tid.gov.hk/tc_chi/bud/bud_home.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">工業貿易署：發展品牌、升級轉型及拓展內銷市場的專項基金（更新日期 2026 年 6 月 29 日）</a> — 資助地域擴至 48 個經濟體、「申請易」上限增至 15 萬元</li>
+    <li><a href="https://www.legco.gov.hk/yr2026/chinese/fc/fc/papers/f26-07c.pdf" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">立法會財務委員會討論文件 FCR(2026-27)7（2026 年 4 月）</a> — 資助比例由 1:1 調整至 1:3、每項目上限調整至 80 萬元</li>
+    <li><a href="https://www.itf.gov.hk/en/funding-programmes/promoting-new-industrialisation/new-industrialisation-support-scheme/nittp/index.html" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">創新及科技基金：新型工業化及科技培訓計劃（NITTP）</a> — 2018 年推出；2025 年 8 月起 1:1 配對、每年上限 25 萬元</li>
+    <li><a href="https://dtspp.cyberport.hk/zh-hk/%e9%a6%96%e9%a0%81/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">數碼港：數碼轉型支援先導計劃（DTSPP）</a> — 1:1 配對、最多資助 50% 或 5 萬元</li>
+    <li><a href="https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/03/20260305-3/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港金融管理局：監管機構推出生成式人工智能沙盒++（2026 年 3 月 5 日）</a> — 擴展至銀行、證券、保險及強積金業界</li>
+    <li><a href="https://www.policyaddress.gov.hk/2026/tc/" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">《行政長官 2026 年施政報告》（2026 年 9 月 16 日）</a> — 優化先導計劃、擴大 BUD 資助地域、拓展「數碼不求人」平台</li>
+    <li><a href="https://smesupport.hktdc.com/en/s/sme-microsoft" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">香港貿易發展局：T-box 與 Microsoft 合作的 AI 採用計劃</a> — 折扣授權與導入培訓，優惠期至 2026 年 12 月 31 日</li>
+  </ul>
+</div>
