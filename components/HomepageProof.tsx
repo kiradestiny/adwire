@@ -31,12 +31,17 @@ function has600(image: string): boolean {
  *   - 不冒充真團隊或真辦公室照片；門市／品牌圖只作客戶辨識，不代表交付設計作品。
  */
 
-const FEATURED_SLUGS = ["aura-tress", "novalend", "yorokobi"] as const;
+const FEATURED_SLUGS = ["aura-tress", "morning-global", "peko"] as const;
 
+/**
+ * 每個案例的「角度」標籤（放於圖上）。
+ * 必須對應 lib/clientShowcase 內該客戶的實際 service.items，不可補上未提及的工作。
+ * 三個角度刻意不同，避免三張卡看起來是同一種服務。
+ */
 const CAPABILITY: Record<string, string> = {
-  "aura-tress": "增長：廣告與接單頁面",
-  novalend: "網站／系統：可申請流程的網站",
-  yorokobi: "營運整合：社媒、廣告與 WhatsApp",
+  "aura-tress": "增長：接單頁面與成效追蹤",
+  "morning-global": "品牌與內容：網站重建與影片製作",
+  peko: "廣告：Meta 與 Google 雙平台",
 };
 
 export default function HomepageProof() {
