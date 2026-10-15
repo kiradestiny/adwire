@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { getWhatsAppUrl } from "@/lib/site-config";
@@ -160,6 +161,19 @@ export default function AiAgencyContent() {
       </section>
 
       {/* ── 最直接答案 ─────────────────────────────────────── */}
+      {/* 配圖：評估 AI 供應商時，重點是對方能否說清楚範圍、交付物與驗收方式。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/ai-agency/ai-agency-vendor-evaluation-meeting.webp"
+            alt="評估 AI 供應商時，重點是對方能否說清楚範圍、交付物與驗收方式。"
+            caption="評估 AI 供應商時，重點是對方能否說清楚範圍、交付物與驗收方式。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl">
@@ -271,6 +285,19 @@ export default function AiAgencyContent() {
       </section>
 
       {/* ── 適合 / 唔適合 ─────────────────────────────────── */}
+      {/* 配圖：報價單寫明的範圍與不包含項目，比總價更影響項目成敗。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/ai-agency/ai-agency-scope-proposal-review.webp"
+            alt="報價單寫明的範圍與不包含項目，比總價更影響項目成敗。"
+            caption="報價單寫明的範圍與不包含項目，比總價更影響項目成敗。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-[#0f4c81] mb-10">適合與不適合的情況</h2>

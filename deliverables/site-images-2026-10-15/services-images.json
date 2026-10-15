@@ -1,0 +1,173 @@
+{
+  "_note": "服務頁配圖場景。scene 為英文寫實攝影描述；一律不帶文字。1600x900 (16:9)。",
+  "ads": [
+    { "n": 1, "file": "/services/ads/ads-strategy-planning-session.webp",
+      "scene": "a Hong Kong advertising strategist and a client reviewing printed media plans and a laptop on a meeting room table, city view through the window, morning light",
+      "caption": "投放前先確認目標、預算與可接受成本，再決定平台與素材方向。" },
+    { "n": 2, "file": "/services/ads/ads-platform-dashboards-multi-screen.webp",
+      "scene": "over-the-shoulder view of a marketer comparing Meta and Google advertising dashboards on two monitors in a dim Hong Kong office, blue screen glow",
+      "caption": "Meta 與 Google 的成效分開檢視，再判斷預算應往哪一邊移動。" },
+    { "n": 3, "file": "/services/ads/ads-creative-testing-review.webp",
+      "scene": "close-up detail of hands arranging several printed advertising visuals side by side on a wooden desk for comparison, soft daylight",
+      "caption": "素材以同一條件並排測試，才知道差異來自哪一個變數。" }
+  ],
+  "ai": [
+    { "n": 1, "file": "/services/ai/ai-enterprise-workshop-hong-kong.webp",
+      "scene": "a Hong Kong business team in a glass meeting room mapping internal processes on sticky notes on a whiteboard while a consultant listens",
+      "caption": "導入 AI 之前，先盤點哪些工序重複、哪些判斷不能自動化。" },
+    { "n": 2, "file": "/services/ai/ai-knowledge-base-workstation.webp",
+      "scene": "close-up detail of a knowledge worker searching an internal document system on a laptop, documents and a notebook beside it, warm desk lamp",
+      "caption": "企業知識庫把散落的文件集中，讓同事用自然語言找得到答案。" },
+    { "n": 3, "file": "/services/ai/ai-system-integration-engineer.webp",
+      "scene": "a software engineer configuring an API integration on a workstation with two monitors showing system diagrams, Hong Kong office at night",
+      "caption": "AI 要真正落地，通常需要與現有 CRM、ERP 或內部系統接通。" }
+  ],
+  "ai-agency": [
+    { "n": 1, "file": "/services/ai-agency/ai-agency-vendor-evaluation-meeting.webp",
+      "scene": "two Hong Kong business owners interviewing an agency representative across a meeting table, documents and laptops open, daylight office",
+      "caption": "評估 AI 供應商時，重點是對方能否說清楚範圍、交付物與驗收方式。" },
+    { "n": 2, "file": "/services/ai-agency/ai-agency-scope-proposal-review.webp",
+      "scene": "close-up detail of a hand annotating a printed project scope document with a pen next to a laptop, neutral office lighting",
+      "caption": "報價單寫明的範圍與不包含項目，比總價更影響項目成敗。" }
+  ],
+  "automation": [
+    { "n": 1, "file": "/services/automation/automation-process-mapping-workshop.webp",
+      "scene": "a Hong Kong operations manager drawing a workflow diagram on a whiteboard while two colleagues point at steps, bright open office",
+      "caption": "先畫出流程的每一步，才看得出哪一步最值得自動化。" },
+    { "n": 2, "file": "/services/automation/automation-invoice-data-entry.webp",
+      "scene": "close-up detail of hands scanning and entering paper invoices beside a laptop in a small Hong Kong accounting office, natural daylight",
+      "caption": "重複的單據輸入與對帳，是最常見也最容易自動化的工序。" },
+    { "n": 3, "file": "/services/automation/automation-whatsapp-crm-desk.webp",
+      "scene": "a customer service officer replying to enquiries on a desktop messaging interface in a modern Hong Kong office, soft screen light",
+      "caption": "查詢自動分流與回覆紀錄，減少漏接與重複輸入。" }
+  ],
+  "consulting": [
+    { "n": 1, "file": "/services/consulting/consulting-discovery-interview.webp",
+      "scene": "a consultant taking notes while a Hong Kong business owner explains operations in a quiet meeting room, notebook and coffee on the table",
+      "caption": "先了解實際運作與痛點，才判斷應該用系統、內容還是廣告。" },
+    { "n": 2, "file": "/services/consulting/consulting-technology-roadmap-review.webp",
+      "scene": "over-the-shoulder view of two people reviewing a phased project timeline on a large screen in a meeting room, Hong Kong skyline outside",
+      "caption": "分階段的路線圖，讓每一期都有可驗收的交付物。" },
+    { "n": 3, "file": "/services/consulting/consulting-system-audit-server-room.webp",
+      "scene": "a technician inspecting network equipment and cabling in a small Hong Kong server room, cool lighting",
+      "caption": "現有系統與資料狀況，往往決定導入新方案的實際工作量。" }
+  ],
+  "education": [
+    { "n": 1, "file": "/services/education/education-classroom-technology-setup.webp",
+      "scene": "a Hong Kong secondary school classroom with a teacher setting up a tablet and display for a lesson, students seated, natural window light",
+      "caption": "教學工具要配合課堂實際流程，而不是相反。" },
+    { "n": 2, "file": "/services/education/education-school-it-panel-meeting.webp",
+      "scene": "a school IT panel meeting with teachers and a vendor representative around a table with a laptop and printed quotation documents",
+      "caption": "採購與報價程序須依教育局指引辦理，文件要經得起審計。" },
+    { "n": 3, "file": "/services/education/education-teacher-training-session.webp",
+      "scene": "small group of Hong Kong teachers attending a hands-on digital tools training session with laptops in a school computer room",
+      "caption": "系統上線後的教師培訓，決定工具會否被真正使用。" }
+  ],
+  "healthcare": [
+    { "n": 1, "file": "/services/healthcare/clinic-reception-patient-flow.webp",
+      "scene": "a Hong Kong clinic reception with a staff member assisting a patient at the counter, appointment screen and queue visible, clean bright interior",
+      "caption": "預約、登記與輪候是診所每日重複最多的前線工序。" },
+    { "n": 2, "file": "/services/healthcare/clinic-practitioner-records-tablet.webp",
+      "scene": "close-up detail of a healthcare practitioner reviewing patient records on a tablet beside a stethoscope on a consultation desk",
+      "caption": "電子病歷讓查閱與交接更快，同時要符合資料私隱要求。" },
+    { "n": 3, "file": "/services/healthcare/clinic-billing-and-stock-desk.webp",
+      "scene": "a clinic assistant handling billing and medicine stock records at a back office desk with printed receipts and a computer, daylight",
+      "caption": "收費、庫存與對帳整合後，可減少漏收與重複核對。" }
+  ],
+  "kol": [
+    { "n": 1, "file": "/services/kol/kol-shortlisting-and-matching.webp",
+      "scene": "a Hong Kong marketing executive comparing social media creator profiles on a laptop and printed screenshots spread on a desk",
+      "caption": "選 KOL 看受眾是否對上，而不只是看粉絲數字。" },
+    { "n": 2, "file": "/services/kol/kol-production-day-behind-scenes.webp",
+      "scene": "behind the scenes of a product review shoot at a Hong Kong cafe, camera operator filming a creator holding a skincare product, natural light",
+      "caption": "拍攝現場的溝通效率，直接影響內容質素與交付時間。" },
+    { "n": 3, "file": "/services/kol/kol-campaign-results-review.webp",
+      "scene": "two marketers reviewing campaign performance charts on a laptop and printed report in a modern office meeting area",
+      "caption": "以優惠碼或專屬連結追蹤成效，並區分助攻與實際轉換。" }
+  ],
+  "production": [
+    { "n": 1, "file": "/services/production/production-studio-lighting-setup.webp",
+      "scene": "a photography studio in Hong Kong with lighting equipment and a backdrop being prepared for a product shoot, assistant adjusting a softbox",
+      "caption": "燈光與背景設定，決定成品是否達到品牌要求。" },
+    { "n": 2, "file": "/services/production/production-director-monitor-replay.webp",
+      "scene": "over-the-shoulder view of a director watching playback on a monitor on set, crew and equipment blurred in the foreground",
+      "caption": "現場即時檢視畫面，避免拍攝完成後才發現問題。" },
+    { "n": 3, "file": "/services/production/production-post-editing-colour.webp",
+      "scene": "close-up detail of an editor colour grading footage on a calibrated monitor in a dim editing suite, control panel beside the keyboard",
+      "caption": "後期調色與剪輯，是把素材變成可用成品的最後一關。" }
+  ],
+  "seo": [
+    { "n": 1, "file": "/services/seo/seo-keyword-research-planning.webp",
+      "scene": "a Hong Kong digital marketer mapping keyword groups on a whiteboard covered in sticky notes while a colleague reviews a spreadsheet",
+      "caption": "先按搜尋意圖分組關鍵字，再決定每個頁面負責哪一組。" },
+    { "n": 2, "file": "/services/seo/seo-technical-audit-analytics.webp",
+      "scene": "over-the-shoulder view of a specialist reviewing crawl and index reports in a search console interface on a widescreen monitor",
+      "caption": "技術問題會令優質內容無法被收錄，必須先處理。" },
+    { "n": 3, "file": "/services/seo/seo-content-brief-writing.webp",
+      "scene": "close-up detail of a hand writing a content outline in a notebook beside a laptop showing a search results page, warm desk light",
+      "caption": "內容大綱以實際搜尋問題為本，而不是關鍵字堆砌。" }
+  ],
+  "social": [
+    { "n": 1, "file": "/services/social/social-content-calendar-planning.webp",
+      "scene": "a Hong Kong social media manager building a monthly content calendar on a wall planner with printed photos and notes, bright studio office",
+      "caption": "內容排程要在月初定好，才不會臨時湊數。" },
+    { "n": 2, "file": "/services/social/social-shooting-short-form-video.webp",
+      "scene": "a creator filming a short vertical video with a phone on a tripod in a Hong Kong retail shop, shopkeeper in the background",
+      "caption": "本地化短片內容，通常比通用素材更能帶動互動。" },
+    { "n": 3, "file": "/services/social/social-community-reply-management.webp",
+      "scene": "close-up detail of hands replying to direct messages and comments on a desktop dashboard in a modern office",
+      "caption": "私訊與留言的回覆速度，直接影響查詢能否變成生意。" }
+  ],
+  "system": [
+    { "n": 1, "file": "/services/system/system-operations-interview.webp",
+      "scene": "a Hong Kong operations team explaining their daily workflow around a table with printed forms and a laptop, daylight office",
+      "caption": "系統設計由實際流程出發，先弄清楚資料從哪裡來、往哪裡去。" },
+    { "n": 2, "file": "/services/system/system-dashboard-in-use.webp",
+      "scene": "a manager reviewing an internal management dashboard on a desktop monitor in a Hong Kong office, printed reports on the desk",
+      "caption": "把散落的試算表整合成單一資料來源，減少重複輸入。" },
+    { "n": 3, "file": "/services/system/system-development-team-standup.webp",
+      "scene": "a small software team in a short stand-up meeting in front of a screen showing a task board, Hong Kong office, natural light",
+      "caption": "分階段交付與驗收，讓每一期都有可檢查的成果。" }
+  ],
+  "video": [
+    { "n": 1, "file": "/services/video/video-corporate-interview-shoot.webp",
+      "scene": "a corporate interview being filmed in a Hong Kong office, interviewer and subject seated with a camera and microphone in the foreground",
+      "caption": "企業訪談影片的關鍵，是讓受訪者自然說出重點。" },
+    { "n": 2, "file": "/services/video/video-product-tvc-lighting.webp",
+      "scene": "close-up detail of a product being lit for a television commercial shoot on a set with reflective panels and a turntable",
+      "caption": "產品特寫需要精準打光，才呈現得出材質與細節。" },
+    { "n": 3, "file": "/services/video/video-vertical-reels-editing.webp",
+      "scene": "an editor cutting a vertical short video on a laptop with a phone showing the preview, subtitles visible on the timeline",
+      "caption": "垂直比例與字幕排版，是社交平台版本的必備處理。" }
+  ],
+  "web": [
+    { "n": 1, "file": "/services/web/web-design-layout-review.webp",
+      "scene": "a designer and a client reviewing a website layout on a large monitor in a Hong Kong studio, printed wireframes on the table",
+      "caption": "版面以訪客的閱讀次序設計，而不是以裝飾效果為先。" },
+    { "n": 2, "file": "/services/web/web-mobile-first-development.webp",
+      "scene": "close-up detail of hands testing a website on a smartphone beside a laptop showing the same page in a development environment",
+      "caption": "手機版本是多數訪客第一眼看到的畫面，必須先做好。" },
+    { "n": 3, "file": "/services/web/web-ecommerce-checkout-flow.webp",
+      "scene": "a shop owner packing an online order while a laptop shows an e-commerce order list in a Hong Kong retail back office",
+      "caption": "結帳步驟與送貨流程，直接影響轉換與營運成本。" }
+  ],
+  "about": [
+    { "n": 1, "file": "/about/about-team-working-hong-kong-office.webp",
+      "scene": "a small Hong Kong digital agency team working together around a table with laptops and printed documents, modern office with city view",
+      "caption": "ADWire 以精簡核心團隊配合按項目協作的模式運作。" },
+    { "n": 2, "file": "/about/about-client-workshop-meeting.webp",
+      "scene": "a client workshop in a Hong Kong meeting room with sticky notes on a glass wall and two people discussing a process diagram",
+      "caption": "項目由業務問題出發，先確認要解決什麼，再決定用什麼方案。" },
+    { "n": 3, "file": "/about/about-development-workstation-detail.webp",
+      "scene": "close-up detail of a developer workstation with code and a system architecture diagram on screen, notebook and pen beside the keyboard",
+      "caption": "軟件開發與 AI 應用是我們現時的重心。" },
+    { "n": 4, "file": "/about/about-office-kwai-fong-view.webp",
+      "scene": "view from a Hong Kong office window overlooking Kwai Chung and the harbour, desk and plant in the foreground, late afternoon light",
+      "caption": "辦公室位於葵芳，服務香港及大灣區企業。" }
+  ],
+  "contact": [
+    { "n": 1, "file": "/contact/contact-office-reception.webp",
+      "scene": "a bright modern office reception area in Hong Kong with a meeting room visible behind glass, empty desk and plants, natural light",
+      "caption": "歡迎先以電話、WhatsApp 或表格說明需求。" }
+  ]
+}

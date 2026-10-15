@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import ServiceDeepDive from "@/components/ServiceDeepDive";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
@@ -167,6 +168,19 @@ export default function WebServiceContent() {
       </section>
 
       {/* 2. Stats Section: 數據展示增加信任感 */}
+      {/* 配圖：版面以訪客的閱讀次序設計，而不是以裝飾效果為先。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/web/web-design-layout-review.webp"
+            alt="版面以訪客的閱讀次序設計，而不是以裝飾效果為先。"
+            caption="版面以訪客的閱讀次序設計，而不是以裝飾效果為先。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-16 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -359,6 +373,19 @@ export default function WebServiceContent() {
       </section>
 
       {/* 5. Comparison Table: 技術比較 */}
+      {/* 配圖：手機版本是多數訪客第一眼看到的畫面，必須先做好。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/web/web-mobile-first-development.webp"
+            alt="手機版本是多數訪客第一眼看到的畫面，必須先做好。"
+            caption="手機版本是多數訪客第一眼看到的畫面，必須先做好。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -468,6 +495,19 @@ export default function WebServiceContent() {
       </section>
 
       {/* 9. Related Services: 相關服務推薦 */}
+      {/* 配圖：結帳步驟與送貨流程，直接影響轉換與營運成本。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/web/web-ecommerce-checkout-flow.webp"
+            alt="結帳步驟與送貨流程，直接影響轉換與營運成本。"
+            caption="結帳步驟與送貨流程，直接影響轉換與營運成本。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

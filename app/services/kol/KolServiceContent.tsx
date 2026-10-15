@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
@@ -113,6 +114,19 @@ export default function KolServiceContent() {
       </section>
 
       {/* 2. Pain Points & Solutions (新增：痛點分析) */}
+      {/* 配圖：選 KOL 看受眾是否對上，而不只是看粉絲數字。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/kol/kol-shortlisting-and-matching.webp"
+            alt="選 KOL 看受眾是否對上，而不只是看粉絲數字。"
+            caption="選 KOL 看受眾是否對上，而不只是看粉絲數字。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -204,7 +218,7 @@ export default function KolServiceContent() {
           </div>
 
           <div className="mt-8 text-center">
-            <p className="text-gray-500 mb-4 text-sm">唔確定選哪個層級？我們提供免費 KOL 配對諮詢</p>
+            <p className="text-gray-500 mb-4 text-sm">不確定選哪個層級？我們提供免費 KOL 配對諮詢</p>
             <a href={getWhatsAppUrl("Hello ADWire，我想了解 KOL 配對方案。")} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#f5a623] hover:bg-[#e09210] text-white font-bold px-6 py-3 rounded-full transition-colors shadow-md hover:shadow-lg">
               免費 KOL 配對諮詢 <ArrowRight size={16} />
@@ -341,6 +355,19 @@ export default function KolServiceContent() {
       </section>
 
       {/* 5. Why ADWire? (數據與技術) */}
+      {/* 配圖：拍攝現場的溝通效率，直接影響內容質素與交付時間。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/kol/kol-production-day-behind-scenes.webp"
+            alt="拍攝現場的溝通效率，直接影響內容質素與交付時間。"
+            caption="拍攝現場的溝通效率，直接影響內容質素與交付時間。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-[#0f4c81] text-white overflow-hidden relative">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
         
@@ -353,7 +380,7 @@ export default function KolServiceContent() {
                 <TechPoint 
                   icon={Search}
                   title="AI 受眾分析"
-                  desc="KOL 粉絲多唔代表有用。我們分析其粉絲的年齡、性別及真假粉比例，確保你的廣告是給「潛在買家」看。"
+                  desc="KOL 粉絲多不代表有用。我們分析其粉絲的年齡、性別及真假粉比例，確保你的廣告是給「潛在買家」看。"
                 />
                 <TechPoint 
                   icon={TrendingUp}
@@ -457,6 +484,19 @@ export default function KolServiceContent() {
       <Testimonials />
 
       {/* 相關服務 */}
+      {/* 配圖：以優惠碼或專屬連結追蹤成效，並區分助攻與實際轉換。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/kol/kol-campaign-results-review.webp"
+            alt="以優惠碼或專屬連結追蹤成效，並區分助攻與實際轉換。"
+            caption="以優惠碼或專屬連結追蹤成效，並區分助攻與實際轉換。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

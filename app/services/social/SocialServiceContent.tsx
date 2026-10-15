@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
@@ -341,6 +342,19 @@ export default function SocialServiceContent() {
       </section>
 
       {/* ── 2. 痛點分析 ── */}
+      {/* 配圖：內容排程要在月初定好，才不會臨時湊數。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/social/social-content-calendar-planning.webp"
+            alt="內容排程要在月初定好，才不會臨時湊數。"
+            caption="內容排程要在月初定好，才不會臨時湊數。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -349,9 +363,9 @@ export default function SocialServiceContent() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <PainPointCard icon={XCircle} title="有 Like 冇單？" desc="Post 好多人 Like，但網站無人買嘢？因為缺乏轉換策略，未能將流量變現。" />
-            <PainPointCard icon={HelpCircle} title="唔知寫咩好？" desc="每日都要諗出咩 Post，諗到頭都爆？缺乏靈感，內容千篇一律，粉絲睇到悶。" />
-            <PainPointCard icon={Search} title="觸及率極低？" desc="辛辛苦苦整圖寫文，結果得幾十個人睇到？唔識演算法規則，做死都無用。" />
-            <PainPointCard icon={Users} title="無時間管理？" desc="又要覆 Inbox，又要搞設計，又要諗橋？一個人做唔晒，請人又難教。" />
+            <PainPointCard icon={HelpCircle} title="不知道寫甚麼好？" desc="每日都要諗出咩 Post，諗到頭都爆？缺乏靈感，內容千篇一律，粉絲睇到悶。" />
+            <PainPointCard icon={Search} title="觸及率極低？" desc="辛辛苦苦整圖寫文，結果得幾十個人睇到？不熟悉演算法規則，再努力也無用。" />
+            <PainPointCard icon={Users} title="無時間管理？" desc="又要覆 Inbox，又要搞設計，又要諗橋？一個人做不完，請人又難教。" />
           </div>
         </div>
       </section>
@@ -566,6 +580,19 @@ export default function SocialServiceContent() {
       </section>
 
       {/* ── 7. 為什麼選擇 ADWire ── */}
+      {/* 配圖：本地化短片內容，通常比通用素材更能帶動互動。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/social/social-shooting-short-form-video.webp"
+            alt="本地化短片內容，通常比通用素材更能帶動互動。"
+            caption="本地化短片內容，通常比通用素材更能帶動互動。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-[#0f4c81] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -646,6 +673,19 @@ export default function SocialServiceContent() {
       <Testimonials />
 
       {/* ── 12. 相關服務 ── */}
+      {/* 配圖：私訊與留言的回覆速度，直接影響查詢能否變成生意。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/social/social-community-reply-management.webp"
+            alt="私訊與留言的回覆速度，直接影響查詢能否變成生意。"
+            caption="私訊與留言的回覆速度，直接影響查詢能否變成生意。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

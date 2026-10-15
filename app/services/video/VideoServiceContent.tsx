@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { motion } from "framer-motion";
@@ -67,6 +68,19 @@ export default function VideoServiceContent() {
       </section>
 
       {/* 2. 痛點分析 (Pain Points) */}
+      {/* 配圖：企業訪談影片的關鍵，是讓受訪者自然說出重點。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/video/video-corporate-interview-shoot.webp"
+            alt="企業訪談影片的關鍵，是讓受訪者自然說出重點。"
+            caption="企業訪談影片的關鍵，是讓受訪者自然說出重點。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-[#0a0a0a] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -232,6 +246,19 @@ export default function VideoServiceContent() {
       </section>
 
       {/* 5. 服務流程 (Timeline) */}
+      {/* 配圖：產品特寫需要精準打光，才呈現得出材質與細節。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/video/video-product-tvc-lighting.webp"
+            alt="產品特寫需要精準打光，才呈現得出材質與細節。"
+            caption="產品特寫需要精準打光，才呈現得出材質與細節。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 border-t border-white/10 bg-black relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -326,6 +353,19 @@ export default function VideoServiceContent() {
       </section>
 
       {/* 6. 數據與優勢 (Stats) */}
+      {/* 配圖：垂直比例與字幕排版，是社交平台版本的必備處理。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/video/video-vertical-reels-editing.webp"
+            alt="垂直比例與字幕排版，是社交平台版本的必備處理。"
+            caption="垂直比例與字幕排版，是社交平台版本的必備處理。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#0f4c81]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-16">數據話你知：短視頻營銷是必須的</h2>

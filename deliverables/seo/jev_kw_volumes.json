@@ -1,0 +1,495 @@
+{
+ "clusters": {
+  "A_ChatGPT廣告": [
+   "chatgpt 廣告",
+   "chatgpt ads",
+   "chatgpt advertising",
+   "openai 廣告",
+   "openai ads",
+   "ai 廣告",
+   "ai 廣告投放",
+   "ai 廣告公司",
+   "ai advertising",
+   "ai ads",
+   "chatgpt 廣告 香港",
+   "chatgpt ads hong kong",
+   "ai 廣告平台",
+   "ai 投放廣告",
+   "人工智能 廣告",
+   "openai advertising",
+   "廣告投放 ai",
+   "ai ad platform",
+   "chatgpt 落廣告",
+   "ai marketing",
+   "ai 營銷",
+   "ai 搜尋廣告"
+  ],
+  "B_AI中小企": [
+   "中小企 ai",
+   "ai 中小企",
+   "ai 提升工作效率",
+   "microsoft copilot",
+   "copilot 香港",
+   "microsoft 365 copilot",
+   "copilot 教學",
+   "ai 工具 香港",
+   "ai 應用",
+   "企業 ai 應用",
+   "ai 自動化",
+   "ai 工作效率",
+   "香港 ai",
+   "ai 轉型",
+   "ai 辦公",
+   "ai 助理",
+   "生成式 ai 應用",
+   "ai 導入",
+   "ai agent",
+   "ai 技術",
+   "中小企 數碼轉型",
+   "數碼轉型",
+   "ai 會議紀錄",
+   "ai 客服",
+   "工作效率 工具",
+   "ai 寫作工具"
+  ],
+  "C_決策模型": [
+   "jev",
+   "jev ai",
+   "jev model",
+   "typesafe ai",
+   "system one model",
+   "system 1 model",
+   "ai 決策",
+   "決策模型",
+   "ai decision model",
+   "decision model",
+   "world model",
+   "世界模型",
+   "jepa",
+   "v-jepa",
+   "ai agent 決策",
+   "決策智能",
+   "openai decisions api",
+   "decisions api",
+   "ai 判斷",
+   "模型校準",
+   "ai classification model"
+  ]
+ },
+ "volumes": {
+  "chatgpt 廣告": {
+   "volume": 20,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 1
+  },
+  "chatgpt ads": {
+   "volume": 140,
+   "cpc": 16.2,
+   "competition": "LOW",
+   "ci": 19
+  },
+  "chatgpt advertising": {
+   "volume": 140,
+   "cpc": 16.2,
+   "competition": "LOW",
+   "ci": 19
+  },
+  "openai 廣告": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 0
+  },
+  "openai ads": {
+   "volume": 70,
+   "cpc": 4.56,
+   "competition": "LOW",
+   "ci": 9
+  },
+  "ai 廣告": {
+   "volume": 140,
+   "cpc": 4.19,
+   "competition": "LOW",
+   "ci": 26
+  },
+  "ai 廣告投放": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 14
+  },
+  "ai 廣告公司": {
+   "volume": 10,
+   "cpc": 8.02,
+   "competition": "HIGH",
+   "ci": 86
+  },
+  "ai advertising": {
+   "volume": 90,
+   "cpc": 7.34,
+   "competition": "LOW",
+   "ci": 25
+  },
+  "ai ads": {
+   "volume": 90,
+   "cpc": 7.34,
+   "competition": "LOW",
+   "ci": 25
+  },
+  "chatgpt 廣告 香港": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "chatgpt ads hong kong": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "ai 廣告平台": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "ai 投放廣告": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "人工智能 廣告": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "openai advertising": {
+   "volume": 70,
+   "cpc": 4.56,
+   "competition": "LOW",
+   "ci": 9
+  },
+  "廣告投放 ai": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "ai ad platform": {
+   "volume": 10,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "chatgpt 落廣告": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "ai marketing": {
+   "volume": 170,
+   "cpc": 5.08,
+   "competition": "MEDIUM",
+   "ci": 62
+  },
+  "ai 營銷": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "ci": 46
+  },
+  "ai 搜尋廣告": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "中小企 ai": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "ai 中小企": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "ai 提升工作效率": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 14
+  },
+  "microsoft copilot": {
+   "volume": 18100,
+   "cpc": 2.02,
+   "competition": "LOW",
+   "ci": 4
+  },
+  "copilot 香港": {
+   "volume": 90,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 10
+  },
+  "microsoft 365 copilot": {
+   "volume": 1300,
+   "cpc": 5.12,
+   "competition": "LOW",
+   "ci": 4
+  },
+  "copilot 教學": {
+   "volume": 90,
+   "cpc": 0.48,
+   "competition": "LOW",
+   "ci": 6
+  },
+  "ai 工具 香港": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "ai 應用": {
+   "volume": 170,
+   "cpc": 2.77,
+   "competition": "LOW",
+   "ci": 17
+  },
+  "企業 ai 應用": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 29
+  },
+  "ai 自動化": {
+   "volume": 50,
+   "cpc": 2.42,
+   "competition": "MEDIUM",
+   "ci": 38
+  },
+  "ai 工作效率": {
+   "volume": 20,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "ci": 57
+  },
+  "香港 ai": {
+   "volume": 590,
+   "cpc": 3.24,
+   "competition": "LOW",
+   "ci": 20
+  },
+  "ai 轉型": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "MEDIUM",
+   "ci": 44
+  },
+  "ai 辦公": {
+   "volume": 20,
+   "cpc": 1.95,
+   "competition": "MEDIUM",
+   "ci": 45
+  },
+  "ai 助理": {
+   "volume": 720,
+   "cpc": 3.21,
+   "competition": "LOW",
+   "ci": 5
+  },
+  "生成式 ai 應用": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 12
+  },
+  "ai 導入": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "HIGH",
+   "ci": 86
+  },
+  "ai agent": {
+   "volume": 6600,
+   "cpc": 3.43,
+   "competition": "MEDIUM",
+   "ci": 42
+  },
+  "ai 技術": {
+   "volume": 40,
+   "cpc": 1.14,
+   "competition": "LOW",
+   "ci": 18
+  },
+  "中小企 數碼轉型": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "HIGH",
+   "ci": 76
+  },
+  "數碼轉型": {
+   "volume": 70,
+   "cpc": 3.43,
+   "competition": "LOW",
+   "ci": 17
+  },
+  "ai 會議紀錄": {
+   "volume": 110,
+   "cpc": 0.66,
+   "competition": "HIGH",
+   "ci": 85
+  },
+  "ai 客服": {
+   "volume": 140,
+   "cpc": 4.65,
+   "competition": "MEDIUM",
+   "ci": 62
+  },
+  "工作效率 工具": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "ai 寫作工具": {
+   "volume": 30,
+   "cpc": 1.53,
+   "competition": "MEDIUM",
+   "ci": 39
+  },
+  "jev": {
+   "volume": 2400,
+   "cpc": 5,
+   "competition": "LOW",
+   "ci": 1
+  },
+  "jev ai": {
+   "volume": 320,
+   "cpc": 3.54,
+   "competition": "LOW",
+   "ci": 2
+  },
+  "jev model": {
+   "volume": 140,
+   "cpc": 3.14,
+   "competition": "LOW",
+   "ci": 0
+  },
+  "typesafe ai": {
+   "volume": 260,
+   "cpc": 4.11,
+   "competition": "LOW",
+   "ci": 12
+  },
+  "system one model": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 0
+  },
+  "system 1 model": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 0
+  },
+  "ai 決策": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 0
+  },
+  "決策模型": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 0
+  },
+  "ai decision model": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 0
+  },
+  "decision model": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 4
+  },
+  "world model": {
+   "volume": 590,
+   "cpc": 2.89,
+   "competition": "LOW",
+   "ci": 2
+  },
+  "世界模型": {
+   "volume": 720,
+   "cpc": 1.79,
+   "competition": "LOW",
+   "ci": 2
+  },
+  "jepa": {
+   "volume": 390,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 0
+  },
+  "v-jepa": {
+   "volume": 110,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 0
+  },
+  "ai agent 決策": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "決策智能": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "openai decisions api": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 5
+  },
+  "decisions api": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 1
+  },
+  "ai 判斷": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 6
+  },
+  "模型校準": {
+   "volume": null,
+   "cpc": null,
+   "competition": null,
+   "ci": null
+  },
+  "ai classification model": {
+   "volume": 10,
+   "cpc": null,
+   "competition": "LOW",
+   "ci": 0
+  }
+ }
+}

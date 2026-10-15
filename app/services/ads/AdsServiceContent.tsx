@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
@@ -271,6 +272,19 @@ export default function AdsServiceContent() {
       </section>
 
       {/* 2. Pain Points: 為什麼你的廣告效果不好？ */}
+      {/* 配圖：投放前先確認目標、預算與可接受成本，再決定平台與素材方向。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/ads/ads-strategy-planning-session.webp"
+            alt="投放前先確認目標、預算與可接受成本，再決定平台與素材方向。"
+            caption="投放前先確認目標、預算與可接受成本，再決定平台與素材方向。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -386,7 +400,7 @@ export default function AdsServiceContent() {
             <StrategyCard 
               icon={MousePointer2}
               title="A/B Testing 測試"
-              desc="圖片定影片好？長文定短文好？唔使估。我們會同時投放多組廣告素材，讓數據告訴我們哪一組最賺錢，然後集中預算。"
+              desc="圖片還是影片較好？長文還是短文較好？不必猜測。我們會同時投放多組廣告素材，讓數據告訴我們哪一組最賺錢，然後集中預算。"
             />
           </div>
         </div>
@@ -509,6 +523,19 @@ export default function AdsServiceContent() {
       </section>
 
       {/* 8. [NEW] 服務方案 - Service Packages */}
+      {/* 配圖：Meta 與 Google 的成效分開檢視，再判斷預算應往哪一邊移動。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/ads/ads-platform-dashboards-multi-screen.webp"
+            alt="Meta 與 Google 的成效分開檢視，再判斷預算應往哪一邊移動。"
+            caption="Meta 與 Google 的成效分開檢視，再判斷預算應往哪一邊移動。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -695,6 +722,19 @@ export default function AdsServiceContent() {
       </section>
 
       {/* 12. 常見問題 FAQ */}
+      {/* 配圖：素材以同一條件並排測試，才知道差異來自哪一個變數。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/ads/ads-creative-testing-review.webp"
+            alt="素材以同一條件並排測試，才知道差異來自哪一個變數。"
+            caption="素材以同一條件並排測試，才知道差異來自哪一個變數。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section
         className="py-20 bg-white"
         aria-label="成效廣告投放常見問題"

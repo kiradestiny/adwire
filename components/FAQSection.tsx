@@ -43,13 +43,13 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
             id="faq-heading"
             className="text-3xl md:text-4xl font-bold text-[#0f4c81] mb-4"
           >
-            你最想知道嘅問題
+            你最想知道的問題
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#f5a623] to-orange-500">
               我哋一一解答
             </span>
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            香港企業最常問嘅數碼營銷問題，ADWire 專家團隊親自解答。
+            香港企業最常問的數碼營銷問題，ADWire 專家團隊親自解答。
           </p>
         </div>
 

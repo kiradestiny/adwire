@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import { PRODUCTION_FAQS } from "@/lib/service-faqs";
 import ContactSection from "@/components/ContactSection";
@@ -69,6 +70,19 @@ export default function ProductionServiceContent() {
       </section>
 
       {/* 2. 痛點分析 (Pain Points) - NEW */}
+      {/* 配圖：燈光與背景設定，決定成品是否達到品牌要求。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/production/production-studio-lighting-setup.webp"
+            alt="燈光與背景設定，決定成品是否達到品牌要求。"
+            caption="燈光與背景設定，決定成品是否達到品牌要求。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-[#0a0a0a] border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -232,6 +246,19 @@ export default function ProductionServiceContent() {
       </section>
 
       {/* 5. 我們的軍火庫 (Gear Showcase) */}
+      {/* 配圖：現場即時檢視畫面，避免拍攝完成後才發現問題。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/production/production-director-monitor-replay.webp"
+            alt="現場即時檢視畫面，避免拍攝完成後才發現問題。"
+            caption="現場即時檢視畫面，避免拍攝完成後才發現問題。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#111]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -284,6 +311,19 @@ export default function ProductionServiceContent() {
       </section>
 
       {/* 6. Portfolio Preview */}
+      {/* 配圖：後期調色與剪輯，是把素材變成可用成品的最後一關。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/production/production-post-editing-colour.webp"
+            alt="後期調色與剪輯，是把素材變成可用成品的最後一關。"
+            caption="後期調色與剪輯，是把素材變成可用成品的最後一關。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-black border-t border-white/10 text-center">
         <h2 className="text-3xl font-bold mb-8">用作品說話</h2>
         <div className="flex flex-wrap justify-center gap-4">

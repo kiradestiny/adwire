@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import ServiceJsonLd from "@/components/ServiceJsonLd";
 import FAQJsonLd from "@/components/FAQJsonLd";
 import Footer from "@/components/Footer";
@@ -301,6 +302,19 @@ export default function HealthcareServiceContent() {
       </section>
 
       {/* 2. Trust strip */}
+      {/* 配圖：預約、登記與輪候是診所每日重複最多的前線工序。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/healthcare/clinic-reception-patient-flow.webp"
+            alt="預約、登記與輪候是診所每日重複最多的前線工序。"
+            caption="預約、登記與輪候是診所每日重複最多的前線工序。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-14 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -474,6 +488,19 @@ export default function HealthcareServiceContent() {
       </section>
 
       {/* 7. Why Us */}
+      {/* 配圖：電子病歷讓查閱與交接更快，同時要符合資料私隱要求。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/healthcare/clinic-practitioner-records-tablet.webp"
+            alt="電子病歷讓查閱與交接更快，同時要符合資料私隱要求。"
+            caption="電子病歷讓查閱與交接更快，同時要符合資料私隱要求。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-[#0f4c81] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -546,6 +573,19 @@ export default function HealthcareServiceContent() {
       </section>
 
       {/* 10. Related reading */}
+      {/* 配圖：收費、庫存與對帳整合後，可減少漏收與重複核對。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/healthcare/clinic-billing-and-stock-desk.webp"
+            alt="收費、庫存與對帳整合後，可減少漏收與重複核對。"
+            caption="收費、庫存與對帳整合後，可減少漏收與重複核對。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

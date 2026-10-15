@@ -342,7 +342,7 @@ export default function ServicesContent() {
           <div className="text-center mb-14">
             <span className="text-[#f5a623] font-bold tracking-wider uppercase text-sm">What Changed</span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f4c81] mt-2 mb-6">
-              客戶搵供應商的方式，同三年前已經不同
+              客戶尋找供應商的方式，與三年前已經不同
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
               以往做好關鍵字排名就足夠。現時客戶可能直接問 AI「香港有邊間做 XX 的公司」，
@@ -568,7 +568,7 @@ export default function ServicesContent() {
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">由診斷開始，不是由報價開始</h2>
               <p className="text-blue-100 text-lg mb-8 leading-relaxed">
                 我們深知每個企業的情況都不同。因此第一步是檢視你的實際搜尋現況與網站狀況，
-                有了數據才談做甚麼、做幾多。
+                有了數據才談做甚麼、做多少。
               </p>
 
               <div className="space-y-8">

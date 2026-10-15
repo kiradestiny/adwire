@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import ServiceDeepDive from "@/components/ServiceDeepDive";
@@ -350,6 +351,19 @@ export default function EducationServiceContent() {
       </section>
 
       {/* 2. Stats strip */}
+      {/* 配圖：教學工具要配合課堂實際流程，而不是相反。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/education/education-classroom-technology-setup.webp"
+            alt="教學工具要配合課堂實際流程，而不是相反。"
+            caption="教學工具要配合課堂實際流程，而不是相反。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-16 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -563,6 +577,19 @@ export default function EducationServiceContent() {
       </section>
 
       {/* 7. 為什麼選擇 ADWire */}
+      {/* 配圖：採購與報價程序須依教育局指引辦理，文件要經得起審計。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/education/education-school-it-panel-meeting.webp"
+            alt="採購與報價程序須依教育局指引辦理，文件要經得起審計。"
+            caption="採購與報價程序須依教育局指引辦理，文件要經得起審計。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-[#0f4c81] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -717,6 +744,19 @@ export default function EducationServiceContent() {
       </section>
 
       {/* 11. FAQ */}
+      {/* 配圖：系統上線後的教師培訓，決定工具會否被真正使用。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/education/education-teacher-training-session.webp"
+            alt="系統上線後的教師培訓，決定工具會否被真正使用。"
+            caption="系統上線後的教師培訓，決定工具會否被真正使用。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section id="faq" className="py-24 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

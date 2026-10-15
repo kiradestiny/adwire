@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import ServiceDeepDive from "@/components/ServiceDeepDive";
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { motion, AnimatePresence } from "framer-motion";
@@ -189,6 +190,19 @@ export default function AiServiceContent() {
       </section>
 
       {/* Social Proof Stats */}
+      {/* 配圖：導入 AI 之前，先盤點哪些工序重複、哪些判斷不能自動化。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/ai/ai-enterprise-workshop-hong-kong.webp"
+            alt="導入 AI 之前，先盤點哪些工序重複、哪些判斷不能自動化。"
+            caption="導入 AI 之前，先盤點哪些工序重複、哪些判斷不能自動化。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-12 bg-white border-b border-slate-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <StatCard icon={TrendingUp} value="流程盤點" label="先釐清可自動化範圍" />
@@ -437,6 +451,19 @@ export default function AiServiceContent() {
       </section>
 
       {/* 系統架構、部署及治理 */}
+      {/* 配圖：企業知識庫把散落的文件集中，讓同事用自然語言找得到答案。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/ai/ai-knowledge-base-workstation.webp"
+            alt="企業知識庫把散落的文件集中，讓同事用自然語言找得到答案。"
+            caption="企業知識庫把散落的文件集中，讓同事用自然語言找得到答案。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -705,6 +732,19 @@ export default function AiServiceContent() {
 
       <ServiceDeepDive slug="ai" />
       {/* FAQ - Interactive */}
+      {/* 配圖：AI 要真正落地，通常需要與現有 CRM、ERP 或內部系統接通。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/ai/ai-system-integration-engineer.webp"
+            alt="AI 要真正落地，通常需要與現有 CRM、ERP 或內部系統接通。"
+            caption="AI 要真正落地，通常需要與現有 CRM、ERP 或內部系統接通。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

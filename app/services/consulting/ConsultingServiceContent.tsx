@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import ServiceDeepDive from "@/components/ServiceDeepDive";
@@ -439,6 +440,19 @@ export default function ConsultingServiceContent() {
       </section>
 
       {/* ── 2. 企業常見處境 ── */}
+      {/* 配圖：先了解實際運作與痛點，才判斷應該用系統、內容還是廣告。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/consulting/consulting-discovery-interview.webp"
+            alt="先了解實際運作與痛點，才判斷應該用系統、內容還是廣告。"
+            caption="先了解實際運作與痛點，才判斷應該用系統、內容還是廣告。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section id="pain-points" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -605,6 +619,19 @@ export default function ConsultingServiceContent() {
       </section>
 
       {/* ── 6. 為什麼是 ADWire ── */}
+      {/* 配圖：分階段的路線圖，讓每一期都有可驗收的交付物。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/consulting/consulting-technology-roadmap-review.webp"
+            alt="分階段的路線圖，讓每一期都有可驗收的交付物。"
+            caption="分階段的路線圖，讓每一期都有可驗收的交付物。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -685,6 +712,19 @@ export default function ConsultingServiceContent() {
       </section>
 
       {/* ── 9. 相關文章 / 延伸閱讀 ── */}
+      {/* 配圖：現有系統與資料狀況，往往決定導入新方案的實際工作量。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/consulting/consulting-system-audit-server-room.webp"
+            alt="現有系統與資料狀況，往往決定導入新方案的實際工作量。"
+            caption="現有系統與資料狀況，往往決定導入新方案的實際工作量。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

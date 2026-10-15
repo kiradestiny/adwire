@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import ServiceDeepDive from "@/components/ServiceDeepDive";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
@@ -158,6 +159,19 @@ export default function SystemServiceContent() {
       </section>
 
       {/* 2. Stats Section */}
+      {/* 配圖：系統設計由實際流程出發，先弄清楚資料從哪裡來、往哪裡去。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/system/system-operations-interview.webp"
+            alt="系統設計由實際流程出發，先弄清楚資料從哪裡來、往哪裡去。"
+            caption="系統設計由實際流程出發，先弄清楚資料從哪裡來、往哪裡去。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-16 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -423,6 +437,19 @@ export default function SystemServiceContent() {
 
 
       {/* 11. Trust Badges */}
+      {/* 配圖：把散落的試算表整合成單一資料來源，減少重複輸入。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/system/system-dashboard-in-use.webp"
+            alt="把散落的試算表整合成單一資料來源，減少重複輸入。"
+            caption="把散落的試算表整合成單一資料來源，減少重複輸入。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-16 bg-white border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
@@ -655,6 +682,19 @@ export default function SystemServiceContent() {
 
       <ServiceDeepDive slug="system" />
       {/* 17. FAQ Section */}
+      {/* 配圖：分階段交付與驗收，讓每一期都有可檢查的成果。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/system/system-development-team-standup.webp"
+            alt="分階段交付與驗收，讓每一期都有可檢查的成果。"
+            caption="分階段交付與驗收，讓每一期都有可檢查的成果。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import Footer from "@/components/Footer";
 import { AUTOMATION_FAQS } from "@/lib/service-faqs";
 import ContactSection from "@/components/ContactSection";
@@ -51,6 +52,19 @@ export default function AutomationServiceContent() {
       </section>
 
       {/* 2. 視覺核心：自動化流水線 (Workflow Visualization) */}
+      {/* 配圖：先畫出流程的每一步，才看得出哪一步最值得自動化。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/automation/automation-process-mapping-workshop.webp"
+            alt="先畫出流程的每一步，才看得出哪一步最值得自動化。"
+            caption="先畫出流程的每一步，才看得出哪一步最值得自動化。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-slate-50" id="demo">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -117,10 +131,10 @@ export default function AutomationServiceContent() {
                 <X size={24} /> 傳統人手操作
               </div>
               <ul className="space-y-4 text-gray-600">
-                <li className="flex gap-3"><span className="text-red-400">❌</span> 回覆慢：客人等幾粒鐘都未有人理，轉頭搵第二間。</li>
+                <li className="flex gap-3"><span className="text-red-400">❌</span> 回覆慢：客人等候數小時仍無人處理，隨即轉向其他供應商。</li>
                 <li className="flex gap-3"><span className="text-red-400">❌</span> 易出錯：人手 Copy & Paste 電話號碼，容易打錯字。</li>
                 <li className="flex gap-3"><span className="text-red-400">❌</span> 成本高：請一個 CS 要 $15k-$20k，仲要放假、MPF。</li>
-                <li className="flex gap-3"><span className="text-red-400">❌</span> 被動：唔識主動追單 (Follow up)，流失大量潛在客。</li>
+                <li className="flex gap-3"><span className="text-red-400">❌</span> 被動：沒有主動跟進，流失大量潛在客戶。</li>
               </ul>
             </div>
 
@@ -251,6 +265,19 @@ export default function AutomationServiceContent() {
       </section>
 
       {/* 7. 解決方案類型 */}
+      {/* 配圖：重複的單據輸入與對帳，是最常見也最容易自動化的工序。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/automation/automation-invoice-data-entry.webp"
+            alt="重複的單據輸入與對帳，是最常見也最容易自動化的工序。"
+            caption="重複的單據輸入與對帳，是最常見也最容易自動化的工序。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -418,6 +445,19 @@ export default function AutomationServiceContent() {
       </section>
 
       {/* 10. 常見問題 */}
+      {/* 配圖：查詢自動分流與回覆紀錄，減少漏接與重複輸入。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/automation/automation-whatsapp-crm-desk.webp"
+            alt="查詢自動分流與回覆紀錄，減少漏接與重複輸入。"
+            caption="查詢自動分流與回覆紀錄，減少漏接與重複輸入。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-[#0f4c81] mb-12 text-center">流程自動化常見問題</h2>

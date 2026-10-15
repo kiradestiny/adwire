@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import ServiceImage from "@/components/ServiceImage";
 import ServiceDeepDive from "@/components/ServiceDeepDive";
 import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
@@ -39,7 +40,7 @@ export default function SeoServiceContent() {
       answer: `ADWire 分三個方案（單一網站／單一市場，3 個月起，按月預繳）：Starter HK$5,800/月（15 個重點關鍵字、每月 2 篇內容、2 頁優化、每月成效報告）；Growth HK$9,800/月（30 個重點關鍵字、每月 4 篇內容、4 頁優化、GEO 可見度追蹤、月度策略檢視）；Premium HK$16,800/月（50 個重點關鍵字、每月 6 篇內容、6 頁優化、較深入技術支援）。費用不含廣告費、Hosting 及第三方工具；大型網站、多語言或大量 SKU 需另行報價。可 WhatsApp ${WHATSAPP_E164} 查詢。`
     },
     {
-      question: "我已經有落 Google Ads，仲需唔需要做 SEO？",
+      question: "我已經在投放 Google Ads，還需要做 SEO 嗎？",
       answer: "絕對需要。廣告是「租」流量，一停錢就停流量；SEO 是「置業」，建立長期資產。更重要的是，廣告無法幫你進入 AI 引擎的推薦——只有 GEO 優化才能做到。SEO + Ads 雙管齊下能覆蓋更廣的搜尋結果版面，效果更佳。"
     },
     {
@@ -208,6 +209,19 @@ export default function SeoServiceContent() {
       </section>
 
       {/* 2. 痛點直擊：三大致命問題 */}
+      {/* 配圖：先按搜尋意圖分組關鍵字，再決定每個頁面負責哪一組。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/seo/seo-keyword-research-planning.webp"
+            alt="先按搜尋意圖分組關鍵字，再決定每個頁面負責哪一組。"
+            caption="先按搜尋意圖分組關鍵字，再決定每個頁面負責哪一組。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -245,7 +259,7 @@ export default function SeoServiceContent() {
               <p className="text-gray-500 text-sm leading-relaxed mb-4">
                 當客人問 ChatGPT「香港邊間XXX最好」，如果你的品牌未被 AI 收錄，
                 <strong className="text-gray-800"> AI 永遠不會推薦你——即使你是業界 Top 1。</strong>
-                月活 8 億+ 的 AI 用戶，你一個都攬唔到。
+                月活 8 億+ 的 AI 用戶，你一個都接觸不到。
               </p>
               <div className="bg-emerald-50 rounded-xl p-4 text-sm">
                 <span className="font-semibold text-emerald-700">✓ GEO 的解決方案：</span>
@@ -580,6 +594,19 @@ export default function SeoServiceContent() {
       </section>
 
       {/* 8. [NEW] 適合行業 - Industries We Serve */}
+      {/* 配圖：技術問題會令優質內容無法被收錄，必須先處理。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/seo/seo-technical-audit-analytics.webp"
+            alt="技術問題會令優質內容無法被收錄，必須先處理。"
+            caption="技術問題會令優質內容無法被收錄，必須先處理。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -750,6 +777,19 @@ export default function SeoServiceContent() {
 
       <ServiceDeepDive slug="seo" />
       {/* 12. 常見問題 (FAQ) */}
+      {/* 配圖：內容大綱以實際搜尋問題為本，而不是關鍵字堆砌。 */}
+      <section className="pb-4 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ServiceImage
+            src="/services/seo/seo-content-brief-writing.webp"
+            alt="內容大綱以實際搜尋問題為本，而不是關鍵字堆砌。"
+            caption="內容大綱以實際搜尋問題為本，而不是關鍵字堆砌。"
+            width={1600}
+            height={900}
+            className="my-0"
+          />
+        </div>
+      </section>
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
