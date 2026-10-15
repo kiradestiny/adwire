@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <!--
+    ADWire 全站裝飾用格紋底 (grid overlay)。
+    用法：<div class="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
+    只用於深色區塊（品牌藍 #0f4c81、slate-900 或深色漸變），因此格線為白色；
+    實際深淺一律交由外層 Tailwind 的 opacity-5 / -10 / -20 控制，本檔不另設透明度。
+
+    40×40 的可無縫平鋪單元格：頂邊與左邊各一條 1px 線，
+    線心放在 0.5px 令 1px 描邊落在像素邊界上，避免縮放時出現半像素模糊。
+  -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="1">
+    <path d="M0 0.5H40" />
+    <path d="M0.5 0V40" />
+  </g>
+</svg>
