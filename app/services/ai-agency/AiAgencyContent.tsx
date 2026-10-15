@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ContactSection from "@/components/ContactSection";
 import { getWhatsAppUrl } from "@/lib/site-config";
 import { AI_AGENCY_FAQS } from "@/lib/service-faqs";
 
@@ -96,7 +99,9 @@ export default function AiAgencyContent() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
 
   return (
-    <main>
+    <div className="min-h-screen bg-white">
+      <Navbar />
+
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-[#0f172a] to-[#1e1b4b] text-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 relative z-10">
@@ -310,6 +315,9 @@ export default function AiAgencyContent() {
           </div>
         </div>
       </section>
-    </main>
+
+      <ContactSection defaultService="AI Agency 服務" />
+      <Footer />
+    </div>
   );
 }
