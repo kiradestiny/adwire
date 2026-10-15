@@ -28,6 +28,9 @@
  *    因此內容必須與頁面其他部分一致，且不可包含未經核實的成效保證。
  */
 
+// FAQ 答案內含聯絡方式，需與全站一致（電話號碼只由 site-config 提供）
+import { WHATSAPP_E164 } from "./site-config";
+
 export interface ServiceFaq {
   question: string;
   answer: string;
@@ -321,5 +324,187 @@ export const AI_AGENCY_FAQS: ServiceFaq[] = [
     question: "AI Agency、AI 顧問、軟件開發公司有咩分別？",
     answer:
       "三者交付的東西不同。AI 顧問一般只出評估報告與路線圖，不負責實作；軟件開發公司在系統與程式方面最專，但未必處理搜尋可見度與廣告成效；AI Agency 通常同時涵蓋評估、實作與營銷量度。實務上，如果你只需要一份可行性評估，找顧問可能更划算；如果只需訂造系統，直接找開發公司亦可。我們會在免費業務診斷階段說明自己適合負責哪一部分，包括建議你另找供應商的情況。",
+  },
+];
+
+// ── 成效廣告投放 `/services/ads/` ──────────────────────────────────────────
+// 2026-10-15 新增。來源：原 AdsServiceContent.tsx 的可見 FAQ（畫面為準）。
+// 舊版 page.tsx 另有一份 faqSchema，與畫面文字有出入（例如 ROAS 行業均值、
+// 最低預算建議等），已棄用，統一改由本陣列同時供畫面與 FAQPage schema 使用。
+export const ADS_FAQS: ServiceFaq[] = [
+  {
+    question: "香港廣告代操費用是多少？",
+    answer:
+      "ADWire 廣告代操分三方案：入門方案 HK$3,800/月（單一平台，廣告預算 HK$5K–15K）；進階方案 HK$8,800/月（Meta + Google 雙平台，廣告預算 HK$15K–50K）；企業方案按每月廣告費 15% 計算（廣告預算 HK$50K+，最低 HK$8,800/月），金額特大者會另行報價。代操費不含廣告媒體費用（Media Buy）。",
+  },
+  {
+    question: "廣告代投需要最低多少廣告預算？",
+    answer:
+      "一般建議每月最少 HK$5,000–8,000 媒體預算（Media Buy），確保有足夠數據進行機器學習和優化。預算越充足，優化速度越快。ADWire 入門方案支援 HK$5,000–15,000/月廣告預算。",
+  },
+  {
+    question: "什麼是 ROAS？ROAS 多少才算好？",
+    answer:
+      "ROAS（廣告投資回報率）= 廣告帶來收入 ÷ 廣告費用。行業均值 2–4x，ADWire 管理的帳戶平均 ROAS 達 8.5x，部分電商客戶高達 12x。ROAS 高低受行業、產品定價及受眾設定影響。",
+  },
+  {
+    question: "投放廣告後多久會見效？",
+    answer:
+      "Google Search 廣告通常 1–2 週見初步成效。Meta（FB/IG）需約 2–4 週「學習期（Learning Phase）」讓系統尋找最佳受眾。ADWire 持續優化以縮短學習期，一般 1 個月後可達穩定成效。",
+  },
+  {
+    question: "Facebook 和 Google 廣告，我應該選哪個？",
+    answer:
+      "「剛需」服務（如維修、急用）選 Google Search，因為客戶主動搜尋你。「衝動消費」或「新奇產品」（如服飾、美妝）選 Facebook/IG 主動推播效果更佳。ADWire 通常建議兩者配合，形成完整銷售漏斗。",
+  },
+  {
+    question: "ADWire 如何追蹤廣告轉換效果？",
+    answer:
+      "ADWire 提供完整轉換追蹤設置：Meta Pixel 安裝、Conversions API 設定（提高 iOS 隱私限制下的追蹤準確度）、Google Analytics 4 整合、Google Tag Manager 設置及電商購買事件追蹤。確保每分廣告費都能對應真實銷售成效。",
+  },
+  {
+    question: "你們會幫忙製作廣告圖片或影片嗎？",
+    answer:
+      "會。ADWire 服務包含廣告素材建議和基本製作。如需專業影片拍攝或進階動態素材，我們的 Production 團隊可提供獨立影片製作服務（需另外報價）。高質素素材是提升 CTR 及降低 CPM 的關鍵。",
+  },
+  {
+    question: "ADWire 廣告代操與其他 Agency 有什麼分別？",
+    answer:
+      "ADWire 不只執行廣告，更重視數據分析與策略優化。每日監察廣告表現，即時剔除蝕錢廣告，持續 A/B Testing 找最佳素材組合。以透明 ROAS 及 CPA 指標衡量所有成效，月度報告清晰展示每分廣告費回報。",
+  },
+];
+
+// ── KOL 網紅營銷 `/services/kol/` ──────────────────────────────────────────
+// 2026-10-15 新增。來源：原 KolServiceContent.tsx 的可見 FAQ（畫面為準）。
+// 舊版 page.tsx 的 faqSchema 與畫面文字有出入，已棄用。
+export const KOL_FAQS: ServiceFaq[] = [
+  {
+    question: "香港 KOL 合作費用是多少？",
+    answer:
+      "香港 KOL 費用因層級差異甚大：Nano KOL（1K–10K粉絲）約 HK$500–3,000/帖；Micro KOL（10K–100K）約 HK$3,000–15,000；Mid-tier KOL 約 HK$15,000–50,000；Macro / Mega KOL 則按個別議價。ADWire 根據預算及目標配置合適的 KOL 組合。",
+  },
+  {
+    question: "如何選擇適合品牌的 KOL？",
+    answer:
+      "選擇 KOL 不能只看粉絲數。重要指標包括：(1) 受眾人口統計與品牌目標客群匹配度；(2) 互動率（Engagement Rate）；(3) 粉絲真偽比例；(4) 過往商業合作的轉化表現。ADWire 使用 AI 工具分析所有指標，為品牌配對最合適的 KOL。",
+  },
+  {
+    question: "ADWire 提供哪些 KOL 合作形式？",
+    answer:
+      "三大合作形式：(1) Nano KOL 大規模種草 —— 10–100位素人同步發佈，建立有機口碑；(2) 大型品牌宣傳 —— 頭部 KOL 高質感內容，瞬間提升知名度；(3) 線下活動出席 —— KOL 探店、剪綵，製造熱鬧現場氣氛。",
+  },
+  {
+    question: "小紅書 KOL 與 Instagram KOL 有什麼分別？",
+    answer:
+      "小紅書 KOL 主要觸達中國內地及海外華人（月活 3 億，以內地年輕女性為主），適合香港品牌進入大灣區市場。IG KOL 主要觸達香港本地及全球受眾，視覺化內容吸引力強。兩者組合使用效果最佳。",
+  },
+  {
+    question: "KOL 廣告的效果如何衡量？",
+    answer:
+      "ADWire 提供完整成效追蹤報告，涵蓋：觸及率（Reach）、觀看次數（Views）、互動率（Engagement Rate）、點擊率（CTR）、網站流量增長及查詢轉換率。透明可追蹤，讓你清楚每分預算的真實 ROI。",
+  },
+  {
+    question: "合作一個 KOL 項目需要多長時間？",
+    answer:
+      "一般 KOL 項目由 Briefing 到發佈約需 2–4 週：第1週 KOL 篩選，第2週提案確認及接洽，第3週內容創作及審稿，第4週發佈及追蹤。大型品牌活動建議提前 6–8 週規劃。",
+  },
+  {
+    question: "什麼行業最適合 KOL 網紅營銷？",
+    answer:
+      "KOL 營銷適合幾乎所有 B2C 行業，尤其是：美容護膚（開箱評測）、餐飲 F&B（探店打卡）、時尚服飾（穿搭 Look）、電商零售（好物種草）、旅遊（打卡地點）、母嬰育兒（親子體驗）。",
+  },
+];
+
+// ── SEO 與 GEO 優化 `/services/seo/` ──────────────────────────────────────
+// 2026-10-15 新增。來源：原 SeoServiceContent.tsx 的可見 FAQ（畫面為準）。
+// 舊版 page.tsx 的 faqSchema 有兩處與畫面不一致，已一律以畫面為準：
+//   · 「我已經有落 Google Ads，仲需唔需要做 SEO？」（口語）→ 畫面版本
+//     「我已經在投放 Google Ads，還需要做 SEO 嗎？」為準，口語變體已刪。
+//   · GEO 定義問題畫面用「什麼是 GEO（生成式引擎優化）/ AISO？」，schema 版本文字較短。
+export const SEO_FAQS: ServiceFaq[] = [
+  {
+    question: "SEO 需要多長時間才見到效果？",
+    answer:
+      "SEO 是一個長期投資。技術修正後 1–2 個月見初步改善，關鍵字排名顯著提升通常需要 3–6 個月，視乎行業競爭程度及網站現有基礎。但一旦排名建立，帶來的免費流量是長期且穩定的資產。",
+  },
+  {
+    question: "什麼是 GEO（生成式引擎優化）/ AISO？",
+    answer:
+      "GEO（Generative Engine Optimization）又稱 AISO（AI Search Optimization），是針對 ChatGPT、Perplexity、Google Gemini、Claude、Microsoft Copilot 等 AI 引擎的優化策略。目標是提高品牌在 AI 回答中被提及或引用的機會。惟 AI 平台的輸出由平台決定，任何供應商都無法保證一定會被引用或推薦。",
+  },
+  {
+    question: "什麼是 Zero-Click 搜尋？為什麼會影響我的網站流量？",
+    answer:
+      "Zero-Click 搜尋是指用戶在 Google 或 AI 工具中輸入問題後，直接從搜尋結果或 AI 回答獲得答案，無需點擊任何網站。根據 Semrush 統計，2024 年約 60% 的 Google 搜尋是 Zero-Click。隨著 Google AI Overview 及各 AI 工具普及，未做 GEO 優化的品牌即使 Google 排名第一，也可能完全失去流量。",
+  },
+  {
+    question: "大公司如果不做 GEO 優化會有什麼後果？",
+    answer:
+      "ChatGPT 月活用戶超過 3 億，Perplexity 每月逾 5 億次查詢。若品牌未建立 GEO 優化基礎，當用戶問 AI「香港最好的XXX是什麼」，AI 只會推薦已做 GEO 的競爭對手。越早部署，AI 引用優勢就越難被追上。業界預計 2025 年後 GEO 將成為數碼營銷的基本配置。",
+  },
+  {
+    question: "ADWire SEO / GEO 服務收費是多少？",
+    answer: `ADWire 分三個方案（單一網站／單一市場，3 個月起，按月預繳）：Starter HK$5,800/月（15 個重點關鍵字、每月 2 篇內容、2 頁優化、每月成效報告）；Growth HK$9,800/月（30 個重點關鍵字、每月 4 篇內容、4 頁優化、GEO 可見度追蹤、月度策略檢視）；Premium HK$16,800/月（50 個重點關鍵字、每月 6 篇內容、6 頁優化、較深入技術支援）。費用不含廣告費、Hosting 及第三方工具；大型網站、多語言或大量 SKU 需另行報價。可 WhatsApp ${WHATSAPP_E164} 查詢。`,
+  },
+  {
+    question: "我已經在投放 Google Ads，還需要做 SEO 嗎？",
+    answer:
+      "絕對需要。廣告是「租」流量，一停錢就停流量；SEO 是「置業」，建立長期資產。更重要的是，廣告無法幫你進入 AI 引擎的推薦——只有 GEO 優化才能做到。SEO + Ads 雙管齊下能覆蓋更廣的搜尋結果版面，效果更佳。",
+  },
+  {
+    question: "ChatGPT 和 Perplexity 如何決定推薦哪個品牌？",
+    answer:
+      "AI 引擎選擇推薦品牌主要依據：(1) 內容被高信譽媒體/網站引用次數；(2) 官方網站內容的清晰度和結構化程度（Schema Markup）；(3) 品牌在多個渠道出現的一致性；(4) 內容的 E-E-A-T 原則（經驗、專業、權威、信任）。ADWire 的 GEO 服務針對這些指標進行系統性優化。",
+  },
+  {
+    question: "能保證 Google 第一頁排名嗎？",
+    answer:
+      "不會，我們亦不會作任何排名保證，因為 Google 及 AI 平台的演算法並非供應商可控制。ADWire 的工作是按技術 SEO、關鍵字意圖、內容質素及網站結構逐項優化，並以曝光、點擊、索引健康及查詢轉換等可量度數據交代進度。實務上，基礎打好後約 3–6 個月開始見到較明顯的排名及流量變化，競爭激烈的行業需要更長時間。",
+  },
+];
+
+// ── 社交媒體代管 `/services/social/` ──────────────────────────────────────
+// 2026-10-15 新增。來源：原 SocialServiceContent.tsx 的可見 FAQ（畫面為準）。
+// 舊版 page.tsx 的 faqSchema 與畫面文字有出入，已棄用。
+export const SOCIAL_FAQS: ServiceFaq[] = [
+  {
+    question: "香港社交媒體代管服務收費是多少？",
+    answer:
+      "ADWire 提供三個方案：基礎方案 HK$8,000/月（8–10 個 Feed Post）、進階方案 HK$15,000/月（12–15 個 Feed Post + 2 條 Reels）、及全方位方案（Custom 定制）。可 WhatsApp 聯絡索取詳細報價。",
+  },
+  {
+    question: "ADWire 社交媒體代管包含哪些服務？",
+    answer:
+      "涵蓋四大範疇：(1) 內容企劃 —— 每月制定 Content Calendar，撰寫有共鳴的文案；(2) 視覺設計 —— Feed 圖、Reels 封面及 Story 素材；(3) 社群管理 —— 代回覆 Inbox 及留言，將查詢轉化為訂單；(4) 數據分析 —— 每月 Insight Report 持續優化策略。",
+  },
+  {
+    question: "ADWire 管理哪些社交媒體平台？",
+    answer:
+      "主要管理五大平台：Instagram（IG）、Facebook 專頁、LinkedIn、小紅書（RED）及 Threads。我們會根據你的目標客群及行業，建議最適合的平台組合。",
+  },
+  {
+    question: "社交媒體代管需要簽長約嗎？",
+    answer:
+      "一般建議至少合作 3–6 個月，因為社群經營需要時間累積效果。ADWire 亦提供試用方案，讓客戶先體驗服務質素。無強制長期合約。",
+  },
+  {
+    question: "我需要提供什麼素材給 ADWire？",
+    answer:
+      "ADWire 可安排攝影師上門拍攝產品或場地（視乎方案）。你只需提供基本產品資訊和品牌指引（Brand Guidelines）。若有現成素材，我們亦可加工使用。",
+  },
+  {
+    question: "社交媒體代管服務包含廣告投放嗎？",
+    answer:
+      "社交媒體代管主要負責自然觸及（Organic）的內容經營。如需廣告投放（Paid Ads），ADWire 提供獨立的 Meta / Google Ads 代操服務，兩者配合效果最佳。",
+  },
+  {
+    question: "如何評估社交媒體代管的效果？",
+    answer:
+      "ADWire 每月提供詳細 Insight Report，追蹤觸及率（Reach）、互動率（Engagement Rate）、粉絲增長及查詢轉換率。我們以商業目標（訂單數、查詢量）而非單純 Like 數衡量成效。",
+  },
+  {
+    question: "為什麼要找代理公司管理社交媒體，而不是自己做？",
+    answer:
+      "自行管理需投入大量時間：每日構思內容、製作圖片、回覆留言及分析數據，中小企業往往力不從心。ADWire 擁有專業的內容策略師、設計師及社群管理員，配合 AI 工具，能以更低成本達到更專業效果，讓你的團隊專注於核心業務。",
   },
 ];

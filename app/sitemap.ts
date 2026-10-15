@@ -21,6 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const LEGAL_LAST_UPDATED    = '2025-01-01'  // 法律條款未變更（誠實值：內容確實未改）
   const PORTFOLIO_LAST_UPDATED = '2026-09-24' // 2026-09-24 見證資料匿名化（16 個案例）
   const SERVICE_LAST_UPDATED_2026_09_24 = '2026-09-24' // 2026-09-24 P1：title／H1／keywords 對準搜尋量
+  const ASSESSMENT_LAST_UPDATED = '2026-10-15' // 2026-10-15 新增 /start/ 需求評估短問卷
 
   // 逐頁 lastmod 覆寫：只對「確實於該日改動過」的頁面設新日期。
   // 唔可以全站一齊推日期 —— Google 對 lastmod 的信任建基於準確性，
@@ -72,6 +73,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: SITE_LAST_UPDATED,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: '/start/',                   // 需求評估短問卷：由首頁主 CTA 進入
+      lastModified: ASSESSMENT_LAST_UPDATED,
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
   ]
 

@@ -676,3 +676,51 @@ body {
 }
 .article-toc li a:hover { color: #0f4c81; }
 .article-toc li.toc-l3 a { padding-left: 1.1rem; font-size: 0.9375rem; }
+
+/* ══════════════════════════════════════════════════════════════
+   品牌走馬燈 (LogoWall) — CSS 動畫 + 可暫停
+   ── 由 components/LogoWall.tsx 使用。原本用 framer-motion 無限播放且完全
+      沒有暫停方式（WCAG 2.2.2）。改為 CSS keyframes 後，可用
+      animation-play-state 真正停格，亦能被子孫的 prefers-reduced-motion
+      規則統一收斂。時間、方向、間距沿用原本設定。
+   ══════════════════════════════════════════════════════════════ */
+@keyframes logo-marquee-forward {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+@keyframes logo-marquee-reverse {
+  from { transform: translate3d(-50%, 0, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+.logo-marquee {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+.logo-marquee-forward { animation-name: logo-marquee-forward; }
+.logo-marquee-reverse { animation-name: logo-marquee-reverse; }
+/* 暫停按鈕觸發：真正停格（不是隱藏或重設位置） */
+.logo-marquee-paused { animation-play-state: paused !important; }
+
+/* ══════════════════════════════════════════════════════════════
+   減少動態偏好 (prefers-reduced-motion) — 無障礙
+   ── 全站原本完全沒有此支援。系統設定「減少動態」時，收斂所有裝飾性
+      CSS animation / transition（WCAG 2.3.3）。以 0.001ms + 單次播放令
+      `animation-fill-mode: forwards` 的進場動畫直接跳到最終狀態（內容仍可見，
+      不會被隱藏）。純 CSS：不影響內容、品牌資產、字型或追蹤。
+   ══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

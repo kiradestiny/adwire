@@ -77,11 +77,10 @@ const serviceSchema = {
     "ADWire Agency 為香港品牌提供進入內地市場的推廣服務，涵蓋小紅書、抖音、微信、微博、百度搜尋、內地廣告投放、內地 KOL／KOC／KOS、美團／大眾點評／高德地圖商戶入駐，以及 DeepSeek／豆包／Kimi 等內地 AI 平台的生成式引擎優化（GEO）。",
   url: "https://adwire.com.hk/services/china-market/",
   image: "https://adwire.com.hk/services/china-market/og.webp",
+  // 只引用全站唯一的 Organization 節點（@id），不在同一個 @id 上再次宣告
+  // @type／name／url，避免與 components/JsonLd.tsx 的權威節點衝突。
   provider: {
-    "@type": "Organization",
     "@id": "https://adwire.com.hk/#organization",
-    name: "ADWire Agency",
-    url: "https://adwire.com.hk",
   },
   areaServed: [
     { "@type": "Country", name: "China" },

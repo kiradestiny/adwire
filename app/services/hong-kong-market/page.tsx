@@ -74,11 +74,10 @@ const serviceSchema = {
     "ADWire Agency 為內地及海外品牌提供進入香港市場的在地化推廣服務，包括繁體中文與廣東話語境改寫、社交媒體（IG／FB／Threads）代管、Google 搜尋優化、Meta／Google 廣告投放、KOL 網紅營銷配合、拍攝與製作，以及香港合規注意事項檢視。",
   url: "https://adwire.com.hk/services/hong-kong-market/",
   image: "https://adwire.com.hk/services/hong-kong-market/og.webp",
+  // 只引用全站唯一的 Organization 節點（@id），不在同一個 @id 上再次宣告
+  // @type／name／url，避免與 components/JsonLd.tsx 的權威節點衝突。
   provider: {
-    "@type": "Organization",
     "@id": "https://adwire.com.hk/#organization",
-    name: "ADWire Agency",
-    url: "https://adwire.com.hk",
   },
   areaServed: [
     { "@type": "Place", name: "Hong Kong" },

@@ -7,6 +7,7 @@ import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import { motion, AnimatePresence } from "framer-motion";
 import { getWhatsAppUrl, WHATSAPP_E164 } from "@/lib/site-config";
+import { SOCIAL_FAQS } from "@/lib/service-faqs";
 import {
   MessageCircle, Heart, Calendar, PenTool,
   BarChart2, Users, CheckCircle2, XCircle,
@@ -712,14 +713,9 @@ export default function SocialServiceContent() {
             <h2 className="text-3xl font-bold text-gray-900">社交媒體代管常見問題</h2>
           </div>
           <div className="space-y-4">
-            <FAQItem question="香港社交媒體代管服務收費是多少？" answer="ADWire 提供三個方案：基礎方案 HK$8,000/月（8–10 個 Feed Post）、進階方案 HK$15,000/月（12–15 個 Feed Post + 2 條 Reels）、及全方位方案（Custom 定制）。可 WhatsApp 聯絡索取詳細報價。" />
-            <FAQItem question="ADWire 社交媒體代管包含哪些服務？" answer="涵蓋四大範疇：(1) 內容企劃 —— 每月制定 Content Calendar，撰寫有共鳴的文案；(2) 視覺設計 —— Feed 圖、Reels 封面及 Story 素材；(3) 社群管理 —— 代回覆 Inbox 及留言，將查詢轉化為訂單；(4) 數據分析 —— 每月 Insight Report 持續優化策略。" />
-            <FAQItem question="ADWire 管理哪些社交媒體平台？" answer="主要管理五大平台：Instagram（IG）、Facebook 專頁、LinkedIn、小紅書（RED）及 Threads。我們會根據你的目標客群及行業，建議最適合的平台組合。" />
-            <FAQItem question="社交媒體代管需要簽長約嗎？" answer="一般建議至少合作 3–6 個月，因為社群經營需要時間累積效果。ADWire 亦提供試用方案，讓客戶先體驗服務質素。無強制長期合約。" />
-            <FAQItem question="我需要提供什麼素材給 ADWire？" answer="ADWire 可安排攝影師上門拍攝產品或場地（視乎方案）。你只需提供基本產品資訊和品牌指引（Brand Guidelines）。若有現成素材，我們亦可加工使用。" />
-            <FAQItem question="社交媒體代管服務包含廣告投放嗎？" answer="社交媒體代管主要負責自然觸及（Organic）的內容經營。如需廣告投放（Paid Ads），ADWire 提供獨立的 Meta / Google Ads 代操服務，兩者配合效果最佳。" />
-            <FAQItem question="如何評估社交媒體代管的效果？" answer="ADWire 每月提供詳細 Insight Report，追蹤觸及率（Reach）、互動率（Engagement Rate）、粉絲增長及查詢轉換率。我們以商業目標（訂單數、查詢量）而非單純 Like 數衡量成效。" />
-            <FAQItem question="為什麼要找代理公司管理社交媒體，而不是自己做？" answer="自行管理需投入大量時間：每日構思內容、製作圖片、回覆留言及分析數據，中小企業往往力不從心。ADWire 擁有專業的內容策略師、設計師及社群管理員，配合 AI 工具，能以更低成本達到更專業效果，讓你的團隊專注於核心業務。" />
+            {SOCIAL_FAQS.map((faq) => (
+              <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+            ))}
           </div>
           <div className="mt-10 text-center">
             <p className="text-gray-500 mb-4 text-sm">仲有其他問題？</p>

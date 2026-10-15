@@ -12,8 +12,8 @@ export default function JsonLd() {
     "logo": {
       "@type": "ImageObject",
       "url": "https://adwire.com.hk/logo.png",
-      "width": 400,
-      "height": 200
+      "width": 533,
+      "height": 173
     },
     "description": "ADWire Agency Limited 提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻及 KOL 等數碼營銷服務，以香港市場為主。",
     // 實體消歧義（2026-10-10）：Google AI 曾把本公司與同名／近名機構撈亂，並虛構出中文名「愛德廣告代理有限公司」。
@@ -58,9 +58,12 @@ export default function JsonLd() {
       "@type": "Country",
       "name": "Hong Kong"
     },
-    // 註：已移除 numberOfEmployees（未經核准的團隊人數）及 aggregateRating
-    //（評分來源及評論數目未核實，Schema 只可標記真實可見內容）。
-    // 如要恢復 aggregateRating，需先提供真實評論平台、評論數目及對應頁面。
+    // 註（2026-10-15）：已移除 numberOfEmployees（未經核准的團隊人數）。
+    // aggregateRating（ratingValue 4.9 / ratingCount 128）亦已移除 —— 評分來源及
+    // 評論數目從未核實，而 Google 的評論摘要政策不容許 LocalBusiness／Organization
+    // 自行張貼「自利評論」取得星級，且評分必須來自真實用戶。本檔不會以任何未經
+    // 核實的數字代替。如要恢復 aggregateRating，需先提供真實評論平台、
+    // 評論數目及對應可驗證頁面。
     "knowsAbout": [
       "Software Development",
       "AI Application Development",
@@ -122,17 +125,13 @@ export default function JsonLd() {
         "opens": "09:00",
         "closes": "18:00"
       }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "128"
-    }
+    ]
   };
 
-  // WebSite Schema — 觸發 Google Sitelinks 搜尋框
+  // WebSite Schema — 描述網站實體
+  // 已移除 potentialAction / SearchAction（2026-10-15）：Google 已於 2024 年 11 月
+  // 移除 Sitelinks 搜尋框，且站內無任何頁面讀取 `q` 參數，原 target
+  // urlTemplate 指向不存在的功能。
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -144,62 +143,7 @@ export default function JsonLd() {
     "inLanguage": ["zh-HK", "en-HK"],
     "publisher": {
       "@id": "https://adwire.com.hk/#organization"
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://adwire.com.hk/blog/?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
     }
-  };
-
-  // HowTo Schema — 合作流程，觸發 Google Rich Results
-  const howToSchema = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "如何與 ADWire Agency 開始合作？",
-    "description": "四個簡單步驟，讓 ADWire 為你量身打造 AI 驅動的數碼營銷方案，助香港企業業績增長。",
-    "totalTime": "PT15M",
-    "supply": [
-      {
-        "@type": "HowToSupply",
-        "name": "業務資料"
-      },
-      {
-        "@type": "HowToSupply",
-        "name": "營銷目標與預算範圍"
-      }
-    ],
-    "step": [
-      {
-        "@type": "HowToStep",
-        "position": 1,
-        "name": "免費初步諮詢",
-        "text": `通過 WhatsApp (${WHATSAPP_E164}) 或網站表格聯絡 ADWire，進行 15 分鐘免費業務診斷，了解你的痛點與目標。`,
-        "url": "https://adwire.com.hk/contact/"
-      },
-      {
-        "@type": "HowToStep",
-        "position": 2,
-        "name": "深度調研與分析",
-        "text": "ADWire 專家團隊分析你的行業趨勢、競爭對手及目標受眾，找出品牌增長的關鍵切入點。"
-      },
-      {
-        "@type": "HowToStep",
-        "position": 3,
-        "name": "量身定制方案",
-        "text": "結合 AI 技術與創意內容，制定全方位的 KOL 網紅營銷、SEO/GEO 優化、廣告投放或自動化系統方案。"
-      },
-      {
-        "@type": "HowToStep",
-        "position": 4,
-        "name": "執行、優化與增長",
-        "text": "精準執行、實時數據監測，持續優化轉化路徑，確保每一分預算都產生最大回報。",
-        "url": "https://adwire.com.hk/portfolio/"
-      }
-    ]
   };
 
   // ItemList Schema — 服務列表，助 AI 理解服務範疇
@@ -287,7 +231,6 @@ export default function JsonLd() {
     organizationSchema,
     localBusinessSchema,
     websiteSchema,
-    howToSchema,
     servicesItemListSchema,
   ];
 

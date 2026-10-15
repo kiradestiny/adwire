@@ -394,7 +394,7 @@ export default function AiAgencyContent() {
               href="/contact/"
               className="px-8 py-3.5 bg-[#f5a623] text-slate-900 font-bold rounded-lg hover:bg-amber-400 transition"
             >
-              預約 15 分鐘免費業務診斷
+              預約免費業務診斷
             </Link>
             <a
               href={getWhatsAppUrl()}

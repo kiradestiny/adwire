@@ -177,42 +177,6 @@ function FaqPageJsonLd({
   );
 }
 
-// ─── HowTo JSON-LD（執行流程 → 步驟富結果）──────────────────────
-function HowToJsonLd({
-  caseItem,
-}: {
-  caseItem: PortfolioCase;
-}) {
-  if (!caseItem.processSteps?.length) return null;
-
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    name: `${caseItem.title} — ADWire Agency 執行流程`,
-    description: caseItem.shortDescription,
-    image: `https://adwire.com.hk${caseItem.image}`,
-    totalTime: `P${caseItem.duration.replace(/[^0-9]/g, "")}W`,
-    supply: caseItem.services.map((s) => ({
-      "@type": "HowToSupply",
-      name: s,
-    })),
-    step: caseItem.processSteps.map((step, i) => ({
-      "@type": "HowToStep",
-      position: i + 1,
-      name: step.title,
-      text: step.description,
-      url: `https://adwire.com.hk/portfolio/${caseItem.slug}/#process`,
-    })),
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
-}
-
 // ─── Service JSON-LD ──────────────────────────────────────────
 function ServiceJsonLd({
   caseItem,
@@ -225,13 +189,12 @@ function ServiceJsonLd({
     name: caseItem.displayCategory,
     description: caseItem.fullDescription,
     provider: {
-      "@type": "Organization",
-      name: "ADWire Agency",
-      url: "https://adwire.com.hk",
-      areaServed: {
-        "@type": "Place",
-        name: "Hong Kong",
-      },
+      // 只引用全站唯一的 Organization 節點，避免另立一個無 @id 的重複實體。
+      "@id": "https://adwire.com.hk/#organization",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: "Hong Kong",
     },
     serviceType: caseItem.category,
     offers: {
@@ -287,8 +250,9 @@ export default async function CaseStudyPage({
       <CaseStudyJsonLd caseItem={caseItem} />
       {/* FAQPage — Google FAQ Rich Snippets 摺疊問答 */}
       <FaqPageJsonLd extendedData={extendedData} />
-      {/* HowTo — 執行流程步驟富結果 */}
-      <HowToJsonLd caseItem={caseItem} />
+      {/* 註（2026-10-15）：已移除 HowTo JSON-LD。Google 已於 2023-09 完全停用
+          HowTo 複合式搜尋結果（桌面及行動），保留只屬死碼；案例的執行流程在
+          畫面本身已可讀，不需靠這個已棄用的型別。 */}
       {/* Service — 強化服務類別語意信號 */}
       <ServiceJsonLd caseItem={caseItem} />
       {/*

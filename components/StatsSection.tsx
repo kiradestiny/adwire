@@ -90,8 +90,14 @@ export default function StatsSection() {
             return (
               <div
                 key={index}
+                /* 2026-10-15：初始狀態不再寫 `opacity-0`。
+                   原本未進入視口時 class 為 opacity-0，SSR HTML 出街時
+                   500+/328% 等統計數字在「無 JS 或 JS 失敗」時完全不可見。
+                   改為預設可見，IntersectionObserver 觸發時才加上
+                   animate-fade-in-up —— 內容預設可見，動畫只作增強
+                   （沿用 Services.tsx / HeroSection.tsx 既有做法）。 */
                 className={`group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-${stat.color}-200 ${
-                  isVisible ? 'animate-fade-in-up' : 'opacity-0'
+                  isVisible ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >

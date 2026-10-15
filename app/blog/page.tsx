@@ -56,14 +56,10 @@ function BlogListSchema({ posts }: { posts: BlogPostSummary[] }) {
       "分享最前沿的 MarTech 趨勢、AI 工具應用、SEO/GEO 策略及數碼營銷乾貨",
     "url": "https://adwire.com.hk/blog/",
     "inLanguage": "zh-HK",
+    // 只引用全站唯一的 Organization 節點（@id）；不在同一個 @id 上重複宣告
+    // name／logo，否則會與 components/JsonLd.tsx 的權威節點出現兩個版本。
     "publisher": {
-      "@type": "Organization",
       "@id": "https://adwire.com.hk/#organization",
-      "name": "ADWire Agency",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://adwire.com.hk/logo.png",
-      },
     },
     "blogPost": posts.map((post: { slug: string; title: string; excerpt: string; date: string; image?: string; tags: string[]; category: string }) => ({
       "@type": "BlogPosting",

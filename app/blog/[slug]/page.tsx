@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import ShareButton from "@/components/ShareButton";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { buildSrcSet } from "@/lib/imageVariants";
 import { getWhatsAppUrl } from "@/lib/site-config";
 import {
   buildTocAndInjectIds,
@@ -95,23 +96,15 @@ function ArticleSchema({ post }: { post: BlogPost }) {
     "datePublished": `${post.date}T09:00:00+08:00`,
     "dateModified": post.updatedAt || `${post.date}T09:00:00+08:00`,
     "author": {
-      "@type": "Organization",
+      // 只引用全站唯一的 Organization 節點（@id）。舊版在此重複宣告
+      // author.name "ADWire Agency Limited" 及 author.url "/about/"，
+      // 與 components/JsonLd.tsx 的權威節點（name "ADWire Agency"、
+      // url https://adwire.com.hk）不符，會造成同一 @id 兩個版本。
       "@id": "https://adwire.com.hk/#organization",
-      "name": "ADWire Agency Limited",
-      "url": "https://adwire.com.hk/about/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://adwire.com.hk/logo.png",
-      },
     },
     "publisher": {
-      "@type": "Organization",
+      // 同上：只引用 @id，不再重複 name／logo。
       "@id": "https://adwire.com.hk/#organization",
-      "name": "ADWire Agency",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://adwire.com.hk/logo.png",
-      },
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -465,13 +458,27 @@ export default async function BlogPost({
               className={`w-full aspect-video rounded-2xl md:rounded-3xl bg-gradient-to-br ${post.imageColor} shadow-lg mb-10 md:mb-12 relative overflow-hidden`}
             >
               {post.image ? (
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+                <>
+                  {/* LCP 封面（2026-10-15）：
+                      - next/image 在 `images.unoptimized` 靜態匯出下不產生 srcset，
+                        亦不會在 preload link 上帶 fetchpriority。
+                      - 改用原生 img：React 19 會為 eager 且 fetchPriority="high"
+                        的 img 自動輸出 <link rel="preload" as="image">（已用控制組
+                        實測，亦與 out/ 建置 HTML 一致）。因此這裡不再手動加 preload，
+                        否則會出現兩個重複的 preload link。
+                      - 變體由 scripts/generate-image-variants.py 產生；
+                        無變體時 srcSet 為 undefined，退回單一 src。 */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    fetchPriority="high"
+                    decoding="async"
+                    sizes="(max-width: 1024px) 100vw, 800px"
+                    srcSet={buildSrcSet(post.image)}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                </>
               ) : (
                 <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
               )}
@@ -524,7 +531,7 @@ export default async function BlogPost({
                   遇到類似的增長瓶頸？
                 </h3>
                 <p className="text-blue-100 mb-8 max-w-xl mx-auto">
-                  別讓問題持續影響你的業績。預約 ADWire 的 15 分鐘免費諮詢，讓我們為你診斷痛點，提供度身訂造解決方案。
+                  別讓問題持續影響你的業績。預約 ADWire 的免費諮詢，讓我們為你診斷痛點，提供度身訂造解決方案。
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link

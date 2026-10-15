@@ -6,7 +6,7 @@ import {
   CheckCircle2, MessageCircle, Shield, Zap, Gift, Star,
 } from "lucide-react";
 import { useState, useEffect, useCallback, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 // ─── Service Options ──────────────────────────────────────────────────────────
 // 服務選項統一由 public/config/services.json 管理（Single Source of Truth）
@@ -44,6 +44,26 @@ const PHONE_DIGITS_REGEX = /^\d{8,15}$/;
 const CLIENT_SUBMIT_COOLDOWN_MS = 60_000;
 const MIN_FORM_FILL_MS = 4_000;
 const SUBMIT_COOLDOWN_STORAGE_KEY = "adwire_contact_submit_cooldown_until";
+
+/**
+ * 問卷（/start/）交接用的 sessionStorage key。
+ * 只放非個人的答案摘要，不含姓名／電話／電郵；讀取後即刪除。
+ */
+const PREFILL_STORAGE_KEY = "adwire_assessment_prefill_v1";
+/** 預填訊息上限，與訊息欄位 maxLength 一致，避免超長內容。 */
+const PREFILL_MESSAGE_MAX_LENGTH = 2000;
+
+/** 送出前以固定次序驗證的欄位，用作「聚焦第一個錯誤欄位」。 */
+const VALIDATED_FIELD_ORDER = ["name", "phone", "email", "company", "companySite"] as const;
+
+/** 可見欄位 → 實際 input id（用於聚焦錯誤欄位）。 */
+const VISIBLE_FIELD_IDS: Record<string, string> = {
+  name: "contact-name",
+  phone: "contact-phone",
+  email: "contact-email",
+  company: "contact-company",
+  companySite: "contact-companysite",
+};
 
 const sanitizePhoneInput = (value: string) => value.replace(/\D/g, "").slice(0, 15);
 
@@ -242,6 +262,7 @@ function FloatingInput({
 // ─── ContactSection ────────────────────────────────────────────────────────────
 export default function ContactSection({ defaultService }: { defaultService?: string }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [mounted, setMounted]           = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   // ─── Cloudflare Turnstile（2026-09-28）─────────────────────────────────────
@@ -252,13 +273,29 @@ export default function ContactSection({ defaultService }: { defaultService?: st
   const turnstileBoxRef = useRef<HTMLDivElement | null>(null);
   const turnstileTokenRef = useRef<string>("");
   const turnstileFailedRef = useRef(false);
+  /** 只初始化一次 Turnstile（按需求才載入，避免每個訪客一入站就下載第三方腳本） */
+  const turnstileStartedRef = useRef(false);
+  /** 整個查詢區，用於 IntersectionObserver 判斷表單是否接近視口 */
+  const sectionRef = useRef<HTMLElement | null>(null);
 
-  useEffect(() => {
-    if (!TURNSTILE_SITE_KEY) return;
-    let cancelled = false;
+  /**
+   * 按需初始化 Turnstile（2026-10-15）。
+   *
+   * 原本在 mount 時立即注入 Cloudflare 腳本並 render widget，等於每個訪客
+   * 一入首頁就下載約 600KB challenge 資源。現在改為「表單接近視口時才初始化」，
+   * 並在送出時再呼叫一次（快速提交路徑亦可用）。
+   *
+   * 防濫用設計完全不變：
+   *   - widget 仍為 non-interactive，真客唔需要撳任何嘢
+   *   - script 載入失敗／widget 出錯 → 照樣提交，交由後端評分決定，永不擋真客
+   *   - token 過期 → 清空 token，重試時重新等待，逾時後照樣提交
+   */
+  const initTurnstile = useCallback(() => {
+    if (!TURNSTILE_SITE_KEY || turnstileStartedRef.current) return;
+    if (!turnstileBoxRef.current) return;
 
     const renderWidget = () => {
-      if (cancelled || !turnstileBoxRef.current || !window.turnstile) return;
+      if (!turnstileBoxRef.current || !window.turnstile) return;
       try {
         window.turnstile.render(turnstileBoxRef.current, {
           sitekey: TURNSTILE_SITE_KEY,
@@ -272,12 +309,14 @@ export default function ContactSection({ defaultService }: { defaultService?: st
       }
     };
 
+    turnstileStartedRef.current = true;
+
     if (window.turnstile) { renderWidget(); return; }
 
     const existing = document.querySelector<HTMLScriptElement>("script[data-adwire-turnstile]");
     if (existing) {
       existing.addEventListener("load", renderWidget);
-      return () => existing.removeEventListener("load", renderWidget);
+      return;
     }
 
     const script = document.createElement("script");
@@ -288,9 +327,27 @@ export default function ContactSection({ defaultService }: { defaultService?: st
     script.addEventListener("load", renderWidget);
     script.addEventListener("error", () => { turnstileFailedRef.current = true; });
     document.head.appendChild(script);
-
-    return () => { cancelled = true; };
   }, []);
+
+  /* 查詢區接近視口（預留 200px）時才按需載入 Turnstile */
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") { initTurnstile(); return; }
+
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          initTurnstile();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [initTurnstile]);
+
 
   /** 等 Turnstile 產生 token（最多 5 秒）。失敗或被擋則回空字串，照樣提交。 */
   const waitForTurnstileToken = async (maxMs = 5000): Promise<string> => {
@@ -339,6 +396,69 @@ export default function ContactSection({ defaultService }: { defaultService?: st
       setCooldownUntil(storedCooldownUntil);
     }
   }, []);
+
+  /* ── 問卷（/start/）交接：預填表單 ─────────────────────────────────────────
+     只在 /contact/ 掛載時讀取 sessionStorage 的 adwire_assessment_prefill_v1。
+     規則：
+       · 只接受白名單內的 service，budget／timeline 亦需符合既有選項
+       · message 會 clamp 長度；不含任何個人資料（問卷只寫非敏感答案）
+       · JSON 無效／storage 被封鎖 → 靜默略過，表單保持可用
+       · 讀取後即刪除 key；永不讀取 URL query string；永不自動送出 */
+  useEffect(() => {
+    if (pathname !== "/contact/" && pathname !== "/contact") return;
+
+    let raw: string | null = null;
+    try {
+      raw = window.sessionStorage.getItem(PREFILL_STORAGE_KEY);
+    } catch {
+      return; // storage 被封鎖 → 靜默略過
+    }
+    if (!raw) return;
+
+    try {
+      const parsed: unknown = JSON.parse(raw);
+      if (parsed && typeof parsed === "object") {
+        const data = parsed as Record<string, unknown>;
+
+        const service =
+          typeof data.service === "string" && SERVICE_OPTIONS.includes(data.service)
+            ? data.service
+            : "";
+        const message =
+          typeof data.message === "string"
+            ? data.message.slice(0, PREFILL_MESSAGE_MAX_LENGTH)
+            : "";
+        const budget =
+          typeof data.budget === "string" &&
+          (BUDGET_OPTIONS as readonly string[]).includes(data.budget)
+            ? data.budget
+            : "";
+        const timeline =
+          typeof data.timeline === "string" &&
+          (TIMELINE_OPTIONS as readonly string[]).includes(data.timeline)
+            ? data.timeline
+            : "";
+
+        if (service || message || budget || timeline) {
+          setValues(prev => ({
+            ...prev,
+            ...(service ? { service } : {}),
+            ...(message ? { message } : {}),
+            ...(budget ? { budget } : {}),
+            ...(timeline ? { timeline } : {}),
+          }));
+        }
+      }
+    } catch {
+      // 無效 JSON → 靜默略過，保持表單可用
+    } finally {
+      try {
+        window.sessionStorage.removeItem(PREFILL_STORAGE_KEY);
+      } catch {
+        /* 略過 */
+      }
+    }
+  }, [pathname]);
 
   useEffect(() => {
     if (!cooldownUntil) {
@@ -421,16 +541,11 @@ export default function ContactSection({ defaultService }: { defaultService?: st
       return;
     }
 
-    const formStartedTimestamp = Date.parse(values.formStartedAt);
-    if (!Number.isFinite(formStartedTimestamp) || Date.now() - formStartedTimestamp < MIN_FORM_FILL_MS) {
-      setSubmitError("提交過快，請檢查資料後稍候幾秒再試。");
-      triggerShake();
-      return;
-    }
-
-    // Validate all required fields upfront
+    // ── 先驗證欄位（required／格式），再檢查時間閘 ──
+    // 修正：原本時間閘行先，令「填完即刻送」的真客只見到「提交過快」，
+    // 而唔係真正嘅欄位錯誤。時間閘保留（防濫用），但移到欄位驗證之後。
     const newErrors: Record<string, string> = {};
-    (["name", "phone", "email", "company", "companySite"] as const).forEach(field => {
+    VALIDATED_FIELD_ORDER.forEach(field => {
       const err = VALIDATORS[field]?.(values[field]) ?? "";
       if (err) newErrors[field] = err;
     });
@@ -438,6 +553,18 @@ export default function ContactSection({ defaultService }: { defaultService?: st
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
+      // 聚焦第一個錯誤欄位，方便鍵盤／螢幕閱讀器用戶
+      const firstErrorField = VALIDATED_FIELD_ORDER.find(f => newErrors[f]);
+      if (firstErrorField) {
+        document.getElementById(VISIBLE_FIELD_IDS[firstErrorField])?.focus();
+      }
+      triggerShake();
+      return;
+    }
+
+    const formStartedTimestamp = Date.parse(values.formStartedAt);
+    if (!Number.isFinite(formStartedTimestamp) || Date.now() - formStartedTimestamp < MIN_FORM_FILL_MS) {
+      setSubmitError("提交過快，請檢查資料後稍候幾秒再試。");
       triggerShake();
       return;
     }
@@ -446,6 +573,9 @@ export default function ContactSection({ defaultService }: { defaultService?: st
     setSubmitError(null);
 
     try {
+      // 快速提交時亦要確保 Turnstile 已按需初始化（正常情況接近視口已載入）。
+      initTurnstile();
+
       // 先等 Turnstile token（最多 5 秒）再送出。
       // 若 Turnstile 被擋／出錯 → token 為空字串，照樣送出，由後端評分決定。
       const turnstileToken = await waitForTurnstileToken();
@@ -490,7 +620,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
   const msgLen = values.message.length;
 
   return (
-    <section className="py-24 bg-[#0f4c81] text-white relative overflow-hidden" id="contact">
+    <section ref={sectionRef} className="py-24 bg-[#0f4c81] text-white relative overflow-hidden" id="contact">
       {/* Background blobs（裝飾性） */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-[#f5a623] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" aria-hidden="true" />
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" aria-hidden="true" />

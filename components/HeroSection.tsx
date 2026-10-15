@@ -344,35 +344,59 @@ export default function HeroSection() {
               從需求分析、開發部署到持續改善，協助企業處理實際營運與增長問題。
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-fade-in-up" style={{ animationDelay: "0.6s", opacity: 0 }}>
+            {/* CTAs
+                主要入口：帶不懂選服務的訪客去做短問卷（/start）。
+                保留原有「討論你的項目」直接查詢入口，不強迫所有人答問卷。 */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-4 animate-fade-in-up" style={{ animationDelay: "0.6s", opacity: 0 }}>
               <Link
-                href="/contact"
+                href="/start"
                 prefetch={false}
-                aria-label="討論你的項目"
+                aria-label="找出適合你的方案與預算"
                 className="group relative px-8 py-4 bg-[#f5a623] text-white font-bold rounded-full overflow-hidden transition-all duration-300 flex items-center justify-center gap-2
                   hover:shadow-[0_0_32px_rgba(245,166,35,0.65),0_0_60px_rgba(245,166,35,0.25)]
-                  hover:scale-[1.04] active:scale-[0.97]"
+                  hover:scale-[1.04] active:scale-[0.97] motion-reduce:transform-none"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  討論你的項目
+                  找出適合你的方案與預算
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
                 <span className="absolute inset-0 shimmer-bg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
 
               <Link
-                href="/services"
-                aria-label="探索服務方案"
+                href="/contact"
                 prefetch={false}
+                aria-label="討論你的項目"
                 className="group px-8 py-4 liquid-glass text-white font-bold rounded-full
                   border border-white/20 hover:border-white/40
                   transition-all duration-300 flex items-center justify-center gap-2
                   hover:shadow-[0_0_24px_rgba(255,255,255,0.08)]
-                  hover:scale-[1.04] active:scale-[0.97]"
+                  hover:scale-[1.04] active:scale-[0.97] motion-reduce:transform-none"
+              >
+                討論你的項目
+                <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+              </Link>
+            </div>
+
+            {/* 次入口（文字連結）：保留原有「探索服務方案」，另加案例入口 */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-8 animate-fade-in-up" style={{ animationDelay: "0.65s", opacity: 0 }}>
+              <Link
+                href="/services"
+                prefetch={false}
+                aria-label="探索服務方案"
+                className="group inline-flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200"
               >
                 探索服務方案
-                <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" />
+              </Link>
+              <Link
+                href="/portfolio/"
+                prefetch={false}
+                aria-label="查看相關案例"
+                className="group inline-flex items-center gap-1 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200"
+              >
+                查看相關案例
+                <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" />
               </Link>
             </div>
 
@@ -456,7 +480,7 @@ export default function HeroSection() {
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                      <span className="text-xs text-gray-400 font-mono">ADWire Dashboard（示意圖）</span>
+                      <span className="text-xs text-gray-400 font-mono">ADWire Dashboard（示意圖：非實際帳戶數據）</span>
                     </div>
                   </div>
 

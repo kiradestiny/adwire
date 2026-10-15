@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { WHATSAPP_E164 } from "@/lib/site-config";
 import AdsServiceContent from "./AdsServiceContent";
+import FAQJsonLd from "@/components/FAQJsonLd";
+import { ADS_FAQS } from "@/lib/service-faqs";
 
 export const metadata: Metadata = {
   title: "廣告公司｜Google・Meta 成效代操",
@@ -68,10 +70,9 @@ const serviceSchema = {
   url: "https://adwire.com.hk/services/ads/",
   image: "https://adwire.com.hk/portfolio/global-trade-ads.webp",
   provider: {
-    "@type": "Organization",
+    // 只引用全站唯一的 Organization 節點（@id），不在同一個 @id 上再次
+    // 宣告 @type／name／url，避免與 components/JsonLd.tsx 的權威節點衝突。
     "@id": "https://adwire.com.hk/#organization",
-    name: "ADWire Agency",
-    url: "https://adwire.com.hk",
   },
   areaServed: [
     { "@type": "Place", name: "Hong Kong" },
@@ -137,77 +138,6 @@ const serviceSchema = {
   },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "香港廣告代操費用是多少？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ADWire 廣告代操費用分三個方案：入門方案 HK$3,800/月（單一平台，廣告預算 HK$5K–15K）；進階方案 HK$8,800/月（雙平台 Meta + Google，廣告預算 HK$15K–50K）；企業方案按每月廣告費 15% 計算（多平台，廣告預算 HK$50K+，最低 HK$8,800/月），金額特大者另行報價。代操費不包含廣告媒體費用（Media Buy）。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "廣告代投需要最低多少廣告預算？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "一般建議每月最少 HK$5,000–8,000 的媒體預算（Media Buy），以確保有足夠數據進行機器學習和優化。ADWire 入門方案支援 HK$5,000–15,000/月的廣告預算。預算越充足，優化速度越快，成效越顯著。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "什麼是 ROAS？ROAS 多少才算好？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ROAS（Return on Ad Spend）是廣告投資回報率，計算方式為：廣告帶來的收入 ÷ 廣告費用。例如花了 HK$1,000 廣告費，帶來 HK$5,000 收入，ROAS = 5x。行業普遍 ROAS 在 2–4x，ADWire 管理的廣告帳戶平均 ROAS 達 8.5x，部分電商客戶高達 12x。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "投放廣告後多久會見效？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Google Search 廣告通常 1–2 週內可見初步成效。Meta（FB/IG）廣告需約 2–4 週「學習期（Learning Phase）」讓系統尋找最佳受眾。ADWire 通過 A/B Testing 及持續優化縮短學習期，一般 1 個月後即可達到穩定成效。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Facebook 和 Google 廣告，我應該選哪個？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "視乎產品性質。「剛需」服務（如通渠、維修、急用）選 Google Search 效果最佳，因為客戶主動搜尋你。「衝動消費」或「新奇產品」（如服飾、美妝）選 Facebook/IG 的主動推播效果更佳。ADWire 通常建議兩者配合，形成完整銷售漏斗，以最低成本覆蓋最大客群。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "ADWire 如何追蹤廣告轉換效果？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ADWire 提供完整的廣告轉換追蹤設置，包括：Meta Pixel 安裝、Conversions API 設定（提高 iOS 隱私限制下的追蹤準確度）、Google Analytics 4 整合、Google Tag Manager 設置及電商平台購買事件追蹤。確保每筆廣告費用都能對應到真實的銷售成效。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "你們會幫忙製作廣告圖片或影片嗎？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "會。ADWire 服務包含廣告素材建議和基本製作（靜態圖片及基礎設計）。如需專業影片拍攝或進階動態素材，我們的 Production 團隊可提供獨立的影片製作服務（需另外報價）。高質素素材是提升 CTR 及降低 CPM 的關鍵。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "ADWire 廣告代操與其他 Agency 有什麼分別？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ADWire 不只是執行廣告，更重視數據分析與策略優化。我們每日監察廣告表現，即時剔除蝕錢廣告，持續 A/B Testing 找出最佳素材組合。我們的目標是幫你「賺錢」而非「花錢」——以透明的 ROAS 及 CPA 指標衡量所有成效，月度報告清晰展示每分廣告費的回報。",
-      },
-    },
-  ],
-};
-
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -225,10 +155,7 @@ export default function AdsServicePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <FAQJsonLd faqs={ADS_FAQS} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

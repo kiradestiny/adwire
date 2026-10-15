@@ -7,7 +7,8 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import { motion, AnimatePresence } from "framer-motion";
-import { getWhatsAppUrl, WHATSAPP_E164 } from "@/lib/site-config";
+import { getWhatsAppUrl } from "@/lib/site-config";
+import { SEO_FAQS } from "@/lib/service-faqs";
 import {
   Search, Bot, TrendingUp, DollarSign, Globe, ChevronRight,
   BarChart, Check, ArrowRight, ChevronDown, MapPin, FileText, Cpu,
@@ -18,41 +19,6 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function SeoServiceContent() {
-  const faqs = [
-    {
-      question: "SEO 需要多長時間才見到效果？",
-      answer: "SEO 是一個長期投資。技術修正後 1–2 個月見初步改善，關鍵字排名顯著提升通常需要 3–6 個月，視乎行業競爭程度及網站現有基礎。但一旦排名建立，帶來的免費流量是長期且穩定的資產。"
-    },
-    {
-      question: "什麼是 GEO（生成式引擎優化）/ AISO？",
-      answer: "GEO（Generative Engine Optimization）又稱 AISO（AI Search Optimization），是針對 ChatGPT、Perplexity、Google Gemini、Claude、Microsoft Copilot 等 AI 引擎的優化策略。目標是提高品牌在 AI 回答中被提及或引用的機會。惟 AI 平台的輸出由平台決定，任何供應商都無法保證一定會被引用或推薦。"
-    },
-    {
-      question: "什麼是 Zero-Click 搜尋？為什麼會影響我的網站流量？",
-      answer: "Zero-Click 搜尋是指用戶在 Google 或 AI 工具中輸入問題後，直接從搜尋結果或 AI 回答獲得答案，無需點擊任何網站。根據 Semrush 統計，2024 年約 60% 的 Google 搜尋是 Zero-Click。隨著 Google AI Overview 及各 AI 工具普及，未做 GEO 優化的品牌即使 Google 排名第一，也可能完全失去流量。"
-    },
-    {
-      question: "大公司如果不做 GEO 優化會有什麼後果？",
-      answer: "ChatGPT 月活用戶超過 3 億，Perplexity 每月逾 5 億次查詢。若品牌未建立 GEO 優化基礎，當用戶問 AI「香港最好的XXX是什麼」，AI 只會推薦已做 GEO 的競爭對手。越早部署，AI 引用優勢就越難被追上。業界預計 2025 年後 GEO 將成為數碼營銷的基本配置。"
-    },
-    {
-      question: "ADWire SEO / GEO 服務收費是多少？",
-      answer: `ADWire 分三個方案（單一網站／單一市場，3 個月起，按月預繳）：Starter HK$5,800/月（15 個重點關鍵字、每月 2 篇內容、2 頁優化、每月成效報告）；Growth HK$9,800/月（30 個重點關鍵字、每月 4 篇內容、4 頁優化、GEO 可見度追蹤、月度策略檢視）；Premium HK$16,800/月（50 個重點關鍵字、每月 6 篇內容、6 頁優化、較深入技術支援）。費用不含廣告費、Hosting 及第三方工具；大型網站、多語言或大量 SKU 需另行報價。可 WhatsApp ${WHATSAPP_E164} 查詢。`
-    },
-    {
-      question: "我已經在投放 Google Ads，還需要做 SEO 嗎？",
-      answer: "絕對需要。廣告是「租」流量，一停錢就停流量；SEO 是「置業」，建立長期資產。更重要的是，廣告無法幫你進入 AI 引擎的推薦——只有 GEO 優化才能做到。SEO + Ads 雙管齊下能覆蓋更廣的搜尋結果版面，效果更佳。"
-    },
-    {
-      question: "ChatGPT 和 Perplexity 如何決定推薦哪個品牌？",
-      answer: "AI 引擎選擇推薦品牌主要依據：(1) 內容被高信譽媒體/網站引用次數；(2) 官方網站內容的清晰度和結構化程度（Schema Markup）；(3) 品牌在多個渠道出現的一致性；(4) 內容的 E-E-A-T 原則（經驗、專業、權威、信任）。ADWire 的 GEO 服務針對這些指標進行系統性優化。"
-    },
-    {
-      question: "能保證 Google 第一頁排名嗎？",
-      answer: "不會，我們亦不會作任何排名保證，因為 Google 及 AI 平台的演算法並非供應商可控制。ADWire 的工作是按技術 SEO、關鍵字意圖、內容質素及網站結構逐項優化，並以曝光、點擊、索引健康及查詢轉換等可量度數據交代進度。實務上，基礎打好後約 3–6 個月開始見到較明顯的排名及流量變化，競爭激烈的行業需要更長時間。"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Navbar />
@@ -798,7 +764,7 @@ export default function SeoServiceContent() {
           </div>
           
           <div className="space-y-3">
-            {faqs.map((faq, index) => (
+            {SEO_FAQS.map((faq, index) => (
               <FAQItem key={index} question={faq.question} answer={faq.answer} index={index} />
             ))}
           </div>

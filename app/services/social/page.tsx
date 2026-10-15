@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { WHATSAPP_E164 } from "@/lib/site-config";
 import SocialServiceContent from "./SocialServiceContent";
+import FAQJsonLd from "@/components/FAQJsonLd";
+import { SOCIAL_FAQS } from "@/lib/service-faqs";
 
 export const metadata: Metadata = {
   title: "社交媒體代管服務｜IG・FB・小紅書",
@@ -65,10 +67,9 @@ const serviceSchema = {
   url: "https://adwire.com.hk/services/social/",
   image: "https://adwire.com.hk/services/kol/threads.webp",
   provider: {
-    "@type": "Organization",
+    // 只引用全站唯一的 Organization 節點（@id），不在同一個 @id 上再次
+    // 宣告 @type／name／url，避免與 components/JsonLd.tsx 的權威節點衝突。
     "@id": "https://adwire.com.hk/#organization",
-    name: "ADWire Agency",
-    url: "https://adwire.com.hk",
   },
   areaServed: [
     { "@type": "Place", name: "Hong Kong" },
@@ -146,77 +147,6 @@ const serviceSchema = {
   },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "香港社交媒體代管服務收費是多少？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: `ADWire 社交媒體代管提供三個方案：基礎方案 HK$8,000/月（8–10 個 Feed Post）、進階方案 HK$15,000/月（12–15 個 Feed Post + 2 條 Reels）、及全方位方案（Custom 定制，包含 20+ Post 及 KOL 策劃）。可 WhatsApp ${WHATSAPP_E164} 索取詳細報價。`,
-      },
-    },
-    {
-      "@type": "Question",
-      name: "ADWire 社交媒體代管服務包含哪些內容？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ADWire 社交媒體代管涵蓋四大範疇：(1) 內容企劃 —— 每月提前制定 Content Calendar，撰寫有共鳴的文案及配合時事熱話；(2) 視覺設計 —— 製作統一風格的 Feed 圖、Reels 封面及 Story 素材；(3) 社群管理 —— 代回覆 Inbox 及留言，將查詢轉化為訂單；(4) 數據分析 —— 每月提供 Insight Report，分析最佳內容及持續優化策略。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "ADWire 管理哪些社交媒體平台？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ADWire 主要管理：Instagram（IG）、Facebook 專頁（FB）、LinkedIn、小紅書（RED）及 Threads。我們會根據你的目標客群及行業特性，建議最適合的平台組合及策略。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "社交媒體代管需要簽長約嗎？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "一般建議至少合作 3–6 個月，因為社群經營需要時間積累效果及優化策略。ADWire 亦提供試用方案，讓客戶先體驗服務質素。無強制長期合約，靈活配合品牌需求。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "我需要提供什麼素材給 ADWire？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ADWire 可安排攝影師上門拍攝產品或場地（視乎所選方案）。你只需提供基本產品資訊和品牌視覺指引（Brand Guidelines）。若已有現成素材，我們亦可加工使用。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "社交媒體代管服務包含廣告投放嗎？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "社交媒體代管主要負責自然觸及（Organic）的內容經營。如需廣告投放（Paid Ads），ADWire 提供獨立的 Meta / Google Ads 代操服務，兩者配合能達到最佳效果——自然內容建立品牌信任，廣告快速擴大觸及範圍。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "如何評估社交媒體代管的效果？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ADWire 每月提供詳細 Insight Report，追蹤指標包括：自然觸及率（Organic Reach）、互動率（Engagement Rate）、粉絲增長數、網站點擊量及查詢轉換率。我們以商業目標（如訂單數、查詢量）而非單純 Like 數衡量成效。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "為什麼要找代理公司管理社交媒體，而不是自己做？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "自行管理社交媒體需投入大量時間：每日構思內容、製作圖片、回覆留言及分析數據，對中小企業而言往往力不從心。ADWire 擁有專業的內容策略師、設計師及社群管理員，配合 AI 工具，能以更低成本達到更專業的效果，讓你的核心團隊專注於業務發展。",
-      },
-    },
-  ],
-};
-
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -249,10 +179,7 @@ export default function SocialServicePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <FAQJsonLd faqs={SOCIAL_FAQS} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

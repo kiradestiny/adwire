@@ -7,6 +7,7 @@ import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import { motion, AnimatePresence } from "framer-motion";
 import { getWhatsAppUrl, WHATSAPP_E164 } from "@/lib/site-config";
+import { KOL_FAQS } from "@/lib/service-faqs";
 import { Megaphone, Star, Users, TrendingUp, Search, Instagram, Facebook, Share2, MapPin, Heart, MessageCircle, CheckCircle2, BarChart3, Target, ChevronDown, ArrowRight, Check, Clock, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -535,16 +536,8 @@ export default function KolServiceContent() {
             <h2 className="text-3xl font-bold text-[#0f4c81]">KOL 網紅營銷常見問題</h2>
           </div>
           <div className="space-y-3">
-            {[
-              { q: "香港 KOL 合作費用是多少？", a: "香港 KOL 費用因層級差異甚大：Nano KOL（1K–10K粉絲）約 HK$500–3,000/帖；Micro KOL（10K–100K）約 HK$3,000–15,000；Mid-tier KOL 約 HK$15,000–50,000；Macro / Mega KOL 則按個別議價。ADWire 根據預算及目標配置合適的 KOL 組合。" },
-              { q: "如何選擇適合品牌的 KOL？", a: "選擇 KOL 不能只看粉絲數。重要指標包括：(1) 受眾人口統計與品牌目標客群匹配度；(2) 互動率（Engagement Rate）；(3) 粉絲真偽比例；(4) 過往商業合作的轉化表現。ADWire 使用 AI 工具分析所有指標，為品牌配對最合適的 KOL。" },
-              { q: "ADWire 提供哪些 KOL 合作形式？", a: "三大合作形式：(1) Nano KOL 大規模種草 —— 10–100位素人同步發佈，建立有機口碑；(2) 大型品牌宣傳 —— 頭部 KOL 高質感內容，瞬間提升知名度；(3) 線下活動出席 —— KOL 探店、剪綵，製造熱鬧現場氣氛。" },
-              { q: "小紅書 KOL 與 Instagram KOL 有什麼分別？", a: "小紅書 KOL 主要觸達中國內地及海外華人（月活 3 億，以內地年輕女性為主），適合香港品牌進入大灣區市場。IG KOL 主要觸達香港本地及全球受眾，視覺化內容吸引力強。兩者組合使用效果最佳。" },
-              { q: "KOL 廣告的效果如何衡量？", a: "ADWire 提供完整成效追蹤報告，涵蓋：觸及率（Reach）、觀看次數（Views）、互動率（Engagement Rate）、點擊率（CTR）、網站流量增長及查詢轉換率。透明可追蹤，讓你清楚每分預算的真實 ROI。" },
-              { q: "合作一個 KOL 項目需要多長時間？", a: "一般 KOL 項目由 Briefing 到發佈約需 2–4 週：第1週 KOL 篩選，第2週提案確認及接洽，第3週內容創作及審稿，第4週發佈及追蹤。大型品牌活動建議提前 6–8 週規劃。" },
-              { q: "什麼行業最適合 KOL 網紅營銷？", a: "KOL 營銷適合幾乎所有 B2C 行業，尤其是：美容護膚（開箱評測）、餐飲 F&B（探店打卡）、時尚服飾（穿搭 Look）、電商零售（好物種草）、旅遊（打卡地點）、母嬰育兒（親子體驗）。" },
-            ].map((item, i) => (
-              <FAQItem key={i} question={item.q} answer={item.a} index={i} />
+            {KOL_FAQS.map((faq, i) => (
+              <FAQItem key={faq.question} question={faq.question} answer={faq.answer} index={i} />
             ))}
           </div>
           <div className="mt-10 text-center">

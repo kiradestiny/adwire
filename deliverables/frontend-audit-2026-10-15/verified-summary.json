@@ -1,0 +1,53 @@
+{
+  "built_index_html": 88,
+  "sitemap_urls": 85,
+  "detail_routes": {
+    "blog": 44,
+    "portfolio": 16,
+    "services": 16
+  },
+  "live": {
+    "home": {
+      "n": 3,
+      "score_min": 74,
+      "score_median": 76,
+      "score_max": 76,
+      "lcp_seconds_range": [
+        5.86,
+        6.75
+      ],
+      "tbt_ms_range": [
+        87,
+        99
+      ]
+    },
+    "seo": {
+      "n": 2,
+      "score_min": 58,
+      "score_median": 60.0,
+      "score_max": 62,
+      "lcp_seconds_range": [
+        5.65,
+        5.94
+      ],
+      "tbt_ms_range": [
+        682,
+        800
+      ]
+    },
+    "article": {
+      "n": 2,
+      "score_min": 70,
+      "score_median": 72.0,
+      "score_max": 74,
+      "lcp_seconds_range": [
+        3.38,
+        3.89
+      ],
+      "tbt_ms_range": [
+        674,
+        693
+      ]
+    }
+  }
+}

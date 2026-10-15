@@ -7,6 +7,7 @@ import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import { motion, AnimatePresence } from "framer-motion";
 import { getWhatsAppUrl, WHATSAPP_E164 } from "@/lib/site-config";
+import { ADS_FAQS } from "@/lib/service-faqs";
 import {
   BarChart3,
   Target,
@@ -745,14 +746,9 @@ export default function AdsServiceContent() {
             <h2 className="text-3xl font-bold text-[#0f4c81]">廣告投放常見問題</h2>
           </div>
           <div className="space-y-3">
-            <FAQItem question="香港廣告代操費用是多少？" answer="ADWire 廣告代操分三方案：入門方案 HK$3,800/月（單一平台，廣告預算 HK$5K–15K）；進階方案 HK$8,800/月（Meta + Google 雙平台，廣告預算 HK$15K–50K）；企業方案按每月廣告費 15% 計算（廣告預算 HK$50K+，最低 HK$8,800/月），金額特大者會另行報價。代操費不含廣告媒體費用（Media Buy）。" />
-            <FAQItem question="廣告代投需要最低多少廣告預算？" answer="一般建議每月最少 HK$5,000–8,000 媒體預算（Media Buy），確保有足夠數據進行機器學習和優化。預算越充足，優化速度越快。ADWire 入門方案支援 HK$5,000–15,000/月廣告預算。" />
-            <FAQItem question="什麼是 ROAS？ROAS 多少才算好？" answer="ROAS（廣告投資回報率）= 廣告帶來收入 ÷ 廣告費用。行業均值 2–4x，ADWire 管理的帳戶平均 ROAS 達 8.5x，部分電商客戶高達 12x。ROAS 高低受行業、產品定價及受眾設定影響。" />
-            <FAQItem question="投放廣告後多久會見效？" answer="Google Search 廣告通常 1–2 週見初步成效。Meta（FB/IG）需約 2–4 週「學習期（Learning Phase）」讓系統尋找最佳受眾。ADWire 持續優化以縮短學習期，一般 1 個月後可達穩定成效。" />
-            <FAQItem question="Facebook 和 Google 廣告，我應該選哪個？" answer="「剛需」服務（如維修、急用）選 Google Search，因為客戶主動搜尋你。「衝動消費」或「新奇產品」（如服飾、美妝）選 Facebook/IG 主動推播效果更佳。ADWire 通常建議兩者配合，形成完整銷售漏斗。" />
-            <FAQItem question="ADWire 如何追蹤廣告轉換效果？" answer="ADWire 提供完整轉換追蹤設置：Meta Pixel 安裝、Conversions API 設定（提高 iOS 隱私限制下的追蹤準確度）、Google Analytics 4 整合、Google Tag Manager 設置及電商購買事件追蹤。確保每分廣告費都能對應真實銷售成效。" />
-            <FAQItem question="你們會幫忙製作廣告圖片或影片嗎？" answer="會。ADWire 服務包含廣告素材建議和基本製作。如需專業影片拍攝或進階動態素材，我們的 Production 團隊可提供獨立影片製作服務（需另外報價）。高質素素材是提升 CTR 及降低 CPM 的關鍵。" />
-            <FAQItem question="ADWire 廣告代操與其他 Agency 有什麼分別？" answer="ADWire 不只執行廣告，更重視數據分析與策略優化。每日監察廣告表現，即時剔除蝕錢廣告，持續 A/B Testing 找最佳素材組合。以透明 ROAS 及 CPA 指標衡量所有成效，月度報告清晰展示每分廣告費回報。" />
+            {ADS_FAQS.map((faq) => (
+              <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+            ))}
           </div>
           <div className="mt-10 text-center">
             <p className="text-gray-500 mb-4 text-sm">仲有其他問題？</p>

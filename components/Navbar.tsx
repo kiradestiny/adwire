@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useId } from "react";
+import { usePathname } from "next/navigation";
 import {
   Menu, X, ChevronDown, ChevronRight,
   Facebook, Instagram, Linkedin, Send,
@@ -198,6 +199,39 @@ function MobileNavLink({
 ───────────────────────────────────────────── */
 function NavContent({ variant, onMobileOpen }: NavContentProps) {
   const dark = variant === "dark";
+  const pathname = usePathname();
+
+  /* ── 桌面服務下拉：由 React state 控制開關（唔再單靠 CSS :hover）──
+     原本只用 group-hover，關閉時子連結仍可被 Tab 到（opacity-0 不阻止焦點）。
+     改為 state 驅動：
+       - hover / focus 進入時開啟
+       - 焦點離開整個下拉區或按 Escape 時關閉，並把焦點還原到觸發連結
+       - 關閉時以 inert 令 17 條子連結完全不可聚焦（沿用 Nav A/B 的 inert 模式） */
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesPanelRef = useRef<HTMLDivElement>(null);
+  const servicesTriggerRef = useRef<HTMLAnchorElement>(null);
+  const servicesPanelId = useId();
+
+  useEffect(() => {
+    if (servicesPanelRef.current) {
+      (servicesPanelRef.current as HTMLDivElement & { inert: boolean }).inert = !servicesOpen;
+    }
+  }, [servicesOpen]);
+
+  /* ── 手機「免費諮詢」按鈕（Navbar.tsx CTA bug）──
+     部分頁面（privacy／terms／disclaimer／thank-you／404）沒有 #contact，
+     按下去只加 hash、唔會去任何地方。
+     SSR 一律輸出 href="/contact/#contact"（無 JS 時本身已經有用）；
+     JS 掛載後以 DOM 反映實際情況：
+       - 當頁有 #contact → href="#contact"（平滑捲動）
+       - 當頁冇 #contact → href="/contact/#contact"（真正去查詢頁）
+     用 DOM 直接改屬性（唔用 setState），避免 effect 內同步 setState。 */
+  const contactCtaRef = useRef<HTMLAnchorElement>(null);
+  useEffect(() => {
+    const el = contactCtaRef.current;
+    if (!el) return;
+    el.setAttribute("href", document.getElementById("contact") ? "#contact" : "/contact/#contact");
+  }, [pathname]);
 
   return (
     <div className="flex justify-between items-center w-full">
@@ -222,10 +256,28 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
       <div className="hidden lg:flex items-center gap-6 xl:gap-8">
 
         {/* 服務下拉 */}
-        <div className="relative group h-full flex items-center">
+        <div
+          className="relative group h-full flex items-center"
+          onMouseEnter={() => setServicesOpen(true)}
+          onMouseLeave={() => setServicesOpen(false)}
+          onFocusCapture={() => setServicesOpen(true)}
+          onBlurCapture={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setServicesOpen(false);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Escape" && servicesOpen) {
+              setServicesOpen(false);
+              servicesTriggerRef.current?.focus();
+            }
+          }}
+        >
           <Link
+            ref={servicesTriggerRef}
             href="/services"
             prefetch={false}
+            aria-haspopup="true"
+            aria-expanded={servicesOpen}
+            aria-controls={servicesPanelId}
             className={`relative flex items-center gap-1 font-medium transition-colors duration-200 py-2 ${
               dark ? "text-white/80 hover:text-white" : "text-gray-600 hover:text-[#0f4c81]"
             }`}
@@ -233,7 +285,9 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
             服務範疇
             <ChevronDown
               size={14}
-              className="group-hover:rotate-180 transition-transform duration-300 text-[#f5a623]"
+              className={`group-hover:rotate-180 transition-transform duration-300 text-[#f5a623] ${
+                servicesOpen ? "rotate-180" : ""
+              }`}
             />
             <span
               className={`absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100
@@ -243,13 +297,19 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
           </Link>
 
           {/* Dropdown 面板
-              ✅ 不用 invisible/visible（會 snap）
-              ✅ 只用 opacity + translateY（compositor only）
-              ✅ pointer-events-none 防止隱藏時被點擊 */}
+              ✅ 開關由 React state 控制（hover／focus／Escape 皆可）
+              ✅ 關閉時 inert：子連結不可聚焦、不接收指針、從 AT 樹隱藏
+              ✅ 只用 opacity + translateY（compositor only） */}
           <div
+            ref={servicesPanelRef}
+            id={servicesPanelId}
+            inert={!servicesOpen}
             className={`absolute top-full left-1/2 -translate-x-1/2 w-[640px] rounded-2xl p-3 mt-2
-              opacity-0 pointer-events-none translate-y-2
-              group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0
+              ${
+                servicesOpen
+                  ? "opacity-100 pointer-events-auto translate-y-0"
+                  : "opacity-0 pointer-events-none translate-y-2"
+              }
               transition-[opacity,transform] duration-200 ease-out
               ${dark ? "navbar-dropdown-dark" : "navbar-dropdown-light"}`}
           >
@@ -342,8 +402,10 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
       {/* ── 手機端按鈕 ── */}
       <div className="lg:hidden flex items-center gap-2">
         <a
-          href="#contact"
+          ref={contactCtaRef}
+          href="/contact/#contact"
           onClick={(e) => {
+            // 當頁有 #contact 才即場平滑捲動；否則交由瀏覽器前往 /contact/#contact
             const s = document.getElementById("contact");
             if (s) { e.preventDefault(); s.scrollIntoView({ behavior: "smooth" }); }
           }}
@@ -387,6 +449,9 @@ export default function Navbar() {
   const navBRef = useRef<HTMLDivElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const accordionPanelRef = useRef<HTMLDivElement>(null);
+  /** 開啟 Drawer 前的焦點所在元素（通常係漢堡按鈕），關閉時還原焦點 */
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (navARef.current) {
@@ -396,6 +461,23 @@ export default function Navbar() {
       (navBRef.current as HTMLDivElement & { inert: boolean }).inert = !scrolled;
     }
   }, [scrolled]);
+
+  /* ── Drawer 關閉時 inert ──
+     原本只用 translate-x-full 移出畫面，29 個內部元素仍可被 Tab 到。
+     inert 令關閉的 Drawer 完全不可聚焦、不接收指針、從 AT 樹隱藏。 */
+  useEffect(() => {
+    if (drawerRef.current) {
+      (drawerRef.current as HTMLDivElement & { inert: boolean }).inert = !isOpen;
+    }
+  }, [isOpen]);
+
+  /* ── 手機服務手風琴收合時 inert ──
+     面板用 max-h-0 + opacity-0 收起，但仍然可 Tab 到；收起時設 inert。 */
+  useEffect(() => {
+    if (accordionPanelRef.current) {
+      (accordionPanelRef.current as HTMLDivElement & { inert: boolean }).inert = !mobileServicesOpen;
+    }
+  }, [mobileServicesOpen]);
 
   /* Scroll 監聽 — passive 旗標確保不阻塞主執行緒 */
   useEffect(() => {
@@ -411,9 +493,14 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
-  /* ── Focus Trap：Mobile 選單開啟時，Tab 鍵無法逃出 Drawer ── */
+  /* ── Focus Trap：Mobile 選單開啟時，Tab 鍵無法逃出 Drawer ──
+      · 開啟時記住焦點來源，關閉時還原（focus return）
+      · 焦點序列排除 inert／disabled 元素（例如收合的手風琴、隱藏的 Nav A/B） */
   useEffect(() => {
     if (!isOpen) return;
+
+    // 記錄開啟前的焦點元素（通常係漢堡按鈕），關閉後還原
+    lastFocusedRef.current = document.activeElement as HTMLElement | null;
 
     // 聚焦到關閉按鈕
     closeButtonRef.current?.focus();
@@ -422,9 +509,11 @@ export default function Navbar() {
     if (!drawer) return;
 
     const getFocusableElements = () =>
-      drawer.querySelectorAll<HTMLElement>(
-        'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
+      Array.from(
+        drawer.querySelectorAll<HTMLElement>(
+          'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter(el => !el.hasAttribute("disabled") && !el.closest("[inert]"));
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key !== "Tab") return;
@@ -462,6 +551,9 @@ export default function Navbar() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.removeEventListener("keydown", handleEscape);
+      // 關閉後把焦點還原到開啟選單的元素（focus return）
+      lastFocusedRef.current?.focus?.();
+      lastFocusedRef.current = null;
     };
   }, [isOpen]);
 
@@ -535,8 +627,9 @@ export default function Navbar() {
       <div
         ref={drawerRef}
         role="dialog"
-        aria-modal="true"
+        aria-modal={isOpen ? "true" : undefined}
         aria-label="導航選單"
+        inert={!isOpen}
         className={`fixed top-0 right-0 bottom-0 z-[100] w-full max-w-sm lg:hidden flex flex-col
           bg-white shadow-2xl
           transition-transform duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)]
@@ -607,7 +700,10 @@ export default function Navbar() {
             {/* ── 服務手風琴 ── */}
             <div className="rounded-2xl overflow-hidden border border-gray-100">
               <button
+                type="button"
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                aria-expanded={mobileServicesOpen}
+                aria-controls="nav-mobile-services-panel"
                 className="flex items-center justify-between w-full
                   px-4 py-4 text-left
                   bg-white hover:bg-gray-50/80 active:bg-gray-100
@@ -621,6 +717,9 @@ export default function Navbar() {
               </button>
 
               <div
+                id="nav-mobile-services-panel"
+                ref={accordionPanelRef}
+                inert={!mobileServicesOpen}
                 className={`overflow-hidden transition-[max-height,opacity] duration-[400ms] ease-in-out ${
                   mobileServicesOpen
                     ? "max-h-[800px] opacity-100"

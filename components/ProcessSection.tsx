@@ -77,8 +77,11 @@ export default function ProcessSection() {
               return (
                 <div
                   key={index}
+                  /* 2026-10-15：初始狀態不再寫 `opacity-0`（原本 SSR HTML 會
+                     令無 JS／JS 失敗時流程步驟完全不可見）。改為預設可見，
+                     進入視口才加 animate-fade-in-up，動畫只作增強。 */
                   className={`flex flex-col items-center text-center group ${
-                    isVisible ? 'animate-fade-in-up' : 'opacity-0'
+                    isVisible ? 'animate-fade-in-up' : ''
                   }`}
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
