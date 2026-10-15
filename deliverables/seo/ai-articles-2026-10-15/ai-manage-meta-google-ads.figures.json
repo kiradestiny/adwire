@@ -1,0 +1,152 @@
+[
+  {
+    "n": 1,
+    "file": "/blog/figures/ai-manage-meta-google-ads-1.webp",
+    "caption": "全篇的骨幹：平台內建 AI 管優化，API 管流程，人工管策略與風險",
+    "scene": "Hong Kong marketing team gathered around a widescreen monitor split into three dashboard panels, one colleague pointing, modern office"
+  },
+  {
+    "n": 2,
+    "file": "/blog/figures/ai-manage-meta-google-ads-2.webp",
+    "caption": "五類工序都是重複而耗時的，正是自動化最能發揮價值之處",
+    "scene": "Hong Kong marketer at a desk surrounded by five spreadsheets and printed charts, sorting piles of performance reports, warm office light"
+  },
+  {
+    "n": 3,
+    "file": "/blog/figures/ai-manage-meta-google-ads-3.webp",
+    "caption": "程式只知道你輸入的目標，不知道你真正的生意取捨",
+    "scene": "Hong Kong manager reviewing analytics printouts while a colleague types at a keyboard nearby, glass meeting room, divided duties"
+  },
+  {
+    "n": 4,
+    "file": "/blog/figures/ai-manage-meta-google-ads-4.webp",
+    "caption": "campaign 定目標、ad set 定預算與受眾、ad 定素材，三層分工清楚",
+    "scene": "Hong Kong ad account manager stacking three labelled boxes of marketing cards on a table, campaign planning, soft studio light"
+  },
+  {
+    "n": 5,
+    "file": "/blog/figures/ai-manage-meta-google-ads-5.webp",
+    "caption": "Limited 只供開發，正式客戶投放須通過 App Review 取得 Full Access",
+    "scene": "Two Hong Kong colleagues comparing two tablets side by side, one screen showing a locked padlock icon, office desk"
+  },
+  {
+    "n": 6,
+    "file": "/blog/figures/ai-manage-meta-google-ads-6.webp",
+    "caption": "申請前先有一個可被測試的完整流程，比填表更重要",
+    "scene": "Hong Kong developer submitting an app on a laptop while a reviewer inspects code on a second screen, dim office"
+  },
+  {
+    "n": 7,
+    "file": "/blog/figures/ai-manage-meta-google-ads-7.webp",
+    "caption": "規則按設定執行，但不會在環境突變時自行煞停",
+    "scene": "Hong Kong marketer adjusting switches and dials on a wall-mounted control panel of advertising rules, dark operations room"
+  },
+  {
+    "n": 8,
+    "file": "/blog/figures/ai-manage-meta-google-ads-8.webp",
+    "caption": "兩者不是二選一，而是分工：平台管優化，API 管流程",
+    "scene": "Split desk scene: Hong Kong advertiser beside a sealed black box on one side and an open wiring panel on the other"
+  },
+  {
+    "n": 9,
+    "file": "/blog/figures/ai-manage-meta-google-ads-9.webp",
+    "caption": "權限來源由權杖改為 Google Cloud 專案，需要主動核對級別",
+    "scene": "Hong Kong engineer unplugging an old key-shaped device and connecting a cloud cable into a server rack, data centre"
+  },
+  {
+    "n": 10,
+    "file": "/blog/figures/ai-manage-meta-google-ads-10.webp",
+    "caption": "Explorer 可用正式帳戶但只有 2,880 次，是許多團隊的樽頸",
+    "scene": "Hong Kong analyst comparing four ascending gauges on a wall panel, hands adjusting the top dial, control room"
+  },
+  {
+    "n": 11,
+    "file": "/blog/figures/ai-manage-meta-google-ads-11.webp",
+    "caption": "RMF 只適用於 Standard Access，不合規可能產生費用",
+    "scene": "Hong Kong finance manager reviewing a paper receipt beside a laptop showing cost dashboards, cautious expression, desk"
+  },
+  {
+    "n": 12,
+    "file": "/blog/figures/ai-manage-meta-google-ads-12.webp",
+    "caption": "AI Max 由搜尋詞配對與素材優化兩部分組成，新系列預設開啟",
+    "scene": "Hong Kong search ads specialist typing keywords while a colleague edits photos and video assets on a second monitor"
+  },
+  {
+    "n": 13,
+    "file": "/blog/figures/ai-manage-meta-google-ads-13.webp",
+    "caption": "兩側的權限模型不同，導入時要分開規劃，不能套用同一套流程",
+    "scene": "Hong Kong team at a table with two open laptops showing blue and red ad platform interfaces, comparing reports"
+  },
+  {
+    "n": 14,
+    "file": "/blog/figures/ai-manage-meta-google-ads-14.webp",
+    "caption": "用對層次，問題才有解；用錯層次，工具再多也無用",
+    "scene": "Large printed matrix chart pinned on a Hong Kong office wall, three staff pointing at different columns, wide shot"
+  },
+  {
+    "n": 15,
+    "file": "/blog/figures/ai-manage-meta-google-ads-15.webp",
+    "caption": "先問性質，再決定交給哪一層，比盲目上工具有效",
+    "scene": "Hong Kong manager at a whiteboard drawing a forking road that splits into three routes, colleagues watching"
+  },
+  {
+    "n": 16,
+    "file": "/blog/figures/ai-manage-meta-google-ads-16.webp",
+    "caption": "由只讀起步、逐步加入寫入，是風險最低的導入次序",
+    "scene": "Hong Kong marketer scrolling a large monitor listing six automated advertising task tiles, office in evening light"
+  },
+  {
+    "n": 17,
+    "file": "/blog/figures/ai-manage-meta-google-ads-17.webp",
+    "caption": "報表口徑一致本身就是價值，減少數字爭論",
+    "scene": "Hong Kong agency staff watching a printer output a thick multi-page performance report, tidy office, morning light"
+  },
+  {
+    "n": 18,
+    "file": "/blog/figures/ai-manage-meta-google-ads-18.webp",
+    "caption": "告警把問題由事後解釋變成事前處理，但對策仍須人工判斷",
+    "scene": "Hong Kong marketer alarmed by a red alert on a monitoring dashboard screen, pointing urgently, open-plan office"
+  },
+  {
+    "n": 19,
+    "file": "/blog/figures/ai-manage-meta-google-ads-19.webp",
+    "caption": "寫入操作影響範圍大，試運行與人工確認是不可省略的步驟",
+    "scene": "Hong Kong analyst previewing a batch of ad changes on screen with a confirm dialog, cautious posture, desk lamp"
+  },
+  {
+    "n": 20,
+    "file": "/blog/figures/ai-manage-meta-google-ads-20.webp",
+    "caption": "這六個環節才是成效分水嶺，全部都在 API 之外",
+    "scene": "Hong Kong strategist standing before a wall of six pinned printed charts, arms crossed, deep in thought"
+  },
+  {
+    "n": 21,
+    "file": "/blog/figures/ai-manage-meta-google-ads-21.webp",
+    "caption": "追蹤未校準時，自動化只會更有效率地走錯方向",
+    "scene": "Hong Kong analyst holding a magnifying glass over skewed distorted graphs on a screen, puzzled, office desk"
+  },
+  {
+    "n": 22,
+    "file": "/blog/figures/ai-manage-meta-google-ads-22.webp",
+    "caption": "工具愈強，用錯方向的代價愈大",
+    "scene": "Hong Kong business owner pointing at a bullseye target while a robot arm aims slightly off centre, office"
+  },
+  {
+    "n": 23,
+    "file": "/blog/figures/ai-manage-meta-google-ads-23.webp",
+    "caption": "每個階段都以人工覆核收尾，數據可信才進入下一階段",
+    "scene": "Hong Kong project team stepping up four painted steps on a meeting-room floor, staged rollout, wide angle"
+  },
+  {
+    "n": 24,
+    "file": "/blog/figures/ai-manage-meta-google-ads-24.webp",
+    "caption": "風險愈高的動作，人工介入愈深，這是不變的原則",
+    "scene": "Hong Kong editor reviewing a draft on screen while a colleague nods approval beside her, layered sign-off, desk"
+  },
+  {
+    "n": 25,
+    "file": "/blog/figures/ai-manage-meta-google-ads-25.webp",
+    "caption": "工具可以買，把工序自動化不難；難的是背後的判斷與責任",
+    "scene": "Hong Kong marketing director presenting cross-platform ad results to a client in a bright boardroom, final handshake"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "id": 44,
+  "slug": "ai-manage-meta-google-ads",
+  "title": "如何用 AI 管理 Meta 與 Google 廣告：API 自動化與人工判斷的分工",
+  "excerpt": "用 AI 管理 Meta 與 Google 廣告分兩條路：平台內建自動化（Advantage+、AI Max），以及官方 API。本文講清 Meta Marketing API、Google Ads API 的限制與 developer token 退役，並比較平台 AI、API 自動化與人工判斷的三層分工。",
+  "date": "2026-10-15",
+  "updatedAt": "2026-10-15",
+  "category": "Ads Strategy",
+  "readTime": "14 min read",
+  "imageColor": "from-[#0f4c81] to-slate-800",
+  "image": "/blog/ai-manage-meta-google-ads.webp",
+  "tags": [
+    "AI 廣告管理",
+    "Meta Marketing API",
+    "Google Ads API",
+    "advantage+",
+    "performance max",
+    "廣告自動化"
+  ],
+  "comment": "AI 系列：由平台內建自動化（Advantage+／AI Max）到官方 API 自動化的分工，強調開通 API 不等於懂得投放廣告。"
+}

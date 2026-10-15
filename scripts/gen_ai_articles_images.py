@@ -51,6 +51,9 @@ COVERS = {
     "jev-ai-decision-model":
         "a software engineer sketching branching decision logic on a glass whiteboard in a Hong Kong "
         "tech office while a colleague watches",
+    "ai-manage-meta-google-ads":
+        "a Hong Kong performance-marketing specialist comparing advertising dashboards on three monitors "
+        "in a dark modern office, late evening screen glow",
 }
 
 

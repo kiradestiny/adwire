@@ -1,0 +1,482 @@
+<p class="lead text-xl text-gray-600 mb-8">用 AI 管理 Meta 與 Google 廣告，今日已經不是概念，而是兩條清楚分開的路：一條是平台內建的自動化（Meta 的 Advantage+、Google 的 AI Max 與智能出價），另一條是透過官方 API（Meta Marketing API 與 Google Ads API）自行建立自動化流程。本文由媒體購買的實務角度出發，整理兩條路各自可以做什麼、有何限制、每日操作上限如何，以及為何「開通 API」與「懂得投放廣告」是兩件完全不同的事。</p>
+
+<div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+  <p class="text-gray-700 leading-relaxed">AI 可以接手廣告投放中大量重複的工序：數據匯總、異常偵測、報表整合、批量操作與建議生成；但無法取代策略判斷。<strong>Meta Marketing API</strong> 預設只有 Limited Access，要用於正式客戶投放必須通過 App Review 取得 Full Access；<strong>Google Ads API</strong> 自 2026 年 9 月 9 日起 developer token 已經退役，權限改為綁定 Google Cloud 專案，並分為 Test、Explorer、Basic、Standard 四個存取級別。平台內建的 AI（Advantage+、AI Max）負責自動優化，API 負責流程自動化，<strong>人工負責策略、歸因與風險處理</strong>。</p>
+</div>
+
+<div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+  <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+  <ul class="space-y-2">
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>AI 擅長：數據處理、異常偵測、報表整合、批量操作、建議生成；這五類是投放中最耗人力的重複工序</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>Meta Marketing API 可建立、管理、暫停、刪除 campaign／ad set／ad，並取得成效洞察；Access Tier 分 Limited（預設）與 Full（須 App Review）</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>Google Ads API 免費使用，但 developer token 已於 2026-09-09 退役，權限綁 Google Cloud 專案，分四個存取級別，正式帳戶每日操作上限各不相同</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>平台內建 AI（Advantage+／AI Max／智能出價）與自家 API 自動化是兩種不同層次的工具，前者管優化，後者管流程</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>成敗關鍵不在 API，而在轉換追蹤是否準確、歸因方式、受眾與素材判斷、預算分配與平台政策處理</span></li>
+    <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>導入宜由報表自動化與異常偵測起步，再逐步加入批量操作，全程保留人工覆核點</span></li>
+  </ul>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-1.webp" alt="流程圖：平台內建 AI、API 自動化與人工判斷三層在廣告投放中的分工" title="三層分工：平台內建 AI、API 自動化、人工判斷" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">全篇的骨幹：平台內建 AI 管優化，API 管流程，人工管策略與風險</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、AI 管理廣告可以取代的部分</h2>
+<p>討論 AI 與廣告，最容易失焦的地方是把「AI 可以幫到手」講得太籠統。要講清楚，先把投放工作中真正耗人力的部分拆開。一個香港的媒體購買團隊，日常花最多時間的通常不是「決定投什麼」，而是處理數據與執行重複操作。以下五類工作，正是 AI 與自動化最有價值的地方。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">工序類型</th><th class="px-4 py-3 text-left">具體內容</th><th class="px-4 py-3 text-left">AI／自動化價值</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>大量數據處理</strong></td><td class="px-4 py-3">多帳戶、多平台的成效數據匯總與正規化</td><td class="px-4 py-3">自動抓取、清洗、合併，免除人手複製</td></tr>
+      <tr><td class="px-4 py-3"><strong>異常偵測</strong></td><td class="px-4 py-3">成本突然飆升、轉換歸零、廣告被拒登</td><td class="px-4 py-3">設定門檻自動告警，早於每日報告發現問題</td></tr>
+      <tr><td class="px-4 py-3"><strong>報表整合</strong></td><td class="px-4 py-3">跨平台成效合併成一份客戶看得懂的報表</td><td class="px-4 py-3">定時產出，口徑一致，減少人手出錯</td></tr>
+      <tr><td class="px-4 py-3"><strong>批量操作</strong></td><td class="px-4 py-3">一次過調整多個廣告的出價、預算、開停</td><td class="px-4 py-3">以程式批次處理，避免逐個點擊</td></tr>
+      <tr><td class="px-4 py-3"><strong>建議生成</strong></td><td class="px-4 py-3">根據數據提出優化方向、批量加否定關鍵字</td><td class="px-4 py-3">提供起點，但仍須人工判斷是否採納</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>要留意的是，這五類工作雖然可以由 AI 接手，但並不代表整條投放流程可以「交給 AI」。上表每一項的產出，最終都要有人判斷是否合理。例如異常偵測可以告訴你「某個廣告組合的成本今日上升 40%」，但不會告訴你原因，也不會替你決定應該暫停還是加預算。這個分界，是本文後半段反覆強調的重點。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-2.webp" alt="分類圖：AI 可以接手的五類廣告投放工序，包括數據處理、異常偵測、報表整合、批量操作與建議生成" title="AI 可接手的五類投放工序" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">五類工序都是重複而耗時的，正是自動化最能發揮價值之處</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">AI 接手的是工序，不是責任</h3>
+<p>把工序自動化，與把責任自動化，是兩個不同的概念。工序自動化讓團隊把時間由「搬數據」轉移到「解讀數據」；責任則始終在人身上。當一筆廣告預算被錯誤分配、當一個轉換事件追蹤失準、當帳戶因為政策問題被限制，這些都不是 API 會替你承擔的事。理解這個分界，才不會對 AI 有錯誤期待。</p>
+<p>更實際地說，責任無法外包給程式，因為程式不會「知道」你的生意目標是什麼。它只會按照你輸入的參數運作：你叫它壓低單次轉換成本，它就會壓低單次轉換成本，即使那代表它會把預算集中在轉換率高但客單價低、對生意未必有利的流量上。策略的取捨，永遠要由理解生意的人決定。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-3.webp" alt="概念圖：自動化接手重複工序，但策略與責任仍留在團隊身上" title="工序可自動化，責任不可" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">程式只知道你輸入的目標，不知道你真正的生意取捨</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、Meta 側：Marketing API 可以做什麼</h2>
+<p>Meta 的 Marketing API 是本節主角。根據 Meta 官方文件，Marketing API 的定位是「用來自動化橫跨 Meta 各項技術的廣告投放」，提供廣告建立、管理與成效分析的功能。你可以用程式建立 ad campaign、ad set 與個別 ad，並根據即時的成效數據部署與調整它們。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">可以做的事：建立、管理、刪除、取得成效</h3>
+<p>按 Meta 官方概述頁，Marketing API 除建立廣告外，還可以：更新、暫停或刪除廣告；確保廣告計劃與業務目標一致；取得詳細的洞察與分析以追蹤廣告成效。換句話說，日常在 Ads Manager 手動做的建立、暫停、預算調整、拉報表，都可以透過程式完成。廣告的層級架構亦沿用同一套邏輯：campaign 是最上層、代表單一目標；ad set 負責預算、競價與檔期；ad 則包含素材與投放設定。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">層級</th><th class="px-4 py-3 text-left">負責什麼</th><th class="px-4 py-3 text-left">API 可以做</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>Campaign</strong></td><td class="px-4 py-3">單一目標，最上層結構</td><td class="px-4 py-3">建立、修改目標、暫停、刪除</td></tr>
+      <tr><td class="px-4 py-3"><strong>Ad Set</strong></td><td class="px-4 py-3">預算、競價、檔期、受眾與優化目標</td><td class="px-4 py-3">調整預算與出價、開停、批量修改</td></tr>
+      <tr><td class="px-4 py-3"><strong>Ad</strong></td><td class="px-4 py-3">素材與顯示設定</td><td class="px-4 py-3">建立多個 ad、暫停、刪除、讀取洞察</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-4.webp" alt="階層圖：Meta Marketing API 的 campaign、ad set、ad 三層結構與各自可控的設定" title="Marketing API 的三層廣告結構" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">campaign 定目標、ad set 定預算與受眾、ad 定素材，三層分工清楚</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">Access Tier：Limited（預設）與 Full（須 App Review）</h3>
+<p>真正的門檻不在於「能否呼叫 API」，而在於你的應用處於哪一個 Access Tier。Meta 官方已把舊稱「Standard Access」改名為 Limited Access，把「Advanced Access」改名為 Full Access，並說明 Full Access 的門檻已由原本的 1,500 次下調至 500 次 Marketing API 呼叫。官方同時強調：升級層級不需要修改程式碼，只是標籤與門檻更新。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">層級</th><th class="px-4 py-3 text-left">取得方式</th><th class="px-4 py-3 text-left">主要限制</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>Limited（預設）</strong></td><td class="px-4 py-3">把 Marketing API 產品加入應用後自動獲得</td><td class="px-4 py-3">每個廣告帳戶受嚴格速率限制；官方說明只供開發用途，不適用於為真實客戶投放的正式應用；只能建立 1 個 system user</td></tr>
+      <tr><td class="px-4 py-3"><strong>Full（須 App Review）</strong></td><td class="px-4 py-3">通過 App Review 審核後批出</td><td class="px-4 py-3">速率限制較寬鬆；可管理無限數量的廣告帳戶；可建立 10 個 system users</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>要取得 Full Access，按官方說明，應用須符合兩項要求：在最近 15 天內成功完成<span class="font-bold">至少 500 次 Marketing API 呼叫</span>；以及在最近 500 次呼叫中，錯誤率<span class="font-bold">低於 15%</span>。通過 App Review 之後，亦須持續符合這兩項條件才能維持層級。這一點對希望長期為客戶代操的公司尤其重要——自動化流程本身的穩定性，會直接影響你的 API 權限。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-5.webp" alt="比較圖：Meta Marketing API 的 Limited Access 與 Full Access 在取得方式、速率限制與 system user 數量上的分別" title="Meta Marketing API 兩個 Access Tier 比較" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">Limited 只供開發，正式客戶投放須通過 App Review 取得 Full Access</figcaption>
+</figure>
+
+<div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2">App Review 是實質門檻</p>
+  <p class="text-blue-900 text-sm leading-relaxed">Meta 的 App Review 會實際測試你的應用，確認它真的使用所申請的權限與功能。官方說明：如果 Meta 無法進入你的應用進行測試，整份申請會被拒絕；即使能測試，但無法測試到需要某項權限的功能，該權限也不會獲批。因此，申請 Full Access 不是填表，而是要先有一個可被測試的完整流程。</p>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-6.webp" alt="流程圖：Meta App Review 會實際測試應用，無法測試即整份申請被拒" title="App Review 是實質門檻" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">申請前先有一個可被測試的完整流程，比填表更重要</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">自動規則引擎與批量操作</h3>
+<p>除逐個呼叫外，Meta 亦提供自動化規則的概念：以排程或觸發條件為基礎，跨多個廣告批量調整出價、預算與開停狀態。這種「規則式自動化」比人手逐個操作穩定，也比完全交由平台黑箱決策可控，是不少代操團隊處理日常維運的起點。不過，規則的條件與動作需要事先設計，設計得好與壞，直接影響自動化是否有用。</p>
+<p>這裡有一個容易被低估的風險：規則會按你設定的條件「機械式」執行，它不會在市場環境突變時自行煞停。若一條規則是「成本高於某水平就暫停廣告」，而整個市場因為季節因素普遍成本上升，規則就可能把本來應該保留的廣告全部停掉。因此，規則式自動化必須配合監察與人工介入，不能設定後完全放任。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-7.webp" alt="圖示：自動規則引擎以排程與觸發條件跨多個廣告批量調整出價、預算與開停" title="規則式自動化" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">規則按設定執行，但不會在環境突變時自行煞停</figcaption>
+</figure>
+
+<p>值得留意的是，Meta 官方另設「Tech Provider」計劃。本文查閱期間<strong>未能在 Meta 官方網站找到該計劃的詳細定義頁面</strong>，因此在此只作提示：Meta 設有 Tech Provider 計劃，具體條件與權益以 Meta 官方公布為準，不宜引用第三方教學或博客當作一手資料。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">平台內建自動化 vs 自家 API 自動化</h3>
+<p>很多人把「用 Meta 的自動化」與「用 API 自動化」混為一談，其實兩者層次不同。平台內建的自動化是 Meta 在廣告系統內部用機器學習替你決定受眾、版位與預算分配；API 自動化則是你自己在外部建立流程，去操作帳戶。前者管「優化」，後者管「流程」。下表把兩者分清。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">比較項</th><th class="px-4 py-3 text-left">平台內建自動化（如 Advantage+）</th><th class="px-4 py-3 text-left">自家 API 自動化</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">誰決定受眾</td><td class="px-4 py-3">Meta 的機器學習在平台內決定</td><td class="px-4 py-3">由你的程式按規則決定</td></tr>
+      <tr><td class="px-4 py-3">決定什麼</td><td class="px-4 py-3">受眾、版位、預算分配、素材組合</td><td class="px-4 py-3">帳戶操作：建立、修改、開停、拉數據</td></tr>
+      <tr><td class="px-4 py-3">透明度</td><td class="px-4 py-3">黑箱，只能看結果與部分報告</td><td class="px-4 py-3">你自訂邏輯，可完全掌握</td></tr>
+      <tr><td class="px-4 py-3">跨平台</td><td class="px-4 py-3">只在 Meta 生態內</td><td class="px-4 py-3">可同時處理 Meta 與 Google</td></tr>
+      <tr><td class="px-4 py-3">適合場景</td><td class="px-4 py-3">成效優化、放大表現好的組合</td><td class="px-4 py-3">報表、維運、批量修正、異常處理</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-8.webp" alt="比較圖：平台內建自動化與自家 API 自動化在決定權、透明度、跨平台能力上的分別" title="平台內建自動化 vs 自家 API 自動化" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">兩者不是二選一，而是分工：平台管優化，API 管流程</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、Google 側：Google Ads API 可以做什麼</h2>
+<p>Google 這一側近年有一項關鍵變化，任何打算建立自動化的人都必須知道：<strong>Google Ads API 的 developer token 已於 2026 年 9 月 9 日退役</strong>。按 Google 官方文件，API 的存取級別現已與 Google Cloud 專案綁定，而開發者權杖則變成可選、並會被 API 伺服器忽略。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">developer token 退役，權限改綁 Google Cloud 專案</h3>
+<p>官方說明指出，Google 在 2026 年 9 月 9 日為 developer token「畫上句號」，並按退役前 90 天的 API 活動，把存取級別轉移到對應的 Google Cloud 專案。現有程式碼可以繼續運作，但權限的來源已經改變：你不再靠 developer token 決定可以用多少，而是靠 Google Cloud 專案的存取級別。官方亦提醒，需要核對各專案的 API 存取級別是否一致，並確認活躍的開發者與帳戶管理員在專案中有適當的 owner 或 editor 角色。</p>
+<p>對已經建立自動化的團隊而言，這是一項需要主動處理的工程變更：不是「有無壞掉」的問題，而是「權限是否已經正確轉移」。如果忽略，可能出現某一批呼叫仍然成功、另一批卻因為專案級別不足而失敗的情況，而且不一定即時發現。妥善的做法，是在變更後主動核對每個 Google Cloud 專案的存取級別，並對照實際的呼叫需求。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-9.webp" alt="時序圖：Google Ads API developer token 於 2026-09-09 退役，權限轉移到 Google Cloud 專案" title="developer token 退役時間線" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">權限來源由權杖改為 Google Cloud 專案，需要主動核對級別</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">四個存取級別與每日操作上限</h3>
+<p>按 Google 官方的存取級別文件，存取級別決定你能否操作正式帳戶，以及每日可以執行多少次操作。文件列出四個級別，其中「操作」指的是 API 呼叫的計量單位。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">存取級別</th><th class="px-4 py-3 text-left">可用環境</th><th class="px-4 py-3 text-left">每日操作上限</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>Test</strong></td><td class="px-4 py-3">只限測試帳戶</td><td class="px-4 py-3">15,000 次</td></tr>
+      <tr><td class="px-4 py-3"><strong>Explorer</strong></td><td class="px-4 py-3">測試與正式帳戶</td><td class="px-4 py-3">正式帳戶 2,880 次；測試帳戶 15,000 次</td></tr>
+      <tr><td class="px-4 py-3"><strong>Basic</strong></td><td class="px-4 py-3">測試與正式帳戶</td><td class="px-4 py-3">15,000 次（兩者相同）</td></tr>
+      <tr><td class="px-4 py-3"><strong>Standard</strong></td><td class="px-4 py-3">測試與正式帳戶</td><td class="px-4 py-3">無上限</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>從上表可以看到一個實務上的重點：Explorer 級別雖然可以操作正式帳戶，但每日只有 2,880 次操作，對於帳戶數量較多、或需要頻繁拉取數據的團隊而言，很快會用盡。按官方建議，應該一開始就用 Basic Access，並在應用成長、預料需要更長審核時間之前，及早申請 Standard Access。Standard Access 須經由應用審核程序批出，官方說明審核可能需要數個工作日，有時甚至數星期。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-10.webp" alt="表格圖：Google Ads API 四個存取級別 Test、Explorer、Basic、Standard 的環境與每日操作上限" title="Google Ads API 四個存取級別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">Explorer 可用正式帳戶但只有 2,880 次，是許多團隊的樽頸</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">RMF、免費使用與不合規費用</h3>
+<p>Google 官方另一份文件說明：Google Ads API 本身免費使用，四個存取級別都不收取 API 費用；但<strong>「最低功能要求」（Required Minimum Functionality, RMF）只適用於 Standard Access</strong>。如果持有 Standard Access 卻不符合 RMF，API 審核團隊可能要求你支付不合規費用。這意味著：Standard Access 雖然操作無上限，但附帶功能上的義務，不能只把它當成「升級版 Basic」使用。</p>
+
+<div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2">一句提醒</p>
+  <p class="text-blue-900 text-sm leading-relaxed">API 本身免費，不代表沒有成本。真正的成本在於：準確的轉換追蹤、穩定的系統開發、以及持續維護的工程人力。把 API 當成「免費代替人」的工具，通常會在追蹤失準或政策問題出現時付出更高代價。</p>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-11.webp" alt="圖示：Google Ads API 免費使用，但 Standard Access 附帶最低功能要求與潛在的不合規費用" title="免費 API 不代表零成本" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">RMF 只適用於 Standard Access，不合規可能產生費用</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">AI Max、Performance Max 與智能出價：屬於平台內建自動化</h3>
+<p>與 Meta 的 Advantage+ 對應，Google 這一側的平台內建自動化就是 AI Max、Performance Max 與智能出價。按 Google 官方說明中心，AI Max for Search campaigns 是新 Search 廣告系列的一套目標與創意增強組合，主要兩項功能是<strong>搜尋詞配對（search term matching）</strong>與<strong>素材優化（asset optimisation）</strong>，並包含更佳的文案自動定製與最終到達網址擴展。官方亦指出，新建立的 Search 廣告系列預設已經開啟 AI Max。</p>
+
+<p>按同一份官方文件，啟用 AI Max 於 Search 廣告系列的廣告客戶，「一般可見 14% 更多轉換或轉換價值，而 CPA／ROAS 相若」。這裡必須清楚標示：這是 Google 官方自述的效益，並非第三方獨立實測，實際成效會因帳戶而異。此外，Google 另設 AI Max for Shopping campaigns，以及由 Dynamic Search Ads 升級至 AI Max 的路徑。這些功能的重點一致：由平台在廣告系統內部用機器學習做優化，廣告客戶負責提供目標、預算與素材。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-12.webp" alt="圖示：Google AI Max for Search 的兩大功能搜尋詞配對與素材優化，以及預設開啟的設定" title="AI Max 的兩大功能" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">AI Max 由搜尋詞配對與素材優化兩部分組成，新系列預設開啟</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">Meta 與 Google 兩側 API 的關鍵分別</h3>
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">比較項</th><th class="px-4 py-3 text-left">Meta Marketing API</th><th class="px-4 py-3 text-left">Google Ads API</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">權限憑證</td><td class="px-4 py-3">Access Tier（Limited／Full）</td><td class="px-4 py-3">綁定 Google Cloud 專案的存取級別（developer token 已退役）</td></tr>
+      <tr><td class="px-4 py-3">取得門檻</td><td class="px-4 py-3">Full 須通過 App Review，並符合 500 次呼叫／15 天等條件</td><td class="px-4 py-3">由 Test 起步，逐步申請至 Standard，須經應用審核</td></tr>
+      <tr><td class="px-4 py-3">操作上限</td><td class="px-4 py-3">以速率限制表述，Limited 較嚴、Full 較寬</td><td class="px-4 py-3">以每日操作次數表述（2,880 至無上限）</td></tr>
+      <tr><td class="px-4 py-3">費用</td><td class="px-4 py-3">API 呼叫本身不另收費</td><td class="px-4 py-3">API 免費；Standard 不合規可能收費</td></tr>
+      <tr><td class="px-4 py-3">平台內建 AI</td><td class="px-4 py-3">Advantage+（受眾、版位、預算、素材）</td><td class="px-4 py-3">AI Max、Performance Max、智能出價</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-13.webp" alt="比較圖：Meta Marketing API 與 Google Ads API 在權限憑證、取得門檻、操作上限與費用上的分別" title="Meta 與 Google 兩側 API 的關鍵分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">兩側的權限模型不同，導入時要分開規劃，不能套用同一套流程</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、對照表：平台內建 AI、API 自動化與人工判斷</h2>
+<p>把三個層次放在同一張表，最容易看出各自的位置。很多投放問題之所以無解，是因為用錯層次去處理：明明應該由人工判斷的策略問題，卻期望平台 AI 自動解決；明明應該由程式處理的批量作業，卻用人手逐個做。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">面向</th><th class="px-4 py-3 text-left">平台內建 AI</th><th class="px-4 py-3 text-left">API 自動化</th><th class="px-4 py-3 text-left">人工判斷</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3">受眾決定</td><td class="px-4 py-3">機器學習自動擴展</td><td class="px-4 py-3">按規則設定</td><td class="px-4 py-3">定義策略與界線</td></tr>
+      <tr><td class="px-4 py-3">優化目標</td><td class="px-4 py-3">在既定目標內優化</td><td class="px-4 py-3">讀取與監察結果</td><td class="px-4 py-3">選定目標與轉換事件</td></tr>
+      <tr><td class="px-4 py-3">預算分配</td><td class="px-4 py-3">平台內動態分配</td><td class="px-4 py-3">跨平台重新分配</td><td class="px-4 py-3">設定總預算與上限</td></tr>
+      <tr><td class="px-4 py-3">素材選擇</td><td class="px-4 py-3">測試並偏向表現好者</td><td class="px-4 py-3">監察素材疲勞</td><td class="px-4 py-3">決定訊息與創意方向</td></tr>
+      <tr><td class="px-4 py-3">報表整合</td><td class="px-4 py-3">平台內報告</td><td class="px-4 py-3">跨平台合併輸出</td><td class="px-4 py-3">解讀與下結論</td></tr>
+      <tr><td class="px-4 py-3">異常處理</td><td class="px-4 py-3">平台內提示</td><td class="px-4 py-3">自動告警</td><td class="px-4 py-3">判斷原因與對策</td></tr>
+      <tr><td class="px-4 py-3">政策申訴</td><td class="px-4 py-3">不適用</td><td class="px-4 py-3">可監察被拒登狀態</td><td class="px-4 py-3">準備申訴與溝通</td></tr>
+      <tr><td class="px-4 py-3">適用場景</td><td class="px-4 py-3">放量、優化表現</td><td class="px-4 py-3">維運、報表、批量</td><td class="px-4 py-3">策略、歸因、風險</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-14.webp" alt="矩陣圖：平台內建 AI、API 自動化與人工判斷在受眾、目標、預算、素材、報表與異常處理上的分工" title="三個層次的完整對照" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">用對層次，問題才有解；用錯層次，工具再多也無用</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">如何判斷一件事該交給誰</h3>
+<p>實務上可以用一個簡單問題分流：這件事是「重複的」還是「需要判斷的」？重複而規則明確的，交給 API 自動化；需要預測與優化的，交給平台內建 AI；涉及策略、取捨與責任的，留給人工。多數情況下，同一個任務會同時涉及三層。例如「調整出價」——平台 AI 決定具體調多少，API 執行批量調整，人工設定可接受的出價範圍與底線。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-15.webp" alt="流程圖：用「重複還是需要判斷」的問題把任務分流到 API 自動化、平台 AI 或人工" title="任務分流三問" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先問性質，再決定交給哪一層，比盲目上工具有效</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、實際可以落地的自動化場景</h2>
+<p>講完限制與分工，回到最實際的問題：一個香港的廣告團隊，今日可以用 API 自動化做到哪些具體事情？以下場景，是投入產出比最高、也最容易驗證成效的起點。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">場景</th><th class="px-4 py-3 text-left">做什麼</th><th class="px-4 py-3 text-left">所需權限</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>自動化報表</strong></td><td class="px-4 py-3">定時抓取 Meta 與 Google 成效，合併成統一報表</td><td class="px-4 py-3">只讀權限即可起步</td></tr>
+      <tr><td class="px-4 py-3"><strong>異常偵測</strong></td><td class="px-4 py-3">成本、轉換、拒登狀態超出門檻時自動告警</td><td class="px-4 py-3">讀取權限</td></tr>
+      <tr><td class="px-4 py-3"><strong>批量加否定關鍵字</strong></td><td class="px-4 py-3">按規則批次排除無效搜尋詞</td><td class="px-4 py-3">Google 寫入權限</td></tr>
+      <tr><td class="px-4 py-3"><strong>批量調整出價與預算</strong></td><td class="px-4 py-3">以規則批量修改多個廣告組合的設定</td><td class="px-4 py-3">兩平台的寫入權限</td></tr>
+      <tr><td class="px-4 py-3"><strong>素材疲勞監察</strong></td><td class="px-4 py-3">監察頻率與成效變化，提示需要更換素材</td><td class="px-4 py-3">讀取權限</td></tr>
+      <tr><td class="px-4 py-3"><strong>跨平台預算分配</strong></td><td class="px-4 py-3">根據兩平台表現，建議或執行預算重新分配</td><td class="px-4 py-3">兩平台寫入權限</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>這些場景有一個共同的導入原則：<strong>由只讀做起</strong>。自動化報表與異常偵測只需要讀取權限，即使 API 權限只是 Limited 或 Basic，也已經可以運作，而且不涉及任何帳戶改動，風險最低。等到流程穩定、團隊對數據有信心之後，才逐步加入寫入操作，並為每一個寫入動作設計人工覆核點。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-16.webp" alt="圖示：可落地的廣告自動化場景，由只讀的報表與異常偵測到寫入的批量操作" title="可落地的自動化場景" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">由只讀起步、逐步加入寫入，是風險最低的導入次序</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">自動化報表：最務實的第一步</h3>
+<p>報表自動化之所以適合入門，是因為它不改變任何帳戶設定，純粹把重複的數據搬運工作交給程式。對於需要同時向客戶交代 Meta 與 Google 成效的團隊而言，報表口徑一致本身就是價值——同一套定義、同一個時間範圍，減少「為何兩份報表數字不同」的爭論。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-17.webp" alt="場景圖：香港數碼營銷團隊看着自動化系統定時產出的跨平台廣告成效報表" title="自動化報表是最務實的第一步" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">報表口徑一致本身就是價值，減少數字爭論</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">異常偵測：提前發現，而非事後解釋</h3>
+<p>異常偵測解決的是時間差問題。人手看報告通常是一日一次甚至一週一次，但廣告帳戶的問題可以在幾小時內發生：轉換追蹤突然失效、某個版位成本暴升、廣告被拒登。透過程式設定門檻並自動告警，可以把「事後向客戶解釋」變成「事前主動處理」。不過要記住，告警只是起點，判斷原因與對策仍然是人。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-18.webp" alt="場景圖：香港數碼營銷團隊在辦公室看着自動化儀表板處理廣告帳戶告警" title="異常偵測把時間差收窄" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">告警把問題由事後解釋變成事前處理，但對策仍須人工判斷</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">批量操作與素材疲勞監察</h3>
+<p>批量操作與素材疲勞監察屬於「進階」場景，因為它們會改動帳戶。批量加否定關鍵字、批量調整出價與預算，效率遠高於人手逐個操作，但一旦規則寫錯，影響範圍也是批量的。因此這類場景必須配合試運行（dry run）、影響範圍預覽，以及人工按下確認的步驟。素材疲勞監察則可以由讀取權限開始：監察頻率與成效隨時間的變化，提示哪些素材需要更新，但換素材的決定仍應由人做。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-19.webp" alt="圖示：批量操作前必須先試運行與預覽影響範圍，再由人工確認執行" title="批量操作須先試運行" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">寫入操作影響範圍大，試運行與人工確認是不可省略的步驟</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、AI 做不到的事（這才是成敗關鍵）</h2>
+<p>寫到這裡，必須把話講白：<strong>API 只是工具，「開通 API」不等於「懂得投放廣告」</strong>。很多公司以為接好 Meta 與 Google 的 API、寫幾條自動化規則，就等於把廣告管理「自動化」；實際上，真正決定成效的環節，全部都在 API 之外。以下幾件事，是自動化無法代勞的。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">關鍵環節</th><th class="px-4 py-3 text-left">為何 API 幫不上</th><th class="px-4 py-3 text-left">要靠什麼</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>轉換追蹤準確性</strong></td><td class="px-4 py-3">API 只讀你傳入的數據；追蹤錯，讀到的就是錯的</td><td class="px-4 py-3">正確的事件設定、去重、伺服器端追蹤</td></tr>
+      <tr><td class="px-4 py-3"><strong>歸因方式</strong></td><td class="px-4 py-3">API 不會替你決定用哪種歸因口徑</td><td class="px-4 py-3">理解各歸因模型的限制，統一報告口徑</td></tr>
+      <tr><td class="px-4 py-3"><strong>受眾與素材判斷</strong></td><td class="px-4 py-3">平台 AI 只優化你提供的素材與界線</td><td class="px-4 py-3">市場洞察、創意方向、品牌一致性</td></tr>
+      <tr><td class="px-4 py-3"><strong>預算分配策略</strong></td><td class="px-4 py-3">API 執行你設定的規則，不會質疑規則是否合理</td><td class="px-4 py-3">生意目標、毛利結構、季節性判斷</td></tr>
+      <tr><td class="px-4 py-3"><strong>平台政策與申訴</strong></td><td class="px-4 py-3">被拒登的理由與申訴策略不屬於 API 範圍</td><td class="px-4 py-3">熟悉政策、準備申訴理據、與平台溝通</td></tr>
+      <tr><td class="px-4 py-3"><strong>突發事故處理</strong></td><td class="px-4 py-3">事故往往是規則未曾涵蓋的例外情況</td><td class="px-4 py-3">即時判斷、跨團隊協調、向客戶交代</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-20.webp" alt="圖示：API 之外決定廣告成敗的六個環節，包括轉換追蹤、歸因、受眾素材、預算策略、政策申訴與事故處理" title="API 做不到的事" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">這六個環節才是成效分水嶺，全部都在 API 之外</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">追蹤不準，自動化只會放大錯誤</h3>
+<p>這是最容易被忽略、後果也最嚴重的一點。如果轉換追蹤本身有問題——例如事件重複計算、瀏覽器端與伺服器端事件沒有去重、或者把非轉換的行為算成轉換——那麼所有自動化都建立在錯誤的數據上。平台 AI 會朝着被誇大的數字優化，你的自動化規則也會按錯誤的訊號觸發。<strong>在追蹤未校準之前，任何自動化只會把問題放大。</strong></p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-21.webp" alt="圖示：轉換追蹤失準會令平台 AI 與自動化朝錯誤方向優化，形成放大的錯誤" title="追蹤失準會放大錯誤" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">追蹤未校準時，自動化只會更有效率地走錯方向</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">歸因口徑不一致，報表永遠對不上</h3>
+<p>另一個常見但少被提及的問題，是歸因口徑不一致。同一個「轉換」，在 Meta 的報告、Google 的報告、以及網站的實際成交數字，往往因為歸因窗口、去重方式與計算時間不同而各有差異。這些差異本身未必是錯，但如果團隊在無共識的情況下混用三套數字，就會出現「平台說很好、客戶說沒有單」的矛盾。專業的做法不是追求三個數字完全一致——那在多數情況下並不可行——而是訂明一套統一的報告口徑，並在報表上清楚說明各數字的來源與定義，讓討論建立在同一套事實之上。</p>
+<p>舉例來說，如果 Meta 用七日點擊歸因、Google 用數據驅動歸因、而內部報表只看網站成交，三個數字自然不同。與其爭論哪一個才是「對」，不如先說清楚每個數字代表什麼，再決定以哪一個作為決策依據。這個判斷，是任何 API 與自動化都無法代勞的。</p>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">「設定好就會自動賺錢」是危險的期待</h3>
+<p>平台行銷人員最容易落入的陷阱，是相信「設定好就會自動賺錢」。Advantage+、AI Max、智能出價這些工具確實可以提升效率，但它們優化的是「你給的目標」，不是「你真正的生意目標」。如果你的轉換事件定義錯誤、如果你的廣告只吸引到不會付費的流量，平台 AI 只會更有效率地朝錯誤方向前進。工具愈強，用錯方向的代價愈大。</p>
+
+<div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
+  <p class="font-bold text-[#0f4c81] mb-2">給決策者的一句話</p>
+  <p class="text-blue-900 text-sm leading-relaxed">不要問「我們可否用 AI 管理廣告」，要問「我們的轉換追蹤準確嗎、歸因口徑一致嗎、有沒有人負責判斷策略與處理事故」。前者是工具問題，後者才是成效問題。API 可以買、可以接，但判斷力買不到。</p>
+</div>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-22.webp" alt="概念圖：工具優化的是你給的目標，未必是你真正的生意目標" title="工具優化的是你給的目標" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">工具愈強，用錯方向的代價愈大</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、導入路線：由哪一步開始、權限如何設計、人工覆核點</h2>
+<p>如果決定要把廣告管理自動化，較穩健的路線是分階段進行，而不是一次過把所有工序交給程式。以下是一個可以由今日開始執行的路線，每一步都設有明確的驗收與人工覆核點。</p>
+
+<div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+  <table class="w-full text-sm">
+    <thead class="bg-[#0f4c81] text-white">
+      <tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">做什麼</th><th class="px-4 py-3 text-left">權限需求</th><th class="px-4 py-3 text-left">人工覆核點</th></tr>
+    </thead>
+    <tbody class="divide-y divide-gray-100">
+      <tr><td class="px-4 py-3"><strong>第一階段：盤點與校準</strong></td><td class="px-4 py-3">核對轉換追蹤、統一歸因口徑、盤點帳戶結構</td><td class="px-4 py-3">不需 API</td><td class="px-4 py-3">確認數據可信後才進入下一階段</td></tr>
+      <tr><td class="px-4 py-3"><strong>第二階段：只讀自動化</strong></td><td class="px-4 py-3">自動化報表、異常偵測</td><td class="px-4 py-3">只讀權限</td><td class="px-4 py-3">人工解讀告警與報表</td></tr>
+      <tr><td class="px-4 py-3"><strong>第三階段：受控寫入</strong></td><td class="px-4 py-3">批量加否定關鍵字、批量調整（先試運行）</td><td class="px-4 py-3">寫入權限</td><td class="px-4 py-3">每次執行前人工確認影響範圍</td></tr>
+      <tr><td class="px-4 py-3"><strong>第四階段：跨平台協調</strong></td><td class="px-4 py-3">跨平台預算分配建議與執行</td><td class="px-4 py-3">兩平台寫入權限</td><td class="px-4 py-3">策略級決定由人負責</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">權限設計：最小權限、分開憑證</h3>
+<p>權限設計是導入自動化時最常被草率處理的一環。原則有兩條：<strong>最小權限</strong>與<strong>憑證分開</strong>。最小權限指按需要申請——只做報表就只需讀取權限，不必一開始就申請寫入。憑證分開指把不同用途的存取分開管理，避免一個憑證同時擁有過大權限；一旦出問題，影響範圍可以控制。這一點在 Meta 的 system user 與 Google 的 Google Cloud 專案角色設定上都要留意。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-23.webp" alt="流程圖：廣告自動化導入的四個階段，由盤點校準、只讀自動化、受控寫入到跨平台協調" title="四階段導入路線" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">每個階段都以人工覆核收尾，數據可信才進入下一階段</figcaption>
+</figure>
+
+<h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">人工覆核點：風險愈高，介入愈深</h3>
+<p>人工覆核不是阻礙自動化，而是讓自動化可以安全運作的設計。愈高風險的動作——例如大幅調整預算、刪除廣告、跨帳戶改動——就應該設愈多人工關卡；純讀取的報表則可以全自動。實務上建議為每一個寫入動作，在執行前保留一次人工確認，並為自動化流程保留完整的操作紀錄，方便日後追溯。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-24.webp" alt="圖示：按風險高低設計人工覆核深度，高風險動作保留人工確認，只讀報表可全自動" title="人工覆核按風險分級" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">風險愈高的動作，人工介入愈深，這是不變的原則</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、為何要找懂得判斷的伙伴，而不只是買工具</h2>
+<p>把本文的邏輯收攏成一句：AI 與 API 讓投放的「工序」更快，但沒有讓「判斷」變得容易。在香港，真正拉開成效差距的，通常是那些把轉換追蹤做準、把歸因口徑統一、把受眾與素材策略想清楚的團隊——而不是接得最多 API 的團隊。</p>
+
+<p>這正是我們日常工作的重心。ADWire 目前代操 28 個 Meta 廣告客戶，處理的正是本文提到的全部環節：由轉換追蹤的校準、跨平台報表的自動化，到異常偵測、批量維運，以及平台政策與突發事故的處理。我們的做法是把重複工序自動化，把判斷留在人手上——因為我們見過太多「工具齊全但成效欠佳」的帳戶，問題幾乎都不在工具，而在追蹤與策略。</p>
+
+<p>如果你正在考慮用 AI 管理 Meta 與 Google 廣告，可以分兩步想：先問自己的轉換追蹤與歸因是否準確，再決定要用哪一層的自動化。若希望有人由頭到尾把這件事處理好，可以參考我們的<a href="/services/ads/" class="text-[#0f4c81] hover:underline">廣告代操服務</a>、<a href="/services/ai/" class="text-[#0f4c81] hover:underline">人工智能應用服務</a>，以及<a href="/services/automation/" class="text-[#0f4c81] hover:underline">流程自動化服務</a>。想先認識 AI 如何應用於整體業務，亦可閱讀我們的<a href="/blog/ai-automation-roi-hong-kong/" class="text-[#0f4c81] hover:underline">AI 自動化效益評估</a>與<a href="/blog/ai-agent-hong-kong-business-guide/" class="text-[#0f4c81] hover:underline">AI Agent 香港企業指南</a>。</p>
+
+<figure class="blog-figure my-10">
+<img src="/blog/figures/ai-manage-meta-google-ads-25.webp" alt="場景圖：香港營銷團隊與客戶開會檢視跨平台廣告成效報表與優化方向" title="判斷力才是成效分水嶺" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+<figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">工具可以買，把工序自動化不難；難的是背後的判斷與責任</figcaption>
+</figure>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">常見問題</h2>
+
+<div class="border border-gray-200 rounded-xl p-5" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">AI 可以完全取代廣告投放人員嗎？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不能。AI 與 API 可以接手大量數據處理、異常偵測、報表整合、批量操作與建議生成等重複工序，但無法取代策略判斷。轉換追蹤是否準確、歸因方式如何、受眾與素材如何選、預算如何分配、平台政策如何申訴、突發事故如何處理，這些仍須由人負責。開通 API 不等於懂得投放廣告。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Meta Marketing API 的 Limited Access 與 Full Access 有什麼分別？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按 Meta 官方文件，Limited 是預設層級，加入 Marketing API 產品後自動獲得，但每個廣告帳戶受嚴格速率限制，官方說明只供開發用途、不適用於為真實客戶投放的正式應用，並只能建立 1 個 system user。Full 須通過 App Review 審核，速率限制較寬鬆，可管理無限數量廣告帳戶、建立 10 個 system users。官方亦說明，Full Access 的門檻已由 1,500 次下調至 500 次 Marketing API 呼叫。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">申請 Meta Full Access 要符合什麼條件？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按 Meta 官方文件，應用須在最近 15 天內成功完成至少 500 次 Marketing API 呼叫，並在最近 500 次呼叫中保持錯誤率低於 15%。通過 App Review 後，亦須持續符合這兩項條件才能維持層級。此外，Meta 會實際測試你的應用；若無法進入應用測試，整份申請會被拒絕。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Google Ads API 的 developer token 現在還要用嗎？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按 Google 官方文件，developer token 已於 2026 年 9 月 9 日退役，權限現已與 Google Cloud 專案綁定，開發者權杖變成可選並會被 API 伺服器忽略。現有程式碼可以繼續運作，但存取級別改由 Google Cloud 專案決定。官方提醒需要核對各專案的存取級別是否一致，並確認活躍的開發者與帳戶管理員在專案中有適當的 owner 或 editor 角色。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Google Ads API 四個存取級別的每日操作上限是多少？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按 Google 官方文件：Test 只限測試帳戶，每日 15,000 次操作；Explorer 可用測試與正式帳戶，正式帳戶每日 2,880 次、測試帳戶 15,000 次；Basic 可用兩者，每日 15,000 次；Standard 可用兩者，操作無上限。官方建議由 Basic 起步，並及早申請 Standard，因為 Standard 須經應用審核，可能需要數個工作日甚至數星期。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Google Ads API 是免費的嗎？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">按 Google 官方文件，Google Ads API 本身免費使用，Test、Explorer、Basic、Standard 四個級別都不收取 API 費用。但「最低功能要求」（RMF）只適用於 Standard Access；如持有 Standard Access 卻不符合 RMF，可能被要求支付不合規費用。API 免費不代表沒有成本，真正的成本在於準確的轉換追蹤、系統開發與持續維護的人力。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Advantage+、AI Max 這類平台內建 AI 與自己寫 API 自動化有何分別？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">兩者層次不同。平台內建 AI（Meta 的 Advantage+、Google 的 AI Max、Performance Max 與智能出價）由平台在廣告系統內部用機器學習決定受眾、版位、預算與素材組合，屬於「優化」。自家 API 自動化則是你自行建立外部流程去操作帳戶，例如報表整合、異常偵測、批量操作，屬於「流程」。兩者不是二選一，而是分工。</p>
+  </div>
+</div>
+
+<div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">導入廣告自動化應該由哪一步開始？</p>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">建議先做盤點與校準，核對轉換追蹤、統一歸因口徑，這一步不需要 API。之後由只讀自動化起步，例如自動化報表與異常偵測，風險最低。流程穩定後才逐步加入受控寫入（批量操作先試運行），最後才處理跨平台預算協調。全程為每個寫入動作保留人工覆核點，風險愈高的動作人工介入愈深。</p>
+  </div>
+</div>
+
+<h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
+<p>用 AI 管理 Meta 與 Google 廣告，成敗關鍵不在工具本身，而在分層與次序：<strong>平台內建 AI 負責優化，API 自動化負責流程，人工負責策略、歸因與風險</strong>。Meta Marketing API 由 Limited 起步、通過 App Review 才取得 Full Access；Google Ads API 的 developer token 已於 2026 年 9 月 9 日退役，權限改綁 Google Cloud 專案，並分四個存取級別。這些都是「可以做什麼」的條件，但真正決定成效的，是轉換追蹤是否準確、歸因是否一致、以及有沒有人願意為判斷負責。</p>
+<p>把重複工序交給自動化，把判斷留給人——這是我們在代操 28 個 Meta 廣告客戶時反覆驗證的做法。若你希望有人協助由追蹤校準、自動化報表到跨平台優化一併處理，歡迎與 ADWire 聯絡，由釐清數據口徑開始。</p>
+
+<div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
+  <p class="font-bold text-[#0f4c81] mb-2">資料來源（查核日期：2026年10月15日）</p>
+  <ul class="space-y-1">
+    <li><a href="https://developers.facebook.com/documentation/ads-commerce/marketing-api/overview" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Meta for Developers：Marketing API Overview</a> — 建立、管理、暫停、刪除 campaign／ad set／ad 與取得成效洞察</li>
+    <li><a href="https://developers.facebook.com/documentation/ads-commerce/marketing-api/get-started/authorization" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Meta for Developers：Authorization（Marketing API Access Tier）</a> — Limited（預設）與 Full（須 App Review）；Full 須 15 天內 500 次呼叫、最近 500 次錯誤率低於 15%；門檻由 1,500 降至 500；system user 1 對 10</li>
+    <li><a href="https://developers.facebook.com/docs/app-review" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Meta for Developers：App Review</a> — 審核會實際測試應用，無法測試即整份申請被拒</li>
+    <li><a href="https://www.facebook.com/business/help/273363992030035" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Meta Business Help Center：About Advantage+ audience</a> — Meta 平台內建自動化（Advantage+）</li>
+    <li><a href="https://developers.google.com/google-ads/api/docs/api-policy/developer-token" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Google Ads API：Developer token</a> — 權杖已於 2026 年 9 月 9 日退役，權限改綁 Google Cloud 專案</li>
+    <li><a href="https://developers.google.com/google-ads/api/docs/access-levels" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Google Ads API：Access levels and permissible use</a> — Test、Explorer、Basic、Standard 四個級別與每日操作上限</li>
+    <li><a href="https://developers.google.com/google-ads/api/docs/productionize/access-levels" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Google Ads API：Access levels and RMF</a> — API 免費；RMF 只適用於 Standard Access；不合規可能收費</li>
+    <li><a href="https://support.google.com/google-ads/answer/15910366" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Google Ads Help：About AI Max for Search campaigns</a> — AI Max 的搜尋詞配對與素材優化；官方自述「一般可見 14% 更多轉換」</li>
+    <li><a href="https://support.google.com/google-ads/answer/15909989" class="text-[#0f4c81] hover:underline" target="_blank" rel="noopener noreferrer">Google Ads Help：Set up AI Max for Search campaigns</a> — 新建立 Search 廣告系列預設開啟 AI Max</li>
+  </ul>
+</div>

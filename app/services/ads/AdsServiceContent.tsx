@@ -669,6 +669,17 @@ export default function AdsServiceContent() {
               </p>
             </a>
             <a
+              href="/blog/ai-manage-meta-google-ads/"
+              className="group bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-all"
+            >
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">
+                如何用 AI 管理 Meta 與 Google 廣告
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                平台內建 AI、Marketing API 與 Google Ads API 各做得到甚麼，以及哪些環節仍然必須由人判斷。
+              </p>
+            </a>
+            <a
               href="/blog/google-meta-ads-guide/"
               className="group bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-all"
             >
