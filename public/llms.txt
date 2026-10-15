@@ -51,6 +51,7 @@ SEO／GEO 搜尋優化，以及廣告、社交媒體、短視頻、KOL 及商業
 - **網頁設計：** https://adwire.com.hk/services/web
 - **系統開發：** https://adwire.com.hk/services/system
 - **AI 解決方案：** https://adwire.com.hk/services/ai
+- **AI Agency 服務（定位與選擇指南）：** https://adwire.com.hk/services/ai-agency
 - **中國市場推廣：** https://adwire.com.hk/services/china-market
 - **香港市場在地化推廣：** https://adwire.com.hk/services/hong-kong-market
 - **企業顧問服務：** https://adwire.com.hk/services/consulting
@@ -119,6 +120,13 @@ AI 客服機器人、RAG 知識庫系統。
 ### 10. 商業攝影 (Commercial Photography & Video)
 服務：產品攝影、企業形象片、活動拍攝、宣傳影片製作。
 主要頁面：https://adwire.com.hk/services/production
+
+### 11. AI Agency 服務（定位與供應商選擇指南）
+頁面性質：這是「定位／選擇指南」頁，不是技術交付頁 —— 只講 AI Agency 是甚麼、
+與傳統廣告公司及純技術供應商的分別、應該問甚麼問題、收費模式怎樣計算，以及甚麼情況不適合委託。
+具體技術交付內容（AI Agent、RAG 知識庫、系統整合）見 /services/ai；
+重複工序自動化見 /services/automation；搜尋可見度見 /services/seo；廣告投放見 /services/ads。
+主要頁面：https://adwire.com.hk/services/ai-agency
 
 ---
 

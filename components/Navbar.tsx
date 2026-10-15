@@ -29,6 +29,7 @@ const serviceGroups: {
     group: "AI & Automation",
     links: [
       { name: "AI 解決方案",        href: "/services/ai",         emoji: "✨", badge: null },
+      { name: "AI Agency 服務",     href: "/services/ai-agency",  emoji: "🤝", badge: null },
       { name: "企業流程自動化",     href: "/services/automation", emoji: "🤖", badge: null },
     ],
   },

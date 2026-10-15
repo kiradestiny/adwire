@@ -660,6 +660,11 @@ export default function AiServiceContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a href="/services/ai-agency/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+              <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">AI Agency 服務（定位與選擇指南）</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">本頁講「技術上怎樣做」；若你還在評估應該找哪一類供應商、或者不確定要 AI 開發抑或數碼營銷，先看這一頁的分工與判斷標準。</p>
+            </a>
+
             <a href="/services/automation/" className="group bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
               <h3 className="font-bold text-[#0f4c81] mb-2 group-hover:underline">企業流程自動化及 RPA</h3>
               <p className="text-sm text-gray-600 leading-relaxed">當流程本身已有明確規則，未必需要用 AI 判斷 —— 這一頁說明規則式自動化、RPA 與 AI Agent 的分工。</p>

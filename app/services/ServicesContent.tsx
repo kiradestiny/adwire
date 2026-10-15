@@ -186,6 +186,7 @@ const allServices = [
   { name: "SEO 與 GEO 優化", outcome: "在 Google 及 AI 搜尋被找到、被如實提及", link: "/services/seo/", best: "希望長期累積搜尋資產的企業" },
   { name: "網頁設計及電商開發", outcome: "載入快、結構清晰、手機優先的網站", link: "/services/web/", best: "需要新網站或改善現有網站" },
   { name: "企業 AI 應用開發與系統整合", outcome: "AI 應用、AI Agent、RAG 知識庫、API 整合", link: "/services/ai/", best: "有明確場景但現成工具不合用" },
+  { name: "AI Agency 服務（定位與選擇指南）", outcome: "AI Agency 是甚麼、怎樣評估與揀選供應商", link: "/services/ai-agency/", best: "未確定自己需要 AI 開發抑或數碼營銷" },
   { name: "企業流程自動化及 RPA", outcome: "重複工序自動化，設人工覆核與異常處理", link: "/services/automation/", best: "流程已有明確規則、人手投入大" },
   { name: "系統開發與整合", outcome: "客製化內部系統、CRM／ERP 與 API 串接", link: "/services/system/", best: "需要訂造內部工具或打通系統" },
   { name: "企業顧問服務", outcome: "AI 導入、系統選型、整合與流程自動化的評估與路線圖", link: "/services/consulting/", best: "想先釐清方向、評估可行性再投入資源" },

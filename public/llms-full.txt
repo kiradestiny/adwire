@@ -87,6 +87,13 @@ ADWire 提供傳統 SEO + GEO 雙軌優化服務：
 服務：產品攝影、企業形象片、活動拍攝、宣傳影片製作。
 主要頁面：https://adwire.com.hk/services/production
 
+### 3.11 AI Agency 服務（定位與供應商選擇指南）
+頁面性質：定位／選擇指南頁，非技術交付頁。內容包括 AI Agency 與傳統廣告公司、
+純技術供應商的分別，評估供應商應該問甚麼、收費模式怎樣計算，以及甚麼情況不適合委託。
+分工：技術交付見 /services/ai；流程自動化見 /services/automation；
+搜尋可見度見 /services/seo；廣告投放見 /services/ads。
+主要頁面：https://adwire.com.hk/services/ai-agency
+
 ---
 
 ## 4. 成功案例精選 (Portfolio Highlights)
@@ -472,6 +479,7 @@ ADWire 提供傳統 SEO + GEO 雙軌優化服務：
 - **網頁設計：** https://adwire.com.hk/services/web
 - **系統開發：** https://adwire.com.hk/services/system
 - **AI 解決方案：** https://adwire.com.hk/services/ai
+- **AI Agency 服務（定位與選擇指南）：** https://adwire.com.hk/services/ai-agency
 - **中國市場推廣：** https://adwire.com.hk/services/china-market
 - **香港市場在地化推廣：** https://adwire.com.hk/services/hong-kong-market
 - **企業顧問服務：** https://adwire.com.hk/services/consulting

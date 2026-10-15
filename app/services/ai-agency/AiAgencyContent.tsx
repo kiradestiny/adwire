@@ -43,31 +43,35 @@ const comparison = [
   },
 ];
 
-const serviceLines = [
+/* 服務分流導覽（2026-10-15 重寫）
+   原本此處是「五條服務線」，逐條複述 RAG／AI Agent／系統整合等技術內容，
+   與 /services/ai/ 高度重複。改為純分流：本頁只負責「AI Agency 是甚麼、適不適合、
+   應該找哪一類供應商」，具體技術做法與交付範圍一律指向對應服務頁。 */
+const routing = [
   {
-    title: "AI 驅動的內容生產",
-    body: "以 AI 協助資料整理、初稿生成、多語改寫與格式轉換，再由人手編輯定稿。目標是縮短生產週期，而不是以機器取代編輯判斷。所有對外內容在發布前仍需人工核對事實。",
-    link: { href: "/services/seo/", label: "SEO 與 GEO 服務" },
+    situation: "想知 AI 能否解決某個流程問題，需要應用開發、知識庫或 Agent，想睇技術方案與報價",
+    page: "企業 AI 應用開發與系統整合",
+    href: "/services/ai/",
   },
   {
-    title: "AI 搜尋可見度（GEO）",
-    body: "針對 AI 問答搜尋建立可被引用的內容結構、FAQ、結構化資料及 llms.txt。需要說明的是：AI 平台的輸出由平台決定，任何供應商都無法保證被引用；我們的做法是逐項改善可被檢索及引用的條件，並分開量度。",
-    link: { href: "/services/seo/", label: "了解 GEO 做法" },
+    situation: "重複工序（資料輸入、對帳、報告整理、通知跟進）想自動化，並要連接 CRM／ERP",
+    page: "企業流程自動化及 RPA",
+    href: "/services/automation/",
   },
   {
-    title: "AI 輔助廣告優化",
-    body: "以 AI 協助素材變體生成、受眾分析與報表整理，投放決策及預算分配仍由投放人員按實際數據判斷。廣告平台的自動出價與 AI 建議並非「設定完就自動有效」，需要持續檢視與人手介入。",
-    link: { href: "/services/ads/", label: "廣告代操服務" },
+    situation: "希望在 Google 及 AI 問答搜尋中被找到、被如實提及",
+    page: "SEO 與 GEO 優化",
+    href: "/services/seo/",
   },
   {
-    title: "企業 AI 應用開發",
-    body: "AI Agent、RAG 知識庫、文件處理、客服分流及系統整合。由使用場景、資料可用性、權限設計到 Prototype、測試及上線後監控，同時說明風險與人工覆核安排。",
-    link: { href: "/services/ai/", label: "企業 AI 解決方案" },
+    situation: "要用 AI 輔助素材與受眾分析，但投放決策仍由人按實際數據判斷",
+    page: "成效廣告投放",
+    href: "/services/ads/",
   },
   {
-    title: "流程自動化",
-    body: "把重複工序（資料輸入、對帳、報告整理、通知跟進）交由系統執行，涉及判斷或例外處理的環節保留人工覆核。會先實測現有系統是否提供 API 及權限，再確認可行範圍。",
-    link: { href: "/services/automation/", label: "企業流程自動化" },
+    situation: "已經清楚要做甚麼，只想直接比較各項服務的交付範圍",
+    page: "服務總覽",
+    href: "/services/",
   },
 ];
 
@@ -106,11 +110,11 @@ export default function AiAgencyContent() {
       <section className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-[#0f172a] to-[#1e1b4b] text-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <p className="text-[#f5a623] font-semibold tracking-wide mb-4">
-            香港 AI Agency · AI 應用開發 × 數碼營銷
+            香港 AI Agency · 定位與供應商選擇指南
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            唔止幫你投廣告，<br className="hidden md:block" />
-            亦幫你把 AI 真正落地
+            不止為你投放廣告，<br className="hidden md:block" />
+            也協助你把 AI 真正落地
           </h1>
           <p className="text-lg text-slate-300 leading-relaxed max-w-3xl mb-8">
             ADWire Agency 同時具備軟件開發、AI 應用與數碼營銷的實作經驗。可以由業務問題出發，
@@ -147,6 +151,16 @@ export default function AiAgencyContent() {
               ADWire 做的是兩者的交集：由<strong>業務問題</strong>開始，決定應該用 AI 解決流程問題，
               還是用營銷手段帶來查詢，或者兩者一併處理。我們不會以「保證排名」或「保證被 AI 推薦」
               作為賣點 —— 這些承諾在技術上不成立，Google 與各 AI 平台亦已明確說明。
+            </p>
+            <p className="text-sm text-gray-600 leading-relaxed mt-4 pt-4 border-t border-blue-100">
+              本頁只講「應該找哪一類供應商」。具體技術做法、交付範圍與報價，見{" "}
+              <Link
+                href="/services/ai/"
+                className="text-[#0f4c81] font-semibold underline underline-offset-2"
+              >
+                企業 AI 應用開發與系統整合
+              </Link>
+              。
             </p>
           </div>
         </div>
@@ -186,30 +200,32 @@ export default function AiAgencyContent() {
         </div>
       </section>
 
-      {/* ── 服務線 ─────────────────────────────────────────── */}
+      {/* ── 服務分流導覽 ─────────────────────────────────────── */}
       <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">五條服務線</h2>
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">按你的情況，直接去對應那一頁</h2>
           <p className="text-gray-600 mb-10 max-w-3xl">
-            可以獨立委託，不需要整套購買。實務上部分項目會跨線（例如廣告帶來查詢後需要自動化跟進）。
+            本頁只講定位與選擇。具體技術做法、交付範圍與報價，交由對應的服務頁說明，
+            免得你在兩頁之間讀到重複內容。
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {serviceLines.map((s) => (
-              <div
-                key={s.title}
-                className="border border-gray-200 rounded-xl p-7 hover:border-[#0f4c81] hover:shadow-md transition bg-white"
+          <div className="divide-y divide-gray-100 border border-gray-200 rounded-xl overflow-hidden bg-white">
+            {routing.map((r) => (
+              <Link
+                key={r.href}
+                href={r.href}
+                className="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 px-6 py-5 hover:bg-slate-50 transition"
               >
-                <h3 className="text-xl font-bold text-[#0f4c81] mb-3">{s.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">{s.body}</p>
-                <Link
-                  href={s.link.href}
-                  className="text-[#0f4c81] font-semibold text-sm hover:underline"
-                >
-                  {s.link.label} →
-                </Link>
-              </div>
+                <span className="flex-1 text-gray-700 leading-relaxed">{r.situation}</span>
+                <span className="shrink-0 font-semibold text-[#0f4c81] group-hover:underline">
+                  {r.page} →
+                </span>
+              </Link>
             ))}
           </div>
+          <p className="mt-6 text-sm text-gray-500 leading-relaxed">
+            如果你還未確定屬於哪一種，我們會在免費業務診斷時按你現有的系統、資料及人手分工，
+            直接說明應該走哪條路 —— 以及哪些部分不值得做。
+          </p>
         </div>
       </section>
 
