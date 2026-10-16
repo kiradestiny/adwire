@@ -160,7 +160,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[#f5a623] font-bold tracking-wider uppercase text-sm block mb-2"
+            className="text-[#f5a623] font-bold tracking-wider uppercase text-sm block mb-2" data-mobile-visible="true"
           >
             Our Expertise
           </motion.span>
@@ -169,7 +169,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl font-bold text-[#0f4c81] mb-4"
+            className="text-3xl md:text-4xl font-bold text-[#0f4c81] mb-4" data-mobile-visible="true"
           >
             全方位數碼營銷解決方案
           </motion.h2>
@@ -178,7 +178,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-500 text-lg max-w-2xl mx-auto"
+            className="text-gray-500 text-lg max-w-2xl mx-auto" data-mobile-visible="true"
           >
             以 SEO 及 AI 搜尋可見度為核心，配合網站開發、AI 應用、內容製作與跨境市場推廣，助你在客戶搜尋的那一刻出現。
           </motion.p>
@@ -190,12 +190,12 @@ export default function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12" data-mobile-visible="true"
         >
           {coreServices.map((service, index) => (
             <motion.div
               key={index}
-              variants={item}
+              variants={item} data-mobile-visible="true"
               whileHover={{ y: -10 }}
               className={`relative group rounded-3xl p-8 border-2 ${service.border} ${service.bgLight} overflow-hidden transition-all duration-300 hover:shadow-xl`}
             >

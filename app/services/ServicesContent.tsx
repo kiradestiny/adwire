@@ -259,6 +259,7 @@ export default function ServicesContent() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <div>
               <motion.div
+                data-mobile-visible="true"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm font-medium text-blue-100"
@@ -267,6 +268,7 @@ export default function ServicesContent() {
               </motion.div>
 
               <motion.h1
+                data-mobile-visible="true"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
@@ -278,6 +280,7 @@ export default function ServicesContent() {
               </motion.h1>
 
               <motion.p
+                data-mobile-visible="true"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -289,6 +292,7 @@ export default function ServicesContent() {
               </motion.p>
 
               <motion.div
+                data-mobile-visible="true"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -316,6 +320,7 @@ export default function ServicesContent() {
             </div>
 
             <motion.div
+              data-mobile-visible="true"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.25 }}
@@ -414,6 +419,7 @@ export default function ServicesContent() {
               <div className={`grid grid-cols-1 gap-8 ${section.items.length === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
                 {section.items.map((item, iIndex) => (
                   <motion.div
+                    data-mobile-visible="true"
                     key={item.id}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -574,6 +580,7 @@ export default function ServicesContent() {
               <div className="space-y-8">
                 {process.map((step, index) => (
                   <motion.div
+                    data-mobile-visible="true"
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}

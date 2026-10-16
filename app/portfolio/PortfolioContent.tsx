@@ -98,6 +98,7 @@ function CountUpStat({
 
   return (
     <motion.div
+      data-mobile-visible="true"
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -129,6 +130,7 @@ function PortfolioCard({
 
   return (
     <motion.div
+      data-mobile-visible="true"
       ref={cardRef}
       layout
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
@@ -373,6 +375,7 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-20">
           {/* Badge */}
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -388,6 +391,7 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
           {/* 主標題 */}
           <div className="text-center mb-8">
             <motion.h1
+              data-mobile-visible="true"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
@@ -401,6 +405,7 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
             </motion.h1>
 
             <motion.p
+              data-mobile-visible="true"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
@@ -414,6 +419,7 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
 
           {/* 統計數字 */}
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
@@ -426,6 +432,7 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
 
           {/* 向下滾動指示 */}
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
@@ -507,6 +514,7 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
         {/* 結果標題 */}
         <AnimatePresence mode="wait">
           <motion.div
+            data-mobile-visible="true"
             key={activeCategory}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -562,6 +570,7 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
         <div className="hero-mesh-gradient absolute inset-0" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}

@@ -69,6 +69,7 @@ export default function KolServiceContent() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -158,7 +159,7 @@ export default function KolServiceContent() {
       {/* 2.5 KOL 層級介紹（GEO 高價值表格 Section）*/}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+          <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
             <span className="inline-block py-1 px-4 rounded-full bg-[#f5a623]/10 text-[#f5a623] text-sm font-bold mb-4 tracking-wider uppercase">KOL Tier Guide</span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0f4c81] mb-4">如何選擇正確的 KOL 層級？</h2>
             <p className="text-gray-500 max-w-2xl mx-auto">
@@ -176,6 +177,7 @@ export default function KolServiceContent() {
               { tier: "Mega", range: "1M+", rate: "0.5–1.5%", icon: "🚀", color: "bg-pink-50 border-pink-200", accent: "text-pink-600", badge: "bg-pink-100 text-pink-700", best: "全港宣傳", cost: "議價" },
             ].map((kol, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                data-mobile-visible="true"
                 className={`p-5 rounded-2xl border-2 ${kol.color} hover:shadow-lg transition-all duration-300`}>
                 <div className="text-3xl mb-3">{kol.icon}</div>
                 <h3 className={`text-lg font-black mb-1 ${kol.accent}`}>{kol.tier} KOL</h3>
@@ -450,7 +452,7 @@ export default function KolServiceContent() {
       {/* 服務流程 */}
       <section className="py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+          <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
             <span className="inline-block py-1 px-4 rounded-full bg-[#0f4c81]/10 text-[#0f4c81] text-sm font-bold mb-4 tracking-wider uppercase">Our Process</span>
             <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">KOL 合作五步驟</h2>
             <p className="text-gray-500">由策略規劃到成效報告，ADWire 全程跟進。</p>
@@ -467,6 +469,7 @@ export default function KolServiceContent() {
                 { step: "05", icon: "📊", title: "成效追蹤", desc: "發佈後提供完整數據報告及優化建議" },
               ].map((p, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                  data-mobile-visible="true"
                   className="flex flex-col items-center text-center">
                   <div className="w-20 h-20 rounded-full bg-[#0f4c81] text-white flex flex-col items-center justify-center mb-4 shadow-lg border-4 border-white">
                     <span className="text-2xl">{p.icon}</span>
@@ -513,6 +516,7 @@ export default function KolServiceContent() {
             ].map((s, i) => (
               <Link key={i} href={s.link}>
                 <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                  data-mobile-visible="true"
                   whileHover={{ y: -5 }}
                   className="bg-white p-6 rounded-xl border border-gray-200 hover:border-[#0f4c81] hover:shadow-lg transition-all group cursor-pointer">
                   <div className="text-4xl mb-4">{s.icon}</div>
@@ -667,6 +671,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
   const [isOpen, setIsOpen] = useState(false);
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

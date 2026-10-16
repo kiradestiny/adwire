@@ -57,7 +57,7 @@ export default function SeoServiceContent() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-16">
 
             {/* Left */}
-            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+            <motion.div data-mobile-visible="true" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
               <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 border border-white/20 text-emerald-400 text-xs font-bold mb-6 tracking-[0.2em] uppercase backdrop-blur-sm">
                 <Search size={13} /> SEO + GEO / AISO Expert
               </span>
@@ -109,6 +109,7 @@ export default function SeoServiceContent() {
 
             {/* Right: AI Engines Coverage Card */}
             <motion.div
+              data-mobile-visible="true"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -132,6 +133,7 @@ export default function SeoServiceContent() {
                     { engine: "查詢轉換（表單／WhatsApp）", status: "GA4 事件", color: "text-sky-400", statusColor: "bg-sky-500/20 text-sky-300", icon: "💡" },
                   ].map((item, i) => (
                     <motion.div
+                      data-mobile-visible="true"
                       key={i}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -198,6 +200,7 @@ export default function SeoServiceContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* 痛點 1：為什麼要做 SEO */}
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              data-mobile-visible="true"
               className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all group">
               <div className="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Globe size={28} className="text-red-500" />
@@ -216,6 +219,7 @@ export default function SeoServiceContent() {
 
             {/* 痛點 2：為什麼要做 GEO */}
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              data-mobile-visible="true"
               className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-emerald-200 hover:shadow-xl transition-all group">
               <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Bot size={28} className="text-emerald-500" />
@@ -235,6 +239,7 @@ export default function SeoServiceContent() {
 
             {/* 痛點 3：廣告陷阱 */}
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+              data-mobile-visible="true"
               className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all group">
               <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <DollarSign size={28} className="text-orange-500" />
@@ -334,6 +339,7 @@ export default function SeoServiceContent() {
             <div className="relative">
               {/* Google Result Card */}
               <motion.div 
+                data-mobile-visible="true"
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -354,6 +360,7 @@ export default function SeoServiceContent() {
 
               {/* ChatGPT Result Card */}
               <motion.div 
+                data-mobile-visible="true"
                 initial={{ x: 20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
@@ -667,7 +674,7 @@ export default function SeoServiceContent() {
           <div className="absolute bottom-[0%] right-[5%] w-[500px] h-[400px] bg-blue-600/10 rounded-full filter blur-[100px]" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/20 border border-red-500/30 text-red-400 text-xs font-bold mb-6 tracking-wider uppercase">
               <AlertTriangle size={13} /> 流量危機警告
             </span>
@@ -686,6 +693,7 @@ export default function SeoServiceContent() {
               { stat: "8億+", label: "月活 AI 搜尋用戶", desc: "ChatGPT（3億+）+ Perplexity（5億+ 查詢）+ Gemini + Claude + Copilot。AI 搜尋已成主流，大多數品牌完全不在 AI 的知識庫中。", color: "border-blue-500/30 bg-blue-500/5", statColor: "text-blue-400", icon: Bot },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                data-mobile-visible="true"
                 className={`p-6 rounded-2xl border ${item.color}`}>
                 <item.icon size={24} className={`${item.statColor} mb-4`} />
                 <div className={`text-5xl font-black mb-2 ${item.statColor}`}>{item.stat}</div>
@@ -698,6 +706,7 @@ export default function SeoServiceContent() {
           {/* Before vs After */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              data-mobile-visible="true"
               className="bg-white/5 border border-white/10 rounded-2xl p-6">
               <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">⏪ 搜尋舊模式（2020 前）</div>
               <div className="space-y-3">
@@ -709,6 +718,7 @@ export default function SeoServiceContent() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+              data-mobile-visible="true"
               className="bg-red-500/10 border border-red-500/20 rounded-2xl p-6">
               <div className="text-xs font-bold text-red-400 uppercase tracking-wider mb-4">⚡ AI 搜尋新模式（2024+）</div>
               <div className="space-y-3">
@@ -723,6 +733,7 @@ export default function SeoServiceContent() {
 
           {/* 大公司警告 */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            data-mobile-visible="true"
             className="bg-gradient-to-r from-[#f5a623]/20 to-orange-600/20 border border-[#f5a623]/30 rounded-2xl p-8 flex flex-col md:flex-row items-start gap-6">
             <div className="w-14 h-14 bg-[#f5a623]/20 rounded-2xl flex items-center justify-center flex-shrink-0">
               <AlertTriangle size={28} className="text-[#f5a623]" />
@@ -870,6 +881,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
   const [isOpen, setIsOpen] = useState(false);
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -911,6 +923,7 @@ function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon,
 }) {
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -937,6 +950,7 @@ function PackageCard({ name, price, period, description, features, highlight, ba
 
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -984,6 +998,7 @@ function PackageCard({ name, price, period, description, features, highlight, ba
 function IndustryCard({ icon: Icon, name }: { icon: any, name: string }) {
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -1002,6 +1017,7 @@ function RelatedServiceCard({ title, desc, link, icon }: { title: string, desc: 
   return (
     <Link href={link}>
       <motion.div
+        data-mobile-visible="true"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

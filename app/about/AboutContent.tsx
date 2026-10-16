@@ -94,6 +94,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false);
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -153,7 +154,7 @@ export default function AboutContent() {
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#f5a623] text-xs md:text-sm font-bold mb-8 tracking-[0.2em] uppercase">
               About ADWire
             </span>
@@ -198,6 +199,7 @@ export default function AboutContent() {
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {HERO_FACTS.map((f, i) => (
               <motion.div
+                data-mobile-visible="true"
                 key={f.label}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -239,6 +241,7 @@ export default function AboutContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
             <motion.div
+              data-mobile-visible="true"
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -267,6 +270,7 @@ export default function AboutContent() {
             </motion.div>
 
             <motion.div
+              data-mobile-visible="true"
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -312,6 +316,7 @@ export default function AboutContent() {
       <section className="py-16 md:py-24 bg-[#f8fafc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -332,6 +337,7 @@ export default function AboutContent() {
               const Icon = LINE_ICON[line.key] ?? Code2;
               return (
                 <motion.div
+                  data-mobile-visible="true"
                   key={line.key}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -377,6 +383,7 @@ export default function AboutContent() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -395,6 +402,7 @@ export default function AboutContent() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
             {DELIVERY_PROCESS.map((s, i) => (
               <motion.div
+                data-mobile-visible="true"
                 key={s.step}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -414,6 +422,7 @@ export default function AboutContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {ENGAGEMENT.map((e, i) => (
               <motion.div
+                data-mobile-visible="true"
                 key={e.title}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -441,6 +450,7 @@ export default function AboutContent() {
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -477,6 +487,7 @@ export default function AboutContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
             <motion.div
+              data-mobile-visible="true"
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -519,6 +530,7 @@ export default function AboutContent() {
             </motion.div>
 
             <motion.div
+              data-mobile-visible="true"
               initial={{ opacity: 0, x: 24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -542,6 +554,7 @@ export default function AboutContent() {
               { icon: Handshake, t: "線上會議", d: "可安排 Zoom 或 WhatsApp 會議" },
             ].map((x, i) => (
               <motion.div
+                data-mobile-visible="true"
                 key={x.t}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -566,6 +579,7 @@ export default function AboutContent() {
       <section className="py-16 md:py-24 bg-white" aria-label="常見問題">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

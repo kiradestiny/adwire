@@ -113,7 +113,7 @@ export default function Partners() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5 }} data-mobile-visible="true"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-[#0f4c81] text-xs font-bold mb-4">
               <Zap size={12} className="fill-current" />
@@ -136,12 +136,12 @@ export default function Partners() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8" data-mobile-visible="true"
         >
           {partnerCategories.map((category, idx) => (
             <motion.div 
               key={idx}
-              variants={item}
+              variants={item} data-mobile-visible="true"
               whileHover={{ y: -5 }}
               className={`group bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 ${category.border}`}
             >
@@ -179,7 +179,7 @@ export default function Partners() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-20 pt-16 border-t border-gray-100"
+          className="mt-20 pt-16 border-t border-gray-100" data-mobile-visible="true"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">

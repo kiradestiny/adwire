@@ -32,7 +32,7 @@ export default function ContactContent() {
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               聯絡我們<span className="text-[#f5a623]">.</span>
             </h1>
@@ -189,6 +189,7 @@ export default function ContactContent() {
 function InfoCard({ icon: Icon, title, content }: { icon: any; title: string; content: React.ReactNode }) {
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

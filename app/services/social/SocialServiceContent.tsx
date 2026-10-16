@@ -232,7 +232,7 @@ export default function SocialServiceContent() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-16">
 
             {/* Left */}
-            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+            <motion.div data-mobile-visible="true" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
               <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 border border-white/20 text-pink-400 text-xs font-bold mb-6 tracking-[0.2em] uppercase backdrop-blur-sm">
                 Social Media Management
               </span>
@@ -275,6 +275,7 @@ export default function SocialServiceContent() {
 
             {/* Right: Metrics Dashboard */}
             <motion.div
+              data-mobile-visible="true"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -291,7 +292,7 @@ export default function SocialServiceContent() {
                     { label: "互動率", value: "8.2%", sub: "行業均值 1.4%", color: "text-purple-400" },
                     { label: "業績轉化", value: "+3×", sub: "社媒帶動訂單", color: "text-[#f5a623]" },
                   ].map((m, i) => (
-                    <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 + i * 0.1 }} className="bg-white/10 rounded-2xl p-4 text-center">
+                    <motion.div data-mobile-visible="true" key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 + i * 0.1 }} className="bg-white/10 rounded-2xl p-4 text-center">
                       <div className={`text-2xl font-black mb-1 ${m.color}`}>{m.value}</div>
                       <div className="text-xs text-white font-semibold mb-0.5">{m.label}</div>
                       <div className="text-[10px] text-gray-400">{m.sub}</div>
@@ -390,7 +391,7 @@ export default function SocialServiceContent() {
       {/* ── 4. 五大平台深度介紹 ── */}
       <section id="platforms" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
             <span className="inline-block py-1 px-4 rounded-full bg-[#0f4c81]/10 text-[#0f4c81] text-sm font-bold mb-4 tracking-wider uppercase">
               Platform Expertise
             </span>
@@ -415,6 +416,7 @@ export default function SocialServiceContent() {
 
           {/* 小紅書 特別強調：內地市場攻略 */}
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -497,6 +499,7 @@ export default function SocialServiceContent() {
               </ul>
             </div>
             <motion.div
+              data-mobile-visible="true"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -549,13 +552,13 @@ export default function SocialServiceContent() {
             <div className="relative order-2 lg:order-1">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full blur-3xl opacity-50" />
               <div className="relative space-y-4">
-                <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="bg-white p-4 rounded-2xl rounded-tl-none max-w-sm mr-auto shadow-sm border border-gray-100">
+                <motion.div data-mobile-visible="true" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="bg-white p-4 rounded-2xl rounded-tl-none max-w-sm mr-auto shadow-sm border border-gray-100">
                   <p className="text-gray-700 text-sm">請問呢個產品敏感肌用唔用得？同埋送貨要幾耐？🤔</p>
                 </motion.div>
-                <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }} className="bg-[#0f4c81] text-white p-4 rounded-2xl rounded-tr-none max-w-sm ml-auto shadow-lg">
+                <motion.div data-mobile-visible="true" initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }} className="bg-[#0f4c81] text-white p-4 rounded-2xl rounded-tr-none max-w-sm ml-auto shadow-lg">
                   <p className="text-sm">Hello! 👋 可以呀，我哋成分好溫和～<br />現貨大約 2-3 日就會送到上門 🚚。而家仲有 9 折優惠添，要唔要 send 條 link 俾你？</p>
                 </motion.div>
-                <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 1.5 }} className="bg-white p-4 rounded-2xl rounded-tl-none max-w-sm mr-auto flex items-center gap-2 shadow-sm border border-gray-100">
+                <motion.div data-mobile-visible="true" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 1.5 }} className="bg-white p-4 rounded-2xl rounded-tl-none max-w-sm mr-auto flex items-center gap-2 shadow-sm border border-gray-100">
                   <Heart size={16} className="text-red-500 fill-current" />
                   <p className="text-gray-700 text-sm">好呀！唔該晒小編！😍</p>
                 </motion.div>
@@ -748,6 +751,7 @@ function PlatformAccordion({
 }) {
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -945,7 +949,7 @@ function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon,
   industry: string; title: string; desc: string; metric: string; metricLabel: string; icon: any; color: string;
 }) {
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all group">
+    <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all group">
       <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform`}>
         <Icon size={28} />
       </div>
@@ -966,6 +970,7 @@ function PackageCard({ name, price, period, description, features, highlight, ba
   const whatsappUrl = getWhatsAppUrl(whatsappMsg || undefined);
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -1006,6 +1011,7 @@ function PackageCard({ name, price, period, description, features, highlight, ba
 function IndustryCard({ icon: Icon, name }: { icon: any; name: string }) {
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -1024,6 +1030,7 @@ function RelatedServiceCard({ title, desc, link, icon }: { title: string; desc: 
   return (
     <Link href={link}>
       <motion.div
+        data-mobile-visible="true"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

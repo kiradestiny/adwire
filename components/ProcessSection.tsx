@@ -76,7 +76,7 @@ export default function ProcessSection() {
               const Icon = step.icon;
               return (
                 <div
-                  key={index}
+                  key={index} data-mobile-visible="true"
                   /* 2026-10-15：初始狀態不再寫 `opacity-0`（原本 SSR HTML 會
                      令無 JS／JS 失敗時流程步驟完全不可見）。改為預設可見，
                      進入視口才加 animate-fade-in-up，動畫只作增強。 */

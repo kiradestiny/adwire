@@ -470,6 +470,38 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   手機內容可見性護欄 — [data-mobile-visible="true"]
+   （2026-10-16 iPhone 首頁／服務頁「空白」事故的通用修正）
+
+   問題：framer-motion 的 whileInView／whileInView variants／useInView
+   animate 進場動畫，在 SSR 出街時會把 inline style 寫成
+   `opacity:0;transform:translateY(20px)`（例：首頁服務卡、客戶案例卡）。
+   一旦 JS 未執行、被擋、動畫 observer 未觸發，內容就永久停在 opacity 0，
+   整段看似空白。此護欄針對手機；桌面既有進場動畫維持原樣。
+
+   做法：只標記「純內容」的進場包裝層（卡片、段落、標題的 motion wrapper）。
+   帶此標記的元素在手機上強制顯示、不播進場動畫；作者樣式表的 !important
+   會蓋過 framer-motion 寫的 inline style。
+
+   刻意不加標記的東西（維持原狀）：
+   - 控制項：Navbar／抽屜／摺疊區（收起狀態要真的收起）
+   - 裝飾性 overlay、走馬燈、本身刻意半透明的底紋（opacity-20/60）
+   - 3D 傾斜互動內層（外層靜態內容仍可標記）
+
+   媒體查詢涵蓋手機寬度及純觸控裝置（包括較闊平板）；
+     桌面（hover:hover + pointer:fine，寬度 ≥ 768px）的進場動畫、
+     stagger 與 hover 效果一律保持不變。
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  [data-mobile-visible="true"] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
    文章內文排版 (.article-prose) — 手機優先
    ── 修正：專案未安裝 @tailwindcss/typography，tailwind.config 的
       plugins 為空，原本 JSX 上的 `prose prose-lg` 完全沒有產生任何

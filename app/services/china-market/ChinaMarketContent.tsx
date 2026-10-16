@@ -260,7 +260,7 @@ export default function ChinaMarketContent() {
         <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-[#f5a623]/10 rounded-full blur-[110px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-red-500/50 bg-red-500/10 text-red-300 text-sm mb-8">
               <Globe size={14} />
               China Market Promotion
@@ -326,6 +326,7 @@ export default function ChinaMarketContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {painPoints.map((p, i) => (
               <motion.div
+                data-mobile-visible="true"
                 key={p.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -366,6 +367,7 @@ export default function ChinaMarketContent() {
               const Icon = pf.icon;
               return (
                 <motion.div
+                  data-mobile-visible="true"
                   key={pf.id}
                   id={pf.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -579,6 +581,7 @@ export default function ChinaMarketContent() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {industries.map((ind, i) => (
               <motion.div
+                data-mobile-visible="true"
                 key={ind.name}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}

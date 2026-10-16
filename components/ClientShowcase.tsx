@@ -47,7 +47,7 @@ function ClientCard({ client, index }: { client: Client; index: number }) {
       transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.3) }}
       className="group flex flex-col rounded-2xl overflow-hidden border border-gray-200/80 bg-white
                  shadow-[0_1px_3px_rgba(15,76,129,0.06)] hover:shadow-xl hover:border-[#f5a623]/40
-                 transition-all duration-300"
+                 transition-all duration-300" data-mobile-visible="true"
     >
       {/* 圖 */}
       <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">

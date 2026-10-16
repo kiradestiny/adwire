@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postbuild": "node scripts/check-site-output.mjs --selftest && node scripts/check-site-output.mjs",
-    "check:output": "node scripts/check-site-output.mjs"
+    "postbuild": "node scripts/check-site-output.mjs --selftest && node scripts/check-site-output.mjs && npm test",
+    "check:output": "node scripts/check-site-output.mjs",
+    "test": "node --experimental-strip-types tests/assessment.test.ts && node --experimental-strip-types tests/form-submission.test.ts"
   },
   "dependencies": {
     "framer-motion": "^12.23.26",

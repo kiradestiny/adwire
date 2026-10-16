@@ -13,6 +13,14 @@ import { useRouter, usePathname } from "next/navigation";
 // 前端和後端（send-mail.php）都從同一份 JSON 讀取，無需手動同步
 import { SERVICE_OPTIONS } from "@/lib/service-options";
 import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
+import {
+  browserLocalStorage,
+  isConfirmedSubmission,
+  markFormSubmitted,
+  safeStorageRead,
+  safeStorageRemove,
+  safeStorageWrite,
+} from "@/lib/form-submission";
 
 /**
  * 表單送出端點。
@@ -391,7 +399,11 @@ export default function ContactSection({ defaultService }: { defaultService?: st
     setMounted(true);
     setValues(prev => ({ ...prev, formStartedAt: new Date().toISOString() }));
 
-    const storedCooldownUntil = Number(window.localStorage.getItem(SUBMIT_COOLDOWN_STORAGE_KEY) ?? "0");
+    // localStorage 同樣可能被封鎖（讀都可以 throw）→ 用 safeStorageRead 包住，
+    // 否則整個 mount effect 會爆，表單連帶受影響。
+    const storedCooldownUntil = Number(
+      safeStorageRead(browserLocalStorage(), SUBMIT_COOLDOWN_STORAGE_KEY) ?? "0"
+    );
     if (Number.isFinite(storedCooldownUntil) && storedCooldownUntil > Date.now()) {
       setCooldownUntil(storedCooldownUntil);
     }
@@ -472,7 +484,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
       if (remainingMs <= 0) {
         setCooldownUntil(null);
         setCooldownRemaining(0);
-        window.localStorage.removeItem(SUBMIT_COOLDOWN_STORAGE_KEY);
+        safeStorageRemove(browserLocalStorage(), SUBMIT_COOLDOWN_STORAGE_KEY);
         return;
       }
 
@@ -488,7 +500,8 @@ export default function ContactSection({ defaultService }: { defaultService?: st
   const startClientCooldown = useCallback((durationMs = CLIENT_SUBMIT_COOLDOWN_MS) => {
     const nextCooldownUntil = Date.now() + durationMs;
     setCooldownUntil(nextCooldownUntil);
-    window.localStorage.setItem(SUBMIT_COOLDOWN_STORAGE_KEY, String(nextCooldownUntil));
+    // best-effort：storage 被封鎖都只係冇咗冷卻記憶，唔可以因此拋錯。
+    safeStorageWrite(browserLocalStorage(), SUBMIT_COOLDOWN_STORAGE_KEY, String(nextCooldownUntil));
   }, []);
 
   const triggerShake = () => {
@@ -594,9 +607,16 @@ export default function ContactSection({ defaultService }: { defaultService?: st
         throw new Error("伺服器回應格式錯誤，請稍後再試。");
       }
 
-      if (response.ok && result.success) {
+      // 只有「HTTP 成功」而且 body `success:true` 才算真正收到 lead
+      //（httpOk 但 success:false = 後端評分拒收／429 冷卻，唔可以當成功）。
+      if (isConfirmedSubmission({ httpOk: response.ok, success: result.success })) {
         startClientCooldown();
-        sessionStorage.setItem("adwire_form_submitted", "1");
+        // ✅ 先記錄「已確認成功」再跳轉。
+        // 直接寫 sessionStorage 嘅話，一旦 storage 被封鎖（無痕／封 cookie）就會 throw，
+        // 落入下面 catch → 客人明明成功送出卻見到「發送失敗」。
+        // markFormSubmitted() 以記憶體 receipt 為權威、storage 只作 best-effort，
+        // 所以跳轉前唔會再有任何可以 throw 嘅步驟。
+        markFormSubmitted();
         router.push("/thank-you/");
       } else {
         if (response.status === 429) {
@@ -631,6 +651,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
           {/* ── Left: CTA + Contact Info ── */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
+            data-mobile-visible="true"
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="flex flex-col justify-center"
@@ -705,6 +726,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
           {/* ── Right: Form Card ── */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
+            data-mobile-visible="true"
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="bg-white text-gray-900 rounded-3xl p-8 md:p-10 shadow-2xl relative"

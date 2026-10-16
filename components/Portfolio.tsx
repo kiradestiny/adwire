@@ -67,7 +67,7 @@ function PortfolioCard({
         delay: (index % 3) * 0.09,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="card-3d-wrapper"
+      className="card-3d-wrapper" data-mobile-visible="true"
     >
       <Link href={`/portfolio/${item.slug}`} className="block h-full">
         <motion.div
@@ -234,7 +234,7 @@ export default function Portfolio({ cases }: PortfolioProps) {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 mb-3"
+              className="inline-flex items-center gap-2 mb-3" data-mobile-visible="true"
             >
               <Sparkles size={14} className="text-[#f5a623]" />
               <span className="text-[#f5a623] font-bold tracking-wider uppercase text-sm">
@@ -247,7 +247,7 @@ export default function Portfolio({ cases }: PortfolioProps) {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="text-3xl md:text-4xl font-black text-[#0f4c81] leading-tight"
+              className="text-3xl md:text-4xl font-black text-[#0f4c81] leading-tight" data-mobile-visible="true"
             >
               實戰數據，
               <br className="hidden sm:block" />
@@ -259,7 +259,7 @@ export default function Portfolio({ cases }: PortfolioProps) {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.16 }}
-              className="text-gray-500 mt-3 text-base max-w-lg leading-relaxed"
+              className="text-gray-500 mt-3 text-base max-w-lg leading-relaxed" data-mobile-visible="true"
             >
               每個數字背後都是真實業務成果，並非參考數據。
             </motion.p>
@@ -270,7 +270,7 @@ export default function Portfolio({ cases }: PortfolioProps) {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.3 }} data-mobile-visible="true"
           >
             <Link
               href="/portfolio"
@@ -303,7 +303,7 @@ export default function Portfolio({ cases }: PortfolioProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-12 md:hidden text-center"
+          className="mt-12 md:hidden text-center" data-mobile-visible="true"
         >
           <Link
             href="/portfolio"

@@ -149,7 +149,7 @@ export default function AiServiceContent() {
         <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-purple-600/20 rounded-full blur-[110px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
+          <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/50 bg-blue-500/10 text-blue-300 text-sm mb-6">
               <Brain size={14} /> 企業 AI 轉型方案｜本月只限 6 個免費分析名額
             </div>
@@ -263,6 +263,7 @@ export default function AiServiceContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {aiModels.map((model, index) => (
               <motion.div
+                data-mobile-visible="true"
                 key={model.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -755,6 +756,7 @@ export default function AiServiceContent() {
           <div className="space-y-4">
             {AI_FAQS.map((item, index) => (
               <motion.div
+                data-mobile-visible="true"
                 key={item.question}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}

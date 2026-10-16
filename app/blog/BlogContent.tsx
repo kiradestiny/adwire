@@ -104,6 +104,7 @@ export default function BlogContent({ posts }: BlogContentProps) {
           </nav>
 
           <motion.div
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
@@ -174,10 +175,11 @@ export default function BlogContent({ posts }: BlogContentProps) {
       <AnimatePresence>
         {!isFiltering && (
           <motion.section
+            data-mobile-visible="true"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, height: 0 }}
-            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-4"
+            className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-4 overflow-hidden"
             aria-labelledby="featured-heading"
           >
             <div className="flex items-center gap-2 mb-6">
@@ -278,6 +280,7 @@ export default function BlogContent({ posts }: BlogContentProps) {
           <AnimatePresence mode="popLayout">
             {filteredPosts.map((post) => (
               <motion.article
+                data-mobile-visible="true"
                 layout
                 key={post.id}
                 initial={{ opacity: 0, scale: 0.95 }}

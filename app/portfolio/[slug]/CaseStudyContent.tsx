@@ -103,6 +103,7 @@ function MetricCard({
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
+      data-mobile-visible="true"
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className={`relative rounded-2xl overflow-hidden transition-all duration-300 ${
@@ -166,6 +167,7 @@ function ProcessStep({
     <motion.div
       ref={ref}
       initial={{ opacity: 0, x: -30 }}
+      data-mobile-visible="true"
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
       className="flex gap-5"
@@ -264,6 +266,7 @@ function GeoSnapshotBox({
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
+      data-mobile-visible="true"
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
@@ -323,6 +326,7 @@ function BeforeAfterTable({
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
+      data-mobile-visible="true"
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
@@ -391,6 +395,7 @@ function FaqAccordion({
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
+          data-mobile-visible="true"
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-10"
@@ -409,6 +414,7 @@ function FaqAccordion({
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 15 }}
+              data-mobile-visible="true"
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100"
@@ -564,6 +570,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
           {/* 麵包屑 */}
           <motion.nav
             initial={{ opacity: 0, y: -10 }}
+            data-mobile-visible="true"
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             aria-label="breadcrumb"
@@ -589,6 +596,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
           {/* 分類標籤 */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
+            data-mobile-visible="true"
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-wrap gap-2 mb-5"
@@ -613,6 +621,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
           {/* 標題 */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
+            data-mobile-visible="true"
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 max-w-3xl"
@@ -623,6 +632,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
           {/* 簡介 */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
+            data-mobile-visible="true"
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="text-white/65 text-lg max-w-2xl leading-relaxed mb-10"
@@ -633,6 +643,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
           {/* 主要成效指標（Hero 底部）*/}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
+            data-mobile-visible="true"
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-wrap gap-4"
@@ -674,6 +685,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
               <motion.span
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
+                data-mobile-visible="true"
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.05 }}
                 className="text-sm font-medium px-3 py-1.5 rounded-full border"
@@ -817,6 +829,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
+            data-mobile-visible="true"
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -858,6 +871,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
+              data-mobile-visible="true"
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -883,6 +897,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 30 }}
+                  data-mobile-visible="true"
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
@@ -904,6 +919,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
+            data-mobile-visible="true"
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -972,6 +988,7 @@ function ContentSection({
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
+      data-mobile-visible="true"
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
     >
@@ -1006,13 +1023,21 @@ function SidebarInfoCard({ caseItem }: { caseItem: PortfolioCase }) {
       label: "主要成效",
       value: `${caseItem.stats} ${caseItem.statLabel}`,
     },
-    { icon: Clock, label: "最後更新", value: new Date().toLocaleDateString() },
+    // 2026-10-16：原本喺呢度用 `new Date().toLocaleDateString()` 當「最後更新」。
+    // 成因：SSR（build server 時區／locale）與 client（訪客瀏覽器）會算出唔同字串，
+    // 令全部 16 個案例頁出現 React hydration mismatch（#418）。
+    // 為何係「移除」而唔係「改用 API updatedAt」：本 repo 嘅 PortfolioCase /
+    // SerializablePortfolioCase 完全冇 updatedAt 欄位（只有 api-client 嘅
+    // ApiPortfolioCase 有，但 data-resolver 冇傳入 client），即係畫面層冇任何
+    // 已驗證嘅時間戳可用。與其用建置日期或瀏覽當下日期冒充「最後更新」，
+    // 直接唔顯示呢一列（亦唔可以靠 suppressHydrationWarning 遮住問題）。
   ];
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, x: 30 }}
+      data-mobile-visible="true"
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="bg-white rounded-3xl shadow-md overflow-hidden border border-gray-100"
@@ -1096,6 +1121,7 @@ function TestimonialCard({ caseItem }: { caseItem: PortfolioCase }) {
     <motion.div
       ref={ref}
       initial={{ opacity: 0, x: 30 }}
+      data-mobile-visible="true"
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
       className="relative bg-[#0f1e3d] rounded-3xl p-6 overflow-hidden"

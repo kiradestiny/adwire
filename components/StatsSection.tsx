@@ -89,7 +89,7 @@ export default function StatsSection() {
             const Icon = stat.icon;
             return (
               <div
-                key={index}
+                key={index} data-mobile-visible="true"
                 /* 2026-10-15：初始狀態不再寫 `opacity-0`。
                    原本未進入視口時 class 為 opacity-0，SSR HTML 出街時
                    500+/328% 等統計數字在「無 JS 或 JS 失敗」時完全不可見。

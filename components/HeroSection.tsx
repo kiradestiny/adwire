@@ -302,7 +302,7 @@ export default function HeroSection() {
 
             {/* Live badge */}
             <div
-              className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full liquid-glass border border-white/20 text-blue-300 text-sm font-semibold mb-6 animate-fade-in-up"
+              className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full liquid-glass border border-white/20 text-blue-300 text-sm font-semibold mb-6 animate-fade-in-up" data-mobile-visible="true"
               style={{ animationDelay: "0.1s", opacity: 0 }}
             >
               <span className="relative flex h-2 w-2">
@@ -328,7 +328,7 @@ export default function HeroSection() {
             </h1>
 
             {/* Pain-point rotator */}
-            <div className="h-12 mb-6 flex items-center gap-3 animate-fade-in-up" style={{ animationDelay: "0.4s", opacity: 0 }}>
+            <div className="h-12 mb-6 flex items-center gap-3 animate-fade-in-up" data-mobile-visible="true" style={{ animationDelay: "0.4s", opacity: 0 }}>
               <span className="text-2xl md:text-3xl text-gray-400">常見問題：</span>
               <span key={textIndex} className="text-2xl md:text-3xl font-bold gradient-text-gold animate-fade-in">
                 {PAIN_POINTS[textIndex]}
@@ -336,7 +336,7 @@ export default function HeroSection() {
             </div>
 
             {/* Description */}
-            <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.5s", opacity: 0 }}>
+            <p className="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed animate-fade-in-up" data-mobile-visible="true" style={{ animationDelay: "0.5s", opacity: 0 }}>
               ADWire 提供{" "}
               <strong className="text-white">企業網站及系統開發</strong>、
               <strong className="text-white">AI 應用與工作流程自動化</strong>，以及{" "}
@@ -347,7 +347,7 @@ export default function HeroSection() {
             {/* CTAs
                 主要入口：帶不懂選服務的訪客去做短問卷（/start）。
                 保留原有「討論你的項目」直接查詢入口，不強迫所有人答問卷。 */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-4 animate-fade-in-up" style={{ animationDelay: "0.6s", opacity: 0 }}>
+            <div className="flex flex-col sm:flex-row gap-4 mb-4 animate-fade-in-up" data-mobile-visible="true" style={{ animationDelay: "0.6s", opacity: 0 }}>
               <Link
                 href="/start"
                 prefetch={false}
@@ -379,7 +379,7 @@ export default function HeroSection() {
             </div>
 
             {/* 次入口（文字連結）：保留原有「探索服務方案」，另加案例入口 */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-8 animate-fade-in-up" style={{ animationDelay: "0.65s", opacity: 0 }}>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-8 animate-fade-in-up" data-mobile-visible="true" style={{ animationDelay: "0.65s", opacity: 0 }}>
               <Link
                 href="/services"
                 prefetch={false}
@@ -401,7 +401,7 @@ export default function HeroSection() {
             </div>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6 animate-fade-in-up" style={{ animationDelay: "0.7s", opacity: 0 }}>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6 animate-fade-in-up" data-mobile-visible="true" style={{ animationDelay: "0.7s", opacity: 0 }}>
               {["需求先講清楚", "交付範圍明確", "上線後可維護"].map((t) => (
                 <div key={t} className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0" />
@@ -411,7 +411,7 @@ export default function HeroSection() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-3 mb-5 animate-fade-in-up" style={{ animationDelay: "0.8s", opacity: 0 }}>
+            <div className="grid grid-cols-3 gap-3 mb-5 animate-fade-in-up" data-mobile-visible="true" style={{ animationDelay: "0.8s", opacity: 0 }}>
               {STATS.map((s) => (
                 <StatCard key={s.label} {...s} started={statsStarted} />
               ))}
@@ -421,7 +421,7 @@ export default function HeroSection() {
                   策略：以「團隊能力 + 市場覆蓋 + 技術深度」為切入點，
                   適合對標上市公司 / 大企業 / 政府，
                   無需依賴 Partner badge，靠具體能力建立信任。 */}
-            <div className="grid grid-cols-3 gap-3 animate-fade-in-up" style={{ animationDelay: "0.95s", opacity: 0 }}>
+            <div className="grid grid-cols-3 gap-3 animate-fade-in-up" data-mobile-visible="true" style={{ animationDelay: "0.95s", opacity: 0 }}>
               {ADVANTAGES.map(({ Icon, title, desc, color, bg, border, glow }) => (
                 <div
                   key={title}
@@ -443,7 +443,7 @@ export default function HeroSection() {
               RIGHT ─ 3D Interactive Dashboard
           ================================================================ */}
           <div
-            className="relative hidden lg:flex items-center justify-center animate-fade-in-up"
+            className="relative hidden lg:flex items-center justify-center animate-fade-in-up" data-mobile-visible="true"
             style={{ animationDelay: "0.25s", opacity: 0 }}
           >
             {/* 3D perspective wrapper */}

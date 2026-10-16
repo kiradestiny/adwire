@@ -112,7 +112,7 @@ export default function AdsServiceContent() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pb-16">
 
             {/* Left: Text Content */}
-            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+            <motion.div data-mobile-visible="true" initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
               <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 border border-white/20 text-[#f5a623] text-xs font-bold mb-6 tracking-[0.2em] uppercase backdrop-blur-sm">
                 <BarChart3 size={14} /> Performance Marketing Expert
               </span>
@@ -177,6 +177,7 @@ export default function AdsServiceContent() {
 
             {/* Right: Performance Dashboard */}
             <motion.div
+              data-mobile-visible="true"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -335,6 +336,7 @@ export default function AdsServiceContent() {
 
             {/* 右邊：模擬 Dashboard UI */}
             <motion.div 
+              data-mobile-visible="true"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -936,6 +938,7 @@ function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon,
 }) {
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -962,6 +965,7 @@ function PackageCard({ name, price, period, description, features, highlight, ba
 
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -1009,6 +1013,7 @@ function PackageCard({ name, price, period, description, features, highlight, ba
 function IndustryCard({ icon: Icon, name }: { icon: any, name: string }) {
   return (
     <motion.div
+      data-mobile-visible="true"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -1027,6 +1032,7 @@ function RelatedServiceCard({ title, desc, link, icon }: { title: string, desc: 
   return (
     <Link href={link}>
       <motion.div
+        data-mobile-visible="true"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
