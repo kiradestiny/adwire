@@ -80,8 +80,8 @@ export default function BlogContent({ posts }: BlogContentProps) {
       {/* ── Header ── */}
       <section className="pt-32 pb-16 bg-[#0f4c81] text-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#f5a623] rounded-full blur-3xl" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-10 right-10 w-96 h-96 bg-[#f5a623] rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -313,7 +313,7 @@ export default function BlogContent({ posts }: BlogContentProps) {
                       {post.category}
                     </div>
                     {!post.image && (
-                      <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-white/10 rounded-full blur-xl" />
+                      <div data-mobile-glow="true" aria-hidden="true" className="absolute -bottom-4 -left-4 w-24 h-24 bg-white/10 rounded-full blur-xl" />
                     )}
                   </div>
                 </Link>

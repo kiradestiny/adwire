@@ -27,8 +27,8 @@ export default function SeoServiceContent() {
       <section className="pt-28 pb-0 bg-slate-900 text-white relative overflow-hidden">
         {/* 背景效果 */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-5%] left-[15%] w-[600px] h-[500px] bg-blue-600/20 rounded-full filter blur-[120px]" />
-          <div className="absolute bottom-[0%] right-[10%] w-[500px] h-[400px] bg-emerald-600/15 rounded-full filter blur-[100px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute top-[-5%] left-[15%] w-[600px] h-[500px] bg-blue-600/20 rounded-full filter blur-[120px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-[0%] right-[10%] w-[500px] h-[400px] bg-emerald-600/15 rounded-full filter blur-[100px]" />
         </div>
 
         {/* Breadcrumb */}
@@ -115,7 +115,7 @@ export default function SeoServiceContent() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative hidden lg:block"
             >
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-emerald-600/20 rounded-3xl blur-xl" />
+              <div data-mobile-glow="true" aria-hidden="true" className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-emerald-600/20 rounded-3xl blur-xl" />
               <div className="bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl overflow-hidden shadow-2xl relative">
                 <div className="bg-white/5 border-b border-white/10 px-5 py-3 flex items-center justify-between">
                   <span className="text-xs text-gray-400 font-mono">AI 搜尋可見度量度項目（示意圖）</span>
@@ -670,8 +670,8 @@ export default function SeoServiceContent() {
       {/* ── Zero-Click 危機 & AI 搜尋趨勢 ── */}
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[10%] left-[-5%] w-[400px] h-[400px] bg-red-600/10 rounded-full filter blur-[100px]" />
-          <div className="absolute bottom-[0%] right-[5%] w-[500px] h-[400px] bg-blue-600/10 rounded-full filter blur-[100px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute top-[10%] left-[-5%] w-[400px] h-[400px] bg-red-600/10 rounded-full filter blur-[100px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-[0%] right-[5%] w-[500px] h-[400px] bg-blue-600/10 rounded-full filter blur-[100px]" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">

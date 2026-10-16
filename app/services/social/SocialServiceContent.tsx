@@ -196,9 +196,9 @@ export default function SocialServiceContent() {
       <section className="pt-28 pb-0 bg-[#0b1628] text-white relative overflow-hidden">
         {/* 背景光暈 */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-blue-600/20 rounded-full filter blur-[120px]" />
-          <div className="absolute top-[10%] right-[10%] w-[400px] h-[400px] bg-pink-600/15 rounded-full filter blur-[100px]" />
-          <div className="absolute bottom-[0%] left-[5%] w-[350px] h-[350px] bg-purple-600/15 rounded-full filter blur-[100px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-blue-600/20 rounded-full filter blur-[120px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute top-[10%] right-[10%] w-[400px] h-[400px] bg-pink-600/15 rounded-full filter blur-[100px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-[0%] left-[5%] w-[350px] h-[350px] bg-purple-600/15 rounded-full filter blur-[100px]" />
         </div>
 
         {/* Breadcrumb */}
@@ -550,7 +550,7 @@ export default function SocialServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 lg:order-1">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full blur-3xl opacity-50" />
+              <div data-mobile-glow="true" aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full blur-3xl opacity-50" />
               <div className="relative space-y-4">
                 <motion.div data-mobile-visible="true" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="bg-white p-4 rounded-2xl rounded-tl-none max-w-sm mr-auto shadow-sm border border-gray-100">
                   <p className="text-gray-700 text-sm">請問呢個產品敏感肌用唔用得？同埋送貨要幾耐？🤔</p>

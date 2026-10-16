@@ -163,7 +163,7 @@ export default function WebServiceContent() {
               </div>
               
               {/* Background Glow */}
-              <div className="absolute -inset-10 bg-cyan-500/20 blur-3xl -z-10 rounded-full" />
+              <div data-mobile-glow="true" aria-hidden="true" className="absolute -inset-10 bg-cyan-500/20 blur-3xl -z-10 rounded-full" />
             </motion.div>
           </div>
         </div>

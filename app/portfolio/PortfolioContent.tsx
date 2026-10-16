@@ -335,7 +335,7 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
       >
         {/* 動態光球 */}
         {orbConfigs.map((orb, i) => (
-          <motion.div
+          <motion.div data-mobile-glow="true" aria-hidden="true"
             key={i}
             className="absolute rounded-full pointer-events-none"
             style={{

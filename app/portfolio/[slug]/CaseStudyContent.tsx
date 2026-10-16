@@ -114,8 +114,8 @@ function MetricCard({
     >
       {metric.highlight && (
         <>
-          <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/5 -mr-10 -mt-10 blur-2xl" />
-          <div className="absolute bottom-0 left-0 w-20 h-20 rounded-full bg-white/5 -ml-5 -mb-5 blur-xl" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/5 -mr-10 -mt-10 blur-2xl" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-0 left-0 w-20 h-20 rounded-full bg-white/5 -ml-5 -mb-5 blur-xl" />
         </>
       )}
       {/* ✅ RWD：padding 手機縮小，桌面保持 p-6 */}
@@ -555,7 +555,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
         </div>
 
         {/* 視差浮動光球 */}
-        <motion.div
+        <motion.div data-mobile-glow="true" aria-hidden="true"
           className="absolute top-[20%] right-[15%] w-72 h-72 rounded-full pointer-events-none"
           style={{
             background: `radial-gradient(circle, ${caseItem.accentColor}20 0%, transparent 70%)`,
@@ -1127,7 +1127,7 @@ function TestimonialCard({ caseItem }: { caseItem: PortfolioCase }) {
       className="relative bg-[#0f1e3d] rounded-3xl p-6 overflow-hidden"
     >
       {/* 背景裝飾 */}
-      <div
+      <div data-mobile-glow="true" aria-hidden="true"
         className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-20 -mr-10 -mt-10 blur-2xl"
         style={{ backgroundColor: caseItem.accentColor }}
       />

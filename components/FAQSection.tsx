@@ -29,8 +29,8 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
       aria-labelledby="faq-heading"
     >
       {/* 背景裝飾 */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/40 rounded-full filter blur-3xl opacity-50 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-100/40 rounded-full filter blur-3xl opacity-50 pointer-events-none" />
+      <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 right-0 w-96 h-96 bg-blue-100/40 rounded-full filter blur-3xl opacity-50 pointer-events-none" />
+      <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-0 left-0 w-64 h-64 bg-orange-100/40 rounded-full filter blur-3xl opacity-50 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

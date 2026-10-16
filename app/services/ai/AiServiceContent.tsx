@@ -145,8 +145,8 @@ export default function AiServiceContent() {
       {/* Hero Section */}
       <section className="pt-32 pb-24 bg-gradient-to-br from-slate-900 via-[#0f172a] to-[#1e1b4b] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
-        <div className="absolute top-0 right-0 w-[560px] h-[560px] bg-blue-600/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-purple-600/20 rounded-full blur-[110px]" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 right-0 w-[560px] h-[560px] bg-blue-600/20 rounded-full blur-[120px]" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-purple-600/20 rounded-full blur-[110px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>
@@ -235,7 +235,7 @@ export default function AiServiceContent() {
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-md border border-blue-100 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/30 rounded-full blur-3xl" />
+              <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 right-0 w-32 h-32 bg-blue-200/30 rounded-full blur-3xl" />
               <h3 className="text-xl font-bold text-[#0f4c81] mb-6 flex items-center gap-2 relative z-10">
                 <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center"><Check size={18} /></span>
                 ADWire AI 解決方案
@@ -861,7 +861,7 @@ function ServiceCard({ icon: Icon, title, desc }: { icon: any; title: string; de
       transition={{ duration: 0.3 }}
       className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group relative overflow-hidden"
     >
-      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/10 transition-colors" />
+      <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/10 transition-colors" />
       <div className="relative z-10">
         <motion.div
           whileHover={{ rotate: 360 }}

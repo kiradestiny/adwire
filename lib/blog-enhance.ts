@@ -6,7 +6,7 @@
  */
 
 import type { BlogPost } from "./blogData";
-import { parseHtml, descendants, plainText } from "./blog-html";
+import { parseHtml, descendants, plainText, markMobileGlowDecorations } from "./blog-html";
 
 // ─── Emoji 清理 ──────────────────────────────────────────────────────────────
 /** 標題（H2/H3/H4）不應使用 emoji 作圖示（最明顯的 AI 生成訊號） */
@@ -53,7 +53,9 @@ export function normalizeHeadingLevels(html: string): string {
 }
 
 export function buildTocAndInjectIds(html: string): { html: string; toc: TocItem[] } {
-  const normalized = normalizeHeadingLevels(html);
+  // 先在渲染邊界為原始文章 HTML 的裝飾性 glow 補標記（見 lib/blog-html.ts）。
+  // 純屬性插入，不影響其後標題 ID／目錄／表格包裝的結果。
+  const normalized = normalizeHeadingLevels(markMobileGlowDecorations(html));
   const toc: TocItem[] = [];
   const usedIds = new Set<string>();
   let index = 0;

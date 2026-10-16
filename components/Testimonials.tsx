@@ -37,8 +37,8 @@ export default function Testimonials() {
     <section className="py-24 bg-gray-900 relative overflow-hidden">
       {/* 背景裝飾 */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20">
-        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-blue-600 blur-3xl"></div>
-        <div className="absolute top-1/2 right-0 w-64 h-64 rounded-full bg-purple-600 blur-3xl"></div>
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-blue-600 blur-3xl"></div>
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute top-1/2 right-0 w-64 h-64 rounded-full bg-purple-600 blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

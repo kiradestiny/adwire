@@ -642,8 +642,8 @@ export default function ContactSection({ defaultService }: { defaultService?: st
   return (
     <section ref={sectionRef} className="py-24 bg-[#0f4c81] text-white relative overflow-hidden" id="contact">
       {/* Background blobs（裝飾性） */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#f5a623] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" aria-hidden="true" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" aria-hidden="true" />
+      <div data-mobile-glow="true" className="absolute top-0 left-0 w-64 h-64 bg-[#f5a623] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" aria-hidden="true" />
+      <div data-mobile-glow="true" className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">

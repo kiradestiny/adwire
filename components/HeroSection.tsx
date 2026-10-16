@@ -92,7 +92,7 @@ function Orb({ color, className, style }: {
   style?: React.CSSProperties;
 }) {
   return (
-    <div
+    <div data-mobile-glow="true" aria-hidden="true"
       className={`absolute rounded-full pointer-events-none will-change-transform ${className ?? ""}`}
       style={{
         background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,

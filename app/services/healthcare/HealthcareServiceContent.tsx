@@ -214,8 +214,8 @@ export default function HealthcareServiceContent() {
       {/* 1. Hero Banner */}
       <section className="pt-32 pb-20 bg-[#0f4c81] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#f5a623]/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/20 rounded-full blur-[100px]" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#f5a623]/20 rounded-full blur-[120px]" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-500/20 rounded-full blur-[100px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

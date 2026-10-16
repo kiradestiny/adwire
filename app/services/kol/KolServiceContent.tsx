@@ -42,8 +42,8 @@ export default function KolServiceContent() {
 
       {/* 1. Hero Banner */}
       <section className="pt-32 pb-24 bg-[#0f4c81] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#f5a623] rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pink-500 rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-pulse animation-delay-2000" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#f5a623] rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-pulse" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-pink-500 rounded-full mix-blend-multiply filter blur-[120px] opacity-20 animate-pulse animation-delay-2000" />
 
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8">
@@ -400,7 +400,7 @@ export default function KolServiceContent() {
             
             {/* 右邊裝飾圖 (模擬數據報表) */}
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-[#f5a623] to-pink-500 rounded-2xl blur-lg opacity-30" />
+              <div data-mobile-glow="true" aria-hidden="true" className="absolute -inset-4 bg-gradient-to-r from-[#f5a623] to-pink-500 rounded-2xl blur-lg opacity-30" />
               <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl relative">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-4">

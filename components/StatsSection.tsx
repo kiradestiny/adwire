@@ -102,7 +102,7 @@ export default function StatsSection() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* 圖標背景光暈 */}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${stat.gradient} opacity-5 rounded-full blur-3xl group-hover:opacity-10 transition-opacity`}></div>
+                <div data-mobile-glow="true" aria-hidden="true" className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${stat.gradient} opacity-5 rounded-full blur-3xl group-hover:opacity-10 transition-opacity`}></div>
                 
                 {/* 圖標 */}
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>

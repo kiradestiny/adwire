@@ -282,7 +282,7 @@ export default function ProductionServiceContent() {
 
             {/* 右邊：器材展示牆 (Gear Wall) */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-2xl blur-3xl opacity-20" />
+              <div data-mobile-glow="true" aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-2xl blur-3xl opacity-20" />
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-white/5 p-6 rounded-2xl border border-white/10 flex flex-col items-center justify-center aspect-square hover:bg-white/10 transition-all group">
                   <Camera size={48} className="text-gray-500 group-hover:text-[#f5a623] transition-colors mb-4" />

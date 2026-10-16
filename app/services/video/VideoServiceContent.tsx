@@ -20,8 +20,8 @@ export default function VideoServiceContent() {
       {/* 1. Hero Banner: 暗黑電影感，強調「流量密碼」 */}
       <section className="pt-32 pb-24 relative overflow-hidden">
         {/* 背景光效 */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-purple-600/30 rounded-full blur-[120px] -z-10 animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] -z-10" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-purple-600/30 rounded-full blur-[120px] -z-10 animate-pulse" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div

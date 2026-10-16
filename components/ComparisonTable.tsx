@@ -130,7 +130,7 @@ export default function ComparisonTable() {
       aria-labelledby="comparison-heading"
     >
       {/* 背景裝飾 */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-50/60 rounded-full filter blur-3xl pointer-events-none" />
+      <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 left-0 w-96 h-96 bg-blue-50/60 rounded-full filter blur-3xl pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

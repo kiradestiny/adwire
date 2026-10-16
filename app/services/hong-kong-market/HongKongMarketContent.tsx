@@ -187,8 +187,8 @@ export default function HongKongMarketContent() {
       {/* 1. Hero */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-[#0f172a] to-[#0b2f4a] text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
-        <div className="absolute top-0 right-0 w-[620px] h-[620px] bg-cyan-500/20 rounded-full blur-[130px]" />
-        <div className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-[#f5a623]/10 rounded-full blur-[110px]" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute top-0 right-0 w-[620px] h-[620px] bg-cyan-500/20 rounded-full blur-[130px]" />
+        <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-0 left-0 w-[420px] h-[420px] bg-[#f5a623]/10 rounded-full blur-[110px]" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}>

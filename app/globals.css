@@ -756,3 +756,23 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   手機裝飾性 glow：只在手機媒體查詢下以遮罩取代 GPU blur（只改 filter 渲染路徑）
+   ── 事實：全站 64 個空的裝飾性 glow 節點（.tsx 內 className 含 blur-* 工具類，不含
+      backdrop-blur）已標記 data-mobile-glow="true"；清單見
+      deliverables/iphone-audit-2026-10-16/round2/glow-source-inventory.json。
+   ── 假設（未經實機證實）：iOS WebKit 快速捲動時，大量 filter: blur() 圖層可能
+      造成首屏白屏（公開 WebKit bug #322045 記錄 blur 與 inline SVG 首幀停滯）。
+   ── 做法：手機上只把這些節點的 filter 收成 none，拿 radial-gradient 遮罩保留柔和邊緣。
+      不碰 overflow／滾動容器、will-change、animate-blob、logo-marquee、
+      任何 backdrop-filter；桌面維持原本 blur（Navbar／footer 品牌 logo 的
+      brightness/invert 不受影響）。本段不代表實機已修好，實機需人手驗證。
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  [data-mobile-glow="true"] {
+    filter: none !important;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, 0.55) 35%, transparent 72%);
+    mask-image: radial-gradient(ellipse at center, #000 0%, rgba(0, 0, 0, 0.55) 35%, transparent 72%);
+  }
+}

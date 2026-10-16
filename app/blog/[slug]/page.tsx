@@ -480,7 +480,7 @@ export default async function BlogPost({
                   />
                 </>
               ) : (
-                <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
+                <div data-mobile-glow="true" aria-hidden="true" className="absolute -bottom-10 -right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
               )}
             </div>
 
@@ -523,8 +523,8 @@ export default async function BlogPost({
             {/* 文章底部 CTA */}
             <div className="bg-[#0f4c81] rounded-2xl p-8 text-white text-center mb-16 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-                <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-2xl" />
-                <div className="absolute bottom-10 right-10 w-48 h-48 bg-[#f5a623] rounded-full blur-2xl" />
+                <div data-mobile-glow="true" aria-hidden="true" className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-2xl" />
+                <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-10 right-10 w-48 h-48 bg-[#f5a623] rounded-full blur-2xl" />
               </div>
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-4">

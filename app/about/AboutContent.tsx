@@ -137,8 +137,8 @@ export default function AboutContent() {
       {/* ── 1. Hero ──────────────────────────────────────────────────────── */}
       <section className="pt-32 pb-16 bg-[#0f4c81] text-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] right-[-10%] w-[560px] h-[560px] bg-[#f5a623]/10 rounded-full filter blur-[110px]" />
-          <div className="absolute bottom-[-25%] left-[-10%] w-[480px] h-[480px] bg-blue-400/15 rounded-full filter blur-[110px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute top-[-20%] right-[-10%] w-[560px] h-[560px] bg-[#f5a623]/10 rounded-full filter blur-[110px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-[-25%] left-[-10%] w-[480px] h-[480px] bg-blue-400/15 rounded-full filter blur-[110px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-10">
@@ -278,7 +278,7 @@ export default function AboutContent() {
               className="relative"
             >
               <div className="bg-gradient-to-br from-[#0f4c81] to-[#1a6bb5] rounded-[2rem] p-8 md:p-10 text-white shadow-xl relative overflow-hidden">
-                <div className="absolute top-[-30%] right-[-20%] w-[320px] h-[320px] bg-[#f5a623]/15 rounded-full filter blur-[80px]" />
+                <div data-mobile-glow="true" aria-hidden="true" className="absolute top-[-30%] right-[-20%] w-[320px] h-[320px] bg-[#f5a623]/15 rounded-full filter blur-[80px]" />
                 <div className="relative z-10 space-y-4">
                   {[
                     { t: "業務問題", d: "先確認要解決的營運或增長問題", i: Search },
@@ -444,8 +444,8 @@ export default function AboutContent() {
       {/* ── 5. 客戶與服務範圍 ────────────────────────────────────────────── */}
       <section className="py-16 md:py-24 bg-[#0f4c81] text-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-25%] left-[-10%] w-[480px] h-[480px] bg-[#f5a623]/10 rounded-full filter blur-[100px]" />
-          <div className="absolute bottom-[-30%] right-[-15%] w-[520px] h-[520px] bg-blue-400/15 rounded-full filter blur-[110px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute top-[-25%] left-[-10%] w-[480px] h-[480px] bg-[#f5a623]/10 rounded-full filter blur-[100px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-[-30%] right-[-15%] w-[520px] h-[520px] bg-blue-400/15 rounded-full filter blur-[110px]" />
         </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
