@@ -18,6 +18,7 @@ import {
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 // ─── 平台資料 ────────────────────────────────────────────────────────────────
 const PLATFORMS = [
   {
@@ -706,7 +707,9 @@ export default function SocialServiceContent() {
       </section>
 
       {/* ── 13. FAQ ── */}
-      <section
+            <ServiceTechStack serviceKey="social" />
+
+<section
         className="py-20 bg-white"
         aria-label="社交媒體代管常見問題"
       >

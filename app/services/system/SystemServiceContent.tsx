@@ -18,6 +18,7 @@ import {
 import { useState } from "react";
 import Link from "next/link";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 export default function SystemServiceContent() {
   const currentYear = new Date().getFullYear();
   const faqs = [
@@ -711,7 +712,9 @@ export default function SystemServiceContent() {
       </section>
 
       {/* 18. CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center">
+            <ServiceTechStack serviceKey="system" />
+
+<section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">準備好開始你的項目了嗎？</h2>
           <p className="text-xl text-blue-100 mb-10">講清楚你的需求，我們會回覆可行的做法、範圍、時間及報價方式。</p>

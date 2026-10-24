@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 export default function ProductionServiceContent() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -341,7 +342,9 @@ export default function ProductionServiceContent() {
       </section>
 
       {/* 7. FAQ - NEW */}
-      <section className="py-24 bg-[#0a0a0a]">
+            <ServiceTechStack serviceKey="production" />
+
+<section className="py-24 bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">常見問題 FAQ</h2>

@@ -9,6 +9,7 @@ import ContactSection from "@/components/ContactSection";
 import { getWhatsAppUrl } from "@/lib/site-config";
 import { AI_AGENCY_FAQS } from "@/lib/service-faqs";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 // ─── 內容資料 ────────────────────────────────────────────────────────────────
 
 const comparison = [
@@ -383,7 +384,9 @@ export default function AiAgencyContent() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#1e3a5f] text-white">
+            <ServiceTechStack serviceKey="ai-agency" />
+
+<section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#1e3a5f] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">想知你的情況應該點做？</h2>
           <p className="text-blue-100 mb-8 leading-relaxed">

@@ -41,6 +41,7 @@ import {
 import { useState } from "react";
 import Link from "next/link";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 export default function AdsServiceContent() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -766,7 +767,9 @@ export default function AdsServiceContent() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#0f4c81] text-white text-center">
+            <ServiceTechStack serviceKey="ads" />
+
+<section className="py-20 bg-[#0f4c81] text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">準備好提升你的廣告回報率了嗎？</h2>
           <p className="text-xl text-blue-100 mb-10">

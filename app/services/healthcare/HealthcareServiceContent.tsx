@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/site-config";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 /* ─────────────────────────────────────────────
    靜態資料（模組作用域）
 ───────────────────────────────────────────── */
@@ -614,7 +615,9 @@ export default function HealthcareServiceContent() {
       </section>
 
       {/* 11. CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-sky-600 text-white text-center">
+            <ServiceTechStack serviceKey="healthcare" />
+
+<section className="py-20 bg-gradient-to-r from-[#0f4c81] to-sky-600 text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">想為診所建立一套順手的系統？</h2>
           <p className="text-lg text-blue-100 mb-10">

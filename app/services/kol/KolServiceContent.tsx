@@ -13,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 export default function KolServiceContent() {
   return (
     <div className="min-h-screen bg-white">
@@ -533,7 +534,9 @@ export default function KolServiceContent() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white" aria-label="KOL 網紅營銷常見問題">
+            <ServiceTechStack serviceKey="kol" />
+
+<section className="py-20 bg-white" aria-label="KOL 網紅營銷常見問題">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block py-1 px-4 rounded-full bg-[#f5a623]/10 text-[#f5a623] text-sm font-bold mb-4 tracking-wider uppercase">FAQ</span>

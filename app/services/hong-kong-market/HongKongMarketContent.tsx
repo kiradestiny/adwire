@@ -6,6 +6,7 @@ import ContactSection from "@/components/ContactSection";
 import { HONG_KONG_MARKET_FAQS } from "@/lib/service-faqs";
 import ServiceImage from "@/components/ServiceImage";
 import { motion } from "framer-motion";
+import ServiceTechStack from "@/components/ServiceTechStack";
 import {
   AlertTriangle,
   ArrowRight,
@@ -506,7 +507,9 @@ export default function HongKongMarketContent() {
       </section>
 
       {/* 9. CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#0b2f4a] text-white">
+            <ServiceTechStack serviceKey="hong-kong-market" />
+
+<section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#0b2f4a] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sm text-blue-50 mb-6">
             <MapPin size={14} /> 先了解品牌現況，再建議調整範圍

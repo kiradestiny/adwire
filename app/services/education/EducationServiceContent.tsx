@@ -37,6 +37,7 @@ import {
 } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/site-config";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 /* 下載表單送出端點：沿用全站既有設定（與 ContactSection 相同）。 */
 const FORM_ENDPOINT =
   process.env.NEXT_PUBLIC_FORM_ENDPOINT || "/send-mail.php";
@@ -774,7 +775,9 @@ export default function EducationServiceContent() {
       </section>
 
       {/* 12. 資料來源 */}
-      <section className="py-10 bg-white border-t border-gray-100">
+            <ServiceTechStack serviceKey="education" />
+
+<section className="py-10 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm text-gray-500 leading-relaxed">
             資料來源：教育局通函第 96/2026 號及優質教育基金網頁（

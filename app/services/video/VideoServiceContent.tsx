@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 export default function VideoServiceContent() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -395,7 +396,9 @@ export default function VideoServiceContent() {
       </section>
 
       {/* 7. 常見問題 (FAQ) */}
-      <section className="py-24 bg-black">
+            <ServiceTechStack serviceKey="video" />
+
+<section className="py-24 bg-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">影片製作常見問題 FAQ</h2>

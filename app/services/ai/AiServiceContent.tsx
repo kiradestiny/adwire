@@ -9,6 +9,7 @@ import ContactSection from "@/components/ContactSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { getWhatsAppUrl } from "@/lib/site-config";
 import { AI_FAQS } from "@/lib/service-faqs";
+import ServiceTechStack from "@/components/ServiceTechStack";
 import {
   AlertTriangle,
   ArrowRight,
@@ -797,7 +798,9 @@ export default function AiServiceContent() {
       </section>
 
       {/* Urgency CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+            <ServiceTechStack serviceKey="ai" />
+
+<section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sm text-blue-50 mb-6">
             <AlertTriangle size={14} /> 先講清楚需求，再決定是否合作

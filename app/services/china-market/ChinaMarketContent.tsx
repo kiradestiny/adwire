@@ -6,6 +6,7 @@ import ContactSection from "@/components/ContactSection";
 import { CHINA_MARKET_FAQS } from "@/lib/service-faqs";
 import ServiceImage from "@/components/ServiceImage";
 import { motion } from "framer-motion";
+import ServiceTechStack from "@/components/ServiceTechStack";
 import {
   ArrowRight,
   BookOpen,
@@ -702,7 +703,9 @@ export default function ChinaMarketContent() {
       </section>
 
       {/* 10. CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#0a3358] text-white">
+            <ServiceTechStack serviceKey="china-market" />
+
+<section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#0a3358] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sm text-blue-50 mb-6">
             <MapPin size={14} /> 先講清楚產品與目標城市，再決定平台

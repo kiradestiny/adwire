@@ -18,6 +18,7 @@ import {
 import { useState } from "react";
 import Link from "next/link";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 export default function SeoServiceContent() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
@@ -783,7 +784,9 @@ export default function SeoServiceContent() {
       </section>
 
       {/* 8. CTA Section */}
-      <section className="py-20 bg-gray-50 text-center">
+            <ServiceTechStack serviceKey="seo" />
+
+<section className="py-20 bg-gray-50 text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0f4c81] mb-6">別讓你的網站在第 2 頁「隱形」</h2>
           <p className="text-xl text-gray-500 mb-10">

@@ -11,6 +11,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { getWhatsAppUrl } from "@/lib/site-config";
+import ServiceTechStack from "@/components/ServiceTechStack";
 import {
   Compass,
   Brain,
@@ -781,7 +782,9 @@ export default function ConsultingServiceContent() {
       </section>
 
       {/* ── 10. CTA ── */}
-      <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#1a6cbf] text-white text-center">
+            <ServiceTechStack serviceKey="consulting" />
+
+<section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#1a6cbf] text-white text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             準備好把構思變成可運作的系統了嗎？

@@ -8,6 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import { motion } from "framer-motion";
 import { Bot, Zap, Clock, Database, MessageSquare, ShoppingCart, UserCheck, ArrowRight, Check, X } from "lucide-react";
 
+import ServiceTechStack from "@/components/ServiceTechStack";
 export default function AutomationServiceContent() {
   return (
     <div className="min-h-screen bg-white">
@@ -477,7 +478,9 @@ export default function AutomationServiceContent() {
       </section>
 
       {/* 11. 維護 CTA */}
-      <section className="py-16 bg-[#0f4c81] text-white">
+            <ServiceTechStack serviceKey="automation" />
+
+<section className="py-16 bg-[#0f4c81] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">上線之後，需要持續調整</h2>
           <p className="text-blue-100 leading-relaxed mb-8 max-w-2xl mx-auto">
