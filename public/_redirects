@@ -1,3 +1,10 @@
+# >>> ADMIN-SUBDOMAIN-REDIRECTS >>>
+# 後台／CRM 已搬到子網域，舊網址自動跳（同事唔需要記新網址）。
+# 放喺檔案最前：Pages 由上下順序匹配，最先命中者勝。
+/admin/*   https://admin.adwire.com.hk/admin/:splat   301
+/crm/*     https://admin.adwire.com.hk/crm/:splat     301
+# <<< ADMIN-SUBDOMAIN-REDIRECTS <<<
+
 # >>> HANDWRITTEN-REDIRECTS (source of truth: public/.htaccess) >>>
 # Pages 唔讀 .htaccess，所以 301 一定要在這裡重寫。
 # 順序：具體路徑先寫，splat 規則最後。

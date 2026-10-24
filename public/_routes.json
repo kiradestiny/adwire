@@ -1,9 +1,6 @@
 {
   "version": 1,
   "include": [
-    "/admin/*",
-    "/api/*",
-    "/crm/*",
     "/send-mail.php"
   ],
   "exclude": []
