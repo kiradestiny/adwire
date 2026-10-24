@@ -1,0 +1,37 @@
+{
+ "adwire.com.hk|A": [
+  "34.149.36.179",
+  "34.160.17.71",
+  "35.227.194.51",
+  "35.244.153.44"
+ ],
+ "adwire.com.hk|MX": [
+  "1 smtp.google.com."
+ ],
+ "adwire.com.hk|TXT": [
+  "google-site-verification=LS1RV3zX_1hYu_rB76AYCrCN0Y8bum_3cMUf83Mfs6A",
+  "v=DKIM1;k=rsa;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApyxiyRqnFtMlBDHbEUVEuLEGil1QCNVVvAYNtcKvpvo+CA843ek80gB4B4Y2uEOktkO2dEfMDsktovyiZqF4NISN8km6QeybyK+5Ev87hVXPyyqCXR9lsYfheshXN//gzXoXvR7I3za5qRlAKp63MRoyJUsK7eQNVxJ0VIp6fbDd9eq/5qUshCmX5f/4UPrQSWdao/LZeAd5h7m6HfztpGvOYlU6cdfzbavwt7U4Iiw2XV2y6/nVXrAZ1C9kX3OBli/Flj2IiVKuJUEHwXYdD5CcmQFMM4fdWuaoCxfux9R0bZWZr8OIVBlZC31FhXtZ+N5aUvuZydIwP/uCuFoLIQIDAQAB",
+  "v=spf1 include:_spf.google.com ~all"
+ ],
+ "www.adwire.com.hk|A": [
+  "34.160.81.203",
+  "35.190.31.54",
+  "35.227.194.51",
+  "35.244.153.44"
+ ],
+ "mail.adwire.com.hk|A": [
+  "35.213.134.225"
+ ],
+ "ftp.adwire.com.hk|A": [
+  "35.213.134.225"
+ ],
+ "autodiscover.adwire.com.hk|A": [
+  "35.213.134.225"
+ ],
+ "_dmarc.adwire.com.hk|TXT": [
+  "v=DMARC1; p=quarantine; rua=mailto:info@adwire.com.hk"
+ ],
+ "default._domainkey.adwire.com.hk|TXT": [
+  "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnkOXVJT2uIFA4j/xi2DEOXawh7I6q0R2f0KeZRkiHGrzrR+d0K+BerjgSzgguQlhqcANYlsBXaCq7Qj1MviXNSrCqncwlxfnLfBLdyEiMMzBXLWomCEI8MwRH3AZqjbUiIn7YCu26Z4S1NwHmgm+L6PBWrTYEgy0q7MKex4fx8o7UxFCfei7tu8sHKXfGN6FI9XQYpsmFCwCtqlF3OxxHjHGAOuWYW95AwTLDynRyA9JkId5IiW8DaHeBcQjv1S0egDyauTmFn0j5vt5eanvBHObbdVtc7bfSRCToMMGJUI2FMq4IFFP5SthGZdi734yuqChq6HGOvCdoLf1LFf4dwIDAQAB"
+ ]
+}

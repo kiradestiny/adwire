@@ -1,0 +1,170 @@
+{
+ "網站設計／報價": {
+  "網頁設計 香港": [
+   90,
+   "MEDIUM",
+   7.62
+  ],
+  "網站設計": [
+   720,
+   "MEDIUM",
+   7.99
+  ],
+  "網頁設計 價錢": [
+   140,
+   "LOW",
+   5.97
+  ],
+  "網站製作 收費": [
+   null,
+   null,
+   null
+  ],
+  "網頁設計 報價": [
+   50,
+   "MEDIUM",
+   8.28
+  ],
+  "做網站 幾錢": [
+   null,
+   null,
+   null
+  ],
+  "網站 翻新": [
+   null,
+   null,
+   null
+  ],
+  "網站改版": [
+   10,
+   null,
+   null
+  ],
+  "響應式網站": [
+   30,
+   "HIGH",
+   null
+  ],
+  "公司網站 設計": [
+   30,
+   "HIGH",
+   9.22
+  ]
+ },
+ "平台轉換 Shopify/SHOPLINE": {
+  "shopify 香港": [
+   50,
+   "HIGH",
+   10.51
+  ],
+  "shopline 香港": [
+   30,
+   "MEDIUM",
+   2.72
+  ],
+  "shopify vs shopline": [
+   70,
+   "MEDIUM",
+   4.47
+  ],
+  "shopline 收費": [
+   90,
+   "HIGH",
+   3.77
+  ],
+  "shopify 手續費": [
+   10,
+   "LOW",
+   null
+  ],
+  "網店平台 比較": [
+   30,
+   "MEDIUM",
+   2.02
+  ],
+  "開網店 成本": [
+   10,
+   "HIGH",
+   null
+  ],
+  "shopify 好唔好": [
+   null,
+   null,
+   null
+  ],
+  "shopline 好唔好": [
+   10,
+   "LOW",
+   2.35
+  ]
+ },
+ "AI 撰文／內容": {
+  "ai 寫文": [
+   170,
+   "LOW",
+   0.45
+  ],
+  "ai 文案": [
+   90,
+   "LOW",
+   1.05
+  ],
+  "ai 寫作": [
+   590,
+   "LOW",
+   0.98
+  ],
+  "ai seo 文章": [
+   10,
+   "HIGH",
+   4.22
+  ],
+  "ai 內容營銷": [
+   null,
+   null,
+   null
+  ],
+  "文案 服務": [
+   10,
+   null,
+   null
+  ],
+  "內容營銷 香港": [
+   null,
+   null,
+   null
+  ],
+  "seo 文章 代寫": [
+   null,
+   null,
+   null
+  ],
+  "ai 生成 文章": [
+   50,
+   "LOW",
+   0.08
+  ]
+ },
+ "對照：系統／App": {
+  "系統開發 香港": [
+   null,
+   null,
+   null
+  ],
+  "app 開發 香港": [
+   null,
+   null,
+   null
+  ],
+  "crm 系統 香港": [
+   null,
+   null,
+   null
+  ],
+  "ai agent 香港": [
+   30,
+   "MEDIUM",
+   1.1
+  ]
+ }
+}

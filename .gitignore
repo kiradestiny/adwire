@@ -50,3 +50,12 @@ next-env.d.ts
 # Python
 __pycache__/
 *.pyc
+
+# ── 本地審計／流程產物（不入 repo：體積大、非原始碼）──────────────
+# 只保留 deliverables/<日期>-<主題>/ 內的報告與數據，其餘截圖／原始素材／壓縮檔留在本機
+.planning/
+deliverables/iphone-audit-*/
+deliverables/frontend-audit-*/
+deliverables/site-images-*/
+deliverables/*.zip
+marker-fix-review.md

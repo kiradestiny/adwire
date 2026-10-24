@@ -1,0 +1,407 @@
+{
+ "backlinks_adwire.com.hk": {
+  "backlinks": null,
+  "referring_domains": null,
+  "referring_main_domains": null,
+  "rank": null,
+  "backlinks_spam_score": null,
+  "referring_domains_nofollow": null,
+  "referring_domains_dofollow": null
+ },
+ "backlinks_peko.com.hk": {
+  "backlinks": 1,
+  "referring_domains": 1,
+  "referring_main_domains": 1,
+  "rank": 0,
+  "backlinks_spam_score": 0,
+  "referring_domains_nofollow": 0,
+  "referring_domains_dofollow": null
+ },
+ "rank_adwire.com.hk": {
+  "se_type": "google",
+  "target": "adwire.com.hk",
+  "location_code": 2344,
+  "language_code": "zh-TW",
+  "total_count": 1,
+  "items_count": 1,
+  "items": [
+   {
+    "se_type": "google",
+    "location_code": 2344,
+    "language_code": "zh-TW",
+    "metrics": {
+     "organic": {
+      "pos_1": 0,
+      "pos_2_3": 0,
+      "pos_4_10": 0,
+      "pos_11_20": 1,
+      "pos_21_30": 1,
+      "pos_31_40": 2,
+      "pos_41_50": 0,
+      "pos_51_60": 0,
+      "pos_61_70": 0,
+      "pos_71_80": 0,
+      "pos_81_90": 0,
+      "pos_91_100": 0,
+      "etv": 4.586999997496605,
+      "count": 4,
+      "estimated_paid_traffic_cost": 21.121800303459167,
+      "is_new": 4,
+      "is_up": 0,
+      "is_down": 0,
+      "is_lost": 2,
+      "clickstream_etv": null,
+      "clickstream_gender_distribution": null,
+      "clickstream_age_distribution": null
+     },
+     "paid": {
+      "pos_1": 0,
+      "pos_2_3": 0,
+      "pos_4_10": 0,
+      "pos_11_20": 0,
+      "pos_21_30": 0,
+      "pos_31_40": 0,
+      "pos_41_50": 0,
+      "pos_51_60": 0,
+      "pos_61_70": 0,
+      "pos_71_80": 0,
+      "pos_81_90": 0,
+      "pos_91_100": 0,
+      "etv": 0,
+      "count": 0,
+      "estimated_paid_traffic_cost": 0,
+      "is_new": 0,
+      "is_up": 0,
+      "is_down": 0,
+      "is_lost": 0,
+      "clickstream_etv": null,
+      "clickstream_gender_distribution": null,
+      "clickstream_age_distribution": null
+     }
+    }
+   }
+  ]
+ },
+ "rank_peko.com.hk": {
+  "se_type": "google",
+  "target": "peko.com.hk",
+  "location_code": 2344,
+  "language_code": "zh-TW",
+  "total_count": 1,
+  "items_count": 1,
+  "items": [
+   {
+    "se_type": "google",
+    "location_code": 2344,
+    "language_code": "zh-TW",
+    "metrics": {
+     "organic": {
+      "pos_1": 14,
+      "pos_2_3": 24,
+      "pos_4_10": 93,
+      "pos_11_20": 53,
+      "pos_21_30": 40,
+      "pos_31_40": 28,
+      "pos_41_50": 21,
+      "pos_51_60": 11,
+      "pos_61_70": 6,
+      "pos_71_80": 3,
+      "pos_81_90": 2,
+      "pos_91_100": 0,
+      "etv": 2153.4059864729643,
+      "count": 295,
+      "estimated_paid_traffic_cost": 5183.324460354168,
+      "is_new": 150,
+      "is_up": 80,
+      "is_down": 44,
+      "is_lost": 87,
+      "clickstream_etv": null,
+      "clickstream_gender_distribution": null,
+      "clickstream_age_distribution": null
+     },
+     "paid": {
+      "pos_1": 0,
+      "pos_2_3": 0,
+      "pos_4_10": 0,
+      "pos_11_20": 0,
+      "pos_21_30": 0,
+      "pos_31_40": 0,
+      "pos_41_50": 0,
+      "pos_51_60": 0,
+      "pos_61_70": 0,
+      "pos_71_80": 0,
+      "pos_81_90": 0,
+      "pos_91_100": 0,
+      "etv": 0,
+      "count": 0,
+      "estimated_paid_traffic_cost": 0,
+      "is_new": 0,
+      "is_up": 0,
+      "is_down": 0,
+      "is_lost": 0,
+      "clickstream_etv": null,
+      "clickstream_gender_distribution": null,
+      "clickstream_age_distribution": null
+     }
+    }
+   }
+  ]
+ },
+ "ranked_keywords": [
+  {
+   "kw": "rpa",
+   "vol": 1900,
+   "pos": 39,
+   "url": "https://adwire.com.hk/blog/rpa-hong-kong-guide-2026/",
+   "etv": 3.990000009536743
+  },
+  {
+   "kw": "unwirehk",
+   "vol": 90,
+   "pos": 17,
+   "url": "https://adwire.com.hk/",
+   "etv": 0.3869999945163727
+  },
+  {
+   "kw": "投廣告",
+   "vol": 50,
+   "pos": 31,
+   "url": "https://adwire.com.hk/services/ads/",
+   "etv": 0.10499999672174454
+  },
+  {
+   "kw": "賣廣告",
+   "vol": 50,
+   "pos": 42,
+   "url": "https://adwire.com.hk/services/ads/",
+   "etv": 0.10499999672174454
+  }
+ ],
+ "serp": {
+  "seo agency hong kong": {
+   "top10": [
+    {
+     "pos": null,
+     "domain": "digitalagencynetwork.com"
+    },
+    {
+     "pos": null,
+     "domain": "orangemonke.com"
+    },
+    {
+     "pos": null,
+     "domain": "awisee.com"
+    },
+    {
+     "pos": null,
+     "domain": "thorprmarketing.com.hk"
+    },
+    {
+     "pos": null,
+     "domain": "www.10seos.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.youfind.hk"
+    },
+    {
+     "pos": null,
+     "domain": "www.facebook.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.hkgseo.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.youfinddigital.com"
+    },
+    {
+     "pos": null,
+     "domain": "njlmarketing.com"
+    }
+   ],
+   "adwire": []
+  },
+  "ai agency hong kong": {
+   "top10": [
+    {
+     "pos": null,
+     "domain": "www.eightyeightpixels.com"
+    },
+    {
+     "pos": null,
+     "domain": "ddiy.hkpc.org"
+    },
+    {
+     "pos": null,
+     "domain": "newdigitalnoise.com"
+    },
+    {
+     "pos": null,
+     "domain": "aihongkong.org"
+    },
+    {
+     "pos": null,
+     "domain": "themanifest.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.protiviti.com"
+    },
+    {
+     "pos": null,
+     "domain": "digitalagencynetwork.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.fimmick.com"
+    },
+    {
+     "pos": null,
+     "domain": "hkaiautomation.com"
+    },
+    {
+     "pos": null,
+     "domain": "hongkongai.org"
+    }
+   ],
+   "adwire": []
+  },
+  "網頁設計 香港": {
+   "top10": [
+    {
+     "pos": null,
+     "domain": "www.anglia.com.hk"
+    },
+    {
+     "pos": null,
+     "domain": "www.designfactoryhk.com"
+    },
+    {
+     "pos": null,
+     "domain": "wavenex.com.hk"
+    },
+    {
+     "pos": null,
+     "domain": "www.jkdesignhk.com"
+    },
+    {
+     "pos": null,
+     "domain": "rolllldesign.com"
+    },
+    {
+     "pos": null,
+     "domain": "ecshopcity.com"
+    },
+    {
+     "pos": null,
+     "domain": "isualsense.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.hkint.com.hk"
+    },
+    {
+     "pos": null,
+     "domain": "www.hongkongwebdesign.com.hk"
+    },
+    {
+     "pos": null,
+     "domain": "www.easttech.com.hk"
+    }
+   ],
+   "adwire": []
+  },
+  "廣告公司 香港": {
+   "top10": [
+    {
+     "pos": null,
+     "domain": "aaaa.com.hk"
+    },
+    {
+     "pos": null,
+     "domain": "www.yelp.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.youfinddigital.com"
+    },
+    {
+     "pos": null,
+     "domain": "map.baidu.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.onlineadvertising.hk"
+    },
+    {
+     "pos": null,
+     "domain": "hk.havas.com"
+    },
+    {
+     "pos": null,
+     "domain": "hk.jobsdb.com"
+    },
+    {
+     "pos": null,
+     "domain": "ad101hk.blogspot.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.vm.hk"
+    },
+    {
+     "pos": null,
+     "domain": "www.firstpage.hk"
+    }
+   ],
+   "adwire": []
+  },
+  "ai agent 香港": {
+   "top10": [
+    {
+     "pos": null,
+     "domain": "aieduhk.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.hk01.com"
+    },
+    {
+     "pos": null,
+     "domain": "ai.ztoagroup.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.super-cat.tech"
+    },
+    {
+     "pos": null,
+     "domain": "www.facebook.com"
+    },
+    {
+     "pos": null,
+     "domain": "www.a-aas.com"
+    },
+    {
+     "pos": null,
+     "domain": "ai-directories.com"
+    },
+    {
+     "pos": null,
+     "domain": "aieduhk.com"
+    },
+    {
+     "pos": null,
+     "domain": "dotai.hk"
+    },
+    {
+     "pos": null,
+     "domain": "www.hkpcacademy.org"
+    }
+   ],
+   "adwire": []
+  }
+ }
+}
