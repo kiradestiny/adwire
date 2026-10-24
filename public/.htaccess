@@ -36,6 +36,16 @@ ErrorDocument 403 /404.html
     RewriteEngine On
     RewriteBase /
 
+    # ------------------------------------------------------------------
+    # 後台子網域：admin.adwire.com.hk 根目錄 → 自動去 /admin/
+    # 目的：只打 https://admin.adwire.com.hk 就入到後台，唔需要記 /admin/。
+    # 為何用 R=302 而唔用內部 rewrite：內部 rewrite 會令 PHP session cookie
+    # 路徑同 SCRIPT_NAME 對唔上，有機會令登入失效。跳轉零風險。
+    # 只對 admin 主機生效，唔影響主站任何路徑。
+    # ------------------------------------------------------------------
+    RewriteCond %{HTTP_HOST} ^admin\.adwire\.com\.hk$ [NC]
+    RewriteRule ^$ /admin/ [R=302,L]
+
     # ADWire CRM: 所有 /crm/* 請求交給子目錄處理（不進行根目錄 rewrite）
     RewriteRule ^crm/ - [L]
 
