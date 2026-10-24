@@ -38,7 +38,7 @@ interface Env {
 
 // /send-mail.php 已改由 functions/send-mail.php.ts 直接處理（Resend + Turnstile），
 // 所以唔再代理去 SiteGround。只剩後台仍然依賴 PHP。
-const PROXY_PATHS = [/^\/admin(\/|$)/, /^\/api(\/|$)/];
+const PROXY_PATHS = [/^\/admin(\/|$)/, /^\/api(\/|$)/, /^\/crm(\/|$)/];
 
 /**
  * 型別刻意唔用 `PagesFunction` 全域型別：呢個 repo 冇裝 @cloudflare/workers-types，
@@ -53,6 +53,12 @@ type PagesContext = {
 export const onRequest = async (context: PagesContext): Promise<Response> => {
   const { request, next, env } = context;
   const url = new URL(request.url);
+
+  // 註：www → apex 的 301 唔放喺呢度。
+  // _routes.json 只會喺 /admin /api /crm /send-mail.php 觸發 Functions，
+  // 其餘路徑根本唔會執行 middleware，所以 host 層 301 放呢度會靜靜失效。
+  // 過渡期做法：www 保持指向 SiteGround（灰雲），由 .htaccess 做 301；
+  // 正式做法：喺 Cloudflare 加一條 Redirect Rule（www → apex），零成本、唔經 Function。
 
   if (!PROXY_PATHS.some((re) => re.test(url.pathname))) {
     return next();

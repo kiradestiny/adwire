@@ -46,31 +46,29 @@ async function main() {
   // 單獨存在的文章 → 回自己（最重要：不可指去不存在的 URL）
   eq("唯一文章回自己", resolveCanonicalSlug("jev-ai-decision-model", ["jev-ai-decision-model", "other-post"]), "jev-ai-decision-model");
 
-  // 帶年份 vs 不帶年份 → 選帶年份
+  // 帶年份 vs 不帶年份 → 選「不帶年份」（.htaccess 正是把 -2026 301 去無年份）
   eq(
-    "成對時選帶年份版本",
-    resolveCanonicalSlug("ai-agent-hong-kong-business-guide", [
-      "ai-agent-hong-kong-business-guide",
-      "ai-agent-hong-kong-business-guide-2026",
-    ]),
-    "ai-agent-hong-kong-business-guide-2026",
-  );
-
-  // 帶年份版本自己 → 回自己
-  eq(
-    "帶年份版本回自己",
+    "成對時選無年份版本",
     resolveCanonicalSlug("ai-agent-hong-kong-business-guide-2026", [
       "ai-agent-hong-kong-business-guide",
       "ai-agent-hong-kong-business-guide-2026",
     ]),
-    "ai-agent-hong-kong-business-guide-2026",
+    "ai-agent-hong-kong-business-guide",
   );
 
-  // 多個年份 → 取最大年份
   eq(
-    "多年份取最新",
-    resolveCanonicalSlug("rpa-hong-kong-guide", [
-      "rpa-hong-kong-guide",
+    "無年份版本回自己",
+    resolveCanonicalSlug("ai-agent-hong-kong-business-guide", [
+      "ai-agent-hong-kong-business-guide",
+      "ai-agent-hong-kong-business-guide-2026",
+    ]),
+    "ai-agent-hong-kong-business-guide",
+  );
+
+  // 只有年份版本（無無年份兄弟）→ 取最大年份
+  eq(
+    "僅有年份時取最新",
+    resolveCanonicalSlug("rpa-hong-kong-guide-2025", [
       "rpa-hong-kong-guide-2025",
       "rpa-hong-kong-guide-2026",
     ]),
@@ -81,8 +79,8 @@ async function main() {
   eq("無年份兄弟回自己", resolveCanonicalSlug("foo", ["foo", "bar"]), "foo");
 
   // isCanonicalSlug
-  eq("isCanonicalSlug 非代表版本為 false", isCanonicalSlug("x-guide", ["x-guide", "x-guide-2026"]), false);
-  eq("isCanonicalSlug 代表版本為 true", isCanonicalSlug("x-guide-2026", ["x-guide", "x-guide-2026"]), true);
+  eq("isCanonicalSlug 帶年份版本為 false", isCanonicalSlug("x-guide-2026", ["x-guide", "x-guide-2026"]), false);
+  eq("isCanonicalSlug 無年份版本為 true", isCanonicalSlug("x-guide", ["x-guide", "x-guide-2026"]), true);
   eq("isCanonicalSlug 唯一文章為 true", isCanonicalSlug("solo", ["solo", "other"]), true);
 
   // 空字串保護（不應產生 "/blog//"）

@@ -24,9 +24,14 @@ export function topicKey(slug: string): string {
  *
  * 規則（可預測、可測試）：
  * 1. 沒有同主題兄弟 → 回自己（大部分文章屬此情況）。
- * 2. 有兄弟時，優先選帶年份的版本；多個年份取最大年份。
- * 3. 若自己就是唯一帶年份版本，回自己。
- * 4. 全部都不帶年份（理論上不會發生）→ 回自己，避免誤指。
+ * 2. 有兄弟時，優先選「不帶年份」的版本 —— 因為 public/.htaccess 已把
+ *    `-2026` 一律 301 去無年份版本，站方的正式 URL 就是無年份那個。
+ *    若 canonical 指向帶年份版本，等於指向一個會被 301 的網址（信號自相矛盾）。
+ * 3. 若全部兄弟都帶年份（沒有無年份版本）→ 取最大年份。
+ * 4. 以上皆非 → 回自己，避免誤指。
+ *
+ * 注意：此規則必須同 .htaccess / _redirects 的 301 方向保持一致，
+ * 兩者任何一方改動都要同步（有測試覆蓋）。
  */
 export function resolveCanonicalSlug(slug: string, allSlugs: string[]): string {
   const key = topicKey(slug);
@@ -41,10 +46,16 @@ export function resolveCanonicalSlug(slug: string, allSlugs: string[]): string {
   };
 
   const candidates = [slug, ...siblings];
-  const withYear = candidates.filter((s) => yearOf(s) > 0);
-  if (withYear.length === 0) return slug;
 
-  return withYear.reduce((best, cur) => (yearOf(cur) > yearOf(best) ? cur : best), withYear[0]);
+  // 優先「無年份」版本（配合 .htaccess 的 301 方向）
+  const withoutYear = candidates.filter((s) => yearOf(s) === -1);
+  if (withoutYear.length > 0) {
+    // 若有多個，取最短（最貼近原始 slug），避免 `foo-bar` vs `foo-bar-baz` 之類怪情況
+    return withoutYear.reduce((best, cur) => (cur.length < best.length ? cur : best), withoutYear[0]);
+  }
+
+  // 全部都有年份 → 取最大年份
+  return candidates.reduce((best, cur) => (yearOf(cur) > yearOf(best) ? cur : best), candidates[0]);
 }
 
 /** 此 slug 是否就是它所屬主題的代表版本 */
