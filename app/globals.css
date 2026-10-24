@@ -4,7 +4,11 @@
 
 /* 基礎設定 */
 html {
-  overflow-x: hidden; /* 防止任何元素水平溢位造成走位 */
+  /* overflow-x: hidden 會令 html 變成捲動容器，實測（2026-10-24）會令
+     Chrome 的 loading="lazy" 永遠不觸發——圖片 complete=false、currentSrc 空白，
+     就算 scroll 到頁尾都唔載入。改用 clip：同樣裁切水平溢位，但唔建立捲動容器。 */
+  overflow-x: hidden; /* fallback：Safari < 16 */
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
@@ -33,7 +37,8 @@ html {
 body {
   background-color: #ffffff;
   color: #000000;
-  overflow-x: hidden; /* 雙重保險：阻斷水平捲動 */
+  overflow-x: hidden; /* fallback：Safari < 16 */
+  overflow-x: clip;   /* 理由同 html：避免建立捲動容器 */
 }
 
 /* ============================================================

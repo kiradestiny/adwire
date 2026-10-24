@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getBlogPosts, getSerializablePortfolioCases } from '@/lib/data-resolver'
+import { isCanonicalSlug } from '@/lib/blog-canonical'
 
 export const dynamic = 'force-static'
 
@@ -129,7 +130,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 4. Blog 文章動態頁面 — 自動從 data-resolver 生成
   //    新文章（2026年）優先級提升至 0.8，舊文章保持 0.7
   const blogPosts = await getBlogPosts();
-  const blogSitemap = blogPosts.map((post) => {
+  const allBlogSlugs = blogPosts.map((post) => post.slug);
+  // 同一主題若同時存在「帶年份／不帶年份」兩個 slug，非代表版本仍可瀏覽
+  // （canonical 已指向代表版），但不應出現在 sitemap，避免信號分裂。
+  const canonicalBlogPosts = blogPosts.filter((post) => isCanonicalSlug(post.slug, allBlogSlugs));
+  const blogSitemap = canonicalBlogPosts.map((post) => {
     const postYear = new Date(post.date).getFullYear()
     const isRecent = postYear >= 2026
     // 以實際最後更新日為準（後台 updatedAt），無則用發佈日

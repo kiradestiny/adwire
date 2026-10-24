@@ -48,6 +48,7 @@ export default function BlogSection({ posts }: BlogSectionProps) {
                     src={post.image}
                     alt={post.title}
                     fill
+                    loading="eager"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (

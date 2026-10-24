@@ -59,7 +59,11 @@ function ClientCard({ client, index }: { client: Client; index: number }) {
             srcSet={`/clients/${client.image.replace(/\.webp$/, "-600.webp")} 600w, /clients/${client.image} 1200w`}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             title={`${client.name} — ${client.industry}`}
-            loading="lazy"
+            /* 一律 eager：實測（2026-10-24）native lazy 在部分手機 viewport 下
+               會完全唔觸發（complete=false、currentSrc 空白），造成「全部圖片冇晒」。
+               客戶案例卡係首頁主要信任元素，寧願多付 ~200KB 也不能空白。 */
+            loading="eager"
+            fetchPriority={index === 0 ? "high" : "low"}
             decoding="async"
             width={1200}
             height={750}

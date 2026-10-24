@@ -1,0 +1,44 @@
+# >>> ADMIN-SUBDOMAIN-REDIRECTS >>>
+# 後台／CRM 已搬到子網域，舊網址自動跳（同事唔需要記新網址）。
+# 放喺檔案最前：Pages 由上下順序匹配，最先命中者勝。
+/admin/*   https://admin.adwire.com.hk/admin/:splat   301
+/crm/*     https://admin.adwire.com.hk/crm/:splat     301
+# <<< ADMIN-SUBDOMAIN-REDIRECTS <<<
+
+# >>> HANDWRITTEN-REDIRECTS (source of truth: public/.htaccess) >>>
+# Pages 唔讀 .htaccess，所以 301 一定要在這裡重寫。
+# 順序：具體路徑先寫，splat 規則最後。
+
+# 帶年份版本 → 無年份版本（方向必須同 lib/blog-canonical.ts 一致）
+/blog/ai-agent-hong-kong-business-guide-2026/  /blog/ai-agent-hong-kong-business-guide/  301
+/blog/ai-automation-roi-hong-kong-2026/  /blog/ai-automation-roi-hong-kong/  301
+/blog/ai-reduce-hong-kong-business-labour-cost-2026/  /blog/ai-reduce-hong-kong-business-labour-cost/  301
+/blog/ai-solution-hong-kong-enterprise-guide-2026/  /blog/ai-solution-hong-kong-enterprise-guide/  301
+/blog/app-development-cost-guide-hong-kong-2026/  /blog/app-development-cost-guide-hong-kong/  301
+/blog/china-market-strategy-hong-kong-2026/  /blog/china-market-strategy-hong-kong/  301
+/blog/core-web-vitals-website-speed-guide-2026/  /blog/core-web-vitals-website-speed-guide/  301
+/blog/crm-system-selection-guide-hong-kong-2026/  /blog/crm-system-selection-guide-hong-kong/  301
+/blog/geo-generative-engine-optimization-guide-2026/  /blog/geo-generative-engine-optimization-guide/  301
+/blog/google-meta-ads-guide-2026/  /blog/google-meta-ads-guide/  301
+/blog/hong-kong-ai-chatbot-customer-service-guide-2026/  /blog/hong-kong-ai-chatbot-customer-service-guide/  301
+/blog/hong-kong-brand-china-market-guide-2026/  /blog/hong-kong-brand-china-market-guide/  301
+/blog/hong-kong-government-ai-digital-funding-2026/  /blog/hong-kong-government-ai-digital-funding/  301
+/blog/hong-kong-seo-geo-guide-2026/  /blog/hong-kong-seo-geo-guide/  301
+/blog/hong-kong-web-design-pricing-guide-2026/  /blog/hong-kong-web-design-pricing-guide/  301
+/blog/how-to-choose-seo-company-hong-kong-2026/  /blog/how-to-choose-seo-company-hong-kong/  301
+/blog/kol-marketing-hong-kong-guide-2026/  /blog/kol-marketing-hong-kong-guide/  301
+/blog/rpa-hong-kong-guide-2026/  /blog/rpa-hong-kong-guide/  301
+/blog/seo-vs-geo-2025/  /blog/seo-vs-geo/  301
+/blog/social-media-management-hong-kong-guide-2026/  /blog/social-media-management-hong-kong-guide/  301
+/blog/video-production-hong-kong-guide-2026/  /blog/video-production-hong-kong-guide/  301
+/blog/xiaohongshu-marketing-hong-kong-guide-2026/  /blog/xiaohongshu-marketing-hong-kong-guide/  301
+
+# 舊 WordPress 路徑
+/privacy-policy/  /privacy/  301
+/thankyou/  /contact/  301
+/post-*  /blog/  301
+/category/*  /blog/  301
+
+# 舊中文路徑（percent-encoded：_redirects 唔接受原始 UTF-8）
+/%E5%85%A8%E8%83%BD-marketing-%E6%9C%8D%E5%8B%99/  /services/  301
+# <<< HANDWRITTEN-REDIRECTS <<<

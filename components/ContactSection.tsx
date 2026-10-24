@@ -997,6 +997,26 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                     )}
                   </button>
 
+                  {/* 次要 CTA：唔想填表嘅人可以即刻 WhatsApp。
+                      手機用戶喺長表單嘅放棄率明顯較高，提供零摩擦出口。 */}
+                  <div className="flex items-center gap-3 pt-1" aria-hidden="true">
+                    <span className="h-px flex-1 bg-gray-200" />
+                    <span className="text-[11px] text-gray-400">或</span>
+                    <span className="h-px flex-1 bg-gray-200" />
+                  </div>
+                  <a
+                    href={getWhatsAppUrl("你好，我想了解 ADWire 的服務同報價。")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cta="contact-whatsapp"
+                    className="w-full flex items-center justify-center gap-2 border-2 border-[#25D366]
+                      text-[#128C7E] font-bold py-3.5 rounded-xl hover:bg-[#25D366]/10
+                      active:scale-[0.99] transition-all duration-200"
+                  >
+                    <MessageCircle size={18} />
+                    WhatsApp 直接問（{WHATSAPP_DISPLAY}）
+                  </a>
+
                   {/* Privacy micro-copy */}
                   <p className="text-center text-xs text-gray-400 pt-1 leading-relaxed">
                     你提供的資料只用於回覆本次查詢，不會轉發或出售。

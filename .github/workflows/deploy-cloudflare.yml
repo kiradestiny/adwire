@@ -1,0 +1,71 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# ADWire — 部署到 Cloudflare Pages（手動觸發，預設只出 preview）
+#
+# 為何要手動：
+#   正式切換 DNS 之前，任何自動部署都只會去到 *.pages.dev，唔會影響 adwire.com.hk。
+#   確認 preview 無問題、DNS 正式切去 Cloudflare 之後，才把 target 改為 production。
+#
+# 需要的 repo secrets：
+#   CLOUDFLARE_API_TOKEN   — 權限：Account > Cloudflare Pages > Edit
+#   CLOUDFLARE_ACCOUNT_ID  — 7a49f4f37736ded280c527873fbee88d
+#
+# 需要的 repo variables（Build time 由 Admin API 拉內容，跟 SiteGround 部署一致）：
+#   NEXT_PUBLIC_API_URL / ADMIN_API_KEY
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Deploy to Cloudflare Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "部署目標"
+        required: true
+        default: "preview"
+        type: choice
+        options:
+          - preview
+          - production
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cf-pages-${{ github.event.inputs.target }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build & deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build（含 postbuild 驗證與測試）
+        env:
+          NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
+          ADMIN_API_KEY: ${{ secrets.ADMIN_API_KEY }}
+        run: npm run build
+
+      - name: Deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          BRANCH="${{ github.event.inputs.target == 'production' && 'main' || 'preview' }}"
+          echo "→ project=adwire-site branch=$BRANCH"
+          npx wrangler pages deploy out \
+            --project-name adwire-site \
+            --branch "$BRANCH" \
+            --commit-hash "$GITHUB_SHA" \
+            --commit-message "$(git log -1 --pretty=%s)"
