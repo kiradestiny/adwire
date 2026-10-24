@@ -10,6 +10,7 @@ import { getWhatsAppUrl } from "@/lib/site-config";
 import { AI_AGENCY_FAQS } from "@/lib/service-faqs";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 // ─── 內容資料 ────────────────────────────────────────────────────────────────
 
 const comparison = [
@@ -384,6 +385,8 @@ export default function AiAgencyContent() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────── */}
+            <ServiceFit serviceKey="ai-agency" />
+
             <ServiceTechStack serviceKey="ai-agency" />
 
 <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#1e3a5f] text-white">

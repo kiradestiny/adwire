@@ -19,6 +19,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 export default function SeoServiceContent() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
@@ -784,6 +785,8 @@ export default function SeoServiceContent() {
       </section>
 
       {/* 8. CTA Section */}
+            <ServiceFit serviceKey="seo" />
+
             <ServiceTechStack serviceKey="seo" />
 
 <section className="py-20 bg-gray-50 text-center">

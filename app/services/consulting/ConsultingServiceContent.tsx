@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { getWhatsAppUrl } from "@/lib/site-config";
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 import {
   Compass,
   Brain,
@@ -782,6 +783,8 @@ export default function ConsultingServiceContent() {
       </section>
 
       {/* ── 10. CTA ── */}
+            <ServiceFit serviceKey="consulting" />
+
             <ServiceTechStack serviceKey="consulting" />
 
 <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#1a6cbf] text-white text-center">

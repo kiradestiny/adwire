@@ -7,6 +7,7 @@ import { HONG_KONG_MARKET_FAQS } from "@/lib/service-faqs";
 import ServiceImage from "@/components/ServiceImage";
 import { motion } from "framer-motion";
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 import {
   AlertTriangle,
   ArrowRight,
@@ -507,6 +508,8 @@ export default function HongKongMarketContent() {
       </section>
 
       {/* 9. CTA */}
+            <ServiceFit serviceKey="hong-kong-market" />
+
             <ServiceTechStack serviceKey="hong-kong-market" />
 
 <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#0b2f4a] text-white">

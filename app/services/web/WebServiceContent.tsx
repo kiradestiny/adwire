@@ -18,6 +18,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 export default function WebServiceContent() {
   const faqs = [
     {
@@ -565,6 +566,8 @@ export default function WebServiceContent() {
 
       <ServiceDeepDive slug="web" />
       {/* 10. FAQ Section */}
+            <ServiceFit serviceKey="web" />
+
             <ServiceTechStack serviceKey="web" />
 
 <section className="py-24 bg-gray-50">

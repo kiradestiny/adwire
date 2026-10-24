@@ -14,6 +14,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 export default function KolServiceContent() {
   return (
     <div className="min-h-screen bg-white">
@@ -534,6 +535,8 @@ export default function KolServiceContent() {
       </section>
 
       {/* FAQ Section */}
+            <ServiceFit serviceKey="kol" />
+
             <ServiceTechStack serviceKey="kol" />
 
 <section className="py-20 bg-white" aria-label="KOL 網紅營銷常見問題">

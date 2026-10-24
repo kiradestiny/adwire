@@ -19,6 +19,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 // ─── 平台資料 ────────────────────────────────────────────────────────────────
 const PLATFORMS = [
   {
@@ -707,6 +708,8 @@ export default function SocialServiceContent() {
       </section>
 
       {/* ── 13. FAQ ── */}
+            <ServiceFit serviceKey="social" />
+
             <ServiceTechStack serviceKey="social" />
 
 <section

@@ -13,6 +13,7 @@ import {
 import { useState, useRef, useEffect } from "react";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 export default function VideoServiceContent() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -396,6 +397,8 @@ export default function VideoServiceContent() {
       </section>
 
       {/* 7. 常見問題 (FAQ) */}
+            <ServiceFit serviceKey="video" />
+
             <ServiceTechStack serviceKey="video" />
 
 <section className="py-24 bg-black">

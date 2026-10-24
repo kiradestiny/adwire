@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getWhatsAppUrl } from "@/lib/site-config";
 import { AI_FAQS } from "@/lib/service-faqs";
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 import {
   AlertTriangle,
   ArrowRight,
@@ -798,6 +799,8 @@ export default function AiServiceContent() {
       </section>
 
       {/* Urgency CTA */}
+            <ServiceFit serviceKey="ai" />
+
             <ServiceTechStack serviceKey="ai" />
 
 <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">

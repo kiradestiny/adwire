@@ -17,6 +17,431 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: 48,
+    slug: "enterprise-ai-agent-poc-hong-kong",
+    title: "企業 AI Agent POC：兩星期驗證值唔值得做",
+    excerpt:
+      "大部分企業 AI 專案失敗，是因為一開始做得太大。本文說明兩星期 POC 應該怎樣設計：如何揀工序、日程安排、三個量度指標（準確度／節省時間／每次處理成本），以及 POC 後三種結果的處理方式。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "AI & Automation",
+    readTime: "12 min read",
+    imageColor: "from-[#0f4c81] to-purple-800",
+    tags: ["ai agent 香港", "企業 ai 導入", "POC", "RAG", "流程自動化", "AI 成本"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">大部分企業 AI 專案失敗，不是模型不夠好，而是<strong>一開始就做得太大</strong>。與其花半年做一個「全公司 AI 平台」，不如用兩星期驗證一個具體工序值不值得自動化。這篇講清楚 POC 應該怎樣設計。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">POC 目標不是「做出一個 AI」，而是<strong>用最低成本回答一個問題</strong>：這個工序用 AI 做，準確度夠不夠、成本划不划算、同事願不願意用。<br>時間：2 週。範圍：一個工序、一個部門、真實資料。<br>唔適合：連工序都未標準化就想 AI 化。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、揀錯工序，POC 一定失敗</h2>
+        <p>以下四類工序最適合做第一個 POC：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>有大量重複文字處理</strong>——報價單比對、合約條款抽取、客服分類</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>答案存在於文件裡</strong>——內部 SOP、產品規格、過往案例問答</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>人手做的判斷有明確標準</strong>——例如退貨申請是否符合政策</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>錯了可以接受</strong>——有覆核步驟，不會直接影響客戶或金錢</span></li>
+        </ul>
+        <p>相反，以下情況不應做 POC，應該先做流程整理：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>每個同事做法都不同，沒有標準流程</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>涉及法定判斷或高風險決策（醫療、法律、信貸審批）</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>沒有可用資料，或資料散落在幾十個 Excel</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、兩星期 POC 的實際日程</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">時間</th><th class="px-4 py-3 text-left">做什麼</th><th class="px-4 py-3 text-left">交付</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">第 1–2 日</td><td class="px-4 py-3">工序盤點、定義「成功」的可量度標準</td><td class="px-4 py-3">一頁 POC 規格</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">第 3–4 日</td><td class="px-4 py-3">整理 50–200 個真實樣本作測試集</td><td class="px-4 py-3">測試集與基準答案</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">第 5–8 日</td><td class="px-4 py-3">建立流程（RAG 或分類），反覆調校</td><td class="px-4 py-3">可運作的內部工具</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">第 9 日</td><td class="px-4 py-3">用測試集量度準確度、處理時間、成本</td><td class="px-4 py-3">數據報告</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">第 10 日</td><td class="px-4 py-3">由實際使用者試用，收集意見</td><td class="px-4 py-3">Go / No-Go 建議</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、怎樣量度「值不值得做」</h2>
+        <p>三個數字，缺一不可：</p>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>準確度</strong>——在測試集上，AI 的答案與人工基準一致的比例。低於可接受門檻，就不應該上線，只可做輔助。</li>
+          <li><strong>節省時間</strong>——同一批工作，AI 輔助 vs 純人手的實際工時差。</li>
+          <li><strong>每次處理成本</strong>——模型 API 費用 + 人工覆核時間。很多 POC 在這一項才發現不划算。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、POC 之後的三種結果</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">結果</th><th class="px-4 py-3 text-left">含義</th><th class="px-4 py-3 text-left">下一步</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">準確度高、成本低</td><td class="px-4 py-3">值得正式導入</td><td class="px-4 py-3">擴展到同類工序，加監控與權限</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">準確度高、成本高</td><td class="px-4 py-3">只適合做輔助</td><td class="px-4 py-3">改為「AI 建議、人手決定」</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">準確度不足</td><td class="px-4 py-3">資料或流程未準備好</td><td class="px-4 py-3">先整理資料與標準，不要硬上</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">我們提供固定範圍的兩星期 POC：一個工序、真實資料、可量度結果，結束時直接答「值得做」還是「不值得」。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">查詢 POC 安排</a>，或看<a href="/services/ai/" class="text-[#0f4c81] font-semibold underline">AI 解決方案</a>。</p>
+        </div>
+    `,
+  },
+  {
+    id: 49,
+    slug: "nextjs-vs-wordpress-hong-kong",
+    title: "Next.js、WordPress 定自建 CMS？香港企業選擇指南",
+    excerpt:
+      "三個方案不是邊個最好，而是邊個適合你未來三年的營運方式。本文比較上線速度、載入效能、安全面、改版與接手難度，並指出香港企業最常犯的兩個錯：用 WordPress 硬砌業務系統，以及選了 Next.js 卻沒有維護能力。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "Web Development",
+    readTime: "10 min read",
+    imageColor: "from-[#0f4c81] to-emerald-800",
+    tags: ["nextjs 網站 香港", "wordpress 香港", "headless cms", "網站架構", "core web vitals", "技術選型"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">Next.js、WordPress、自建 CMS 不是「邊個最好」，而是「邊個適合你未來三年的營運方式」。這篇用香港企業實際情況比較，並列出各自的接手成本。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">WordPress：內容團隊自己改、預算有限、要快上線。<br>Next.js（Headless）：重視速度與 SEO、需要複雜互動、有工程資源。<br>自建 CMS：有獨特資料模型或與內部系統深度整合。<br>選錯的代價通常在第二年出現——想改結構時發現改不動。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、三個方案的本質差異</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">方案</th><th class="px-4 py-3 text-left">本質</th><th class="px-4 py-3 text-left">適合誰</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">WordPress</td><td class="px-4 py-3">現成 CMS，靠主題與外掛組合</td><td class="px-4 py-3">市場部主導、內容頻繁更新</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">Next.js + Headless CMS</td><td class="px-4 py-3">前台自建、內容後台分離</td><td class="px-4 py-3">重視速度、SEO、前端體驗</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">自建 CMS</td><td class="px-4 py-3">完全按業務資料模型設計</td><td class="px-4 py-3">內容與業務系統深度綁定</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、五個實際比較維度</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">維度</th><th class="px-4 py-3 text-left">WordPress</th><th class="px-4 py-3 text-left">Next.js + Headless</th><th class="px-4 py-3 text-left">自建</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">上線速度</td><td class="px-4 py-3">最快</td><td class="px-4 py-3">中</td><td class="px-4 py-3">最慢</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">載入效能</td><td class="px-4 py-3">中（依外掛數量）</td><td class="px-4 py-3">高（靜態輸出）</td><td class="px-4 py-3">視設計</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">安全面</td><td class="px-4 py-3">外掛是主要風險</td><td class="px-4 py-3">攻擊面較小</td><td class="px-4 py-3">取決於開發質量</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">日後改版</td><td class="px-4 py-3">換主題即可</td><td class="px-4 py-3">需要工程改動</td><td class="px-4 py-3">需要原開發者或文件</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">接手難度</td><td class="px-4 py-3">低（市場大）</td><td class="px-4 py-3">中（需 React 能力）</td><td class="px-4 py-3">高（需完整文件）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、香港企業最常犯的兩個錯</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>用 WordPress 硬砌業務系統。</strong>用外掛做會員、預約、報價、庫存，結果十幾個外掛互相衝突，每次更新都可能壞。核心業務邏輯不應該建立在外掛生態上。</li>
+          <li><strong>為了「技術先進」選 Next.js 但沒有維護能力。</strong>沒有工程團隊卻選一個需要持續開發的架構，第二年就會發現連改一個 section 都要找人。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、決策建議</h2>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>內容主導、每月更新、無工程團隊 → <strong>WordPress</strong></span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>網站是獲客核心、要速度與 SEO、有或願意有工程支援 → <strong>Next.js + Headless</strong></span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>內容與業務系統（CRM、報價、庫存）深度綁定 → <strong>自建</strong></span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>現在是 WordPress 但速度慢 → 可<strong>保留內容、只換前台</strong>，不必全部重做</span></li>
+        </ul>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">不確定應該用哪一種？我們會先看你的內容更新頻率、團隊能力與業務系統，再答。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">討論架構選擇</a>，或看<a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>。</p>
+        </div>
+    `,
+  },
+  {
+    id: 50,
+    slug: "app-development-hong-kong-cost-process",
+    title: "App 開發由 MVP 到上架：範圍、報價與維護安排",
+    excerpt:
+      "App 開發報價差異極大，原因通常不是框架，而是要接幾多東西、上架要過幾多關、上線後邊個維護。本文列明 MVP 應包含與可延後的模組、四種技術選擇、上架前五件易忽略的事，以及報價差異的四個來源。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "Software Development",
+    readTime: "11 min read",
+    imageColor: "from-[#0f4c81] to-indigo-800",
+    tags: ["app 開發 香港", "mvp", "react native", "上架 app store", "app 報價", "流動應用程式"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">App 開發報價差異極大，原因通常不在「用 React Native 定 Flutter」，而在<strong>你有幾多東西要接</strong>、<strong>上架要過幾多關</strong>、<strong>上線後邊個維護</strong>。這篇由 MVP 講到上架與維護。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">MVP 階段目標是「驗證需求」，不是「功能齊全」。<br>常見範圍：登入、核心功能、通知、基本後台。<br>上架要預留時間：Apple／Google 審核、私隱政策、帳號刪除功能。<br>唔適合：未有明確使用場景就想做「平台」。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、MVP 應該包含什麼</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">模組</th><th class="px-4 py-3 text-left">MVP 需要</th><th class="px-4 py-3 text-left">可以稍後</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">帳號</td><td class="px-4 py-3">電郵／電話登入、重設密碼</td><td class="px-4 py-3">社交登入、多語系</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">核心功能</td><td class="px-4 py-3">一件最主要的事做好</td><td class="px-4 py-3">邊緣功能、報表</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">通知</td><td class="px-4 py-3">推送或 WhatsApp</td><td class="px-4 py-3">個人化通知策略</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">後台</td><td class="px-4 py-3">查看與管理用戶資料</td><td class="px-4 py-3">細緻權限、審計日誌</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">金流</td><td class="px-4 py-3">可先離線收款</td><td class="px-4 py-3">App 內購買、訂閱</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、技術選擇：先看團隊，再看潮流</h2>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>React Native</strong>——一套代碼出 iOS／Android，適合 MVP 與內部工具。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>Flutter</strong>——UI 一致性好，適合設計驅動的產品。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>原生（Swift／Kotlin）</strong>——需要深度用相機、藍牙、健康數據等系統功能。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>PWA</strong>——只需網頁版體驗、不想上架，成本最低。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、上架前容易被忽略的五件事</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>私隱政策與資料收集說明。</strong>Apple 與 Google 都要求，缺了直接退件。</li>
+          <li><strong>帳號刪除功能。</strong>兩大平台都要求 App 內可以刪除帳號。</li>
+          <li><strong>審核時間。</strong>首次上架通常要預留一至兩星期，退件再審會更久。</li>
+          <li><strong>開發者帳號。</strong>公司名義申請需要商業登記與 D-U-N-S（Apple）。</li>
+          <li><strong>版本更新流程。</strong>上線後每次更新都要再過審，流程要事先講清楚。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、報價為何差幾倍</h2>
+        <p>四個變數：<strong>要接幾個第三方服務</strong>（金流、地圖、推送、CRM）、<strong>要不要後台</strong>、<strong>要不要與現有系統同步</strong>、<strong>交付標準</strong>（測試、文件、上架協助）。同一個「App」可以是四星期也可以是一年。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、上線後誰維護</h2>
+        <p>App 的特點是<strong>平台每年改版</strong>，iOS 與 Android 新版都可能令舊代碼出問題。所以維護不是可選項。簽約時要問清楚：保固期幾長、平台大改版是否包含、每次更新的收費方式。</p>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">想知你的想法適不適合先做 MVP？我們可以幫你砍到最小可驗證範圍，並列明上架與維護安排。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">討論 App 項目</a>，或看<a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統與 App 開發</a>。</p>
+        </div>
+    `,
+  },
+  {
+    id: 45,
+    slug: "system-rescue-takeover-checklist",
+    title: "系統爛尾點救？接手舊系統前的完整 checklist（2026）",
+    excerpt:
+      "系統爛尾、vendor 失聯、源碼混亂是香港中小企常見情況。本文列明接手前必須拿到的七樣東西、三種救援路線（穩定化／局部重寫／重建）、如何判斷值不值得救，以及避免再次爛尾的合約條款。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "Software Development",
+    readTime: "13 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    tags: ["系統爛尾", "接手舊系統", "技術診斷", "vendor 倒閉", "外判風險", "系統重寫"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">系統爛尾、vendor 倒閉、開發人員離職、接手後發現源碼混亂——這在香港中小企與學校機構並不罕見。這篇不是講「我們幾叻」，而是講清楚：接手一個爛尾系統前，你應該先拿什麼、判斷什麼、以及哪三種情況下其實不值得救。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">適合：現有系統仍在運作但無法維護、vendor 失聯、或接手後發現無文件。<br>範圍與工期：技術診斷 1–2 週；救援視乎系統狀態，由補文件到局部重寫，一般 4–12 週。<br>唔適合：系統連登入都做不到、又沒有資料庫備份——那已經不是救援，是重建。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先判斷：值不值得救</h2>
+        <p>救援的成本差異可以極大，關鍵在第一天就判斷清楚。以下五個訊號，出現三個以上，就要認真考慮重建而非修補。</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>源碼沒有版本控制（沒有 Git），改動靠複製檔案</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>沒有資料庫結構文件，欄位命名無規律（例如 field1、field2）</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>核心功能依賴已停止維護的框架或套件</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>沒有測試，任何改動都可能弄壞其他功能</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>資料庫與程式邏輯高度綁定，無法分離</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、接手前必須拿到的七樣東西</h2>
+        <p>這份清單可以直接拿去問前 vendor 或離職同事。拿不到，就代表你沒有真正擁有這個系統。</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li>源碼與完整 Git 歷史（不只是最後一版壓縮檔）</li>
+            <li>資料庫完整匯出（含結構與資料），以及最近一次可還原的備份</li>
+            <li>伺服器／雲端帳戶的擁有權或管理員權限</li>
+            <li>網域、DNS、SSL 憑證的註冊商帳戶</li>
+            <li>第三方服務清單（金流、短訊、地圖、AI API）與其帳單歸屬</li>
+            <li>部署方式說明（就算是口述也要錄音）</li>
+            <li>任何已知的臭蟲清單與未完成功能</li>
+          </ol>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、三種救援路線</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">路線</th><th class="px-4 py-3 text-left">做法</th><th class="px-4 py-3 text-left">適合情況</th><th class="px-4 py-3 text-left">風險</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">A. 穩定化</td><td class="px-4 py-3">補文件、加監控、修高危漏洞，不改架構</td><td class="px-4 py-3">系統仍能運作，只是想止血</td><td class="px-4 py-3">技術債仍在，日後仍要處理</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">B. 局部重寫</td><td class="px-4 py-3">保留資料庫，逐個模組換新前端／後端</td><td class="px-4 py-3">資料有價值但程式無法維護</td><td class="px-4 py-3">期間新舊並存，需要較多測試</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">C. 重建</td><td class="px-4 py-3">重新設計與開發，只遷移資料</td><td class="px-4 py-3">五個訊號中四個以上出現</td><td class="px-4 py-3">成本最高、時間最長，業務要能承受</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、要幾錢、幾耐</h2>
+        <p>我們不會在文章寫一個虛假價格。實際差別在於：<strong>資料結構是否可保留</strong>、<strong>要接幾個第三方服務</strong>、<strong>是否需要期間不停機</strong>。三個變數都會直接影響工期。診斷階段完成後，我們會給一個明確範圍，而不是一個開口價。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、如何避免再次爛尾</h2>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>合約要寫明源碼交付時間點，並放在<strong>你名下</strong>的 repo</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>每兩週要看得到可運作的版本，不接受「做完才給你看」</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>伺服器與網域一開始就登記在公司名下，不用 vendor 的帳戶</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>付款與里程碑掛鈎，尾數不少於一成半</span></li>
+        </ul>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">如果你手上正有一個爛尾系統，可以先做一次技術診斷（1–2 週），我們會直接答「值得救」還是「建議重建」，並附上實際範圍與時間。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約技術診斷</a>，或先看<a href="/delivery/" class="text-[#0f4c81] font-semibold underline">我們如何交付與交接</a>。</p>
+        </div>
+    `,
+  },
+  {
+    id: 46,
+    slug: "hong-kong-system-development-quote-guide",
+    title: "香港系統開發報價點計？拆解報價單與壓價陷阱",
+    excerpt:
+      "同一個功能為何報價可以差五倍？本文拆解系統開發報價的四個組成（功能模組、系統整合、交付要求、風險緩衝）、三種收費模式比較、報價單應有的八項內容，以及三個最常見的壓價陷阱。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "Software Development",
+    readTime: "12 min read",
+    imageColor: "from-[#0f4c81] to-blue-800",
+    tags: ["系統開發 報價", "app 開發 價錢", "外判 收費", "報價單", "SOW", "香港 IT 外判"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">同一個功能，A 公司報 HK$30,000，B 公司報 HK$150,000。差異通常不在「邊個食水深」，而在報價背後假設了什麼。這篇把系統開發報價拆開，讓你拿到報價單時知道要問什麼。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">報價 = 功能範圍 × 整合複雜度 × 交付要求（文件／測試／上線方式）。<br>三個變數任何一個差一倍，總價就差幾倍。<br>拿到報價單先問：「這份價包含幾多個整合？驗收標準是什麼？上線後保固幾長？」</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、報價的四個組成部分</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">組成</th><th class="px-4 py-3 text-left">內容</th><th class="px-4 py-3 text-left">為何影響價格</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">功能模組</td><td class="px-4 py-3">登入權限、資料表單、審批流、報表</td><td class="px-4 py-3">每個模組都有前後端與權限設計</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">系統整合</td><td class="px-4 py-3">與 ERP／會計／POS／金流／WhatsApp 對接</td><td class="px-4 py-3">每個接口都要處理認證、錯誤、重試、對帳</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">交付要求</td><td class="px-4 py-3">文件、測試、UAT、上線安排、培訓</td><td class="px-4 py-3">有文件有測試的專案，工時可以多三成以上</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">風險緩衝</td><td class="px-4 py-3">需求不清、舊系統不合作、第三方延誤</td><td class="px-4 py-3">報得特別便宜的，通常把這部分留給你日後埋單</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、為何價錢可以差五倍</h2>
+        <p>五個最常見的落差來源：</p>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>需求寫得幾清楚。</strong>「一個會員系統」可以是三頁表格，也可以是十種角色十種權限。</li>
+          <li><strong>有沒有現成元件可重用。</strong>用通用框架砌，與由零寫，工時差別很大。</li>
+          <li><strong>要不要與舊系統同步資料。</strong>整合往往是總價三至五成。</li>
+          <li><strong>要不要期間不停機。</strong>並行遷移的成本遠高於停機一晚切換。</li>
+          <li><strong>交付標準。</strong>有沒有測試報告、API 文件、部署手冊，直接反映在工時。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、三種收費模式</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">模式</th><th class="px-4 py-3 text-left">適合</th><th class="px-4 py-3 text-left">風險</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">固定總價</td><td class="px-4 py-3">範圍已寫得極清楚、可預測</td><td class="px-4 py-3">範圍一改就要變更單，容易爭議</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">按人日</td><td class="px-4 py-3">需求探索階段、範圍未定</td><td class="px-4 py-3">總額不確定，需要有信任與透明工時紀錄</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">階段式</td><td class="px-4 py-3">大型項目、可分期上線</td><td class="px-4 py-3">需要清楚定義每階段驗收</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、報價單應該要有的八項</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ul class="space-y-2 text-gray-700">
+            <li>1. 逐項功能清單（不是一句「系統開發」）</li>
+            <li>2. 明確的<strong>不包含</strong>事項</li>
+            <li>3. 整合的第三方服務清單與責任分工</li>
+            <li>4. 交付文件清單</li>
+            <li>5. 驗收標準與缺陷分級</li>
+            <li>6. 時間表與里程碑</li>
+            <li>7. 付款節點與比例</li>
+            <li>8. 保固期與保養安排</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、三個壓價陷阱</h2>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>先接後加。</strong>用低價接單，開發途中逐項加錢。合約要寫明變更流程。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>不交源碼。</strong>便宜是因為你日後只能繼續用他。簽約就要寫明交付。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>無測試無文件。</strong>省下的工時，日後由你或下一個 vendor 付。</span></li>
+        </ul>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">想拿一份「可直接比較」的報價？我們可以按你的功能清單出一份 SOW 草稿與報價結構，你可以拿去問其他 vendor。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">索取報價結構</a>，或看<a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">我們實際用的技術</a>。</p>
+        </div>
+    `,
+  },
+  {
+    id: 47,
+    slug: "outsource-vs-inhouse-development-team",
+    title: "外判定自建開發團隊？香港中小企的成本與風險比較",
+    excerpt:
+      "比較外判與自建開發團隊時，只看月薪會計錯數。本文列出全職總成本的五個隱藏項、三個應自建與四個應外判的情況、可以自己計的比較框架，以及最常見的混合模式。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "Software Development",
+    readTime: "11 min read",
+    imageColor: "from-[#0f4c81] to-cyan-800",
+    tags: ["outsource hong kong", "自建團隊", "開發成本", "IT 外判", "團隊管理", "招聘風險"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">「請一個人定外判？」這個問題的答案不是看月薪，而是看你要的是<strong>持續產能</strong>還是<strong>一次性交付</strong>。這篇用香港實際情況拆開成本結構，並給一個可以自己計的框架。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">自建適合：需求長期持續、有管理技術團隊的能力、能承受招聘與流失風險。<br>外判適合：需求有明確終點、需要多種技能短期並用、不想承擔招聘風險。<br>大多數香港中小企的最優解是<strong>混合</strong>：外判建核心系統，內部養 1–2 人負責日常與對接。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、成本不只是月薪</h2>
+        <p>比較時最常犯的錯，是只算「月薪 × 12」。真正的全職成本還包括：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>強積金、勞保、年假、病假、替假成本</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>招聘成本與<strong>空缺期</strong>（香港中高級開發人員平均招聘期以月計）</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>設備、軟件授權、雲端環境</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>管理与培訓時間（資深同事帶新人）</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>離職風險：一走就要重新招聘與交接</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、三個應該自建的情況</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>系統就是你的產品。</strong>核心競爭力在代碼，不能外判。</li>
+          <li><strong>需求持續且穩定。</strong>每月都有明確的迭代量，外判的溝通成本會超過自建。</li>
+          <li><strong>你已有技術主管。</strong>有人能評審架構與代碼質量，自建才不會變成堆積技術債。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、四個應該外判的情況</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>項目有明確終點。</strong>例如建一個 CRM、一個官網、一個 App，交付後進入維護期。</li>
+          <li><strong>需要多種技能短期並用。</strong>設計、前端、後端、DevOps、資安同時要，但只需幾個月。</li>
+          <li><strong>你沒有技術主管。</strong>請一個開發人員但無人管，等於買了一部車但沒有司機。</li>
+          <li><strong>時間比成本重要。</strong>招聘要幾個月，外判可以下週開始。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、可以自己計的框架</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="text-gray-700 mb-3">用同一個「功能點」去比較兩邊：</p>
+          <ul class="space-y-2 text-gray-700">
+            <li>1. 列出未來 12 個月要做的工作（用功能點或人日估）</li>
+            <li>2. 自建：所需人數 × 全職總成本（含上述五項）× 12 個月</li>
+            <li>3. 外判：報價總額 + 你的管理時間成本（每週 2–4 小時）</li>
+            <li>4. 加上風險溢價：自建的招聘與流失風險，外判的依賴與交接風險</li>
+          </ul>
+          <p class="text-sm text-gray-500 mt-3">若兩者差距在 20% 以內，選你更有能力管理的那一邊。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、混合模式最常見</h2>
+        <p>實務上最多香港中小企採用的是：核心系統外判開發，內部養 1–2 人負責日常維護、內容更新與對接。這樣既拿到交付速度，又保留長期能力。關鍵是外判合約要包含<strong>知識轉移</strong>，否則你永遠無法接手。</p>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">想知你公司情況適合哪一種？我們可以按你未來 12 個月的工作量做一次評估，直接答「自建」「外判」或「混合」。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約評估</a>，或看<a href="/warranty/" class="text-[#0f4c81] font-semibold underline">保固與交接安排</a>。</p>
+        </div>
+    `,
+  },
   // ─── AI 系列：由平台內建自動化（Advantage+／AI Max）到官方 API 自動化的分工，強調開通 API 不等於懂得投放廣告。 ───
   {
     id: 44,

@@ -14,6 +14,7 @@ import {
 import { useState } from "react";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 export default function ProductionServiceContent() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -342,6 +343,8 @@ export default function ProductionServiceContent() {
       </section>
 
       {/* 7. FAQ - NEW */}
+            <ServiceFit serviceKey="production" />
+
             <ServiceTechStack serviceKey="production" />
 
 <section className="py-24 bg-[#0a0a0a]">

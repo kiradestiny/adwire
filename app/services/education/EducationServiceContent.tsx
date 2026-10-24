@@ -38,6 +38,7 @@ import {
 import { getWhatsAppUrl } from "@/lib/site-config";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 /* 下載表單送出端點：沿用全站既有設定（與 ContactSection 相同）。 */
 const FORM_ENDPOINT =
   process.env.NEXT_PUBLIC_FORM_ENDPOINT || "/send-mail.php";
@@ -775,6 +776,8 @@ export default function EducationServiceContent() {
       </section>
 
       {/* 12. 資料來源 */}
+            <ServiceFit serviceKey="education" />
+
             <ServiceTechStack serviceKey="education" />
 
 <section className="py-10 bg-white border-t border-gray-100">

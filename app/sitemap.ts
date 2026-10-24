@@ -108,6 +108,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
+  // 2b. 採購／技術評估頁（2026-10-24 新增，供企業 IT 與採購審閱）
+  const trustRoutes: RouteConfig[] = [
+    { url: '/tech-stack/', lastModified: SERVICE_LAST_UPDATED },
+    { url: '/delivery/',   lastModified: SERVICE_LAST_UPDATED },
+    { url: '/security/',   lastModified: SERVICE_LAST_UPDATED },
+    { url: '/warranty/',   lastModified: SERVICE_LAST_UPDATED },
+  ].map((route) => ({
+    ...route,
+    changeFrequency: 'monthly' as RouteConfig['changeFrequency'],
+    priority: 0.7,
+  }))
+
   // 3. 法律與其他頁面 (Legal & Misc Pages)
   const legalRoutes: RouteConfig[] = [
     { url: '/privacy/',    lastModified: LEGAL_LAST_UPDATED },
@@ -120,7 +132,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // 合併所有靜態路由並格式化 URL
-  const staticSitemap = [...coreRoutes, ...serviceRoutes, ...legalRoutes].map((route) => ({
+  const staticSitemap = [...coreRoutes, ...serviceRoutes, ...trustRoutes, ...legalRoutes].map((route) => ({
     url: `${baseUrl}${route.url}`,
     lastModified: route.lastModified ?? new Date().toISOString().split('T')[0],
     changeFrequency: route.changeFrequency,

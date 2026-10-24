@@ -7,6 +7,7 @@ import { CHINA_MARKET_FAQS } from "@/lib/service-faqs";
 import ServiceImage from "@/components/ServiceImage";
 import { motion } from "framer-motion";
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 import {
   ArrowRight,
   BookOpen,
@@ -703,6 +704,8 @@ export default function ChinaMarketContent() {
       </section>
 
       {/* 10. CTA */}
+            <ServiceFit serviceKey="china-market" />
+
             <ServiceTechStack serviceKey="china-market" />
 
 <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-[#0a3358] text-white">

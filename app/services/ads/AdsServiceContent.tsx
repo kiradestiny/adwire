@@ -42,6 +42,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 export default function AdsServiceContent() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -767,6 +768,8 @@ export default function AdsServiceContent() {
       </section>
 
       {/* CTA Section */}
+            <ServiceFit serviceKey="ads" />
+
             <ServiceTechStack serviceKey="ads" />
 
 <section className="py-20 bg-[#0f4c81] text-white text-center">

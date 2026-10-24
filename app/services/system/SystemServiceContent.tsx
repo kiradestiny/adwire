@@ -19,6 +19,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 export default function SystemServiceContent() {
   const currentYear = new Date().getFullYear();
   const faqs = [
@@ -712,6 +713,8 @@ export default function SystemServiceContent() {
       </section>
 
       {/* 18. CTA Section */}
+            <ServiceFit serviceKey="system" />
+
             <ServiceTechStack serviceKey="system" />
 
 <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center">

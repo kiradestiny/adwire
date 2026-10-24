@@ -130,6 +130,11 @@ export default function Footer() {
             <li><FooterLink href="/portfolio">成功案例</FooterLink></li>
             <li><FooterLink href="/blog">增長洞察 Blog</FooterLink></li>
             <li><FooterLink href="/contact">聯絡我們</FooterLink></li>
+            {/* 採購／技術評估頁：企業 IT 與財務審閱用 */}
+            <li><FooterLink href="/tech-stack">技術棧與選型</FooterLink></li>
+            <li><FooterLink href="/delivery">交付流程與文件</FooterLink></li>
+            <li><FooterLink href="/security">安全與合規</FooterLink></li>
+            <li><FooterLink href="/warranty">保固與保養</FooterLink></li>
             <li>
               {/* AI Info：改為低調文字連結（見檔頭註解第 5 點） */}
               <a

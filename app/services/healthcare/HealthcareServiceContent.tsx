@@ -19,6 +19,7 @@ import {
 import { getWhatsAppUrl } from "@/lib/site-config";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 /* ─────────────────────────────────────────────
    靜態資料（模組作用域）
 ───────────────────────────────────────────── */
@@ -615,6 +616,8 @@ export default function HealthcareServiceContent() {
       </section>
 
       {/* 11. CTA */}
+            <ServiceFit serviceKey="healthcare" />
+
             <ServiceTechStack serviceKey="healthcare" />
 
 <section className="py-20 bg-gradient-to-r from-[#0f4c81] to-sky-600 text-white text-center">

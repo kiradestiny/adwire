@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { Bot, Zap, Clock, Database, MessageSquare, ShoppingCart, UserCheck, ArrowRight, Check, X } from "lucide-react";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
+import ServiceFit from "@/components/ServiceFit";
 export default function AutomationServiceContent() {
   return (
     <div className="min-h-screen bg-white">
@@ -478,6 +479,8 @@ export default function AutomationServiceContent() {
       </section>
 
       {/* 11. 維護 CTA */}
+            <ServiceFit serviceKey="automation" />
+
             <ServiceTechStack serviceKey="automation" />
 
 <section className="py-16 bg-[#0f4c81] text-white">
