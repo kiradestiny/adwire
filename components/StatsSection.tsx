@@ -31,25 +31,25 @@ export default function StatsSection() {
   const stats = [
     {
       icon: Users,
-      value: "500+",
-      label: "服務客戶",
-      description: "服務超過 500 家香港企業及品牌",
+      value: "52+",
+      label: "品牌客戶",
+      description: "官網客戶走馬燈全部為真實合作品牌",
       color: "blue",
       gradient: "from-blue-500 to-blue-600"
     },
     {
       icon: TrendingUp,
-      value: "328%",
-      label: "平均ROI提升",
-      description: "客戶投資回報率平均增長",
+      value: "12",
+      label: "服務線",
+      description: "系統、AI、搜尋與營銷一條龍",
       color: "green",
       gradient: "from-green-500 to-green-600"
     },
     {
       icon: Award,
-      value: "98%",
-      label: "客戶滿意度",
-      description: "客戶持續合作與推薦",
+      value: "30+",
+      label: "服務行業",
+      description: "由零售、教育、醫療到專業服務",
       color: "orange",
       gradient: "from-orange-500 to-orange-600"
     },
@@ -92,7 +92,7 @@ export default function StatsSection() {
                 key={index} data-mobile-visible="true"
                 /* 2026-10-15：初始狀態不再寫 `opacity-0`。
                    原本未進入視口時 class 為 opacity-0，SSR HTML 出街時
-                   500+/328% 等統計數字在「無 JS 或 JS 失敗」時完全不可見。
+                   52+/16/12 等統計數字在「無 JS 或 JS 失敗」時完全不可見。
                    改為預設可見，IntersectionObserver 觸發時才加上
                    animate-fade-in-up —— 內容預設可見，動畫只作增強
                    （沿用 Services.tsx / HeroSection.tsx 既有做法）。 */

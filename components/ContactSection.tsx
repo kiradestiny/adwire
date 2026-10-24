@@ -675,8 +675,9 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                 ))}
               </div>
               <span className="text-sm text-white font-medium">
-                4.9 分 · 已服務{" "}
-                <span className="text-[#f5a623] font-bold">500+</span> 服務客戶
+                已服務{" "}
+                <span className="text-[#f5a623] font-bold">52</span> 個香港品牌 · {" "}
+                <span className="text-[#f5a623] font-bold">16</span> 個公開案例
               </span>
             </div>
 
@@ -822,6 +823,15 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                       onChange={handleChange} onBlur={handleBlur}
                     />
 
+                    {/* 選填區 A：公司資料（預設收起，減少視覺負擔）*/}
+                    <details className="group rounded-xl border border-gray-200 bg-gray-50/60">
+                      <summary className="cursor-pointer select-none px-4 py-3 text-sm font-medium text-gray-600 hover:text-[#0f4c81] flex items-center justify-between">
+                        <span>想加快回覆？補充公司資料（選填）</span>
+                        <span className="text-xs text-gray-400 group-open:hidden">展開 ▾</span>
+                        <span className="text-xs text-gray-400 hidden group-open:inline">收起 ▴</span>
+                      </summary>
+                      <div className="px-4 pb-4 pt-1 space-y-4">
+
                     {/* 公司／品牌（選填）*/}
                     <FloatingInput
                       id="contact-company" name="company" label="公司／品牌名稱 Company（選填）"
@@ -837,6 +847,9 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                       value={values.companySite} touched={touched.companySite} error={errors.companySite ?? ""}
                       onChange={handleChange} onBlur={handleBlur}
                     />
+
+                      </div>
+                    </details>
 
                     {/* Service select */}
                     <div className="space-y-1">
@@ -858,6 +871,15 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                         ))}
                       </select>
                     </div>
+
+                    {/* 選填區 B：項目預審（預設收起）*/}
+                    <details className="group rounded-xl border border-gray-200 bg-gray-50/60">
+                      <summary className="cursor-pointer select-none px-4 py-3 text-sm font-medium text-gray-600 hover:text-[#0f4c81] flex items-center justify-between">
+                        <span>有預算或時間表？填咗可以報得更準（選填）</span>
+                        <span className="text-xs text-gray-400 group-open:hidden">展開 ▾</span>
+                        <span className="text-xs text-gray-400 hidden group-open:inline">收起 ▴</span>
+                      </summary>
+                      <div className="px-4 pb-4 pt-1 space-y-4">
 
                     {/* 預算區間 + 預計開始時間（項目預審）*/}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -911,6 +933,9 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                       value={values.systemInfo} touched={touched.systemInfo} error={errors.systemInfo ?? ""}
                       onChange={handleChange} onBlur={handleBlur}
                     />
+
+                      </div>
+                    </details>
 
                     {/* Message textarea + character counter */}
                     <div className="space-y-1">
@@ -968,6 +993,11 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                       — 真客只需短暫等候，唔需要撳任何嘢。
                       — 若 script 被擋，會照樣提交，不影響真客。 */}
                   <div ref={turnstileBoxRef} className="flex justify-center pt-1" />
+
+                  {/* 降低提交焦慮：回覆時間承諾 + 私隱保證（CRO） */}
+                  <p className="text-xs text-gray-500 text-center leading-relaxed">
+                    1 個工作天內由真人同事回覆 · 資料只用於回覆這次查詢，不會加入推銷名單
+                  </p>
 
                   {/* CTA Button */}
                   <button

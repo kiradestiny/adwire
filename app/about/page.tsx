@@ -21,7 +21,7 @@ import { ABOUT_FAQS, OFFICE_ADDRESS, OFFICE_HOURS } from "@/lib/about-faqs";
 
 const TITLE = "關於 ADWire｜香港軟件開發與 AI 自動化團隊";
 const DESCRIPTION =
-  "ADWire Agency Limited 是香港軟件開發及 AI 自動化團隊，提供企業網站、Web App、CRM／ERP 系統、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻及 KOL 營銷服務。500+ 服務客戶，辦公室位於葵芳。";
+  "ADWire Agency Limited 是香港軟件開發及 AI 自動化團隊，提供企業網站、Web App、CRM／ERP 系統、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻及 KOL 營銷服務。已服務 52 個香港品牌，辦公室位於葵芳。";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "關於 ADWire｜香港軟件開發與 AI 自動化團隊",
     description:
-      "ADWire Agency Limited 提供軟件開發、AI 與工作流程自動化、SEO／GEO 及數碼營銷服務，500+ 服務客戶。",
+      "ADWire Agency Limited 提供軟件開發、AI 與工作流程自動化、SEO／GEO 及數碼營銷服務，已服務 52 個香港品牌。",
     url: `${SITE_URL}/about/`,
     siteName: "ADWire Agency",
     images: [

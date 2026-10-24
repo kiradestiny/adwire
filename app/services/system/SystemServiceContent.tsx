@@ -458,7 +458,7 @@ export default function SystemServiceContent() {
             <TrustBadge icon={ShieldCheck} title="資料加密" desc="SSL/TLS 及加密存儲" />
             <TrustBadge icon={Gauge} title="監控及告警" desc="異常情況通知負責同事" />
             <TrustBadge icon={FileCode} title="源碼交付" desc="合約列明擁有權" />
-            <TrustBadge icon={Star} title="500+ 服務客戶" desc="項目涵蓋多個行業" />
+            <TrustBadge icon={Star} title="52 個品牌客戶" desc="項目涵蓋多個行業" />
           </div>
         </div>
       </section>

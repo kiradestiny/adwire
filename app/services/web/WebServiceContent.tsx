@@ -428,7 +428,7 @@ export default function WebServiceContent() {
             <TrustBadge icon={Globe} title="SEO 架構" desc="由規劃階段建立" />
             <TrustBadge icon={Gauge} title="效能目標" desc="交付時附實測報告" />
             <TrustBadge icon={CheckCircle2} title="源代碼交付" desc="完整擁有權" />
-            <TrustBadge icon={Users} title="500+ 服務客戶" desc="跨行業項目經驗" />
+            <TrustBadge icon={Users} title="52 個品牌客戶" desc="跨行業項目經驗" />
           </div>
         </div>
       </section>

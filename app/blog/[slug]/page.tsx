@@ -617,7 +617,7 @@ export default async function BlogPost({
                   </div>
                 </div>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  香港軟件、AI 及數碼增長方案供應商，專注把業務需求轉化為可落地的系統與搜尋增長方案。服務 500+ 企業，平均 ROI 提升 328%。
+                  香港軟件、AI 及數碼增長方案供應商，專注把業務需求轉化為可落地的系統與搜尋增長方案。已服務 52 個香港品牌，累積 16 個可公開查閱案例。
                 </p>
                 <div className="flex gap-2">
                   <ShareButton title={post.title} />

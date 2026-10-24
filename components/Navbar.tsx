@@ -89,9 +89,9 @@ const socialLinks = [
 
 /* 社會認同數字 */
 const trustStats = [
-  { icon: Users,       value: "500+",  label: "服務客戶" },
-  { icon: Star,        value: "98%",   label: "客戶滿意" },
-  { icon: TrendingUp,  value: "328%",  label: "平均 ROI" },
+  { icon: Users,       value: "52+",   label: "品牌客戶" },
+  { icon: Star,        value: "16",    label: "公開案例" },
+  { icon: TrendingUp,  value: "12",    label: "服務線" },
 ];
 
 /* ─────────────────────────────────────────────

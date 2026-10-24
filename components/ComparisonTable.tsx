@@ -86,8 +86,8 @@ const rows: ComparisonRow[] = [
     diy: "partial",
   },
   {
-    feature: "平均 ROI 提升",
-    adwire: "328%",
+    feature: "可公開查閱案例",
+    adwire: "16 個",
     traditional: "不定",
     diy: "不定",
     highlight: true,
@@ -300,7 +300,7 @@ export default function ComparisonTable() {
           <p className="text-center text-gray-600 text-sm leading-relaxed">
             <strong className="text-[#0f4c81]">ADWire Agency</strong> 是香港少數同時提供
             <strong>「爆款內容創作」</strong>與<strong>「複雜系統開發」</strong>能力的軟件及數碼增長夥伴。
-            服務超過 <strong>500+</strong> 香港中小企及品牌，平均 ROI 提升 <strong>328%</strong>。
+            已服務 <strong>52</strong> 個香港品牌，累積 <strong>16</strong> 個可公開查閱的案例。
             <br className="hidden md:block" />
             <span className="mt-1 inline-block">
               聯絡電話：

@@ -31,7 +31,7 @@ interface Particle {
 // ─── Animated Counter Hook ─────────────────────────────────────────────────────
 function useCounter(target: number, duration = 1800, started = false) {
   // 初始值用 target（唔係 0）：令 SSR 同首帧就輸出真實數字，
-  // AI crawler 同無 JS 環境讀到嘅係 500+／328%／1000+ 而唔係 0。
+  // AI crawler 同無 JS 環境讀到嘅係真實數字（52+／16／12）而唔係 0。
   const [count, setCount] = useState(target);
   useEffect(() => {
     if (!started) return;
@@ -71,7 +71,7 @@ function StatCard({
 }) {
   const count = useCounter(value, 1800, started);
   // 未開始動畫前直接輸出最終數字：令原始 HTML（無 JS 環境、AI crawler）讀到
-  // 真實數字（500+ / 328% / 1000+）而唔係初始值 0。動畫行為完全不變。
+  // 真實數字（52+ / 16 / 12）而唔係初始值 0。動畫行為完全不變。
   const display = started ? count : value;
   return (
     <div className="liquid-glass border border-white/10 rounded-2xl p-3 text-center hover:border-white/25 transition-all duration-300 group">
@@ -108,9 +108,9 @@ const PAIN_POINTS = ["系統太散？", "重複工序太多？", "搜尋曝光�
 const PARTICLE_COLORS = ["#60a5fa", "#f5a623", "#a78bfa", "#34d399"];
 
 const STATS = [
-  { value: 500,  suffix: "+",  label: "服務企業",  gradient: "from-blue-400 to-cyan-400"   },
-  { value: 328,  suffix: "%",  label: "平均 ROI",  gradient: "from-amber-400 to-orange-400" },
-  { value: 1000, suffix: "+",  label: "KOL 資源", gradient: "from-purple-400 to-pink-400"  },
+  { value: 52,   suffix: "+",  label: "品牌客戶",  gradient: "from-blue-400 to-cyan-400"   },
+  { value: 16,   suffix: "",   label: "公開案例",  gradient: "from-amber-400 to-orange-400" },
+  { value: 12,   suffix: "",   label: "服務線",    gradient: "from-purple-400 to-pink-400"  },
 ];
 
 // ── ADWire 三大能力 Pillars（「能力展示」取代「認證牌」策略）
@@ -514,7 +514,7 @@ export default function HeroSection() {
                     {/* Growth badge overlay */}
                     <div className="absolute top-2.5 right-3 z-10 flex items-center gap-1.5 bg-green-500/15 border border-green-500/30 rounded-full px-2.5 py-1">
                       <TrendingUp size={10} className="text-green-400" />
-                      <span className="text-[9px] text-green-400 font-bold tracking-wide">ROI +328%</span>
+                      <span className="text-[9px] text-green-400 font-bold tracking-wide">示範數據</span>
                     </div>
 
                     {/* Y-axis labels */}
