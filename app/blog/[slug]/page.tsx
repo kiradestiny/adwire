@@ -11,6 +11,7 @@ import ShareButton from "@/components/ShareButton";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { buildSrcSet } from "@/lib/imageVariants";
+import { resolveCanonicalSlug } from "@/lib/blog-canonical";
 import { getWhatsAppUrl } from "@/lib/site-config";
 import {
   buildTocAndInjectIds,
@@ -52,7 +53,10 @@ export async function generateMetadata({
     keywords: [...post.tags, post.category, "香港數碼營銷", "ADWire Agency"],
     authors: [{ name: "ADWire Team", url: "https://www.linkedin.com/company/adwirehk/" }],
     alternates: {
-      canonical: `/blog/${post.slug}/`,
+      // 同一主題若存在「帶年份／不帶年份」兩個 slug（後台 DB 舊 slug vs repo 新 slug），
+      // 統一把 canonical 指向代表版本，避免兩個可索引頁面互相搶排名。
+      // 只改 canonical，不改 URL、不刪頁，可逆。
+      canonical: `/blog/${resolveCanonicalSlug(post.slug, posts.map((p) => p.slug))}/`,
     },
     openGraph: {
       title: post.title,

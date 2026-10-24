@@ -454,12 +454,19 @@ export default function Navbar() {
   const lastFocusedRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (navARef.current) {
-      (navARef.current as HTMLElement & { inert: boolean }).inert = scrolled;
-    }
-    if (navBRef.current) {
-      (navBRef.current as HTMLDivElement & { inert: boolean }).inert = !scrolled;
-    }
+    // 正在淡出（0.32s）的 navbar 延後 360ms 才設 inert：
+    // 提早設 inert 會令「仍然見到但撳落去冇反應」的死點擊。
+    // 顯示中的 navbar 則立即解除 inert。
+    const delay = scrolled ? 360 : 0;
+    const t = window.setTimeout(() => {
+      if (navARef.current) {
+        (navARef.current as HTMLElement & { inert: boolean }).inert = scrolled;
+      }
+      if (navBRef.current) {
+        (navBRef.current as HTMLDivElement & { inert: boolean }).inert = !scrolled;
+      }
+    }, delay);
+    return () => window.clearTimeout(t);
   }, [scrolled]);
 
   /* ── Drawer 關閉時 inert ──
@@ -481,7 +488,9 @@ export default function Navbar() {
 
   /* Scroll 監聽 — passive 旗標確保不阻塞主執行緒 */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    // hysteresis：>24px 才切到膠囊 navbar、<8px 才切回；
+    // 避免 iOS 網址欄伸縮／rubber-band 令狀態來回抖動（撳唔到 menu 的主因之一）。
+    const onScroll = () => setScrolled(prev => (prev ? window.scrollY > 8 : window.scrollY > 24));
     onScroll(); // 初始化，避免 hydration 狀態不一致
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);

@@ -1,0 +1,29 @@
+# Cloudflare Pages headers（等同 SiteGround nginx 現時輸出，避免搬站後失去安全 header）
+# 注意：Pages 完全忽略 .htaccess，所以安全 header 必須在此重寫。
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://www.clarity.ms https://scripts.clarity.ms https://www.gstatic.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://region1.analytics.google.com https://*.clarity.ms https://www.googletagmanager.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://ad.doubleclick.net https://td.doubleclick.net https://www.google.com https://www.google.com.hk https://pagead2.googlesyndication.com https://challenges.cloudflare.com; frame-src 'self' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://td.doubleclick.net https://www.google.com https://www.google.com.hk https://challenges.cloudflare.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self';
+  X-Robots-Tag: all
+
+# 帶 hash 的建置產物：永久快取（檔名一變即失效，安全）
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 圖片：長快取但可重驗
+/clients/*
+  Cache-Control: public, max-age=2592000
+/blog/*.webp
+  Cache-Control: public, max-age=86400
+/portfolio/*
+  Cache-Control: public, max-age=2592000
+
+# HTML／後台：不快取，避免卡舊版或快取到登入頁
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+/admin/*
+  Cache-Control: no-store

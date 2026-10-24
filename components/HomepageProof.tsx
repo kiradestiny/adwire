@@ -84,7 +84,9 @@ export default function HomepageProof() {
                         : undefined
                     }
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    loading="lazy"
+                    /* eager：native lazy 在手機 viewport 實測會完全唔觸發（見 ClientShowcase 註解） */
+                    loading="eager"
+                    fetchPriority="low"
                     decoding="async"
                     width={1200}
                     height={750}
