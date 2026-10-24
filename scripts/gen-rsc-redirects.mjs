@@ -14,8 +14,11 @@
  * 不是 301 外部跳轉），純字串對應，不改 build 輸出、不需 Functions。
  */
 
-import { readdirSync, statSync, existsSync, writeFileSync, readFileSync } from "node:fs";
-import { join, relative, sep, basename } from "node:path";
+import {
+  readdirSync, statSync, existsSync, writeFileSync, readFileSync,
+  copyFileSync, mkdirSync,
+} from "node:fs";
+import { join, relative, sep, basename, dirname } from "node:path";
 
 const OUT = process.argv[2] || "out";
 const DEST = join(OUT, "_redirects");
@@ -106,6 +109,24 @@ for (const dirAbs of findNextDirs(OUT)) {
   }
 }
 
+// C. 實體檔案副本（權威做法）
+//    2026-10-24 實測：Cloudflare Pages 對本專案嘅 _redirects 200 rewrite 冇生效
+//    （目標檔 /services/__next.services/__PAGE__.txt 回 200，但 rewrite 來源
+//    /services/__next.services.__PAGE__.txt 仍然 404）。
+//    RSC payload 每檔只有幾 KB，直接複製一份「點」格式做真實檔案最穩，
+//    唔依賴任何平台 rewrite 行為。_redirects 仍然保留作後備。
+let copied = 0;
+let keptBackup = 0;
+for (const [from, to] of rules) {
+  const toAbs = join(OUT, to);
+  const fromAbs = join(OUT, from);
+  if (!existsSync(toAbs)) continue;
+  if (existsSync(fromAbs)) { keptBackup++; continue; }
+  mkdirSync(dirname(fromAbs), { recursive: true });
+  copyFileSync(toAbs, fromAbs);
+  copied++;
+}
+
 // 寫檔（保留標記區塊外的手寫規則）
 let existing = "";
 if (existsSync(DEST)) {
@@ -125,4 +146,5 @@ const block = [
 
 writeFileSync(DEST, [existing.trim(), block].filter(Boolean).join("\n\n") + "\n", "utf8");
 console.log(`[rsc] 已寫入 ${rules.size} 條 rewrite → ${DEST}`);
+console.log(`[rsc] 實體副本：新增 ${copied} 個、已存在 ${keptBackup} 個`);
 if (rules.size === 0) console.warn("[rsc] ⚠️ 冇搵到任何 __next.* 目錄");
