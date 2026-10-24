@@ -90,6 +90,21 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
           <p class="text-gray-700 leading-relaxed">我們提供固定範圍的兩星期 POC：一個工序、真實資料、可量度結果，結束時直接答「值得做」還是「不值得」。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">查詢 POC 安排</a>，或看<a href="/services/ai/" class="text-[#0f4c81] font-semibold underline">AI 解決方案</a>。</p>
         </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/ai/" class="text-[#0f4c81] font-semibold underline">AI 解決方案</a>——RAG、工具呼叫與人機協作</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/automation/" class="text-[#0f4c81] font-semibold underline">企業流程自動化</a>——把 AI 接入現有流程</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/ai-agency/" class="text-[#0f4c81] font-semibold underline">AI Agency 服務</a>——跨部門 AI 導入與治理</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/hong-kong-system-development-quote-guide/" class="text-[#0f4c81] font-semibold underline">系統開發報價點計？</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/security/" class="text-[#0f4c81] font-semibold underline">安全與合規：資料敏感度與部署方式</a></span></li>
+          </ul>
+        </div>
+
     `,
   },
   {
@@ -156,6 +171,21 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
           <p class="text-gray-700 leading-relaxed">不確定應該用哪一種？我們會先看你的內容更新頻率、團隊能力與業務系統，再答。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">討論架構選擇</a>，或看<a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>。</p>
         </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計及電商</a>——Next.js／WordPress／Headless 方案</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>——我們實際使用的前端與 CMS</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/seo/" class="text-[#0f4c81] font-semibold underline">SEO 與 GEO</a>——架構如何影響搜尋表現</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/system-rescue-takeover-checklist/" class="text-[#0f4c81] font-semibold underline">接手舊網站／系統前的 checklist</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/hong-kong-system-development-quote-guide/" class="text-[#0f4c81] font-semibold underline">網站與系統報價如何比較</a></span></li>
+          </ul>
+        </div>
+
     `,
   },
   {
@@ -219,6 +249,21 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
           <p class="text-gray-700 leading-relaxed">想知你的想法適不適合先做 MVP？我們可以幫你砍到最小可驗證範圍，並列明上架與維護安排。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">討論 App 項目</a>，或看<a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統與 App 開發</a>。</p>
         </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統與 App 開發</a>——由 MVP 到上架的完整範圍</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/delivery/" class="text-[#0f4c81] font-semibold underline">交付流程與文件</a>——上架前的驗收與文件</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/warranty/" class="text-[#0f4c81] font-semibold underline">保固與保養</a>——平台改版時的維護安排</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/hong-kong-system-development-quote-guide/" class="text-[#0f4c81] font-semibold underline">App 開發報價差異為何這麼大</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/outsource-vs-inhouse-development-team/" class="text-[#0f4c81] font-semibold underline">App 應該外判還是自建團隊</a></span></li>
+          </ul>
+        </div>
+
     `,
   },
   {
@@ -292,6 +337,21 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
           <p class="text-gray-700 leading-relaxed">如果你手上正有一個爛尾系統，可以先做一次技術診斷（1–2 週），我們會直接答「值得救」還是「建議重建」，並附上實際範圍與時間。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約技術診斷</a>，或先看<a href="/delivery/" class="text-[#0f4c81] font-semibold underline">我們如何交付與交接</a>。</p>
         </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統與 App 開發</a>——接手舊系統、局部重寫或重建</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/delivery/" class="text-[#0f4c81] font-semibold underline">交付流程與文件</a>——接手前你應該拿到的七樣東西</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/warranty/" class="text-[#0f4c81] font-semibold underline">保固與保養</a>——避免再次爛尾的售後安排</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/hong-kong-system-development-quote-guide/" class="text-[#0f4c81] font-semibold underline">香港系統開發報價點計？拆解報價單與壓價陷阱</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/outsource-vs-inhouse-development-team/" class="text-[#0f4c81] font-semibold underline">外判定自建開發團隊？成本與風險比較</a></span></li>
+          </ul>
+        </div>
+
     `,
   },
   {
@@ -374,6 +434,21 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
           <p class="text-gray-700 leading-relaxed">想拿一份「可直接比較」的報價？我們可以按你的功能清單出一份 SOW 草稿與報價結構，你可以拿去問其他 vendor。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">索取報價結構</a>，或看<a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">我們實際用的技術</a>。</p>
         </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統與 App 開發</a>——範圍、報價與交付方式</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/delivery/" class="text-[#0f4c81] font-semibold underline">交付流程與文件</a>——報價單應有的八項內容</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>——為何技術選擇會影響報價</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/system-rescue-takeover-checklist/" class="text-[#0f4c81] font-semibold underline">系統爛尾點救？接手舊系統前的完整 checklist</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/app-development-hong-kong-cost-process/" class="text-[#0f4c81] font-semibold underline">App 開發由 MVP 到上架：範圍、報價與維護</a></span></li>
+          </ul>
+        </div>
+
     `,
   },
   {
@@ -440,6 +515,21 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
           <p class="text-gray-700 leading-relaxed">想知你公司情況適合哪一種？我們可以按你未來 12 個月的工作量做一次評估，直接答「自建」「外判」或「混合」。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約評估</a>，或看<a href="/warranty/" class="text-[#0f4c81] font-semibold underline">保固與交接安排</a>。</p>
         </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統與 App 開發</a>——外判開發的核心服務</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/consulting/" class="text-[#0f4c81] font-semibold underline">AI 與系統導入顧問</a>——中立評估自建或外判</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/warranty/" class="text-[#0f4c81] font-semibold underline">保固與保養</a>——外判後的長期支援安排</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/hong-kong-system-development-quote-guide/" class="text-[#0f4c81] font-semibold underline">香港系統開發報價點計？</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a></span></li>
+          </ul>
+        </div>
+
     `,
   },
   // ─── AI 系列：由平台內建自動化（Advantage+／AI Max）到官方 API 自動化的分工，強調開通 API 不等於懂得投放廣告。 ───
