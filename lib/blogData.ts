@@ -18,6 +18,271 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 52,
+    slug: "website-rebuild-signals",
+    title: "網站幾時應該重做？5 個該換的訊號與 3 個不該換的情況",
+    excerpt:
+      "判斷網站是否需要重做，唔係睇佢有幾舊，而係睇你想解決咩問題。本文列五個應該重做的訊號（手機體驗、載入速度、改動速度、SEO 結構、系統接口）、三個唔應該重做的情況，以及成本通常最低的中間路線：只換前台。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "Web Development",
+    readTime: "10 min read",
+    imageColor: "from-[#0f4c81] to-teal-800",
+    tags: ["網站改版", "網站翻新", "網站重做", "headless", "響應式網站", "網站體檢"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">「係唔係時候重做網站？」呢個問題，答案通常唔係「係」或「唔係」，而係「你想解決咩問題」。如果問題係內容過時，重做係浪費；如果問題係架構已到天花板，改顏色救唔到。呢篇用五個訊號同三個反面情況幫你判斷。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">該重做：手機體驗差、載入慢、改一個 section 要幾日、SEO 結構亂、無法接新系統。<br>唔該重做：只係內容舊、只係唔靚、只係想換 banner。<br>中間情況：保留內容與網域，只換前台（Headless）——成本通常低過全站重做。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、五個「應該重做」的訊號</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>手機體驗明顯差過桌面。</strong>唔係「縮小版」，而係要放大縮小、按鈕太細、表單難填。香港流量一半以上來自手機。</li>
+          <li><strong>載入超過 3 秒。</strong>用 PageSpeed Insights 睇手機版，如果 LCP 超過 2.5 秒，你每次落廣告都有一部分預算浪費在等待。</li>
+          <li><strong>改一個區塊要等幾日。</strong>這代表架構與內容管理綁死。市場部想改一句文案都要排期，長遠一定拖慢生意。</li>
+          <li><strong>SEO 結構混亂。</strong>多個網址指向同一內容、canonical 亂、舊連結大量 404、sitemap 有幾百條死鏈。</li>
+          <li><strong>接不上新系統。</strong>想加 CRM、金流、會員、預約，現有架構完全冇接口，只能硬改或外掛。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、三個「唔應該重做」的情況</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>只係內容舊。</strong>換文案、換相、加案例——呢啲用現有 CMS 就做到，唔需要重做。重做只會令你失去現有 SEO 累積。</li>
+          <li><strong>只係「覺得唔靚」。</strong>審美會變，但客戶唔會因為你換咗配色而買。先問：換完之後轉換率會改善幾多？答唔到，就先唔好做。</li>
+          <li><strong>網站根本冇流量。</strong>如果無人嚟，重做一個更靚嘅網站仍然無人嚟。應該先解決曝光（SEO／廣告），唔係先裝修。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、中間路線：只換前台，保留內容</h2>
+        <p>如果現有網站用 WordPress 之類嘅 CMS，而問題主要係速度與前端體驗，可以考慮 <strong>Headless 架構</strong>：保留 CMS 與所有內容，只重做前台（Next.js 等）。好處係：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>內容唔需要重輸，編輯習慣不變</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>網址結構可以完整保留，SEO 風險低</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>成本通常低過全站重做</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>可分期：先做首頁與服務頁，再逐步遷移其他頁</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、重做時最容易搞爛的三件事</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ul class="space-y-2 text-gray-700">
+            <li>1. <strong>網址改變而無 301。</strong>舊連結全部 404，Google 收錄歸零，廣告落地頁失效。</li>
+            <li>2. <strong>上線時一次過切換。</strong>冇測試環境、冇回滾方案，出事只能等修。</li>
+            <li>3. <strong>內容照搬但唔改結構。</strong>把舊網站的問題一齊搬去新網站，例如標題層級混亂、圖片無 alt。</li>
+          </ul>
+        </div>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">未確定應該重做、局部改、還是只換前台？我們可以做一次網站體檢（30 分鐘），直接答你「邊樣抵做」。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約網站體檢</a>，或看<a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計服務與收費</a>。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計及電商</a>——重做、改版或只換前台</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/delivery/" class="text-[#0f4c81] font-semibold underline">交付流程與文件</a>——重做時如何避免搞爛現有流量</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>——Headless 架構與技術選擇</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/hong-kong-web-design-pricing-2026/" class="text-[#0f4c81] font-semibold underline">香港網頁設計收費：三個起步價</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/website-technical-debt-core-web-vitals/" class="text-[#0f4c81] font-semibold underline">技術債如何令網站改不動</a></span></li>
+          </ul>
+        </div>
+
+    `,
+  },
+  {
+    id: 53,
+    slug: "website-technical-debt-core-web-vitals",
+    title: "為何網站 3 年就要重做：技術債、Core Web Vitals 與手機體驗",
+    excerpt:
+      "網站不是用舊了，而是累積了決定。本文拆解技術債的五個來源（外掛堆疊、未壓縮圖片、追蹤碼、無版本控制、樣式硬改）、它如何影響速度/排名/改動速度，以及三種處理方式（清理、換前台、重寫）的成本差異。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "Web Development",
+    readTime: "9 min read",
+    imageColor: "from-[#0f4c81] to-slate-700",
+    tags: ["技術債", "core web vitals", "網站速度", "網站 重做", "效能優化", "響應式網站"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">大部分網站不是「用舊了」，而是「累積了決定」。每一個當時合理的小決定——加一個外掛、加一段追蹤碼、加一張 4MB 大圖——三年後就變成改不動的原因。這篇講技術債怎樣形成，以及幾時應該處理。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">技術債唔等於「舊」。判斷標準係：改一樣東西要牽動幾多其他東西。<br>如果每次改動都要「先備份、再試、唔得就還原」，就係時候處理。<br>處理方式有三種：清理、換前台、重寫。多數情況唔需要重寫。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、技術債的五個來源</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>外掛堆疊。</strong>每個需求都用外掛解決，最後十幾個外掛互相依賴，更新任何一個都可能壞另一個。</li>
+          <li><strong>圖片無壓縮。</strong>直接用設計師的原始檔上載，一張 4MB，首頁十張就 40MB。</li>
+          <li><strong>追蹤碼層層疊。</strong>不同年代的 GTM、Pixel、GA 版本同時存在，載入順序互相干擾。</li>
+          <li><strong>沒有版本控制。</strong>改動靠複製檔案，出錯無法回滾，只能憑記憶修。</li>
+          <li><strong>樣式硬改。</strong>直接在頁面寫 inline style，改一個顏色要改幾十個地方。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、為何這件事直接影響生意</h2>
+        <p>技術債唔止影響工程，佢直接影響三件事：</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">影響</th><th class="px-4 py-3 text-left">機制</th><th class="px-4 py-3 text-left">結果</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">載入速度</td><td class="px-4 py-3">大圖、過多 script、無快取</td><td class="px-4 py-3">手機用戶跳出，廣告轉換率下降</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">搜尋排名</td><td class="px-4 py-3">Core Web Vitals 差、結構混亂</td><td class="px-4 py-3">同樣內容排得比對手後</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">改動速度</td><td class="px-4 py-3">每改一次都要全站測試</td><td class="px-4 py-3">市場機會來了但趕不上</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、三種處理方式，成本差幾倍</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">方式</th><th class="px-4 py-3 text-left">做什麼</th><th class="px-4 py-3 text-left">適合</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">清理</td><td class="px-4 py-3">壓縮圖片、移除無用外掛與 script、整理 CSS</td><td class="px-4 py-3">架構仍可維持，只是累積了雜物</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">換前台</td><td class="px-4 py-3">保留 CMS 與內容，重做前端（Headless）</td><td class="px-4 py-3">內容有價值但前端到天花板</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">重寫</td><td class="px-4 py-3">重新設計架構與代碼</td><td class="px-4 py-3">連資料結構都無法維持</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>實務上大部分個案係「清理 + 換前台」，真正需要全站重寫嘅比例唔高。所以先做診斷，唔好一開始就假設要重做。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、三個可以自己做的檢查</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ul class="space-y-2 text-gray-700">
+            <li>1. 用 PageSpeed Insights 測手機版，記錄 LCP 與總載入大小</li>
+            <li>2. 開瀏覽器 DevTools 的 Network，睇首頁載入幾多個請求、總共幾多 MB</li>
+            <li>3. 試改一句首頁文案，計由提出到真正上線要幾耐</li>
+          </ul>
+          <p class="text-sm text-gray-500 mt-3">第三項最能反映技術債：如果需要超過一日，問題通常不在人手，而在架構。</p>
+        </div>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">想要一份具體的效能與架構診斷？我們會列出「清理得幾多、要換幾多」，並提供唔同方案的成本比較。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約效能審核</a>，或看<a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計及電商</a>——效能改善與前台重建</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>——我們實際使用的技術</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/delivery/" class="text-[#0f4c81] font-semibold underline">交付流程與文件</a>——上線與回滾安排</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/website-rebuild-signals/" class="text-[#0f4c81] font-semibold underline">網站幾時應該重做？5 個訊號</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/hong-kong-web-design-pricing-2026/" class="text-[#0f4c81] font-semibold underline">網頁設計收費如何計算</a></span></li>
+          </ul>
+        </div>
+
+    `,
+  },
+  {
+    id: 51,
+    slug: "hong-kong-web-design-pricing-2026",
+    title: "香港網頁設計收費 2026：三個起步價與報價單要問的八條",
+    excerpt:
+      "做一個網站要幾錢？本文直接列三個起步範圍（形象網站 HK$8,000 起、功能型約 HK$10,000 起、電商 HK$30,000 以上），拆解令價錢差十倍的六個因素、三種收費模式，以及收到報價單時必須問的八條問題。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    category: "Web Development",
+    readTime: "12 min read",
+    imageColor: "from-[#0f4c81] to-sky-800",
+    tags: ["網頁設計 價錢", "網頁設計 報價", "網站設計 香港", "網站收費", "報價單", "網頁設計 公司"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">「做一個網站要幾錢？」係香港最常被問、最少被正面回答嘅問題。大部分公司官網只寫「歡迎查詢報價」，因為一講數字就怕被比較。呢篇反過來做：直接列三個起步價範圍、講清楚咩因素令價錢變化、同埋你收到報價單時應該問邊八條問題。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">形象／內容網站：<strong>HK$8,000 起</strong>（5–8 頁、響應式、基本 SEO、可自行改內容）。<br>功能型網站：<strong>約 HK$10,000 起</strong>（會員、預約、多語系、系統對接）。<br>電商網站：<strong>HK$30,000 以上</strong>（購物車、金流、庫存、物流）。<br>實際價錢取決於六個因素，本文逐項講清楚。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、三個起步範圍</h2>
+        <p>與其講「視乎需求」，不如先給你一個可以自我篩選的框。以下係我們實際嘅起步價，全部係「起」——即最低配置。</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">類型</th><th class="px-4 py-3 text-left">起步價</th><th class="px-4 py-3 text-left">包含什麼</th><th class="px-4 py-3 text-left">適合誰</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">形象／內容網站</td><td class="px-4 py-3 font-bold text-[#0f4c81]">HK$8,000 起</td><td class="px-4 py-3">5–8 頁、響應式設計、基本 SEO 結構、聯絡表單、後台可改文字圖片</td><td class="px-4 py-3">以展示與查詢為主</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">功能型網站</td><td class="px-4 py-3 font-bold text-[#0f4c81]">約 HK$10,000 起</td><td class="px-4 py-3">形象網站內容 ＋ 會員／預約／多步驟表單／多語系／系統對接</td><td class="px-4 py-3">要收集資料、分流客戶</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">電商網站</td><td class="px-4 py-3 font-bold text-[#0f4c81]">HK$30,000 以上</td><td class="px-4 py-3">購物車、金流（FPS／PayMe／信用卡）、庫存、運費、訂單通知</td><td class="px-4 py-3">以線上交易為主</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-gray-500">注意：呢三個數字係「最低配置」嘅起點。同一個「電商網站」，五個 SKU 同五百個 SKU 係兩個世界。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、為何同一個「網站」可以差十倍</h2>
+        <p>當你收到兩份報價，一份 HK$9,000、一份 HK$90,000，差別通常唔係「邊個食水深」，而係以下六項假設唔同。</p>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>功能數量。</strong>每個互動功能（會員、搜尋、篩選、預約、通知）都涉及前端、後端與權限設計，唔係加一個按鈕。</li>
+          <li><strong>系統整合。</strong>接金流、ERP、CRM、庫存系統，往往佔總價三至五成——因為要處理認證、錯誤、重試、對帳。</li>
+          <li><strong>內容量。</strong>10 頁靜態內容，同 200 個產品頁 + 中英雙語，工作量差極遠。</li>
+          <li><strong>設計定制度。</strong>用既有版型調整，同由零度身設計（含手機版、動效、無障礙），係兩份工。</li>
+          <li><strong>舊站搬遷。</strong>301 轉址、SEO 保護、資料遷移、期間不停機——呢部分經常被漏報，然後中途加錢。</li>
+          <li><strong>交付要求。</strong>有測試報告、API 文件、部署手冊、培訓，同「交咗個網址就算」，工時可以差三成以上。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、三種收費模式</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">模式</th><th class="px-4 py-3 text-left">做法</th><th class="px-4 py-3 text-left">適合</th><th class="px-4 py-3 text-left">注意</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">固定總價</td><td class="px-4 py-3">按已確認的範圍一次報實</td><td class="px-4 py-3">範圍清楚、頁數與功能已定</td><td class="px-4 py-3">範圍一改就要變更單</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">按範圍分階段</td><td class="px-4 py-3">第一期核心頁面上線，第二期加功能</td><td class="px-4 py-3">預算有限但要盡快上線</td><td class="px-4 py-3">每期要寫明驗收標準</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">設計＋月費</td><td class="px-4 py-3">較低初期費用，月費含 hosting、保養、小修改</td><td class="px-4 py-3">無內部 IT、想有人長期跟</td><td class="px-4 py-3">要計清楚幾年總支出</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、收到報價單，問這八條</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li>逐頁、逐功能清單在哪裡？（唔係一句「企業網站」）</li>
+            <li>明確<strong>不包含</strong>什麼？（這條最重要）</li>
+            <li>有幾個第三方整合？每個誰負責申請帳號？</li>
+            <li>會交付哪些文件？有沒有測試與驗收？</li>
+            <li>設計有幾多輪修改？超出怎樣計？</li>
+            <li>上線後保固幾長？保養怎樣收費？</li>
+            <li>源碼、網域、hosting 登記在誰名下？</li>
+            <li>付款節點与交付物怎樣掛鈎？</li>
+          </ol>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、五個最常見的「中途加錢」位</h2>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>多語系</strong>——報價時只計中文，之後加英文當新項目</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>手機版</strong>——所謂「響應式」其實只係縮小版，真正手機體驗要另計</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>金流申請</strong>——支付商審批、測試、對帳流程唔在報價內</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>舊站資料</strong>——產品、文章、會員要搬，數量一多就另計</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>SEO 轉址</strong>——唔做 301，舊連結全部 404，流量歸零</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、便宜不等於划算</h2>
+        <p>一個 HK$8,000 但用模板硬改、無文件、無保養嘅網站，兩年後想加功能，通常要重做。相反，一個報價高但結構清楚、源碼交付、有文件嘅網站，第二、三年只需要加功能而唔需要重來。<strong>比較報價時，要比較三年總成本，唔係第一年支出。</strong></p>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">想知你嘅需求落在邊個範圍？把你想要嘅頁數與功能列出來，我們可以口頭先答一個範圍（唔收費），確認可行才出正式報價。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">索取報價範圍</a>，或先看<a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計服務與收費結構</a>。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計及電商</a>——三個收費類型與包含範圍</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/delivery/" class="text-[#0f4c81] font-semibold underline">交付流程與文件</a>——報價單應有的八項內容</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>——技術選擇如何影響成本</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/shopify-vs-shopline-vs-self-hosted/" class="text-[#0f4c81] font-semibold underline">Shopify、SHOPLINE 定自建網站？</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/website-rebuild-signals/" class="text-[#0f4c81] font-semibold underline">網站幾時應該重做？5 個該換的訊號</a></span></li>
+          </ul>
+        </div>
+
+    `,
+  },
+  {
     id: 48,
     slug: "enterprise-ai-agent-poc-hong-kong",
     title: "企業 AI Agent POC：兩星期驗證值唔值得做",
