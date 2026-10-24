@@ -18,6 +18,474 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 56,
+    slug: "migrate-online-store-seo-301",
+    title: "搬網店不失 SEO：301 對照表與流量保護完整清單",
+    excerpt:
+      "搬網店最怕搬完流量跌一半。本文提供搬遷前的三份清單、301 對照表（產品／分類／文章／分頁／篩選參數）、五個一定要避開的錯，以及上線後 30 日要盯的四個指標。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    image: "/blog/migrate-online-store-seo-301.webp",
+    category: "SEO",
+    readTime: "9 min read",
+    imageColor: "from-[#0f4c81] to-amber-700",
+    tags: ["搬網店", "301 轉址", "網站搬遷", "seo 流量", "ecommerce migration", "舊網址"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">搬網店最怕唔係開發，而係<strong>搬完流量跌一半</strong>。原因幾乎每次一樣：舊網址冇做 301、sitemap 冇更新、付費廣告落地頁失效。呢篇係一份可以直接照做嘅對照表。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">搬遷前：匯出全部 URL、記錄 GSC 基準、列出所有廣告落地頁。<br>搬遷中：每條舊 URL 一條 301（用 301，唔用 302）；保留舊 sitemap 至少 3 個月。<br>搬遷後：30 日內每週看 GSC 覆蓋率與 404 報告。</p>
+        </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/migrate-online-store-seo-301-1.webp" alt="搬遷的關鍵工作不是開發，而是 301 對照表：每一條舊網址都要有一條明確的去處。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">搬遷後流量下跌，九成源於沒有處理舊網址，而不是新網站做得不好。</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、搬遷前：三份清單</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li><strong>完整 URL 清單。</strong>由舊站 sitemap 匯出，再加 GSC「網頁」報告與伺服器 access log，找出 sitemap 冇收錄但有人到的頁。</li>
+            <li><strong>基準數據。</strong>記錄搬遷前 28 日的點擊、曝光、主要關鍵字排名，否則搬完無從比較。</li>
+            <li><strong>廣告落地頁清單。</strong>Google Ads／Meta 的最終網址全部列出——呢批一斷，廣告即刻燒錢。</li>
+          </ol>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、301 對照表怎樣做</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">舊網址類型</th><th class="px-4 py-3 text-left">對應新網址</th><th class="px-4 py-3 text-left">注意</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">產品頁</td><td class="px-4 py-3">同一產品的頁</td><td class="px-4 py-3">停售產品轉同類分類頁，唔好全部轉首頁</td></tr>
+              <tr><td class="px-4 py-3">分類頁</td><td class="px-4 py-3">對應新分類</td><td class="px-4 py-3">分類合併時，多對一都可以</td></tr>
+              <tr><td class="px-4 py-3">Blog 文章</td><td class="px-4 py-3">同文章新網址</td><td class="px-4 py-3">文章最有 SEO 價值，優先處理</td></tr>
+              <tr><td class="px-4 py-3">分頁 /page/2</td><td class="px-4 py-3">對應分頁或分類首頁</td><td class="px-4 py-3">唔好轉去首頁，會被視為軟 404</td></tr>
+              <tr><td class="px-4 py-3">篩選參數 ?color=</td><td class="px-4 py-3">保留參數或 canonical 到分類頁</td><td class="px-4 py-3">避免產生大量重複頁</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、五個一定要避開的錯</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>用 302 代替 301。</strong>302 係臨時，Google 唔會轉移權重。</li>
+          <li><strong>只寫 canonical 唔做 301。</strong>canonical 係提示，301 係指令；舊連結仍會 404。</li>
+          <li><strong>所有舊頁一次過轉去首頁。</strong>等同告訴 Google 那些頁面已消失，排名會清零。</li>
+          <li><strong>搬完即刪舊 sitemap。</strong>應保留並更新，讓爬蟲盡快發現新結構。</li>
+          <li><strong>忘記廣告 UTM 與落地頁。</strong>付費流量網址一斷，轉換即刻歸零，而且難察覺。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、上線後 30 日要盯的四個數字</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">指標</th><th class="px-4 py-3 text-left">在哪裡看</th><th class="px-4 py-3 text-left">異常訊號</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">404 頁面數</td><td class="px-4 py-3">GSC → 網頁 → 未找到</td><td class="px-4 py-3">持續上升</td></tr>
+              <tr><td class="px-4 py-3">已建立索引頁數</td><td class="px-4 py-3">GSC → 網頁</td><td class="px-4 py-3">大幅下降</td></tr>
+              <tr><td class="px-4 py-3">自然點擊</td><td class="px-4 py-3">GSC → 成效</td><td class="px-4 py-3">兩週內跌超過三成</td></tr>
+              <tr><td class="px-4 py-3">廣告轉換</td><td class="px-4 py-3">Google Ads／Meta</td><td class="px-4 py-3">點擊有但轉換歸零</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、搬遷前的三十日時間表</h2>
+        <p>大部分搬遷事故，源於時間表倒轉——先做新站，最後才想舊網址。正確順序是<strong>先處理網址，再處理設計</strong>：因為網址決定流量能否延續，設計只影響轉換。</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">時間</th><th class="px-4 py-3 text-left">要做的事</th><th class="px-4 py-3 text-left">交付物</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">T-30 日</td><td class="px-4 py-3">匯出全部 URL（sitemap＋GSC＋access log）、記錄 GSC 28 日基準、列出廣告最終網址</td><td class="px-4 py-3">URL 清單、基準數據表</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">T-20 日</td><td class="px-4 py-3">確定新站網址結構（分類、產品、文章的命名規則）</td><td class="px-4 py-3">網址規則文件</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">T-14 日</td><td class="px-4 py-3">完成 301 對照表、逐條核對舊 URL 是否有去處</td><td class="px-4 py-3">對照表（CSV）</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">T-7 日</td><td class="px-4 py-3">在 staging 環境測 301、測 sitemap、測 robots.txt</td><td class="px-4 py-3">測試記錄</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">T-1 日</td><td class="px-4 py-3">降低 DNS TTL、準備回滾方案、通知廣告團隊暫停改動</td><td class="px-4 py-3">回滾步驟</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">T 日</td><td class="px-4 py-3">切換、提交新 sitemap、抽查 20 條重要網址</td><td class="px-4 py-3">上線檢查表</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">T+7 日</td><td class="px-4 py-3">看 GSC 404 報告、修補漏掉的對照</td><td class="px-4 py-3">補漏清單</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">T+30 日</td><td class="px-4 py-3">對比基準數據，判斷是否需要第二輪修正</td><td class="px-4 py-3">搬遷後報告</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、301 實際上在哪裡設定</h2>
+        <p>這是最多人卡住的一步。301 不是在「網站後台」設定，而是在<strong>伺服器或平台層</strong>。常見四個位置：</p>
+        <div class="space-y-4 my-6">
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">1. 平台後台（SHOPLINE／Shopify／Wix）</p>
+            <p class="text-gray-700">通常叫「網址轉址」「URL 重新導向」「Redirect」，只支援逐條或批量匯入，數量多時要分批處理。優點是不用碰伺服器；缺點是無法做規則式（正則）轉址。</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">2. Nginx／Apache 設定檔</p>
+            <p class="text-gray-700">適合自建網站。規則式寫法可以一次處理整個目錄，例如把所有舊產品路徑轉到新產品路徑。改完必須重新載入服務並實測，不可以只靠「應該生效」。</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">3. CDN／反向代理層（例如 Cloudflare）</p>
+            <p class="text-gray-700">在邊緣處理轉址，速度最快，而且可以在不動主機的情況下加規則。適合大型目錄，但要注意規則優先次序，避免互相覆蓋。</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">4. 框架層（例如 Next.js 的 redirects 設定）</p>
+            <p class="text-gray-700">在應用內處理，好處是與路由一體、可以版本控制；缺點是必須重新部署才生效，而且大量規則會拖慢啟動。</p>
+          </div>
+        </div>
+        <p><strong>實務建議：</strong>數量少（幾十條）用平台後台；數量多（幾百條以上）用規則式設定，並保留一份 CSV 作人手核對的真相來源。兩者並存不衝突，但要以實測結果為準。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、分頁與篩選參數為何最易出錯</h2>
+        <p>產品頁與分類頁通常有人手處理，出錯的多是「沒有人記得存在」的網址：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>分頁。</strong><span class="font-mono text-sm">/category/page/2</span> 這類網址，如果不做對照就會 404。正確做法是轉到新站對應分頁；如果新站已合併分頁，轉到分類首頁並在 robots 設定上處理。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>篩選與排序參數。</strong><span class="font-mono text-sm">?color=red&amp;sort=price</span> 這類組合可以有上千個。不要逐條轉，而是讓它們 canonical 到分類頁，並避免被收錄。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>已刪除的舊文章。</strong>如果內容仍有價值，應該在新站重寫並轉址；如果完全無關，轉到最接近的主題頁，而不是首頁。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>舊的推廣頁與活動頁。</strong>這些頁往往有外部連結與廣告投放，必須逐條核對。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、一個 1,200 個 SKU 網店的搬遷順序</h2>
+        <p>以下是我們實際處理過的順序（濃縮版），重點在<strong>分批驗證</strong>而不是一次過切換：</p>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li>先搬<strong>文章與靜態頁</strong>（數量少、流量穩定、易驗證），確認 301 與 sitemap 正常。</li>
+          <li>再搬<strong>分類頁</strong>（數量中等、SEO 價值最高），逐個核對標題與描述。</li>
+          <li>最後搬<strong>產品頁</strong>（數量最多、變動最頻繁），用規則式對照，並抽查 10%。</li>
+          <li>全部完成後，才關閉舊站的公開訪問，但保留<strong>舊 sitemap 與轉址至少三個月</strong>。</li>
+        </ol>
+        <p class="text-sm text-gray-500">分批的好處：任何一批出錯，影響範圍可控，而且可以在流量較低的時段修正。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：301 之後排名多久才恢復？</p>
+            <p class="text-gray-700">視乎爬蟲重新抓取的速度，常見是兩星期至兩個月。關鍵不是等，而是確保每條舊網址都有 301、新頁內容對得上，並且新 sitemap 已被提交。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：舊網域可不可以直接放棄？</p>
+            <p class="text-gray-700">如果舊網域有外部連結與品牌搜尋，不應該放棄。保留舊網域並做全站 301，是最省成本保住排名的做法。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：搬遷後流量短期下跌算不算正常？</p>
+            <p class="text-gray-700">輕微波動正常，但兩週內跌超過三成就不正常，通常代表有大批網址未正確轉址，應立即檢查 GSC 的 404 報告。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：可不可以同時換網域和換平台？</p>
+            <p class="text-gray-700">技術上可以，但風險加倍，因為出問題時難以判斷是網域還是平台造成。除非有明確理由，建議分兩階段做。</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計及電商</a>——網站搬遷與重建</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/seo/" class="text-[#0f4c81] font-semibold underline">SEO 與 GEO</a>——搬遷後的排名恢復</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/delivery/" class="text-[#0f4c81] font-semibold underline">交付流程與文件</a>——上線與回滾安排</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/shopify-vs-shopline-vs-self-hosted/" class="text-[#0f4c81] font-semibold underline">平台與自建網站的完整比較</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/shopline-shopify-fee-creep-when-to-self-host/" class="text-[#0f4c81] font-semibold underline">平台收費逐年加，幾時應該自建</a></span></li>
+          </ul>
+        </div>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">我們搬遷時會一併交付 301 對照表、舊 sitemap 處理與 30 日監控清單。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">討論搬遷計劃</a>。</p>
+        </div>
+    `,
+  },
+  {
+    id: 55,
+    slug: "shopline-shopify-fee-creep-when-to-self-host",
+    title: "SHOPLINE／Shopify 收費逐年加：幾時應該自建網站（附成本框架）",
+    excerpt:
+      "平台收費不是一次加大，而是按營業額慢慢加。本文提供可自己計的公式：月費＋GMV 百分比費＋App 月費，對比自建的開發攤銷與維護，並用三個 GMV 水平示範差異，同時講清「自建不會免手續費」這個最常見誤解。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    image: "/blog/shopline-shopify-fee-creep-when-to-self-host.webp",
+    category: "E-commerce",
+    readTime: "10 min read",
+    imageColor: "from-[#0f4c81] to-cyan-700",
+    tags: ["shopline 收費", "shopify 手續費", "電商成本", "自建網站", "GMV", "平台抽成"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">平台收費唔會一次過加到你走，而係每年加一點。真正決定「幾時應該自建」嘅唔係月費，而係<strong>按營業額計嘅百分比費用</strong>——生意越好，你付得越多。呢篇提供一個你可以自己計嘅框架。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">平台成本 = 月費 × 12 ＋（每月 GMV × 百分比費率）＋ App 月費 × 12。<br>自建成本 = 開發費 ＋ hosting ＋ 維護 ＋ <strong>金流手續費（唔會消失）</strong>。<br>分水嶺通常出現在：GMV 上升到某水平，百分比費用超過自建的年攤成本。</p>
+        </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/shopline-shopify-fee-creep-when-to-self-host-1.webp" alt="費用成長的現實：按營業額計的平台費用，會隨生意成長而線性上升。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">當百分比費用超過自建的年攤成本，搬遷就從「想不想」變成「幾時」。</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先搞清一件事：自建唔會免手續費</h2>
+        <p>這是最多人誤解的一點。無論平台還是自建，信用卡與電子錢包手續費都要付（通常 2.5%–3.5%）。<strong>自建真正省掉的，是「平台月費」與「按 GMV 計的平台抽成」</strong>；新增的是 hosting、維護與開發成本。所以比較要對齊同一組項目，唔可以只比月費。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、可以自己計的公式</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="text-gray-700 mb-2 font-semibold">平台（以 SHOPLINE 基本方案為例，年繳）</p>
+          <p class="text-gray-700 mb-5">年成本 ≈（HKD$499 × 12）＋（月 GMV × 0.8% × 12）＋ App 月費 × 12</p>
+          <p class="text-gray-700 mb-2 font-semibold">自建</p>
+          <p class="text-gray-700">年成本 ≈ 開發費 ÷ 3（攤三年）＋ hosting ＋ 維護 ＋ 金流手續費</p>
+          <p class="text-sm text-gray-500 mt-3">費率與月費以官方最新公告為準；重點係公式，唔係某個數字。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、一個具體例子（假設數據）</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">月 GMV（假設）</th><th class="px-4 py-3 text-left">0.8% 維護費／月</th><th class="px-4 py-3 text-left">年費（連月費，未計 App）</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">HK$50,000</td><td class="px-4 py-3">HK$400</td><td class="px-4 py-3">約 HK$10,800</td></tr>
+              <tr><td class="px-4 py-3">HK$200,000</td><td class="px-4 py-3">HK$1,600</td><td class="px-4 py-3">約 HK$25,200</td></tr>
+              <tr><td class="px-4 py-3">HK$500,000</td><td class="px-4 py-3">HK$4,000</td><td class="px-4 py-3">約 HK$53,900</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-gray-500">以上為按公開費率計算的示意，未計 App、主題、客製與金流手續費。實際金額以平台報價為準。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、三個應該自建的訊號</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>百分比費用已超過自建年攤成本。</strong>用上面公式計，如果平台年費接近你自建三年攤銷，就值得認真考慮。</li>
+          <li><strong>你為單一需求付了三個 App。</strong>同一功能要靠多個 App 拼湊，代表平台架構已不匹配你的流程。</li>
+          <li><strong>你想做平台唔支援的定價或流程。</strong>客戶分級價格、B2B 批發、客製報價、預約＋商品混合、與 ERP 深度同步。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、兩個唔應該搬的情況</h2>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>GMV 仍細、SKU 少。</strong>平台月費遠低於自建攤銷，搬遷只會增加固定成本。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>你沒有任何人可以管理網站。</strong>自建要有人負責更新、監控、安全修補；冇人管比用平台更危險。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、平台費用其實由四部分組成</h2>
+        <p>大部分人只記得「月費」。實際帳單通常由四部分組成，而只有第一部分是固定的：</p>
+        <div class="space-y-4 my-6">
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">1. 方案月費（固定）</p>
+            <p class="text-gray-700">按功能等級分層，年繳通常有折扣。這部分可預測，也最容易比較。</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">2. 按營業額計的百分比費（變動）</p>
+            <p class="text-gray-700">SHOPLINE 稱「系統流量維護費」，按方案由 0.3% 到 0.8% 不等。這部分<strong>隨生意成長而上升</strong>，是搬遷決策的關鍵變數。</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">3. App／外掛月費（可累積）</p>
+            <p class="text-gray-700">每個功能看起來只 US$10–50，但當你為會員、推薦、報表、通知各裝一個，很快就會超過方案月費本身。</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">4. 一次性費用（易被忽略）</p>
+            <p class="text-gray-700">主題設計、客製功能、資料匯入、搬遷服務。這批費用不會出現在月費比較表，但會出現在你的銀行月結單。</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、自建成本最常被低估的五項</h2>
+        <p>很多「自建更便宜」的計算，錯在只算開發費。以下五項如果漏算，結論就會反轉：</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">項目</th><th class="px-4 py-3 text-left">內容</th><th class="px-4 py-3 text-left">漏算後果</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">維護人力</td><td class="px-4 py-3">更新、監控、故障處理</td><td class="px-4 py-3">用了半年就開始出現安全與穩定性問題</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">金流接入與手續費</td><td class="px-4 py-3">收款渠道申請、對帳、退款流程</td><td class="px-4 py-3">以為省了平台費，其實手續費照付</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">功能迭代</td><td class="px-4 py-3">每次改動都要開發</td><td class="px-4 py-3">平台「一個按鈕」的功能，自建要報價</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">物流與發票整合</td><td class="px-4 py-3">與本地物流、會計系統對接</td><td class="px-4 py-3">上線後才發現要額外開發</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">災難復原</td><td class="px-4 py-3">備份、還原演練、監控告警</td><td class="px-4 py-3">一次事故可以抵銷幾年省下的費用</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、實際計算工作表</h2>
+        <p>你可以用以下步驟，在十五分鐘內得到一個可比較的數字：</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li>寫下<strong>過去三個月平均月 GMV</strong>。</li>
+            <li>乘以你現時方案的百分比費率，得出每月百分比費用。</li>
+            <li>加上月費（年繳請除以十二）。</li>
+            <li>加上所有 App／外掛月費的總和。</li>
+            <li>乘以十二，得到<strong>平台年成本</strong>。</li>
+            <li>向兩間供應商索取自建報價，取中位數，除以三（攤三年），加上每年 hosting 與維護估算。</li>
+            <li>比較兩個數字。<strong>如果差距在兩成以內</strong>，不要只看錢——還要看功能匹配度與你是否有管理能力。</li>
+          </ol>
+        </div>
+        <p class="text-sm text-gray-500">注意：這是一個決策輔助工具，不是精算模型。真正的變數是「你未來兩年會加多少功能」。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、漸進式做法：先搬一半</h2>
+        <p>搬遷不一定要一次過。實務上更安全的做法是<strong>保留平台處理收款與訂單，先自建內容與會員層</strong>：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>品牌站與內容</strong>（文章、服務介紹、會員註冊）搬到自建，掌握 SEO 與名單。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>交易仍在平台</strong>，短期內不用處理金流合規與支付整合。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>等自建部分穩定（通常三至六個月），再評估是否連交易一併搬。</span></li>
+        </ul>
+        <p>這樣做的好處：百分比費用只按平台交易額計算，而內容與 SEO 資產已經在自己手上。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：平台加價，一定代表要搬嗎？</p>
+            <p class="text-gray-700">不一定。要分清是「方案月費加價」還是「費率調整」。月費加幾十元影響有限；百分比費率上調，影響會隨營業額放大。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：自建之後，是不是所有費用變成固定？</p>
+            <p class="text-gray-700">不是。hosting、維護、安全更新仍然是持續成本，只是由「按營業額抽成」變成「按工作量計」。生意大幅成長時，自建的邊際成本確實較低。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：可以只搬走一部分商品嗎？</p>
+            <p class="text-gray-700">可以，但要小心兩個系統的庫存同步，否則會出現超賣。除非有清楚的同步機制，否則建議整批處理。</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計及電商</a>——自建電商網站與收費</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/warranty/" class="text-[#0f4c81] font-semibold underline">保固與保養</a>——搬遷後的維護安排</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/delivery/" class="text-[#0f4c81] font-semibold underline">交付流程與文件</a>——分階段遷移的做法</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/shopify-vs-shopline-vs-self-hosted/" class="text-[#0f4c81] font-semibold underline">Shopify、SHOPLINE 定自建？完整比較</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/migrate-online-store-seo-301/" class="text-[#0f4c81] font-semibold underline">搬網店不失 SEO：301 對照表</a></span></li>
+          </ul>
+        </div>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">把你嘅月 GMV 同現時平台費用講我知，我們可以幫你計一次三年對比，唔需要你先付費。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">計一次成本對比</a>。</p>
+        </div>
+    `,
+  },
+  {
+    id: 54,
+    slug: "shopify-vs-shopline-vs-self-hosted",
+    title: "Shopify、SHOPLINE 定自建網站？香港電商 2026 完整比較",
+    excerpt:
+      "香港做電商應該租平台還是擁有自己的網站？本文用官方收費結構比較 SHOPLINE（HKD$499/月起＋0.8% 系統流量維護費）與 Shopify（US$25/月起、卡費 3.3%+HK$2.35 起），拆解三個最常被忽略的隱藏成本，並列出各自適合誰。",
+    date: "2026-10-24",
+    updatedAt: "2026-10-24",
+    image: "/blog/shopify-vs-shopline-vs-self-hosted.webp",
+    category: "E-commerce",
+    readTime: "12 min read",
+    imageColor: "from-[#0f4c81] to-emerald-700",
+    tags: ["shopify 香港", "shopline 香港", "shopify vs shopline", "網店平台 比較", "自建電商", "開網店"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">香港做電商，九成人第一步係「用邊個平台」。但真正應該問嘅係：<strong>你的生意型態適合租平台，還是應該擁有自己的網站？</strong>呢篇用官方收費結構、功能上限與資料擁有權三個角度比較，並列出最常被忽略的隱藏成本。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">SHOPLINE：最快開店，本地支付與客服齊，但月費＋<strong>0.8% 系統流量維護費</strong>會隨生意成長。<br>Shopify：生態最大、App 最多，但多數 App 要另付月費，卡費 3.3%＋HK$2.35 起。<br>自建網站：無平台抽成、功能無上限、資料完全擁有，但需要開發與維護。<br>關鍵分水嶺：<strong>月 GMV 與功能需求</strong>，唔係「邊個多人用」。</p>
+        </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/shopify-vs-shopline-vs-self-hosted-1.webp" alt="平台與自建的比較：三者的分別，在於「你付的是租金，還是資產」。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">租平台與自建，是兩種不同的成本結構，不是兩種不同的技術。</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、三個方案的本質差異</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">維度</th><th class="px-4 py-3 text-left">SHOPLINE</th><th class="px-4 py-3 text-left">Shopify</th><th class="px-4 py-3 text-left">自建網站</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">收費結構</td><td class="px-4 py-3">月費＋系統流量維護費（0.3%–0.8%）</td><td class="px-4 py-3">月費（USD）＋App 月費</td><td class="px-4 py-3">開發費＋hosting＋維護</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">功能上限</td><td class="px-4 py-3">平台提供什麼就用什麼</td><td class="px-4 py-3">靠 App 擴充，容易堆疊</td><td class="px-4 py-3">無上限，但每項要開發</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">SEO 與內容</td><td class="px-4 py-3">有限控制</td><td class="px-4 py-3">較好，但受主題限制</td><td class="px-4 py-3">完全控制</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">資料擁有權</td><td class="px-4 py-3">平台內，可匯出</td><td class="px-4 py-3">平台內，可匯出</td><td class="px-4 py-3">完全在你手上</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">獨特流程</td><td class="px-4 py-3">需平台支援或客製報價</td><td class="px-4 py-3">需 App 或 Plus 方案</td><td class="px-4 py-3">按你流程設計</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">離開成本</td><td class="px-4 py-3">中（資料可帶走）</td><td class="px-4 py-3">中高（App 投資難帶走）</td><td class="px-4 py-3">低（源碼在你手）</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、官方收費的實際結構（2026-10 查核）</h2>
+        <p><strong>SHOPLINE</strong>（年繳，資料來自官方定價頁）：基本開店 <strong>HKD$499/月</strong>、進階電商 <strong>HKD$1,234/月</strong>、進階社交電商 HKD$1,666/月、OMO 全方位電商 HKD$2,249/月，另收 <strong>每月 0.3%–0.8% 系統流量維護費</strong>（部分方案以 SHOPLINE Payment 交易可豁免）。</p>
+        <p><strong>Shopify</strong>（香港頁）：Basic 年繳約 <strong>US$25/月</strong>、Grow 約 US$69/月，信用卡費率 <strong>3.3% + HK$2.35 起</strong>；大量功能要裝 App，每個 App 通常 US$10–50/月。</p>
+        <p class="text-sm text-gray-500">價格隨方案與時間變動，實際以官方最新公告為準；本文重點係結構，唔係某一個月費數字。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、三個最常被忽略的隱藏成本</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>按 GMV 計的百分比費用。</strong>0.8% 睇落細，但月 GMV HK$200,000 就係每月 HK$1,600、一年 HK$19,200——比月費更貴，而且<strong>生意越好越貴</strong>。</li>
+          <li><strong>App／外掛月費堆疊。</strong>會員分級、推薦分佣、WhatsApp 通知、報表，每個可能 US$10–50/月。</li>
+          <li><strong>客製與離開成本。</strong>平台客製通常要報價，做完唔可以帶走；日後換平台要重做。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、各自適合誰</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ul class="space-y-2 text-gray-700">
+            <li><strong>SHOPLINE：</strong>剛起步、SKU 少、要本地支付與 WhatsApp 客服、想兩星期內開賣。</li>
+            <li><strong>Shopify：</strong>做跨境／多市場、需要大量 App 生態、團隊有設計與營運能力。</li>
+            <li><strong>自建：</strong>已有穩定 GMV、有獨特流程（B2B 批發、客製報價、預約、會員分級）、要同 ERP／CRM 深度整合。</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、不要用「邊個多人用」決定</h2>
+        <p>平台多人用，代表它適合「標準生意」。但如果你嘅生意有獨特流程——批發與零售同一個後台、按客戶等級顯示不同價格、要接生產或預約系統——平台會迫你就範，最後要用三四個 App 拼湊，或者接受做唔到。呢個時候，自建嘅總成本可能低過平台。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、開店前的六個實際問題</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li><strong>你賣的是標準商品，還是有大量客製選項？</strong>客製選項多，平台會迫你用變體硬撐。</li>
+            <li><strong>需不需要批發與零售並存？</strong>同一後台兩套價目，是平台最常見的限制。</li>
+            <li><strong>要不要接本地物流與會計系統？</strong>每個整合都是一段工程。</li>
+            <li><strong>誰負責日常上架與改內容？</strong>沒有專人，平台後台會比自建實用。</li>
+            <li><strong>三年後你預計月營業額多少？</strong>這決定百分比費用會變成多大。</li>
+            <li><strong>你能接受資料放在第三方嗎？</strong>涉及客戶名單與交易紀錄。</li>
+          </ol>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、由平台搬到自建的實際工作量</h2>
+        <p>很多人低估搬遷成本。以下是我們實際執行時的主要工作項：</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">工作</th><th class="px-4 py-3 text-left">說明</th><th class="px-4 py-3 text-left">易出錯位</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">商品與變體匯出</td><td class="px-4 py-3">匯出 CSV 並重整欄位對應</td><td class="px-4 py-3">變體組合與圖片對應錯亂</td></tr>
+              <tr><td class="px-4 py-3">客戶與訂單</td><td class="px-4 py-3">匯出歷史資料以備查</td><td class="px-4 py-3">密碼無法帶走，客戶要重設</td></tr>
+              <tr><td class="px-4 py-3">網址與 301</td><td class="px-4 py-3">逐條建立對照表</td><td class="px-4 py-3">產品頁漏轉，流量直接歸零</td></tr>
+              <tr><td class="px-4 py-3">金流與物流</td><td class="px-4 py-3">重新申請或轉接</td><td class="px-4 py-3">審批需時，常成上線瓶頸</td></tr>
+              <tr><td class="px-4 py-3">會員權益</td><td class="px-4 py-3">積分、等級、優惠券</td><td class="px-4 py-3">規則在平台內，未必能完整匯出</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>實務提醒：</strong>金流審批通常是最長的等待項，應該在開發開始前就申請，而不是等網站做好才處理。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、混合做法：先自建品牌站</h2>
+        <p>如果不想一次過搬遷，最常見的過渡方案是：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>品牌與內容站自建</strong>，掌握 SEO、部落格、名單收集。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>交易仍在平台</strong>，短期不用處理支付合規。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>日後再按營業額與功能需求，決定是否連交易一併搬。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：自建網站的 SEO 一定比平台好嗎？</p>
+            <p class="text-gray-700">不一定。自建的優勢是「完全控制」，但控制不等於自動做好。技術 SEO 仍然要正確設定，內容仍然要寫。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：平台會不會限制我的成長？</p>
+            <p class="text-gray-700">在功能與流程上會。但如果你的業務是標準零售，平台的限制通常不會成為主要瓶頸，人才與行銷才是。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：搬遷後客戶要重新註冊嗎？</p>
+            <p class="text-gray-700">通常需要重設密碼，因為平台不會匯出密碼雜湊。應該提前通知客戶，並設定簡單的重設流程。</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計及電商</a>——自建網站與收費結構</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/delivery/" class="text-[#0f4c81] font-semibold underline">交付流程與文件</a>——開發與上線安排</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>——我們實際使用的技術</span></li>
+          </ul>
+          <p class="font-semibold text-gray-700 mt-5 mb-2">延伸閱讀</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/shopline-shopify-fee-creep-when-to-self-host/" class="text-[#0f4c81] font-semibold underline">平台收費逐年加，幾時應該自建</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/migrate-online-store-seo-301/" class="text-[#0f4c81] font-semibold underline">搬網店不失 SEO：301 對照表</a></span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><a href="/blog/hong-kong-web-design-pricing-2026/" class="text-[#0f4c81] font-semibold underline">香港網頁設計收費：三個起步價</a></span></li>
+          </ul>
+        </div>
+
+        <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
+          <p class="text-gray-700 leading-relaxed">想知你嘅 GMV 與功能需求適合平台還是自建？我們可以幫你算一次三年總成本，直接答「留在平台」還是「值得搬」。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約電商架構評估</a>。</p>
+        </div>
+    `,
+  },
+  {
     id: 52,
     slug: "website-rebuild-signals",
     title: "網站幾時應該重做？5 個該換的訊號與 3 個不該換的情況",
@@ -25,6 +493,7 @@ export const blogPosts: BlogPost[] = [
       "判斷網站是否需要重做，唔係睇佢有幾舊，而係睇你想解決咩問題。本文列五個應該重做的訊號（手機體驗、載入速度、改動速度、SEO 結構、系統接口）、三個唔應該重做的情況，以及成本通常最低的中間路線：只換前台。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
+    image: "/blog/website-rebuild-signals.webp",
     category: "Web Development",
     readTime: "10 min read",
     imageColor: "from-[#0f4c81] to-teal-800",
@@ -36,6 +505,11 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
           <p class="text-gray-700 leading-relaxed">該重做：手機體驗差、載入慢、改一個 section 要幾日、SEO 結構亂、無法接新系統。<br>唔該重做：只係內容舊、只係唔靚、只係想換 banner。<br>中間情況：保留內容與網域，只換前台（Headless）——成本通常低過全站重做。</p>
         </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/website-rebuild-signals-1.webp" alt="舊網站該不該重做：判斷依據應該是「它是否仍在幫你賺錢」，而不是「它好不好看」。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">重做與否，應該由五個可觀察的營運訊號決定，而不是由審美決定。</figcaption>
+        </figure>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、五個「應該重做」的訊號</h2>
         <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
@@ -76,6 +550,75 @@ export const blogPosts: BlogPost[] = [
           <p class="text-gray-700 leading-relaxed">未確定應該重做、局部改、還是只換前台？我們可以做一次網站體檢（30 分鐘），直接答你「邊樣抵做」。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約網站體檢</a>，或看<a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計服務與收費</a>。</p>
         </div>
 
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、五個該換的訊號（附判斷方法）</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">訊號</th><th class="px-4 py-3 text-left">怎樣確認</th><th class="px-4 py-3 text-left">不處理的後果</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">手機體驗明顯差</td><td class="px-4 py-3">用手機完成一次「查詢」流程，計時並記錄卡住的位置</td><td class="px-4 py-3">大部分流量來自手機，等於放棄大部分客戶</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">載入超過三秒</td><td class="px-4 py-3">用 PageSpeed Insights 看實際用戶數據，不只看實驗室數據</td><td class="px-4 py-3">跳出率上升，廣告成本變高</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">改一個字要等幾天</td><td class="px-4 py-3">嘗試改一段文字，記錄由提出到上線的時間</td><td class="px-4 py-3">團隊不願更新內容，網站逐漸過時</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">SEO 結構錯亂</td><td class="px-4 py-3">檢查是否有重複標題、缺少描述、多個 H1、canonical 錯誤</td><td class="px-4 py-3">內容寫得再多也難以排名</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">接不上現有系統</td><td class="px-4 py-3">列出要接的系統（CRM、ERP、預約），問現有網站能否做到</td><td class="px-4 py-3">人手重複輸入，錯誤率上升</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、三個不該換的情況</h2>
+        <p>重做是昂貴的決定，以下情況通常不值得：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>只是「覺得舊」。</strong>如果網站仍在帶來查詢，重做只會帶來風險而沒有明確回報。應該先改轉換率，而不是改外觀。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>業務模式即將改變。</strong>如果三個月後要改賣別的產品或開新市場，現在重做等於做兩次。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>沒有內容與人手配合。</strong>重做需要內容、決策與驗收。沒有人配合，新網站只會變成另一個過時的網站。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、重做時最易搞爛的三件事</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>網址全部改變而沒有 301。</strong>這是最常見的嚴重錯誤，等於把累積幾年的排名一次過清零。</li>
+          <li><strong>內容被「優化」掉。</strong>舊網站那些看起來寫得不好的段落，可能正是搜尋者找的答案。重寫時應該保留關鍵資訊，而不是全部刪掉。</li>
+          <li><strong>只做設計，沒有做流程。</strong>新網站很漂亮，但查詢表單更難填、電話更難找，轉換反而下降。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、重做的實際流程與時間</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">時間</th><th class="px-4 py-3 text-left">關鍵產出</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">盤點與目標</td><td class="px-4 py-3">1–2 週</td><td class="px-4 py-3">現有數據基準、轉換目標</td></tr>
+              <tr><td class="px-4 py-3">架構與內容規劃</td><td class="px-4 py-3">2–3 週</td><td class="px-4 py-3">網站地圖、網址規則、內容清單</td></tr>
+              <tr><td class="px-4 py-3">設計</td><td class="px-4 py-3">2–4 週</td><td class="px-4 py-3">可點擊原型</td></tr>
+              <tr><td class="px-4 py-3">開發</td><td class="px-4 py-3">4–8 週</td><td class="px-4 py-3">測試環境、分段驗收</td></tr>
+              <tr><td class="px-4 py-3">搬遷與上線</td><td class="px-4 py-3">1–2 週</td><td class="px-4 py-3">301 對照表、監控清單</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、重做之前的替代方案</h2>
+        <p>在決定重做之前，先考慮三個成本低得多的做法：</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ul class="space-y-2 text-gray-700">
+            <li><strong>只重做首頁與主要服務頁。</strong>其餘頁面保留，成本可以減半，而轉換提升通常集中在這幾頁。</li>
+            <li><strong>只優化速度與手機體驗。</strong>壓縮圖片、移除不必要的腳本，往往就能把載入時間減半。</li>
+            <li><strong>只改轉換元素。</strong>加 WhatsApp 按鈕、簡化表單、把電話放得更明顯，這些改動的投入產出比往往最高。</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：網站幾年應該重做一次？</p>
+            <p class="text-gray-700">沒有固定年期。應該看五個訊號是否出現，而不是看年份。有些網站五年仍很有效，有些兩年就要換。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：重做期間舊網站要關掉嗎？</p>
+            <p class="text-gray-700">不要。應該在新網站完成並在測試環境驗證後，才一次過切換，並保留舊站的轉址。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：重做後流量下跌怎麼辦？</p>
+            <p class="text-gray-700">先檢查 301 是否完整、新 sitemap 是否提交、是否有大量 404。九成情況下，問題出在網址對照而非內容品質。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -100,6 +643,7 @@ export const blogPosts: BlogPost[] = [
       "網站不是用舊了，而是累積了決定。本文拆解技術債的五個來源（外掛堆疊、未壓縮圖片、追蹤碼、無版本控制、樣式硬改）、它如何影響速度/排名/改動速度，以及三種處理方式（清理、換前台、重寫）的成本差異。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
+    image: "/blog/website-technical-debt-core-web-vitals.webp",
     category: "Web Development",
     readTime: "9 min read",
     imageColor: "from-[#0f4c81] to-slate-700",
@@ -111,6 +655,11 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
           <p class="text-gray-700 leading-relaxed">技術債唔等於「舊」。判斷標準係：改一樣東西要牽動幾多其他東西。<br>如果每次改動都要「先備份、再試、唔得就還原」，就係時候處理。<br>處理方式有三種：清理、換前台、重寫。多數情況唔需要重寫。</p>
         </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/website-technical-debt-core-web-vitals-1.webp" alt="技術債的具體樣貌：每一層外掛與臨時修改，都會變成日後改動的成本。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">技術債不是抽象概念，它會具體表現在載入速度、改動時間與故障頻率上。</figcaption>
+        </figure>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、技術債的五個來源</h2>
         <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
@@ -162,6 +711,75 @@ export const blogPosts: BlogPost[] = [
           <p class="text-gray-700 leading-relaxed">想要一份具體的效能與架構診斷？我們會列出「清理得幾多、要換幾多」，並提供唔同方案的成本比較。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約效能審核</a>，或看<a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>。</p>
         </div>
 
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、技術債的五個來源</h2>
+        <p>技術債不是「寫得差」的同義詞。它通常來自五種合理但代價高的決定：</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">來源</th><th class="px-4 py-3 text-left">當時的理由</th><th class="px-4 py-3 text-left">日後的代價</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">為趕上線而硬改</td><td class="px-4 py-3">活動／展覽有死線</td><td class="px-4 py-3">改一個地方會影響三處，沒人敢動</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">外掛堆疊</td><td class="px-4 py-3">每個需求都裝一個現成外掛</td><td class="px-4 py-3">載入變慢、衝突、安全更新互相牽制</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">直接改主題／核心檔案</td><td class="px-4 py-3">改得快，不用開子主題</td><td class="px-4 py-3">無法更新，一更新就白屏</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">圖片與素材從未整理</td><td class="px-4 py-3">編輯直接上傳原圖</td><td class="px-4 py-3">首頁載入幾十 MB，手機體驗崩壞</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">沒有版本控制</td><td class="px-4 py-3">直接改正式站最快</td><td class="px-4 py-3">出錯無法回滾，只能憑記憶修</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、技術債怎樣變成 Core Web Vitals 問題</h2>
+        <p>三項核心指標各自對應一種技術債：</p>
+        <div class="space-y-4 my-6">
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">LCP（最大內容元素繪製）－ 慢</p>
+            <p class="text-gray-700">通常是首圖過大、沒有正確尺寸、或主圖由 JavaScript 才載入。技術債來源：<strong>素材從未整理、沒有圖片優化流程</strong>。</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">INP（互動至下次繪製）－ 鈍</p>
+            <p class="text-gray-700">點擊後頁面沒反應，通常是第三方腳本過多、主執行緒被佔滿。技術債來源：<strong>外掛堆疊、追蹤碼沒有節流</strong>。</p>
+          </div>
+          <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+            <p class="font-bold text-[#0f4c81] mb-1">CLS（累計版面位移）－ 跳</p>
+            <p class="text-gray-700">載入時內容跳動，通常是圖片沒有指定尺寸、字體載入方式不當、或廣告位沒有預留空間。技術債來源：<strong>版型靠外掛拼接、沒有預留容器</strong>。</p>
+          </div>
+        </div>
+        <p>這解釋了為什麼「只叫工程師優化速度」通常無效——真正要處理的是產生這些問題的流程。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、三種處理方式的成本差距</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">方式</th><th class="px-4 py-3 text-left">做什麼</th><th class="px-4 py-3 text-left">時間</th><th class="px-4 py-3 text-left">何時適合</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">止血</td><td class="px-4 py-3">壓縮圖片、移除明顯無用腳本、加快取</td><td class="px-4 py-3">數天</td><td class="px-4 py-3">立即需要改善分數</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">重構</td><td class="px-4 py-3">整理外掛、改子主題、建立圖片流程、加版本控制</td><td class="px-4 py-3">數週</td><td class="px-4 py-3">網站仍可長期使用</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">重寫</td><td class="px-4 py-3">重新設計架構與內容結構</td><td class="px-4 py-3">數月</td><td class="px-4 py-3">核心架構已無法支撐業務</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>實務上，八成網站只需要「止血＋局部重構」，不需要重寫。真正需要重寫的，通常是資料模型或核心流程錯了，而不是速度問題。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、三個你可以自己做的檢查</h2>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>看實際用戶數據，不只看實驗室分數。</strong>PageSpeed Insights 分兩部分：實驗室數據與實際用戶數據（Core Web Vitals 評估）。只有後者影響排名。</li>
+          <li><strong>數一數首頁載入多少個第三方腳本。</strong>每一個追蹤碼、聊天插件、廣告像素都會佔用主執行緒。</li>
+          <li><strong>用手機網絡測試一次完整流程。</strong>不是 Wi-Fi，而是 4G 環境下由進入到提交表單，記錄每一步的感受。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：Core Web Vitals 直接影響排名嗎？</p>
+            <p class="text-gray-700">它是排名因素之一，但權重低於內容相關性與連結。真正影響更大的是它對轉換率的影響——載入慢的頁面，查詢完成率會明顯下降。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：換主機會不會解決速度問題？</p>
+            <p class="text-gray-700">如果問題在主機回應時間，會。但如果問題在圖片大小與前端腳本，換主機不會有明顯改善。應該先量度，再決定。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：技術債一定要全部還清嗎？</p>
+            <p class="text-gray-700">不需要，也不可能。應該優先處理「影響收入」與「影響改動速度」的部分，其餘可以接受並記錄在案。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -186,6 +804,7 @@ export const blogPosts: BlogPost[] = [
       "做一個網站要幾錢？本文直接列三個起步範圍（形象網站 HK$8,000 起、功能型約 HK$10,000 起、電商 HK$30,000 以上），拆解令價錢差十倍的六個因素、三種收費模式，以及收到報價單時必須問的八條問題。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
+    image: "/blog/hong-kong-web-design-pricing-2026.webp",
     category: "Web Development",
     readTime: "12 min read",
     imageColor: "from-[#0f4c81] to-sky-800",
@@ -197,6 +816,11 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
           <p class="text-gray-700 leading-relaxed">形象／內容網站：<strong>HK$8,000 起</strong>（5–8 頁、響應式、基本 SEO、可自行改內容）。<br>功能型網站：<strong>約 HK$10,000 起</strong>（會員、預約、多語系、系統對接）。<br>電商網站：<strong>HK$30,000 以上</strong>（購物車、金流、庫存、物流）。<br>實際價錢取決於六個因素，本文逐項講清楚。</p>
         </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/hong-kong-web-design-pricing-2026-1.webp" alt="香港網頁設計報價：同一個「網站」，價錢可以由幾千到幾十萬，差別在功能、整合與交付要求。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">價格差異來自六個可具體說明的因素，而不是設計師的心情。</figcaption>
+        </figure>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、三個起步範圍</h2>
         <p>與其講「視乎需求」，不如先給你一個可以自我篩選的框。以下係我們實際嘅起步價，全部係「起」——即最低配置。</p>
@@ -266,6 +890,72 @@ export const blogPosts: BlogPost[] = [
           <p class="text-gray-700 leading-relaxed">想知你嘅需求落在邊個範圍？把你想要嘅頁數與功能列出來，我們可以口頭先答一個範圍（唔收費），確認可行才出正式報價。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">索取報價範圍</a>，或先看<a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計服務與收費結構</a>。</p>
         </div>
 
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、三種收費模式，哪種適合你</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">模式</th><th class="px-4 py-3 text-left">運作方式</th><th class="px-4 py-3 text-left">適合</th><th class="px-4 py-3 text-left">風險</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">固定總價</td><td class="px-4 py-3">簽約時定死範圍與價錢</td><td class="px-4 py-3">需求明確、範圍可以寫清楚</td><td class="px-4 py-3">範圍爭議；供應商為控成本而減少細節</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">按時間計</td><td class="px-4 py-3">按實際工時收費</td><td class="px-4 py-3">需求持續變動、探索性項目</td><td class="px-4 py-3">總額不可預測</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">模組化報價</td><td class="px-4 py-3">按功能模組逐項計價</td><td class="px-4 py-3">大部分商業網站</td><td class="px-4 py-3">需要前期梳理功能清單</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>我們採用第三種。原因很簡單：模組化報價讓客戶可以自行選擇「哪些第一版要做、哪些以後再加」，價錢與範圍之間的關係是透明的。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、報價單上最常見的五個「隱形加價位」</h2>
+        <p>低價接單、逐項加錢，是香港網頁設計行業最常見的投訴來源。以下五個位置最常出現：</p>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>內文與圖片。</strong>報價假設「客戶提供內容」，但你其實沒有；結果要麼自己寫得很差，要麼付錢請人寫。</li>
+          <li><strong>響應式設計被列為額外項目。</strong>手機版應該是標準配備，不應另收費。</li>
+          <li><strong>基本 SEO 被拆開收費。</strong>標題、描述、sitemap、結構化資料應該是交付的一部分。</li>
+          <li><strong>表單與通知。</strong>「聯絡表單」看似簡單，但要接電郵、防垃圾、記錄，這些都常被列為附加。</li>
+          <li><strong>搬遷與轉址。</strong>舊站搬到新站、舊網址做 301，這部分最容易被低估，也最容易出事。</li>
+        </ol>
+        <p>收到報價時，直接問一句：<strong>「這個價錢裡面，有哪一項是假設我自己會處理的？」</strong>這條問題可以問出大部分隱藏成本。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、為什麼「幾千蚊一個網站」仍然存在</h2>
+        <p>市面上確實有幾千元的網站，也有合理的商業模式支持：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>使用現成主題。</strong>不做度身設計，只換顏色與圖片，工作量大幅降低。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>標準化流程。</strong>同一套模板重複使用，邊際成本低。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>範圍極窄。</strong>例如只有五頁、沒有表單、沒有後台。</span></li>
+        </ul>
+        <p>問題不在價錢低，而在<strong>是否講清楚限制</strong>。如果一開始就說明「這個價錢是模板、五頁、不包內容、不包 SEO」，那是誠實的商業模式。真正的問題是低價吸引你簽約，然後每一項都變成追加。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、預算有限時的優先次序</h2>
+        <p>如果預算不足以一次過做齊，以下次序通常回報最高：</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li><strong>速度與手機體驗。</strong>這兩項直接影響轉換，而且修好成本不高。</li>
+            <li><strong>清晰的服務頁與聯絡方式。</strong>讓上門的人知道你賣什麼、怎樣找你。</li>
+            <li><strong>基本技術 SEO。</strong>標題、描述、sitemap、結構化資料。</li>
+            <li><strong>內容深度。</strong>真正解答客戶疑慮的文章，比花俏動畫更有效。</li>
+            <li><strong>視覺設計的客製化。</strong>放最後，因為它影響的是「感覺」，不是「能否成交」。</li>
+          </ol>
+        </div>
+        <p>很多公司把預算全部放在第 5 項，結果網站很漂亮但沒有人查詢。這個次序是我們見過最常見的浪費。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：報價是否包含之後的修改？</p>
+            <p class="text-gray-700">通常在設計確認前有一定的修改輪次，確認後的大改動會另行報價。簽約前應該問清楚「幾輪修改」與「什麼算大改」。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：為什麼同一個功能，兩間公司報價差三倍？</p>
+            <p class="text-gray-700">通常是因為「同一個功能名稱，背後的規則不同」。應該要求雙方各自寫出這個功能的具體操作流程，再比較價錢。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：可不可以分階段付款？</p>
+            <p class="text-gray-700">應該可以，而且建議這樣做。按里程碑付款讓你在每個階段都可以檢視進度，而不是到最後才發現方向錯了。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：便宜一點，功能少一點，是否可以？</p>
+            <p class="text-gray-700">可以，而且這是合理的做法。關鍵是減少「範圍」而不是減少「品質」——例如先做五頁而非十頁，而不是用更差的主機或省略測試。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -290,6 +980,7 @@ export const blogPosts: BlogPost[] = [
       "大部分企業 AI 專案失敗，是因為一開始做得太大。本文說明兩星期 POC 應該怎樣設計：如何揀工序、日程安排、三個量度指標（準確度／節省時間／每次處理成本），以及 POC 後三種結果的處理方式。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
+    image: "/blog/enterprise-ai-agent-poc-hong-kong.webp",
     category: "AI & Automation",
     readTime: "12 min read",
     imageColor: "from-[#0f4c81] to-purple-800",
@@ -301,6 +992,11 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
           <p class="text-gray-700 leading-relaxed">POC 目標不是「做出一個 AI」，而是<strong>用最低成本回答一個問題</strong>：這個工序用 AI 做，準確度夠不夠、成本划不划算、同事願不願意用。<br>時間：2 週。範圍：一個工序、一個部門、真實資料。<br>唔適合：連工序都未標準化就想 AI 化。</p>
         </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/enterprise-ai-agent-poc-hong-kong-1.webp" alt="企業 AI Agent POC：兩星期內要證明的是「值不值得繼續」，不是「技術做不做得到」。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">POC 的目標不是展示 AI 有多聰明，而是用最小成本回答一個商業問題。</figcaption>
+        </figure>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、揀錯工序，POC 一定失敗</h2>
         <p>以下四類工序最適合做第一個 POC：</p>
@@ -356,6 +1052,79 @@ export const blogPosts: BlogPost[] = [
           <p class="text-gray-700 leading-relaxed">我們提供固定範圍的兩星期 POC：一個工序、真實資料、可量度結果，結束時直接答「值得做」還是「不值得」。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">查詢 POC 安排</a>，或看<a href="/services/ai/" class="text-[#0f4c81] font-semibold underline">AI 解決方案</a>。</p>
         </div>
 
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、POC 要回答的四條問題</h2>
+        <p>企業做 AI POC 最常見的失敗，是一開始就問「AI 可以做什麼」。正確的問題是：</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li><strong>哪一個流程最耗人力、而且規則相對固定？</strong>（不是最有趣的那個）</li>
+            <li><strong>目前這個流程一小時的成本是多少？</strong>（人力、錯誤率、客戶等待時間）</li>
+            <li><strong>AI 要做到幾準確才有價值？</strong>（例如八成準確但需人手覆核，是否仍然划算）</li>
+            <li><strong>如果失敗，損失上限是多少？</strong>（POC 的預算與時間上限）</li>
+          </ol>
+        </div>
+        <p>這四題答得出來，POC 才有驗收標準。答不出來，通常代表問題本身還未定義清楚。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、兩星期的 POC 怎樣安排</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">日子</th><th class="px-4 py-3 text-left">工作</th><th class="px-4 py-3 text-left">產出</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">第 1–2 日</td><td class="px-4 py-3">選定單一流程、收集 30–50 個真實案例</td><td class="px-4 py-3">測試集</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">第 3–5 日</td><td class="px-4 py-3">建立基準：先記錄「現時人手做法」的準確度與耗時</td><td class="px-4 py-3">基準數字</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">第 6–9 日</td><td class="px-4 py-3">建最小可用流程（讀取資料→模型處理→輸出）</td><td class="px-4 py-3">可運行版本</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">第 10–12 日</td><td class="px-4 py-3">在同一批案例上比對 AI 與人手</td><td class="px-4 py-3">對照結果</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">第 13–14 日</td><td class="px-4 py-3">計算單位成本、寫出「繼續／停止」建議</td><td class="px-4 py-3">決策備忘</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>關鍵設計：第 3–5 日的基準數字。</strong>沒有基準，兩星期後你無法回答「AI 是否比現時做法好」，只會得到一個「看起來不錯」的示範。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、POC 最常見的三個陷阱</h2>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>用精心挑選的案例示範。</strong>POC 必須用真實、未經修飾的數據，包括那些「亂」的輸入，否則上線後準確度會大幅下跌。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>只量準確度，不量成本。</strong>準確度提升但每次調用成本高於人力節省，商業上仍然不可行。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>跳過人手覆核設計。</strong>大部分企業場景在初期都需要人手把關；POC 應該一併設計「AI 建議＋人手確認」的流程，而不是假設全自動。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、由 POC 到正式上線的差距</h2>
+        <p>POC 成功不等於可以上線。中間通常還需要以下工作，這也是很多企業預算失準的地方：</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">工作</th><th class="px-4 py-3 text-left">POC 階段</th><th class="px-4 py-3 text-left">上線階段</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">權限與登入</td><td class="px-4 py-3">通常略過</td><td class="px-4 py-3">必須接入公司帳號系統</td></tr>
+              <tr><td class="px-4 py-3">資料來源</td><td class="px-4 py-3">手動匯出的樣本</td><td class="px-4 py-3">與內部系統即時同步</td></tr>
+              <tr><td class="px-4 py-3">錯誤處理</td><td class="px-4 py-3">人工觀察</td><td class="px-4 py-3">重試、告警、降級方案</td></tr>
+              <tr><td class="px-4 py-3">監控與記錄</td><td class="px-4 py-3">幾乎沒有</td><td class="px-4 py-3">每次調用的成本與品質追蹤</td></tr>
+              <tr><td class="px-4 py-3">資料合規</td><td class="px-4 py-3">常被忽略</td><td class="px-4 py-3">PDPO 相關的處理與保存政策</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、什麼情況應該停止</h2>
+        <p>一個健康的 POC 流程，應該有明確的「停止條件」。以下三種情況，繼續投入通常不理智：</p>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>準確度無法達到可用門檻</strong>，而且已嘗試兩種以上的方法（例如調整提示、加入檢索、換模型）。</li>
+          <li><strong>節省的人力不足以抵銷調用成本與維護成本</strong>，即使準確度理想。</li>
+          <li><strong>流程本身還沒有共識</strong>——各部門對「正確結果」的定義不同，AI 無法解決定義問題。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：一定要用最先進的模型嗎？</p>
+            <p class="text-gray-700">不一定。很多企業場景用較小的模型已足夠，成本低、速度快、資料處理更可控。應該先用最簡單的方案測試，達不到才升級。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：公司資料可以放入第三方模型嗎？</p>
+            <p class="text-gray-700">要先確認合約條款、資料是否用於訓練、存放地區。涉及個人資料時，需按 PDPO 評估並在 POC 階段就設計好處理方式，而不是上線前才補。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：POC 需要 IT 部門參與嗎？</p>
+            <p class="text-gray-700">需要，至少要處理資料存取與權限。由業務部門單獨推行的 POC，最常見的結局是「示範很好，但接不上正式系統」。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -380,6 +1149,7 @@ export const blogPosts: BlogPost[] = [
       "三個方案不是邊個最好，而是邊個適合你未來三年的營運方式。本文比較上線速度、載入效能、安全面、改版與接手難度，並指出香港企業最常犯的兩個錯：用 WordPress 硬砌業務系統，以及選了 Next.js 卻沒有維護能力。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
+    image: "/blog/nextjs-vs-wordpress-hong-kong.webp",
     category: "Web Development",
     readTime: "10 min read",
     imageColor: "from-[#0f4c81] to-emerald-800",
@@ -391,6 +1161,11 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
           <p class="text-gray-700 leading-relaxed">WordPress：內容團隊自己改、預算有限、要快上線。<br>Next.js（Headless）：重視速度與 SEO、需要複雜互動、有工程資源。<br>自建 CMS：有獨特資料模型或與內部系統深度整合。<br>選錯的代價通常在第二年出現——想改結構時發現改不動。</p>
         </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/nextjs-vs-wordpress-hong-kong-1.webp" alt="選架構的會議現場：三個方案的分別不在「哪個更新」，而在「五年後誰維護」。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">架構選擇的真正問題是：五年後誰維護、改一個功能要多久、離開要付多少代價。</figcaption>
+        </figure>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、三個方案的本質差異</h2>
         <div class="overflow-x-auto my-8">
@@ -437,6 +1212,79 @@ export const blogPosts: BlogPost[] = [
           <p class="text-gray-700 leading-relaxed">不確定應該用哪一種？我們會先看你的內容更新頻率、團隊能力與業務系統，再答。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">討論架構選擇</a>，或看<a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">技術棧與選型原則</a>。</p>
         </div>
 
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、五年的真實成本結構</h2>
+        <p>比較架構時，多數人只看「開發費」。但真正決定總成本的是<strong>五年內的變動成本</strong>——改版、外掛、安全修補、主機升級。</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">成本項目</th><th class="px-4 py-3 text-left">WordPress</th><th class="px-4 py-3 text-left">Next.js 自建</th><th class="px-4 py-3 text-left">Headless（WP＋Next.js）</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">初期開發</td><td class="px-4 py-3">低至中</td><td class="px-4 py-3">中至中高</td><td class="px-4 py-3">高（兩套系統）</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">日常改內容</td><td class="px-4 py-3">最容易（後台）</td><td class="px-4 py-3">需 CMS 或工程支援</td><td class="px-4 py-3">容易（沿用 WP 後台）</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">外掛／依賴維護</td><td class="px-4 py-3">高（要定期更新）</td><td class="px-4 py-3">低（依賴較少）</td><td class="px-4 py-3">中</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">安全風險面</td><td class="px-4 py-3">較大（外掛是主要入口）</td><td class="px-4 py-3">較小（無公開後台）</td><td class="px-4 py-3">中（WP 後台仍在）</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">改版靈活度</td><td class="px-4 py-3">受主題限制</td><td class="px-4 py-3">完全自由</td><td class="px-4 py-3">前端自由、後台固定</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">離開成本</td><td class="px-4 py-3">低（資料可匯出）</td><td class="px-4 py-3">中（需工程接手）</td><td class="px-4 py-3">中高</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、什麼時候 Next.js 是過度設計</h2>
+        <p>我們自己用 Next.js，但不會對所有客戶推薦它。以下情況用 WordPress 更合理：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>網站是內容為主、每週更新文章。</strong>編輯需要即時在後台改版式，而唔是想找工程師改代碼。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>預算低於某個水平。</strong>自建需要設計、前端、部署與維護角色；如果預算只夠請一位兼職，自建會變成半成品。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>沒有任何技術人手。</strong>沒有工程資源去維護部署與依賴更新，自建反而增加風險。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>核心需求是電商。</strong>除非有特殊流程，否則用成熟電商平台比自建更省事。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、WordPress 的真正風險不是技術，是維護</h2>
+        <p>我們接手過的 WordPress 事故，幾乎沒有一宗是「WordPress 本身唔得」，而是：</p>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>外掛多年未更新</strong>，一次自動更新就白屏。</li>
+          <li><strong>主題被改到無法更新</strong>，因為直接改主題檔案而非用子主題。</li>
+          <li><strong>沒有備份或備份從未測試還原</strong>，出事只能重做。</li>
+          <li><strong>多人共用管理員帳號</strong>，無法追查誰改了什麼。</li>
+        </ol>
+        <p>這些都是流程問題，不是平台問題。反過來說，如果<strong>有人</strong>固定做更新、備份與還原演練，WordPress 對中小型網站是合理選擇。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、Headless 是中間路線，不是折衷</h2>
+        <p>Headless（WordPress 作內容後台＋Next.js 作前端）解決的是兩個具體問題：<strong>編輯要易用</strong>，同時<strong>前端要快同自由</strong>。但它有明確代價：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>兩套系統要各自更新、各自備份、各自監控。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>預覽、草稿、媒體處理需要額外開發，不是開箱即用。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>發佈流程多一層，出錯時要判斷是後台還是前端。</span></li>
+        </ul>
+        <p>所以 Headless 適合<strong>已有 WordPress 內容資產、但前端體驗需要重做</strong>的公司；如果由零開始，直接自建加一個輕量 CMS 通常更簡單。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、選型前要答的六條問題</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li>五年內，邊個負責改內容？編輯還是工程師？</li>
+            <li>網站是品牌門面，還是業務系統的一部分（要接 CRM／ERP）？</li>
+            <li>改一次版面，你期望是幾小時還是幾星期？</li>
+            <li>有沒有人可以處理更新、備份、安全警示？</li>
+            <li>未來兩年會不會加多語言、多地區、會員或預約功能？</li>
+            <li>如果供應商消失，你能否取回全部源碼與資料？</li>
+          </ol>
+        </div>
+        <p>如果第 1、4 題的答案是「編輯自己改」「冇人管技術」，WordPress 通常更合適。如果第 2、3、5 題涉及系統整合與高變動，自建會更省長期成本。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：Next.js 網站是否一定比 WordPress 快？</p>
+            <p class="text-gray-700">不一定。速度快慢主要取決於圖片大小、第三方腳本與主機，而不是框架。WordPress 做得好的話，核心網頁指標同樣可以達標。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：WordPress 會不會容易被駭？</p>
+            <p class="text-gray-700">風險主要來自過期外掛與弱密碼。做好更新、權限控制與備份，風險可以大幅降低；但公開後台本身確實比純靜態網站多一個攻擊面。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：可不可以先用 WordPress，日後再轉 Next.js？</p>
+            <p class="text-gray-700">可以，而且很常見。關鍵是前期把網址結構與內容架構整理好，日後轉換時 301 對照表會簡單得多。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -461,6 +1309,7 @@ export const blogPosts: BlogPost[] = [
       "App 開發報價差異極大，原因通常不是框架，而是要接幾多東西、上架要過幾多關、上線後邊個維護。本文列明 MVP 應包含與可延後的模組、四種技術選擇、上架前五件易忽略的事，以及報價差異的四個來源。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
+    image: "/blog/app-development-hong-kong-cost-process.webp",
     category: "Software Development",
     readTime: "11 min read",
     imageColor: "from-[#0f4c81] to-indigo-800",
@@ -472,6 +1321,11 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
           <p class="text-gray-700 leading-relaxed">MVP 階段目標是「驗證需求」，不是「功能齊全」。<br>常見範圍：登入、核心功能、通知、基本後台。<br>上架要預留時間：Apple／Google 審核、私隱政策、帳號刪除功能。<br>唔適合：未有明確使用場景就想做「平台」。</p>
         </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/app-development-hong-kong-cost-process-1.webp" alt="由 wireframe 到上架的過程：MVP 的定義是「最少功能但能收錢」，不是「功能較少的完整產品」。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">App 開發最容易失控的地方，是把「應該做」與「第一版必須做」混在一起。</figcaption>
+        </figure>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、MVP 應該包含什麼</h2>
         <div class="overflow-x-auto my-8">
@@ -515,6 +1369,87 @@ export const blogPosts: BlogPost[] = [
           <p class="text-gray-700 leading-relaxed">想知你的想法適不適合先做 MVP？我們可以幫你砍到最小可驗證範圍，並列明上架與維護安排。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">討論 App 項目</a>，或看<a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統與 App 開發</a>。</p>
         </div>
 
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、MVP 的定義：能收錢的最小版本</h2>
+        <p>「MVP」在香港常被誤解為「功能較少的完整產品」。真正的 MVP 應該符合三個條件：</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li><strong>解決一個核心問題</strong>——用戶願意為此付費或改變習慣。</li>
+            <li><strong>能完成一次完整流程</strong>——由進入到得到結果，中間不需要人手介入。</li>
+            <li><strong>可以量度</strong>——有辦法知道用戶是否真的用了、是否真的付費。</li>
+          </ol>
+        </div>
+        <p>不符合這三條的功能，即使「應該有」，都應該放入第二版。這一點是控制預算最有效的單一決定。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、功能取捨的優先次序</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">功能類型</th><th class="px-4 py-3 text-left">第一版</th><th class="px-4 py-3 text-left">原因</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">註冊／登入</td><td class="px-4 py-3">必須</td><td class="px-4 py-3">沒有身份就無法保存狀態</td></tr>
+              <tr><td class="px-4 py-3">核心流程（下單／預約／提交）</td><td class="px-4 py-3">必須</td><td class="px-4 py-3">這是產品存在的理由</td></tr>
+              <tr><td class="px-4 py-3">通知（推播／電郵）</td><td class="px-4 py-3">基本版必須</td><td class="px-4 py-3">沒有通知，用戶不知道流程完成</td></tr>
+              <tr><td class="px-4 py-3">個人化推薦</td><td class="px-4 py-3">可以後加</td><td class="px-4 py-3">需要數據才有用，第一版沒有數據</td></tr>
+              <tr><td class="px-4 py-3">社交功能／分享</td><td class="px-4 py-3">可以後加</td><td class="px-4 py-3">要用戶基數才有意義</td></tr>
+              <tr><td class="px-4 py-3">多語言</td><td class="px-4 py-3">視市場</td><td class="px-4 py-3">架構要預留，但內容可以後補</td></tr>
+              <tr><td class="px-4 py-3">後台報表</td><td class="px-4 py-3">最基本必須</td><td class="px-4 py-3">否則無法判斷產品是否有效</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、成本由什麼決定</h2>
+        <p>App 開發報價差異可以達到五倍，原因不是「有沒有良心」，而是以下五個變數：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>平台數量。</strong>只做 iOS 與 iOS＋Android 的工作量不同；跨平台框架可以減少重複，但有時要為個別平台額外處理。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>後端複雜度。</strong>有沒有配對、即時通訊、支付、地圖、檔案上傳，差別很大。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>整合數量。</strong>每個第三方系統（金流、CRM、ERP、物流）都是一段獨立工程與測試。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>設計深度。</strong>用現成元件庫與度身設計的 UI，工作量可以差一倍以上。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>上架與合規。</strong>App Store 與 Google Play 的審核要求、隱私政策、資料刪除機制，都需要工程與文件。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、由零到上架的實際流程</h2>
+        <div class="space-y-3 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">第一階段：需求與範圍（一至兩週）</p>
+            <p class="text-gray-700">把想法寫成用戶流程圖與功能清單，明確標示「第一版」與「以後」。這階段最重要的產出是一份<strong>雙方都同意的範圍文件</strong>。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">第二階段：介面設計（兩至四週）</p>
+            <p class="text-gray-700">由 wireframe 到高保真設計，並確認主要流程可以完成。這階段改動成本最低，之後每次改動都會倍升。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">第三階段：開發與分段驗收（六至十二週）</p>
+            <p class="text-gray-700">按模組交付，每兩週可以試用一次。分段驗收的好處是問題在早期發現，而不是上線前一次過爆出來。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">第四階段：測試與上架（一至兩週）</p>
+            <p class="text-gray-700">包括真機測試、帳號流程、金流沙盒測試、商店審核文件。這階段常有意外延誤，預算要留緩衝。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">第五階段：上線後觀察（持續）</p>
+            <p class="text-gray-700">看留存、完成率、崩潰率。第一版的功能取捨是否正確，只有在真實用戶手上才知道。</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：可不可以先做網頁版，之後才做 App？</p>
+            <p class="text-gray-700">很多情況下這是更明智的順序。網頁版上線快、改動成本低、不需要商店審核，可以先驗證需求，再決定是否投入原生 App。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：跨平台框架會不會影響體驗？</p>
+            <p class="text-gray-700">對大多數業務型 App 影響很小。只有在高效能需求（例如大量動畫、影像處理、遊戲）時，原生才有明顯優勢。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：上架後是否就完成？</p>
+            <p class="text-gray-700">不是。系統要跟隨 iOS 與 Android 的年度更新、商店政策變動、憑證到期。這是持續成本，應該在預算內預留。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：怎樣判斷報價是否合理？</p>
+            <p class="text-gray-700">看報價單是否把功能、整合、設計、測試、上架分開列出。只有一個總數而沒有分項的報價，日後加價與爭議的空間最大。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -539,6 +1474,7 @@ export const blogPosts: BlogPost[] = [
       "系統爛尾、vendor 失聯、源碼混亂是香港中小企常見情況。本文列明接手前必須拿到的七樣東西、三種救援路線（穩定化／局部重寫／重建）、如何判斷值不值得救，以及避免再次爛尾的合約條款。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
+    image: "/blog/system-rescue-takeover-checklist.webp",
     category: "Software Development",
     readTime: "13 min read",
     imageColor: "from-[#0f4c81] to-slate-800",
@@ -550,6 +1486,11 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
           <p class="text-gray-700 leading-relaxed">適合：現有系統仍在運作但無法維護、vendor 失聯、或接手後發現無文件。<br>範圍與工期：技術診斷 1–2 週；救援視乎系統狀態，由補文件到局部重寫，一般 4–12 週。<br>唔適合：系統連登入都做不到、又沒有資料庫備份——那已經不是救援，是重建。</p>
         </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/system-rescue-takeover-checklist-1.webp" alt="接手爛尾系統的第一步：72 小時穩定化檢查清單的實務場景——先穩定、再修補、最後才重寫。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">接手爛尾系統時，最常見的錯誤是立即重寫。正確順序是先把系統穩定下來，再判斷哪部分值得保留。</figcaption>
+        </figure>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先判斷：值不值得救</h2>
         <p>救援的成本差異可以極大，關鍵在第一天就判斷清楚。以下五個訊號，出現三個以上，就要認真考慮重建而非修補。</p>
@@ -603,6 +1544,77 @@ export const blogPosts: BlogPost[] = [
           <p class="text-gray-700 leading-relaxed">如果你手上正有一個爛尾系統，可以先做一次技術診斷（1–2 週），我們會直接答「值得救」還是「建議重建」，並附上實際範圍與時間。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約技術診斷</a>，或先看<a href="/delivery/" class="text-[#0f4c81] font-semibold underline">我們如何交付與交接</a>。</p>
         </div>
 
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、接手第一日：不要改代碼</h2>
+        <p>接手一個爛尾系統，第一日的衝動通常是「先修好它」。這是錯的。第一日應該只做三件事：<strong>備份、盤點、記錄</strong>。</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li><strong>全站與資料庫完整備份</strong>，並且實際還原一次到獨立環境。沒有測試過的備份，等於沒有備份。</li>
+            <li><strong>盤點三樣東西</strong>：主機與帳號權限、第三方服務（金流、短訊、地圖、雲端）的帳號擁有者、以及所有部署流程。</li>
+            <li><strong>寫一份現狀文件</strong>：哪些功能能用、哪些不能用、哪些沒人知道。這份文件是之後所有決定的基礎。</li>
+          </ol>
+        </div>
+        <p>這一步看似浪費時間，但它決定了之後所有工作的安全性。我們見過太多次「一改就全站掛」，原因是沒有人知道那條線牽著什麼。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、七十二小時穩定化：實際順序</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">時段</th><th class="px-4 py-3 text-left">目標</th><th class="px-4 py-3 text-left">具體動作</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">0–8 小時</td><td class="px-4 py-3">停止失血</td><td class="px-4 py-3">備份、關閉明顯有問題的功能入口、把錯誤訊息改為通用提示（避免洩露內部資訊）</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">8–24 小時</td><td class="px-4 py-3">恢復核心流程</td><td class="px-4 py-3">確保登入、下單或提交這些「會收錢」的流程可用；其他功能可以暫時停用</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">24–48 小時</td><td class="px-4 py-3">建立可見度</td><td class="px-4 py-3">加錯誤記錄與基本監控；設定磁碟、憑證到期、服務中斷的告警</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">48–72 小時</td><td class="px-4 py-3">寫下真相</td><td class="px-4 py-3">列出現存問題清單、嚴重程度、以及「保留／重寫」的初步判斷</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>為什麼先停用而不是先修？</strong>因為不穩定的功能繼續對外開放，會持續產生錯誤資料與客戶投訴，而錯誤資料比停用更難收拾。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、判斷「保留、修補、重寫」的標準</h2>
+        <p>這是接手專案最重要的一個決定，也是最容易被情緒影響的決定。我們用三個可量化的指標：</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">情況</th><th class="px-4 py-3 text-left">建議</th><th class="px-4 py-3 text-left">理由</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">核心流程可運行，問題集中在介面與個別功能</td><td class="px-4 py-3">保留＋修補</td><td class="px-4 py-3">重寫成本高於修補，且風險更大</td></tr>
+              <tr><td class="px-4 py-3">資料結構可用，但技術棧已停止維護</td><td class="px-4 py-3">保留資料、重寫應用層</td><td class="px-4 py-3">資料是資產，程式不是</td></tr>
+              <tr><td class="px-4 py-3">沒有測試、沒有文件、原作者無法聯絡</td><td class="px-4 py-3">分階段重寫</td><td class="px-4 py-3">每次改動都是賭博，長期成本失控</td></tr>
+              <tr><td class="px-4 py-3">核心流程本身設計錯誤（例如資料模型錯）</td><td class="px-4 py-3">重寫</td><td class="px-4 py-3">在錯的基礎上修補，只會累積更多債</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、接手時最常被忽略的三件事</h2>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>帳號擁有權。</strong>網域、主機、雲端、金流、短訊服務，如果仍掛在前供應商的帳號下，你隨時可以被斷掉。接手第一件事是把這些轉到你名下。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>憑證到期日。</strong>SSL 憑證、API 金鑰、App 上架憑證，很多「突然壞掉」都是到期而非程式出錯。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>備份是否真的存在。</strong>見過不少「有備份」的系統，備份檔案其實是空的，或者從未成功還原過。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、怎樣避免再次爛尾</h2>
+        <p>接手完成後，真正的價值是建立防止再發生的機制。四項最基本：</p>
+        <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
+          <li><strong>版本控制與可回滾部署。</strong>每次上線都可以一鍵回到上一版。</li>
+          <li><strong>最小可行的測試。</strong>不需要全面覆蓋，但核心流程（登入、付款、提交）必須有自動測試。</li>
+          <li><strong>文件與交接清單。</strong>包括環境變數、部署步驟、第三方服務清單。</li>
+          <li><strong>監控與告警。</strong>問題發生時，你先知道，而不是客戶先知道。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：前供應商不肯交出源碼怎麼辦？</p>
+            <p class="text-gray-700">先看合約是否列明源碼與帳號擁有權。實務上，如果資料與網域在你手上，即使沒有源碼，仍然可以重建；最壞情況是重寫，但不能接受的是資料被扣住。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：重寫會不會失去現有 SEO？</p>
+            <p class="text-gray-700">不會，只要網址結構與 301 對照表處理好。真正會失去排名的是「換網址但不做轉址」，而不是重寫本身。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：接手後多快可以恢復正常？</p>
+            <p class="text-gray-700">核心流程通常 72 小時內可以穩定；完整修復視系統規模，一般需要四至十二星期。任何承諾「一星期全部修好」的方案，都值得懷疑。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -627,6 +1639,7 @@ export const blogPosts: BlogPost[] = [
       "同一個功能為何報價可以差五倍？本文拆解系統開發報價的四個組成（功能模組、系統整合、交付要求、風險緩衝）、三種收費模式比較、報價單應有的八項內容，以及三個最常見的壓價陷阱。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
+    image: "/blog/hong-kong-system-development-quote-guide.webp",
     category: "Software Development",
     readTime: "12 min read",
     imageColor: "from-[#0f4c81] to-blue-800",
@@ -638,6 +1651,11 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
           <p class="text-gray-700 leading-relaxed">報價 = 功能範圍 × 整合複雜度 × 交付要求（文件／測試／上線方式）。<br>三個變數任何一個差一倍，總價就差幾倍。<br>拿到報價單先問：「這份價包含幾多個整合？驗收標準是什麼？上線後保固幾長？」</p>
         </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/hong-kong-system-development-quote-guide-1.webp" alt="香港系統開發報價會議：報價單上的每一項，都應該對應一個可驗收的交付物。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">一份可核對的報價單，會把功能、整合、交付文件與風險緩衝分開列明，而不是一個總數。</figcaption>
+        </figure>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、報價的四個組成部分</h2>
         <div class="overflow-x-auto my-8">
@@ -700,6 +1718,77 @@ export const blogPosts: BlogPost[] = [
           <p class="text-gray-700 leading-relaxed">想拿一份「可直接比較」的報價？我們可以按你的功能清單出一份 SOW 草稿與報價結構，你可以拿去問其他 vendor。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">索取報價結構</a>，或看<a href="/tech-stack/" class="text-[#0f4c81] font-semibold underline">我們實際用的技術</a>。</p>
         </div>
 
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、一份可核對的報價單長什麼樣</h2>
+        <p>判斷報價單是否專業，不看它有多厚，而看它能否回答「我付的錢換到什麼」。以下六個欄位缺一不可：</p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">欄位</th><th class="px-4 py-3 text-left">應該寫什麼</th><th class="px-4 py-3 text-left">沒有會怎樣</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">功能模組清單</td><td class="px-4 py-3">逐項列出功能與驗收標準</td><td class="px-4 py-3">日後爭議「這個算不算在內」</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">整合清單</td><td class="px-4 py-3">要接的第三方系統與責任方</td><td class="px-4 py-3">上線前才發現要額外報價</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">交付文件</td><td class="px-4 py-3">源碼、文件、部署指引、帳號移交</td><td class="px-4 py-3">離場時被扣住資產</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">里程碑與付款</td><td class="px-4 py-3">每階段交付什麼、付多少</td><td class="px-4 py-3">一次過付款，風險全在你身上</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">範圍變更機制</td><td class="px-4 py-3">加功能的計價方式與審批流程</td><td class="px-4 py-3">中途加價無法判斷是否合理</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">保固期與範圍</td><td class="px-4 py-3">幾個月、包什麼、不包什麼</td><td class="px-4 py-3">上線後每個問題都變成收費項目</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、報價為什麼會差幾倍</h2>
+        <p>同一個「會員系統」，報價可以由幾萬到幾十萬。差異通常來自以下五個變數，而不是供應商隨意開價：</p>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>規則複雜度。</strong>「會員可以分等級」與「會員分等級、每級不同價、有期限、有推薦關係」，工作量相差數倍。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>資料遷移。</strong>由 Excel 匯入，與由三個舊系統合併並清理重複資料，是兩種完全不同的工程。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>整合深度。</strong>「接金流」可以只是跳轉付款頁，也可以是完整對帳、退款、分期與發票。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>權限與審批。</strong>單一角色與多層審批流程（例如請假、報價、採購）差異極大。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>非功能需求。</strong>效能、併發、可用性、稽核記錄、資料保存年期，這些不會出現在功能清單，但會實質影響成本。</span></li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、收到報價單後應該問的八條問題</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li>這個總數包含哪些功能？能否逐項列出驗收標準？</li>
+            <li>哪些是「假設你已有」而我其實沒有的？（主機、設計、內容、帳號）</li>
+            <li>第三方服務的年費由誰付？大約多少？</li>
+            <li>如果中途我要加一個功能，怎樣計價？</li>
+            <li>交付時我會拿到什麼？源碼是否完整？部署文件是否包括？</li>
+            <li>上線後誰負責修 bug？保固幾個月？範圍是什麼？</li>
+            <li>如果項目延期，責任如何劃分？</li>
+            <li>如果我們合作結束，資料與帳號怎樣移交？</li>
+          </ol>
+        </div>
+        <p>這八條之中，第 5 與第 8 條最關鍵。它們決定你在關係結束時是「帶著資產離開」還是「被鎖死」。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、付款里程碑應該怎样安排</h2>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">階段</th><th class="px-4 py-3 text-left">交付</th><th class="px-4 py-3 text-left">常見比例</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">啟動</td><td class="px-4 py-3">範圍文件、流程圖</td><td class="px-4 py-3">兩至三成</td></tr>
+              <tr><td class="px-4 py-3">設計確認</td><td class="px-4 py-3">可點擊原型或設計稿</td><td class="px-4 py-3">兩成</td></tr>
+              <tr><td class="px-4 py-3">核心功能</td><td class="px-4 py-3">可試用的測試環境</td><td class="px-4 py-3">三成</td></tr>
+              <tr><td class="px-4 py-3">上線驗收</td><td class="px-4 py-3">正式環境＋文件＋移交</td><td class="px-4 py-3">兩至三成</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>不要一次過付清。</strong>不是因為不信任，而是因為分段付款讓雙方在每個階段都有重新檢視範圍的機會，反而減少爭議。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：為什麼不能先做一個「差不多」的版本再報價？</p>
+            <p class="text-gray-700">因為「差不多」在系統開發中沒有定義。沒有範圍文件的報價，最後一定變成無止境討論，對雙方都不利。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：報價最低的一定最划算嗎？</p>
+            <p class="text-gray-700">不是。低價通常代表範圍較窄、假設較多、或後續收費項目較多。應該比較「同等範圍下的總成本」，而不是比較總數。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：可不可以自己找設計，只外包開發？</p>
+            <p class="text-gray-700">可以，但要有人負責設計與開發之間的規格對接。沒有對接人，設計稿會被反覆解讀，最終兩邊都不滿意。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -724,6 +1813,7 @@ export const blogPosts: BlogPost[] = [
       "比較外判與自建開發團隊時，只看月薪會計錯數。本文列出全職總成本的五個隱藏項、三個應自建與四個應外判的情況、可以自己計的比較框架，以及最常見的混合模式。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
+    image: "/blog/outsource-vs-inhouse-development-team.webp",
     category: "Software Development",
     readTime: "11 min read",
     imageColor: "from-[#0f4c81] to-cyan-800",
@@ -735,6 +1825,11 @@ export const blogPosts: BlogPost[] = [
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
           <p class="text-gray-700 leading-relaxed">自建適合：需求長期持續、有管理技術團隊的能力、能承受招聘與流失風險。<br>外判適合：需求有明確終點、需要多種技能短期並用、不想承擔招聘風險。<br>大多數香港中小企的最優解是<strong>混合</strong>：外判建核心系統，內部養 1–2 人負責日常與對接。</p>
         </div>
+
+        <figure class="my-10">
+          <img src="/blog/figures/outsource-vs-inhouse-development-team-1.webp" alt="自建團隊與外判團隊的決策現場：真正的分水嶺是「需求是否連續」，而不是成本高低。" loading="lazy" width="1200" height="675" class="w-full rounded-xl border border-gray-200" />
+          <figcaption class="text-sm text-gray-500 mt-3 text-center">自建與外判不是意識形態問題，而是需求連續性與管理能力的問題。</figcaption>
+        </figure>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、成本不只是月薪</h2>
         <p>比較時最常犯的錯，是只算「月薪 × 12」。真正的全職成本還包括：</p>
@@ -779,6 +1874,87 @@ export const blogPosts: BlogPost[] = [
         <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
           <p class="text-gray-700 leading-relaxed">想知你公司情況適合哪一種？我們可以按你未來 12 個月的工作量做一次評估，直接答「自建」「外判」或「混合」。<a href="/contact/" class="text-[#0f4c81] font-semibold underline">預約評估</a>，或看<a href="/warranty/" class="text-[#0f4c81] font-semibold underline">保固與交接安排</a>。</p>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、真正的分水嶺：需求是否連續</h2>
+        <p>這個決定不應該由「成本」開始，而應該由一個問題開始：<strong>未來兩年，你會有連續不斷的開發需求，還是只有幾個明確項目？</strong></p>
+        <div class="overflow-x-auto my-8">
+          <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+            <thead class="bg-gray-50 text-gray-600"><tr><th class="px-4 py-3 text-left">情況</th><th class="px-4 py-3 text-left">建議</th><th class="px-4 py-3 text-left">理由</th></tr></thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">一年兩三個明確項目</td><td class="px-4 py-3">外判</td><td class="px-4 py-3">沒有足夠工作量養一個團隊</td></tr>
+              <tr><td class="px-4 py-3">核心業務系統持續演進（每週有變動）</td><td class="px-4 py-3">自建（至少核心）</td><td class="px-4 py-3">溝通成本與排期會成為瓶頸</td></tr>
+              <tr><td class="px-4 py-3">需求跨部門、涉及內部流程</td><td class="px-4 py-3">自建產品負責人＋外判執行</td><td class="px-4 py-3">只有內部人才懂流程取捨</td></tr>
+              <tr><td class="px-4 py-3">需求波動大、有旺季</td><td class="px-4 py-3">混合</td><td class="px-4 py-3">固定人力在淡季會閒置</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、自建團隊的真實成本</h2>
+        <p>自建的成本遠不只是薪金。以一個能獨立交付的小型團隊為例，需要考慮：</p>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ul class="space-y-2 text-gray-700">
+            <li><strong>直接人力：</strong>至少需要覆蓋前端、後端、以及一位能作技術決策的人。少於這個組合，單點依賴風險很高。</li>
+            <li><strong>管理成本：</strong>招聘、面試、考核、培訓，通常佔管理層相當時間。</li>
+            <li><strong>工具與基礎設施：</strong>版本控制、CI、監控、授權費用。</li>
+            <li><strong>流失風險：</strong>關鍵成員離職，知識會一併離開；交接期通常拖慢進度。</li>
+            <li><strong>閒置風險：</strong>項目之間的空檔，成本仍然存在。</li>
+          </ul>
+        </div>
+        <p>把這五項加起來，很多公司會發現「自建比想像中貴」，但同時也會發現「外判在長期連續需求下更貴」。兩者都不是絕對答案。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、外判的真實風險</h2>
+        <ul class="space-y-2 my-6">
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>知識不在你身上。</strong>系統怎樣運作、為什麼這樣設計，只存在於供應商腦中。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>排期不由你控制。</strong>你是眾多客戶之一，急事不一定優先。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>需求翻譯失真。</strong>業務語言轉成技術規格，中間每一次轉手都會流失資訊。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>離場成本。</strong>如果沒有源碼與文件，換供應商等於重新開始。</span></li>
+        </ul>
+        <p>這些風險可以透過合約與流程降低：要求源碼交付、要求文件、要求每階段可試用、保留內部一位懂業務的對接人。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、混合模式：最常見的現實答案</h2>
+        <p>大部分成長中的公司，最終會落在混合模式：</p>
+        <div class="space-y-3 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">內部保留產品與流程知識</p>
+            <p class="text-gray-700">一位懂業務的產品負責人，決定「做什麼、不做什麼」。這個角色無法外判，因為它需要對公司資源與優先次序作判斷。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">外判負責交付能力</p>
+            <p class="text-gray-700">設計、開發、測試、上線由外部團隊執行，按里程碑交付，並要求文件與源碼移交。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">保留一位技術顧問角色</p>
+            <p class="text-gray-700">不需要全職，但需要有人能判斷報價是否合理、架構是否有風險。這個角色可以是外部顧問，關鍵是「不是由執行方自己評估自己」。</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、決策清單</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ol class="space-y-2 list-decimal list-inside text-gray-700">
+            <li>未來十二個月，我有多少個明確的開發項目？</li>
+            <li>這些項目之間是否有連續性（同一個系統持續演進）？</li>
+            <li>我能否負擔一位以上的技術人員，並且留得住？</li>
+            <li>我是否有能力判斷技術方案與報價的合理性？</li>
+            <li>系統是否是核心競爭力，還是支援性工具？</li>
+            <li>如果供應商明天消失，我的業務會停多久？</li>
+          </ol>
+        </div>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
+        <div class="space-y-4 my-6">
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：外判會不會比較沒有保障？</p>
+            <p class="text-gray-700">保障來自合約條款與交付機制，不是來自「是不是自己人」。要求源碼、文件、分段驗收與保固，比有沒有全職員工更實際。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：先外判，日後再自建可行嗎？</p>
+            <p class="text-gray-700">可行，而且常見。關鍵是前期把架構與文件處理好，否則日後接手成本會非常高。</p>
+          </div>
+          <div class="border-l-4 border-[#0f4c81] pl-4">
+            <p class="font-semibold text-gray-800">Q：一位工程師可以支撐一個系統嗎？</p>
+            <p class="text-gray-700">短期可以，長期風險很高：一旦離職、休假或生病，系統就沒有第二個人能處理。至少要有人可以接手。</p>
+          </div>
         </div>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
