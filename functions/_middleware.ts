@@ -36,7 +36,9 @@ interface Env {
   ORIGIN_IP?: string;
 }
 
-const PROXY_PATHS = [/^\/admin(\/|$)/, /^\/api(\/|$)/, /^\/send-mail\.php$/];
+// /send-mail.php 已改由 functions/send-mail.php.ts 直接處理（Resend + Turnstile），
+// 所以唔再代理去 SiteGround。只剩後台仍然依賴 PHP。
+const PROXY_PATHS = [/^\/admin(\/|$)/, /^\/api(\/|$)/];
 
 /**
  * 型別刻意唔用 `PagesFunction` 全域型別：呢個 repo 冇裝 @cloudflare/workers-types，
