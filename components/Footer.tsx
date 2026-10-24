@@ -33,6 +33,7 @@ const SERVICE_GROUPS: { group: string; links: { name: string; href: string }[] }
     links: [
       { name: "系統及 App 開發", href: "/services/system" },
       { name: "網頁設計及電商", href: "/services/web" },
+      { name: "網頁設計收費", href: "/services/web/#pricing" },
     ],
   },
   {

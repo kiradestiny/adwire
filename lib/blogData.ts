@@ -200,6 +200,8 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>只是暫時下架</strong>：用 302 或保留頁面並顯示缺貨狀態。</span></li>
         </ul>
         <p>把所有舊網址一律轉去首頁，搜尋引擎會視為軟性 404，效果與直接消失差不多，而且會浪費你原有的累積。</p>
+        <p class="mt-8 text-gray-700 leading-relaxed">搬遷與重建的實際交付範圍見「<a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計及電商</a>」。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -386,6 +388,8 @@ export const blogPosts: BlogPost[] = [
           <li><strong>網址對照表是否完整。</strong>缺一條產品頁的 301，就是一條流量斷掉。</li>
           <li><strong>誰負責搬遷後的維護。</strong>沒有這個答案，搬遷只是把問題由平台轉到自己身上。</li>
         </ol>
+        <p class="mt-8 text-gray-700 leading-relaxed">自建電商的實際報價範圍見「<a href="/services/web/#pricing" class="text-[#0f4c81] font-semibold underline">網頁設計收費對照表</a>」；搬遷的技術安排見交付流程頁。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -576,6 +580,8 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
 
+        <p class="mt-8 text-gray-700 leading-relaxed">若考慮自建電商，起步價與包含範圍見「<a href="/services/web/#pricing" class="text-[#0f4c81] font-semibold underline">網頁設計收費對照表</a>」。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -757,6 +763,8 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>已確認上線後誰負責監控與修正。</span></li>
         </ul>
         <p>這五項沒有準備好就開始重做，通常會在最後兩星期才發現問題，而那個時候改動成本最高。</p>
+        <p class="mt-8 text-gray-700 leading-relaxed">重做或局部改版的預算，可按網站類型在「<a href="/services/web/#pricing" class="text-[#0f4c81] font-semibold underline">網頁設計收費對照表</a>」先抓一個範圍。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -948,6 +956,8 @@ export const blogPosts: BlogPost[] = [
           <li><strong>定期移除沒用的外掛與腳本。</strong>每季檢視一次，功能重複的合併。</li>
           <li><strong>記錄「為什麼這樣做」。</strong>日後接手的人（包括未來的自己）才知道限制在哪裡。</li>
         </ol>
+        <p class="mt-8 text-gray-700 leading-relaxed">技術債的處理方式（止血、重構、重寫）與交付安排，見「<a href="/services/web/" class="text-[#0f4c81] font-semibold underline">網頁設計及電商</a>」。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -1192,6 +1202,8 @@ export const blogPosts: BlogPost[] = [
           </div>
         </div>
 
+        <p class="mt-8 text-gray-700 leading-relaxed">本文的三個價格層級，已同步到服務頁的「<a href="/services/web/#pricing" class="text-[#0f4c81] font-semibold underline">網頁設計收費對照表</a>」，可按網站類型逐項對照包含與不包含的項目。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -1392,6 +1404,8 @@ export const blogPosts: BlogPost[] = [
           </ol>
         </div>
         <p>第 4 段最容易被略過，但它才是管理層真正要的答案。沒有明確建議的 POC 報告，通常會被歸類為「有趣但未ready」，然後被無限期擱置。</p>
+        <p class="mt-8 text-gray-700 leading-relaxed">POC 之後要正式落地，可參考「<a href="/services/ai/" class="text-[#0f4c81] font-semibold underline">AI 解決方案</a>」頁內的整合方式與資料處理安排。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -1581,6 +1595,8 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>SEO 外掛功能消失。</strong>標題模板、結構化資料、內部連結建議，這些要重新實作或找替代。</span></li>
         </ul>
         <p>這三件事都可以事先解決，但前提是<strong>在設計階段就把「誰維護、怎樣維護」寫進規格</strong>，而不是假設「之後再算」。</p>
+        <p class="mt-8 text-gray-700 leading-relaxed">不同架構的實際收費差異，可按網站類型在「<a href="/services/web/#pricing" class="text-[#0f4c81] font-semibold underline">網頁設計收費對照表</a>」直接對照。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -1777,6 +1793,8 @@ export const blogPosts: BlogPost[] = [
           <li><strong>哪些功能用了的人留得特別久？</strong>這通常就是產品的核心價值，應該加強而不是分散資源。</li>
         </ol>
         <p>沒有這三個觀察，第二版通常會變成「功能更多但更難用」。這也是很多 App 由第一版成功走向第二版失敗的原因。</p>
+        <p class="mt-8 text-gray-700 leading-relaxed">App 與後台系統的交付範圍與報價方式，見「<a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統及 App 開發</a>」。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -1969,6 +1987,8 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>團隊敢改。</strong>同事不再害怕碰系統，因為知道有備份與回滾。</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>知識不再集中在一個人。</strong>至少兩個人知道部署與常見問題怎樣處理。</span></li>
         </ul>
+        <p class="mt-8 text-gray-700 leading-relaxed">本文提到的接手與重寫判斷，對應我們的「<a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統及 App 開發</a>」服務頁，內有交付範圍、驗收方式與報價說明。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -2170,6 +2190,8 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>上線時間的硬性限制。</strong>是否有法規、租約、活動等不可延誤的日期。</span></li>
         </ul>
         <p>準備好這五份，報價的準確度會明顯提高，因為供應商不需要再用假設填補空白。</p>
+        <p class="mt-8 text-gray-700 leading-relaxed">如果你正準備比較報價，可以先看「<a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統及 App 開發</a>」頁內的交付清單與驗收標準，再對照手上的報價單。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -2368,6 +2390,8 @@ export const blogPosts: BlogPost[] = [
           <li><strong>離場安排。</strong>合作結束時的交接流程與時限，以及不交接的後果。</li>
         </ol>
         <p>這五條不是防對方，而是讓雙方在關係好的時候就把最壞情況講清楚。我們見過太多爭議，源於一開始「大家都以為對方明白」。</p>
+        <p class="mt-8 text-gray-700 leading-relaxed">若已決定外判，可先看「<a href="/services/system/" class="text-[#0f4c81] font-semibold underline">系統及 App 開發</a>」頁的交付範圍與驗收方式；若仍未有結論，<a href="/services/consulting/" class="text-[#0f4c81] font-semibold underline">AI 與系統導入顧問</a>可以幫你先做技術選型判斷。</p>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
