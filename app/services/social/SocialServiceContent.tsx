@@ -239,9 +239,9 @@ export default function SocialServiceContent() {
                 Social Media Management
               </span>
               <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-                讓每一個 Post<br />
+                社交媒體管理<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-[#f5a623]">
-                  都成為你的銷售員
+                  讓每一個 Post 帶來生意
                 </span>
               </h1>
               <p className="text-gray-300 text-lg mb-8 leading-relaxed">

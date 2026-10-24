@@ -317,7 +317,7 @@ export default function EducationServiceContent() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              學校一站式數碼夥伴
+              學校 IT 系統與數碼方案
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-amber-300">
                 一隊人跟到底

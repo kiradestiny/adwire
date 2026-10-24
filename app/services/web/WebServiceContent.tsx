@@ -343,6 +343,99 @@ export default function WebServiceContent() {
         </div>
       </section>
 
+      {/* 3b. 收費結構：正面回答「網頁設計幾錢」（2026-10-24 新增） */}
+      <section className="py-24 bg-white" id="pricing">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold tracking-[0.2em] text-[#0f4c81]/70 uppercase mb-3">Pricing Structure</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">網頁設計收費：三種常見類型與起步價</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              網站報價差距可以很大，因為功能、整合與內容量都不同。以下是我們實際的三個起步範圍，
+              讓你未聯絡我們之前已經有個底。
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3 mb-12">
+            <div className="rounded-2xl border border-gray-200 p-7 flex flex-col">
+              <p className="text-xs font-semibold text-gray-400 mb-2">類型一</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-1">形象／內容網站</h3>
+              <p className="text-3xl font-black text-[#0f4c81] mb-4">HK$8,000 起</p>
+              <ul className="space-y-2 text-sm text-gray-600 flex-1">
+                <li>· 5–8 頁（首頁、服務、關於、聯絡等）</li>
+                <li>· 手機／平板／桌面響應式設計</li>
+                <li>· 基本 SEO 結構與提交 sitemap</li>
+                <li>· 聯絡表單＋WhatsApp 入口</li>
+                <li>· 後台可自行改文字與圖片</li>
+              </ul>
+              <p className="text-xs text-gray-400 mt-4">適合：以展示與查詢為主，不需要會員或交易</p>
+            </div>
+
+            <div className="rounded-2xl border-2 border-[#0f4c81] p-7 flex flex-col relative">
+              <span className="absolute -top-3 left-7 bg-[#0f4c81] text-white text-[10px] font-bold px-3 py-1 rounded-full">最常選</span>
+              <p className="text-xs font-semibold text-gray-400 mb-2">類型二</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-1">功能型網站</h3>
+              <p className="text-3xl font-black text-[#0f4c81] mb-4">約 HK$10,000 起</p>
+              <ul className="space-y-2 text-sm text-gray-600 flex-1">
+                <li>· 形象網站的內容 ＋ 互動功能</li>
+                <li>· 會員註冊／登入、權限分級</li>
+                <li>· 預約、報名或多步驟表單流程</li>
+                <li>· 多語系（中／英）</li>
+                <li>· 與現有系統對接（CRM、Google Sheet、API）</li>
+              </ul>
+              <p className="text-xs text-gray-400 mt-4">適合：需要收集資料、分流客戶或接內部系統</p>
+            </div>
+
+            <div className="rounded-2xl border border-gray-200 p-7 flex flex-col">
+              <p className="text-xs font-semibold text-gray-400 mb-2">類型三</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-1">電商網站</h3>
+              <p className="text-3xl font-black text-[#0f4c81] mb-4">HK$30,000 以上</p>
+              <ul className="space-y-2 text-sm text-gray-600 flex-1">
+                <li>· 購物車、結帳流程、訂單管理</li>
+                <li>· 金流：FPS、PayMe、信用卡（按支付商要求）</li>
+                <li>· 庫存、運費、優惠碼</li>
+                <li>· 會員與訂單通知（Email／WhatsApp）</li>
+                <li>· 商品頁 SEO 與結構化資料</li>
+              </ul>
+              <p className="text-xs text-gray-400 mt-4">適合：以線上交易為主，SKU 較多或需接物流</p>
+            </div>
+          </div>
+
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-7">
+            <h3 className="font-bold text-gray-900 mb-4">影響最終報價的六個因素</h3>
+            <div className="grid gap-3 sm:grid-cols-2 text-sm text-gray-600">
+              <p>1. <strong className="text-gray-800">功能數量</strong>——每加一個互動功能都涉及前後端與權限</p>
+              <p>2. <strong className="text-gray-800">系統整合</strong>——接金流、ERP、CRM 等，往往佔總價三至五成</p>
+              <p>3. <strong className="text-gray-800">內容量</strong>——頁數、語言版本、產品數量</p>
+              <p>4. <strong className="text-gray-800">設計定制度</strong>——用既有版型調整，或完全度身設計</p>
+              <p>5. <strong className="text-gray-800">舊站搬遷</strong>——301 轉址、SEO 保護、資料遷移</p>
+              <p>6. <strong className="text-gray-800">交付要求</strong>——文件、測試、培訓、上線協助</p>
+            </div>
+            <p className="mt-5 text-sm text-gray-500 leading-relaxed">
+              我們不會用低價接單然後逐項加錢。報價前會先確認功能清單與整合範圍，
+              並在報價單列明<strong className="text-gray-700">包含與不包含</strong>的項目。
+            </p>
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="text-gray-600 mb-5">想要一份按你需求計的實際報價？</p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Link
+                href="/contact/"
+                className="inline-flex items-center gap-2 bg-[#f5a623] text-white font-bold px-7 py-3.5 rounded-xl hover:bg-[#e09210] transition-colors"
+              >
+                索取報價 <ArrowRight size={18} />
+              </Link>
+              <Link
+                href="/delivery/"
+                className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 px-7 py-3.5 rounded-xl hover:bg-gray-50 transition-colors"
+              >
+                看交付流程與文件
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. Client Testimonials: 客戶評價增加信任 */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

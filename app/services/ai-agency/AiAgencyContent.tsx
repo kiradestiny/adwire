@@ -138,8 +138,8 @@ export default function AiAgencyContent() {
             香港 AI Agency · 定位與供應商選擇指南
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            不止為你投放廣告，<br className="hidden md:block" />
-            也協助你把 AI 真正落地
+            AI Agency 香港<br className="hidden md:block" />
+            由 AI 應用開發到跨部門落地
           </h1>
           <p className="text-lg text-slate-300 leading-relaxed max-w-3xl mb-8">
             ADWire Agency 同時具備軟件開發、AI 應用與數碼營銷的實作經驗。可以由業務問題出發，

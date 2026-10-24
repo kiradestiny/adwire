@@ -359,12 +359,11 @@ export default function ConsultingServiceContent() {
               </div>
 
               <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                把 AI 與系統
+                AI 與系統導入顧問
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5a623] to-amber-300">
-                  真正落地
+                  由診斷、選型到落地
                 </span>
-                到你的業務
               </h1>
 
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
