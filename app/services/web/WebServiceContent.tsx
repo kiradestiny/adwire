@@ -454,6 +454,89 @@ export default function WebServiceContent() {
             </p>
           </div>
 
+          {/* 按網站類型收費對照表 —— 對正 Google AI Overview 的答題結構 */}
+          <div className="mt-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-3">香港網頁設計收費對照表（按網站類型）</h3>
+            <p className="text-gray-600 mb-6 leading-relaxed max-w-3xl">
+              同一個「網站」，價錢可以由幾千到幾十萬。差別不在設計師的心情，而在<strong>功能、整合、內容量與交付要求</strong>。
+              下表把常見類型、起步價與「包啲咩、唔包啲咩」一次列清楚，方便你直接對照自己的情況。
+            </p>
+            <div className="overflow-x-auto rounded-2xl border border-gray-200">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50 text-gray-600">
+                  <tr>
+                    <th className="px-4 py-3 text-left font-semibold">網站類型</th>
+                    <th className="px-4 py-3 text-left font-semibold">起步價</th>
+                    <th className="px-4 py-3 text-left font-semibold">通常包含</th>
+                    <th className="px-4 py-3 text-left font-semibold">通常不包含</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100 text-gray-600">
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-gray-800">單頁／活動 Landing Page</td>
+                    <td className="px-4 py-3 whitespace-nowrap">低於形象網站<br /><span className="text-xs text-gray-400">按內容與表單複雜度報價</span></td>
+                    <td className="px-4 py-3">一頁式結構、一個轉換動作（填表或 WhatsApp）、手機版、基本 SEO</td>
+                    <td className="px-4 py-3">多語系、會員、內容撰寫與攝影</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-gray-800">形象／內容網站</td>
+                    <td className="px-4 py-3 whitespace-nowrap font-bold text-[#0f4c81]">HK$8,000 起</td>
+                    <td className="px-4 py-3">5–8 頁、響應式設計、基本技術 SEO、聯絡表單、後台可改內容</td>
+                    <td className="px-4 py-3">會員與交易功能、大量文案與相片</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-gray-800">功能型網站</td>
+                    <td className="px-4 py-3 whitespace-nowrap font-bold text-[#0f4c81]">約 HK$10,000 起</td>
+                    <td className="px-4 py-3">會員註冊與權限、預約或多步驟表單、多語系、與現有系統對接</td>
+                    <td className="px-4 py-3">完整交易流程、庫存與物流</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-gray-800">電商網站</td>
+                    <td className="px-4 py-3 whitespace-nowrap font-bold text-[#0f4c81]">HK$30,000 以上</td>
+                    <td className="px-4 py-3">購物車與結帳、金流、庫存、訂單、運費與優惠碼、商品頁 SEO</td>
+                    <td className="px-4 py-3">平台月費、支付手續費、物流合約費用</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-gray-800">系統／平台型（CRM、預約平台、內部系統）</td>
+                    <td className="px-4 py-3 whitespace-nowrap">另行報價</td>
+                    <td className="px-4 py-3">按功能模組、整合數量與資料遷移評估（見系統開發頁）</td>
+                    <td className="px-4 py-3">不適用 — 此類項目必須先梳理流程</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+              <div className="rounded-2xl border border-gray-200 p-6">
+                <h4 className="font-bold text-gray-900 mb-3">為什麼同一個「網站」可以差幾倍？</h4>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li>· <strong className="text-gray-800">套版 vs 度身設計</strong>：用現成主題改色，與完全按品牌重畫，是兩種工作量</li>
+                  <li>· <strong className="text-gray-800">功能數量</strong>：每加一個互動功能，都涉及前後端、權限與測試</li>
+                  <li>· <strong className="text-gray-800">系統整合</strong>：接金流、ERP、CRM，往往佔總價三至五成</li>
+                  <li>· <strong className="text-gray-800">內容量</strong>：頁數、語言版本、產品數量直接影響工時</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-gray-200 p-6">
+                <h4 className="font-bold text-gray-900 mb-3">三年總成本要計什麼（不只是開發費）</h4>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li>· <strong className="text-gray-800">開發</strong>：一次性，按上表範圍</li>
+                  <li>· <strong className="text-gray-800">主機</strong>：每年，視流量與方案（小型企業站一般每年約一千至數千港元）</li>
+                  <li>· <strong className="text-gray-800">網域</strong>：每年數百港元</li>
+                  <li>· <strong className="text-gray-800">保養</strong>：每年，含更新、備份、技術支援（可選）</li>
+                  <li>· <strong className="text-gray-800">第三方手續費</strong>：如收款，按交易額計，與網站開發無關</li>
+                </ul>
+                <p className="mt-3 text-xs text-gray-400 leading-relaxed">
+                  SSL 憑證多數可免費使用（由主機或 CDN 提供）；若需付費憑證會另行列明。
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-6 text-sm text-gray-500 leading-relaxed">
+              以上為起步範圍，實際報價視功能清單與整合範圍而定。我們會在報價單分項列明<strong className="text-gray-700">包含與不包含</strong>的項目，
+              不會先以低價接單、再逐項加錢。
+            </p>
+          </div>
+
           <div className="mt-10 text-center">
             <p className="text-gray-600 mb-5">想要一份按你需求計的實際報價？</p>
             <div className="flex flex-wrap gap-3 justify-center">
