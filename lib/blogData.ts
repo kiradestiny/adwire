@@ -149,22 +149,30 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：301 之後排名多久才恢復？</p>
-            <p class="text-gray-700">視乎爬蟲重新抓取的速度，常見是兩星期至兩個月。關鍵不是等，而是確保每條舊網址都有 301、新頁內容對得上，並且新 sitemap 已被提交。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">301 之後排名多久才恢復？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">視乎爬蟲重新抓取的速度，常見是兩星期至兩個月。關鍵不是等，而是確保每條舊網址都有 301、新頁內容對得上，並且新 sitemap 已被提交。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：舊網域可不可以直接放棄？</p>
-            <p class="text-gray-700">如果舊網域有外部連結與品牌搜尋，不應該放棄。保留舊網域並做全站 301，是最省成本保住排名的做法。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">舊網域可不可以直接放棄？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">如果舊網域有外部連結與品牌搜尋，不應該放棄。保留舊網域並做全站 301，是最省成本保住排名的做法。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：搬遷後流量短期下跌算不算正常？</p>
-            <p class="text-gray-700">輕微波動正常，但兩週內跌超過三成就不正常，通常代表有大批網址未正確轉址，應立即檢查 GSC 的 404 報告。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">搬遷後流量短期下跌算不算正常？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">輕微波動正常，但兩週內跌超過三成就不正常，通常代表有大批網址未正確轉址，應立即檢查 GSC 的 404 報告。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：可不可以同時換網域和換平台？</p>
-            <p class="text-gray-700">技術上可以，但風險加倍，因為出問題時難以判斷是網域還是平台造成。除非有明確理由，建議分兩階段做。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">可不可以同時換網域和換平台？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">技術上可以，但風險加倍，因為出問題時難以判斷是網域還是平台造成。除非有明確理由，建議分兩階段做。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、301 對照表的實際格式</h2>
@@ -338,18 +346,24 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：平台加價，一定代表要搬嗎？</p>
-            <p class="text-gray-700">不一定。要分清是「方案月費加價」還是「費率調整」。月費加幾十元影響有限；百分比費率上調，影響會隨營業額放大。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">平台加價，一定代表要搬嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定。要分清是「方案月費加價」還是「費率調整」。月費加幾十元影響有限；百分比費率上調，影響會隨營業額放大。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：自建之後，是不是所有費用變成固定？</p>
-            <p class="text-gray-700">不是。hosting、維護、安全更新仍然是持續成本，只是由「按營業額抽成」變成「按工作量計」。生意大幅成長時，自建的邊際成本確實較低。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">自建之後，是不是所有費用變成固定？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。hosting、維護、安全更新仍然是持續成本，只是由「按營業額抽成」變成「按工作量計」。生意大幅成長時，自建的邊際成本確實較低。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：可以只搬走一部分商品嗎？</p>
-            <p class="text-gray-700">可以，但要小心兩個系統的庫存同步，否則會出現超賣。除非有清楚的同步機制，否則建議整批處理。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">可以只搬走一部分商品嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但要小心兩個系統的庫存同步，否則會出現超賣。除非有清楚的同步機制，否則建議整批處理。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、五年對照：兩個情境</h2>
@@ -495,18 +509,24 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：自建網站的 SEO 一定比平台好嗎？</p>
-            <p class="text-gray-700">不一定。自建的優勢是「完全控制」，但控制不等於自動做好。技術 SEO 仍然要正確設定，內容仍然要寫。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">自建網站的 SEO 一定比平台好嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定。自建的優勢是「完全控制」，但控制不等於自動做好。技術 SEO 仍然要正確設定，內容仍然要寫。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：平台會不會限制我的成長？</p>
-            <p class="text-gray-700">在功能與流程上會。但如果你的業務是標準零售，平台的限制通常不會成為主要瓶頸，人才與行銷才是。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">平台會不會限制我的成長？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">在功能與流程上會。但如果你的業務是標準零售，平台的限制通常不會成為主要瓶頸，人才與行銷才是。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：搬遷後客戶要重新註冊嗎？</p>
-            <p class="text-gray-700">通常需要重設密碼，因為平台不會匯出密碼雜湊。應該提前通知客戶，並設定簡單的重設流程。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">搬遷後客戶要重新註冊嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">通常需要重設密碼，因為平台不會匯出密碼雜湊。應該提前通知客戶，並設定簡單的重設流程。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、三個典型商戶的實際選擇</h2>
@@ -535,6 +555,27 @@ export const blogPosts: BlogPost[] = [
           </ol>
         </div>
         <p>這三步做完，答案通常會很清楚——而你會發現，真正的決定因素往往不是價錢，而是<strong>你的業務流程是否標準</strong>。</p>
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">SHOPLINE 同 Shopify，邊個適合香港中小企？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">如果你的客戶主要在本地、需要本地支付（FPS、PayMe）與中文客服，SHOPLINE 較貼近需求；如果業務跨境、需要大量 App 擴充或配合海外市場，Shopify 較合適。核心差異是收費結構：SHOPLINE 有按營業額計的系統流量維護費，Shopify 則以月費加 App 月費為主。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">平台會唔會突然加價？我可以點預防？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">任何平台都可能調整收費，供應商無法保證不變。可以做的是：簽約前確認是月費還是按營業額計的百分比費、合約期內價格是否鎖定、以及加價的通知期。最有效的保險是確保資料可匯出、網域在自己名下——這樣即使加價，你仍然有選擇權。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">我已經開咗網店，可以中途搬去另一個平台嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但必須先處理三件事：全部商品與訂單匯出、每條舊網址的 301 對照表、以及金流重新申請或轉接。金流審批通常是最長的等待項，應該最先開始。會員密碼一般無法匯出，客戶需要重設密碼，這點要提前通知，否則會在搬遷期流失客戶。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -676,18 +717,24 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：網站幾年應該重做一次？</p>
-            <p class="text-gray-700">沒有固定年期。應該看五個訊號是否出現，而不是看年份。有些網站五年仍很有效，有些兩年就要換。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">網站幾年應該重做一次？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">沒有固定年期。應該看五個訊號是否出現，而不是看年份。有些網站五年仍很有效，有些兩年就要換。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：重做期間舊網站要關掉嗎？</p>
-            <p class="text-gray-700">不要。應該在新網站完成並在測試環境驗證後，才一次過切換，並保留舊站的轉址。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">重做期間舊網站要關掉嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不要。應該在新網站完成並在測試環境驗證後，才一次過切換，並保留舊站的轉址。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：重做後流量下跌怎麼辦？</p>
-            <p class="text-gray-700">先檢查 301 是否完整、新 sitemap 是否提交、是否有大量 404。九成情況下，問題出在網址對照而非內容品質。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">重做後流量下跌怎麼辦？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">先檢查 301 是否完整、新 sitemap 是否提交、是否有大量 404。九成情況下，問題出在網址對照而非內容品質。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、漸進式改版：只改三頁的方案</h2>
@@ -857,18 +904,24 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：Core Web Vitals 直接影響排名嗎？</p>
-            <p class="text-gray-700">它是排名因素之一，但權重低於內容相關性與連結。真正影響更大的是它對轉換率的影響——載入慢的頁面，查詢完成率會明顯下降。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Core Web Vitals 直接影響排名嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">它是排名因素之一，但權重低於內容相關性與連結。真正影響更大的是它對轉換率的影響——載入慢的頁面，查詢完成率會明顯下降。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：換主機會不會解決速度問題？</p>
-            <p class="text-gray-700">如果問題在主機回應時間，會。但如果問題在圖片大小與前端腳本，換主機不會有明顯改善。應該先量度，再決定。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">換主機會不會解決速度問題？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">如果問題在主機回應時間，會。但如果問題在圖片大小與前端腳本，換主機不會有明顯改善。應該先量度，再決定。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：技術債一定要全部還清嗎？</p>
-            <p class="text-gray-700">不需要，也不可能。應該優先處理「影響收入」與「影響改動速度」的部分，其餘可以接受並記錄在案。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">技術債一定要全部還清嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不需要，也不可能。應該優先處理「影響收入」與「影響改動速度」的部分，其餘可以接受並記錄在案。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、怎樣排技術債的優先次序</h2>
@@ -1053,22 +1106,30 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：報價是否包含之後的修改？</p>
-            <p class="text-gray-700">通常在設計確認前有一定的修改輪次，確認後的大改動會另行報價。簽約前應該問清楚「幾輪修改」與「什麼算大改」。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">報價是否包含之後的修改？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">通常在設計確認前有一定的修改輪次，確認後的大改動會另行報價。簽約前應該問清楚「幾輪修改」與「什麼算大改」。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：為什麼同一個功能，兩間公司報價差三倍？</p>
-            <p class="text-gray-700">通常是因為「同一個功能名稱，背後的規則不同」。應該要求雙方各自寫出這個功能的具體操作流程，再比較價錢。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">為什麼同一個功能，兩間公司報價差三倍？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">通常是因為「同一個功能名稱，背後的規則不同」。應該要求雙方各自寫出這個功能的具體操作流程，再比較價錢。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：可不可以分階段付款？</p>
-            <p class="text-gray-700">應該可以，而且建議這樣做。按里程碑付款讓你在每個階段都可以檢視進度，而不是到最後才發現方向錯了。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">可不可以分階段付款？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應該可以，而且建議這樣做。按里程碑付款讓你在每個階段都可以檢視進度，而不是到最後才發現方向錯了。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：便宜一點，功能少一點，是否可以？</p>
-            <p class="text-gray-700">可以，而且這是合理的做法。關鍵是減少「範圍」而不是減少「品質」——例如先做五頁而非十頁，而不是用更差的主機或省略測試。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">便宜一點，功能少一點，是否可以？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，而且這是合理的做法。關鍵是減少「範圍」而不是減少「品質」——例如先做五頁而非十頁，而不是用更差的主機或省略測試。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、三個真實預算情境</h2>
@@ -1103,6 +1164,34 @@ export const blogPosts: BlogPost[] = [
           </table>
         </div>
         <p>省錢的正確方向是<strong>減少範圍</strong>，不是<strong>降低品質</strong>。少做兩頁，比用便宜主機或省略手機版更明智。</p>
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">主機、網域、SSL 一年大約要幾多錢？係唔係包在報價內？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">通常不包在開發報價內。網域一般每年數百港元；主機視方案與流量而定，小型企業站每年約一千至數千港元；SSL 憑證多數可免費使用（例如由主機或 CDN 提供）。這些是每年持續支出，所以我們會分開列出，而不是混進一次性開發費，讓你能公平比較不同報價。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">網頁設計公司同 Freelancer 有咩分別？應該揀邊個？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">分別在於風險承擔與持續性。Freelancer 成本較低、溝通直接，但一旦對方停工、轉行或失聯，你未必有替代人手；公司則有團隊接手、有合約與保固，但收費較高。判斷方法：如果項目半年內完成、之後不需長期維護，Freelancer 合理；如果網站會持續演進、或涉及收款與客戶資料，公司模式的安全邊際較高。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">網站保養一年要幾錢？唔保養會點？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">保養費視系統規模與服務範圍而定，一般按年計，包含主機管理、更新、備份與技術支援。不保養的實際後果是：憑證到期會令網站顯示不安全、外掛或框架未更新會帶來安全風險、備份缺失會令一次故障變成無法復原。這些問題不會即時出現，但通常在一年內陸續發生。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">我只需要一個 landing page，可以做到嗎？價錢如何？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以。單頁 landing page 範圍最窄：一個目標、一組內容、一個轉換動作（例如填表或 WhatsApp）。因為頁數與功能少，成本低於形象網站，但同樣需要速度、手機版與基本 SEO，否則廣告帶來的流量會白白流失。如果你的目的是投放廣告收集查詢，這通常是最划算的第一步。</p>
+          </div>
+        </div>
+
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
           <ul class="space-y-2">
@@ -1258,18 +1347,24 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：一定要用最先進的模型嗎？</p>
-            <p class="text-gray-700">不一定。很多企業場景用較小的模型已足夠，成本低、速度快、資料處理更可控。應該先用最簡單的方案測試，達不到才升級。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">一定要用最先進的模型嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定。很多企業場景用較小的模型已足夠，成本低、速度快、資料處理更可控。應該先用最簡單的方案測試，達不到才升級。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：公司資料可以放入第三方模型嗎？</p>
-            <p class="text-gray-700">要先確認合約條款、資料是否用於訓練、存放地區。涉及個人資料時，需按 PDPO 評估並在 POC 階段就設計好處理方式，而不是上線前才補。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">公司資料可以放入第三方模型嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">要先確認合約條款、資料是否用於訓練、存放地區。涉及個人資料時，需按 PDPO 評估並在 POC 階段就設計好處理方式，而不是上線前才補。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：POC 需要 IT 部門參與嗎？</p>
-            <p class="text-gray-700">需要，至少要處理資料存取與權限。由業務部門單獨推行的 POC，最常見的結局是「示範很好，但接不上正式系統」。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">POC 需要 IT 部門參與嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">需要，至少要處理資料存取與權限。由業務部門單獨推行的 POC，最常見的結局是「示範很好，但接不上正式系統」。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、POC 的資源配置</h2>
@@ -1443,18 +1538,24 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：Next.js 網站是否一定比 WordPress 快？</p>
-            <p class="text-gray-700">不一定。速度快慢主要取決於圖片大小、第三方腳本與主機，而不是框架。WordPress 做得好的話，核心網頁指標同樣可以達標。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">Next.js 網站是否一定比 WordPress 快？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定。速度快慢主要取決於圖片大小、第三方腳本與主機，而不是框架。WordPress 做得好的話，核心網頁指標同樣可以達標。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：WordPress 會不會容易被駭？</p>
-            <p class="text-gray-700">風險主要來自過期外掛與弱密碼。做好更新、權限控制與備份，風險可以大幅降低；但公開後台本身確實比純靜態網站多一個攻擊面。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">WordPress 會不會容易被駭？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">風險主要來自過期外掛與弱密碼。做好更新、權限控制與備份，風險可以大幅降低；但公開後台本身確實比純靜態網站多一個攻擊面。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：可不可以先用 WordPress，日後再轉 Next.js？</p>
-            <p class="text-gray-700">可以，而且很常見。關鍵是前期把網址結構與內容架構整理好，日後轉換時 301 對照表會簡單得多。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">可不可以先用 WordPress，日後再轉 Next.js？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，而且很常見。關鍵是前期把網址結構與內容架構整理好，日後轉換時 301 對照表會簡單得多。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、由 WordPress 轉 Next.js 的實際步驟</h2>
@@ -1627,22 +1728,30 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：可不可以先做網頁版，之後才做 App？</p>
-            <p class="text-gray-700">很多情況下這是更明智的順序。網頁版上線快、改動成本低、不需要商店審核，可以先驗證需求，再決定是否投入原生 App。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">可不可以先做網頁版，之後才做 App？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">很多情況下這是更明智的順序。網頁版上線快、改動成本低、不需要商店審核，可以先驗證需求，再決定是否投入原生 App。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：跨平台框架會不會影響體驗？</p>
-            <p class="text-gray-700">對大多數業務型 App 影響很小。只有在高效能需求（例如大量動畫、影像處理、遊戲）時，原生才有明顯優勢。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">跨平台框架會不會影響體驗？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">對大多數業務型 App 影響很小。只有在高效能需求（例如大量動畫、影像處理、遊戲）時，原生才有明顯優勢。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：上架後是否就完成？</p>
-            <p class="text-gray-700">不是。系統要跟隨 iOS 與 Android 的年度更新、商店政策變動、憑證到期。這是持續成本，應該在預算內預留。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">上架後是否就完成？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。系統要跟隨 iOS 與 Android 的年度更新、商店政策變動、憑證到期。這是持續成本，應該在預算內預留。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：怎樣判斷報價是否合理？</p>
-            <p class="text-gray-700">看報價單是否把功能、整合、設計、測試、上架分開列出。只有一個總數而沒有分項的報價，日後加價與爭議的空間最大。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">怎樣判斷報價是否合理？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">看報價單是否把功能、整合、設計、測試、上架分開列出。只有一個總數而沒有分項的報價，日後加價與爭議的空間最大。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、上架審核的實際要求</h2>
@@ -1819,18 +1928,24 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：前供應商不肯交出源碼怎麼辦？</p>
-            <p class="text-gray-700">先看合約是否列明源碼與帳號擁有權。實務上，如果資料與網域在你手上，即使沒有源碼，仍然可以重建；最壞情況是重寫，但不能接受的是資料被扣住。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">前供應商不肯交出源碼怎麼辦？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">先看合約是否列明源碼與帳號擁有權。實務上，如果資料與網域在你手上，即使沒有源碼，仍然可以重建；最壞情況是重寫，但不能接受的是資料被扣住。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：重寫會不會失去現有 SEO？</p>
-            <p class="text-gray-700">不會，只要網址結構與 301 對照表處理好。真正會失去排名的是「換網址但不做轉址」，而不是重寫本身。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">重寫會不會失去現有 SEO？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不會，只要網址結構與 301 對照表處理好。真正會失去排名的是「換網址但不做轉址」，而不是重寫本身。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：接手後多快可以恢復正常？</p>
-            <p class="text-gray-700">核心流程通常 72 小時內可以穩定；完整修復視系統規模，一般需要四至十二星期。任何承諾「一星期全部修好」的方案，都值得懷疑。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">接手後多快可以恢復正常？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">核心流程通常 72 小時內可以穩定；完整修復視系統規模，一般需要四至十二星期。任何承諾「一星期全部修好」的方案，都值得懷疑。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、接手成本的三種情境</h2>
@@ -2014,18 +2129,24 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">七、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：為什麼不能先做一個「差不多」的版本再報價？</p>
-            <p class="text-gray-700">因為「差不多」在系統開發中沒有定義。沒有範圍文件的報價，最後一定變成無止境討論，對雙方都不利。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">為什麼不能先做一個「差不多」的版本再報價？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">因為「差不多」在系統開發中沒有定義。沒有範圍文件的報價，最後一定變成無止境討論，對雙方都不利。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：報價最低的一定最划算嗎？</p>
-            <p class="text-gray-700">不是。低價通常代表範圍較窄、假設較多、或後續收費項目較多。應該比較「同等範圍下的總成本」，而不是比較總數。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">報價最低的一定最划算嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不是。低價通常代表範圍較窄、假設較多、或後續收費項目較多。應該比較「同等範圍下的總成本」，而不是比較總數。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：可不可以自己找設計，只外包開發？</p>
-            <p class="text-gray-700">可以，但要有人負責設計與開發之間的規格對接。沒有對接人，設計稿會被反覆解讀，最終兩邊都不滿意。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">可不可以自己找設計，只外包開發？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但要有人負責設計與開發之間的規格對接。沒有對接人，設計稿會被反覆解讀，最終兩邊都不滿意。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、三份報價單怎樣比較（實例框架）</h2>
@@ -2203,18 +2324,24 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
         <div class="space-y-4 my-6">
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：外判會不會比較沒有保障？</p>
-            <p class="text-gray-700">保障來自合約條款與交付機制，不是來自「是不是自己人」。要求源碼、文件、分段驗收與保固，比有沒有全職員工更實際。</p>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">外判會不會比較沒有保障？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">保障來自合約條款與交付機制，不是來自「是不是自己人」。要求源碼、文件、分段驗收與保固，比有沒有全職員工更實際。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：先外判，日後再自建可行嗎？</p>
-            <p class="text-gray-700">可行，而且常見。關鍵是前期把架構與文件處理好，否則日後接手成本會非常高。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">先外判，日後再自建可行嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可行，而且常見。關鍵是前期把架構與文件處理好，否則日後接手成本會非常高。</p>
           </div>
-          <div class="border-l-4 border-[#0f4c81] pl-4">
-            <p class="font-semibold text-gray-800">Q：一位工程師可以支撐一個系統嗎？</p>
-            <p class="text-gray-700">短期可以，長期風險很高：一旦離職、休假或生病，系統就沒有第二個人能處理。至少要有人可以接手。</p>
+        </div>
+          <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">一位工程師可以支撐一個系統嗎？</p>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">短期可以，長期風險很高：一旦離職、休假或生病，系統就沒有第二個人能處理。至少要有人可以接手。</p>
           </div>
+        </div>
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">九、混合團隊的實際運作節奏</h2>
