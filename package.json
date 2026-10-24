@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postbuild": "node scripts/check-site-output.mjs --selftest && node scripts/check-site-output.mjs && npm test",
+    "postbuild": "node scripts/gen-rsc-redirects.mjs && node scripts/check-site-output.mjs --selftest && node scripts/check-site-output.mjs && npm test",
     "check:output": "node scripts/check-site-output.mjs",
     "test": "node --experimental-strip-types tests/assessment.test.ts && node --experimental-strip-types tests/form-submission.test.ts && node tests/mobile-paint-source.test.mjs && node --experimental-strip-types tests/blog-mobile-glow.test.ts && node --experimental-strip-types tests/blog-canonical.test.ts"
   },

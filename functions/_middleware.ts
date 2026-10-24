@@ -21,8 +21,19 @@
  */
 
 interface Env {
-  /** SiteGround origin（可在 Pages 環境變數覆寫，方便 staging 指向 staging origin） */
+  /**
+   * SiteGround origin 主機名（預設 https://adwire.com.hk）。
+   * ⚠️ 切換 DNS 之後 adwire.com.hk 會指向 Cloudflare 自己，直接 fetch 會無限迴圈，
+   * 所以正式上線時必須設成一個仍然指向 SiteGround 的主機，例如
+   * https://origin.adwire.com.hk（需在 SiteGround 加入為附屬網域）。
+   */
   ORIGIN_BASE?: string;
+  /**
+   * 可選：直接指定 origin IP（配合 Workers 的 resolveOverride）。
+   * 好處：唔需要動 SiteGround 面板加子網域。
+   * 壞處：SiteGround 換 IP 就要更新（所以預設唔用）。
+   */
+  ORIGIN_IP?: string;
 }
 
 const PROXY_PATHS = [/^\/admin(\/|$)/, /^\/api(\/|$)/, /^\/send-mail\.php$/];
@@ -70,7 +81,12 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
     init.duplex = "half";
   }
 
-  const upstream = await fetch(target.toString(), init);
+  // resolveOverride：保留 Host／SNI（正確 vhost），但把 DNS 解析強制指去指定 IP。
+  // 只在設定了 ORIGIN_IP 時使用，否則走正常 DNS。
+  const upstream = await fetch(target.toString(), {
+    ...init,
+    ...(env.ORIGIN_IP ? { cf: { resolveOverride: env.ORIGIN_IP } } : {}),
+  } as RequestInit);
 
   // 回傳 origin 的回應，但修正兩個 header：
   //   - 保留 set-cookie（登入狀態）
