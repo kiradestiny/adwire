@@ -1,153 +1,294 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Megaphone, Smartphone, BarChart3, Bot, Globe,
+  Search, Code, Camera, Share2, ArrowRight, ChevronDown,
+  Cpu, MapPin, Building2, Sparkles
+} from "lucide-react";
 import Link from "next/link";
-import { ArrowRight, Workflow, Search, Code } from "lucide-react";
+import { useState } from "react";
 
-/**
- * Services — 首頁服務區
- *
- * 2026-10-25 重寫（依第二輪內容及視覺審查）：
- *   原本 4 張主卡 + 9 張「其他服務」卡（13 個入口、每張一種顏色），
- *   客戶睇完唔知我哋主力做乜。負責人確認定位：
- *     主力：AI 應用及流程自動化（度身寫工具／系統，加快流程、減少人手）
- *     主打：SEO 及 GEO
- *     配套：其餘營銷服務
- *   所以改為「三條主線」+ 一行配套連結；全部原有服務 URL 保留。
- *   文案以客戶問題開頭，技術名詞留返服務頁講。
- */
-
-const MAIN_LINES = [
-  {
-    icon: Workflow,
-    label: "主力服務",
-    title: "AI 應用及流程自動化",
-    problem: "同事每天重複抄資料、回覆 WhatsApp、核對單據，人手越請越多？",
-    points: [
-      "度身開發 AI 工具：查詢自動分類及回覆、文件及發票資料擷取、內部知識庫",
-      "連接現有系統：CRM、ERP、Google Sheets、WhatsApp、電郵",
-      "保留人工覆核，出錯即時通知，不會無聲失敗",
-    ],
-    links: [
-      { href: "/services/ai/", label: "AI 解決方案" },
-      { href: "/services/automation/", label: "企業流程自動化" },
-      { href: "/services/ai-agency/", label: "AI Agency 服務" },
-    ],
-  },
+/* 主要服務線（按新定位排序：SEO & GEO → AI & Automation → Software）
+   為何 SEO 行先：負責人指示「主要都係想做返 SEO、AI 搜尋等等嘅工作為主」，
+   與 /services/ 服務總覽的排序保持一致。 */
+const coreServices = [
   {
     icon: Search,
-    label: "主打服務",
-    title: "SEO 及 GEO 搜尋優化",
-    problem: "客戶在 Google 或 ChatGPT 搜尋你的行業，卻找不到你？",
-    points: [
-      "技術 SEO、關鍵字及搜尋意圖規劃、內容優化",
-      "GEO：令品牌資料喺 ChatGPT、Perplexity、Google AI 搜尋可以被引用",
-      "以曝光、點擊及查詢量交代成效，不承諾排名",
-    ],
-    links: [{ href: "/services/seo/", label: "SEO 與 GEO 優化" }],
+    title: "SEO & GEO",
+    desc: "技術 SEO、關鍵字及搜尋意圖規劃、內容優化，並將搜尋曝光延伸到 AI 問答搜尋。以曝光、點擊、索引健康及查詢轉換作為量度指標。",
+    link: "/services/seo",
+    color: "bg-cyan-500",
+    textColor: "text-cyan-500",
+    bgLight: "bg-cyan-50",
+    border: "border-cyan-100"
+  },
+  {
+    icon: Cpu,
+    title: "AI & Automation",
+    desc: "AI 應用、企業知識庫（RAG）、AI Agent 及工作流程自動化，並與 CRM／ERP 或現有系統整合。包含人工覆核、失敗重試及監控日誌。",
+    link: "/services/ai",
+    color: "bg-indigo-500",
+    textColor: "text-indigo-500",
+    bgLight: "bg-indigo-50",
+    border: "border-indigo-100"
   },
   {
     icon: Code,
-    label: "主力服務",
-    title: "軟件、系統及網站開發",
-    problem: "現成平台不夠用，或幾個系統各自為政？",
-    points: [
-      "內部系統、Web App、手機 App、MVP 及 API 整合",
-      "企業網站、電商網站及 Landing Page",
-      "由需求分析、開發、測試到上線及維護，文件齊全",
-    ],
-    links: [
-      { href: "/services/system/", label: "系統及 App 開發" },
-      { href: "/services/web/", label: "網頁設計及電商" },
-      { href: "/services/web/#pricing", label: "網頁設計收費" },
-    ],
+    title: "Software Development",
+    desc: "企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合。由需求分析、Prototype、開發、測試到部署、文件及上線後維護。",
+    link: "/services/system",
+    color: "bg-blue-500",
+    textColor: "text-blue-500",
+    bgLight: "bg-blue-50",
+    border: "border-blue-100"
   },
+  {
+    icon: Sparkles,
+    title: "AI Agency",
+    desc: "把 AI 應用開發與數碼營銷放在同一隊：由業務問題出發，決定應該用 AI 解決流程問題，還是用營銷手段帶來查詢。說明交付範圍、收費方式、風險及人工覆核安排。",
+    link: "/services/ai-agency",
+    color: "bg-fuchsia-500",
+    textColor: "text-fuchsia-500",
+    bgLight: "bg-fuchsia-50",
+    border: "border-fuchsia-100"
+  }
 ];
 
-const SUPPORTING = [
-  { href: "/services/ads/", label: "成效廣告投放" },
-  { href: "/services/social/", label: "社交媒體管理" },
-  { href: "/services/video/", label: "短視頻製作" },
-  { href: "/services/kol/", label: "KOL 網紅營銷" },
-  { href: "/services/production/", label: "商業攝影" },
-  { href: "/services/china-market/", label: "中國市場推廣" },
-  { href: "/services/hong-kong-market/", label: "香港市場在地化推廣" },
-  { href: "/services/consulting/", label: "企業顧問服務" },
-  { href: "/services/education/", label: "學校及教育機構" },
-  { href: "/services/healthcare/", label: "診所及醫療機構" },
+/* Digital Marketing 及原有服務（全部保留） */
+const otherServices = [
+  {
+    icon: Megaphone,
+    title: "KOL 網紅營銷",
+    desc: "按品牌定位及預算配對 KOL 層級，由篩選、內容監修到成效追蹤。",
+    link: "/services/kol",
+    color: "text-orange-600",
+    bg: "bg-orange-100"
+  },
+  {
+    icon: Smartphone,
+    title: "短視頻製作",
+    desc: "劇本、拍攝及剪輯；列明腳本、拍攝日數、剪輯版本、字幕及交片時間。",
+    link: "/services/video",
+    color: "text-blue-600",
+    bg: "bg-blue-100"
+  },
+  {
+    icon: BarChart3,
+    title: "成效廣告投放",
+    desc: "Google、Meta、YouTube 及 LinkedIn 廣告策略與持續優化，服務費與媒體預算分開計算。",
+    link: "/services/ads",
+    color: "text-green-600",
+    bg: "bg-green-100"
+  },
+  {
+    icon: Share2,
+    title: "社交媒體管理",
+    desc: "IG / FB 專頁代營運，內容創作、排程發佈、粉絲互動一站式管理。",
+    link: "/services/social",
+    color: "text-pink-600",
+    bg: "bg-pink-100"
+  },
+  {
+    icon: Bot,
+    title: "企業流程自動化",
+    desc: "將重複工序自動化並連接現有系統，包含人工覆核、失敗重試及錯誤通知。",
+    link: "/services/automation",
+    color: "text-purple-600",
+    bg: "bg-purple-100"
+  },
+  {
+    icon: Globe,
+    title: "網頁設計及電商",
+    desc: "企業官網、電商網站及 Landing Page，按項目評估 CMS、WordPress／Shopify 或 Next.js／React。",
+    link: "/services/web",
+    color: "text-indigo-600",
+    bg: "bg-indigo-100"
+  },
+  {
+    icon: Camera,
+    title: "商業攝影",
+    desc: "企業宣傳片、活動錄影及產品攝影，列明拍攝時數、成品數量及使用權。",
+    link: "/services/production",
+    color: "text-rose-600",
+    bg: "bg-rose-100"
+  },
+  {
+    icon: MapPin,
+    title: "中國市場推廣",
+    desc: "香港品牌進入內地：小紅書、抖音、微信、微博、百度，以及美團／大眾點評／高德地圖與內地 AI 平台（DeepSeek、豆包、Kimi）的可見度。",
+    link: "/services/china-market",
+    color: "text-red-600",
+    bg: "bg-red-100"
+  },
+  {
+    icon: Building2,
+    title: "香港市場在地化推廣",
+    desc: "內地及海外品牌來港：由用語轉換、內容重寫到媒體與 KOL 選擇，用香港的語言與文化落地，而不是把原有文案直接搬過來。",
+    link: "/services/hong-kong-market",
+    color: "text-teal-600",
+    bg: "bg-teal-100"
+  }
 ];
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
 
 export default function Services() {
+  // 2026-09-24：初始 true —— 手機默認展開「其他服務」，令內容喺 SSR HTML
+  // 就可見（唔再係 opacity:0;height:0）。用戶仍可撳掣收起。
+  const [showAll, setShowAll] = useState(true);
+
   return (
-    <section id="services" className="bg-[#f7f8fa] py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold tracking-wide text-[#b7791f]">服務</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            我們主要做三件事
-          </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            由同一個團隊負責需求分析、開發及上線，不用在幾間供應商之間傳話。
-          </p>
+    <section className="py-24 bg-white" id="services">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="text-center mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-[#f5a623] font-bold tracking-wider uppercase text-sm block mb-2" data-mobile-visible="true"
+          >
+            Our Expertise
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl font-bold text-[#0f4c81] mb-4" data-mobile-visible="true"
+          >
+            全方位數碼營銷解決方案
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-500 text-lg max-w-2xl mx-auto" data-mobile-visible="true"
+          >
+            以 SEO 及 AI 搜尋可見度為核心，配合網站開發、AI 應用、內容製作與跨境市場推廣，助你在客戶搜尋的那一刻出現。
+          </motion.p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {MAIN_LINES.map(({ icon: Icon, label, title, problem, points, links }) => (
-            <article
-              key={title}
-              className="flex flex-col rounded-2xl border border-slate-200 bg-white p-7 md:p-8"
+        {/* 1. 核心業務 (Bento Grid / Highlighted) */}
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12" data-mobile-visible="true"
+        >
+          {coreServices.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={item} data-mobile-visible="true"
+              whileHover={{ y: -10 }}
+              className={`relative group rounded-3xl p-8 border-2 ${service.border} ${service.bgLight} overflow-hidden transition-all duration-300 hover:shadow-xl`}
             >
-              <div className="flex items-center justify-between">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0f4c81]/[0.07] text-[#0f4c81]">
-                  <Icon size={22} />
-                </span>
-                <span className="text-xs font-medium text-slate-400">{label}</span>
+              {/* 裝飾背景 */}
+              <div className={`absolute top-0 right-0 w-40 h-40 rounded-full opacity-10 -mr-10 -mt-10 transition-transform duration-500 group-hover:scale-150 ${service.color}`} />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg ${service.color} group-hover:scale-110 transition-transform duration-300`}>
+                  <service.icon size={32} />
+                </div>
+                
+                <h3 className={`text-2xl font-bold mb-4 ${service.textColor}`}>
+                  {service.title}
+                </h3>
+                
+                <p className="text-gray-600 leading-relaxed mb-8 flex-grow">
+                  {service.desc}
+                </p>
+                
+                <Link 
+                  href={service.link} 
+                  className={`inline-flex items-center font-bold ${service.textColor} group-hover:gap-2 transition-all`}
+                >
+                  了解更多 <ArrowRight size={20} className="ml-1" />
+                </Link>
               </div>
-              <h3 className="mt-6 text-xl font-bold text-slate-900">{title}</h3>
-              <p className="mt-3 font-medium text-slate-700">{problem}</p>
-              <ul className="mt-5 flex-1 space-y-2.5 border-t border-slate-100 pt-5">
-                {points.map((p) => (
-                  <li key={p} className="flex gap-2.5 text-[15px] leading-relaxed text-slate-600">
-                    <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-slate-400" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
-                {links.map((l) => (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    prefetch={false}
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#0f4c81] hover:underline underline-offset-4"
-                  >
-                    {l.label} <ArrowRight size={14} />
-                  </Link>
-                ))}
-              </div>
-            </article>
+            </motion.div>
           ))}
+        </motion.div>
+
+        {/* 2. 其他服務 (Grid) - Mobile Toggle
+            2026-09-24：改為手機默認展開（showAll 初始 true）+ initial={false}。
+            原本 initial={{opacity:0,height:0}} 會令 SSR HTML 寫死
+            `opacity:0;height:0`，即手機（Google 用 mobile-first 索引）同
+            唔行 JS 的 AI crawler 完全睇唔到呢組服務內容。改動只影響初始狀態，
+            用戶仍然可以撳「收起其他服務」收埋。 */}
+        <motion.div 
+          initial={false}
+          animate={{ 
+            opacity: showAll ? 1 : 0,
+            height: showAll ? "auto" : 0
+          }}
+          // Desktop 永遠顯示，Mobile 根據 showAll 狀態
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden md:!h-auto md:!opacity-100`}
+        >
+          {otherServices.map((service, index) => (
+            <div
+              key={index}
+              className="group bg-gray-50 rounded-2xl p-6 hover:bg-white hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-100"
+            >
+              <div className="flex items-start gap-4">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${service.bg} ${service.color}`}>
+                  <service.icon size={24} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#0f4c81] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-3">
+                    {service.desc}
+                  </p>
+                  <Link 
+                    href={service.link} 
+                    className="text-sm font-semibold text-gray-400 group-hover:text-[#f5a623] flex items-center gap-1 transition-colors"
+                  >
+                    詳情 <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Mobile Show More Button */}
+        <div className="mt-8 text-center md:hidden">
+          <button 
+            onClick={() => setShowAll(!showAll)}
+            className="inline-flex items-center gap-2 text-[#0f4c81] font-semibold text-sm px-6 py-3 rounded-full border border-gray-200 hover:bg-gray-50 transition-all"
+          >
+            {showAll ? "收起其他服務" : "查看更多服務"}
+            <ChevronDown size={16} className={`transition-transform duration-300 ${showAll ? "rotate-180" : ""}`} />
+          </button>
         </div>
 
-        <div className="mt-10 rounded-2xl border border-dashed border-slate-300 px-6 py-5">
-          <p className="text-sm font-semibold text-slate-700">配套服務</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {SUPPORTING.map((s) => (
-              <Link
-                key={s.href}
-                href={s.href}
-                prefetch={false}
-                className="rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-sm text-slate-600 transition-colors hover:border-[#0f4c81]/40 hover:text-[#0f4c81]"
-              >
-                {s.label}
-              </Link>
-            ))}
-            <Link
-              href="/services/"
-              prefetch={false}
-              className="inline-flex items-center gap-1 px-2 py-1.5 text-sm font-semibold text-[#0f4c81]"
-            >
-              全部服務 <ArrowRight size={14} />
-            </Link>
-          </div>
+        <div className="mt-16 text-center hidden md:block">
+          <Link 
+            href="#contact" 
+            className="inline-flex items-center justify-center px-8 py-4 bg-[#0f4c81] text-white font-bold rounded-full hover:bg-[#0a355c] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+          >
+            預約免費諮詢
+          </Link>
         </div>
+
       </div>
     </section>
   );

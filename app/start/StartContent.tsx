@@ -118,20 +118,13 @@ export default function StartContent() {
       {/* 進度：分支長度不同時會更新，不寫死題數 */}
       {!showResult && (
         <div className="mb-4">
-          {/* 未答第一題前，分支未定，getQuestions 只回傳 1 題；
-              原本會顯示「第 1 題／共 1 題」+ 滿格進度條，答完先發現仲有題目。
-              分支未定時改為顯示預計題數（2–5 題），進度按最長分支計。 */}
           <p className="text-sm font-medium text-[#0f4c81]" aria-live="polite">
-            {answers.goal
-              ? `第 ${Math.min(stepIndex + 1, total)} 題／共 ${total} 題`
-              : "第 1 題（全部約 2–5 題）"}
+            第 {Math.min(stepIndex + 1, total)} 題／共 {total} 題
           </p>
           <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-slate-200">
             <div
-              className="h-full rounded-full bg-[#0f4c81] transition-[width] duration-300 motion-reduce:transition-none"
-              style={{
-                width: `${(Math.min(stepIndex + 1, total) / (answers.goal ? total : 5)) * 100}%`,
-              }}
+              className="h-full rounded-full bg-[#f5a623] transition-[width] duration-300 motion-reduce:transition-none"
+              style={{ width: `${(Math.min(stepIndex + 1, total) / total) * 100}%` }}
             />
           </div>
         </div>

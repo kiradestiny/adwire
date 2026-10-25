@@ -302,11 +302,13 @@ export default function AboutContent() {
             </motion.div>
           </div>
 
-          {/* 2026-10-25：原本係 AI 生成嘅「團隊／客戶會議」相，負責人唔會公開真團隊及辦公室相，
-              用假人物相會令人以為係真團隊，改為純文字重點句。 */}
-          <p className="mt-12 max-w-3xl border-l-2 border-[#0f4c81] pl-5 text-lg leading-relaxed text-slate-700">
-            ADWire 以精簡核心團隊配合按項目協作的模式運作，由同一位項目負責人跟進整個交付過程。
-          </p>
+          <ServiceImage
+            src="/about/about-team-working-hong-kong-office.webp"
+            alt="ADWire 團隊在香港辦公室與客戶一同檢視項目文件"
+            caption="ADWire 以精簡核心團隊配合按項目協作的模式運作，由同一位項目負責人跟進整個交付過程。"
+            width={1600}
+            height={900}
+          />
         </div>
       </section>
 
@@ -367,11 +369,13 @@ export default function AboutContent() {
             })}
           </div>
 
-          {/* 2026-10-25：原本係 AI 生成嘅「團隊／客戶會議」相，負責人唔會公開真團隊及辦公室相，
-              用假人物相會令人以為係真團隊，改為純文字重點句。 */}
-          <p className="mt-12 max-w-3xl border-l-2 border-[#0f4c81] pl-5 text-lg leading-relaxed text-slate-700">
-            每個項目在報價前都會先確認範圍與交付物，把口頭共識寫成書面文件。
-          </p>
+          <ServiceImage
+            src="/about/about-client-workshop-meeting.webp"
+            alt="ADWire 與客戶進行需求工作坊，在白板前討論流程"
+            caption="每個項目在報價前都會先確認範圍與交付物，把口頭共識寫成書面文件。"
+            width={1600}
+            height={900}
+          />
         </div>
       </section>
 

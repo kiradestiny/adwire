@@ -66,7 +66,7 @@ export const portfolioCases: PortfolioCase[] = [
   {
     id: 1,
     slug: "cafe-reels-viral",
-    title: "隱世啡客爆紅實錄",
+    title: "隱世 Cafe 爆紅實錄",
     category: "KOL & Video",
     displayCategory: "KOL x 短視頻",
     industry: "餐飲 F&B",
@@ -75,7 +75,7 @@ export const portfolioCases: PortfolioCase[] = [
     shortDescription:
       "透過 3 條劇情式 Reels 短片，配合 5 位微網紅 (Micro-Influencers) 同步探店，一星期內引爆流量。",
     fullDescription:
-      "深水埗一間主打「工業風」的咖啡店（應客戶要求以「隱世啡客」代稱），開業半年仍乏人問津。業主嘗試過 Google 廣告，但預算有限、效果一般。我們接手後，採用「故事驅動內容」策略，把 Café 的獨特美學轉化為一系列劇情短片，並同步啟動微網紅矩陣，成功在一週內登上 IG 探索頁，引爆預約潮。",
+      "深水埗一間主打「工業風」的隱世 Café，開業半年仍乏人問津。業主嘗試過 Google 廣告，但預算有限、效果一般。我們接手後，採用「故事驅動內容」策略，把 Café 的獨特美學轉化為一系列劇情短片，並同步啟動微網紅矩陣，成功在一週內登上 IG 探索頁，引爆預約潮。",
     challenge:
       "客戶位於非核心地段，品牌知名度接近零，月廣告預算不足 HK$5,000，需要以最低成本達到最大曝光效果，同時吸引的必須是「真實消費用戶」而非純粹的刷流量。",
     solution:
@@ -99,7 +99,7 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "真係唔敢相信，三條片就改變晒我個 cafe 嘅命運。第一個週末就座無虛席，仲要有人排隊！ADWire 完全明白我想要嘅係咩。",
-      author: "隱世啡客店主",
+      author: "本地 Cafe 品牌",
       role: "創辦人",
       company: "餐飲 F&B",
     },
@@ -108,26 +108,26 @@ export const portfolioCases: PortfolioCase[] = [
     accentColor: "#f43f5e",
     tags: ["Reels", "TikTok", "F&B"],
     image: "/portfolio/cafe-reels.webp",
-    alt: "隱世啡客爆紅實錄 - KOL x 短視頻 成功案例 Hong Kong",
-    seoTitle: "隱世啡客爆紅實錄 | Reels 短視頻 KOL 營銷",
+    alt: "隱世 Cafe 爆紅實錄 - KOL x 短視頻 成功案例 Hong Kong",
+    seoTitle: "隱世 Cafe 爆紅實錄 | Reels 短視頻 KOL 營銷",
     seoDescription:
-      "深水埗隱世啡客透過 3 條劇情 Reels + 5 位微網紅同步爆發，首週播放 180K+，每週新增 30+ 桌客源。全程預算低於 HK$5,000，ROI 超越傳統廣告 10 倍。",
+      "深水埗隱世 Cafe 透過 3 條劇情 Reels + 5 位微網紅同步爆發，首週播放 180K+，每週新增 30+ 桌客源。全程預算低於 HK$5,000，ROI 超越傳統廣告 10 倍。",
   },
 
   // ─── 2. 網店自動化 ────────────────────────────────────────
   {
     id: 2,
     slug: "ecommerce-automation",
-    title: "MIKI HOUSE 網店客服自動化",
+    title: "100% 網店自動化",
     category: "Ads & Automation",
     displayCategory: "Ads x Automation",
     industry: "電商 E-Commerce",
     duration: "6 週",
     services: ["Chatbot 開發", "WhatsApp API 整合", "Facebook Ads 優化", "訂單追蹤系統"],
     shortDescription:
-      "為 MIKI HOUSE 香港引入 Chatbot 自動回覆與追單系統，解決人手不足問題，同時優化 Facebook 廣告受眾。",
+      "為韓國童裝品牌引入 Chatbot 自動回覆與追單系統，解決人手不足問題，同時優化 Facebook 廣告受眾。",
     fullDescription:
-      "日本童裝品牌 MIKI HOUSE 的香港網店，主理香港及台灣市場，每月處理 2,000+ 訂單，但只有 2 名客服人員負責 WhatsApp、IG DM 及電郵三線同時回覆，人員常常超時工作，回覆延誤導致購物車放棄率高達 40%。ADWire 為其設計全套自動化客戶服務流程，配合廣告優化，同期提升轉化效率。",
+      "一個主理香港及台灣市場的韓國童裝代理品牌，每月處理 2,000+ 訂單，但只有 2 名客服人員負責 WhatsApp、IG DM 及電郵三線同時回覆，人員常常超時工作，回覆延誤導致購物車放棄率高達 40%。ADWire 為其設計全套自動化客戶服務流程，配合廣告優化，同期提升轉化效率。",
     challenge:
       "業務規模急速擴張但人力資源無法同步增加，客服工作佔用大量時間卻低值重覆（追件、查貨、退換貨流程）；Facebook 廣告 ROAS 停滯在 3.2x，難以突破；旺季時經常出現客服崩潰，導致負評累積。",
     solution:
@@ -151,7 +151,7 @@ export const portfolioCases: PortfolioCase[] = [
     testimonial: {
       quote:
         "以前每晚都要加班到深夜回 WhatsApp，而家部 Bot 幫我處理咗大部分查詢，我終於可以專心做設計同揀貨，生意質素提升咗好多。",
-      author: "MIKI HOUSE 香港",
+      author: "網店品牌",
       role: "品牌負責人",
       company: "電商 E-Commerce",
     },
@@ -163,7 +163,7 @@ export const portfolioCases: PortfolioCase[] = [
     alt: "100%網店自動化 - Chatbot WhatsApp 自動化 電商 成功案例",
     seoTitle: "網店 100% 自動化案例 | Chatbot + WhatsApp API",
     seoDescription:
-      "MIKI HOUSE 香港網店透過 ADWire Chatbot 自動化方案，節省 70% 客服工作量，廣告 ROAS 從 3.2x 提升至 5.8x，月訂單量突破 3,500+，全程零增加人手。",
+      "韓國童裝電商透過 ADWire Chatbot 自動化方案，節省 70% 客服工作量，廣告 ROAS 從 3.2x 提升至 5.8x，月訂單量突破 3,500+，全程零增加人手。",
   },
 
   // ─── 3. SEO 霸榜 ──────────────────────────────────────────

@@ -2,99 +2,191 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import HomepageProof from "@/components/HomepageProof";
+import { WHATSAPP_E164 } from "@/lib/site-config";
 
 const Services = dynamic(() => import("@/components/Services"));
 const LogoWall = dynamic(() => import("@/components/LogoWall"));
+const Partners = dynamic(() => import("@/components/Partners"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const Portfolio = dynamic(() => import("@/components/Portfolio"));
+const StatsSection = dynamic(() => import("@/components/StatsSection"));
 const ProcessSection = dynamic(() => import("@/components/ProcessSection"));
+const BlogSection = dynamic(() => import("@/components/BlogSection"));
 const ContactSection = dynamic(() => import("@/components/ContactSection"));
 const Footer = dynamic(() => import("@/components/Footer"));
 const FAQSection = dynamic(() => import("@/components/FAQSection"));
+const ComparisonTable = dynamic(() => import("@/components/ComparisonTable"));
 
 import FAQJsonLd from "@/components/FAQJsonLd";
 import type { Metadata } from "next";
-import { getBrands } from "@/lib/data-resolver";
-import { SITE_STATS } from "@/lib/site-stats";
+import { getBrands, getBlogPosts, getSerializablePortfolioCases } from "@/lib/data-resolver";
 
 export const metadata: Metadata = {
-  title: { absolute: "ADWire Agency｜香港 AI 應用・流程自動化・SEO／GEO" },
+  title: { absolute: "ADWire Agency｜軟件開發・AI 應用・SEO 增長方案" },
   description:
-    "ADWire 為香港企業度身開發 AI 工具、內部系統及自動化流程，減少人手處理與出錯；同時提供 SEO 及 GEO 搜尋優化。由需求分析、開發上線到持續改善，一個團隊負責。",
+    "ADWire 提供企業網站及系統開發、AI 應用與工作流程自動化，以及 SEO／GEO 搜尋優化。由需求分析、開發部署到持續改善，協助香港企業處理實際營運與增長問題。",
   keywords: [
-    "AI 應用開發",
-    "企業流程自動化",
-    "AI 自動化香港",
-    "系統開發",
+    "香港數碼營銷",
+    "KOL 網紅營銷",
+    "短視頻製作",
     "SEO 優化",
     "GEO 優化",
     "Generative Engine Optimization",
+    "成效廣告投放",
+    "MarTech",
+    "AI 營銷",
+    "香港廣告代理",
     "WhatsApp 自動化",
-    "CRM 系統",
+    "社交媒體管理",
     "網頁設計香港",
+    "CRM 系統",
   ],
   alternates: {
     canonical: "/",
   },
 };
 
-// ─── 首頁 FAQ（6 條）────────────────────────────────────────────────────────
-// 2026-10-25：由 15 條減至 6 條。刪除原因：
-//   · 「為甚麼說服務超過 500 家客戶…」「合作夥伴代表正式認證嗎」等自辯題，反而令人起疑；
-//   · 「1,000 位 KOL 資源庫」「超過 500 家客戶」屬 lib/site-stats.ts 已下架嘅無憑據數字；
-//   · KOL／短視頻／廣告預算等營銷細節題，已在對應服務頁 FAQ 覆蓋。
-// 數字一律由 SITE_STATS 輸出，唔再手寫。
+// ─── 完整 FAQ 數據（12 條）─────────────────────────────────────────────────
+// 設計原則：覆蓋用戶常見疑慮 + 針對 AI 引擎的可引用長尾問答
 const faqs = [
   {
-    question: "ADWire Agency 主要提供甚麼服務？",
+    question: "ADWire Agency 提供哪些數碼營銷服務？",
     answer:
-      `ADWire 主力為香港企業開發 AI 應用及工作流程自動化，包括度身訂造的 AI 工具、內部系統及與 CRM／ERP、WhatsApp 等現有系統的整合，目的是加快流程、減少人手處理；同時提供 SEO 及 GEO（AI 搜尋優化）。企業網站、Web App 及手機 App 開發亦由同一團隊負責。成效廣告、社交媒體、短視頻、KOL 及攝影等營銷服務作為配套。至今已直接服務 ${SITE_STATS.brandClients} 個香港品牌，公開案例 ${SITE_STATS.publicCases} 個。`,
+      "ADWire 提供五條主要服務線：Software Development（企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合）、AI & Automation（AI 應用、企業知識庫、工作流程自動化、系統整合）、SEO & GEO（技術 SEO、內容與關鍵字規劃、AI 搜尋能見度及成效量度）、Digital Marketing（Google／Meta 廣告、社交媒體代管、短視頻製作、KOL 網紅營銷及商業攝影），以及 Cross-border Marketing（香港品牌進入內地市場，或內地及海外品牌進入香港市場）。可先到服務範疇頁按需求查看對應服務。",
   },
   {
-    question: "AI 自動化實際可以幫公司做甚麼？",
+    question: "什麼是 GEO (Generative Engine Optimization)？與 SEO 有何分別？",
     answer:
-      "常見做法包括：自動分類及回覆 WhatsApp／電郵查詢、從發票或表格擷取資料並寫入系統、自動跟進潛在客戶、整合分散在不同平台的數據，以及建立讓同事查詢內部資料的 AI 知識庫。我們會先了解現有流程，判斷哪些步驟適合自動化、哪些需要保留人工覆核，並說明出錯時的通知及處理方式。",
+      "GEO（Generative Engine Optimization，生成式引擎優化）針對 ChatGPT、Perplexity、Google AI 搜尋等 AI 問答環境優化品牌能見度，做法包括內容結構清晰、事實可被引用、結構化資料標記、品牌資訊在不同渠道保持一致，以及強化 E-E-A-T 訊號。傳統 SEO 目標是讓網站在 Google／Bing 自然搜尋結果取得曝光；GEO 是將同一批優質內容延伸到 AI 問答搜尋。兩者互補，GEO 不會取代 SEO。需要注意：AI 平台的輸出由平台決定，任何供應商都無法保證品牌一定會被提及或推薦。",
   },
   {
-    question: "甚麼是 GEO（Generative Engine Optimization）？與 SEO 有何分別？",
+    question: "如何開始與 ADWire 合作？流程是怎樣的？",
     answer:
-      "SEO 的目標是讓網站在 Google／Bing 自然搜尋取得曝光；GEO 則針對 ChatGPT、Perplexity、Google AI 搜尋等 AI 問答環境，做法包括內容結構清晰、事實可被引用、結構化資料標記，以及品牌資訊在不同渠道保持一致。兩者互補，GEO 不會取代 SEO。AI 平台的輸出由平台決定，任何供應商都無法保證品牌一定會被提及。",
+      `與 ADWire 合作非常簡單，只需四個步驟：①通過 WhatsApp (${WHATSAPP_E164}) 或網站聯絡表格與我們聯繫；②我們的同事會先了解你的業務情況與目標，這階段不收費亦沒有銷售壓力；③根據分析結果安排合適的服務方向並確認合作細節；④正式執行，全程提供進度與成效說明。我們會由專人跟進，並盡快回覆你的查詢。`,
   },
   {
-    question: "收費模式是怎樣的？會不會有隱藏費用？",
+    question: "KOL 網紅營銷如何運作？怎樣確保找到適合的 KOL？",
     answer:
-      "軟件開發、AI 及網站項目一般按項目報價；SEO／GEO、社交媒體代管及廣告代操則按月收費，而廣告代操的管理費與付給平台的媒體費分開計算。報價會列明包含與不包含的項目及付款安排。系統、App 及 AI 項目範圍差異較大，需先確認功能範圍才會提供報價。",
+      "ADWire 擁有香港及大灣區超過 1,000 位 KOL 的合作資源庫，涵蓋美妝、科技、飲食、親子、旅遊等各大類別。我們利用 AI 數據分析工具，根據品牌定位、目標受眾及預算，精準配對最適合的 KOL 組合。整個流程包括：KOL 篩選與背景審核、合作內容策略制定、製作監督與品質把關、數據追蹤（觸及率、互動率、轉換率），確保每次 KOL 合作都能帶來真實的品牌價值。",
   },
   {
-    question: "系統或網站開發需要多長時間？",
+    question: "短視頻製作需要多長時間？包含哪些服務？",
     answer:
-      "品牌形象網站一般 2–4 週；電商網站（整合支付）約 4–8 週；度身訂造的 CRM、預約或內部系統約 6–16 週，視功能複雜度而定。開發期間會提供階段性預覽，完成後交付文件並安排交接；程式碼、網域及帳戶歸客戶所有。",
+      "一般短視頻製作（15-60 秒）從拍攝到完成剪輯約需 3-7 個工作天。ADWire 的短視頻製作服務包括：腳本策劃與創意發想、現場拍攝（香港各區均可上門服務）、專業剪輯與特效後製、字幕製作（繁中/英）及多平台格式優化（Reels 9:16、YouTube Shorts、TikTok 等）。如需配合 KOL 拍攝或品牌故事片，時間和費用將依項目規模另議。",
   },
   {
-    question: "如何開始合作？第一次了解需求要收費嗎？",
+    question: "成效廣告投放的最低預算是多少？如何計費？",
     answer:
-      "可以在網站填寫查詢表格或 WhatsApp 聯絡我們，1 個工作天內會有同事回覆。了解需求與討論範圍的對話不收費，亦沒有銷售壓力；確認範圍後我們會提供書面報價，你再決定是否開始。未確定方向的話，可以先做網站上的需求評估。",
+      "ADWire 的成效廣告服務沒有硬性最低廣告預算要求，但建議 Facebook/Instagram 廣告月預算至少 HK$5,000 以上，才能取得具統計意義的數據來優化投放效益。我們提供靈活的服務模式：廣告管理費 + 廣告費用分開計算，讓你清晰掌握每分預算的去向。Google Ads（SEM）、YouTube 及小紅書廣告亦提供類似的透明計費方式。免費諮詢期間我們會根據你的目標提供預算建議。",
+  },
+  {
+    question: "SEO 優化需要多長時間才能見到效果？",
+    answer:
+      "SEO 優化的時間框架因競爭程度和網站基礎而異。一般而言：技術 SEO 修復（頁面速度、結構化數據）可在 1-4 週內被 Google 索引；關鍵字排名爬升通常需要 3-6 個月；對於競爭激烈的行業（如香港金融、美容），可能需要 6-12 個月達到穩定首頁排名。ADWire 的 SEO + GEO 雙軌策略可讓你更快在 AI 搜尋（ChatGPT、Perplexity）中獲得曝光，彌補傳統 SEO 初期排名緩慢的不足。我們每月提供詳細排名報告，讓你隨時了解進度。",
+  },
+  {
+    question: "WhatsApp 自動化及企業流程自動化可以幫我解決什麼問題？",
+    answer:
+      "ADWire 的自動化解決方案可幫助香港企業解決以下痛點：①客戶查詢回覆緩慢（24/7 WhatsApp 自動回覆）；②人工重複性工作繁多（訂單處理、預約確認自動化）；③潛在客戶跟進不及時（自動 CRM 跟進流程）；④多平台數據分散（整合 Facebook、Instagram、WhatsApp 數據看板）；⑤人手不足難以擴展業務（AI Agent 協助客服）。我們使用 Zapier、Make.com 及定制開發方式，量身打造最適合你業務的自動化系統。",
+  },
+  {
+    question: "ADWire 主要服務香港哪些行業？",
+    answer:
+      "ADWire 以香港市場為主，曾服務的行業包括美容及健康、餐飲、金融及保險、地產、教育、零售及電商、科技及 SaaS、酒店及旅遊、醫療及醫美，以及 B2B 企業服務。至今已服務超過 500 家客戶及品牌，公開精選案例 16 個，可在成功案例頁查看每個項目的實際工作範圍。",
+  },
+  {
+    question: "如何評估數碼營銷方案的成效？有哪些關鍵指標？",
+    answer:
+      "ADWire 採用數據驅動的成效評估框架，根據不同目標追蹤不同 KPI：品牌曝光（觸及人數、印象次數、品牌搜尋量增長）；內容互動（互動率、分享數、KOL 帖文表現）；廣告回報（ROAS 廣告支出回報率、CPA 每次轉化成本、CPM、CTR）；SEO 成效（關鍵字排名、自然流量成長、網站停留時間）；業務增長（潛在客戶數量、電話查詢量、實際銷售轉化）。我們每月提供全面數據報告，並定期舉行策略回顧會議。",
+  },
+  {
+    question: "網頁設計或定制系統開發需要多長時間完成？",
+    answer:
+      "項目時間因規模而異：品牌形象網站一般 2-4 週；電商網站（整合支付系統）約 4-8 週；度身訂造 CRM／ERP 或預約系統則需 6-16 週，視功能複雜度而定。開發過程會提供階段性預覽，並在完成後交付文件及安排交接。技術選項按項目評估，可包括 CMS、WordPress／Shopify、Next.js／React 或其他合適方案，並非所有網站都必須使用同一技術。",
+  },
+  {
+    question: "為什麼選擇 ADWire 而非其他香港廣告代理商？",
+    answer:
+      "ADWire 的特點是把業務理解、創意與技術放在同一個團隊處理：①可按需求由需求整理一路做到開發、上線及維護；②提供軟件開發、AI 與自動化、SEO／GEO、數碼營銷及跨境市場推廣五條服務線，減少客戶要在多間供應商之間協調；③交付範圍、技術選項及維護安排會事先講清楚，包括原始碼及帳戶歸屬；④所有成效以可量度的數據交代，不以無法核實的排名或成效作承諾；⑤至今已服務超過 500 家客戶及品牌。",
+  },
+  {
+    question: "你們的收費模式是怎樣的？會不會有隱藏費用？",
+    answer:
+      "收費視服務類別而定。軟件開發、網站及影片製作一般按項目逐項報價；SEO／GEO、社交媒體代管及廣告代操則按月收費。廣告方面，代操管理費與付給廣告平台的媒體費是分開計算的：我們只收取管理費，媒體費由你直接支付平台，兩者合計才是每月總投入。報價會列明包含與不包含的項目及付款安排；網站、CRM 及 AI 項目因範圍差異較大，需先確認範圍後才會提供報價。",
+  },
+  {
+    question: "為甚麼說服務超過 500 家客戶，但網站只列出 16 個案例？",
+    answer:
+      "「52 個品牌客戶」指官網客戶走馬燈所列、與我們有真實合作關係的品牌；成功案例頁的「16 個公開案例」是經客戶授權可展示的節錄，因此必然少於實際完成項目數目。是否公開由客戶決定，我們不會在未取得同意下公開其名稱或項目。",
+  },
+  {
+    question: "你們可以引用哪些成效數據？",
+    answer:
+      "只有客戶授權、並有量度依據的數據才會對外引用。成效受行業、預算、市場及執行時間影響，所以我們不會用單一數字代表所有項目，也不會承諾特定的排名或回報。個別公開案例中的數字，是該項目在指定期間的實際量度結果，並不代表其他項目可達到相同表現。評估時建議同時看曝光、查詢量及成本等指標，而非只看單一數字。",
+  },
+  {
+    question: "「合作夥伴」一欄代表正式認證關係嗎？",
+    answer:
+      "合作夥伴一欄列出的是我們在項目中實際使用或整合的技術與工具（例如廣告平台、自動化及雲端工具），作用是說明技術範圍，並不是官方認證、代理資格或夥伴資格的聲明。任何未經對方書面確認的關係，我們都不會對外暗示。",
   },
 ];
 
 export default async function Home() {
   // ── Build Time 數據取得（API 優先 + 本地 Fallback）──
-  const brands = await getBrands();
+  const [brands, blogPostsData, portfolioCasesData] = await Promise.all([
+    getBrands(),
+    getBlogPosts(),
+    getSerializablePortfolioCases(),
+  ]);
 
-  // 2026-10-25 首頁由 13 個 section 減至 8 個（依第二輪內容審查）：
-  //   移除「數據成就」（同 Hero 重複）、「ADWire vs 競爭者」對比表、匿名「成功案例」格、
-  //   Blog 區、「合作夥伴／AI 技術生態系統」（內容保留於 /tech-stack/、/portfolio/、/blog/）。
   return (
     <div className="min-h-screen bg-white">
+      {/* ── Schema JSON-LD ── */}
       <FAQJsonLd faqs={faqs} />
+
+      {/* ── 導航 ── */}
       <Navbar />
+
+      {/* ── Hero ── */}
       <HeroSection />
+
+      {/* ── 客戶 Logo Wall ── */}
       <LogoWall brands={brands} />
+
+      {/* ── 實際交付證據（提前於服務／數據之前，回答「你們實際做到甚麼」）── */}
       <HomepageProof />
+
+      {/* ── 服務介紹 ── */}
       <Services />
+
+      {/* ── 數據成就 ── */}
+      <StatsSection />
+
+      {/* ── ADWire vs 競爭者對比表（GEO 核心：AI 愛引用表格）── */}
+      <ComparisonTable />
+
+      {/* ── 合作流程 ── */}
       <ProcessSection />
+
+      {/* ── 客戶見證 ── */}
       <Testimonials />
+
+      {/* ── 成功案例 ── */}
+      <Portfolio cases={portfolioCasesData} />
+
+      {/* ── 增長洞察 Blog ── */}
+      <BlogSection posts={blogPostsData} />
+
+      {/* ── FAQ Section（可視化 + Schema，觸發 Google Featured Snippet + AI 引用）── */}
       <FAQSection faqs={faqs} />
+
+      {/* ── 聯絡表格（轉換率核心）── */}
       <ContactSection />
+
+      {/* ── 合作夥伴 ── */}
+      <Partners />
+
+      {/* ── Footer ── */}
       <Footer />
     </div>
   );
