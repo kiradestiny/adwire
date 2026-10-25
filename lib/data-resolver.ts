@@ -38,7 +38,7 @@ const FALLBACK_BRANDS: string[] = [
   "MEDSKIN PLUS+ 美學中心", "My Cash Credit", "AllAboutBeaut",
   "Rakuten", "The Ritz-Carlton", "Kirin Ichiban",
   "7-Eleven", "Mister Donut", "Matsuya",
-  "MIKI HOUSE", "Kerry Hotel", "Hotel ICON",
+  "Miki House", "Kerry Hotel", "Hotel ICON",
   "義務工作發展局（AVS）", "HKWS", "Organicmom",
   "隨傳隨借", "Nuva", "SurrFACE",
   "WISDOM", "Global32", "Envirosafe",

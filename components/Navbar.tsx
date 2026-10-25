@@ -7,68 +7,68 @@ import { usePathname } from "next/navigation";
 import {
   Menu, X, ChevronDown, ChevronRight,
   Facebook, Instagram, Linkedin, Send,
-  Users, Star, TrendingUp,
+  Users, Star, TrendingUp, Zap,
 } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/site-config";
 
 /* ─────────────────────────────────────────────
    靜態資料（模組作用域，避免每次 render 重建）
 ───────────────────────────────────────────── */
-/* 服務分組：AI 自動化、SEO／GEO、軟件開發為主線，營銷為配套（保留全部原有服務 URL） */
+/* 四大產品線分組（保留全部原有服務 URL，一個都沒有刪除） */
 const serviceGroups: {
   group: string;
-  links: { name: string; href: string; badge: string | null }[];
+  links: { name: string; href: string; emoji: string; badge: string | null }[];
 }[] = [
+  {
+    group: "Software Development",
+    links: [
+      { name: "系統及 App 開發",   href: "/services/system",     emoji: "⚙️",  badge: null },
+      { name: "網頁設計及電商",     href: "/services/web",        emoji: "🎨", badge: null },
+      { name: "網頁設計收費",       href: "/services/web/#pricing", emoji: "💰", badge: null },
+    ],
+  },
   {
     group: "AI & Automation",
     links: [
-      { name: "AI 解決方案",        href: "/services/ai", badge: null },
-      { name: "AI Agency 服務",     href: "/services/ai-agency", badge: null },
-      { name: "企業流程自動化",     href: "/services/automation", badge: null },
+      { name: "AI 解決方案",        href: "/services/ai",         emoji: "✨", badge: null },
+      { name: "AI Agency 服務",     href: "/services/ai-agency",  emoji: "🤝", badge: null },
+      { name: "企業流程自動化",     href: "/services/automation", emoji: "🤖", badge: null },
     ],
   },
   {
     group: "SEO & GEO",
     links: [
-      { name: "SEO 與 GEO 優化",    href: "/services/seo", badge: null },
-    ],
-  },
-  {
-    group: "Software Development",
-    links: [
-      { name: "系統及 App 開發",   href: "/services/system", badge: null },
-      { name: "網頁設計及電商",     href: "/services/web", badge: null },
-      { name: "網頁設計收費",       href: "/services/web/#pricing", badge: null },
+      { name: "SEO 與 GEO 優化",    href: "/services/seo",        emoji: "🔍", badge: null },
     ],
   },
   {
     group: "Consulting",
     links: [
-      { name: "企業顧問服務",       href: "/services/consulting", badge: null },
+      { name: "企業顧問服務",       href: "/services/consulting", emoji: "🧭", badge: null },
     ],
   },
   {
     group: "Industry Solutions",
     links: [
-      { name: "學校及教育機構",     href: "/services/education", badge: null },
-      { name: "診所及醫療機構",     href: "/services/healthcare", badge: null },
+      { name: "學校及教育機構",     href: "/services/education",  emoji: "🏫", badge: null },
+      { name: "診所及醫療機構",     href: "/services/healthcare", emoji: "🏥", badge: null },
     ],
   },
   {
     group: "Cross-border Marketing",
     links: [
-      { name: "中國市場推廣",       href: "/services/china-market", badge: null },
-      { name: "香港市場在地化推廣", href: "/services/hong-kong-market", badge: null },
+      { name: "中國市場推廣",       href: "/services/china-market",     emoji: "🌏", badge: null },
+      { name: "香港市場在地化推廣", href: "/services/hong-kong-market", emoji: "🏙️", badge: null },
     ],
   },
   {
-    group: "Marketing 配套",
+    group: "Digital Marketing",
     links: [
-      { name: "成效廣告投放",       href: "/services/ads", badge: null },
-      { name: "社交媒體管理",       href: "/services/social", badge: null },
-      { name: "短視頻製作",         href: "/services/video", badge: null },
-      { name: "KOL 網紅營銷",       href: "/services/kol", badge: null },
-      { name: "商業攝影",           href: "/services/production", badge: null },
+      { name: "成效廣告投放",       href: "/services/ads",        emoji: "📈", badge: null },
+      { name: "社交媒體管理",       href: "/services/social",     emoji: "📱", badge: null },
+      { name: "短視頻製作",         href: "/services/video",      emoji: "🎬", badge: null },
+      { name: "KOL 網紅營銷",       href: "/services/kol",        emoji: "🌟", badge: null },
+      { name: "商業攝影",           href: "/services/production", emoji: "📷", badge: null },
     ],
   },
 ];
@@ -92,7 +92,7 @@ const socialLinks = [
 const trustStats = [
   { icon: Users,       value: "52+",   label: "品牌客戶" },
   { icon: Star,        value: "16",    label: "公開案例" },
-  { icon: TrendingUp,  value: "5",     label: "服務線" },
+  { icon: TrendingUp,  value: "12",    label: "服務線" },
 ];
 
 /* ─────────────────────────────────────────────
@@ -135,6 +135,34 @@ function NavLink({
           ${dark ? "bg-white/60" : "bg-[#0f4c81]"}`}
       />
     </Link>
+  );
+}
+
+function SocialBtn({
+  href,
+  label,
+  dark,
+  children,
+}: {
+  href: string;
+  label: string;
+  dark: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`p-2 rounded-full transition-all duration-200 ${
+        dark
+          ? "text-white/60 hover:text-white hover:bg-white/10"
+          : "text-gray-400 hover:text-[#0f4c81] hover:bg-gray-100"
+      }`}
+    >
+      {children}
+    </a>
   );
 }
 
@@ -312,6 +340,7 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
                           : "text-gray-600 hover:text-[#0f4c81] hover:bg-[#0f4c81]/[0.08]"
                       }`}
                     >
+                      <span className="text-base leading-none flex-shrink-0">{link.emoji}</span>
                       <span>{link.name}</span>
                     </Link>
                   ))}
@@ -338,22 +367,37 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
         <NavLink href="/portfolio" dark={dark}>成功案例</NavLink>
         <NavLink href="/about"     dark={dark}>關於我們</NavLink>
         <NavLink href="/blog"      dark={dark}>增長洞察 Blog</NavLink>
-        <NavLink href="/start"     dark={dark}>需求評估</NavLink>
+        <NavLink href="/contact"   dark={dark}>聯絡我們</NavLink>
 
-        {/* 主 CTA：統一去查詢表格；WhatsApp 由右下角浮動按鈕負責，唔再喺導航重複 */}
-        <Link
-          href="/contact/"
-          prefetch={false}
-          className={`ml-3 px-5 py-2 rounded-full font-semibold text-sm flex items-center gap-2
-            transition-colors duration-200 ${
+        {/* 分隔線（裝飾性） */}
+        <div className={`h-5 w-px mx-1 ${dark ? "bg-white/15" : "bg-gray-200"}`} aria-hidden="true" />
+
+        {/* 社交媒體 */}
+        <div className="flex gap-0.5">
+          {socialLinks.map(({ href, label, Icon }) => (
+            <SocialBtn key={label} href={href} label={label} dark={dark}>
+              <Icon size={17} />
+            </SocialBtn>
+          ))}
+        </div>
+
+        {/* WhatsApp CTA */}
+        <a
+          href={waLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp 諮詢"
+          className={`ml-1 px-5 py-2 rounded-full font-bold text-sm flex items-center gap-2
+            shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95
+            transition-all duration-200 ${
             dark
-              ? "bg-white text-[#0f4c81] hover:bg-gray-100"
-              : "bg-[#0f4c81] text-white hover:bg-[#0b3a63]"
+              ? "bg-white text-gray-900 hover:bg-gray-50"
+              : "bg-[#25D366] text-white hover:bg-[#20bd5a]"
           }`}
         >
-          提交項目需求
-          <ChevronRight size={14} />
-        </Link>
+          WhatsApp 諮詢
+          <Send size={14} />
+        </a>
       </div>
 
       {/* ── 手機端按鈕 ── */}
@@ -371,7 +415,8 @@ function NavContent({ variant, onMobileOpen }: NavContentProps) {
             dark ? "bg-white text-gray-900" : "bg-[#0f4c81] text-white"
           }`}
         >
-          提交需求
+          <Send size={13} />
+          免費諮詢
         </a>
         <button
           onClick={onMobileOpen}
@@ -624,6 +669,28 @@ export default function Navbar() {
           </button>
         </div>
 
+        {/* ── 免費諮詢橫幅 (轉換利器) ── */}
+        <div className="mx-4 mt-4 rounded-2xl bg-gradient-to-r from-[#0f4c81] to-[#1a6cbf]
+          px-4 py-3 flex items-center gap-3 flex-shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+            <Zap size={18} className="text-[#f5a623]" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-white font-bold text-sm leading-tight">免費業務診斷</p>
+            <p className="text-white/70 text-xs mt-0.5 leading-tight">專家分析你的增長潛力</p>
+          </div>
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsOpen(false)}
+            className="flex-shrink-0 px-3 py-1.5 bg-[#f5a623] text-white rounded-lg
+              text-xs font-bold active:scale-90 transition-transform duration-150"
+          >
+            立即領取
+          </a>
+        </div>
+
         {/* ── 社會認同數字列 ── */}
         <div className="mx-4 mt-3 grid grid-cols-3 gap-2 flex-shrink-0">
           {trustStats.map(({ icon: Icon, value, label }) => (
@@ -689,6 +756,7 @@ export default function Navbar() {
                               active:bg-[#0f4c81]/[0.12] active:scale-[0.97]
                               transition-all duration-150 group"
                           >
+                            <span className="text-xl leading-none flex-shrink-0">{link.emoji}</span>
                             <span className="text-[13px] font-semibold text-gray-700
                               group-hover:text-[#0f4c81] transition-colors duration-150 leading-tight">
                               {link.name}
@@ -718,12 +786,11 @@ export default function Navbar() {
 
             {/* ── 主導航項目 ── */}
             {[
-              { href: "/portfolio", label: "成功案例" },
-              { href: "/start",     label: "需求評估" },
-              { href: "/about",     label: "關於我們" },
-              { href: "/blog",      label: "增長洞察 Blog" },
-              { href: "/contact",   label: "聯絡我們" },
-            ].map(({ href, label }) => (
+              { href: "/portfolio", label: "成功案例",    emoji: "🏆" },
+              { href: "/about",     label: "關於我們",    emoji: "👥" },
+              { href: "/blog",      label: "增長洞察 Blog", emoji: "💡" },
+              { href: "/contact",   label: "聯絡我們",    emoji: "📩" },
+            ].map(({ href, label, emoji }) => (
               <Link
                 key={href}
                 href={href}
@@ -732,7 +799,10 @@ export default function Navbar() {
                   rounded-2xl hover:bg-gray-50 active:bg-gray-100 active:scale-[0.98]
                   transition-all duration-150 group"
               >
-                <span className="font-bold text-[#0f4c81] text-base tracking-tight">{label}</span>
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">{emoji}</span>
+                  <span className="font-bold text-[#0f4c81] text-base tracking-tight">{label}</span>
+                </div>
                 <ChevronRight
                   size={16}
                   className="text-gray-300 group-hover:text-[#f5a623]
@@ -745,24 +815,24 @@ export default function Navbar() {
 
         {/* ── 底部固定 CTA 區 ── */}
         <div className="flex-shrink-0 px-4 pt-3 pb-5 border-t border-gray-100 bg-white space-y-2.5">
-          <Link
-            href="/contact/"
-            onClick={() => setIsOpen(false)}
-            className="w-full bg-[#0f4c81] text-white py-3.5 rounded-2xl font-bold
-              flex items-center justify-center gap-2 text-base active:scale-[0.98] transition-transform"
-          >
-            提交項目需求
-          </Link>
+          {/* WhatsApp 主 CTA — 帶 glow pulse 動畫 */}
           <a
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
-            className="w-full border border-[#25D366] text-[#128C4A] py-3 rounded-2xl font-bold
-              flex items-center justify-center gap-2 text-sm active:scale-[0.98] transition-transform"
+            className="relative w-full bg-[#25D366] text-white py-4 rounded-2xl font-extrabold
+              flex items-center justify-center gap-2.5 text-base
+              shadow-[0_4px_24px_rgba(37,211,102,0.45)]
+              hover:shadow-[0_6px_32px_rgba(37,211,102,0.60)]
+              active:scale-[0.97] transition-all duration-200 overflow-hidden
+              animate-wa-glow"
           >
-            <Send size={15} />
-            WhatsApp 直接問
+            {/* 光暈掃過效果 */}
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent
+              -translate-x-full animate-shimmer" style={{ backgroundSize: "200% 100%" }} />
+            <Send size={17} className="relative z-10 flex-shrink-0" />
+            <span className="relative z-10">立即 WhatsApp 免費諮詢</span>
           </a>
 
           {/* 社交媒體 */}

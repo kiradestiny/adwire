@@ -78,32 +78,37 @@ export default function ConsentBanner() {
       role="dialog"
       aria-live="polite"
       aria-label="Cookie 及私隱選擇"
-      className="fixed bottom-0 left-0 right-0 z-[120] p-3 sm:p-5"
+      className="fixed bottom-0 left-0 right-0 z-[120] p-4 sm:p-5"
     >
-      {/* 2026-10-25：手機原本係大卡片，遮住首屏主 CTA；改為緊湊底部條，文字縮短 */}
-      <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-xl px-4 py-3 sm:p-5">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
-          <p className="flex-1 text-[13px] sm:text-sm text-gray-600 leading-relaxed">
-            我們使用 Cookie 及分析工具（GA4、Microsoft Clarity）改善網站內容。
-            <a
-              href="/privacy/"
-              className="text-[#0f4c81] underline underline-offset-2 ml-1 hover:text-[#b7791f]"
-            >
-              私隱政策
-            </a>
-          </p>
-          <div className="flex gap-2 shrink-0">
+      <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl shadow-2xl p-5 sm:p-6">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
+          <div className="flex-1">
+            <p className="font-bold text-[#0f4c81] mb-1.5">我們使用 Cookie</p>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              我們使用 Cookie 及分析工具（Google Analytics 4、Microsoft Clarity）
+              了解網站使用情況及改善內容。你可以選擇接受，或只容許必要的 Cookie。
+              詳情請參閱
+              <a
+                href="/privacy/"
+                className="text-[#0f4c81] underline underline-offset-2 mx-1 hover:text-[#f5a623]"
+              >
+                私隱政策
+              </a>
+              。
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-2.5 shrink-0">
             <button
               type="button"
               onClick={() => decide("denied")}
-              className="flex-1 sm:flex-none px-4 py-2 rounded-full text-sm font-semibold border border-gray-300 text-gray-600 hover:bg-gray-50 active:scale-[0.98] transition-all"
+              className="px-5 py-2.5 rounded-full text-sm font-bold border border-gray-300 text-gray-600 hover:bg-gray-50 active:scale-[0.98] transition-all"
             >
-              只容許必要
+              只容許必要 Cookie
             </button>
             <button
               type="button"
               onClick={() => decide("granted")}
-              className="flex-1 sm:flex-none px-5 py-2 rounded-full text-sm font-semibold bg-[#0f4c81] text-white hover:bg-[#0d4372] active:scale-[0.98] transition-all"
+              className="px-6 py-2.5 rounded-full text-sm font-bold bg-[#0f4c81] text-white hover:bg-[#0d4372] active:scale-[0.98] transition-all"
             >
               接受全部
             </button>
