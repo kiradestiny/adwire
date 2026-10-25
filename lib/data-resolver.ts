@@ -31,7 +31,8 @@ let cachedBrands: string[] | null = null;
 const FALLBACK_BRANDS: string[] = [
   "AURA TRESS 髮研", "FineNutri 斐萃", "HON'S Chinese Medicine Centre",
   "彤肌研 Jasper Beauty", "康倫中醫診所", "Time Universe",
-  "YOROKOBI 天之悅", "HEYAMI", "NovaLend 智本信貸",
+  "YOROKOBI 天之悅", "HEYAMI", "NovaLend",
+  "Deep Blue CPA 深藍會計師", "南田貿易 South Field", "OneOne HK",
   "Morning Global", "Wellness Service", "寵之花園",
   "雲峰信貸", "千輝財務", "東京財務",
   "HERFACE", "ToLove", "PEKO Beauty",
@@ -49,6 +50,11 @@ const FALLBACK_BRANDS: string[] = [
   "Sometimes lab",
 ];
 
+/** 後台 brands 表未改名前嘅舊名 → 現行對外名稱（負責人 2026-10-25 指示 NovaLend 唔再加「智本信貸」） */
+const BRAND_RENAMES: Record<string, string> = {
+  "novalend 智本信貸": "NovaLend",
+};
+
 export async function getBrands(): Promise<string[]> {
   if (cachedBrands) return cachedBrands;
 
@@ -63,8 +69,9 @@ export async function getBrands(): Promise<string[]> {
   const seen = new Set(FALLBACK_BRANDS.map((b) => b.trim().toLowerCase()));
   const merged = [...FALLBACK_BRANDS];
   for (const b of apiBrands) {
-    const name = (b ?? '').trim();
-    if (!name) continue;
+    const raw = (b ?? '').trim();
+    if (!raw) continue;
+    const name = BRAND_RENAMES[raw.toLowerCase()] ?? raw;
     const key = name.toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);

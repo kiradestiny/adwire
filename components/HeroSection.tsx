@@ -137,8 +137,8 @@ const ADVANTAGES = [
   },
   {
     Icon: Cpu,
-    title: "AI 認可",
-    desc: "多項 AI 工具認證技術",
+    title: "AI 自動化",
+    desc: "度身開發 AI 工具及流程",
     color:  "text-purple-400",
     bg:     "bg-purple-500/10",
     border: "border-purple-500/25",

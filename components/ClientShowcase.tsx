@@ -1,15 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, ArrowUpRight, Check } from "lucide-react";
+import { Globe, ArrowUpRight, Check, Sparkles, SearchX } from "lucide-react";
 import {
-  clientShowcase,
   filterShowcase,
+  showcaseCategoriesOf,
+  clientImageSrc,
+  clientImageSrcSet,
   SHOWCASE_CATEGORIES,
   SHOWCASE_TOTAL,
   type ClientShowcase as Client,
 } from "@/lib/clientShowcase";
+
+/** 文字搜尋：每個字都要出現；快速需求則任何一個字詞出現即可 */
+function matchesClient(c: Client, query: string, intentTerms: readonly string[] | null) {
+  const text = [c.name, c.industry, c.intro, ...showcaseCategoriesOf(c), ...c.service.items]
+    .join(" ")
+    .toLowerCase();
+  if (intentTerms && !intentTerms.some((t) => text.includes(t))) return false;
+  const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  return words.every((w) => text.includes(w));
+}
 
 // ─── 無實拍圖時的品牌色卡 ──────────────────────────────────────────────────────
 function BrandCard({ client }: { client: Client }) {
@@ -45,18 +57,20 @@ function ClientCard({ client, index }: { client: Client; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4, delay: Math.min(index * 0.04, 0.3) }}
-      className="group flex flex-col rounded-2xl overflow-hidden border border-gray-200/80 bg-white
+      exit={{ opacity: 0, scale: 0.94 }}
+      whileHover={{ y: -6 }}
+      className="group relative flex flex-col rounded-2xl overflow-hidden border border-gray-200/80 bg-white
                  shadow-[0_1px_3px_rgba(15,76,129,0.06)] hover:shadow-xl hover:border-[#f5a623]/40
-                 transition-all duration-300" data-mobile-visible="true"
+                 transition-[box-shadow,border-color] duration-300" data-mobile-visible="true"
     >
       {/* 圖 */}
       <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
         {client.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={"/clients/" + client.image}
+            src={clientImageSrc(client.image)}
             alt={`${client.name}｜${client.industry}｜ADWire 香港客戶案例`}
-            srcSet={`/clients/${client.image.replace(/\.webp$/, "-600.webp")} 600w, /clients/${client.image} 1200w`}
+            srcSet={clientImageSrcSet(client.image)}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             title={`${client.name} — ${client.industry}`}
             /* 一律 eager：實測（2026-10-24）native lazy 在部分手機 viewport 下
@@ -77,7 +91,19 @@ function ClientCard({ client, index }: { client: Client; index: number }) {
                          backdrop-blur px-2.5 py-1 text-[11px] font-semibold text-[#0f4c81]
                          shadow-sm border border-white/60">
           {client.service.category}
+          {client.extraCategories?.length ? (
+            <span className="ml-1 text-gray-400">+{client.extraCategories.length}</span>
+          ) : null}
         </span>
+        {client.featured ? (
+          <span className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-[#f5a623]
+                           px-2.5 py-1 text-[11px] font-bold text-[#0f4c81] shadow-md">
+            <Sparkles size={11} aria-hidden="true" />
+            最新項目
+          </span>
+        ) : null}
+        {/* hover 時底部金色線 */}
+        <span aria-hidden="true" className="absolute bottom-0 left-0 h-1 w-0 bg-[#f5a623] transition-all duration-500 group-hover:w-full" />
       </div>
 
       {/* 內容 */}
@@ -123,16 +149,30 @@ function ClientCard({ client, index }: { client: Client; index: number }) {
 }
 
 // ─── 主區塊 ────────────────────────────────────────────────────────────────────
-export default function ClientShowcase() {
+export default function ClientShowcase({
+  query = "",
+  intentTerms = null,
+  onClear,
+}: {
+  /** 由成功案例頁傳入的搜尋字（可選） */
+  query?: string;
+  intentTerms?: readonly string[] | null;
+  onClear?: () => void;
+}) {
   const [active, setActive] = useState<string>("全部");
-  const list = filterShowcase(active);
+  const searched = useMemo(
+    () => filterShowcase("全部").filter((c) => matchesClient(c, query, intentTerms)),
+    [query, intentTerms]
+  );
+  const list = active === "全部" ? searched : searched.filter((c) => showcaseCategoriesOf(c).includes(active));
+  const isSearching = query.trim() !== "" || intentTerms !== null;
 
   return (
-    <section id="clients" className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50/60">
+    <section id="clients" className="scroll-mt-[150px] pt-14 pb-16 md:pt-16 md:pb-20 bg-gradient-to-b from-white to-gray-50/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* 標題 */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="inline-block text-[#f5a623] font-bold tracking-[0.18em] uppercase text-xs mb-3">
             Client Work
           </span>
@@ -140,33 +180,47 @@ export default function ClientShowcase() {
             真實客戶項目
           </h2>
           <p className="mt-4 text-gray-600 text-base md:text-lg leading-relaxed">
-            {SHOWCASE_TOTAL} 個已確認合作品牌／項目，涵蓋美容醫美、中醫、保健、物流、
-            腕錶零售及財務信貸等行業。以下列明每個項目的實際服務範圍。
+            {SHOWCASE_TOTAL} 個已確認合作品牌／項目，涵蓋美容醫美、中醫、保健、食品飲品、會計、
+            遊戲、物流、腕錶零售及財務信貸等行業。以下列明每個項目的實際服務範圍。
           </p>
         </div>
 
-        {/* 類別篩選 */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {SHOWCASE_CATEGORIES.map((c) => {
-            const n = c === "全部" ? clientShowcase.length : filterShowcase(c).length;
-            if (c !== "全部" && n === 0) return null;
-            const on = active === c;
-            return (
-              <button
-                key={c}
-                onClick={() => setActive(c)}
-                aria-pressed={on}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 border
-                  ${on
-                    ? "bg-[#0f4c81] text-white border-[#0f4c81] shadow-md shadow-[#0f4c81]/20"
-                    : "bg-white text-gray-600 border-gray-200 hover:border-[#0f4c81]/40 hover:text-[#0f4c81]"
-                  }`}
-              >
-                {c}
-                <span className={`ml-1.5 text-xs ${on ? "text-white/70" : "text-gray-400"}`}>{n}</span>
-              </button>
-            );
-          })}
+        {/* 類別篩選（橫向滾動，手機唔會疊成好多行） */}
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 mb-10 overflow-x-auto portfolio-scroll">
+          <div className="flex gap-2 w-max sm:w-auto sm:flex-wrap sm:justify-center">
+            {SHOWCASE_CATEGORIES.map((c) => {
+              const n = c === "全部" ? searched.length : searched.filter((x) => showcaseCategoriesOf(x).includes(c)).length;
+              if (c !== "全部" && n === 0 && !isSearching) return null;
+              const on = active === c;
+              return (
+                <motion.button
+                  key={c}
+                  onClick={() => setActive(c)}
+                  whileTap={{ scale: 0.95 }}
+                  aria-pressed={on}
+                  className={`relative rounded-full px-4 py-2 text-sm font-semibold whitespace-nowrap transition-colors duration-200 border
+                    ${on
+                      ? "text-white border-[#0f4c81]"
+                      : n === 0
+                        ? "bg-white text-gray-300 border-gray-100"
+                        : "bg-white text-gray-600 border-gray-200 hover:border-[#0f4c81]/40 hover:text-[#0f4c81]"
+                    }`}
+                >
+                  {on && (
+                    <motion.span
+                      layoutId="clientFilter"
+                      className="absolute inset-0 rounded-full bg-[#0f4c81] shadow-md shadow-[#0f4c81]/20"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                    />
+                  )}
+                  <span className="relative z-10">
+                    {c}
+                    <span className={`ml-1.5 text-xs ${on ? "text-white/70" : "text-gray-400"}`}>{n}</span>
+                  </span>
+                </motion.button>
+              );
+            })}
+          </div>
         </div>
 
         {/* 卡片格 */}
@@ -177,6 +231,27 @@ export default function ClientShowcase() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {list.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-14 text-gray-400"
+          >
+            <SearchX size={44} className="mx-auto mb-4 opacity-30" />
+            <p className="text-lg font-medium text-gray-500">搵唔到相關客戶項目</p>
+            <button
+              type="button"
+              onClick={() => {
+                setActive("全部");
+                onClear?.();
+              }}
+              className="mt-5 inline-flex items-center rounded-full border border-gray-300 text-gray-600 px-5 py-2.5 text-sm font-semibold hover:border-[#0f4c81] hover:text-[#0f4c81] transition-colors"
+            >
+              顯示全部項目
+            </button>
+          </motion.div>
+        )}
 
         {/* 說明 */}
         <p className="mt-12 text-center text-xs text-gray-400 leading-relaxed max-w-3xl mx-auto">

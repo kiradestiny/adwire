@@ -19,7 +19,8 @@
   Cache-Control: public, max-age=2592000
 /blog/*.webp
   Cache-Control: public, max-age=86400
-/portfolio/*
+# 注意：唔可以寫 /portfolio/*，否則 /portfolio/ 頁面 HTML 都會被瀏覽器快取 30 日
+/portfolio/*.webp
   Cache-Control: public, max-age=2592000
 
 # HTML／後台：不快取，避免卡舊版或快取到登入頁

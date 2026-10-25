@@ -135,7 +135,7 @@ export default function HomepageProof() {
             查看全部公開案例 <ArrowRight size={16} />
           </Link>
           <p className="text-sm text-slate-500">
-            我們已服務超過 500 家客戶及品牌，公開精選案例會持續更新。
+            我們已直接服務 52 個品牌客戶，公開精選案例會持續更新。
           </p>
         </div>
       </div>
