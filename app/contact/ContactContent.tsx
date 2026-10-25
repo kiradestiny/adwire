@@ -65,7 +65,7 @@ const NEXT_STEPS = [
 /** 已公開的客戶項目截圖（public/clients/*，見 lib/clientShowcase.ts） */
 const PROJECTS = [
   {
-    name: "NovaLend 智本信貸",
+    name: "NovaLend",
     industry: "個人信貸網站",
     image: "novalend-personal-loan-hong-kong",
   },

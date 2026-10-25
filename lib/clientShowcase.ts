@@ -38,6 +38,10 @@ export interface ClientShowcase {
   image: string | null;
   /** 卡片主色（用於無圖時的色卡） */
   accent: string;
+  /** 同時涵蓋的其他服務類別（整合項目用；篩選時亦會出現） */
+  extraCategories?: string[];
+  /** 最新／重點項目：排在最前並顯示標記 */
+  featured?: boolean;
 }
 
 /** 服務類別定義（與檔案「項目總覽」分類一致） */
@@ -47,6 +51,7 @@ export const SHOWCASE_CATEGORIES = [
   "Meta 廣告",
   "Google 廣告",
   "社交媒體管理",
+  "KOL／網紅合作",
   "圖片／影片製作",
   "SEO／內容優化",
   "數據／轉換追蹤",
@@ -148,17 +153,21 @@ export const clientShowcase: ClientShowcase[] = [
     name: "HEYAMI",
     industry: "即飲乳清蛋白茶／飲品",
     website: "https://heyamihk.com/", websiteLabel: "heyamihk.com",
-    intro: "即飲乳清蛋白茶品牌，以 Shopify 營運的電商網站。",
-    service: { category: "SEO／內容優化", items: [
-      "Shopify 網站 SEO 及 GEO 優化",
-      "直接修改及優化 Shopify 網站",
-      "網站轉換率優化（CRO）",
+    intro: "香港即飲乳清蛋白茶品牌，以 Shopify 網店直接銷售，設訂閱及組合優惠。",
+    service: { category: "網站／Landing Page", items: [
+      "Shopify 網店建立及網站設計",
+      "Shopify 網站 SEO 優化",
+      "GEO（生成式 AI 搜尋）優化",
+      "Facebook／Instagram 廣告投放",
+      "Facebook／Instagram 專頁經營",
     ]},
+    extraCategories: ["SEO／內容優化", "Meta 廣告", "社交媒體管理"],
+    featured: true,
     image: "heyami-hk-brand.webp", accent: "#00897b",
   },
   {
     no: 9, slug: "novalend",
-    name: "NovaLend 智本信貸",
+    name: "NovaLend",
     industry: "個人信貸／貸款申請網站",
     website: "https://novalend.hk/", websiteLabel: "novalend.hk",
     intro: "香港持牌放債人，提供私人貸款、結餘轉換及自僱人士貸款，設網上申請流程。",
@@ -311,12 +320,63 @@ export const clientShowcase: ClientShowcase[] = [
     ]},
     image: "allaboutbeaut-aesthetic-beauty-hong-kong.webp", accent: "#8d6e63",
   },
+  // ─── 2026-10-25 新增（負責人確認）──────────────────────────────
+  {
+    no: 22, slug: "deep-blue-cpa",
+    name: "Deep Blue CPA 深藍會計師",
+    industry: "會計師事務所／審計及稅務",
+    website: "https://dbcpa.hk/", websiteLabel: "dbcpa.hk",
+    intro: "2008 年起服務香港的執業會計師事務所，總部位於上環，提供審計、會計、稅務、公司成立及秘書服務。",
+    service: { category: "SEO／內容優化", items: [
+      "SEO 搜尋優化",
+      "GEO（生成式 AI 搜尋）優化",
+      "網站及內容架構重整",
+    ]},
+    image: "deep-blue-cpa-accounting-firm-hong-kong.webp", accent: "#0b3d91",
+    featured: true,
+  },
+  {
+    no: 23, slug: "south-field-trading",
+    name: "南田貿易 South Field Trading",
+    industry: "日本食品代理／進口批發",
+    website: null, websiteLabel: null,
+    intro: "代理日本食品的香港貿易公司。近期項目包括健康食品（雞柳產品）推廣，以及京都祇園辻利雪條拍攝。",
+    service: { category: "KOL／網紅合作", items: [
+      "KOL 招募及合作安排",
+      "產品推廣影片拍攝（包括京都實地拍攝）",
+      "廣告投放",
+    ]},
+    extraCategories: ["圖片／影片製作"],
+    image: "south-field-japanese-food-hong-kong.webp", accent: "#b71c1c",
+    featured: true,
+  },
+  {
+    no: 24, slug: "oneone-hk",
+    name: "OneOne HK",
+    industry: "遊戲點數卡／遊戲儲值平台",
+    website: "https://hk.oneone.com/", websiteLabel: "hk.oneone.com",
+    intro: "新加坡 ONEVERSE 集團旗下遊戲點數儲值平台 OneOne 的香港站（Oneverse Technology Limited），提供遊戲點數及數碼禮品卡。",
+    service: { category: "Google 廣告", items: [
+      "Google 搜尋關鍵字廣告",
+      "Google 多媒體（Banner）廣告",
+    ]},
+    image: "oneone-hk-game-top-up.webp", accent: "#5b21b6",
+    featured: true,
+  },
 ];
 
 /** 按服務類別篩選（「全部」回傳全部） */
+/** 客戶項目所屬的全部服務類別（主類別 + 其他涵蓋類別） */
+export function showcaseCategoriesOf(c: ClientShowcase): string[] {
+  return [c.service.category, ...(c.extraCategories ?? [])];
+}
+
+// 重點項目排最前，其餘保持原有次序
+const ordered = [...clientShowcase].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
+
 export function filterShowcase(category: string): ClientShowcase[] {
-  if (!category || category === "全部") return clientShowcase;
-  return clientShowcase.filter((c) => c.service.category === category);
+  if (!category || category === "全部") return ordered;
+  return ordered.filter((c) => showcaseCategoriesOf(c).includes(category));
 }
 
 /** 有實際服務紀錄的客戶數（用於統計，口徑與檔案「項目總覽」一致） */

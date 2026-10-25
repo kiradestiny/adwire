@@ -361,7 +361,8 @@ function checkPage(file, inSitemap) {
 const APPROVED_MARQUEE_BRANDS = new Set([
   "AURA TRESS 髮研", "FineNutri 斐萃", "HON'S Chinese Medicine Centre",
   "彤肌研 Jasper Beauty", "康倫中醫診所", "Time Universe",
-  "YOROKOBI 天之悅", "HEYAMI", "NovaLend 智本信貸",
+  "YOROKOBI 天之悅", "HEYAMI", "NovaLend",
+  "Deep Blue CPA 深藍會計師", "南田貿易 South Field", "OneOne HK",
   "Morning Global", "Wellness Service", "寵之花園",
   "雲峰信貸", "千輝財務", "東京財務",
   "HERFACE", "ToLove", "PEKO Beauty",

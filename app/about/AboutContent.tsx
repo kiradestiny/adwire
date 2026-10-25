@@ -189,31 +189,25 @@ export default function AboutContent() {
                 查看成功案例
               </Link>
             </div>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* ── Hero 事實行 ───────────────────────────────────────────────────── */}
-      <section className="bg-[#0d4373] text-white border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-            {HERO_FACTS.map((f, i) => (
-              <motion.div
-                data-mobile-visible="true"
-                key={f.label}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.15 + i * 0.07 }}
-                className="flex items-center gap-3 px-4 py-6 first:pl-0"
-              >
-                <f.icon className="w-5 h-5 text-[#f5a623] flex-shrink-0" />
-                <div>
-                  <div className="text-xl md:text-2xl font-black leading-none">{f.value}</div>
-                  <div className="text-xs text-blue-200 mt-1">{f.label}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+            {/* 事實行：無框線、無分隔格，直接放喺 hero 內 */}
+            <ul className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
+              {HERO_FACTS.map((f, i) => (
+                <motion.li
+                  data-mobile-visible="true"
+                  key={f.label}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 + i * 0.07 }}
+                  className="flex items-center gap-2.5 text-left"
+                >
+                  <f.icon className="w-5 h-5 text-[#f5a623] flex-shrink-0" />
+                  <span className="text-xl md:text-2xl font-black leading-none">{f.value}</span>
+                  <span className="text-xs md:text-sm text-blue-200">{f.label}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
       </section>
 

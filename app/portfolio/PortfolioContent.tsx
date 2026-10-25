@@ -11,6 +11,7 @@ import {
   useTransform,
   useSpring,
   useInView,
+  animate,
 } from "framer-motion";
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
@@ -19,10 +20,9 @@ import {
   ArrowUpRight,
   Filter,
   ChevronRight,
-  Sparkles,
-  TrendingUp,
-  Award,
-  Zap,
+  ChevronDown,
+  Search,
+  X,
 } from "lucide-react";
 import {
   portfolioCases as fallbackCases,
@@ -31,18 +31,65 @@ import {
 } from "@/lib/portfolioData";
 import type { SerializablePortfolioCase } from "@/lib/admin-types";
 import { toPortfolioCases } from "@/lib/admin-types";
+import { SITE_STATS } from "@/lib/site-stats";
+import { clientShowcase, showcaseCategoriesOf } from "@/lib/clientShowcase";
 
 interface PortfolioContentProps {
   cases?: SerializablePortfolioCase[];
 }
 
-// ─── Hero 統計數字 ───────────────────────────────────────────
+// ─── Hero 統計數字（來源：lib/site-stats.ts，不可自行加數）────────
 const heroStats = [
-  { value: "16", label: "精選公開案例", icon: Award },
-  { value: "52+", label: "品牌客戶", icon: Sparkles },
-  { value: "16", label: "公開案例", icon: TrendingUp },
-  { value: "12", label: "服務線", icon: Zap },
+  { value: SITE_STATS.brandClients, suffix: "+", label: "品牌客戶" },
+  { value: SITE_STATS.publicCases, suffix: "", label: "公開案例" },
+  { value: SITE_STATS.serviceLines, suffix: "", label: "服務線" },
+  { value: SITE_STATS.industries, suffix: "+", label: "行業" },
 ];
+
+// ─── 快速搵案例：常見需求 → 搜尋字詞 ─────────────────────────────
+const QUICK_INTENTS = [
+  { label: "AI／自動化", terms: ["ai", "自動化", "whatsapp", "chatbot", "系統"] },
+  { label: "SEO／GEO", terms: ["seo", "geo", "搜尋"] },
+  { label: "網站／Shopify", terms: ["網站", "shopify", "網店", "landing", "web"] },
+  { label: "廣告投放", terms: ["廣告", "ads", "roas"] },
+  { label: "社交媒體", terms: ["社交", "專頁", "instagram", "facebook", "reels"] },
+  { label: "KOL／短片", terms: ["kol", "短視頻", "影片", "reels", "拍攝", "攝影"] },
+] as const;
+
+const SEARCH_EXAMPLES = ["Shopify", "醫美", "SEO", "WhatsApp", "貸款", "KOL"];
+
+/** 文字搜尋：每個以空格分隔嘅字都要出現；快速需求則任何一個字詞出現即可 */
+function matches(haystack: string, query: string, intentTerms: readonly string[] | null) {
+  const text = haystack.toLowerCase();
+  if (intentTerms && !intentTerms.some((t) => text.includes(t))) return false;
+  const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  return words.every((w) => text.includes(w));
+}
+
+// ─── 數字滾動 ─────────────────────────────────────────────────
+function CountUp({ to, suffix, delay = 0 }: { to: number; suffix: string; delay?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true });
+  const [n, setN] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const controls = animate(0, to, {
+      duration: 1.4,
+      delay,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (v) => setN(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [isInView, to, delay]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {n}
+      {suffix}
+    </span>
+  );
+}
 
 // ─── 背景光球配置 ────────────────────────────────────────────
 const orbConfigs = [
@@ -81,41 +128,6 @@ function use3DCard() {
   return { ref, springRotateX, springRotateY, handleMouseMove, handleMouseLeave };
 }
 
-// ─── CountUp 統計元件 ────────────────────────────────────────
-function CountUpStat({
-  value,
-  label,
-  icon: Icon,
-  delay = 0,
-}: {
-  value: string;
-  label: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
-  delay?: number;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <motion.div
-      data-mobile-visible="true"
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-      className="liquid-glass rounded-2xl p-5 text-center group hover:scale-105 transition-transform duration-300"
-    >
-      <div className="flex items-center justify-center mb-2">
-        <div className="w-9 h-9 rounded-xl bg-[#f5a623]/20 flex items-center justify-center group-hover:bg-[#f5a623]/30 transition-colors">
-          <Icon size={18} className="text-[#f5a623]" />
-        </div>
-      </div>
-      <p className="text-3xl font-bold text-white mb-1 stat-number gradient-text-gold">{value}</p>
-      <p className="text-xs text-white/50 font-medium tracking-wider uppercase">{label}</p>
-    </motion.div>
-  );
-}
-
 // ─── 3D Portfolio Card（修復版）────────────────────────────────
 function PortfolioCard({
   item,
@@ -152,7 +164,7 @@ function PortfolioCard({
             rotateY: springRotateY,
             // ✅ 修復圓角閃爍：移除 preserve-3d，加 backfaceVisibility 防止 GPU 重排
             backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden" as "hidden",
+            WebkitBackfaceVisibility: "hidden" as const,
             willChange: "transform",
           }}
           onMouseMove={handleMouseMove}
@@ -293,10 +305,74 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
   }, [cases]);
 
   const [activeCategory, setActiveCategory] = useState("All");
+  const [query, setQuery] = useState("");
+  const [intent, setIntent] = useState<string | null>(null);
+  const intentTerms = useMemo(
+    () => QUICK_INTENTS.find((i) => i.label === intent)?.terms ?? null,
+    [intent]
+  );
+  const isSearching = query.trim() !== "" || intent !== null;
+
+  // 搜尋（文字 + 快速需求）先做，類別再收窄
+  const searchedCases = useMemo(
+    () =>
+      resolvedCases.filter((c) =>
+        matches(
+          [c.title, c.industry, c.displayCategory, c.shortDescription, ...c.tags, ...c.services].join(" "),
+          query,
+          intentTerms
+        )
+      ),
+    [resolvedCases, query, intentTerms]
+  );
   const filteredCases = useMemo(() => {
-    if (activeCategory === "All") return resolvedCases;
-    return resolvedCases.filter((c) => c.category === activeCategory);
-  }, [activeCategory, resolvedCases]);
+    if (activeCategory === "All") return searchedCases;
+    return searchedCases.filter((c) => c.category === activeCategory);
+  }, [activeCategory, searchedCases]);
+
+  const clientMatchCount = useMemo(
+    () =>
+      clientShowcase.filter((c) =>
+        matches(
+          [c.name, c.industry, c.intro, ...showcaseCategoriesOf(c), ...c.service.items].join(" "),
+          query,
+          intentTerms
+        )
+      ).length,
+    [query, intentTerms]
+  );
+
+  const clearSearch = useCallback(() => {
+    setQuery("");
+    setIntent(null);
+  }, []);
+
+  // 搜尋框 placeholder 輪播
+  const [exampleIdx, setExampleIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setExampleIdx((i) => (i + 1) % SEARCH_EXAMPLES.length), 2200);
+    return () => clearInterval(t);
+  }, []);
+
+  // 目前睇緊邊個區塊（sticky bar 高亮用）
+  const [activeSection, setActiveSection] = useState<"cases" | "clients">("cases");
+  useEffect(() => {
+    const ids = ["cases", "clients"] as const;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveSection(e.target.id as "cases" | "clients");
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
+  }, []);
+
   const heroRef = useRef<HTMLElement>(null);
 
   // 滑鼠視差追蹤
@@ -321,16 +397,56 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
     return () => hero?.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
+  const searchInput = (size: "lg" | "sm") => (
+    <div className={`relative ${size === "lg" ? "w-full max-w-2xl mx-auto" : "w-full md:w-72"}`}>
+      <Search
+        size={size === "lg" ? 20 : 16}
+        className={`absolute top-1/2 -translate-y-1/2 pointer-events-none ${
+          size === "lg" ? "left-5 text-white/50" : "left-3.5 text-gray-400"
+        }`}
+        aria-hidden="true"
+      />
+      <input
+        type="search"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        aria-label="搜尋案例"
+        placeholder={
+          size === "lg"
+            ? `搜尋行業或服務，例如：${SEARCH_EXAMPLES[exampleIdx]}`
+            : `搜尋案例，例如：${SEARCH_EXAMPLES[exampleIdx]}`
+        }
+        className={
+          size === "lg"
+            ? "w-full liquid-glass rounded-2xl pl-14 pr-12 py-4 text-base text-white placeholder:text-white/45 outline-none focus:ring-2 focus:ring-[#f5a623]/60 transition"
+            : "w-full rounded-full bg-gray-100 pl-10 pr-9 py-2 text-sm text-gray-700 placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#0f4c81]/30 focus:bg-white transition"
+        }
+      />
+      {query && (
+        <button
+          type="button"
+          onClick={() => setQuery("")}
+          aria-label="清除搜尋"
+          className={`absolute top-1/2 -translate-y-1/2 rounded-full p-1 transition-colors ${
+            size === "lg" ? "right-4 text-white/60 hover:text-white" : "right-2.5 text-gray-400 hover:text-gray-700"
+          }`}
+        >
+          <X size={size === "lg" ? 18 : 14} />
+        </button>
+      )}
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
       {/* ═══════════════════════════════════════════════════════
-          HERO — 沉浸式 3D 視覺
+          HERO — 精簡版：標題 + 搜尋 + 快速需求
           ═══════════════════════════════════════════════════════ */}
       <section
         ref={heroRef}
-        className="relative min-h-[88vh] flex flex-col justify-center overflow-hidden portfolio-hero-bg"
+        className="relative overflow-hidden portfolio-hero-bg"
         aria-label="Portfolio Hero"
       >
         {/* 動態光球 */}
@@ -361,29 +477,18 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
           />
         ))}
 
-        {/* 網格背景 */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-
-        {/* 主要內容 */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 md:pt-36 pb-12 md:pb-14">
           {/* Badge */}
           <motion.div
             data-mobile-visible="true"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="flex justify-center mb-8"
+            className="flex justify-center mb-6"
           >
-            <div className="liquid-glass inline-flex items-center gap-2 px-5 py-2.5 rounded-full">
+            <div className="liquid-glass inline-flex items-center gap-2 px-4 py-2 rounded-full">
               <span className="w-2 h-2 rounded-full bg-[#f5a623] animate-pulse" />
-              <span className="text-white/80 text-sm font-medium tracking-wide">實戰成果 · 真實數據</span>
+              <span className="text-white/80 text-xs md:text-sm font-medium tracking-wide">實戰成果 · 真實客戶</span>
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse animation-delay-2000" />
             </div>
           </motion.div>
@@ -395,147 +500,215 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] tracking-tight mb-6"
+              className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tight mb-4"
             >
-              每個數字
-              <br />
-              <span className="gradient-text-gold">都是真實</span>
-              <br />
-              <span className="text-white/70">成果</span>
+              每個數字<br className="md:hidden" /> <span className="gradient-text-gold">都是真實成果</span>
             </motion.h1>
 
             <motion.p
               data-mobile-visible="true"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="text-lg md:text-xl text-white/55 max-w-2xl mx-auto leading-relaxed"
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed"
             >
-              我們拒絕紙上談兵。探索 ADWire 如何為不同行業的客戶
-              <br className="hidden md:block" />
-              創造可量化、可持續的業務增長。
+              輸入你的行業或想做的項目，即刻搵到相關案例。
             </motion.p>
           </div>
 
-          {/* 統計數字 */}
+          {/* 搜尋 */}
           <motion.div
             data-mobile-visible="true"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mt-14"
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
-            {heroStats.map((stat, i) => (
-              <CountUpStat key={i} {...stat} delay={0.4 + i * 0.08} />
-            ))}
+            {searchInput("lg")}
           </motion.div>
 
-          {/* 向下滾動指示 */}
-          <motion.div
+          {/* 快速需求 */}
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {QUICK_INTENTS.map((it, i) => {
+              const on = intent === it.label;
+              return (
+                <motion.button
+                  data-mobile-visible="true"
+                  key={it.label}
+                  type="button"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.4 + i * 0.05 }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setIntent(on ? null : it.label)}
+                  aria-pressed={on}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors duration-200 ${
+                    on
+                      ? "bg-[#f5a623] border-[#f5a623] text-[#0f4c81] shadow-[0_6px_20px_rgba(245,166,35,0.35)]"
+                      : "bg-white/5 border-white/15 text-white/75 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  {it.label}
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* 統計數字（精簡一行） */}
+          <motion.dl
             data-mobile-visible="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="flex flex-col items-center gap-2 mt-16"
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mt-10 flex flex-wrap justify-center gap-x-6 md:gap-x-10 gap-y-3"
           >
-            <p className="text-white/30 text-xs tracking-widest uppercase">滾動探索</p>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent"
-            />
-          </motion.div>
+            {heroStats.map((stat, i) => (
+              <div key={stat.label} className="flex items-baseline gap-2">
+                <dt className="sr-only">{stat.label}</dt>
+                <dd className="text-2xl md:text-3xl font-black gradient-text-gold stat-number">
+                  <CountUp to={stat.value} suffix={stat.suffix} delay={0.6 + i * 0.1} />
+                </dd>
+                <span aria-hidden="true" className="text-xs md:text-sm text-white/50 font-medium">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </motion.dl>
         </div>
-
-        {/* 底部過渡 */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none" />
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          CLIENT SHOWCASE（真實客戶項目）
+          STICKY 導航：兩個區塊 + 搜尋
           ═══════════════════════════════════════════════════════ */}
-      <ClientShowcase />
+      <nav
+        aria-label="案例分區"
+        className="sticky top-[72px] md:top-[80px] z-40 bg-white/90 backdrop-blur-xl border-b border-gray-200/80 shadow-sm"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col md:flex-row md:items-center gap-3">
+          <div className="flex gap-1 p-1 bg-gray-100 rounded-full w-full md:w-auto">
+            {([
+              { id: "cases", label: "精選成功案例", n: searchedCases.length },
+              { id: "clients", label: "真實客戶項目", n: clientMatchCount },
+            ] as const).map((tab) => {
+              const on = activeSection === tab.id;
+              return (
+                <a
+                  key={tab.id}
+                  href={`#${tab.id}`}
+                  className={`relative flex-1 md:flex-none text-center px-4 py-2 rounded-full text-sm font-semibold transition-colors ${
+                    on ? "text-white" : "text-gray-600 hover:text-[#0f4c81]"
+                  }`}
+                >
+                  {on && (
+                    <motion.span
+                      layoutId="sectionTab"
+                      className="absolute inset-0 rounded-full"
+                      style={{ background: "linear-gradient(135deg, #0f4c81 0%, #1a3a8f 100%)" }}
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                    />
+                  )}
+                  <span className="relative z-10">
+                    {tab.label}
+                    <span className={`ml-1.5 text-xs ${on ? "text-white/70" : "text-gray-400"}`}>{tab.n}</span>
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+
+          {/* 手機：未搜尋時收起，慳返 sticky 位 */}
+          <div className={`${isSearching ? "flex" : "hidden md:flex"} items-center gap-2 md:ml-auto`}>
+            {searchInput("sm")}
+            <AnimatePresence>
+              {isSearching && (
+                <motion.button
+                  type="button"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  onClick={clearSearch}
+                  aria-label="清除搜尋及篩選"
+                  className="flex-shrink-0 inline-flex items-center gap-1 rounded-full bg-[#f5a623]/15 text-[#b8730f] px-3 py-2 text-xs font-bold hover:bg-[#f5a623]/25 transition-colors"
+                >
+                  {intent ?? "清除"}
+                  <X size={12} />
+                </motion.button>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+      </nav>
 
       {/* ═══════════════════════════════════════════════════════
-          FILTER BAR
+          精選成功案例
           ═══════════════════════════════════════════════════════ */}
-      <section className="sticky top-[72px] md:top-[80px] z-40 py-4 bg-white/85 backdrop-blur-xl border-b border-gray-200/80 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-2">
+      <section id="cases" className="scroll-mt-[150px] md:scroll-mt-[150px] pt-14 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[400px]">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+          <div>
+            <span className="inline-block text-[#f5a623] font-bold tracking-[0.18em] uppercase text-xs mb-2">
+              Case Studies
+            </span>
+            <h2 className="text-2xl md:text-4xl font-black text-[#0f4c81]">
+              {activeCategory === "All"
+                ? "精選成功案例"
+                : portfolioCategories.find((c) => c.id === activeCategory)?.label}
+            </h2>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={`${filteredCases.length}-${activeCategory}`}
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 6 }}
+                transition={{ duration: 0.2 }}
+                className="text-gray-400 text-sm mt-1"
+              >
+                共 {filteredCases.length} 個案例 · 點入可睇完整流程及成效
+              </motion.p>
+            </AnimatePresence>
+          </div>
+          <div className="hidden md:flex items-center gap-2 text-sm text-gray-400">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            持續更新中
+          </div>
+        </div>
+
+        {/* 類別（橫向滾動，手機唔會變到好多行） */}
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 mb-10 overflow-x-auto portfolio-scroll">
+          <div className="flex gap-2 w-max sm:w-auto sm:flex-wrap">
             {portfolioCategories.map((cat) => {
               const isActive = activeCategory === cat.id;
+              const n = searchedCases.filter((c) => cat.id === "All" || c.category === cat.id).length;
               return (
                 <motion.button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
                   whileTap={{ scale: 0.95 }}
-                  className={`relative px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap overflow-hidden ${
+                  className={`relative px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-300 whitespace-nowrap ${
                     isActive
-                      ? "text-white shadow-md"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-[#0f4c81]"
+                      ? "text-white"
+                      : n === 0
+                        ? "bg-gray-100 text-gray-300"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-[#0f4c81]"
                   }`}
-                  style={
-                    isActive
-                      ? {
-                          background: "linear-gradient(135deg, #0f4c81 0%, #1a3a8f 100%)",
-                          boxShadow: "0 4px 20px rgba(15,76,129,0.30)",
-                        }
-                      : {}
-                  }
                   aria-pressed={isActive}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="activeFilter"
-                      className="absolute inset-0 rounded-full"
+                      className="absolute inset-0 rounded-full shadow-md"
                       style={{ background: "linear-gradient(135deg, #0f4c81 0%, #1a3a8f 100%)" }}
                       transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                     />
                   )}
                   <span className="relative z-10 flex items-center gap-1.5">
                     {cat.label}
-                    {isActive && (
-                      <span className="w-5 h-5 rounded-full bg-white/20 text-[10px] flex items-center justify-center font-bold">
-                        {resolvedCases.filter((c) => cat.id === "All" || c.category === cat.id).length}
-                      </span>
-                    )}
+                    <span className={`text-xs ${isActive ? "text-white/70" : "text-gray-400"}`}>{n}</span>
                   </span>
                 </motion.button>
               );
             })}
           </div>
         </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════
-          CASE GRID
-          ═══════════════════════════════════════════════════════ */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[600px]">
-        {/* 結果標題 */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            data-mobile-visible="true"
-            key={activeCategory}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.3 }}
-            className="flex items-center justify-between mb-10"
-          >
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0f4c81]">
-                {activeCategory === "All"
-                  ? "全部成功案例"
-                  : portfolioCategories.find((c) => c.id === activeCategory)?.label}
-              </h2>
-              <p className="text-gray-400 text-sm mt-1">共 {filteredCases.length} 個案例</p>
-            </div>
-            <div className="hidden md:flex items-center gap-2 text-sm text-gray-400">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-              持續更新中
-            </div>
-          </motion.div>
-        </AnimatePresence>
 
         {/* 卡片網格 */}
         <motion.div
@@ -552,15 +725,43 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
         {/* 空狀態 */}
         {filteredCases.length === 0 && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-24 text-gray-400"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-16 text-gray-400"
           >
-            <Filter size={48} className="mx-auto mb-4 opacity-30" />
-            <p className="text-lg font-medium">暫時沒有相關案例</p>
+            <Filter size={44} className="mx-auto mb-4 opacity-30" />
+            <p className="text-lg font-medium text-gray-500">呢個組合暫時未有精選案例</p>
+            <p className="text-sm mt-1">
+              {clientMatchCount > 0 ? `不過喺「真實客戶項目」有 ${clientMatchCount} 個相關項目。` : "試下換個關鍵字。"}
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              {clientMatchCount > 0 && (
+                <a
+                  href="#clients"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#0f4c81] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[#0d4373] transition-colors"
+                >
+                  睇相關客戶項目 <ChevronDown size={15} />
+                </a>
+              )}
+              <button
+                type="button"
+                onClick={() => {
+                  clearSearch();
+                  setActiveCategory("All");
+                }}
+                className="inline-flex items-center gap-1.5 rounded-full border border-gray-300 text-gray-600 px-5 py-2.5 text-sm font-semibold hover:border-[#0f4c81] hover:text-[#0f4c81] transition-colors"
+              >
+                顯示全部案例
+              </button>
+            </div>
           </motion.div>
         )}
       </section>
+
+      {/* ═══════════════════════════════════════════════════════
+          CLIENT SHOWCASE（真實客戶項目）
+          ═══════════════════════════════════════════════════════ */}
+      <ClientShowcase query={query} intentTerms={intentTerms} onClear={clearSearch} />
 
       {/* ═══════════════════════════════════════════════════════
           CTA 橫幅
