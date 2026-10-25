@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PortfolioContent from "./PortfolioContent";
 import { getSerializablePortfolioCases } from "@/lib/data-resolver";
+import { clientShowcase } from "@/lib/clientShowcase";
 
 // ─── SEO Metadata ─────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "成功案例 Portfolio | ADWire Agency",
-    description: "21 個已確認合作品牌／項目，涵蓋網站開發、Meta 及 Google 廣告、社交媒體管理、影片製作與 SEO／GEO。每個項目列明 ADWire 的實際服務範圍。",
+    description: `${clientShowcase.length} 個已確認合作品牌／項目，涵蓋網站開發、Meta 及 Google 廣告、社交媒體管理、影片製作與 SEO／GEO。每個項目列明 ADWire 的實際服務範圍。`,
     images: ["/portfolio/beauty-ads.webp"],
   },
 };
