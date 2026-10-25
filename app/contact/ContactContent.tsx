@@ -67,7 +67,7 @@ const PROJECTS = [
   {
     name: "NovaLend",
     industry: "個人信貸網站",
-    image: "novalend-personal-loan-hong-kong",
+    image: "novalend-personal-loan-hong-kong-2026",
   },
   {
     name: "HON'S Chinese Medicine Centre",
@@ -88,7 +88,10 @@ export default function ContactContent() {
 
       {/* 1. Hero */}
       <section className="pt-32 pb-24 bg-[#0f4c81] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute top-[-20%] right-[-10%] w-[520px] h-[520px] bg-[#f5a623]/10 rounded-full filter blur-[110px]" />
+          <div data-mobile-glow="true" aria-hidden="true" className="absolute bottom-[-25%] left-[-10%] w-[460px] h-[460px] bg-blue-400/15 rounded-full filter blur-[110px]" />
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>

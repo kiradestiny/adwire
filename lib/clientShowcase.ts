@@ -174,7 +174,7 @@ export const clientShowcase: ClientShowcase[] = [
     service: { category: "網站／Landing Page", items: [
       "開發可供用戶申請貸款的網站",
     ]},
-    image: "novalend-personal-loan-hong-kong.webp", accent: "#1B2A4A",
+    image: "novalend-personal-loan-hong-kong-2026.webp", accent: "#1B2A4A",
   },
   {
     no: 10, slug: "morning-global",
@@ -344,9 +344,9 @@ export const clientShowcase: ClientShowcase[] = [
     service: { category: "KOL／網紅合作", items: [
       "KOL 招募及合作安排",
       "產品推廣影片拍攝（包括京都實地拍攝）",
-      "廣告投放",
+      "Meta（Facebook／Instagram）廣告投放",
     ]},
-    extraCategories: ["圖片／影片製作"],
+    extraCategories: ["圖片／影片製作", "Meta 廣告"],
     image: "south-field-japanese-food-hong-kong.webp", accent: "#b71c1c",
     featured: true,
   },
