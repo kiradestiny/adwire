@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 // 預設品牌列表（fallback，當後台數據不可用時使用）
 const DEFAULT_BRANDS = [
   "AURA TRESS 髮研", "FineNutri 斐萃", "HON'S Chinese Medicine Centre",
@@ -13,7 +9,7 @@ const DEFAULT_BRANDS = [
   "MEDSKIN PLUS+ 美學中心", "My Cash Credit", "AllAboutBeaut",
   "Rakuten", "The Ritz-Carlton", "Kirin Ichiban",
   "7-Eleven", "Mister Donut", "Matsuya",
-  "Miki House", "Kerry Hotel", "Hotel ICON",
+  "MIKI HOUSE", "Kerry Hotel", "Hotel ICON",
   "義務工作發展局（AVS）", "HKWS", "Organicmom",
   "隨傳隨借", "Nuva", "SurrFACE",
   "WISDOM", "Global32", "Envirosafe",
@@ -28,81 +24,52 @@ interface LogoWallProps {
   brands?: string[];
 }
 
-export default function LogoWall({ brands = DEFAULT_BRANDS }: LogoWallProps) {
-  // WCAG 2.2.2：無限自動移動內容必須可暫停／繼續。
-  const [paused, setPaused] = useState(false);
+/**
+ * LogoWall — 直接合作客戶
+ *
+ * 2026-10-25 改版：
+ *   ① 負責人確認全部為「直接客戶」（非經中間人），標題由「獲多個行業領先品牌信賴」改為事實陳述。
+ *   ② 取消 3 行無限走馬燈：原本每個品牌喺 DOM 重複 4 次（首頁 HTML 變重），
+ *      而且 gray-300 淺灰字喺白底幾乎睇唔到，似「塞名」多過證據。
+ *      改為靜態網格：先列知名品牌，其餘收埋喺「查看全部」（<details>，無 JS）。
+ *   ③ 後台新增品牌照舊附加喺清單尾（見 lib/data-resolver getBrands）。
+ */
+const FEATURED = [
+  "Rakuten", "7-Eleven", "The Ritz-Carlton", "Kerry Hotel", "Hotel ICON",
+  "Kirin Ichiban", "MIKI HOUSE", "Mister Donut", "Matsuya", "義務工作發展局（AVS）",
+];
 
-  // 將品牌分成三行以優化顯示效果
-  const row1 = brands.filter((_, i) => i % 3 === 0);
-  const row2 = brands.filter((_, i) => i % 3 === 1);
-  const row3 = brands.filter((_, i) => i % 3 === 2);
+export default function LogoWall({ brands = DEFAULT_BRANDS }: LogoWallProps) {
+  const featured = FEATURED.filter((b) => brands.some((x) => x.toLowerCase() === b.toLowerCase()));
+  const rest = brands.filter((b) => !featured.some((f) => f.toLowerCase() === b.toLowerCase()));
 
   return (
-    <section className="py-16 border-b border-gray-100 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex flex-col items-center gap-3">
-        <p className="text-center text-gray-400 text-sm font-medium uppercase tracking-widest">
-          獲多個行業領先品牌信賴
+    <section aria-labelledby="clients-heading" className="border-y border-slate-100 bg-white py-14">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p id="clients-heading" className="text-center text-sm text-slate-500">
+          {brands.length} 個直接合作客戶，包括
         </p>
-        {/* WCAG 2.2.2：無限走馬燈必須提供真正可用的暫停控制（不是只靠
-            prefers-reduced-motion）。低調放在標題下，鍵盤可聚焦、aria-pressed 有狀態。 */}
-        <button
-          type="button"
-          onClick={() => setPaused((p) => !p)}
-          aria-pressed={paused}
-          className="rounded text-xs font-medium text-gray-600 underline-offset-4 transition-colors hover:text-[#0f4c81] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f4c81]"
-        >
-          {paused ? "繼續品牌輪播" : "暫停品牌輪播"}
-        </button>
-      </div>
-      
-      <div className="flex flex-col gap-10 relative">
-        {/* 漸變遮罩 */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-        
-        {/* 第一行 - 向左慢速滾動 */}
-        <MarqueeRow brands={row1} duration={45} paused={paused} />
-        
-        {/* 第二行 - 向右慢速滾動 */}
-        <MarqueeRow brands={row2} duration={50} reverse paused={paused} />
-        
-        {/* 第三行 - 向左慢速滾動 */}
-        <MarqueeRow brands={row3} duration={40} paused={paused} />
+        <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
+          {featured.map((b) => (
+            <li key={b} className="text-lg font-semibold tracking-tight text-slate-700 md:text-xl">
+              {b}
+            </li>
+          ))}
+        </ul>
+        {rest.length > 0 && (
+          <details className="group mt-8 text-center">
+            <summary className="inline-flex cursor-pointer list-none items-center gap-1 text-sm font-medium text-[#0f4c81] hover:underline underline-offset-4 [&::-webkit-details-marker]:hidden">
+              <span className="group-open:hidden">查看其餘 {rest.length} 個品牌</span>
+              <span className="hidden group-open:inline">收起</span>
+            </summary>
+            <ul className="mx-auto mt-5 flex max-w-5xl flex-wrap justify-center gap-x-6 gap-y-2.5">
+              {rest.map((b) => (
+                <li key={b} className="text-[15px] text-slate-500">{b}</li>
+              ))}
+            </ul>
+          </details>
+        )}
       </div>
     </section>
-  );
-}
-
-function MarqueeRow({ brands, duration, reverse = false, paused }: {
-  brands: string[];
-  duration: number;
-  reverse?: boolean;
-  paused: boolean;
-}) {
-  // 複製 4 份以確保在大屏幕上無縫滾動（CSS translateX(-50%) 對應 2 份寬度）。
-  // 只有第 1 份交給輔助技術讀出，其餘 3 份標 aria-hidden，讀屏每個品牌只讀一次。
-  const copies = [...brands, ...brands, ...brands, ...brands];
-
-  return (
-    <div className="flex overflow-hidden select-none">
-      <div
-        className={`logo-marquee flex gap-16 items-center whitespace-nowrap ${
-          reverse ? "logo-marquee-reverse" : "logo-marquee-forward"
-        } ${paused ? "logo-marquee-paused" : ""}`}
-        style={{ animationDuration: `${duration}s` }}
-      >
-        {copies.map((brand, index) => (
-          <div
-            key={index}
-            aria-hidden={index >= brands.length || undefined}
-            className="flex items-center justify-center min-w-[150px]"
-          >
-            <span className="text-xl font-bold text-gray-300 hover:text-[#0f4c81] transition-colors cursor-default">
-              {brand}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }

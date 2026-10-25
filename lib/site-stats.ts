@@ -10,14 +10,18 @@
  */
 
 export const SITE_STATS = {
-  /** 出處：官網首頁客戶走馬燈，全部為真實合作品牌（共 52 個 logo） */
+  /** 出處：官網首頁客戶走馬燈，全部為直接合作客戶（非經中間人，負責人 2026-10-25 確認；共 52 個） */
   brandClients: 52,
 
   /** 出處：/portfolio/ 公開案例頁，逐個可點入查看 */
   publicCases: 16,
 
-  /** 出處：導航「服務範疇」選單實際服務項目數 */
-  serviceLines: 12,
+  /**
+   * 出處：About 頁「五條服務線」（AI & Automation、SEO & GEO、Software Development、
+   * Cross-border Marketing、Digital Marketing）。
+   * 2026-10-25：原本 12（導航子項目數）同 About 嘅 5 條互相矛盾，統一為 5。
+   */
+  serviceLines: 5,
 
   /** 出處：/services/ads/ 頁面行業列表（行業廣度，非成效數字） */
   industries: 30,
@@ -31,4 +35,4 @@ export const STAT_LABEL = {
 } as const;
 
 /** 對外統一句式，避免各頁寫法不一致 */
-export const PROOF_SENTENCE = `已服務 ${SITE_STATS.brandClients} 個香港品牌，累積 ${SITE_STATS.publicCases} 個可公開查閱的案例。`;
+export const PROOF_SENTENCE = `已直接服務 ${SITE_STATS.brandClients} 個香港品牌，累積 ${SITE_STATS.publicCases} 個可公開查閱的案例。`;
