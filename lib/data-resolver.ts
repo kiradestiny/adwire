@@ -50,6 +50,11 @@ const FALLBACK_BRANDS: string[] = [
   "Sometimes lab",
 ];
 
+/** 後台 brands 表未改名前嘅舊名 → 現行對外名稱（負責人 2026-10-25 指示 NovaLend 唔再加「智本信貸」） */
+const BRAND_RENAMES: Record<string, string> = {
+  "novalend 智本信貸": "NovaLend",
+};
+
 export async function getBrands(): Promise<string[]> {
   if (cachedBrands) return cachedBrands;
 
@@ -64,8 +69,9 @@ export async function getBrands(): Promise<string[]> {
   const seen = new Set(FALLBACK_BRANDS.map((b) => b.trim().toLowerCase()));
   const merged = [...FALLBACK_BRANDS];
   for (const b of apiBrands) {
-    const name = (b ?? '').trim();
-    if (!name) continue;
+    const raw = (b ?? '').trim();
+    if (!raw) continue;
+    const name = BRAND_RENAMES[raw.toLowerCase()] ?? raw;
     const key = name.toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
