@@ -1,37 +1,50 @@
 import type { Metadata } from "next";
 import SystemServiceContent from "./SystemServiceContent";
+import ServicePageJsonLd from "@/components/service-page/ServicePageJsonLd";
+import { SYSTEM_FAQS } from "@/lib/service-faqs";
+import { SYSTEM_PAGE } from "@/lib/service-pages/system";
 
-const currentYear = new Date().getFullYear();
+const PATH = "/services/system/";
+const TITLE = "CRM 系統及 App 開發｜把 Excel 變成一套系統";
+const DESCRIPTION =
+  "客戶資料散落 Excel、WhatsApp，流程靠人記？ADWire 為香港企業訂造 CRM、內部系統、Web App 及手機 App：先整理流程及 Prototype，再開發、測試及上線，原始碼歸你所有。30 秒檢查你是否適合。";
+const IMAGE = "https://assets.adwire.com.hk/services/system-messy-to-system.jpg";
 
 export const metadata: Metadata = {
-  title: "CRM 系統及 App 開發｜企業數碼轉型",
-  description: "企業網站、Web App、CRM／ERP 相關系統、手機 App 及 MVP 開發。由需求整理、Prototype、開發、API 整合到 QA／UAT、部署、文件及上線後維護，範圍與交付清晰。",
-  keywords: ["企業系統開發", "ERP系統", "CRM系統", "會員系統", "預約系統", "Mobile App開發", "企業數碼轉型", "系統定制開發", "香港系統開發", "進銷存系統", "客戶管理系統", "企業自動化", "AI功能開發"],
-  alternates: {
-    canonical: "/services/system/",
-  },
+  title: TITLE,
+  description: DESCRIPTION,
+  keywords: ["CRM 系統開發", "香港系統開發", "App 開發公司", "企業系統開發", "ERP 系統", "會員系統", "預約系統", "Web App 開發", "MVP 開發", "系統定制開發", "客戶管理系統"],
+  alternates: { canonical: PATH },
   openGraph: {
-    title: "企業系統與 App 開發",
-    description: "企業網站、Web App、CRM／ERP、手機 App 及 MVP 開發。範圍、交付、UAT 及上線後維護清晰列明。",
-    images: [
-      {
-        url: "/system/CRM.webp",
-        width: 1200,
-        height: 630,
-        alt: "香港企業系統開發 - ERP CRM - ADWire Agency",
-      },
-    ],
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `https://adwire.com.hk${PATH}`,
+    siteName: "ADWire Agency",
+    images: [{ url: IMAGE, alt: SYSTEM_PAGE.heroImage.alt }],
     type: "website",
     locale: "zh_HK",
   },
   twitter: {
     card: "summary_large_image",
-    title: "企業系統與 App 開發",
-    description: "企業網站、Web App、CRM／ERP、App 及 MVP 開發，交付範圍清晰。",
-    images: ["/system/CRM.webp"],
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [IMAGE],
   },
 };
 
 export default function SystemServicePage() {
-  return <SystemServiceContent />;
+  return (
+    <>
+      <ServicePageJsonLd
+        path={PATH}
+        name="CRM 系統、內部系統及 App 開發"
+        description={DESCRIPTION}
+        serviceType="Custom Software Development"
+        image={IMAGE}
+        crumb={SYSTEM_PAGE.crumb}
+        faqs={SYSTEM_FAQS}
+      />
+      <SystemServiceContent />
+    </>
+  );
 }
