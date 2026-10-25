@@ -6,6 +6,8 @@ import { Globe, ArrowUpRight, Check, Sparkles, SearchX } from "lucide-react";
 import {
   filterShowcase,
   showcaseCategoriesOf,
+  clientImageSrc,
+  clientImageSrcSet,
   SHOWCASE_CATEGORIES,
   SHOWCASE_TOTAL,
   type ClientShowcase as Client,
@@ -66,9 +68,9 @@ function ClientCard({ client, index }: { client: Client; index: number }) {
         {client.image ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={"/clients/" + client.image}
+            src={clientImageSrc(client.image)}
             alt={`${client.name}｜${client.industry}｜ADWire 香港客戶案例`}
-            srcSet={`/clients/${client.image.replace(/\.webp$/, "-600.webp")} 600w, /clients/${client.image} 1200w`}
+            srcSet={clientImageSrcSet(client.image)}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             title={`${client.name} — ${client.industry}`}
             /* 一律 eager：實測（2026-10-24）native lazy 在部分手機 viewport 下

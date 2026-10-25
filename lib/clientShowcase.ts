@@ -34,7 +34,7 @@ export interface ClientShowcase {
   intro: string;
   /** ADWire 實際服務範圍 */
   service: ShowcaseService;
-  /** 卡片圖（public/clients/ 內檔名；null = 用品牌色卡） */
+  /** 卡片圖（public/clients/ 內檔名，或 https://assets.adwire.com.hk/ 完整網址；null = 用品牌色卡） */
   image: string | null;
   /** 卡片主色（用於無圖時的色卡） */
   accent: string;
@@ -163,7 +163,7 @@ export const clientShowcase: ClientShowcase[] = [
     ]},
     extraCategories: ["SEO／內容優化", "Meta 廣告", "社交媒體管理"],
     featured: true,
-    image: "heyami-hk-brand.webp", accent: "#00897b",
+    image: "https://assets.adwire.com.hk/clients/heyami-website.jpg", accent: "#00897b",
   },
   {
     no: 9, slug: "novalend",
@@ -332,7 +332,7 @@ export const clientShowcase: ClientShowcase[] = [
       "GEO（生成式 AI 搜尋）優化",
       "網站及內容架構重整",
     ]},
-    image: "deep-blue-cpa-accounting-firm-hong-kong.webp", accent: "#0b3d91",
+    image: "https://assets.adwire.com.hk/clients/deep-blue-cpa-website.jpg", accent: "#0b3d91",
     featured: true,
   },
   {
@@ -347,7 +347,7 @@ export const clientShowcase: ClientShowcase[] = [
       "Meta（Facebook／Instagram）廣告投放",
     ]},
     extraCategories: ["圖片／影片製作", "Meta 廣告"],
-    image: "south-field-japanese-food-hong-kong.webp", accent: "#b71c1c",
+    image: "https://assets.adwire.com.hk/clients/south-field-japanese-food.jpg", accent: "#b71c1c",
     featured: true,
   },
   {
@@ -360,10 +360,24 @@ export const clientShowcase: ClientShowcase[] = [
       "Google 搜尋關鍵字廣告",
       "Google 多媒體（Banner）廣告",
     ]},
-    image: "oneone-hk-game-top-up.webp", accent: "#5b21b6",
+    image: "https://assets.adwire.com.hk/clients/oneone-hk-website-v2.jpg", accent: "#5b21b6",
     featured: true,
   },
 ];
+
+/**
+ * 客戶圖網址：本地檔案放 public/clients/；官網截圖及 AI 圖由 Cloudflare Worker
+ * （assets.adwire.com.hk，KV namespace adwire-assets）提供，直接用完整網址。
+ */
+export function clientImageSrc(image: string): string {
+  return /^https?:\/\//.test(image) ? image : `/clients/${image}`;
+}
+
+/** 本地 webp 有 -600 變體；外部圖只有一個尺寸 */
+export function clientImageSrcSet(image: string): string | undefined {
+  if (/^https?:\/\//.test(image)) return undefined;
+  return `/clients/${image.replace(/\.webp$/, "-600.webp")} 600w, /clients/${image} 1200w`;
+}
 
 /** 按服務類別篩選（「全部」回傳全部） */
 /** 客戶項目所屬的全部服務類別（主類別 + 其他涵蓋類別） */

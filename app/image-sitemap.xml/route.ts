@@ -1,4 +1,4 @@
-import { clientShowcase } from '@/lib/clientShowcase'
+import { clientShowcase, clientImageSrc } from '@/lib/clientShowcase'
 
 export const dynamic = 'force-static'
 
@@ -18,7 +18,7 @@ export async function GET() {
       (c) => `  <url>
     <loc>${baseUrl}/portfolio/</loc>
     <image:image>
-      <image:loc>${baseUrl}/clients/${c.image}</image:loc>
+      <image:loc>${clientImageSrc(c.image!).startsWith('http') ? clientImageSrc(c.image!) : baseUrl + clientImageSrc(c.image!)}</image:loc>
       <image:title>${c.name}｜${c.industry}</image:title>
       <image:caption>${c.name}（${c.industry}）— ADWire 香港客戶案例</image:caption>
     </image:image>
