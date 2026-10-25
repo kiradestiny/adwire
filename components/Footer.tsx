@@ -26,8 +26,24 @@ import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
  *         電郵、社交圖示、版權年份邏輯、整體視覺風格。
  */
 
-/** 四大業務線分組（URL 全部保留，與 lib/site-content.ts 的 SERVICE_LINES 對應） */
+/**
+ * 服務分組（URL 全部保留）。
+ * 2026-10-25：同導航同步 —— AI & Automation 行先、補回原本漏咗嘅
+ * AI Agency、企業顧問、學校、診所 4 頁；營銷服務改稱「Marketing 配套」。
+ */
 const SERVICE_GROUPS: { group: string; links: { name: string; href: string }[] }[] = [
+  {
+    group: "AI & Automation",
+    links: [
+      { name: "AI 解決方案", href: "/services/ai" },
+      { name: "AI Agency 服務", href: "/services/ai-agency" },
+      { name: "企業流程自動化", href: "/services/automation" },
+    ],
+  },
+  {
+    group: "SEO & GEO",
+    links: [{ name: "SEO 與 GEO 優化", href: "/services/seo" }],
+  },
   {
     group: "Software Development",
     links: [
@@ -37,15 +53,12 @@ const SERVICE_GROUPS: { group: string; links: { name: string; href: string }[] }
     ],
   },
   {
-    group: "AI & Automation",
+    group: "行業及顧問",
     links: [
-      { name: "AI 解決方案", href: "/services/ai" },
-      { name: "企業流程自動化", href: "/services/automation" },
+      { name: "企業顧問服務", href: "/services/consulting" },
+      { name: "學校及教育機構", href: "/services/education" },
+      { name: "診所及醫療機構", href: "/services/healthcare" },
     ],
-  },
-  {
-    group: "SEO & GEO",
-    links: [{ name: "SEO 與 GEO 優化", href: "/services/seo" }],
   },
   {
     group: "Cross-border Marketing",
@@ -55,7 +68,7 @@ const SERVICE_GROUPS: { group: string; links: { name: string; href: string }[] }
     ],
   },
   {
-    group: "Digital Marketing",
+    group: "Marketing 配套",
     links: [
       { name: "成效廣告投放", href: "/services/ads" },
       { name: "社交媒體管理", href: "/services/social" },

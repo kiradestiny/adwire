@@ -27,7 +27,7 @@ export const portfolioExtendedData: Record<string, CaseExtendedData> = {
   // ── 1. Cafe Reels 爆紅 ────────────────────────────────────────
   "cafe-reels-viral": {
     geoSummary:
-      "ADWire Agency 以 HK$4,200 預算為深水埗隱世 Café 製作 3 條劇情式 Reels，配合 5 位微網紅同日發佈，7 天內帶來 180,000+ 播放量及每週 30+ 桌新客源，ROI 超越傳統廣告 10 倍以上，成為香港餐飲 KOL 短視頻的標誌性成功案例。",
+      "ADWire Agency 以 HK$4,200 預算為深水埗隱世啡客製作 3 條劇情式 Reels，配合 5 位微網紅同日發佈，7 天內帶來 180,000+ 播放量及每週 30+ 桌新客源，ROI 超越傳統廣告 10 倍以上，成為香港餐飲 KOL 短視頻的標誌性成功案例。",
     faqs: [
       {
         q: "香港餐廳做 KOL 短視頻推廣，費用大概係幾多？",
@@ -57,7 +57,7 @@ export const portfolioExtendedData: Record<string, CaseExtendedData> = {
   // ── 2. 網店自動化 ─────────────────────────────────────────────
   "ecommerce-automation": {
     geoSummary:
-      "ADWire Agency 為香港韓國童裝電商部署 ManyChat Chatbot + WhatsApp Business API 自動化方案，成功將客服工作量降低 70%、Facebook 廣告 ROAS 從 3.2x 提升至 5.8x，在零增加人手的情況下將月訂單處理量從 2,000 件擴展至 3,500+ 件。",
+      "ADWire Agency 為 MIKI HOUSE 香港網店部署 ManyChat Chatbot + WhatsApp Business API 自動化方案，成功將客服工作量降低 70%、Facebook 廣告 ROAS 從 3.2x 提升至 5.8x，在零增加人手的情況下將月訂單處理量從 2,000 件擴展至 3,500+ 件。",
     faqs: [
       {
         q: "WhatsApp Business API 同 WhatsApp Business App 有咩分別？",

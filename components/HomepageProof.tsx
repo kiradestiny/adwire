@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { ArrowRight, Check } from "lucide-react";
 import { clientShowcase } from "@/lib/clientShowcase";
+import { PROOF_SENTENCE } from "@/lib/site-stats";
 
 /**
  * 檢查 `-600` 窄版是否真的存在（build 時讀 public/）。
@@ -50,19 +51,17 @@ export default function HomepageProof() {
   ).filter((c): c is (typeof clientShowcase)[number] => Boolean(c));
 
   return (
-    <section id="homepage-proof" className="bg-slate-50 py-20">
+    <section id="homepage-proof" className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-[#f5a623]">
+          <p className="text-sm font-semibold tracking-wide text-[#b7791f]">
             實際交付
           </p>
-          <h2 className="mt-3 text-3xl font-bold text-[#0f4c81] sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             我們實際負責了甚麼
           </h2>
-          <p className="mt-4 text-slate-600">
-            以下為已公開的客戶項目，以及 ADWire 在該項目實際負責的範圍。
-            我們只列出已確認的服務項目，不會補上未有提及的工作；成效數字只在客戶授權及有量度依據時才會引用。
-            每個項目的完整範圍可到成功案例頁查看。
+          <p className="mt-4 text-lg text-slate-600">
+            以下是直接合作客戶的公開項目，以及 ADWire 在每個項目實際負責的範圍。
           </p>
         </div>
 
@@ -70,7 +69,7 @@ export default function HomepageProof() {
           {cases.map((client) => (
             <article
               key={client.slug}
-              className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
+              className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                 {client.image ? (
@@ -93,7 +92,7 @@ export default function HomepageProof() {
                     className="h-full w-full object-cover"
                   />
                 ) : null}
-                <span className="absolute left-3 top-3 rounded-full bg-[#0f4c81] px-3 py-1 text-xs font-bold text-white">
+                <span className="absolute left-3 top-3 rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
                   {CAPABILITY[client.slug]}
                 </span>
               </div>
@@ -108,7 +107,7 @@ export default function HomepageProof() {
                 <ul className="mt-2 flex-1 space-y-1.5">
                   {client.service.items.map((item) => (
                     <li key={item} className="flex gap-2 text-sm text-slate-600">
-                      <Check size={15} className="mt-0.5 shrink-0 text-green-600" />
+                      <Check size={15} className="mt-0.5 shrink-0 text-[#0f4c81]" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -130,12 +129,12 @@ export default function HomepageProof() {
           <Link
             href="/portfolio/"
             prefetch={false}
-            className="inline-flex items-center gap-2 rounded-full bg-[#0f4c81] px-6 py-3 font-bold text-white transition-transform hover:scale-[1.03] active:scale-[0.98] motion-reduce:transform-none"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 font-semibold text-slate-800 transition-colors hover:border-slate-400"
           >
             查看全部公開案例 <ArrowRight size={16} />
           </Link>
           <p className="text-sm text-slate-500">
-            我們已服務超過 500 家客戶及品牌，公開精選案例會持續更新。
+            {PROOF_SENTENCE}
           </p>
         </div>
       </div>

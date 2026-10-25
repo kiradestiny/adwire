@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail, MapPin, Phone, AlertCircle, Loader2,
-  CheckCircle2, MessageCircle, Shield, Zap, Gift, Star,
+  CheckCircle2, MessageCircle, Shield, Zap, Gift,
 } from "lucide-react";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
@@ -13,6 +13,7 @@ import { useRouter, usePathname } from "next/navigation";
 // 前端和後端（send-mail.php）都從同一份 JSON 讀取，無需手動同步
 import { SERVICE_OPTIONS } from "@/lib/service-options";
 import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
+import { PROOF_SENTENCE } from "@/lib/site-stats";
 import {
   browserLocalStorage,
   isConfirmedSubmission,
@@ -62,13 +63,14 @@ const PREFILL_STORAGE_KEY = "adwire_assessment_prefill_v1";
 const PREFILL_MESSAGE_MAX_LENGTH = 2000;
 
 /** 送出前以固定次序驗證的欄位，用作「聚焦第一個錯誤欄位」。 */
-const VALIDATED_FIELD_ORDER = ["name", "phone", "email", "company", "companySite"] as const;
+const VALIDATED_FIELD_ORDER = ["name", "phone", "email", "service", "company", "companySite"] as const;
 
 /** 可見欄位 → 實際 input id（用於聚焦錯誤欄位）。 */
 const VISIBLE_FIELD_IDS: Record<string, string> = {
   name: "contact-name",
   phone: "contact-phone",
   email: "contact-email",
+  service: "contact-service",
   company: "contact-company",
   companySite: "contact-companysite",
 };
@@ -118,6 +120,9 @@ const VALIDATORS: Record<string, (v: string) => string> = {
   },
   phone: v => PHONE_DIGITS_REGEX.test(v.trim()) ? "" : "請輸入 8 至 15 位數字，不能包含空格或符號",
   email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? "" : "請輸入有效電郵地址",
+  // 2026-10-25：原本預設揀咗第一項「AI 企業轉型方案」，冇改嘅查詢全部被誤歸類為 AI。
+  // 改為冇預設、必須揀（服務頁傳入 defaultService 時照舊預選）。
+  service: v => v.trim() ? "" : "請選擇你想處理的服務",
   // 公司／品牌名稱與公司網站「不可能」是純數字（負責人指出）；留空仍可通過
   company:     v => isNumericGibberish(v) ? "公司／品牌名稱不可只填數字（可留空）" : "",
   companySite: v => isNumericGibberish(v) ? "公司網站不可只填數字（可留空）" : "",
@@ -268,7 +273,17 @@ function FloatingInput({
 
 
 // ─── ContactSection ────────────────────────────────────────────────────────────
-export default function ContactSection({ defaultService }: { defaultService?: string }) {
+export default function ContactSection({
+  defaultService,
+  variant = "section",
+}: {
+  defaultService?: string;
+  /**
+   * "section"：首頁／服務頁用，左邊介紹 + 右邊表格（預設）。
+   * "embedded"：/contact/ 頁用，只輸出表格卡，版面由頁面控制（避免喺聯絡頁再問「準備好開始未」）。
+   */
+  variant?: "section" | "embedded";
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const [mounted, setMounted]           = useState(false);
@@ -382,7 +397,9 @@ export default function ContactSection({ defaultService }: { defaultService?: st
 
   const [values, setValues] = useState<FormValues>({
     name: "", phone: "", email: "",
-    service: serviceOptions[0],
+    // 2026-10-25 修正：原本係 serviceOptions[0]。defaultService 已喺白名單時唔會被放首位，
+    // 結果 SEO、廣告、KOL 等服務頁嘅表格全部預選咗「AI 企業轉型方案」。改為直接用 defaultService。
+    service: defaultService ?? "",
     message: "",
     company: "",
     companySite: "",
@@ -639,117 +656,31 @@ export default function ContactSection({ defaultService }: { defaultService?: st
 
   const msgLen = values.message.length;
 
-  return (
-    <section ref={sectionRef} className="py-24 bg-[#0f4c81] text-white relative overflow-hidden" id="contact">
-      {/* Background blobs（裝飾性） */}
-      <div data-mobile-glow="true" className="absolute top-0 left-0 w-64 h-64 bg-[#f5a623] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" aria-hidden="true" />
-      <div data-mobile-glow="true" className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" aria-hidden="true" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-
-          {/* ── Left: CTA + Contact Info ── */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            data-mobile-visible="true"
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col justify-center"
-          >
-            <span className="text-[#f5a623] font-bold tracking-wider uppercase mb-4">
-              Ready to Grow?
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              準備好開始<br />
-              <span className="text-[#f5a623]">你的項目了嗎？</span>
-            </h2>
-            <p className="text-gray-300 text-lg mb-6">
-              講清楚你的需求，我們會安排合適的同事回覆可行的做法、範圍及報價方式。無論是軟件開發、AI 應用、流程自動化還是搜尋增長，都歡迎先談清楚再決定。
-            </p>
-
-            {/* Social proof badge */}
-            <div className="flex items-center gap-2.5 mb-8 bg-white/10 border border-white/20 rounded-xl px-4 py-3 w-fit backdrop-blur-sm">
-              <div className="flex">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={15} className="fill-[#f5a623] text-[#f5a623]" />
-                ))}
-              </div>
-              <span className="text-sm text-white font-medium">
-                已服務{" "}
-                <span className="text-[#f5a623] font-bold">52</span> 個香港品牌 · {" "}
-                <span className="text-[#f5a623] font-bold">16</span> 個公開案例
-              </span>
-            </div>
-
-            <div className="space-y-5">
-              <div className="flex items-center gap-4">
-                <div className="h-11 w-11 bg-white/10 rounded-full flex items-center justify-center text-[#f5a623] flex-shrink-0">
-                  <Phone size={20} />
-                </div>
-                <a
-                  href={getWhatsAppUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#f5a623] transition-colors"
-                >
-                  <p className="text-xs text-gray-400 uppercase tracking-wider">WhatsApp / Phone</p>
-                  <p className="font-semibold text-lg">{WHATSAPP_DISPLAY}</p>
-                </a>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="h-11 w-11 bg-white/10 rounded-full flex items-center justify-center text-[#f5a623] flex-shrink-0">
-                  <Mail size={20} />
-                </div>
-                <a
-                  href="mailto:info@adwire.com.hk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#f5a623] transition-colors"
-                >
-                  <p className="text-xs text-gray-400 uppercase tracking-wider">Email</p>
-                  <p className="font-semibold text-lg">info@adwire.com.hk</p>
-                </a>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="h-11 w-11 bg-white/10 rounded-full flex items-center justify-center text-[#f5a623] flex-shrink-0">
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 uppercase tracking-wider">Office</p>
-                  <p className="font-medium">葵芳新都會廣場 2 座 45 樓 4510 室</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* ── Right: Form Card ── */}
+  // ── 表格卡（section 版放右欄；embedded 版由 /contact/ 頁控制位置）──
+  const formCard = (
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             data-mobile-visible="true"
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white text-gray-900 rounded-3xl p-8 md:p-10 shadow-2xl relative"
+            className={`bg-white text-gray-900 rounded-2xl p-7 md:p-9 relative ${
+              variant === "embedded" ? "border border-slate-200 shadow-[0_20px_50px_-24px_rgba(15,23,42,0.25)]" : "shadow-2xl"
+            }`}
           >
-            {/* Corner badge（裝飾性） */}
-            <div className="absolute -top-4 -right-4 bg-[#f5a623] text-white px-4 py-2 rounded-lg font-bold shadow-lg transform rotate-3 hidden md:block text-sm" aria-hidden="true">
-              首次諮詢免費
-            </div>
 
-            <h3 className="text-2xl font-bold text-[#0f4c81] mb-1">
+            <h3 className="text-2xl font-bold text-slate-900 mb-1">
               告訴我們你的項目需求
             </h3>
             <p className="text-gray-500 text-sm mb-5">
-              填寫後我們會按服務類別安排合適同事跟進。
+              必填只有 4 項，約 1 分鐘。我們會按服務類別安排合適同事跟進。
             </p>
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-2 mb-5 pb-5 border-b border-gray-100">
               {[
-                { Icon: Shield, label: "資料保密處理",   cls: "text-green-500" },
-                { Icon: Zap,    label: "營業時間內回覆", cls: "text-amber-500" },
-                { Icon: Gift,   label: "首次諮詢免費",  cls: "text-blue-500"  },
+                { Icon: Shield, label: "資料保密處理",   cls: "text-[#0f4c81]" },
+                { Icon: Zap,    label: "1 個工作天內回覆", cls: "text-[#0f4c81]" },
+                { Icon: Gift,   label: "首次諮詢免費",  cls: "text-[#0f4c81]" },
               ].map(({ Icon, label, cls }) => (
                 <span
                   key={label}
@@ -812,7 +743,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                           value={values.phone} touched={touched.phone} error={errors.phone ?? ""}
                           onChange={handleChange} onBlur={handleBlur}
                         />
-                        <p className="text-xs text-gray-400 pl-1">請只輸入數字，不要加入空格、hyphen 或其他符號</p>
+                        <p className="text-xs text-gray-400 pl-1">可直接貼上號碼，空格及符號會自動移除</p>
                       </div>
                     </div>
 
@@ -822,6 +753,42 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                       value={values.email} touched={touched.email} error={errors.email ?? ""}
                       onChange={handleChange} onBlur={handleBlur}
                     />
+
+                    {/* Service select */}
+                    <div className="space-y-1">
+                      <label
+                        htmlFor="contact-service"
+                        className="block text-[10px] font-semibold text-gray-400 pl-1"
+                      >
+                        想處理的服務 <span className="text-red-400">*</span>
+                      </label>
+                      <select
+                        id="contact-service"
+                        name="service"
+                        value={values.service}
+                        onChange={e => handleChange("service", e.target.value)}
+                        onBlur={e => handleBlur("service", e.target.value)}
+                        required
+                        aria-required="true"
+                        aria-invalid={Boolean(errors.service) || undefined}
+                        aria-describedby={errors.service ? "contact-service-error" : undefined}
+                        className={`w-full px-4 py-3 rounded-lg border focus:border-[#0f4c81] focus:ring-2 focus:ring-[#0f4c81]/15 outline-none transition-all bg-gray-50 text-sm ${
+                          errors.service ? "border-red-300" : "border-gray-200"
+                        } ${values.service ? "text-gray-700" : "text-gray-400"}`}
+                      >
+                        {!defaultService && (
+                          <option value="" disabled>請選擇</option>
+                        )}
+                        {serviceOptions.map(opt => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                      {errors.service && (
+                        <p id="contact-service-error" role="alert" className="text-xs text-red-500 pl-1">
+                          {errors.service}
+                        </p>
+                      )}
+                    </div>
 
                     {/* 選填區 A：公司資料（預設收起，減少視覺負擔）*/}
                     <details className="group rounded-xl border border-gray-200 bg-gray-50/60">
@@ -850,27 +817,6 @@ export default function ContactSection({ defaultService }: { defaultService?: st
 
                       </div>
                     </details>
-
-                    {/* Service select */}
-                    <div className="space-y-1">
-                      <label
-                        htmlFor="contact-service"
-                        className="block text-[10px] font-semibold text-gray-400 pl-1"
-                      >
-                        感興趣的服務
-                      </label>
-                      <select
-                        id="contact-service"
-                        name="service"
-                        value={values.service}
-                        onChange={e => handleChange("service", e.target.value)}
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#f5a623] focus:ring-2 focus:ring-[#f5a623]/20 outline-none transition-all bg-gray-50 text-sm text-gray-700"
-                      >
-                        {serviceOptions.map(opt => (
-                          <option key={opt} value={opt}>{opt}</option>
-                        ))}
-                      </select>
-                    </div>
 
                     {/* 選填區 B：項目預審（預設收起）*/}
                     <details className="group rounded-xl border border-gray-200 bg-gray-50/60">
@@ -1003,10 +949,9 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                   <button
                     type="submit"
                     disabled={isSubmitting || cooldownRemaining > 0}
-                    className="w-full bg-[#f5a623] text-white font-bold py-4 rounded-xl
-                      hover:bg-[#e09210] active:scale-[0.98] transition-all duration-200
+                    className="w-full bg-[#0f4c81] text-white font-bold py-4 rounded-xl
+                      hover:bg-[#0b3a63] active:scale-[0.98] transition-all duration-200
                       flex items-center justify-center gap-2
-                      shadow-lg shadow-[#f5a623]/30
                       disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
@@ -1021,8 +966,7 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                       </>
                     ) : (
                       <>
-                        <MessageCircle size={18} />
-                        提交項目需求 →
+                        提交項目需求
                       </>
                     )}
                   </button>
@@ -1056,6 +1000,87 @@ export default function ContactSection({ defaultService }: { defaultService?: st
                 </>
             </form>
           </motion.div>
+  );
+
+  if (variant === "embedded") {
+    return (
+      <div ref={sectionRef as React.RefObject<HTMLDivElement>} id="contact" className="scroll-mt-28">
+        {formCard}
+      </div>
+    );
+  }
+
+  return (
+    <section ref={sectionRef} className="py-24 bg-[#0f4c81] text-white relative overflow-hidden" id="contact">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+          {/* ── Left: CTA + Contact Info ── */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            data-mobile-visible="true"
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-col justify-center"
+          >
+            <span className="text-[#f5a623] font-semibold tracking-wide mb-4">
+              聯絡我們
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight">
+              講清楚需求，<br />
+              1 個工作天內回覆。
+            </h2>
+            <p className="text-white/75 text-lg mb-8">
+              我們會安排合適的同事回覆可行做法、範圍及報價方式。初步了解需求不收費，亦沒有銷售壓力。
+            </p>
+
+            {/* 社會認同：只用可核實數字；原本嘅 5 粒星會令人以為有評分，已移除 */}
+            <p className="mb-8 text-sm text-white/70">{PROOF_SENTENCE}</p>
+
+            <div className="space-y-5">
+              <div className="flex items-center gap-4">
+                <div className="h-11 w-11 bg-white/10 rounded-full flex items-center justify-center text-[#f5a623] flex-shrink-0">
+                  <Phone size={20} />
+                </div>
+                <a
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#f5a623] transition-colors"
+                >
+                  <p className="text-xs text-gray-400 uppercase tracking-wider">WhatsApp / Phone</p>
+                  <p className="font-semibold text-lg">{WHATSAPP_DISPLAY}</p>
+                </a>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="h-11 w-11 bg-white/10 rounded-full flex items-center justify-center text-[#f5a623] flex-shrink-0">
+                  <Mail size={20} />
+                </div>
+                <a
+                  href="mailto:info@adwire.com.hk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#f5a623] transition-colors"
+                >
+                  <p className="text-xs text-gray-400 uppercase tracking-wider">Email</p>
+                  <p className="font-semibold text-lg">info@adwire.com.hk</p>
+                </a>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="h-11 w-11 bg-white/10 rounded-full flex items-center justify-center text-[#f5a623] flex-shrink-0">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-400 uppercase tracking-wider">Office</p>
+                  <p className="font-medium">葵芳新都會廣場 2 座 45 樓 4510 室</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {formCard}
 
         </div>
       </div>
