@@ -20,7 +20,7 @@ import {
   ArrowUpRight,
   Filter,
   ChevronRight,
-  ChevronDown,
+  ChevronUp,
   Search,
   X,
 } from "lucide-react";
@@ -355,9 +355,9 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
   }, []);
 
   // 目前睇緊邊個區塊（sticky bar 高亮用）
-  const [activeSection, setActiveSection] = useState<"cases" | "clients">("cases");
+  const [activeSection, setActiveSection] = useState<"cases" | "clients">("clients");
   useEffect(() => {
-    const ids = ["cases", "clients"] as const;
+    const ids = ["clients", "cases"] as const;
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -587,8 +587,8 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col md:flex-row md:items-center gap-3">
           <div className="flex gap-1 p-1 bg-gray-100 rounded-full w-full md:w-auto">
             {([
-              { id: "cases", label: "精選成功案例", n: searchedCases.length },
               { id: "clients", label: "真實客戶項目", n: clientMatchCount },
+              { id: "cases", label: "精選成功案例", n: searchedCases.length },
             ] as const).map((tab) => {
               const on = activeSection === tab.id;
               return (
@@ -638,6 +638,11 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
           </div>
         </div>
       </nav>
+
+      {/* ═══════════════════════════════════════════════════════
+          CLIENT SHOWCASE（真實客戶項目）
+          ═══════════════════════════════════════════════════════ */}
+      <ClientShowcase query={query} intentTerms={intentTerms} onClear={clearSearch} />
 
       {/* ═══════════════════════════════════════════════════════
           精選成功案例
@@ -740,7 +745,7 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
                   href="#clients"
                   className="inline-flex items-center gap-1.5 rounded-full bg-[#0f4c81] text-white px-5 py-2.5 text-sm font-semibold hover:bg-[#0d4373] transition-colors"
                 >
-                  睇相關客戶項目 <ChevronDown size={15} />
+                  睇相關客戶項目 <ChevronUp size={15} />
                 </a>
               )}
               <button
@@ -757,11 +762,6 @@ export default function PortfolioContent({ cases }: PortfolioContentProps) {
           </motion.div>
         )}
       </section>
-
-      {/* ═══════════════════════════════════════════════════════
-          CLIENT SHOWCASE（真實客戶項目）
-          ═══════════════════════════════════════════════════════ */}
-      <ClientShowcase query={query} intentTerms={intentTerms} onClear={clearSearch} />
 
       {/* ═══════════════════════════════════════════════════════
           CTA 橫幅

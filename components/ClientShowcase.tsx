@@ -168,7 +168,7 @@ export default function ClientShowcase({
   const isSearching = query.trim() !== "" || intentTerms !== null;
 
   return (
-    <section id="clients" className="scroll-mt-[150px] py-20 md:py-24 bg-gradient-to-b from-white to-gray-50/60">
+    <section id="clients" className="scroll-mt-[150px] pt-14 pb-16 md:pt-16 md:pb-20 bg-gradient-to-b from-white to-gray-50/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* 標題 */}
