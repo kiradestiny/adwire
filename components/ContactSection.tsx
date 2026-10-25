@@ -268,7 +268,16 @@ function FloatingInput({
 
 
 // ─── ContactSection ────────────────────────────────────────────────────────────
-export default function ContactSection({ defaultService }: { defaultService?: string }) {
+/** 聯絡頁用：換走「準備好開始你的項目了嗎？」呢類首頁式標題，其他頁面唔傳就維持原樣 */
+type ContactHeading = { eyebrow: string; title: string; accent: string; intro?: string };
+
+export default function ContactSection({
+  defaultService,
+  heading,
+}: {
+  defaultService?: string;
+  heading?: ContactHeading;
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const [mounted, setMounted]           = useState(false);
@@ -657,14 +666,15 @@ export default function ContactSection({ defaultService }: { defaultService?: st
             className="flex flex-col justify-center"
           >
             <span className="text-[#f5a623] font-bold tracking-wider uppercase mb-4">
-              Ready to Grow?
+              {heading?.eyebrow ?? "Ready to Grow?"}
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              準備好開始<br />
-              <span className="text-[#f5a623]">你的項目了嗎？</span>
+              {heading ? heading.title : "準備好開始"}<br />
+              <span className="text-[#f5a623]">{heading ? heading.accent : "你的項目了嗎？"}</span>
             </h2>
             <p className="text-gray-300 text-lg mb-6">
-              講清楚你的需求，我們會安排合適的同事回覆可行的做法、範圍及報價方式。無論是軟件開發、AI 應用、流程自動化還是搜尋增長，都歡迎先談清楚再決定。
+              {heading?.intro ??
+                "講清楚你的需求，我們會安排合適的同事回覆可行的做法、範圍及報價方式。無論是軟件開發、AI 應用、流程自動化還是搜尋增長，都歡迎先談清楚再決定。"}
             </p>
 
             {/* Social proof badge */}
