@@ -363,6 +363,21 @@ export const clientShowcase: ClientShowcase[] = [
     image: "https://assets.adwire.com.hk/clients/oneone-hk-website-v2.jpg", accent: "#5b21b6",
     featured: true,
   },
+  {
+    no: 25, slug: "drainageprohk",
+    name: "通渠家",
+    industry: "通渠及渠務工程",
+    website: "https://drainageprohk.com/", websiteLabel: "drainageprohk.com",
+    intro: "香港上門通渠服務，處理住宅及商業渠務，包括廁所、廚房及去水渠淤塞、高壓射水及 CCTV 渠道檢查，服務全港 18 區。",
+    service: { category: "網站／Landing Page", items: [
+      "網站策劃、設計及建立",
+      "18 區服務地區頁及 SEO 網站架構",
+      "WhatsApp 一鍵查詢、問題診斷及收費指南等轉換設計",
+    ]},
+    extraCategories: ["SEO／內容優化"],
+    image: "https://assets.adwire.com.hk/clients/drainageprohk-website.jpg", accent: "#0369a1",
+    featured: true,
+  },
 ];
 
 /**
