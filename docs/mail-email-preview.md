@@ -1,6 +1,10 @@
 # Email 閱讀版面及表單防護：本機預覽交接
 
-## 正式部署結果
+## WhatsApp 後續修補
+
+用戶指出舊版「WhatsApp 回覆客戶」button 遺漏，已恢復並正式部署 `3a511ef7-8188-4842-a5ec-773412b20c7a`（source `400a4b442247fa79aa08e1fcbef49e85a68f02a5`）。見 `docs/mail-whatsapp-reply.md` 及 `deliverables/mail-email-preview/whatsapp-production-release.json`；下方原部署係歷史紀錄。
+
+## 原版面正式部署結果
 
 - 正式 canonical：`7baa6554-9fa0-4643-bdcc-9297f0bbd162`，source `13039a3f838b983be253ec6671f5bae05d53f0fa`。
 - API 讀回 production／success／commit_dirty=false；五項 runtime checks 全 true。

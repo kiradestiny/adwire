@@ -2,7 +2,7 @@
 
 > 整理日期：2026-10-26 15:26（香港時間）。下列係已保存嘅驗證紀錄，唔係保證外部系統永遠維持同一狀態。接手時先唯讀核對，唔好先部署、清理、輪換 key 或刪資料。
 >
-> **STATUS：2026-10-26 用戶已明確確認成功收到真實問卷 email，寄信故障嘅收信驗收已通過。後續新版 email／真人驗證防護已獲「上線啦」授權並正式部署，canonical `7baa6554-9fa0-4643-bdcc-9297f0bbd162`，source `13039a3f838b983be253ec6671f5bae05d53f0fa`；runtime smoke 通過；用戶其後提供 Gmail 截圖，已確認收到新版普通表單通知。用戶指出漏咗 WhatsApp 回覆客戶 button，呢個功能漏項另行修補；唔將收信確認當成全部功能驗收。**
+> **STATUS：2026-10-26 用戶已明確確認成功收到真實問卷 email，寄信故障嘅收信驗收已通過。後續新版 email／真人驗證防護已獲「上線啦」授權並正式部署，canonical `3a511ef7-8188-4842-a5ec-773412b20c7a`，source `400a4b442247fa79aa08e1fcbef49e85a68f02a5`；runtime smoke 通過；用戶其後提供 Gmail 截圖，已確認收到新版普通表單通知。用戶指出漏咗 WhatsApp 回覆客戶 button，已恢復並部署；新 CTA 版本實信點擊仍待用戶確認。見 `docs/mail-whatsapp-reply.md`，唔將舊收信確認當成新 CTA 已驗收。**
 >
 > **本機新預覽工作另見 `docs/mail-email-preview.md`，分支 `feat/mail-readability-security-preview`。新 email／防護已部署；版本化證據見 `deliverables/mail-email-preview/production-release.json`，仍唔可誤用舊 main／舊 out。**
 >
@@ -27,7 +27,8 @@
 | 監察 Worker runtime 修正 | `d4ac548ac8c7223a824f77488c532557e4480392` |
 | `origin/main`（2026-10-26 15:26 fetch 核對） | `b1488a63d7d2e0d4f365ed0f65723d56875148cd`，未包含上述修復 |
 | 正式 Pages project | `adwire-site`，正式網址 `https://adwire.com.hk` |
-| 正式 Pages deployment | `7baa6554-9fa0-4643-bdcc-9297f0bbd162`，source `13039a3f838b983be253ec6671f5bae05d53f0fa`（已讀回） |
+| 正式 Pages deployment | `3a511ef7-8188-4842-a5ec-773412b20c7a`，source `400a4b442247fa79aa08e1fcbef49e85a68f02a5`（已讀回） |
+| 上一個通知版面部署 | `7baa6554-9fa0-4643-bdcc-9297f0bbd162`，source `13039a3f838b983be253ec6671f5bae05d53f0fa`，保留（當時漏 WhatsApp CTA） |
 | 上一個可回退部署 | `8270c757-f3f8-4e4b-b3a0-18423d2b72b4`，source `ffcf86660f0b103ba0b13ef1ac686aa5027b2901`，冇刪除 |
 | 獨立 Worker | `adwire-mail-watchdog`，`https://adwire-mail-watchdog.qewethf.workers.dev` |
 | Worker version | `4e34de92-6236-4d5f-a32d-0bc94710db86` |

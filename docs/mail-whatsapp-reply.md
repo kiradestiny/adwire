@@ -16,7 +16,13 @@
 - 普通聯絡表單同問卷都要有，冇客人補充亦唔可以漏 button。
 - 只影響新建立嘅通知；已收 email 唔會自動更新，已 frozen outbox payload 唔改寫。
 
-## 驗證／部署狀態
+## 正式部署結果
+
+已正式部署並讀回 canonical `3a511ef7-8188-4842-a5ec-773412b20c7a`，source `400a4b442247fa79aa08e1fcbef49e85a68f02a5`，production／success／clean。Functions 已重新編譯；0 個靜態檔案改動，2609 個原檔重用。五項 runtime checks 全 true，正式表單與 JS/CSS 200、bytes 相同，安全負向測試及未登入 health401 通過。
+
+證據：`deliverables/mail-email-preview/whatsapp-production-release.json`。呢輪冇寄信、冇打開真人 WhatsApp；有 CTA 嘅新 email 真實收件／點擊仍待用戶確認。舊已收 email／frozen outbox 唔改寫。
+
+## 部署前驗證紀錄
 
 修改及本機驗證已完成：renderer 59/59、完整 npm test exit0、專案／handler TypeScript 檢查 exit0；真實 handler 測試亦斷言 provider HTML 含一個指向提交電話嘅 WhatsApp CTA。手機 browser 380px 寬無溢出，按鈕 260px、綠色、位於備註後／安全區前；冇點擊連結或聯絡真人。獨立覆核已 APPROVE（59/59，無阻塞問題）；正式部署仍須核對 canonical／runtime，未將本機完成當作已上線。
 

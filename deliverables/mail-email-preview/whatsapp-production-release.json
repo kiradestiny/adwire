@@ -1,0 +1,110 @@
+{
+  "edgeIp": "104.21.2.2",
+  "pages": [
+    {
+      "route": "/start/",
+      "status": 200,
+      "cacheStatus": "DYNAMIC",
+      "currentRouteJs": [
+        "/_next/static/chunks/app/start/page-16c1e5febb0d3f91.js"
+      ]
+    },
+    {
+      "route": "/contact/",
+      "status": 200,
+      "cacheStatus": "DYNAMIC",
+      "currentRouteJs": [
+        "/_next/static/chunks/app/contact/page-d1b7d06e8c6d07e0.js"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "path": "/_next/static/chunks/app/start/page-16c1e5febb0d3f91.js",
+      "status": 200,
+      "sha256": "f30d5c61ed4b19c58793ec7cab01fd14fc41ecc77d481e03cee23fe9f8d6dc79"
+    },
+    {
+      "path": "/_next/static/css/7dc97cf3c9b3c6f3.css",
+      "status": 200,
+      "sha256": "14ec0816701a7749d937d50cc231a2c78ea81325daa84f96cbe34a747fbecece"
+    },
+    {
+      "path": "/_next/static/chunks/app/contact/page-d1b7d06e8c6d07e0.js",
+      "status": 200,
+      "sha256": "ac55dad9e7bd98408ff2369c6801d2539d5a0f2f112b574319b6bad0be089217"
+    },
+    {
+      "path": "/_next/static/css/7dc97cf3c9b3c6f3.css",
+      "status": 200,
+      "sha256": "14ec0816701a7749d937d50cc231a2c78ea81325daa84f96cbe34a747fbecece"
+    }
+  ],
+  "guards": [
+    {
+      "case": "hostile_origin",
+      "status": 403,
+      "code": "ORIGIN_INVALID",
+      "success": false
+    },
+    {
+      "case": "null_json",
+      "status": 400,
+      "code": "FORM_STARTED_MISSING",
+      "success": false
+    },
+    {
+      "case": "invalid_token",
+      "status": 400,
+      "code": "verification_failed",
+      "success": false
+    }
+  ],
+  "health": {
+    "status": 200,
+    "version": "mail-protection-v1",
+    "checks": {
+      "resendKey": true,
+      "turnstileSecret": true,
+      "inboxPassword": true,
+      "outboxStorage": true,
+      "opsToken": true
+    }
+  },
+  "unauthenticatedHealth": 401,
+  "mailSentByThisVerification": false,
+  "humanFormReceiptVerified": false,
+  "deployment": {
+    "id": "3a511ef7-8188-4842-a5ec-773412b20c7a",
+    "sourceCommit": "400a4b442247fa79aa08e1fcbef49e85a68f02a5",
+    "environment": "production",
+    "status": "success",
+    "commitDirty": false,
+    "apiReadBack": true,
+    "previousDeployment": "7baa6554-9fa0-4643-bdcc-9297f0bbd162",
+    "staticAssetsUploaded": 0,
+    "staticAssetsReused": 2609
+  },
+  "whatsapp": {
+    "rendererTestsPassed": 59,
+    "fullNpmTestExit": 0,
+    "typecheckExit": 0,
+    "independentReview": "APPROVE",
+    "handlerCtaAssertionsPassed": true,
+    "mobileWidth": 380,
+    "mobileScrollWidth": 380,
+    "buttonWidth": 260,
+    "customerPhoneOnly": true,
+    "automaticSend": false,
+    "prefilledMessage": false,
+    "liveCtaReceiptNotYetVerified": true
+  },
+  "scope": {
+    "dnsChanged": false,
+    "secretsChanged": false,
+    "recipientChanged": false,
+    "customerDataDeleted": false,
+    "frozenOutboxRewritten": false,
+    "frontEndChanged": false
+  }
+}
