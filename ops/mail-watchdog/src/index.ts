@@ -253,12 +253,12 @@ function jsonResponse(body: Record<string, unknown>, status = 200, extra: Record
 }
 
 /** 帶逾時的 fetch；逾時會以 AbortError 拒絕並由呼叫端轉成 networkfail。
- *  `redirect: "error"` 確保唔會被 3xx 重定向帶走憑證，亦避免把重定向頁當成 200。 */
+ *  `redirect: "manual"` 確保唔會被 3xx 重定向帶走憑證，亦避免把重定向頁當成 200。 */
 async function fetchWithTimeout(url: string, init: RequestInit, ms: number): Promise<Response> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), ms);
   try {
-    return await fetch(url, { redirect: "error", ...init, signal: controller.signal });
+    return await fetch(url, { redirect: "manual", ...init, signal: controller.signal });
   } finally {
     clearTimeout(timer);
   }
@@ -350,7 +350,7 @@ async function fetchHealth(env: Env, siteUrl: string): Promise<Probe> {
   try {
     res = await fetchWithTimeout(
       url,
-      { method: "GET", headers: { Authorization: `Bearer ${env.MAIL_OPS_TOKEN}`, Accept: "application/json" }, redirect: "error" },
+      { method: "GET", headers: { Authorization: `Bearer ${env.MAIL_OPS_TOKEN}`, Accept: "application/json" }, redirect: "manual" },
       timeoutMs(env),
     );
   } catch {

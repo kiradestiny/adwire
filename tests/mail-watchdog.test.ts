@@ -767,7 +767,7 @@ async function main() {
       await mod.runWatch(env, Date.UTC(2026, 9, 26, 1, 0, 0));
       await mod.sendAgentMail(env, "s", "t");
       assert.ok(calls.length >= 3, "應有 health／retry／agentmail 三個外呼");
-      for (const c of calls) assert.equal(c.redirect, "error", `${c.url} 缺少 redirect:"error"`);
+      for (const c of calls) assert.equal(c.redirect, "manual", `${c.url} 缺少 redirect:"manual"`);
     } finally {
       restore();
     }
