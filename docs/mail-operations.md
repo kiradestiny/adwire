@@ -157,7 +157,7 @@ Cloudflare Pages 專案 `adwire-site` 嘅已知部署：
 | `d3219ee4-e48e-4d03-a565-72465aac6e2d` | 診斷＋去重修復生產部署（2026-10-26 13:36 HK） |
 | `e160261a`（preview） | 診斷版預覽；唔係第三個 production rollback 版本 |
 | `f656c848`（production） | 三層保護首次正式驗收捉到 `turnstileSecret=false`；唔係已知健康版本 |
-| `8270c757-f3f8-4e4b-b3a0-18423d2b72b4`（production） | 2026-10-26 最後保存嘅正式版：實際 health 五項全 true、provider probe accepted；本人問卷收信驗收仍未確認 |
+| `8270c757-f3f8-4e4b-b3a0-18423d2b72b4`（production） | 2026-10-26 最後保存嘅正式版：實際 health 五項全 true、provider probe accepted；其後用戶已於 2026-10-26 明確確認收到真實問卷 email；新設計只批准先做預覽 |
 
 以上包含唔同用途嘅歷史 deployment，唔係可互換嘅 rollback 清單。完整 source／Worker snapshot 及未完成工作見 `docs/mail-handoff.md`。
 
