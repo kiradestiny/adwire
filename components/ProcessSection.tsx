@@ -1,32 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useRevealOnce, revealProps } from "@/lib/useRevealOnce";
 import { Search, Lightbulb, Rocket, BarChart3, ArrowRight } from "lucide-react";
 
 export default function ProcessSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const [sectionRef, reveal] = useRevealOnce<HTMLElement>(0.1);
 
   const steps = [
     {
@@ -38,13 +16,13 @@ export default function ProcessSection() {
     {
       icon: Lightbulb,
       title: "量身定制策略",
-      description: "結合 AI 技術與創意內容，制定全方位的 MarTech 營銷方案。",
+      description: "結合 AI 技術、系統開發與創意內容，制定適合你的方案，範圍及報價逐項列明。",
       color: "orange"
     },
     {
       icon: Rocket,
       title: "精準執行與投放",
-      description: "高效執行 KOL 合作、短視頻製作及廣告投放，確保品牌聲量最大化。",
+      description: "分階段開發系統及 AI 工具，同步執行 SEO、KOL、短視頻及廣告投放，每階段都有可檢查的交付物。",
       color: "purple"
     },
     {
@@ -69,7 +47,7 @@ export default function ProcessSection() {
 
         <div className="relative">
           {/* 連接線 (桌面版) */}
-          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -translate-y-1/2 z-0"></div>
+          <div className="hidden lg:block absolute top-10 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-[#0f4c81]/20 via-[#f5a623]/40 to-[#0f4c81]/20 z-0"></div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
             {steps.map((step, index) => {
@@ -77,13 +55,10 @@ export default function ProcessSection() {
               return (
                 <div
                   key={index} data-mobile-visible="true"
-                  /* 2026-10-15：初始狀態不再寫 `opacity-0`（原本 SSR HTML 會
-                     令無 JS／JS 失敗時流程步驟完全不可見）。改為預設可見，
-                     進入視口才加 animate-fade-in-up，動畫只作增強。 */
-                  className={`flex flex-col items-center text-center group ${
-                    isVisible ? 'animate-fade-in-up' : ''
-                  }`}
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  /* SSR 預設可見；只有喺未入視口時先收起再淡入一次，
+                     唔會再出現「見到 → 消失 → 淡入」嘅閃爍（見 lib/useRevealOnce.ts） */
+                  className={`flex flex-col items-center text-center group ${revealProps(reveal, index, 150).className}`}
+                  style={revealProps(reveal, index, 150).style}
                 >
                   <div className={`w-20 h-20 rounded-2xl bg-white shadow-xl border border-gray-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-all duration-500 relative`}>
                     <div className={`absolute inset-0 bg-${step.color}-500 opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity`}></div>

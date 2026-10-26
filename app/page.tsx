@@ -5,6 +5,7 @@ import HomepageProof from "@/components/HomepageProof";
 import { WHATSAPP_E164 } from "@/lib/site-config";
 
 const Services = dynamic(() => import("@/components/Services"));
+const OfferStrip = dynamic(() => import("@/components/OfferStrip"));
 const LogoWall = dynamic(() => import("@/components/LogoWall"));
 const Partners = dynamic(() => import("@/components/Partners"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
@@ -158,6 +159,9 @@ export default async function Home() {
 
       {/* ── 服務介紹 ── */}
       <Services />
+
+      {/* ── 入門方案／起步價（promotion，只用已公開價錢）── */}
+      <OfferStrip />
 
       {/* ── 數據成就 ── */}
       <StatsSection />

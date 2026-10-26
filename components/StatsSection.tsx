@@ -1,32 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useRevealOnce, revealProps } from "@/lib/useRevealOnce";
 import { TrendingUp, Users, Award, Zap } from "lucide-react";
 
 export default function StatsSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const [sectionRef, reveal] = useRevealOnce<HTMLElement>(0.2);
 
   const stats = [
     {
@@ -97,9 +75,9 @@ export default function StatsSection() {
                    animate-fade-in-up —— 內容預設可見，動畫只作增強
                    （沿用 Services.tsx / HeroSection.tsx 既有做法）。 */
                 className={`group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-${stat.color}-200 ${
-                  isVisible ? 'animate-fade-in-up' : ''
+                  revealProps(reveal, index, 100).className
                 }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={revealProps(reveal, index, 100).style}
               >
                 {/* 圖標背景光暈 */}
                 <div data-mobile-glow="true" aria-hidden="true" className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${stat.gradient} opacity-5 rounded-full blur-3xl group-hover:opacity-10 transition-opacity`}></div>
