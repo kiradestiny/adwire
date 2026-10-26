@@ -789,3 +789,7 @@ body {
   85%  { opacity: 1; }
   to   { left: 100%; opacity: 0; }
 }
+
+/* 橫向捲動列（例如 Blog 主題列）隱藏捲軸，仍可用手指／觸控板捲動 */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
