@@ -155,10 +155,18 @@ function buildEmail(f: {
   name: string; phone: string; email: string; service: string; company: string;
   companySite: string; budget: string; timeline: string; systemInfo: string;
   message: string; ip: string; ua: string; country: string;
+  source: string; leadGrade: string; leadNotes: string;
 }): { subject: string; html: string } {
-  const subject = `【新客戶查詢】${f.name} - ${f.service}${f.budget && f.budget !== "未指定" ? ` - ${f.budget}` : ""}`;
+  // 需求評估（/start/）嚟嘅 lead 喺標題標明評級，方便收件箱一眼排優先次序
+  const tag = f.source === "assessment"
+    ? `【需求評估${f.leadGrade ? `・${f.leadGrade} 級` : ""}】`
+    : "【新客戶查詢】";
+  const subject = `${tag}${f.name} - ${f.service}${f.budget && f.budget !== "未指定" ? ` - ${f.budget}` : ""}`;
 
   const rows: Array<[string, string]> = [
+    ...(f.source === "assessment"
+      ? ([["來源", "網站需求評估問卷（/start/）"], ["潛在客戶評級", f.leadGrade ? `${f.leadGrade} 級${f.leadNotes ? `（${f.leadNotes}）` : ""}` : ""]] as Array<[string, string]>)
+      : []),
     ["姓名", f.name],
     ["電話", f.phone],
     ["電郵", f.email],
@@ -185,7 +193,7 @@ function buildEmail(f: {
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(15,76,129,.08)">
         <tr><td style="background:#0f4c81;padding:20px 24px;color:#fff">
           <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#f5a623;font-weight:700">ADWire Agency</div>
-          <div style="font-size:19px;font-weight:700;margin-top:6px">新客戶查詢</div>
+          <div style="font-size:19px;font-weight:700;margin-top:6px">${f.source === "assessment" ? "需求評估查詢" : "新客戶查詢"}</div>
         </td></tr>
         <tr><td style="padding:20px 24px 8px">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${rowsHtml}</table>
@@ -250,6 +258,11 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
   const timeline = clean(body.timeline, MAX.extra);
   const systemInfo = clean(body.systemInfo, MAX.extra);
   const message = clean(body.message, MAX.message);
+  // 需求評估問卷附帶的內部評級：只接受白名單值，其餘當冇
+  const source = clean(body.source, 30) === "assessment" ? "assessment" : "";
+  const gradeRaw = clean(body.leadGrade, 2).toUpperCase();
+  const leadGrade = source && ["A", "B", "C"].includes(gradeRaw) ? gradeRaw : "";
+  const leadNotes = source ? clean(body.leadNotes, MAX.extra) : "";
 
   const phoneDigits = phone.replace(/[^0-9]/g, "");
   const errors: string[] = [];
@@ -283,13 +296,13 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
 
   const { subject, html } = buildEmail({
     name, phone, email, service, company, companySite, budget, timeline,
-    systemInfo, message, ip, ua, country,
+    systemInfo, message, ip, ua, country, source, leadGrade, leadNotes,
   });
 
   const record = {
     receivedAt: new Date().toISOString(),
     name, phone, email, service, company, companySite, budget, timeline,
-    systemInfo, message, ip, country, ua,
+    systemInfo, message, ip, country, ua, source, leadGrade, leadNotes,
   };
 
   // 先寫 KV（lead 不能只靠 email；寄信失敗時仍然有紀錄）

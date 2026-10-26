@@ -74,7 +74,7 @@ export default function StatsSection() {
                    改為預設可見，IntersectionObserver 觸發時才加上
                    animate-fade-in-up —— 內容預設可見，動畫只作增強
                    （沿用 Services.tsx / HeroSection.tsx 既有做法）。 */
-                className={`group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-${stat.color}-200 ${
+                className={`group relative overflow-hidden bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 border border-gray-100 ${
                   revealProps(reveal, index, 100).className
                 }`}
                 style={revealProps(reveal, index, 100).style}
@@ -102,8 +102,17 @@ export default function StatsSection() {
                   {stat.description}
                 </div>
 
-                {/* 裝飾線 */}
-                <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${stat.gradient} w-0 group-hover:w-full transition-all duration-500 rounded-b-2xl`}></div>
+                {/* hover 漸變外框：跟足卡片圓角（2026-10-26 取代舊「底部直線」，
+                    舊直線係直角，同圓角卡片唔夾） */}
+                <div
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  style={{
+                    WebkitMask: "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                    WebkitMaskComposite: "xor",
+                    mask: "linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0)",
+                  }}
+                ></div>
               </div>
             );
           })}

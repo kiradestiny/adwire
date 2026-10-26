@@ -84,9 +84,10 @@ export default function LogoWall({ brands = DEFAULT_BRANDS }: LogoWallProps) {
           </dl>
         </div>
 
+        {/* 手機版唔顯示（負責人 2026-10-26：手機頁面太長），桌面先展示 */}
         {featured.length > 0 && (
-          <div className="mb-10">
-            <p className="text-sm font-semibold text-gray-500 mb-4">國際及大型品牌（直接客戶）</p>
+          <div className="mb-10 hidden md:block">
+            <p className="text-sm font-semibold text-gray-500 mb-4">國際及大型品牌</p>
             <ul className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-3">
               {featured.map((b) => (
                 <li

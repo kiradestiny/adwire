@@ -147,11 +147,11 @@ async function main() {
   }
 
   // ── 3 ───────────────────────────────────────────────────────────────────────
-  section("3. 商業分支長度 = 5；進度不誤報題數");
+  section("3. 商業分支長度 = 6（含角色題）；進度不誤報題數");
   {
-    eq("growth 未答 → 5", totalSteps({ goal: "growth" }), 5);
-    eq("growth+problem → 5", totalSteps({ goal: "growth", problem: "ads-low-enquiries" }), 5);
-    eq("project → 5", totalSteps({ goal: "project" }), 5);
+    eq("growth 未答 → 6（含角色題）", totalSteps({ goal: "growth" }), 6);
+    eq("growth+problem → 6", totalSteps({ goal: "growth", problem: "ads-low-enquiries" }), 6);
+    eq("project → 6", totalSteps({ goal: "project" }), 6);
     eq("未選 Q1 → 只有 1 題", totalSteps({}), 1);
   }
 
@@ -380,6 +380,21 @@ async function main() {
     eq("payload keys", Object.keys(p).sort(), ["branch_id", "event", "result_id"]);
     check("branch/result 不含個資", !p.branch_id.includes("@") && !p.result_id.includes("@"));
     check("resultId 帶分類前綴", r.resultId.includes(":"));
+  }
+
+  // ── 11 ──────────────────────────────────────────────────────────────────────
+  section("11. 潛在客戶評級：BANT，唔受個資影響");
+  {
+    const hot = A.leadScore({ goal: "project", problem: "proj-system", base: "integration", budget: { mode: "one-off-project", band: "high", amountHKD: null }, timing: "within-month", role: "owner" });
+    eq("高預算＋一個月內＋老闆 → A", hot.grade, "A");
+    check("分數上限 100", hot.score <= 100);
+    const cold = A.leadScore({ goal: "growth", problem: "seo-visibility", budget: { mode: "monthly-service", band: "none", amountHKD: null }, timing: "exploring", role: "other" });
+    eq("零預算＋了解中＋其他 → C", cold.grade, "C");
+    const mid = A.leadScore({ goal: "ops", problem: "ops-manual", budget: { mode: "one-off-project", band: "undecided", amountHKD: null }, timing: "1-3-months", role: "manager" });
+    eq("預算未定＋三個月內＋主管 → B", mid.grade, "B");
+    const roleOnly = A.applyAnswer({ goal: "growth" }, "role", "owner");
+    eq("角色答案保留", roleOnly.role, "owner");
+    eq("自助分支清除角色", A.applyAnswer({ ...roleOnly, goal: "selfhelp" }, "goal", "selfhelp").role, undefined);
   }
 
   // ── 總結 ────────────────────────────────────────────────────────────────────
