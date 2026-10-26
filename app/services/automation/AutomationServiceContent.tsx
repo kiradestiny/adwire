@@ -43,7 +43,7 @@ export default function AutomationServiceContent() {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href="/contact" className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-500 transition-all shadow-lg shadow-emerald-900/50 flex items-center justify-center gap-2">
+              <a href="/contact/" className="bg-emerald-600 text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-500 transition-all shadow-lg shadow-emerald-900/50 flex items-center justify-center gap-2">
                 <Zap size={18} /> 討論你的流程
               </a>
               <a href="#demo" className="bg-white/10 border border-white/25 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-2">
@@ -491,7 +491,7 @@ export default function AutomationServiceContent() {
             或由你的團隊接手 —— 兩者都會在合約中事先講清楚。
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="/contact" className="bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors">
+            <a href="/contact/" className="bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09612] transition-colors">
               討論你的流程
             </a>
             <a href="/services/ai/" className="bg-white/10 border border-white/30 text-white px-8 py-3 rounded-full font-bold hover:bg-white/20 transition-colors">

@@ -35,7 +35,6 @@ export default function JsonLd() {
         "@type": "ContactPoint",
         "telephone": WHATSAPP_E164,
         "contactType": "customer service",
-        "contactOption": "TollFree",
         "areaServed": "HK",
         "availableLanguage": ["en", "zh-Hant", "zh-Yue"]
       },
@@ -100,23 +99,21 @@ export default function JsonLd() {
       "longitude": 114.1275
     },
     "hasMap": "https://maps.google.com/?q=22.3578,114.1275",
+    // 排序跟網站定位：AI 及自動化、系統開發行先，SEO／GEO 為核心，其餘營銷做支援
     "knowsAbout": [
-      "KOL Marketing",
-      "Influencer Marketing",
-      "Digital Marketing",
-      "SEO",
-      "GEO",
-      "Generative Engine Optimization",
-      "AI Marketing",
-      "Video Production",
-      "Short Video",
-      "Reels",
-      "TikTok Marketing",
-      "Marketing Automation",
-      "Performance Marketing",
+      "AI Application Development",
+      "AI Agent",
+      "Business Workflow Automation",
       "WhatsApp Automation",
       "CRM Development",
-      "Social Media Management"
+      "Software Development",
+      "Search Engine Optimization",
+      "Generative Engine Optimization",
+      "Web Design",
+      "Performance Marketing",
+      "Social Media Management",
+      "Video Production",
+      "KOL Marketing"
     ],
     "openingHoursSpecification": [
       {
@@ -150,82 +147,97 @@ export default function JsonLd() {
   const servicesItemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "ADWire Agency 香港數碼營銷服務",
-    "description": "ADWire 提供香港全方位 AI 數碼營銷服務",
-    "numberOfItems": 10,
+    "name": "ADWire Agency 服務",
+    "description": "ADWire 為香港企業提供 AI 應用與自動化、系統開發、SEO／GEO 及數碼營銷服務",
+    "numberOfItems": 12,
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
-        "name": "KOL 網紅營銷",
-        "description": "精準配對香港及大灣區 KOL，打造真實口碑與病毒式傳播",
-        "url": "https://adwire.com.hk/services/kol/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "短視頻製作",
-        "description": "專業製作 Instagram Reels、TikTok 及 YouTube Shorts 爆款短片",
-        "url": "https://adwire.com.hk/services/video/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "SEO 與 GEO 優化",
-        "description": "傳統 SEO + Generative Engine Optimization，讓品牌在 Google 及 ChatGPT 中都能被找到",
-        "url": "https://adwire.com.hk/services/seo/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "成效廣告投放",
-        "description": "Facebook、Instagram、Google、YouTube 及小紅書精準廣告投放",
-        "url": "https://adwire.com.hk/services/ads/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "name": "社交媒體管理",
-        "description": "全平台社交帳號管理、內容創作及社群互動策略",
-        "url": "https://adwire.com.hk/services/social/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 6,
-        "name": "企業流程自動化及 RPA",
-        "description": "WhatsApp 自動化、CRM 整合及 AI 驅動的業務流程自動化",
-        "url": "https://adwire.com.hk/services/automation/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 7,
-        "name": "AI 解決方案",
-        "description": "度身訂造 AI Agent、企業級 LLM 應用及 AI 工作流自動化",
+        "name": "企業 AI 應用開發",
+        "description": "AI 應用、AI Agent、RAG 企業知識庫及系統整合",
         "url": "https://adwire.com.hk/services/ai/"
       },
       {
         "@type": "ListItem",
-        "position": 8,
-        "name": "網頁設計與開發",
-        "description": "品牌網站、電商網店設計，注重 RWD 及轉換率優化",
+        "position": 2,
+        "name": "企業流程自動化及 RPA",
+        "description": "WhatsApp、CRM、Email 及跨系統流程自動化，設人工覆核",
+        "url": "https://adwire.com.hk/services/automation/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "系統及 App 開發",
+        "description": "CRM、ERP、內部系統、手機 App 及 API 整合",
+        "url": "https://adwire.com.hk/services/system/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "SEO 與 GEO 優化",
+        "description": "Google 搜尋排名及 AI 搜尋可見度；方案 HK$5,800／月起",
+        "url": "https://adwire.com.hk/services/seo/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "網頁設計及電商開發",
+        "description": "品牌網站、Landing Page 及網店；形象網站 HK$8,000 起",
         "url": "https://adwire.com.hk/services/web/"
       },
       {
         "@type": "ListItem",
+        "position": 6,
+        "name": "成效廣告投放",
+        "description": "Google 及 Meta 廣告投放、受眾及素材測試",
+        "url": "https://adwire.com.hk/services/ads/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "社交媒體管理",
+        "description": "IG、Facebook、Threads、LinkedIn 及小紅書內容營運",
+        "url": "https://adwire.com.hk/services/social/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "name": "短視頻製作",
+        "description": "Reels、Shorts、抖音及小紅書直式短片策劃與製作",
+        "url": "https://adwire.com.hk/services/video/"
+      },
+      {
+        "@type": "ListItem",
         "position": 9,
-        "name": "企業系統開發",
-        "description": "ERP、CRM、預訂系統等度身訂造企業管理系統開發",
-        "url": "https://adwire.com.hk/services/system/"
+        "name": "KOL 網紅營銷",
+        "description": "KOL 篩選、議價、內容簡報及成效歸因",
+        "url": "https://adwire.com.hk/services/kol/"
       },
       {
         "@type": "ListItem",
         "position": 10,
         "name": "商業攝影與影片製作",
-        "description": "專業產品攝影、企業形象片及宣傳影片製作",
+        "description": "產品攝影、企業宣傳片及活動攝錄",
         "url": "https://adwire.com.hk/services/production/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "name": "中國市場推廣",
+        "description": "小紅書、抖音、微信、百度等內地渠道",
+        "url": "https://adwire.com.hk/services/china-market/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "name": "香港市場在地化推廣",
+        "description": "協助內地及海外品牌進入香港市場",
+        "url": "https://adwire.com.hk/services/hong-kong-market/"
       }
     ]
   };
+
 
   const schemas = [
     organizationSchema,

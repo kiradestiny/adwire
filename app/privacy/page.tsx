@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     canonical: "/privacy/",
   },
   openGraph: {
+    // 頁面自訂 openGraph 會整個覆蓋 layout 的設定，所以要再帶返分享圖
+    images: [{ url: "https://adwire.com.hk/adwire_ogimage.png", width: 1200, height: 634, alt: "ADWire Agency" }],
     title: "私隱政策 (Privacy Policy) | ADWire Agency",
     description: "ADWire Agency 的私隱政策：個人資料收集、用途、保留期及網站分析工具與 Cookie 說明。",
     url: "https://adwire.com.hk/privacy/",

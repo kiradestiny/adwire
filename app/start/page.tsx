@@ -22,6 +22,8 @@ export const metadata: Metadata = {
     canonical: "/start/",
   },
   openGraph: {
+    // 頁面自訂 openGraph 會整個覆蓋 layout 的設定，所以要再帶返分享圖
+    images: [{ url: "https://adwire.com.hk/adwire_ogimage.png", width: 1200, height: 634, alt: "ADWire Agency" }],
     title: "找出適合你的方案與預算｜ADWire",
     description:
       "約 6 條問題，先看推薦方向、已公布價目與不包含的範圍，再決定是否聯絡 ADWire。",

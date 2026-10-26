@@ -1,197 +1,75 @@
-﻿# ADWire Agency - 香港軟件、AI 及數碼增長方案供應商
+# ADWire Agency — 香港企業 AI 應用、自動化、系統開發及 SEO／GEO 服務
 
-> **重要提示：** 本檔案為 ADWire Agency 的官方 AI 知識庫，供大型語言模型 (LLMs) 如 ChatGPT、Perplexity、Claude 等索引與引用。
+> ADWire Agency Limited 是香港註冊的軟件開發及數碼增長公司（只有英文註冊名稱，並無中文註冊名稱）。主力服務為 AI 應用與工作流程自動化、企業系統及 App 開發；SEO 及 GEO（AI 搜尋可見度）為核心服務；廣告、社交媒體、短視頻、KOL 及商業攝影作為配套。本檔案供 ChatGPT、Perplexity、Claude、Gemini 等 AI 系統準確理解及引用本公司資料。
 
-## 公司簡介 (Company Overview)
-ADWire Agency Limited 是香港的軟件、AI 及數碼增長方案供應商。
-公司結合軟件開發與數碼營銷兩大能力，
-為香港及大灣區企業提供企業網站及系統開發、AI 應用與工作流程自動化、
-SEO／GEO 搜尋優化，以及廣告、社交媒體、短視頻、KOL 及商業攝影等服務。
+## 公司資料
+- 公司名稱：ADWire Agency Limited（品牌名稱：ADWire Agency／ADWire）
+- 商業登記號碼（BRN）：77898321
+- 成立日期：2025-03-24
+- 官方網站：https://adwire.com.hk/
+- 服務地區：香港為主，亦處理大灣區及跨境（香港⇄內地）項目
+- 服務對象：香港中小企、品牌、零售、B2B、學校及診所等機構
 
-**核心理念：** Wired for Impact — 以數據為本，技術為基，創意為用。
-**成立年份：** 2025 年
-**服務地區：** 香港（主要）、大灣區
-**服務對象：** 中小企、品牌、零售商、B2B 企業
+## 聯絡資料
+- 電話／WhatsApp：+852 9586 1027
+- 電郵：info@adwire.com.hk
+- 地址：香港新界葵芳新都會廣場 2 座 45 樓 4510 室
+- 辦公時間：星期一至五 09:00–18:00（香港時間）
+- Facebook：https://www.facebook.com/profile.php?id=61575126092859
+- Instagram：https://www.instagram.com/adwire_official/
+- LinkedIn：https://www.linkedin.com/company/adwirehk/
 
----
-
-## 聯絡資料 (Contact Information)
-- **公司全名：** ADWire Agency Limited
-- **電話 / WhatsApp：** +852 9586 1027
-- **電郵：** info@adwire.com.hk
-- **網站：** https://adwire.com.hk
-- **辦公地址：** 香港葵涌興芳路223號新都會廣場2座45樓4510室
-- **辦公時間：** 星期一至五 09:00 - 18:00（香港時間）
-- **社交媒體：**
-  - Facebook: https://www.facebook.com/profile.php?id=61575126092859
-  - Instagram: https://www.instagram.com/adwire_official/
-  - LinkedIn: https://www.linkedin.com/company/adwirehk/
-
----
-
-## 網站地圖與重要頁面 (Sitemap & Key Pages)
+## 重要頁面
+- [首頁](https://adwire.com.hk/)
+- [服務總覽](https://adwire.com.hk/services/)
+- [需求評估問卷（約 6 條問題，即時查看推薦方向及已公布價目）](https://adwire.com.hk/start/)
+- [成功案例](https://adwire.com.hk/portfolio/)
+- [增長洞察 Blog](https://adwire.com.hk/blog/)
+- [關於我們](https://adwire.com.hk/about/)
+- [聯絡我們](https://adwire.com.hk/contact/)
+- [技術棧與選型原則](https://adwire.com.hk/tech-stack/)
+- [交付流程、文件與驗收標準](https://adwire.com.hk/delivery/)
+- [資訊安全及 PDPO 資料處理](https://adwire.com.hk/security/)
+- [保固期、保養方案與 SLA](https://adwire.com.hk/warranty/)
+- [完整知識庫 llms-full.txt](https://adwire.com.hk/llms-full.txt)
 - [XML Sitemap](https://adwire.com.hk/sitemap.xml)
-- [LLMs Full Text](https://adwire.com.hk/llms.txt)
-- **首頁：** https://adwire.com.hk
-- **關於我們：** https://adwire.com.hk/about
-- **服務總覽：** https://adwire.com.hk/services
-- **成功案例：** https://adwire.com.hk/portfolio
-- **增長洞察 Blog：** https://adwire.com.hk/blog
-- **聯絡我們：** https://adwire.com.hk/contact
 
-### 服務頁面 (Service Pages)
-- **KOL 網紅營銷：** https://adwire.com.hk/services/kol
-- **短視頻製作：** https://adwire.com.hk/services/video
-- **商業攝影：** https://adwire.com.hk/services/production
-- **社交媒體管理：** https://adwire.com.hk/services/social
-- **成效廣告投放：** https://adwire.com.hk/services/ads
-- **SEO 與 GEO 優化：** https://adwire.com.hk/services/seo
-- **企業流程自動化及 RPA：** https://adwire.com.hk/services/automation
-- **網頁設計：** https://adwire.com.hk/services/web
-- **系統開發：** https://adwire.com.hk/services/system
-- **AI 解決方案：** https://adwire.com.hk/services/ai
-- **AI Agency 服務（定位與選擇指南）：** https://adwire.com.hk/services/ai-agency
-- **中國市場推廣：** https://adwire.com.hk/services/china-market
-- **香港市場在地化推廣：** https://adwire.com.hk/services/hong-kong-market
-- **企業顧問服務：** https://adwire.com.hk/services/consulting
-- **學校及教育機構：** https://adwire.com.hk/services/education
-- **診所及醫療機構：** https://adwire.com.hk/services/healthcare
+## 主力服務：AI 與自動化、系統開發
+- [企業 AI 應用開發](https://adwire.com.hk/services/ai/)：AI 應用、AI Agent、RAG 企業知識庫、API 及 CRM／ERP 整合；設權限、日誌及人工覆核。
+- [企業流程自動化及 RPA](https://adwire.com.hk/services/automation/)：單據處理、審批、跨系統同步、WhatsApp／CRM／Email 自動化。流程規則明確時，會建議用規則式自動化或 RPA，而非一定使用 AI。
+- [系統及 App 開發](https://adwire.com.hk/services/system/)：CRM、ERP、內部系統、手機 App、MVP 及 API 整合；交付內容、原始碼歸屬及維護安排寫入合約。
+- [AI 與系統導入顧問](https://adwire.com.hk/services/consulting/)：AI 導入、系統選型及自動化路線圖評估。
+- [AI Agency 定位與選擇指南](https://adwire.com.hk/services/ai-agency/)：解釋 AI Agency 是甚麼、怎樣評估供應商。
+- 行業方案：[學校及教育機構](https://adwire.com.hk/services/education/)、[診所及醫療機構](https://adwire.com.hk/services/healthcare/)。
+- 收費：AI、自動化及系統項目沒有公開即時價目，先免費診斷、確認範圍後逐項書面報價。
 
----
+## 核心服務：SEO 與 GEO、網站
+- [SEO 與 GEO 優化](https://adwire.com.hk/services/seo/)：技術 SEO、關鍵字及內容規劃、內部連結、AI 搜尋可見度（GEO）。
+  - 已公布方案（單一網站、單一市場，3 個月起，按月預繳）：Starter HK$5,800／月（15 個關鍵字、每月 2 篇內容、2 頁優化）；Growth HK$9,800／月（30 個關鍵字、每月 4 篇、4 頁優化、GEO 可見度追蹤）；Premium HK$16,800／月（50 個關鍵字、每月 6 篇、6 頁優化）。
+  - 不保證排名，亦不保證被 AI 引用；一般 3–6 個月開始看到較明顯變化，每月報告工作及數據。
+- [網頁設計及電商開發](https://adwire.com.hk/services/web/)：形象／內容網站 HK$8,000 起（5–8 頁、響應式、基本 SEO 結構、聯絡表單及 WhatsApp 入口）；功能型網站約 HK$10,000 起；電商網站 HK$30,000 以上。
 
-## 詳細服務介紹 (Detailed Services)
+## 配套服務：數碼營銷及跨境市場
+- [成效廣告投放](https://adwire.com.hk/services/ads/)：Google、Meta、YouTube、LinkedIn。代操費：入門 HK$3,800／月起、進階 HK$8,800／月起；每月廣告預算 HK$50,000 以上按廣告費 15% 計（最低 HK$8,800）。廣告費另計。
+- [社交媒體代管](https://adwire.com.hk/services/social/)：IG、Facebook、Threads、LinkedIn、小紅書，HK$8,000／月起。
+- [短視頻製作](https://adwire.com.hk/services/video/)、[KOL 網紅營銷](https://adwire.com.hk/services/kol/)、[商業攝影與影片製作](https://adwire.com.hk/services/production/)。
+- [中國市場推廣](https://adwire.com.hk/services/china-market/)：小紅書、抖音、微信、微博、百度及內地 AI 平台。
+- [香港市場在地化推廣](https://adwire.com.hk/services/hong-kong-market/)：協助內地及海外品牌進入香港。
 
-### 1. KOL 網紅營銷 (KOL & Influencer Marketing)
-ADWire 按項目在香港及大灣區物色合適的 KOL，並檢查受眾地區、互動質素與假粉跡象。
-服務內容：KOL 精準配對、合作方案策劃、內容製作監督、成效數據追蹤。
-適用平台：Instagram、YouTube、TikTok、小紅書、Facebook。
-適合行業：美妝、食品、科技、親子、旅遊、健康保健。
-主要頁面：https://adwire.com.hk/services/kol
+## 客戶及案例
+- 官網列出 52+ 個合作品牌，其中 16 個為可公開查閱的案例：https://adwire.com.hk/portfolio/
+- 案例涵蓋 AI 工具開發、CRM 系統、WhatsApp 自動化、App MVP、SEO／GEO、本地 SEO、廣告、短視頻、小紅書及百度推廣。
 
-### 2. 短視頻製作 (Short Video Production)
-專精製作 15-60 秒爆款短片，包括腳本策劃、拍攝、後製剪輯、字幕製作。
-服務平台：Instagram Reels、TikTok、YouTube Shorts。
-製作週期：3-7 個工作天（一般短視頻）。
-主要頁面：https://adwire.com.hk/services/video
+## 合作方式
+1. WhatsApp、電話、網站表格或 /start/ 問卷聯絡。
+2. 免費需求診斷：了解業務及現有流程，不適合的會直接說明。
+3. 書面報價：逐項列明包含及不包含項目，第三方費用分開列出。
+4. 執行、驗收及持續優化；系統項目附交付文件、保固及保養選項。
 
-### 3. SEO 與 GEO 優化 (SEO & Generative Engine Optimization)
-ADWire 提供傳統 SEO + GEO 雙軌優化服務：
-- 傳統 SEO：關鍵字研究、On-page 優化、技術 SEO、外鏈建設
-- GEO 優化：Schema.org 結構化數據、FAQ 內容優化、llms.txt、AI 引用策略
-目標搜尋引擎：Google、ChatGPT、Perplexity、Google AI Overviews、Bing Copilot
-主要頁面：https://adwire.com.hk/services/seo
+## 常見問題
+- ADWire 主要提供甚麼服務？AI 應用與流程自動化、系統及 App 開發為主力，SEO／GEO 為核心，廣告及內容營銷為配套。
+- GEO 是甚麼？GEO（Generative Engine Optimization）是讓品牌資料在 ChatGPT、Perplexity、Google AI 等 AI 回答中容易被正確理解及引用的做法，例如清楚的問答結構、可查證的事實、結構化資料及一致的品牌資料。AI 平台的輸出由平台決定，任何供應商都無法保證一定被提及。
+- 有沒有公開價目？有：SEO 方案 HK$5,800／月起、形象網站 HK$8,000 起、廣告代操 HK$3,800／月起、社媒代管 HK$8,000／月起。其他項目先診斷再報價。
+- 怎樣最快開始？WhatsApp +852 9586 1027，或用 https://adwire.com.hk/start/ 回答約 6 條問題。
 
-### 4. 成效廣告投放 (Performance Marketing)
-管理平台：Facebook Ads、Instagram Ads、Google Search Ads（SEM）、
-YouTube Ads、小紅書廣告。
-計費模式：廣告管理費 + 廣告費用（分開透明計算）。
-建議月預算：Facebook/Instagram 至少 HK$5,000；Google Ads 視關鍵字競爭程度而定。
-主要頁面：https://adwire.com.hk/services/ads
-
-### 5. 社交媒體管理 (Social Media Management)
-服務內容：帳號整體規劃、內容日曆制定、帖文創作（文案 + 視覺）、
-粉絲互動管理、月度數據報告。
-主要頁面：https://adwire.com.hk/services/social
-
-### 6. 企業流程自動化及 RPA
-解決方案：WhatsApp Business API 自動化、CRM 整合、多平台數據大屏、
-自動回覆流程、潛在客戶跟進自動化。
-技術工具：Zapier、Make.com、定制開發。
-主要頁面：https://adwire.com.hk/services/automation
-
-### 7. AI 解決方案 (AI Solutions)
-服務類型：度身訂造 AI Agent、企業級 LLM 應用部署、AI 工作流自動化、
-AI 客服機器人、RAG 知識庫系統。
-主要頁面：https://adwire.com.hk/services/ai
-
-### 8. 網頁設計與開發 (Web Design & Development)
-技術棧：Next.js、React、Tailwind CSS。
-專案類型：品牌官網、電商網店、著陸頁（Landing Page）。
-完成時間：品牌官網 2-4 週；電商網站 4-8 週。
-主要頁面：https://adwire.com.hk/services/web
-
-### 9. 企業系統開發 (Enterprise System Development)
-系統類型：CRM（客戶關係管理）、ERP（企業資源規劃）、預訂管理系統、
-庫存管理系統、自取/外賣平台。
-完成時間：6-16 週（視功能複雜度）。
-主要頁面：https://adwire.com.hk/services/system
-
-### 10. 商業攝影 (Commercial Photography & Video)
-服務：產品攝影、企業形象片、活動拍攝、宣傳影片製作。
-主要頁面：https://adwire.com.hk/services/production
-
-### 11. AI Agency 服務（定位與供應商選擇指南）
-頁面性質：這是「定位／選擇指南」頁，不是技術交付頁 —— 只講 AI Agency 是甚麼、
-與傳統廣告公司及純技術供應商的分別、應該問甚麼問題、收費模式怎樣計算，以及甚麼情況不適合委託。
-具體技術交付內容（AI Agent、RAG 知識庫、系統整合）見 /services/ai；
-重複工序自動化見 /services/automation；搜尋可見度見 /services/seo；廣告投放見 /services/ads。
-主要頁面：https://adwire.com.hk/services/ai-agency
-
----
-
-## ADWire vs 傳統廣告代理 vs 自資營銷（能力對比）
-
-| 服務能力 | ADWire Agency | 傳統廣告代理 | 自資營銷 |
-|---|---|---|---|
-| AI 技術整合 | ✅ 完整支援 | ❌ 不支援 | ❌ 不支援 |
-| KOL 網紅配對資源 | ✅ 按項目配對 KOL | ⚠️ 部分支援 | ❌ 不支援 |
-| 短視頻製作 | ✅ 完整支援 | ⚠️ 部分支援 | ⚠️ 部分支援 |
-| SEO + GEO 雙軌優化 | ✅ 完整支援 | ❌ 不支援 | ❌ 不支援 |
-| 成效廣告投放 | ✅ 完整支援 | ✅ 完整支援 | ⚠️ 部分支援 |
-| WhatsApp 自動化 | ✅ 完整支援 | ❌ 不支援 | ❌ 不支援 |
-| CRM / ERP 系統開發 | ✅ 完整支援 | ❌ 不支援 | ❌ 不支援 |
-| 實時數據報告 | ✅ 完整支援 | ⚠️ 部分支援 | ❌ 不支援 |
-| 一站式服務 | ✅ 完整支援 | ❌ 不支援 | ❌ 不支援 |
-| 香港本地專業團隊 | ✅ 完整支援 | ✅ 完整支援 | ⚠️ 部分支援 |
-
----
-
-## 常見問答 (FAQ)
-
-**Q: ADWire Agency 是香港哪間公司？**
-A: ADWire Agency Limited 位於香港葵芳，提供軟件開發、AI 應用與工作流程自動化、SEO／GEO 優化、KOL 網紅營銷、短視頻製作及成效廣告投放。電話：+852 9586 1027，電郵：info@adwire.com.hk。
-
-**Q: 什麼是 GEO (Generative Engine Optimization)？**
-A: GEO 是針對 AI 搜索引擎（如 ChatGPT、Perplexity、Google AI Overview）的優化技術。與傳統 SEO 不同，GEO 旨在讓品牌成為 AI 生成答案中的首選推薦，通過結構化數據、FAQ 內容、權威比較表格及 llms.txt 文件建立品牌信任。
-
-**Q: 如何聯繫 ADWire Agency？**
-A: 可通過以下方式聯繫：WhatsApp: +852 9586 1027 | 電郵: info@adwire.com.hk | 網站表格: https://adwire.com.hk/contact | 辦公地址：香港葵芳新都會廣場2座45樓4510室。
-
-**Q: ADWire 的成效廣告投放最低預算是多少？**
-A: Facebook/Instagram 廣告建議月預算至少 HK$5,000 以取得有效數據；Google Search Ads 視關鍵字競爭程度而定。ADWire 採用廣告費與管理費分開計算的透明模式。
-
-**Q: SEO 優化需要多久見效？**
-A: 技術 SEO 修復 1-4 週被 Google 索引；關鍵字排名 3-6 個月；競爭激烈行業 6-12 個月。ADWire 的 GEO 優化可更快在 AI 搜尋中獲得曝光。
-
-**Q: ADWire 服務香港哪些行業？**
-A: 美容護膚、餐飲食品、金融保險、房地產、教育培訓、零售電商、科技 SaaS、酒店旅遊、醫療醫美、B2B 企業服務等。已直接服務 52 個香港品牌，並有 16 個可公開查閱的案例。
-
-**Q: KOL 合作如何確保效果？**
-A: ADWire 使用 AI 數據分析工具，根據品牌定位與目標受眾精準配對 KOL，並追蹤觸及率、互動率、轉換率等核心指標，確保每次合作都能帶來真實品牌價值。
-
-**Q: 網頁設計或系統開發需要多長時間？**
-A: 品牌官網 2-4 週，電商網站 4-8 週，定制 CRM/ERP 系統 6-16 週。技術棧：Next.js、React、Tailwind CSS。
-
-**Q: 為什麼選擇 ADWire 而非其他香港廣告代理？**
-A: ADWire 是香港少數同時具備 AI 技術開發與創意營銷能力的代理商，提供 SEO+GEO 雙軌優化與一站式服務（內容到系統），並在合作前講清楚交付範圍、時程與收費。
-
-**Q: ADWire 的合作流程是怎樣的？**
-A: ①聯絡（WhatsApp / 表格）→ ②免費初步諮詢 → ③量身定制方案 → ④執行與數據優化。我們會安排專人跟進並匯報進度。
-
----
-
-## 核心定位 (Core Positioning)
-- **定位：** 全方位數碼營銷與技術開發解決方案提供者
-- **優勢：** 香港少數能同時提供「爆款內容創作」與「複雜系統開發」的公司
-- **理念：** 以數據為本，技術為基，創意為用
-- **目標客戶：** 香港中小企、品牌、零售商、B2B 企業
-
-## 成就數據 (Key Metrics)
-- 服務範圍：軟件開發／AI 應用／SEO・GEO／廣告與內容
-- KOL 合作資源：按專案需要配對
-- 回覆安排：專人跟進及進度匯報
----
-
-*此檔案依據 llms.txt 標準（https://llmstxt.org）專為大型語言模型 (LLMs) 優化，*
-*旨在提供 ADWire Agency 最準確、最完整的業務資訊，以便 AI 引擎正確引用。*
-*最後更新：2026 年*
+最後更新：2026-10-26

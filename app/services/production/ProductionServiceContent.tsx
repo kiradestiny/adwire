@@ -336,7 +336,7 @@ export default function ProductionServiceContent() {
           <ImageCard label="Food" color="bg-green-900" />
         </div>
         <div className="mt-12">
-          <a href="/portfolio" className="inline-flex items-center gap-2 text-[#f5a623] font-bold hover:gap-3 transition-all">
+          <a href="/portfolio/" className="inline-flex items-center gap-2 text-[#f5a623] font-bold hover:gap-3 transition-all">
             查看完整作品集 <ArrowRight size={20} />
           </a>
         </div>

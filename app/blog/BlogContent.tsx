@@ -90,7 +90,7 @@ function PostCard({ post, index }: { post: BlogPostSummary; index: number }) {
         </div>
         <h3 className="text-[15px] sm:mt-3 sm:text-lg font-bold leading-snug text-[#0f4c81] transition-colors group-hover:text-[#d48a0c] line-clamp-2">
           {/* 整張卡可按：用 ::after 蓋住成張卡，保留單一連結俾讀屏 */}
-          <Link href={`/blog/${post.slug}`} className="after:absolute after:inset-0 after:content-['']">
+          <Link href={`/blog/${post.slug}`} prefetch={false} className="after:absolute after:inset-0 after:content-['']">
             {post.title}
           </Link>
         </h3>
@@ -353,7 +353,7 @@ export default function BlogContent({ posts }: BlogContentProps) {
                     </span>
                   </div>
                   <h3 className="text-xl font-bold leading-snug text-white md:text-3xl">
-                    <Link href={`/blog/${featuredPost.slug}`} className="after:absolute after:inset-0 after:content-['']">
+                    <Link href={`/blog/${featuredPost.slug}`} prefetch={false} className="after:absolute after:inset-0 after:content-['']">
                       {featuredPost.title}
                     </Link>
                   </h3>
@@ -387,7 +387,7 @@ export default function BlogContent({ posts }: BlogContentProps) {
                     <div className="flex min-w-0 flex-col justify-center py-1">
                       <span className="text-xs font-bold text-[#d48a0c]">{topicLabel(topicOf(post.category))}</span>
                       <h3 className="mt-1 font-bold leading-snug text-[#0f4c81] line-clamp-2 group-hover:text-[#d48a0c]">
-                        <Link href={`/blog/${post.slug}`} className="after:absolute after:inset-0 after:content-['']">
+                        <Link href={`/blog/${post.slug}`} prefetch={false} className="after:absolute after:inset-0 after:content-['']">
                           {post.title}
                         </Link>
                       </h3>
@@ -474,6 +474,43 @@ export default function BlogContent({ posts }: BlogContentProps) {
             </div>
           </div>
         )}
+      </section>
+
+      {/* ── 文章目錄：全部文章按主題列出（伺服器輸出，搜尋引擎及 AI 爬蟲都睇到每篇文章連結）── */}
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8" aria-labelledby="index-heading">
+        <h2 id="index-heading" className="mb-4 flex items-center gap-2 text-lg font-bold text-gray-800">
+          <BookOpen size={18} className="text-[#f5a623]" /> 文章目錄（按主題）
+        </h2>
+        <div className="grid items-start gap-3 md:grid-cols-2">
+          {topics.map((t) => {
+            const list = blogPosts.filter((p) => topicOf(p.category) === t.id);
+            return (
+              <details key={t.id} className="group rounded-2xl border border-gray-100 bg-white open:shadow-md">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4">
+                  <span className="font-bold text-[#0f4c81]">
+                    {t.label}
+                    <span className="ml-2 text-sm font-semibold text-gray-400">{list.length} 篇</span>
+                  </span>
+                  <ChevronDown size={18} className="shrink-0 text-[#f5a623] transition-transform group-open:rotate-180" />
+                </summary>
+                <ul className="space-y-2 px-5 pb-5">
+                  {list.map((p) => (
+                    <li key={p.id}>
+                      <Link
+                        href={`/blog/${p.slug}`}
+                        prefetch={false}
+                        className="flex items-start gap-2 text-sm text-gray-600 hover:text-[#0f4c81]"
+                      >
+                        <ChevronRight size={14} className="mt-0.5 shrink-0 text-gray-300" />
+                        {p.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            );
+          })}
+        </div>
       </section>
 
       {/* ── 讀完想行動：真實聯絡入口（取代未接後端的訂閱表單）── */}

@@ -243,7 +243,7 @@ export default function VideoServiceContent() {
           </div>
           
           <div className="mt-16 text-center">
-            <a href="/portfolio" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors border-b border-purple-400/30 pb-1 hover:border-purple-300">
+            <a href="/portfolio/" className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors border-b border-purple-400/30 pb-1 hover:border-purple-300">
               查看更多作品案例 <TrendingUp size={16} />
             </a>
           </div>

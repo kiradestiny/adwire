@@ -13,6 +13,23 @@ import Image from "next/image";
 import { buildSrcSet } from "@/lib/imageVariants";
 import { resolveCanonicalSlug } from "@/lib/blog-canonical";
 import { getWhatsAppUrl } from "@/lib/site-config";
+import { topicOf, type BlogTopicId } from "@/lib/blog-topics";
+
+// 文章側欄「熱門服務」：同文章主題最相關的服務排先（AI 及自動化為主力），全部用 trailing slash 避免轉址
+const SIDEBAR_SERVICES = [
+  { href: "/services/ai/", label: "企業 AI 應用開發", topic: "ai" },
+  { href: "/services/automation/", label: "流程自動化及 RPA", topic: "ai" },
+  { href: "/services/system/", label: "系統及 App 開發", topic: "system" },
+  { href: "/services/seo/", label: "SEO / GEO 搜尋引擎優化", topic: "seo" },
+  { href: "/services/web/", label: "高轉換網頁設計", topic: "web" },
+  { href: "/services/ads/", label: "成效廣告投放代操", topic: "marketing" },
+  { href: "/services/china-market/", label: "中國市場推廣", topic: "china" },
+] as const;
+
+function relatedServices(category: string) {
+  const t: BlogTopicId = topicOf(category);
+  return [...SIDEBAR_SERVICES].sort((a, b) => Number(b.topic === t) - Number(a.topic === t));
+}
 import {
   buildTocAndInjectIds,
   extractFaqs,
@@ -352,7 +369,7 @@ export default async function BlogPost({
     <div class="article-cta">
       <p class="cta-title">想了解實際交付範圍及報價方式？</p>
       <p class="cta-desc">可以先把你的需求講清楚，我們會回覆可行的做法、範圍、時間及收費方式，不需要一開始就決定合作。</p>
-      <a href="/contact" class="cta-btn">提交項目需求</a>
+      <a href="/contact/" class="cta-btn">提交項目需求</a>
     </div>
   `;
   const contentHtml = injectMidArticleCta(contentWithIds, midArticleCta, 2);
@@ -547,7 +564,7 @@ export default async function BlogPost({
                     WhatsApp 免費咨詢
                   </Link>
                   <Link
-                    href="/contact"
+                    href="/contact/"
                     className="inline-block bg-white/10 border border-white/30 text-white px-8 py-3 rounded-full font-bold hover:bg-white/20 transition-colors"
                   >
                     填寫聯絡表格
@@ -651,15 +668,7 @@ export default async function BlogPost({
                   <Tag size={18} className="text-[#f5a623]" /> 熱門服務
                 </h4>
                 <ul className="space-y-3">
-                  {[
-                    { href: "/services/seo", label: "SEO / GEO 搜尋引擎優化" },
-                    { href: "/services/ads", label: "成效廣告投放代操" },
-                    { href: "/services/kol", label: "KOL 網紅營銷" },
-                    { href: "/services/automation", label: "自動化流程設計" },
-                    { href: "/services/web", label: "高轉換網頁設計" },
-                    { href: "/services/china-market", label: "中國市場推廣" },
-                    { href: "/services/hong-kong-market", label: "香港市場在地化推廣" },
-                  ].map(({ href, label }) => (
+                  {relatedServices(post.category).map(({ href, label }) => (
                     <li key={href}>
                       <Link
                         href={href}
@@ -691,7 +700,7 @@ export default async function BlogPost({
                   WhatsApp 即時咨詢
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/contact/"
                   className="block w-full bg-white/10 border border-white/20 text-white py-3 rounded-xl font-bold hover:bg-white/20 transition-colors text-sm"
                 >
                   填寫查詢表格
