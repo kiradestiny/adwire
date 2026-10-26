@@ -1,0 +1,31 @@
+// ops/mail-watchdog/wrangler.jsonc — ADWire 郵件保護獨立監察 Worker 設定
+//
+// ⚠️ 部署前必做（父層）：
+//   1. WATCH_STATE KV namespace id 已由父層填入（無 placeholder）。
+//   2. 以 secret 注入憑證（唔可以 commit 落 repo）：
+//        wrangler secret put AGENTMAIL_API_KEY --config ops/mail-watchdog/wrangler.jsonc
+//        wrangler secret put MAIL_OPS_TOKEN    --config ops/mail-watchdog/wrangler.jsonc
+//   3. 本檔冇任何秘密。
+{
+  "name": "adwire-mail-watchdog",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-26",
+  "triggers": {
+    // 每 5 分鐘（Cloudflare cron 一律以 UTC 計）
+    "crons": ["*/5 * * * *"]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "WATCH_STATE",
+      "id": "a9234393e2a74fc1b128e7b84875719c"
+    }
+  ],
+  "vars": {
+    "SITE_URL": "https://adwire.com.hk",
+    "ALERT_TO": "info@adwire.com.hk",
+    "AGENTMAIL_INBOX_ID": "adwire-hermes3099@agentmail.to"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

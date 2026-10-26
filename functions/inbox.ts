@@ -13,14 +13,32 @@
  * 用法：https://adwire.com.hk/inbox
  */
 
+import {
+  checkBearer,
+  hasText,
+  runHealth,
+  runProbe,
+  runRetryBatch,
+} from "../lib/mail-runtime.ts";
+
 interface KVNamespace {
-  list(opts?: { prefix?: string; limit?: number }): Promise<{ keys: Array<{ name: string }> }>;
+  list(opts?: {
+    prefix?: string;
+    limit?: number;
+    cursor?: string;
+  }): Promise<{ keys: Array<{ name: string }>; list_complete?: boolean; cursor?: string }>;
   get(key: string): Promise<string | null>;
+  put(key: string, value: string, opts?: { expirationTtl?: number }): Promise<void>;
 }
 
 interface Env {
   ENQUIRIES?: KVNamespace;
   INBOX_PASSWORD?: string;
+  /** Ops API（/inbox?mailops=…）Bearer token；未設定即 fail-closed。 */
+  MAIL_OPS_TOKEN?: string;
+  RESEND_API_KEY?: string;
+  MAIL_TO?: string;
+  MAIL_FROM?: string;
 }
 
 interface PagesContext {
@@ -125,8 +143,66 @@ function hkTime(iso: string): string {
   }
 }
 
+// ── Ops API（/inbox?mailops=…）────────────────────────────────────────────────
+// 只認 `Authorization: Bearer <MAIL_OPS_TOKEN>`（固定時間比較）。未設定 token
+// 即 503 fail-closed。方法逐一強制，無 CORS（唔加 Access-Control-*）。回應一律
+// no-store + noindex，只回布林／計數／安全碼，絕不回傳秘密或 hash。
+const opsJson = (body: Record<string, unknown>, status: number): Response =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "no-store, max-age=0",
+      "X-Robots-Tag": "noindex, nofollow",
+      "X-Frame-Options": "DENY",
+    },
+  });
+
+async function handleMailOps(request: Request, env: Env, url: URL): Promise<Response> {
+  const token = env.MAIL_OPS_TOKEN;
+  if (!hasText(token)) return opsJson({ ok: false, error: "ops_disabled" }, 503);
+  if (!checkBearer(request.headers.get("authorization"), token.trim())) {
+    return opsJson({ ok: false, error: "unauthorized" }, 401);
+  }
+
+  const op = url.searchParams.get("mailops");
+
+  if (op === "health") {
+    if (request.method !== "GET") return opsJson({ ok: false, error: "method_not_allowed" }, 405);
+    const health = await runHealth(env);
+    return opsJson(health as unknown as Record<string, unknown>, health.ok ? 200 : 503);
+  }
+
+  if (op === "retry") {
+    if (request.method !== "POST") return opsJson({ ok: false, error: "method_not_allowed" }, 405);
+    if (!hasText(env.RESEND_API_KEY) || !env.ENQUIRIES) {
+      return opsJson({ ok: false, error: "not_ready" }, 503);
+    }
+    // 刻意唔讀 request body：只重播已排隊嘅 frozen payload，
+    // 唔接受任何由請求指定嘅收件人／內容（原始表單已通過 CAPTCHA／驗證）。
+    const out = await runRetryBatch(env.ENQUIRIES, { apiKey: env.RESEND_API_KEY });
+    return opsJson({ ok: true, ...out }, 200);
+  }
+
+  if (op === "probe") {
+    if (request.method !== "POST") return opsJson({ ok: false, error: "method_not_allowed" }, 405);
+    // 受控測試信：只有固定收件人／固定標題，唔入 queue、唔寫 enquiry。
+    const probe = await runProbe({ apiKey: env.RESEND_API_KEY, mailTo: env.MAIL_TO, mailFrom: env.MAIL_FROM });
+    return opsJson(probe as unknown as Record<string, unknown>, probe.ok ? 200 : 502);
+  }
+
+  return opsJson({ ok: false, error: "unknown_operation" }, 400);
+}
+
 export const onRequest = async (context: PagesContext): Promise<Response> => {
   const { request, env } = context;
+  const url = new URL(request.url);
+
+  // ops API 分支：必須喺既有 Basic Auth 之前，但只認 Bearer MAIL_OPS_TOKEN。
+  // 未設定 token 即 fail-closed；無 CORS；方法逐一強制；只重播已排隊 payload。
+  if (url.searchParams.has("mailops")) {
+    return handleMailOps(request, env, url);
+  }
 
   const PASS = env.INBOX_PASSWORD;
   if (!PASS) {
@@ -156,7 +232,6 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
   }
 
   // 診斷 JSON：只喺 Basic Auth 之後提供，支援可選 requestId UUID 過濾。
-  const url = new URL(request.url);
   if (url.searchParams.get("diagnostics") === "1") {
     return diagnosticsResponse(url.searchParams.get("requestId"), env.ENQUIRIES);
   }
