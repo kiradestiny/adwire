@@ -760,7 +760,7 @@ async function main() {
     }
   });
 
-  await t("所有外呼都設 redirect:\"error\"（避免憑證經重定向洩漏／假 200）", async () => {
+  await t("所有外呼都設 redirect:\"manual\"（避免憑證經重定向洩漏／假 200）", async () => {
     const env = baseEnv();
     const { calls, restore } = withFetch(makeRouter());
     try {
