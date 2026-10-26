@@ -199,7 +199,7 @@ export default function Partners() {
 
           {/* 中間：專業團隊（唔出真名、唔出相） */}
           <motion.div variants={item} data-mobile-visible="true" className="order-1 lg:order-2 relative">
-            <div aria-hidden="true" className="absolute inset-0 rounded-[2rem] bg-[#f5a623]/30 blur-2xl motion-safe:animate-pulse" />
+            <div data-mobile-glow="true" aria-hidden="true" className="absolute inset-0 rounded-[2rem] bg-[#f5a623]/30 blur-2xl motion-safe:animate-pulse" />
             <div className="relative rounded-[2rem] bg-gradient-to-br from-[#0f4c81] to-[#0a2f55] text-white p-7 text-center shadow-2xl border border-white/10">
               <div className="mx-auto w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-4">
                 <Users size={30} className="text-[#f5a623]" />

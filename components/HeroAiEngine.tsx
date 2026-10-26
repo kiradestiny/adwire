@@ -253,7 +253,7 @@ export default function HeroAiEngine() {
           className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
           style={{ left: pct(CX, W), top: pct(CY, H), width: pct(132, W), aspectRatio: "1" }}
         >
-          <div className="absolute inset-0 rounded-full bg-[#f5a623]/30 blur-2xl motion-safe:animate-pulse" aria-hidden="true" />
+          <div data-mobile-glow="true" className="absolute inset-0 rounded-full bg-[#f5a623]/30 blur-2xl motion-safe:animate-pulse" aria-hidden="true" />
           {!reduced && (
             <motion.div
               key={`burst${scene}`}
