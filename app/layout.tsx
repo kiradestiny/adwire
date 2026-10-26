@@ -19,7 +19,7 @@ const lexend = Lexend({
 export const metadata: Metadata = {
   metadataBase: new URL("https://adwire.com.hk"),
   title: {
-    default: "ADWire Agency｜軟件開發・AI 應用・SEO 增長方案",
+    default: "香港 AI 自動化・系統開發・SEO 公司｜ADWire Agency",
     template: "%s | ADWire Agency",
   },
   description: "ADWire 提供企業網站及系統開發、AI 應用與工作流程自動化，以及 SEO／GEO 搜尋優化。由需求分析、開發部署到持續改善，協助香港企業處理實際營運與增長問題。",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     google: "2kR6J_D1cosVu9LL4tic3jHxwy4Gq53F35bTOjO3wcg",
   },
   openGraph: {
-    title: "ADWire Agency｜軟件開發・AI 應用・SEO 增長方案",
+    title: "香港 AI 自動化・系統開發・SEO 公司｜ADWire Agency",
     description: "ADWire 提供企業網站及系統開發、AI 應用與工作流程自動化，以及 SEO／GEO 搜尋優化。由需求分析、開發部署到持續改善，協助香港企業處理實際營運與增長問題。",
     url: "https://adwire.com.hk",
     siteName: "ADWire Agency",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ADWire Agency｜軟件開發・AI 應用・SEO 增長方案",
+    title: "香港 AI 自動化・系統開發・SEO 公司｜ADWire Agency",
     description: "ADWire 提供企業網站及系統開發、AI 應用與工作流程自動化，以及 SEO／GEO 搜尋優化。",
     images: ["https://adwire.com.hk/adwire_ogimage.png"],
   },

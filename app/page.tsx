@@ -23,7 +23,7 @@ import type { Metadata } from "next";
 import { getBrands, getBlogPosts, getSerializablePortfolioCases } from "@/lib/data-resolver";
 
 export const metadata: Metadata = {
-  title: { absolute: "ADWire Agency｜軟件開發・AI 應用・SEO 增長方案" },
+  title: { absolute: "香港 AI 自動化・系統開發・SEO 公司｜ADWire Agency" },
   description:
     "ADWire 提供企業網站及系統開發、AI 應用與工作流程自動化，以及 SEO／GEO 搜尋優化。由需求分析、開發部署到持續改善，協助香港企業處理實際營運與增長問題。",
   keywords: [

@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "廣告公司 | ADWire Agency 香港",
-    description: "香港成效廣告代操：Google / Meta / YouTube，平均 ROAS 8.5倍，入門代操費 HK$3,800/月起。",
+    description: "香港成效廣告代操：Google / Meta / YouTube。真實案例：美妝新品 ROAS 由 2.1 升至 8 倍。代操費 HK$3,800/月起。",
     images: ["/portfolio/global-trade-ads.webp"],
   },
 };
@@ -66,7 +66,7 @@ const serviceSchema = {
   name: "成效廣告投放服務 (Performance Advertising)",
   alternateName: "Performance Marketing Hong Kong",
   description:
-    "ADWire Agency 提供香港一站式成效廣告代操服務，涵蓋 Meta（Facebook/Instagram）、Google Search（SEM）、YouTube 及 LinkedIn 廣告。以數據驅動 A/B Testing 及精準受眾鎖定，平均廣告回報率（ROAS）達 8.5 倍，CPA 獲客成本降低 45%。",
+    "ADWire Agency 提供香港一站式成效廣告代操服務，涵蓋 Meta（Facebook/Instagram）、Google Search（SEM）、YouTube 及 LinkedIn 廣告。以數據驅動 A/B Testing 及精準受眾鎖定。真實案例：美妝新品發佈廣告 8 週內 ROAS 由 2.1 倍提升至 8 倍；小紅書資訊流廣告 ROAS 由 1.8 倍提升至 4.3 倍。",
   url: "https://adwire.com.hk/services/ads/",
   image: "https://adwire.com.hk/portfolio/global-trade-ads.webp",
   provider: {

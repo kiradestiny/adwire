@@ -27,12 +27,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const PORTFOLIO_REVAMP       = '2026-10-25'   // 2026-10-25 成功案例改版（PR #3–#5）
   const HUB_REFRESH            = '2026-10-26'   // 2026-10-26 首頁、服務總覽、Blog 列表版面重整
   const TRUST_PAGES_ADDED      = '2026-10-24'   // 2026-10-24 新增技術棧／交付／安全／保固頁
+  const CASE_FIGURES_UPDATE    = '2026-10-26'   // 2026-10-26 廣告、社媒頁改用真實案例數字
 
   // 逐頁 lastmod 覆寫：只對「確實於該日改動過」的頁面設新日期。
   // 唔可以全站一齊推日期 —— Google 對 lastmod 的信任建基於準確性，
   // 造假日期會令整個 sitemap 的 lastmod 被忽略。
   const SERVICE_PAGE_LAST_UPDATED: Record<string, string> = {
-    '/services/ads/':    SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港廣告公司／每投 $1 廣告費，帶回 $8.5」
+    '/services/ads/':    CASE_FIGURES_UPDATE, // 2026-10-26 平均數字換成真實案例數字
+    '/services/social/': CASE_FIGURES_UPDATE,
     '/services/seo/':    SERVICE_PAGES_REDESIGN,
     '/services/system/': SERVICE_PAGES_REDESIGN,
     '/services/web/':    SERVICE_PAGES_REDESIGN,

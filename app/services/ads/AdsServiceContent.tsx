@@ -43,6 +43,7 @@ import Link from "next/link";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
 import ServiceFit from "@/components/ServiceFit";
+import { STAT_LABEL } from "@/lib/site-stats";
 export default function AdsServiceContent() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -53,7 +54,8 @@ export default function AdsServiceContent() {
         <p>
           ADWire Agency 成效廣告投放服務是一項由 ADWire Agency（香港葵芳）提供的 Performance Marketing 服務，
           涵蓋 Meta（Facebook / Instagram）、Google Search（SEM）、YouTube 及 LinkedIn 廣告代操，
-          平均廣告回報率（ROAS）達 8.5 倍，CPA 獲客成本降低 45%。
+          真實案例：美妝新品發佈廣告 8 週內 ROAS 由 2.1 倍提升至 8 倍、獲客成本由 HK$380 降至 HK$95；
+          小紅書資訊流廣告 ROAS 由 1.8 倍提升至 4.3 倍；B2B LinkedIn 廣告每月帶來 15 個以上合格詢盤。
           代操費用：入門方案 HK$3,800/月起，進階方案 HK$8,800/月起；每月廣告預算 HK$50,000 以上者，代操費按廣告費 15% 計算，金額特大者另行報價。
           聯絡：WhatsApp {WHATSAPP_E164}，電郵 info@adwire.com.hk。
         </p>
@@ -67,12 +69,12 @@ export default function AdsServiceContent() {
           </tbody>
         </table>
         <table>
-          <caption>ADWire 成效廣告平均成效指標</caption>
-          <thead><tr><th>指標</th><th>數值</th></tr></thead>
+          <caption>ADWire 成效廣告真實案例成效（個別案例，非平均值）</caption>
+          <thead><tr><th>案例</th><th>成效</th></tr></thead>
           <tbody>
-            <tr><td>平均廣告回報率（ROAS）</td><td>8.5倍</td></tr>
-            <tr><td>CPA 降低幅度</td><td>平均 45%</td></tr>
-            <tr><td>月訂單增長（案例）</td><td>+280 個</td></tr>
+            <tr><td>美妝新品發佈廣告（Meta，8 週）</td><td>ROAS 由 2.1 倍提升至 8 倍；獲客成本由 HK$380 降至 HK$95</td></tr>
+            <tr><td>小紅書資訊流廣告優化</td><td>ROAS 由 1.8 倍提升至 4.3 倍；CPL 降低 66%</td></tr>
+            <tr><td>Global Trade B2B LinkedIn 廣告</td><td>每月 15 個以上合格詢盤</td></tr>
             <tr><td>服務平台</td><td>Meta（FB/IG）、Google Ads、YouTube、LinkedIn</td></tr>
           </tbody>
         </table>
@@ -134,9 +136,9 @@ export default function AdsServiceContent() {
               {/* Key Metrics Pills */}
               <div className="flex flex-wrap gap-3 mb-8">
                 {[
-                  { icon: TrendingUp, value: "8.5×", label: "平均 ROAS" },
-                  { icon: PieChart, value: "-45%", label: "CPA 降低" },
-                  { icon: Users, value: "100+", label: "服務客戶" },
+                  { icon: TrendingUp, value: "8x", label: "美妝案例 ROAS" },
+                  { icon: PieChart, value: "-75%", label: "美妝案例獲客成本" },
+                  { icon: Users, value: STAT_LABEL.brandClients, label: "合作品牌" },
                 ].map((m, i) => (
                   <div key={i} className="flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm rounded-full px-4 py-2">
                     <m.icon size={14} className="text-[#f5a623]" />
@@ -190,66 +192,44 @@ export default function AdsServiceContent() {
               <div data-mobile-glow="true" aria-hidden="true" className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-[#f5a623]/20 rounded-3xl blur-xl" />
 
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-2xl relative">
-                {/* Dashboard Header */}
+                {/* 真實案例摘要（取代舊示意 dashboard 的虛構數字） */}
                 <div className="bg-white/5 border-b border-white/10 px-5 py-3 flex items-center justify-between">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <span className="text-xs text-gray-400 font-mono">ADWire Performance Dashboard</span>
-                  <span className="flex items-center gap-1 text-xs text-green-400">
-                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                    Live
-                  </span>
+                  <span className="text-xs text-gray-300 font-semibold">ADWire 廣告案例成績</span>
+                  <span className="text-[10px] text-gray-400">真實客戶項目・個別案例</span>
                 </div>
 
                 <div className="p-6">
-                  {/* ROAS Hero Number */}
-                  <div className="text-center mb-6 pb-6 border-b border-white/10">
-                    <div className="text-xs text-gray-400 uppercase tracking-widest mb-1">本月廣告回報率（ROAS）</div>
-                    <div className="text-6xl font-black text-green-400 mb-1">8.5<span className="text-3xl">×</span></div>
+                  <Link href="/portfolio/beauty-ads-roas/" className="block text-center mb-6 pb-6 border-b border-white/10 group">
+                    <div className="text-xs text-gray-400 uppercase tracking-widest mb-1">美妝新品發佈廣告（8 週）</div>
+                    <div className="text-6xl font-black text-green-400 mb-1">8<span className="text-3xl">×</span></div>
                     <div className="flex items-center justify-center gap-1 text-green-400 text-sm">
-                      <TrendingUp size={14} /> <span>較上月 +23%</span>
+                      <TrendingUp size={14} /> <span>ROAS 由 2.1× 提升</span>
                     </div>
-                  </div>
+                  </Link>
 
-                  {/* Stats Row */}
                   <div className="grid grid-cols-3 gap-3 mb-6">
                     {[
-                      { label: "廣告花費", val: "$12,450", col: "text-gray-200" },
-                      { label: "轉換次數", val: "385", col: "text-gray-200" },
-                      { label: "獲客成本", val: "$32.3", col: "text-blue-300" },
+                      { label: "獲客成本", val: "HK$95", sub: "原 HK$380", col: "text-blue-300" },
+                      { label: "首月銷售", val: "+220%", sub: "超越目標", col: "text-gray-200" },
+                      { label: "測試素材", val: "50+組", sub: "A/B 測試", col: "text-gray-200" },
                     ].map((s, i) => (
                       <div key={i} className="bg-white/5 rounded-xl p-3 text-center">
                         <div className="text-[10px] text-gray-400 mb-1 uppercase tracking-wide">{s.label}</div>
                         <div className={`text-base font-bold ${s.col}`}>{s.val}</div>
+                        <div className="text-[10px] text-gray-400">{s.sub}</div>
                       </div>
                     ))}
                   </div>
 
-                  {/* Platform Performance Bars */}
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {[
-                      { name: "Meta Ads (FB/IG)", pct: 92, color: "bg-blue-500", roas: "9.2×" },
-                      { name: "Google Search", pct: 85, color: "bg-yellow-500", roas: "8.1×" },
-                      { name: "YouTube Ads", pct: 68, color: "bg-red-500", roas: "6.5×" },
-                      { name: "LinkedIn Ads", pct: 55, color: "bg-sky-500", roas: "5.2×" },
-                    ].map((p, i) => (
-                      <div key={i}>
-                        <div className="flex justify-between text-xs text-gray-400 mb-1">
-                          <span>{p.name}</span>
-                          <span className="text-green-400 font-semibold">{p.roas}</span>
-                        </div>
-                        <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: `${p.pct}%` }}
-                            transition={{ delay: 0.8 + i * 0.1, duration: 0.8 }}
-                            className={`h-full rounded-full ${p.color}`}
-                          />
-                        </div>
-                      </div>
+                      { name: "小紅書資訊流廣告", result: "ROAS 1.8× → 4.3×", href: "/portfolio/xiaohongshu-paid-ads/" },
+                      { name: "Global Trade B2B（LinkedIn）", result: "每月 15+ 合格詢盤", href: "/portfolio/global-trade-b2b-ads/" },
+                    ].map((c) => (
+                      <Link key={c.href} href={c.href} className="flex items-center justify-between rounded-xl bg-white/5 px-4 py-3 text-xs transition-colors hover:bg-white/10">
+                        <span className="text-gray-300">{c.name}</span>
+                        <span className="font-semibold text-green-400">{c.result}</span>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -261,7 +241,7 @@ export default function AdsServiceContent() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -bottom-4 -left-4 bg-green-500 text-white px-4 py-2 rounded-2xl shadow-lg text-sm font-bold"
               >
-                ✓ ROAS 8.5× 實證
+                ✓ 數字來自真實案例
               </motion.div>
             </motion.div>
 
@@ -333,7 +313,7 @@ export default function AdsServiceContent() {
               <div className="space-y-6">
                 <MetricRow label="CPA" subLabel="(獲客成本)" desc="持續優化，以最低成本取得一個客。" />
                 <MetricRow label="CVR" subLabel="(轉換率)" desc="優化 Landing Page，提升訪客購買意欲。" />
-                <MetricRow label="ROAS" subLabel="(回報率)" desc="確保每投放 $1，能帶回 $3-$10 的生意。" />
+                <MetricRow label="ROAS" subLabel="(回報率)" desc="按產品毛利訂出可接受的 ROAS，再用數據逐步推高。" />
               </div>
             </div>
 
@@ -352,15 +332,15 @@ export default function AdsServiceContent() {
                   <div className="w-3 h-3 rounded-full bg-yellow-400" />
                   <div className="w-3 h-3 rounded-full bg-green-400" />
                 </div>
-                <div className="text-xs text-gray-400 font-mono">ADWire Ads Manager</div>
+                <div className="text-xs text-gray-400 font-mono">示意畫面：美妝案例三層廣告漏斗</div>
               </div>
               
               {/* Dashboard Content */}
               <div className="p-6">
                 <div className="grid grid-cols-3 gap-4 mb-8">
-                  <StatBox label="花費金額" val="$12,450" color="text-gray-800" />
-                  <StatBox label="轉換次數" val="385" color="text-gray-800" />
-                  <StatBox label="ROAS" val="8.5x" color="text-green-500" isHighlight />
+                  <StatBox label="獲客成本" val="HK$95" color="text-gray-800" />
+                  <StatBox label="測試素材" val="50+" color="text-gray-800" />
+                  <StatBox label="ROAS" val="8x" color="text-green-500" isHighlight />
                 </div>
 
                 <div className="space-y-3">
@@ -368,9 +348,9 @@ export default function AdsServiceContent() {
                     <span>Campaign Name</span>
                     <span>Status</span>
                   </div>
-                  <CampaignRow name="🔥 Q1 春季新品推廣 - Set A" status="Active" roas="4.2" trend="up" />
-                  <CampaignRow name="🎯 再營銷 (Retargeting) - Cart" status="Active" roas="8.5" trend="up" />
-                  <CampaignRow name="❌ 舊客回購 (測試版)" status="Paused" roas="1.1" trend="down" />
+                  <CampaignRow name="認知層：品牌故事短片＋KOL UGC" status="Active" roas="—" trend="up" />
+                  <CampaignRow name="考慮層：功效對比＋用戶評價輪播" status="Active" roas="—" trend="up" />
+                  <CampaignRow name="轉化層：限時優惠＋棄單再營銷" status="Active" roas="—" trend="up" />
                 </div>
               </div>
             </motion.div>
@@ -497,32 +477,35 @@ export default function AdsServiceContent() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <CaseStudyCard 
-              industry="美容護膚品牌"
-              title="ROAS 從 2.1 提升至 8.5"
-              desc="透過受眾優化和 Lookalike Audience，成功降低 CPA 60%，同時提升轉換率。"
-              metric="8.5x"
+            <CaseStudyCard
+              industry="美妝 Beauty"
+              title="ROAS 由 2.1 提升至 8"
+              desc="50+ 組素材 A/B 測試、三層廣告漏斗，8 週內獲客成本由 HK$380 降至 HK$95。"
+              metric="8x"
               metricLabel="廣告回報率"
               icon={Sparkles}
               color="from-pink-500 to-rose-500"
+              href="/portfolio/beauty-ads-roas/"
             />
-            <CaseStudyCard 
-              industry="電商零售"
-              title="獲客成本下降 45%"
-              desc="運用 A/B Testing 找出最佳素材組合，搭配再營銷策略，大幅降低 CPA。"
-              metric="-45%"
-              metricLabel="CPA 降低"
+            <CaseStudyCard
+              industry="小紅書廣告"
+              title="ROAS 由 1.8 提升至 4.3"
+              desc="30+ 組種草式素材測試，搜尋廣告同步啟動，CPL 由 ¥180 降至 ¥62。"
+              metric="4.3x"
+              metricLabel="小紅書廣告 ROAS"
               icon={ShoppingCart}
               color="from-blue-500 to-cyan-500"
+              href="/portfolio/xiaohongshu-paid-ads/"
             />
-            <CaseStudyCard 
-              industry="餐飲連鎖"
-              title="每月新增 280+ 訂單"
-              desc="利用 Google Search + Meta Ads 雙管齊下，成功將網上流量轉化為實體訂單。"
-              metric="+280"
-              metricLabel="月訂單增長"
-              icon={Utensils}
+            <CaseStudyCard
+              industry="B2B 貿易"
+              title="每月 15+ 合格詢盤"
+              desc="LinkedIn 廣告配合 Landing Page 及電郵培育序列，建立穩定 B2B 詢盤來源。"
+              metric="15+"
+              metricLabel="合格詢盤／月"
+              icon={Briefcase}
               color="from-orange-500 to-red-500"
+              href="/portfolio/global-trade-b2b-ads/"
             />
           </div>
         </div>
@@ -940,8 +923,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
-function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon, color }: { 
-  industry: string, title: string, desc: string, metric: string, metricLabel: string, icon: any, color: string 
+function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon, color, href }: {
+  industry: string, title: string, desc: string, metric: string, metricLabel: string, icon: any, color: string, href?: string
 }) {
   return (
     <motion.div
@@ -960,6 +943,11 @@ function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon,
       <div className="border-t border-gray-100 pt-6">
         <div className="text-3xl font-bold text-[#0f4c81] mb-1">{metric}</div>
         <div className="text-xs text-gray-400 uppercase tracking-wide">{metricLabel}</div>
+        {href && (
+          <Link href={href} className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[#0f4c81] hover:underline">
+            查看完整案例 <ArrowRight size={14} />
+          </Link>
+        )}
       </div>
     </motion.div>
   );

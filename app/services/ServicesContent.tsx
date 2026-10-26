@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import {
   Search, Bot, Globe, Server, BarChart3, Users, Smartphone, Megaphone,
   Target, CheckCircle2, ArrowRight, TrendingUp, Cpu,
-  FileSearch, Link2, Gauge, Workflow, MapPinned, HelpCircle, ChevronDown
+  Link2, Gauge, Workflow, MapPinned, HelpCircle, ChevronDown
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,11 +17,11 @@ import { SERVICES_OVERVIEW_FAQS } from "@/lib/service-faqs";
 /**
  * 服務總覽 `/services/`
  *
- * 定位：以「搜尋可見度」為主軸的 landing page。
+ * 定位：原本以「搜尋可見度」為主軸；2026-10-26 負責人指示改為 AI 及自動化行先、SEO／GEO 為核心。
  * 負責人指示（2026-09-21）：「我哋主要都係想做返 SEO、AI 搜尋等等嘅工作為主」，
  * 因此本頁由「數碼營銷服務列表」改為「客戶怎樣在 Google 及 AI 搜尋找到你」。
  *
- * 排序原則：SEO／GEO／AI 行先，內容與營銷其次，跨境市場獨立一組。
+ * 排序原則（2026-10-26 更新）：AI 及自動化行先，SEO／GEO 為核心，內容與營銷其次，跨境市場獨立一組。
  *
  * ⚠️ 已移除「我們是 Google Partner 及 Meta 廣告專家」——
  *    該聲稱未經核實，且與 components/HeroSection.tsx 既有的
@@ -58,36 +58,8 @@ const searchShift = [
   },
 ];
 
-// ── 核心能力：以搜尋可見度為主軸重新分組 ──────────────────────────────
+// ── 核心能力：AI 與自動化行先，SEO／GEO 為核心，營銷做支援（2026-10-26）──
 const pillars = [
-  {
-    tag: "核心",
-    title: "SEO、GEO 與 AI 搜尋優化",
-    icon: Search,
-    accent: "text-[#0f4c81]",
-    bg: "bg-blue-50",
-    lead: "讓客戶在 Google 及 AI 搜尋中找到你，並在 AI 回答中被如實提及。這是我們最主要的工作，也是其他服務的基礎。",
-    items: [
-      {
-        id: "seo",
-        title: "SEO 與 GEO 優化",
-        icon: Search,
-        content:
-          "技術 SEO、內容與搜尋意圖規劃、品牌在 AI 搜尋的能見度。按 Google 官方指引調整內容結構，令頁面更容易被搜尋引擎理解及被 AI 引用。我們不會作任何排名保證，但會逐項說明做了甚麼、為甚麼這樣做。",
-        features: ["關鍵字與搜尋意圖研究", "技術 SEO 與 Core Web Vitals", "內容與內部連結規劃", "GEO：AI 搜尋可見度"],
-        link: "/services/seo",
-      },
-      {
-        id: "web",
-        title: "網頁設計及電商開發",
-        icon: Globe,
-        content:
-          "網站是搜尋可見度的載體。我們開發載入快、結構清晰、手機優先的網站，由 Landing Page 到 B2B 報價系統。速度與結構本身就是 SEO 的一部分，不是做完設計再補救。",
-        features: ["UI/UX 與響應式設計", "CMS 後台開發", "電商系統整合", "載入效能與結構優化"],
-        link: "/services/web",
-      },
-    ],
-  },
   {
     tag: "核心",
     title: "AI 應用與流程自動化",
@@ -122,6 +94,34 @@ const pillars = [
           "客製化內部系統、CRM／ERP 相關開發、API 整合。開發範圍按專案評估，交付內容、原始碼歸屬及維護安排會在合約寫明。",
         features: ["客製化系統開發", "CRM／ERP 整合", "API 串接", "維護與交接安排"],
         link: "/services/system",
+      },
+    ],
+  },
+  {
+    tag: "核心",
+    title: "SEO、GEO 與 AI 搜尋優化",
+    icon: Search,
+    accent: "text-[#0f4c81]",
+    bg: "bg-blue-50",
+    lead: "讓客戶在 Google 及 AI 搜尋中找到你，並在 AI 回答中被如實提及。這是我們的核心服務之一，亦令系統與內容帶來實際查詢。",
+    items: [
+      {
+        id: "seo",
+        title: "SEO 與 GEO 優化",
+        icon: Search,
+        content:
+          "技術 SEO、內容與搜尋意圖規劃、品牌在 AI 搜尋的能見度。按 Google 官方指引調整內容結構，令頁面更容易被搜尋引擎理解及被 AI 引用。我們不會作任何排名保證，但會逐項說明做了甚麼、為甚麼這樣做。",
+        features: ["關鍵字與搜尋意圖研究", "技術 SEO 與 Core Web Vitals", "內容與內部連結規劃", "GEO：AI 搜尋可見度"],
+        link: "/services/seo",
+      },
+      {
+        id: "web",
+        title: "網頁設計及電商開發",
+        icon: Globe,
+        content:
+          "網站是搜尋可見度的載體。我們開發載入快、結構清晰、手機優先的網站，由 Landing Page 到 B2B 報價系統。速度與結構本身就是 SEO 的一部分，不是做完設計再補救。",
+        features: ["UI/UX 與響應式設計", "CMS 後台開發", "電商系統整合", "載入效能與結構優化"],
+        link: "/services/web",
       },
     ],
   },
@@ -337,7 +337,7 @@ export default function ServicesContent() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-sm font-medium text-blue-100"
               >
-                <Search size={14} /> SEO ・ GEO ・ AI 搜尋可見度
+                <Bot size={14} /> AI 自動化 ・ 系統開發 ・ SEO／GEO
               </motion.div>
 
               <motion.h1
@@ -347,9 +347,9 @@ export default function ServicesContent() {
                 transition={{ delay: 0.1 }}
                 className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
               >
-                讓客戶在 Google 與
+                用 <span className="text-[#f5a623]">AI 與自動化</span>
                 <br />
-                <span className="text-[#f5a623]">AI 搜尋</span> 找到你
+                推動香港企業增長
               </motion.h1>
 
               <motion.p
@@ -359,9 +359,9 @@ export default function ServicesContent() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-gray-300 max-w-xl mb-10 leading-relaxed"
               >
-                客戶找供應商的方式已經改變 —— 由單純搜尋關鍵字，變成向 ChatGPT、Perplexity、DeepSeek
-                等平台直接提問。ADWire 以 SEO 及 GEO 為主軸，為香港企業建立可被搜尋、可被引用的內容資產，
-                並配合網站開發、AI 應用與內容營銷，把可見度轉化為查詢。
+                ADWire 先用 AI 應用、流程自動化及系統開發，處理回覆查詢、整理資料、跟進客戶等重複工序；
+                再以 SEO 及 GEO 令客戶在 Google 與 ChatGPT、Perplexity 等 AI 平台找到你，
+                並配合網站與內容營銷，把效率和曝光轉化為生意。
               </motion.p>
 
               <motion.div
@@ -372,23 +372,23 @@ export default function ServicesContent() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <Link
-                  href="#contact"
+                  href="/start/"
                   className="px-8 py-4 bg-[#f5a623] text-white font-bold rounded-full hover:bg-[#e09612] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2"
                 >
-                  預約免費搜尋診斷 <ArrowRight size={20} />
+                  免費需求評估 <ArrowRight size={20} />
                 </Link>
                 <Link
-                  href="/services/seo/"
+                  href="/services/ai/"
                   className="px-8 py-4 bg-white/10 text-white font-bold rounded-full hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20 flex items-center justify-center gap-2"
                 >
-                  <FileSearch size={18} /> 了解 SEO 與 GEO
+                  <Cpu size={18} /> 了解 AI 應用開發
                 </Link>
               </motion.div>
 
               <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-blue-100/90">
-                <span className="flex items-center gap-2"><Gauge size={16} /> 先診斷搜尋現況，再決定做甚麼</span>
+                <span className="flex items-center gap-2"><Gauge size={16} /> 先了解流程，再決定是否用 AI</span>
                 <span className="flex items-center gap-2"><Link2 size={16} /> 交付內容逐項列明</span>
-                <span className="flex items-center gap-2"><CheckCircle2 size={16} /> 不作排名保證</span>
+                <span className="flex items-center gap-2"><CheckCircle2 size={16} /> 不作排名或成效保證</span>
               </div>
             </div>
 
@@ -405,8 +405,8 @@ export default function ServicesContent() {
                 className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
               >
                 <Image
-                  src="/services/services-overview-seo-ai-search.webp"
-                  alt="ADWire 服務總覽：香港 SEO、GEO 及 AI 搜尋優化服務"
+                  src="/services/ai/ai-system-integration-engineer.webp"
+                  alt="ADWire 服務總覽：香港 AI 自動化、系統開發及 SEO／GEO 服務"
                   width={1600}
                   height={900}
                   className="w-full h-auto"
@@ -486,11 +486,11 @@ export default function ServicesContent() {
         <div className="text-center mb-16">
           <span className="text-[#f5a623] font-bold tracking-wider uppercase text-sm">Our Services</span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#0f4c81] mt-2 mb-6">
-            以搜尋可見度為核心的服務組合
+            AI 與自動化為先的服務組合
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            我們的服務以 SEO 及 AI 搜尋優化為首要，其餘能力（網站、AI 應用、內容、廣告）都是為了
-            令搜尋帶來的流量真正變成生意。
+            AI 應用、流程自動化及系統開發行先，SEO 與 GEO 是核心，
+            內容與廣告負責把效率和曝光真正變成生意。
           </p>
         </div>
 

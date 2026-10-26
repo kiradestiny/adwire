@@ -20,6 +20,7 @@ import Link from "next/link";
 
 import ServiceTechStack from "@/components/ServiceTechStack";
 import ServiceFit from "@/components/ServiceFit";
+import { STAT_LABEL } from "@/lib/site-stats";
 // ─── 平台資料 ────────────────────────────────────────────────────────────────
 const PLATFORMS = [
   {
@@ -36,7 +37,7 @@ const PLATFORMS = [
     region: "全球",
     audience: "18–35 歲年輕族群，女性偏多，偏好美容、時尚、生活方式及旅遊",
     strengths: [
-      "Reels 自然觸及是普通 Feed Post 的 3–5 倍，爆紅機率更高",
+      "Reels 是目前 IG 演算法最優先推送的格式，最有機會觸及新受眾",
       "IG Shop 功能直接將瀏覽者轉化為買家，縮短購買路徑",
       "統一的視覺 Feed 風格建立強烈的品牌辨識度",
       "Story 24 小時限時策略：製造稀缺感刺激即時訂單",
@@ -59,7 +60,7 @@ const PLATFORMS = [
     region: "香港、大灣區、東南亞",
     audience: "25–55 歲廣泛人群，涵蓋企業主、家庭主婦、中產專業人士",
     strengths: [
-      "香港 Facebook 活躍用戶滲透率超 90%，幾乎人人有帳號",
+      "香港最普及的社交平台之一，覆蓋 25 歲以上各年齡層",
       "社團 (Groups) 功能建立深度品牌社群，提升忠誠度",
       "廣告系統最成熟，支援最精準的受眾定向",
       "活動 (Events) 功能輕鬆推廣線下及網上活動",
@@ -285,14 +286,14 @@ export default function SocialServiceContent() {
             >
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 shadow-2xl">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-sm font-semibold text-gray-300 uppercase tracking-wider">客戶平均成效</h3>
-                  <span className="text-xs text-green-400 bg-green-400/20 px-2 py-1 rounded-full">▲ 持續增長</span>
+                  <h3 className="text-sm font-semibold text-gray-300 uppercase tracking-wider">真實案例成績</h3>
+                  <span className="text-xs text-green-400 bg-green-400/20 px-2 py-1 rounded-full">個別案例・非平均值</span>
                 </div>
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   {[
-                    { label: "粉絲增長", value: "+500%", sub: "3個月平均", color: "text-pink-400" },
-                    { label: "互動率", value: "8.2%", sub: "行業均值 1.4%", color: "text-purple-400" },
-                    { label: "業績轉化", value: "+3×", sub: "社媒帶動訂單", color: "text-[#f5a623]" },
+                    { label: "IG 追蹤", value: "+805%", sub: "隱世啡客", color: "text-pink-400" },
+                    { label: "IG 粉絲", value: "+2,771%", sub: "食品品牌短片", color: "text-purple-400" },
+                    { label: "筆記曝光", value: "500萬+", sub: "小紅書種草", color: "text-[#f5a623]" },
                   ].map((m, i) => (
                     <motion.div data-mobile-visible="true" key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 + i * 0.1 }} className="bg-white/10 rounded-2xl p-4 text-center">
                       <div className={`text-2xl font-black mb-1 ${m.color}`}>{m.value}</div>
@@ -301,27 +302,16 @@ export default function SocialServiceContent() {
                     </motion.div>
                   ))}
                 </div>
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {[
-                    { name: "Instagram", pct: 92, color: "bg-gradient-to-r from-pink-500 to-purple-500" },
-                    { name: "Facebook", pct: 85, color: "bg-blue-500" },
-                    { name: "小紅書", pct: 78, color: "bg-red-500" },
-                    { name: "LinkedIn", pct: 70, color: "bg-indigo-600" },
-                    { name: "Threads", pct: 62, color: "bg-gray-500" },
-                  ].map((p, i) => (
-                    <div key={i}>
-                      <div className="flex justify-between text-xs text-gray-400 mb-1">
-                        <span>{p.name}</span><span>{p.pct}%</span>
-                      </div>
-                      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          animate={{ width: `${p.pct}%` }}
-                          transition={{ delay: 0.8 + i * 0.1, duration: 0.8 }}
-                          className={`h-full rounded-full ${p.color}`}
-                        />
-                      </div>
-                    </div>
+                    { name: "隱世啡客：Reels 7 日播放", result: "180K+", href: "/portfolio/cafe-reels-viral/" },
+                    { name: "食品品牌：醬料銷量", result: "+280%", href: "/portfolio/yummy-food-reels/" },
+                    { name: "小紅書種草：品牌搜尋", result: "+312%", href: "/portfolio/xiaohongshu-seeding/" },
+                  ].map((c) => (
+                    <Link key={c.href} href={c.href} className="flex items-center justify-between rounded-xl bg-white/5 px-4 py-3 text-xs transition-colors hover:bg-white/10">
+                      <span className="text-gray-300">{c.name}</span>
+                      <span className="font-semibold text-green-400">{c.result}</span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -330,7 +320,7 @@ export default function SocialServiceContent() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-4 -right-4 bg-gradient-to-br from-[#f5a623] to-orange-500 text-white px-4 py-2 rounded-2xl shadow-lg text-sm font-bold"
               >
-                100+ 品牌信賴 ⭐
+                {STAT_LABEL.brandClients} 品牌合作 ⭐
               </motion.div>
             </motion.div>
 
@@ -622,9 +612,9 @@ export default function SocialServiceContent() {
             <p className="text-gray-500">看看我們如何幫助不同行業的品牌在社交媒體上取得成功</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <CaseStudyCard industry="美容護膚" title="IG 追蹤者 3 個月增長 500%" desc="透過精心策劃的 Reels 內容和 KOL 合作，成功將小眾品牌推向大眾市場。" metric="+2.5萬" metricLabel="新增粉絲" icon={Sparkles} color="from-pink-500 to-rose-500" />
-            <CaseStudyCard industry="餐飲 F&B" title="每月訂座量提升 80%" desc="運用 Story 互動遊戲與限時優惠，成功將網上流量轉化為實際訂座。" metric="80%" metricLabel="訂座增長" icon={Utensils} color="from-orange-500 to-red-500" />
-            <CaseStudyCard industry="電商零售" title="IG Shop 月營業額破百萬" desc="優化產品目錄展示，配合 UGC 內容策略，大幅提升購買轉換率。" metric="HK$1.2M" metricLabel="月營業額" icon={ShoppingCart} color="from-blue-500 to-cyan-500" />
+            <CaseStudyCard industry="餐飲 F&B" title="隱世啡客：Reels 7 日 180K+ 播放" desc="KOL 配對加 Reels 拍攝，總預算 HK$4,200，週末每週新增 30+ 桌客人。" metric="+805%" metricLabel="IG 追蹤成長" icon={Utensils} color="from-orange-500 to-red-500" href="/portfolio/cafe-reels-viral/" />
+            <CaseStudyCard industry="食品品牌" title="短片平均每條 100K+ 觀看" desc="由首批 6 條短片測試開始，最高單片 380K 觀看，官網流量 +430%，醬料銷量 +280%。" metric="+2,771%" metricLabel="IG 粉絲增長" icon={ShoppingCart} color="from-blue-500 to-cyan-500" href="/portfolio/yummy-food-reels/" />
+            <CaseStudyCard industry="小紅書" title="品牌種草：筆記曝光 500萬+" desc="40+ 位 KOL 分批發佈，品牌搜尋量 +312%，官方帳號粉絲 +2,212%。" metric="500萬+" metricLabel="筆記總曝光量" icon={Sparkles} color="from-pink-500 to-rose-500" href="/portfolio/xiaohongshu-seeding/" />
           </div>
         </div>
       </section>
@@ -667,7 +657,7 @@ export default function SocialServiceContent() {
           </div>
           <div className="mt-12 bg-blue-50 border border-blue-100 p-8 rounded-2xl text-center">
             <h3 className="text-xl font-bold text-gray-900 mb-3">看不到你的行業？</h3>
-            <p className="text-gray-600 mb-6">我們服務超過 50+ 不同行業，無論你做什麼生意，我們都能為你制定合適的社群策略。</p>
+            <p className="text-gray-600 mb-6">我們已服務 52+ 個香港品牌，橫跨餐飲、美容、零售、專業服務等行業，可按你的生意制定合適的社群策略。</p>
             <a href="#contact" className="inline-flex items-center gap-2 bg-[#0f4c81] text-white px-6 py-3 rounded-full font-bold hover:bg-[#0a355c] transition-all">
               聯絡我們 <ArrowRight size={18} />
             </a>
@@ -951,8 +941,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
-function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon, color }: {
-  industry: string; title: string; desc: string; metric: string; metricLabel: string; icon: any; color: string;
+function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon, color, href }: {
+  industry: string; title: string; desc: string; metric: string; metricLabel: string; icon: any; color: string; href?: string;
 }) {
   return (
     <motion.div data-mobile-visible="true" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all group">
@@ -965,6 +955,11 @@ function CaseStudyCard({ industry, title, desc, metric, metricLabel, icon: Icon,
       <div className="border-t border-gray-100 pt-6">
         <div className="text-3xl font-bold text-[#0f4c81] mb-1">{metric}</div>
         <div className="text-xs text-gray-400 uppercase tracking-wide">{metricLabel}</div>
+        {href && (
+          <Link href={href} className="mt-4 inline-block text-sm font-semibold text-[#0f4c81] hover:underline">
+            查看完整案例 →
+          </Link>
+        )}
       </div>
     </motion.div>
   );
