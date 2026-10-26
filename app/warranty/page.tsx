@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/warranty/" },
   openGraph: {
+    // 頁面自訂 openGraph 會整個覆蓋 layout 的設定，所以要再帶返分享圖
+    images: [{ url: "https://adwire.com.hk/adwire_ogimage.png", width: 1200, height: 634, alt: "ADWire Agency" }],
     title: "保固期、保養方案與 SLA｜ADWire",
     description: "保固範圍、保養模式、SLA 回應目標與交接安排。",
     url: "https://adwire.com.hk/warranty/",

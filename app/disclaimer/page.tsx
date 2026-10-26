@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     canonical: "/disclaimer/",
   },
   openGraph: {
+    // 頁面自訂 openGraph 會整個覆蓋 layout 的設定，所以要再帶返分享圖
+    images: [{ url: "https://adwire.com.hk/adwire_ogimage.png", width: 1200, height: 634, alt: "ADWire Agency" }],
     title: "免責聲明 (Disclaimer) | ADWire Agency",
     description: "ADWire Agency 的免責聲明。關於本網站資料的準確性、完整性及責任限制的說明。",
     url: "https://adwire.com.hk/disclaimer/",

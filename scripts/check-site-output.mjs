@@ -386,7 +386,7 @@ function checkMarquee() {
   if (!existsSync(f)) return;
   const html = readFileSync(f, "utf8");
   const found = [
-    ...html.matchAll(/<span class="text-xl font-bold text-gray-300[^"]*">([^<]+)<\/span>/g),
+    ...html.matchAll(/<span data-brand="true"[^>]*>([^<]+)<\/span>/g),
   ].map((m) =>
     m[1].replace(/&#x27;/g, "'").replace(/&amp;/g, "&").replace(/&#x2F;/g, "/").trim()
   );

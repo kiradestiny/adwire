@@ -13,13 +13,16 @@ import {
   Database,
   Zap,
   Share2,
-  Code
+  Code,
+  Users,
+  ArrowRight
 } from "lucide-react";
 
 // 定義合作夥伴數據結構
 const partnerCategories = [
   {
     title: "AI 核心技術與模型",
+    outcome: "AI 客服輔助、文件處理、內容草稿：同一件事，人手時間更短。",
     description: "整合全球頂尖 LLM 模型，驅動智能內容生成與決策分析",
     icon: Cpu,
     color: "text-purple-600",
@@ -36,6 +39,7 @@ const partnerCategories = [
   },
   {
     title: "智能自動化營銷",
+    outcome: "查詢、跟進、提醒自動按流程執行，唔使靠人記。",
     description: "透過 MarTech 工具實現 24/7 自動化營銷流程與客戶跟進",
     icon: Bot,
     color: "text-indigo-600",
@@ -52,6 +56,7 @@ const partnerCategories = [
   },
   {
     title: "數據分析與雲端基建",
+    outcome: "網站同系統快、穩、安全，每個數據都追蹤得到。",
     description: "穩固的企業級架構，確保數據安全與極速訪問體驗",
     icon: Cloud,
     color: "text-blue-600",
@@ -68,6 +73,7 @@ const partnerCategories = [
   },
   {
     title: "全渠道營銷生態",
+    outcome: "廣告、社交媒體同網店數據打通，預算用得其所。",
     description: "覆蓋主流社交與電商平台，精準觸達目標客群",
     icon: Globe,
     color: "text-pink-600",
@@ -99,16 +105,56 @@ const item = {
   show: { opacity: 1, y: 0 }
 };
 
+const TEAM_ROLES = ["策略顧問", "工程師", "內容及設計", "數據分析"];
+
+function CategoryCard({ category, side }: { category: (typeof partnerCategories)[number]; side: "left" | "right" }) {
+  return (
+    <motion.div
+      variants={item} data-mobile-visible="true"
+      whileHover={{ y: -5 }}
+      className={`relative group bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 ${category.border}`}
+    >
+      {/* 連去中間團隊嘅數據流（桌面） */}
+      <div aria-hidden="true" className={`hidden lg:block absolute top-1/2 ${side === "left" ? "-right-12" : "-left-12"} w-12 h-px bg-gradient-to-r from-[#0f4c81]/10 via-[#f5a623]/60 to-[#0f4c81]/10 overflow-visible`}>
+        <span className={`absolute -top-[3px] w-1.5 h-1.5 rounded-full bg-[#f5a623] shadow-[0_0_8px_#f5a623] motion-safe:animate-[adw-flow_1.8s_linear_infinite] ${side === "left" ? "" : "[animation-direction:reverse]"}`} />
+      </div>
+      <div className="flex items-center gap-3 mb-3">
+        <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${category.bg} ${category.color} group-hover:scale-110 transition-transform duration-300 shadow-inner`}>
+          <category.icon size={22} />
+        </div>
+        <h3 className="text-lg font-bold text-gray-800 group-hover:text-[#0f4c81] transition-colors">
+          {category.title}
+        </h3>
+      </div>
+      <p className="text-[15px] font-semibold text-gray-800 leading-relaxed mb-1">
+        <span className="text-[#f5a623]">幫你做到：</span>{category.outcome}
+      </p>
+      <p className="text-gray-500 text-sm mb-4 leading-relaxed">
+        {category.description}
+      </p>
+      <div className="flex flex-wrap gap-1.5">
+        {category.partners.map((partner, pIdx) => (
+          <span
+            key={pIdx}
+            className="px-2.5 py-1 bg-gray-50 rounded-md text-xs font-medium text-gray-600 border border-gray-100 group-hover:border-gray-200 transition-colors cursor-default flex items-center gap-1.5"
+          >
+            <span className={`w-1.5 h-1.5 rounded-full ${category.bg.replace('100', '400')}`}></span>
+            {partner}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Partners() {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
-      {/* Tech Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       <div data-mobile-glow="true" aria-hidden="true" className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px]"></div>
       <div data-mobile-glow="true" aria-hidden="true" className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-purple-400 opacity-20 blur-[100px]"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -125,56 +171,61 @@ export default function Partners() {
               </span>
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
-              ADWire 不僅是一家代理商，更是你的技術夥伴。我們深度整合全球領先的 AI 模型與 MarTech 工具，
-              為你的品牌構建自動化、數據化、智能化的增長引擎。
+              你唔需要識技術。你面對的是 ADWire 專業團隊；團隊背後有一整套 AI 模型與 MarTech 工具，
+              為你的品牌構建自動化、數據化、智能化的增長引擎，更快、更穩陣咁做到結果。
             </p>
           </motion.div>
         </div>
 
-        <motion.div 
+        {/* 你 → 團隊 → 工具 */}
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-12 text-sm font-semibold">
+          <span className="rounded-full bg-gray-100 text-gray-700 px-4 py-2">你：講清楚業務目標</span>
+          <ArrowRight size={16} className="text-[#f5a623]" />
+          <span className="rounded-full bg-[#0f4c81] text-white px-4 py-2">ADWire 團隊：策略、開發、把關</span>
+          <ArrowRight size={16} className="text-[#f5a623]" />
+          <span className="rounded-full bg-[#f5a623] text-white px-4 py-2">AI 及技術工具：加快執行</span>
+        </div>
+
+        <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8" data-mobile-visible="true"
+          className="grid grid-cols-1 lg:grid-cols-[1fr_17rem_1fr] gap-6 lg:gap-12 items-center" data-mobile-visible="true"
         >
-          {partnerCategories.map((category, idx) => (
-            <motion.div 
-              key={idx}
-              variants={item} data-mobile-visible="true"
-              whileHover={{ y: -5 }}
-              className={`group bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 ${category.border}`}
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${category.bg} ${category.color} group-hover:scale-110 transition-transform duration-300 shadow-inner`}>
-                  <category.icon size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 group-hover:text-[#0f4c81] transition-colors">
-                  {category.title}
-                </h3>
+          <div className="flex flex-col gap-6 order-2 lg:order-1">
+            {partnerCategories.slice(0, 2).map((c) => <CategoryCard key={c.title} category={c} side="left" />)}
+          </div>
+
+          {/* 中間：專業團隊（唔出真名、唔出相） */}
+          <motion.div variants={item} data-mobile-visible="true" className="order-1 lg:order-2 relative">
+            <div data-mobile-glow="true" aria-hidden="true" className="absolute inset-0 rounded-[2rem] bg-[#f5a623]/30 blur-2xl motion-safe:animate-pulse" />
+            <div className="relative rounded-[2rem] bg-gradient-to-br from-[#0f4c81] to-[#0a2f55] text-white p-7 text-center shadow-2xl border border-white/10">
+              <div className="mx-auto w-16 h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-4">
+                <Users size={30} className="text-[#f5a623]" />
               </div>
-              
-              <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-                {category.description}
-              </p>
-              
-              <div className="flex flex-wrap gap-2">
-                {category.partners.map((partner, pIdx) => (
-                  <motion.span 
-                    key={pIdx}
-                    whileHover={{ scale: 1.05 }}
-                    className="px-3 py-1.5 bg-gray-50 rounded-lg text-sm font-medium text-gray-600 border border-gray-100 hover:bg-white hover:border-gray-200 hover:shadow-md hover:text-[#0f4c81] transition-all cursor-default flex items-center gap-1.5"
-                  >
-                    <span className={`w-1.5 h-1.5 rounded-full ${category.bg.replace('bg-', 'bg-').replace('100', '400')}`}></span>
-                    {partner}
-                  </motion.span>
+              <p className="text-xs tracking-[0.2em] text-blue-200 font-bold mb-1">YOUR TEAM</p>
+              <h3 className="text-2xl font-bold mb-3">ADWire 專業團隊</h3>
+              <ul className="flex flex-wrap justify-center gap-1.5 mb-5">
+                {TEAM_ROLES.map((r) => (
+                  <li key={r} className="text-xs rounded-full bg-white/10 border border-white/15 px-2.5 py-1">{r}</li>
                 ))}
-              </div>
-            </motion.div>
-          ))}
+              </ul>
+              <p className="text-sm text-blue-100 leading-relaxed">
+                由團隊決定用邊個工具、點樣用；
+                <span className="text-white font-semibold">每個 AI 輸出都有人把關</span>，對你負責嘅係人，唔係工具。
+              </p>
+              <a href="#contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#f5a623] text-white text-sm font-bold px-5 py-2.5 hover:bg-[#e0951a] transition-colors">
+                同團隊傾下 <ArrowRight size={14} />
+              </a>
+            </div>
+          </motion.div>
+
+          <div className="flex flex-col gap-6 order-3">
+            {partnerCategories.slice(2).map((c) => <CategoryCard key={c.title} category={c} side="right" />)}
+          </div>
         </motion.div>
-        
-        <motion.div 
+                <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

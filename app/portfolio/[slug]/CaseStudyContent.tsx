@@ -584,7 +584,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
               </li>
               <ChevronRight size={14} />
               <li>
-                <Link href="/portfolio" className="hover:text-white transition-colors">
+                <Link href="/portfolio/" className="hover:text-white transition-colors">
                   成功案例
                 </Link>
               </li>
@@ -809,7 +809,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
 
             {/* 返回按鈕 */}
             <Link
-              href="/portfolio"
+              href="/portfolio/"
               className="flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-[#0f4c81] transition-colors group"
             >
               <ArrowLeft
@@ -884,7 +884,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
                 <p className="text-gray-400 text-sm mt-1">同類型行業的更多成效</p>
               </div>
               <Link
-                href="/portfolio"
+                href="/portfolio/"
                 className="hidden md:flex items-center gap-1.5 text-sm font-semibold text-[#0f4c81] hover:gap-2.5 transition-all"
               >
                 查看全部
@@ -947,7 +947,7 @@ export default function CaseStudyContent({ slug, caseData, relatedCasesData, ext
                 <ArrowUpRight size={18} />
               </a>
               <Link
-                href="/portfolio"
+                href="/portfolio/"
                 className="inline-flex items-center justify-center gap-2 liquid-glass text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 hover:liquid-glass-hover text-base"
               >
                 <ArrowLeft size={16} />

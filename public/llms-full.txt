@@ -20,7 +20,7 @@ SEO／GEO 搜尋優化，以及廣告、社交媒體、短視頻、KOL 及商業
 - **電話 / WhatsApp：** +852 9586 1027
 - **電郵：** info@adwire.com.hk
 - **網站：** https://adwire.com.hk
-- **辦公地址：** 香港葵涌興芳路223號新都會廣場2座45樓4510室
+- **辦公地址：** 香港新界葵芳新都會廣場 2 座 45 樓 4510 室
 - **辦公時間：** 星期一至五 09:00 - 18:00（香港時間）
 - **社交媒體：**
   - Facebook: https://www.facebook.com/profile.php?id=61575126092859
@@ -36,62 +36,62 @@ ADWire 按項目在香港及大灣區物色合適的 KOL，並檢查受眾地區
 服務內容：KOL 精準配對、合作方案策劃、內容製作監督、成效數據追蹤。
 適用平台：Instagram、YouTube、TikTok、小紅書、Facebook。
 適合行業：美妝、食品、科技、親子、旅遊、健康保健。
-主要頁面：https://adwire.com.hk/services/kol
+主要頁面：https://adwire.com.hk/services/kol/
 
 ### 3.2 短視頻製作 (Short Video Production)
 專精製作 15-60 秒爆款短片，包括腳本策劃、拍攝、後製剪輯、字幕製作。
 服務平台：Instagram Reels、TikTok、YouTube Shorts。
 製作週期：3-7 個工作天（一般短視頻）。
-主要頁面：https://adwire.com.hk/services/video
+主要頁面：https://adwire.com.hk/services/video/
 
 ### 3.3 SEO 與 GEO 優化 (SEO & Generative Engine Optimization)
 ADWire 提供傳統 SEO + GEO 雙軌優化服務：
 - 傳統 SEO：關鍵字研究、On-page 優化、技術 SEO、外鏈建設
 - GEO 優化：Schema.org 結構化數據、FAQ 內容優化、llms.txt、AI 引用策略
 目標搜尋引擎：Google、ChatGPT、Perplexity、Google AI Overviews、Bing Copilot
-主要頁面：https://adwire.com.hk/services/seo
+主要頁面：https://adwire.com.hk/services/seo/
 
 ### 3.4 成效廣告投放 (Performance Marketing)
 管理平台：Facebook Ads、Instagram Ads、Google Search Ads（SEM）、YouTube Ads、小紅書廣告。
 計費模式：廣告管理費 + 廣告費用（分開透明計算）。
 建議月預算：Facebook/Instagram 至少 HK$5,000；Google Ads 視關鍵字競爭程度而定。
-主要頁面：https://adwire.com.hk/services/ads
+主要頁面：https://adwire.com.hk/services/ads/
 
 ### 3.5 社交媒體管理 (Social Media Management)
 服務內容：帳號整體規劃、內容日曆制定、帖文創作（文案 + 視覺）、粉絲互動管理、月度數據報告。
-主要頁面：https://adwire.com.hk/services/social
+主要頁面：https://adwire.com.hk/services/social/
 
 ### 3.6 企業流程自動化及 RPA
 解決方案：WhatsApp Business API 自動化、CRM 整合、多平台數據大屏、自動回覆流程、潛在客戶跟進自動化。
 技術工具：Zapier、Make.com、定制開發。
-主要頁面：https://adwire.com.hk/services/automation
+主要頁面：https://adwire.com.hk/services/automation/
 
 ### 3.7 AI 解決方案 (AI Solutions)
 服務類型：度身訂造 AI Agent、企業級 LLM 應用部署、AI 工作流自動化、AI 客服機器人、RAG 知識庫系統。
 技術：Google Gemini API、OpenAI API、LangChain、自定義 RAG 框架。
-主要頁面：https://adwire.com.hk/services/ai
+主要頁面：https://adwire.com.hk/services/ai/
 
 ### 3.8 網頁設計與開發 (Web Design & Development)
 技術棧：Next.js、React、Tailwind CSS。
 專案類型：品牌官網、電商網店、著陸頁（Landing Page）。
 完成時間：品牌官網 2-4 週；電商網站 4-8 週。
-主要頁面：https://adwire.com.hk/services/web
+主要頁面：https://adwire.com.hk/services/web/
 
 ### 3.9 企業系統開發 (Enterprise System Development)
 系統類型：CRM（客戶關係管理）、ERP（企業資源規劃）、預訂管理系統、庫存管理系統、自取/外賣平台。
 完成時間：6-16 週（視功能複雜度）。
-主要頁面：https://adwire.com.hk/services/system
+主要頁面：https://adwire.com.hk/services/system/
 
 ### 3.10 商業攝影 (Commercial Photography & Video)
 服務：產品攝影、企業形象片、活動拍攝、宣傳影片製作。
-主要頁面：https://adwire.com.hk/services/production
+主要頁面：https://adwire.com.hk/services/production/
 
 ### 3.11 AI Agency 服務（定位與供應商選擇指南）
 頁面性質：定位／選擇指南頁，非技術交付頁。內容包括 AI Agency 與傳統廣告公司、
 純技術供應商的分別，評估供應商應該問甚麼、收費模式怎樣計算，以及甚麼情況不適合委託。
 分工：技術交付見 /services/ai；流程自動化見 /services/automation；
 搜尋可見度見 /services/seo；廣告投放見 /services/ads。
-主要頁面：https://adwire.com.hk/services/ai-agency
+主要頁面：https://adwire.com.hk/services/ai-agency/
 
 ---
 
@@ -102,112 +102,112 @@ ADWire 提供傳統 SEO + GEO 雙軌優化服務：
 - **挑戰：** 位於非核心地段，月廣告預算不足 HK$5,000，品牌知名度接近零
 - **策略：** 製作 3 條劇情式 Reels + 5 位 Micro-Influencer 同日發佈
 - **成效：** Reels 累計播放 180,000+，IG 追蹤者由 420 增至 3,800，週末新增 30+ 桌
-- **頁面：** https://adwire.com.hk/portfolio/cafe-reels-viral
+- **頁面：** https://adwire.com.hk/portfolio/cafe-reels-viral/
 
 ### 4.2 100% 網店自動化（Ads x Automation）
 - **行業：** 電商 E-Commerce（韓國童裝）
 - **挑戰：** 每月 2,000+ 訂單但僅 2 名客服，購物車棄單率 40%
 - **策略：** ManyChat Chatbot + WhatsApp API 自動化 + Facebook CAPI 廣告重建
 - **成效：** 客服工作量節省 70%，廣告 ROAS 從 3.2x 提升至 5.8x，月訂單突破 3,500+
-- **頁面：** https://adwire.com.hk/portfolio/ecommerce-automation
+- **頁面：** https://adwire.com.hk/portfolio/ecommerce-automation/
 
 ### 4.3 美容/貸款/金融 SEO 霸榜（SEO x GEO）
 - **行業：** 美容診所、私人貸款、外幣兌換
 - **挑戰：** Google 自然搜尋排名接近零，網站技術問題嚴重
 - **策略：** 技術 SEO 重建 + 長尾關鍵字內容矩陣 + GEO 結構化數據
 - **成效：** 3 個月自然流量增長 200%+，12 個目標關鍵字登上 Google 首頁前三位
-- **頁面：** https://adwire.com.hk/portfolio/seo-geo-ranking
+- **頁面：** https://adwire.com.hk/portfolio/seo-geo-ranking/
 
 ### 4.4 美妝新品發佈廣告（Performance Ads）
 - **行業：** 美妝 Beauty（台灣品牌進港）
 - **挑戰：** 本地零認知，初始 ROAS 僅 2.1x，CAC 高達 HK$380
 - **策略：** 50+ 組素材 A/B 快速測試框架 + 三層廣告漏斗
 - **成效：** ROAS 提升至 8x，CAC 降至 HK$95，首月銷售超標 220%
-- **頁面：** https://adwire.com.hk/portfolio/beauty-ads-roas
+- **頁面：** https://adwire.com.hk/portfolio/beauty-ads-roas/
 
 ### 4.5 大型企業官網升級（Web Design）
 - **行業：** 製造業 / B2B
 - **挑戰：** 2012 年舊網站，手機不兼容，月均詢盤僅 12 件
 - **策略：** Next.js 重建 + Headless CMS + HubSpot CRM 整合 + B2B 詢價系統
 - **成效：** 網站速度從 8s 降至 1.4s，月均詢盤從 12 件升至 54 件，轉換率提升 45%
-- **頁面：** https://adwire.com.hk/portfolio/corporate-website-b2b
+- **頁面：** https://adwire.com.hk/portfolio/corporate-website-b2b/
 
 ### 4.6 WhatsApp 自動化系統（Education）
 - **行業：** 教育 / 補習中心
 - **挑戰：** No-show 率 25%，人工提醒效率低，新生查詢轉化慢
 - **策略：** WhatsApp Business API 雙重提醒 + 自動跟進流程 + Google Sheets CRM
 - **成效：** 訊息打開率 95%，No-show 率降至 8%（-68%），每月挽回 HK$12,000
-- **頁面：** https://adwire.com.hk/portfolio/whatsapp-automation-edu
+- **頁面：** https://adwire.com.hk/portfolio/whatsapp-automation-edu/
 
 ### 4.7 TechStart App MVP 開發（System & App）
 - **行業：** 初創 Startup（O2O 配對平台）
 - **挑戰：** 4 個月後需要可操作 App 參加種子輪路演，預算 HK$200,000 以內
 - **策略：** React Native（Expo）+ Supabase BaaS + MoSCoW 優先級開發法則
 - **成效：** 3 個月完成 iOS + Android 雙版本，獲得 HK$2.5M 種子輪融資，首月 1,200+ 用戶
-- **頁面：** https://adwire.com.hk/portfolio/techstart-app-mvp
+- **頁面：** https://adwire.com.hk/portfolio/techstart-app-mvp/
 
 ### 4.8 Luxe 珠寶品牌攝影（Commercial Photography）
 - **行業：** 珠寶 Luxury
 - **挑戰：** iPhone 拍攝產品圖無法支撐 HK$800-3,500 定價，缺乏品牌視覺資產
 - **策略：** 三套 Light Setup（白背棚拍/質感背景/戶外自然光）+ 品牌視覺指引手冊
 - **成效：** 交付 120+ 張商用圖，IG 互動率提升 60%，IG 至網店流量增加 85%
-- **頁面：** https://adwire.com.hk/portfolio/luxe-jewelry-photography
+- **頁面：** https://adwire.com.hk/portfolio/luxe-jewelry-photography/
 
 ### 4.9 醫美診所 Local SEO/GEO（Medical Beauty）
 - **行業：** 醫美 Medical Beauty（旺角）
 - **挑戰：** 每月廣告費 HK$50,000 但 Google 自然排名不在前三頁，Google 評價僅 8 條
 - **策略：** MedicalBusiness Schema + GEO 問答內容 + 系統化評論積累計劃（80+ 條）
 - **成效：** 8 個核心關鍵字排名 No.1，月均自然問診從 5 件增至 38 件，廣告費削減 40%
-- **頁面：** https://adwire.com.hk/portfolio/dr-beauty-local-seo
+- **頁面：** https://adwire.com.hk/portfolio/dr-beauty-local-seo/
 
 ### 4.10 貸款客戶管理系統（CRM System）
 - **行業：** 金融 Financial Services（持牌放貸）
 - **挑戰：** 月處理 300+ 申請依賴 Excel，缺乏合規審計記錄，審批週期 3 天
 - **策略：** Next.js + Supabase 定制 CRM，三層審批工作流 + 自動還款提醒 + 合規記錄
 - **成效：** 行政時間節省 50%，審批週期縮至 4 小時，逾期率下降 35%，合規審查時間 -93%
-- **頁面：** https://adwire.com.hk/portfolio/loan-crm-system
+- **頁面：** https://adwire.com.hk/portfolio/loan-crm-system/
 
 ### 4.11 Yummy Food 爆款短視頻（Food Content）
 - **行業：** 食品 Food & Beverage（本地醬料品牌）
 - **挑戰：** IG 追蹤者僅 300 人，預算 HK$15,000 以內，內容同質化
 - **策略：** 「懶人料理神器」定位 + 15 秒「一招搞掂」系列 + TikTok/IG 雙平台
 - **成效：** 最高單片 TikTok 380K 觀看，IG 粉絲從 310 增至 8,900（+2,771%），醬料銷量 +280%
-- **頁面：** https://adwire.com.hk/portfolio/yummy-food-reels
+- **頁面：** https://adwire.com.hk/portfolio/yummy-food-reels/
 
 ### 4.12 Global Trade B2B 廣告（LinkedIn Ads）
 - **行業：** 國際貿易 B2B（香港製造業出口商）
 - **挑戰：** 依賴展覽獲客，COVID 後展覽縮減，需建立數字化歐美開拓渠道
 - **策略：** LinkedIn 三維精準定向 + 8 封 HubSpot 自動化電郵培育序列 + Lead Scoring
 - **成效：** 月均 15+ 合格 B2B 詢盤，首批成交合同 HK$800K+，Email 開封率 42%（行業平均 18%）
-- **頁面：** https://adwire.com.hk/portfolio/global-trade-b2b-ads
+- **頁面：** https://adwire.com.hk/portfolio/global-trade-b2b-ads/
 
 ### 4.13 AI 辦公助手定制開發（AI Solution）
 - **行業：** 零售 / 企業服務（連鎖藥妝，8 間分店）
 - **挑戰：** 員工每天花 9+ 小時在重複行政（庫存分析、客服回覆、日報撰寫）
 - **策略：** Google Gemini 1.5 Pro API 開發「智能庫存分析師」+「客服回覆助手」+「銷售日報生成器」（Google Sheets Add-on 交付）
 - **成效：** 行政時間節省 65%，每週釋放 30+ 小時人力，庫存分析速度提升 80%
-- **頁面：** https://adwire.com.hk/portfolio/ai-gemini-tools
+- **頁面：** https://adwire.com.hk/portfolio/ai-gemini-tools/
 
 ### 4.14 小紅書品牌種草計劃（China Market）
 - **行業：** 美妝 / 消費品（港澳品牌進入內地）
 - **挑戰：** 小紅書帳號半年粉絲不足 800，不了解平台種草文化
 - **策略：** 三層種草矩陣（頭部 KOL 2 位 + 腰部達人 8 位 + 素人博主 30+ 位）
 - **成效：** 3 個月筆記總曝光 500 萬+，官方帳號粉絲增至 18,500（+2,212%），品牌搜尋量 +312%
-- **頁面：** https://adwire.com.hk/portfolio/xiaohongshu-seeding
+- **頁面：** https://adwire.com.hk/portfolio/xiaohongshu-seeding/
 
 ### 4.15 小紅書資訊流廣告優化（小紅書廣告）
 - **行業：** 健康食品 / 保健品
 - **挑戰：** 已投入 ¥80,000 廣告費但 ROAS 僅 1.8x，廣告感太重
 - **策略：** 「偽種草廣告」方法論 + 關鍵字搜尋廣告 + 30+ 組 A/B 測試
 - **成效：** ROAS 從 1.8x 升至 4.3x，CPL 從 ¥180 降至 ¥62（-66%），有機曝光 8 萬+
-- **頁面：** https://adwire.com.hk/portfolio/xiaohongshu-paid-ads
+- **頁面：** https://adwire.com.hk/portfolio/xiaohongshu-paid-ads/
 
 ### 4.16 百度 SEO + 內地品牌曝光（China Market）
 - **行業：** 香港服務業 / 跨境（醫美診所）
 - **挑戰：** 香港品牌無法直接被百度索引，內地零存在感，錯失高消費力赴港客
 - **策略：** 百度百科詞條 + 百度地圖標記 + 赴港攻略 SEO 內容 + 微信公眾號運營 + 內地 PR
 - **成效：** 6 個百度核心關鍵字登上首頁，每月內地查詢增長 180%，微信粉絲 3,200+，內地客人均消費為港人 2.3 倍
-- **頁面：** https://adwire.com.hk/portfolio/china-baidu-seo
+- **頁面：** https://adwire.com.hk/portfolio/china-baidu-seo/
 
 ---
 
@@ -217,297 +217,297 @@ ADWire 提供傳統 SEO + GEO 雙軌優化服務：
 - **標題：** 小紅書推廣攻略：香港品牌實戰指南 2026
 - **摘要：** 小紅書值不值得做？本文按新華網、華泰證券研報及行業白皮書的公開數據，拆解小紅書的用戶結構與「搜尋平台」本質，說明香港品牌在哪些品類有真實優勢、實際要做的六件事、選題研究的四步方法、預算分配的三個常見錯誤，以及甚麼情況下我們會建議你不要做。
 - **標籤：** 小紅書, 小紅書推廣, 小紅書代運營, 內地推廣, 種草, 香港品牌
-- **連結：** https://adwire.com.hk/blog/xiaohongshu-marketing-hong-kong-guide
+- **連結：** https://adwire.com.hk/blog/xiaohongshu-marketing-hong-kong-guide/
 
 ### 5.2 KOL 網紅營銷指南
 - **標題：** KOL 網紅營銷指南：香港中小企選型、報價與成效 2026
 - **摘要：** 粉絲數是最弱的指標。本文拆解 Nano 到 Mega 五個層級的分工、三個第三方來源的香港 KOL 報價區間（並說明為何不可直接比較）、四個可實際核查的選人維度、KOL 與 KOC 與素人的組合策略、六個成效指標與三種歸因方法，以及六個最常見的失敗原因。
 - **標籤：** KOL, 網紅營銷, KOC, influencer marketing, 香港推廣, 社交媒體
-- **連結：** https://adwire.com.hk/blog/kol-marketing-hong-kong-guide
+- **連結：** https://adwire.com.hk/blog/kol-marketing-hong-kong-guide/
 
 ### 5.3 企業影片製作
 - **標題：** 企業影片製作：香港公司點揀製作公司、報價與交付標準 2026
 - **摘要：** 為甚麼同一條片，兩間公司報價相差三倍？本文由企業客戶角度出發，講清楚六種企業影片的類型與用途、七個製作階段各要交付甚麼、報價由哪些因素組成、一份可以直接拿去問三間公司的交付清單，以及怎樣分辨製作公司的真實能力。
 - **標籤：** 企業影片, 影片製作, 宣傳片, video production, 拍攝, 後期製作
-- **連結：** https://adwire.com.hk/blog/video-production-hong-kong-guide
+- **連結：** https://adwire.com.hk/blog/video-production-hong-kong-guide/
 
 ### 5.4 社交媒體管理
 - **標題：** 社交媒體管理：香港企業外判代管服務點揀、月費與成效量度 2026
 - **摘要：** 應該自聘還是外判？本文釐清社交媒體管理實際包括哪六項工作、外判與自聘的成本與風險對照、月費通常包含甚麼（附第三方平台公開市場數據）、香港五個平台的分工、虛榮指標與業務指標的分別，以及六項可檢查的選商方法。
 - **標籤：** 社交媒體管理, 代管服務, 社交媒體推廣, 小編, 內容企劃, 香港
-- **連結：** https://adwire.com.hk/blog/social-media-management-hong-kong-guide
+- **連結：** https://adwire.com.hk/blog/social-media-management-hong-kong-guide/
 
 ### 5.5 中國市場推廣
 - **標題：** 中國市場推廣：香港品牌進入內地的策略與資源分配指南 2026
 - **摘要：** 不是「一次開齊五個平台」。本文聚焦進入次序與資源分配：抖音本地生活 8,500 億 GMV 與 50–60% 核銷率代表甚麼、五個平台的「適合與不適合」判斷表、四筆預算的結構與最常見的錯誤、六個失敗原因、三層成效量度，以及政府資助的現實限制。
 - **標籤：** 中國市場推廣, 內地推廣, 抖音推廣, 微信營銷, 大灣區, 資源分配
-- **連結：** https://adwire.com.hk/blog/china-market-strategy-hong-kong
+- **連結：** https://adwire.com.hk/blog/china-market-strategy-hong-kong/
 
 ### 5.6 AI 如何幫香港企業減低人手及營運成本
 - **標題：** AI 如何幫香港企業減低人手及營運成本？
 - **摘要：** 香港人力成本中位數 HK$21,200，但多數 AI 項目未見成效。本文按生產力局、渣打、政府統計處及金管局沙盒的一手數據，說明 AI 實際可自動化哪些工序、導入成本多少、為何 Gartner 指 50% 項目被放棄，並附一套可自行計算的評估框架。
 - **標籤：** AI 工具, AI 應用, 數碼轉型, 企業 AI, 人力成本, 自動化
-- **連結：** https://adwire.com.hk/blog/ai-reduce-hong-kong-business-labour-cost
+- **連結：** https://adwire.com.hk/blog/ai-reduce-hong-kong-business-labour-cost/
 
 ### 5.7 AI Agent 是什麼
 - **標題：** AI Agent 是什麼？香港企業應用完整指南 2026
 - **摘要：** AI Agent 與聊天機械人、自動化流程有何分別？本文拆解 Agent 的運作架構、四種常見企業應用場景、導入成本與風險，並說明為何多數企業第一步不應該直接做 Agent。
 - **標籤：** AI Agent, AI 自動化, 企業 AI, 智能代理, 中小企
-- **連結：** https://adwire.com.hk/blog/ai-agent-hong-kong-business-guide
+- **連結：** https://adwire.com.hk/blog/ai-agent-hong-kong-business-guide/
 
 ### 5.8 AI 客服及 Chatbot 選型指南
 - **標題：** AI 客服及 Chatbot 選型指南：香港企業 2026 實務比較
 - **摘要：** 為何裝了 chatbot 反而令客人更不滿？本文從搜尋意圖、技術路線、成本結構到驗收標準，說明香港企業該如何選擇 AI 客服方案，以及哪些情況根本不應該用 chatbot。
 - **標籤：** Chatbot, AI 客服, 客戶服務, 自動化, 中小企
-- **連結：** https://adwire.com.hk/blog/hong-kong-ai-chatbot-customer-service-guide
+- **連結：** https://adwire.com.hk/blog/hong-kong-ai-chatbot-customer-service-guide/
 
 ### 5.9 AI 自動化 ROI 怎樣計
 - **標題：** AI 自動化 ROI 怎樣計？香港企業成本效益評估框架 2026
 - **摘要：** 「AI 回本快」不能照單全收。本文用 Forrester TEI 框架、Deloitte 與 McKinsey 調查、RAND 與 Gartner 的失敗率數據、政府統計處工資中位數，示範如何用可複製的方法計出屬於自己公司的 ROI、NPV 與回收期。
 - **標籤：** AI 自動化, ROI, 成本效益, 企業 AI, 流程自動化
-- **連結：** https://adwire.com.hk/blog/ai-automation-roi-hong-kong
+- **連結：** https://adwire.com.hk/blog/ai-automation-roi-hong-kong/
 
 ### 5.10 GEO 生成式引擎優化完整指南
 - **標題：** GEO 生成式引擎優化完整指南：官方文件與學術研究怎麼說
 - **摘要：** GEO 不是新技術，也不是靠 llms.txt 就能做到。本文按 Google 官方指引、OpenAI 與 Perplexity 爬蟲說明、KDD 2024 學術論文與第三方實證數據，逐項拆解有效的 GEO 做法，以及市場上五類常見的誇大聲稱。
 - **標籤：** GEO, 生成式引擎優化, AI SEO, SEO, AI 搜尋
-- **連結：** https://adwire.com.hk/blog/geo-generative-engine-optimization-guide
+- **連結：** https://adwire.com.hk/blog/geo-generative-engine-optimization-guide/
 
 ### 5.11 香港 SEO 公司點揀
 - **標題：** 香港 SEO 公司點揀？Google 官方問題清單與危險信號（2026）
 - **摘要：** Google 自己寫過一份《雇用 SEO 專家的訣竅》。本文按該官方文件整理出 8 條面試必問問題、6 類危險信號、稽核階段的權限建議，另附香港市場收費範圍、Google 垃圾內容政策逐項說明，以及合約應寫清楚的五件事。
 - **標籤：** SEO 公司, SEO 服務, 香港 SEO, 搜尋引擎優化, SEO 收費
-- **連結：** https://adwire.com.hk/blog/how-to-choose-seo-company-hong-kong
+- **連結：** https://adwire.com.hk/blog/how-to-choose-seo-company-hong-kong/
 
 ### 5.12 CRM 系統選型指南
 - **標題：** CRM 系統選型指南：香港中小企五大平台定價與導入成本
 - **摘要：** 買了 CRM 卻沒人用？本文用各平台官方定價、官方文件與公開研究，拆解 CRM 的定義與類型、五個主流平台實際月費、香港本地化三大考慮、導入成本結構，並說明流傳的「失敗率」數字為何不應照抄。
 - **標籤：** CRM, CRM 系統, 客戶關係管理, 系統開發, 中小企
-- **連結：** https://adwire.com.hk/blog/crm-system-selection-guide-hong-kong
+- **連結：** https://adwire.com.hk/blog/crm-system-selection-guide-hong-kong/
 
 ### 5.13 網站速度及 Core Web Vitals 完整指南
 - **標題：** 網站速度及 Core Web Vitals 完整指南：LCP、INP、CLS 官方標準
 - **摘要：** Core Web Vitals 達標就等於排名上升？Google 官方立場並非如此。本文說明 LCP、INP、CLS 三項指標的官方門檻、Google 對排名的實際表態、常見效能成因、六類優化手法，以及香港固網快、流動慢的測試重點。
 - **標籤：** 網站優化, Core Web Vitals, 網站速度, LCP, SEO
-- **連結：** https://adwire.com.hk/blog/core-web-vitals-website-speed-guide
+- **連結：** https://adwire.com.hk/blog/core-web-vitals-website-speed-guide/
 
 ### 5.14 App 開發及內部工具
 - **標題：** App 開發及內部工具：香港企業成本結構與流程指南 2026
 - **摘要：** 「寫個 App 要幾錢？」這個問題難答，因為成本由功能範圍、平台數量、後端需求與維護年期決定，而非由「App」這個字決定。本文拆解三類 App 的成本差異、七階段開發流程、真實失敗率數據，以及如何準備一份讓報價準確的需求文件。
 - **標籤：** App 開發, 系統開發, MVP（最小可行產品，Minimum Viable Product）, 內部工具, 香港
-- **連結：** https://adwire.com.hk/blog/app-development-cost-guide-hong-kong
+- **連結：** https://adwire.com.hk/blog/app-development-cost-guide-hong-kong/
 
 ### 5.15 香港政府 AI 及數碼轉型資助 2026
 - **標題：** 香港政府 AI 及數碼轉型資助 2026：科技券停辦後仍有甚麼可用？
 - **摘要：** 科技券已於 2024 年底停辦，網上大量文章仍在教人申請。本文按官方一手資料整理 2026 年香港企業實際可用的資助渠道：BUD 專項基金（已涵蓋 AI 項目）、優化版數碼轉型支援先導計劃、RTTP 培訓資助，以及最容易令申請失敗的三個錯誤。
 - **標籤：** 政府資助, 科技券, TVP, BUD 專項基金, 數碼轉型, 中小企資助
-- **連結：** https://adwire.com.hk/blog/hong-kong-government-ai-digital-funding
+- **連結：** https://adwire.com.hk/blog/hong-kong-government-ai-digital-funding/
 
 ### 5.16 RPA 是什麼
 - **標題：** RPA 是什麼？香港企業機械人流程自動化導入指南（2026）
 - **摘要：** RPA（機械人流程自動化）適合高頻、規則固定的重複工序。本文拆解 RPA 與 AI Agent 的分別、UiPath／Power Automate／Zapier 的實際差異、真實成本結構、香港公開案例，以及六個最常見的導入失敗原因。
 - **標籤：** RPA, 機械人流程自動化, 流程自動化, 企業自動化, UiPath, Power Automate
-- **連結：** https://adwire.com.hk/blog/rpa-hong-kong-guide
+- **連結：** https://adwire.com.hk/blog/rpa-hong-kong-guide/
 
 ### 5.17 香港網頁設計價錢完全指南
 - **標題：** 2026 香港網頁設計價錢完全指南：真實市價、報價陷阱與選擇公司的方法
 - **摘要：** 同一個公司網站，為何報價可以由 HK$3,800 到 HK$200,000？本文整理香港市場真實收費數據（附來源），拆解 8 個報價陷阱、7 步標準流程，以及一份可直接用來篩選設計公司的檢查清單。
 - **標籤：** 網頁設計, 網站設計, 網頁設計價錢, 香港網頁設計公司, 報價
-- **連結：** https://adwire.com.hk/blog/hong-kong-web-design-pricing-guide
+- **連結：** https://adwire.com.hk/blog/hong-kong-web-design-pricing-guide/
 
 ### 5.18 香港企業 AI 化完全指南
 - **標題：** 2026 香港企業 AI 化完全指南：節省成本、提升效率、把握「全民 AI」時代機遇
 - **摘要：** 香港政府財政預算案提出「全民 AI」計劃，AI 浪潮已勢不可擋。本文深入拆解香港企業 AI 化的 5 大痛點、8 大應用場景及實際成本節省數據，助你用最低風險踏出 AI 轉型第一步。
 - **標籤：** AI Solution, AI自動化, 企業AI, 人工智能, 香港AI
-- **連結：** https://adwire.com.hk/blog/ai-solution-hong-kong-enterprise-guide
+- **連結：** https://adwire.com.hk/blog/ai-solution-hong-kong-enterprise-guide/
 
 ### 5.19 香港品牌進軍內地市場完全攻略
 - **標題：** 香港品牌進軍內地市場完全攻略：小紅書、抖音、微信、百度全平台實戰指南
 - **摘要：** 想打入14億人口的內地市場？但不知從何入手？本文深入拆解香港企業進軍內地的五大痛點，逐一解構小紅書種草、抖音帶貨、微信生態、百度搜尋及微博PR等主要渠道，助你制定零失誤的內地市場進入策略。
 - **標籤：** 小紅書, 抖音, 微信, 內地市場, 跨境營銷
-- **連結：** https://adwire.com.hk/blog/hong-kong-brand-china-market-guide
+- **連結：** https://adwire.com.hk/blog/hong-kong-brand-china-market-guide/
 
 ### 5.20 Google 與 Meta 廣告投放完全指南
 - **標題：** 2026 Google 與 Meta 廣告投放完全指南：AI 時代素材先行的制勝法則
 - **摘要：** 廣告費年年飆升，ROAS 卻不斷下跌？本文深入拆解 2026 年 Google Performance Max 與 Meta Advantage+ 的最新 AI 趨勢，揭示「素材先行」策略如何幫香港企業以更低成本換取更高轉換率。
 - **標籤：** Google Ads, Meta廣告, Performance Max, Advantage+, AI廣告
-- **連結：** https://adwire.com.hk/blog/google-meta-ads-guide
+- **連結：** https://adwire.com.hk/blog/google-meta-ads-guide/
 
 ### 5.21 香港 SEO 與 GEO 完全攻略
 - **標題：** 2026 香港 SEO 與 GEO 完全攻略：同時上 Google 與 ChatGPT
 - **摘要：** 流量斷崖式下跌？SEO 排名不動如山卻點擊率暴跌？本文深入拆解香港企業最易踩的 5 大 SEO 地雷，附上 GEO（生成式引擎優化）實戰手冊，手把手教你令品牌同時被 Google 與 ChatGPT 推薦。
 - **標籤：** SEO, GEO, AI搜尋, 香港本地SEO, 數碼營銷
-- **連結：** https://adwire.com.hk/blog/hong-kong-seo-geo-guide
+- **連結：** https://adwire.com.hk/blog/hong-kong-seo-geo-guide/
 
 ### 5.22 GEO 生成式引擎優化是什麼
 - **標題：** GEO 生成式引擎優化是什麼？2026 香港企業 AI 搜尋完整指南
 - **摘要：** 當 ChatGPT 成為愈來愈多人的搜尋入口，單靠關鍵字堆砌已經不足。本文分析 AI 搜尋對內容策略的實際影響，以及如何調整內容結構回應這種轉變。
 - **標籤：** SEO, AI, Traffic
-- **連結：** https://adwire.com.hk/blog/seo-vs-geo
+- **連結：** https://adwire.com.hk/blog/seo-vs-geo/
 
 ### 5.23 短視頻營銷香港 2026
 - **標題：** 短視頻營銷香港 2026：抖音 Reels 小紅書實戰攻略
 - **摘要：** 拍了幾十條片但 View 數不過千？拆解演算法背後的邏輯，教你用「黃金 3 秒」法則留住觀眾，將流量轉化為真實訂單。
 - **標籤：** Video, Social, Conversion
-- **連結：** https://adwire.com.hk/blog/short-video-marketing-guide
+- **連結：** https://adwire.com.hk/blog/short-video-marketing-guide/
 
 ### 5.24 流程自動化香港中小企 2026
 - **標題：** 流程自動化香港中小企 2026：節省人手成本實戰指南
 - **摘要：** 經濟不景氣，慳錢就是賺錢。介紹 3 個即學即用的自動化場景，讓 AI 幫你 24/7 做客服，不再錯失任何一個潛在客戶。
 - **標籤：** Automation, Efficiency, Cost Saving
-- **連結：** https://adwire.com.hk/blog/marketing-automation-roi
+- **連結：** https://adwire.com.hk/blog/marketing-automation-roi/
 
 ### 5.25 Landing Page 優化香港 2026
 - **標題：** Landing Page 優化香港 2026：高轉換率設計實戰指南
 - **摘要：** 為什麼你的網站跳出率高達 80%？設計師追求美感，老闆追求轉換。本文教你如何平衡兩者，打造一部 24 小時不停歇的印鈔機。
 - **標籤：** Web Design, UX/UI, Conversion
-- **連結：** https://adwire.com.hk/blog/high-converting-landing-page
+- **連結：** https://adwire.com.hk/blog/high-converting-landing-page/
 
 ### 5.26 Facebook Instagram 廣告優化香港 2026
 - **標題：** Facebook Instagram 廣告優化香港 2026：降低獲客成本實戰
 - **摘要：** 廣告成效越來越差，CPA 越來越高？這不是平台的錯，是你的投放策略過時了。學會這 3 招，讓你的 ROAS 翻倍。
 - **標籤：** Ads, Facebook, ROAS
-- **連結：** https://adwire.com.hk/blog/stop-wasting-ad-budget
+- **連結：** https://adwire.com.hk/blog/stop-wasting-ad-budget/
 
 ### 5.27 度身訂造系統香港 2026
 - **標題：** 度身訂造系統香港 2026：取代 Excel 自動化管理實戰
 - **摘要：** 還在用 Google Sheets 管理幾百個客戶資料？資料重複、版本混亂、權限不清... 是時候升級你的數位大腦了。
 - **標籤：** System, Efficiency, Management
-- **連結：** https://adwire.com.hk/blog/custom-system-efficiency
+- **連結：** https://adwire.com.hk/blog/custom-system-efficiency/
 ---
 
 ### 5.28 數字教育工具如何選擇：香港學校須考慮的技術與整合因素
 - **標題：** 數字教育工具如何選擇：香港學校須考慮的技術與整合因素
 - **摘要：** 香港學校選擇數字教育工具，關鍵不在功能多寡，而在能否與現有平台整合、資料能否互通、長遠能否維護。本文從技術角度說明數字教育工具的五類分工、六個評估維度（系統整合、單一登入、資料互通、行動裝置支援、離線可用、無障礙）、與 eClass 等平台的共存方式、學生資料保護要求，以及採購程序與總持有成本的考慮。
 - **標籤：** 數字教育, 教育科技, 系統整合, 單一登入, 學生資料私隱, 學校採購, eClass
-- **連結：** https://adwire.com.hk/blog/digital-education-tools-hong-kong-schools
+- **連結：** https://adwire.com.hk/blog/digital-education-tools-hong-kong-schools/
 
 ### 5.29 STEAM 教室設備與系統：由採購到維護的技術指南（香港學校）
 - **標題：** STEAM 教室設備與系統：由採購到維護的技術指南（香港學校）
 - **摘要：** 學校籌建或更新 STEAM 教室，難題往往不在買什麼，而在設備相容性、耗材供應、軟件授權、空間與電力配套，以及採購程序與日後維護。本文整理七類設備、選型技術考量、授權模式、資助學校採購程序（引教育局通告第 4/2013 號的財政限額）、QEF 與「智」啟學教的資助範圍及總持有成本。
 - **標籤：** STEAM 教室, 學校設備採購, 資助學校採購程序, 優質教育基金, 智啟學教, 設備維護, 總持有成本
-- **連結：** https://adwire.com.hk/blog/steam-classroom-setup-hong-kong
+- **連結：** https://adwire.com.hk/blog/steam-classroom-setup-hong-kong/
 
 ### 5.30 學校做 AI 項目：由校本需求到技術方案（香港學校技術指南）
 - **標題：** 學校做 AI 項目：由校本需求到技術方案（香港學校技術指南）
 - **摘要：** 學校推行校本 AI 項目，成敗往往不在於買了哪一套工具，而在於需求是否先整理清楚、技術方案是否對應真實痛點、資料私隱與風險是否受控。本文從技術與專案管理角度，整理需求盤點框架、項目類型、方案選型（現成工具、定制開發、混合）、私隱合規、風險與人工覆核、專案分期與驗收，以及成本估算，供校長、IT 統籌老師參考。
 - **標籤：** AI 應用, 學校, 人工智能, 技術方案, 資料私隱, 專案管理, 香港
-- **連結：** https://adwire.com.hk/blog/school-ai-project-hong-kong
+- **連結：** https://adwire.com.hk/blog/school-ai-project-hong-kong/
 
 
 ### 5.31 政府、公營機構及 NGO 系統開發：報價與採購要求指南（GITP／SOA-QPS5）
 - **標題：** 政府、公營機構及 NGO 系統開發：報價與採購要求指南（GITP／SOA-QPS5）
 - **摘要：** 政府部門、公營機構與 NGO 負責報價的同事，須先了解 GITP 名單、SOA-QPS5 承辦商制度、135 萬元公開招標門檻、電子付款（FPS）安排，而 NGO 一般須收取不少於 5 份標書。本文整理實際採購要求、標書必寫項目（數據所有權、知識產權、保安與私隱評估），以及由需求到批出合約的完整流程。
 - **標籤：** 政府採購, 公營機構, NGO, 系統開發, GITP, SOA-QPS5, 報價流程
-- **連結：** https://adwire.com.hk/blog/hong-kong-public-sector-system-procurement-guide
+- **連結：** https://adwire.com.hk/blog/hong-kong-public-sector-system-procurement-guide/
 
 ### 5.32 QEF 優質教育基金申請全攻略：300 萬上限如何用盡（附校本 AI 計劃組成）
 - **標題：** QEF 優質教育基金申請全攻略：300 萬上限如何用盡（附校本 AI 計劃組成）
 - **摘要：** 優質教育基金（QEF）第 17 期申請期由 2026 年 10 月至 2027 年 1 月，每所公帑資助學校累計申請額上限由 200 萬元提高至 300 萬元。本文整理上限計算、可買與不可買項目、校本 AI／數字教育計劃組成、外購服務、採購報價門檻、常見被拒原因，以及由計劃書到撥款的時間線。
 - **標籤：** 優質教育基金, QEF, 學校資助, 數字教育, STEAM 教育, 校本計劃, 系統開發
-- **連結：** https://adwire.com.hk/blog/qef-application-guide-hong-kong-schools
+- **連結：** https://adwire.com.hk/blog/qef-application-guide-hong-kong-schools/
 
 ### 5.33 校務系統、點名系統如何選擇？香港學校自訂 vs 現成完整比較
 - **標題：** 校務系統、點名系統如何選擇？香港學校自訂 vs 現成完整比較
 - **摘要：** 香港學校選校務系統或點名系統，應先弄清楚現有平台的分工。本文比較自訂開發與現成平台的六大維度（資料擁有權、客製彈性、整合能力、三年總成本、維護與升級），說明校務系統包含的模組、QR 碼／智能卡／App／人臉辨識點名技術的實際限制與私隱要求，以及與 eClass、CloudSAMS 共存的整合方式，並整理資助學校的採購報價份數與驗收、培訓、保養標準，協助學校負責人作出有依據的決定。
 - **標籤：** 校務系統, 點名系統, 考勤系統, eClass, 學校系統開發, 香港學校, 採購流程, 私隱
-- **連結：** https://adwire.com.hk/blog/school-management-system-hong-kong
+- **連結：** https://adwire.com.hk/blog/school-management-system-hong-kong/
 
 ### 5.34 POS／收銀系統月費 vs 買斷：3 年總成本比較（香港店主必看）
 - **標題：** POS／收銀系統月費 vs 買斷：3 年總成本比較（香港店主必看）
 - **摘要：** 「月費便宜」不等於「總成本低」。本文用公開資料與可核對的支付費率，把月費 SaaS、一次買斷、自訂開發三種收銀系統模式的三年總成本（TCO）放在同一框架比較，標示示範假設與真實收費，並拆解交易手續費、加值模組、硬件、資料匯出與合約綁定等隱藏成本，附零售與餐飲差異表及 10 條簽約清單，助香港店主決定。
 - **標籤：** POS 系統, 收銀系統, 三年總成本, TCO, 買斷, 月費 SaaS, 交易手續費, 會員系統, 電子支付
-- **連結：** https://adwire.com.hk/blog/pos-system-hong-kong-total-cost
+- **連結：** https://adwire.com.hk/blog/pos-system-hong-kong-total-cost/
 
 ### 5.35 香港學校如何選擇系統供應商：報價流程與必問 5 條問題
 - **標題：** 香港學校如何選擇系統供應商：報價流程與必問 5 條問題
 - **摘要：** 資助學校採購校務系統或學校網站，須依循教育局《資助學校採購程序指引》：5,000 元以上至 50,000 元須邀請最少兩個口頭報價，50,000 元以上至 200,000 元須最少五個書面報價，200,000 元以上須最少五名供應商投標。本文整理報價必備項目、比較供應商的六個維度、面試必問五條問題、報價陷阱與評分表建議，協助資訊科技統籌老師在有限時間內完成一次合規而可靠的採購。
 - **標籤：** 學校採購, 資助學校, 系統供應商, 報價流程, 校務系統, 學校網站設計, 教育局指引
-- **連結：** https://adwire.com.hk/blog/school-it-vendor-quotation-guide
+- **連結：** https://adwire.com.hk/blog/school-it-vendor-quotation-guide/
 
 ### 5.36 會員系統選擇指南：SaaS 月費、買斷與訂造開發成本比較（香港店主）
 - **標題：** 會員系統選擇指南：SaaS 月費、買斷與訂造開發成本比較（香港店主）
 - **摘要：** 開店做會員制度，應該用 SaaS 月費、買斷授權，還是找人訂造開發？本文逐項拆解三種模式的收費結構、三年總成本示範計算、常見隱藏成本（交易費、訊息推送費、加值模組、資料匯出），並說明會員資料的擁有權與《個人資料（私隱）條例》的合規要求，附零售、餐飲與美容業需求差異表及選擇檢查清單。所有金額均為示範假設。
 - **標籤：** 會員系統, SaaS, 訂造開發, POS 整合, 個人資料私隱, 香港零售, 系統開發
-- **連結：** https://adwire.com.hk/blog/membership-system-hong-kong
+- **連結：** https://adwire.com.hk/blog/membership-system-hong-kong/
 
 ### 5.37 ERP 系統選型指南：香港企業訂造與套裝完整比較
 - **標題：** ERP 系統選型指南：香港企業訂造與套裝完整比較
 - **摘要：** 企業要更換 ERP，最常糾結的是買現成套裝還是找人訂造。本文為香港中小企至大企業的 IT 主管與營運總監而寫，先釐清 ERP 與 CRM、會計、庫存系統的分別，再用六大維度比較套裝與訂造，附三年總成本（TCO）示範計算、導入失敗的常見原因、六步選型流程與評分檢查清單，幫你一次過掌握選型決策所需。
 - **標籤：** ERP, ERP 系統, 系統選型, 套裝 ERP, 訂造系統, TCO, 系統整合, 香港企業
-- **連結：** https://adwire.com.hk/blog/erp-system-hong-kong-guide
+- **連結：** https://adwire.com.hk/blog/erp-system-hong-kong-guide/
 
 ### 5.38 診所管理系統如何選擇：預約、病歷、收費與合規（香港診所指南）
 - **標題：** 診所管理系統如何選擇：預約、病歷、收費與合規（香港診所指南）
 - **摘要：** 香港診所數碼化營運，須先釐清預約、排班、病歷、收費與對賬五條主線。本文整理診所管理系統的六大模組、自建與現成的比較框架、減少 no-show 的預約安排、收費與保險對賬，以及最易被忽略的病人資料合規要求，包括《個人資料（私隱）條例》六項保障資料原則、醫健通取覽原則與資料外洩處理。
 - **標籤：** 診所管理系統, 診所預約系統, 電子病歷, 病人資料私隱, 個人資料私隱條例, 醫健通, 系統開發, 香港診所
-- **連結：** https://adwire.com.hk/blog/clinic-management-system-hong-kong
+- **連結：** https://adwire.com.hk/blog/clinic-management-system-hong-kong/
 
 ### 5.39 由 Idea 到 MVP：範圍、分期與報價單應該寫什麼（香港創業者指南）
 - **標題：** 由 Idea 到 MVP：範圍、分期與報價單應該寫什麼（香港創業者指南）
 - **摘要：** 有產品意念但沒有技術背景，最常卡住的是不知道要做多少、要花多少錢、怎樣寫需求。本文由香港創業者角度出發，拆解由 idea 到 MVP 的完整流程：如何劃定範圍、怎樣分期交付、需求文件與報價單應該包含什麼、如何判斷開發公司是否可靠，並附上可即用的清單與示範預算框架。
 - **標籤：** MVP, 產品開發, 寫App價錢, 需求文件, 報價單, 系統開發, 香港創業
-- **連結：** https://adwire.com.hk/blog/idea-to-mvp-hong-kong
+- **連結：** https://adwire.com.hk/blog/idea-to-mvp-hong-kong/
 
 
 ### 5.40 香港網店及電商網站指南：平台 vs 自建、成本、轉換與 SEO
 - **標題：** 香港網店及電商網站指南：平台 vs 自建、成本、轉換與 SEO
 - **摘要：** 想開網店但不知用平台定自建？本文用官方資料講清平台（Shopify／SHOPLINE）與自建電商網站的分界、三年總成本(TCO)比較、香港商業登記與利潤課稅要求、影響轉換率的 6 個位置，以及電商網站的 SEO／GEO 重點。
 - **標籤：** 電商網站, 網店, 網上商店, 網店設計, Shopify 香港, 電子商務
-- **連結：** https://adwire.com.hk/blog/hong-kong-ecommerce-website-guide
+- **連結：** https://adwire.com.hk/blog/hong-kong-ecommerce-website-guide/
 
 ### 5.41 ChatGPT Ads 廣告教學：香港企業如何開戶、投放與優化
 - **標題：** ChatGPT Ads 廣告教學：香港企業如何開戶、投放與優化
 - **摘要：** ChatGPT 廣告是 OpenAI 在 ChatGPT 對話介面內投放的付費廣告，只向免費與 Go 方案用戶顯示。本文以官方文件為據，說明它與 Google 與 Meta 廣告的分別、發展時間線、各地區可用性與每日最低預算、開戶流程、帳戶限制、受眾定位與量度設定，並解釋為何香港註冊實體今日未能自助開戶、香港企業可行的三條路徑，以及開戶與投放的常見錯誤與風險。
 - **標籤：** ChatGPT Ads, ChatGPT 廣告, OpenAI 廣告, 香港, 廣告投放, AI 營銷
-- **連結：** https://adwire.com.hk/blog/chatgpt-ads-hong-kong-guide
+- **連結：** https://adwire.com.hk/blog/chatgpt-ads-hong-kong-guide/
 
 ### 5.42 AI 提升工作效率：香港中小企 Copilot 與 AI Agent 落地指南
 - **標題：** AI 提升工作效率：香港中小企 Copilot 與 AI Agent 落地指南
 - **摘要：** 香港中小企如何用 AI 提升工作效率？本文以生產力局、金管局與政府統計處的一手調查數據，說明本地企業的實際使用情況與常見誤讀，比較輔助型工具與人工智能代理的分工，整理由選擇工序、量度成效到設計人工覆核點的實作路線，並查核四項政府資助計劃的最新狀態，以及解釋工具買回來為何不等於落地。
 - **標籤：** AI 提升工作效率, Microsoft 365 Copilot, AI Agent, 香港中小企, 數碼轉型, AI 自動化
-- **連結：** https://adwire.com.hk/blog/ai-sme-productivity-hong-kong
+- **連結：** https://adwire.com.hk/blog/ai-sme-productivity-hong-kong/
 
 ### 5.43 Jev 是什麼？決策型 AI 模型（System One）的原理、成本與企業應用
 - **標題：** Jev 是什麼？決策型 AI 模型（System One）的原理、成本與企業應用
 - **摘要：** Jev 是 TypeSafe AI 推出的決策型 AI 模型（System One），不生成文字，而是接收一段狀態與有型別的問題，回傳型別安全的決策、校準機率與信心分數。本文說明三種提問原語、廠商自述的成本與速度、第三方實測準確度，並釐清 Jev 與 Meta 的 JEPA 世界模型是完全不同的兩件事。
 - **標籤：** Jev, TypeSafe AI, 決策型 AI 模型, System One, world model
-- **連結：** https://adwire.com.hk/blog/jev-ai-decision-model
+- **連結：** https://adwire.com.hk/blog/jev-ai-decision-model/
 
 ### 5.44 如何用 AI 管理 Meta 與 Google 廣告：API 自動化與人工判斷的分工
 - **標題：** 如何用 AI 管理 Meta 與 Google 廣告：API 自動化與人工判斷的分工
 - **摘要：** 用 AI 管理 Meta 與 Google 廣告分兩條路：平台內建自動化（Advantage+、AI Max），以及官方 API。本文講清 Meta Marketing API、Google Ads API 的限制與 developer token 退役，並比較平台 AI、API 自動化與人工判斷的三層分工。
 - **標籤：** AI 廣告管理, Meta Marketing API, Google Ads API, advantage+, performance max, 廣告自動化
-- **連結：** https://adwire.com.hk/blog/ai-manage-meta-google-ads
+- **連結：** https://adwire.com.hk/blog/ai-manage-meta-google-ads/
 
 ## 6. 網站地圖與重要頁面 (Sitemap & Key Pages)
 - [XML Sitemap](https://adwire.com.hk/sitemap.xml)
 - [LLMs Index](https://adwire.com.hk/llms.txt)
 - [LLMs Full Knowledge Base](https://adwire.com.hk/llms-full.txt)
 - **首頁：** https://adwire.com.hk
-- **關於我們：** https://adwire.com.hk/about
-- **服務總覽：** https://adwire.com.hk/services
-- **成功案例：** https://adwire.com.hk/portfolio
-- **增長洞察 Blog：** https://adwire.com.hk/blog
-- **聯絡我們：** https://adwire.com.hk/contact
+- **關於我們：** https://adwire.com.hk/about/
+- **服務總覽：** https://adwire.com.hk/services/
+- **成功案例：** https://adwire.com.hk/portfolio/
+- **增長洞察 Blog：** https://adwire.com.hk/blog/
+- **聯絡我們：** https://adwire.com.hk/contact/
 
 ### 服務頁面 (Service Pages)
-- **KOL 網紅營銷：** https://adwire.com.hk/services/kol
-- **短視頻製作：** https://adwire.com.hk/services/video
-- **商業攝影：** https://adwire.com.hk/services/production
-- **社交媒體管理：** https://adwire.com.hk/services/social
-- **成效廣告投放：** https://adwire.com.hk/services/ads
-- **SEO 與 GEO 優化：** https://adwire.com.hk/services/seo
-- **企業流程自動化及 RPA：** https://adwire.com.hk/services/automation
-- **網頁設計：** https://adwire.com.hk/services/web
-- **系統開發：** https://adwire.com.hk/services/system
-- **AI 解決方案：** https://adwire.com.hk/services/ai
-- **AI Agency 服務（定位與選擇指南）：** https://adwire.com.hk/services/ai-agency
-- **中國市場推廣：** https://adwire.com.hk/services/china-market
-- **香港市場在地化推廣：** https://adwire.com.hk/services/hong-kong-market
-- **企業顧問服務：** https://adwire.com.hk/services/consulting
-- **學校及教育機構：** https://adwire.com.hk/services/education
-- **診所及醫療機構：** https://adwire.com.hk/services/healthcare
+- **KOL 網紅營銷：** https://adwire.com.hk/services/kol/
+- **短視頻製作：** https://adwire.com.hk/services/video/
+- **商業攝影：** https://adwire.com.hk/services/production/
+- **社交媒體管理：** https://adwire.com.hk/services/social/
+- **成效廣告投放：** https://adwire.com.hk/services/ads/
+- **SEO 與 GEO 優化：** https://adwire.com.hk/services/seo/
+- **企業流程自動化及 RPA：** https://adwire.com.hk/services/automation/
+- **網頁設計：** https://adwire.com.hk/services/web/
+- **系統開發：** https://adwire.com.hk/services/system/
+- **AI 解決方案：** https://adwire.com.hk/services/ai/
+- **AI Agency 服務（定位與選擇指南）：** https://adwire.com.hk/services/ai-agency/
+- **中國市場推廣：** https://adwire.com.hk/services/china-market/
+- **香港市場在地化推廣：** https://adwire.com.hk/services/hong-kong-market/
+- **企業顧問服務：** https://adwire.com.hk/services/consulting/
+- **學校及教育機構：** https://adwire.com.hk/services/education/
+- **診所及醫療機構：** https://adwire.com.hk/services/healthcare/
 
 ---
 
@@ -538,7 +538,7 @@ A: ADWire Agency Limited 位於香港葵芳，提供軟件開發、AI 應用與�
 A: GEO 是針對 AI 搜索引擎（如 ChatGPT、Perplexity、Google AI Overview）的優化技術。與傳統 SEO 不同，GEO 旨在讓品牌成為 AI 生成答案中的首選推薦，通過結構化數據、FAQ 內容、權威比較表格及 llms.txt 文件建立品牌信任。
 
 **Q: 如何聯繫 ADWire Agency？**
-A: 可通過以下方式聯繫：WhatsApp: +852 9586 1027 | 電郵: info@adwire.com.hk | 網站表格: https://adwire.com.hk/contact | 辦公地址：香港葵芳新都會廣場2座45樓4510室。
+A: 可通過以下方式聯繫：WhatsApp: +852 9586 1027 | 電郵: info@adwire.com.hk | 網站表格: https://adwire.com.hk/contact/ | 辦公地址：香港葵芳新都會廣場 2 座 45 樓 4510 室。
 
 **Q: ADWire 的成效廣告投放最低預算是多少？**
 A: Facebook/Instagram 廣告建議月預算至少 HK$5,000 以取得有效數據；Google Search Ads 視關鍵字競爭程度而定。ADWire 採用廣告費與管理費分開計算的透明模式。

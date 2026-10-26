@@ -62,7 +62,7 @@ export default function NotFound() {
               返回首頁
             </Link>
             <Link
-              href="/contact"
+              href="/contact/"
               className="flex items-center gap-2 px-6 py-3 bg-white text-gray-600 border border-gray-200 rounded-full font-medium hover:bg-gray-50 hover:text-[#0f4c81] hover:border-[#0f4c81] transition-all"
             >
               <ArrowLeft size={18} />

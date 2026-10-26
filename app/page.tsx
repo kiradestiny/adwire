@@ -5,6 +5,7 @@ import HomepageProof from "@/components/HomepageProof";
 import { WHATSAPP_E164 } from "@/lib/site-config";
 
 const Services = dynamic(() => import("@/components/Services"));
+const OfferStrip = dynamic(() => import("@/components/OfferStrip"));
 const LogoWall = dynamic(() => import("@/components/LogoWall"));
 const Partners = dynamic(() => import("@/components/Partners"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
@@ -22,7 +23,7 @@ import type { Metadata } from "next";
 import { getBrands, getBlogPosts, getSerializablePortfolioCases } from "@/lib/data-resolver";
 
 export const metadata: Metadata = {
-  title: { absolute: "ADWire Agency｜軟件開發・AI 應用・SEO 增長方案" },
+  title: { absolute: "香港 AI 自動化・系統開發・SEO 公司｜ADWire Agency" },
   description:
     "ADWire 提供企業網站及系統開發、AI 應用與工作流程自動化，以及 SEO／GEO 搜尋優化。由需求分析、開發部署到持續改善，協助香港企業處理實際營運與增長問題。",
   keywords: [
@@ -158,6 +159,9 @@ export default async function Home() {
 
       {/* ── 服務介紹 ── */}
       <Services />
+
+      {/* ── 入門方案／起步價（promotion，只用已公開價錢）── */}
+      <OfferStrip />
 
       {/* ── 數據成就 ── */}
       <StatsSection />

@@ -33,7 +33,10 @@ export type ServiceLineKey =
   | "ai"
   | "other";
 
-export type QuestionId = "goal" | "problem" | "base" | "budget" | "timing";
+export type QuestionId = "goal" | "problem" | "base" | "budget" | "timing" | "role";
+
+/** 填問卷的人喺公司嘅角色（2026-10-26 加入，用作潛在客戶評級；唔影響推薦方向） */
+export type Role = "owner" | "manager" | "researcher" | "other";
 
 export type BudgetMode = "monthly-total-ads" | "monthly-service" | "one-off-project";
 
@@ -67,6 +70,7 @@ export interface Answers {
   base?: string;
   budget?: BudgetAnswer;
   timing?: Timing;
+  role?: Role;
 }
 
 export interface QuestionOption {
@@ -187,6 +191,20 @@ const TIMING_LABEL: Record<Timing, string> = {
   later: "三個月後",
   exploring: "先了解，暫未有計劃",
 };
+
+export const ROLE_LABEL: Record<Role, string> = {
+  owner: "老闆／創辦人",
+  manager: "管理層／部門主管",
+  researcher: "負責搜集資料，再向上司匯報",
+  other: "學生、研究或其他",
+};
+
+const ROLE_OPTIONS: QuestionOption[] = [
+  { id: "owner", label: ROLE_LABEL.owner, hint: "可以直接拍板" },
+  { id: "manager", label: ROLE_LABEL.manager, hint: "負責呢個項目或部門預算" },
+  { id: "researcher", label: ROLE_LABEL.researcher, hint: "我們可以準備方便你匯報的資料" },
+  { id: "other", label: ROLE_LABEL.other },
+];
 
 const CLASSIFICATION_LABEL: Record<Classification, string> = {
   sales: "適合安排銷售跟進",
@@ -556,6 +574,14 @@ export function getQuestions(answers: Answers): Question[] {
     options: TIMING_OPTIONS,
   });
 
+  list.push({
+    id: "role",
+    title: "最後一題：你在公司負責甚麼？",
+    help: "方便我們準備合適的資料，例如方便你向上司匯報的摘要。",
+    multi: false,
+    options: ROLE_OPTIONS,
+  });
+
   return list;
 }
 
@@ -588,6 +614,7 @@ export function reconcileAnswers(answers: Answers): Answers {
     delete next.base;
     delete next.budget;
     delete next.timing;
+    delete next.role;
     return next;
   }
 
@@ -643,6 +670,10 @@ export function applyAnswer(answers: Answers, id: QuestionId, value: string): An
     }
     case "timing": {
       next.timing = value as Timing;
+      break;
+    }
+    case "role": {
+      next.role = value as Role;
       break;
     }
   }
@@ -1060,6 +1091,7 @@ export function summaryText(result: AssessmentResult, answers: Answers): string 
     `現有基礎：${answers.base ? BASE_LABEL[answers.base] ?? answers.base : "未填"}`,
     `可投入：${budgetLabel(mode, band)}`,
     `預計開始：${answers.timing ? TIMING_LABEL[answers.timing] : "未填"}`,
+    ...(answers.role ? [`角色：${ROLE_LABEL[answers.role]}`] : []),
     `建議方向：${result.headline}`,
     `評估結果：${CLASSIFICATION_LABEL[result.classification]}（非正式報價）`,
   ];
@@ -1116,4 +1148,67 @@ export function analyticsPayload(result: AssessmentResult): {
     branch_id: result.branchId,
     result_id: result.resultId,
   };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 潛在客戶評級（2026-10-26）—— 只供內部跟進優先次序，唔會顯示俾訪客
+// ─────────────────────────────────────────────────────────────────────────────
+
+export type LeadGrade = "A" | "B" | "C";
+
+export interface LeadScore {
+  score: number;
+  grade: LeadGrade;
+  /** 俾同事睇嘅評分原因（純文字） */
+  notes: string[];
+}
+
+/**
+ * 用 BANT 思路評分：預算（Budget）、決策權（Authority）、需要（Need）、時間（Timing）。
+ * 刻意唔用行業、公司大細或免費電郵扣分（見檔頭原則 3）。
+ * A ≥ 70：優先 1 個工作天內聯絡；B 45–69：正常跟進；C < 45：先發資料培養。
+ */
+export function leadScore(answers: Answers): LeadScore {
+  const notes: string[] = [];
+  let score = 0;
+
+  const band = answers.budget?.band;
+  const budgetPts: Record<BudgetBand, number> = {
+    high: 30, "above-floor": 26, mid: 22, "at-floor": 16, undecided: 9, "below-floor": 3, none: 0,
+  };
+  if (band) {
+    score += budgetPts[band];
+    if (budgetPts[band] >= 22) notes.push("預算達中高水平");
+    else if (band === "at-floor") notes.push("預算達起步水平");
+    else if (band === "undecided") notes.push("預算未定");
+    else notes.push("預算低於起步水平");
+  }
+
+  const timingPts: Record<Timing, number> = { "within-month": 25, "1-3-months": 18, later: 8, exploring: 2 };
+  if (answers.timing) {
+    score += timingPts[answers.timing];
+    if (answers.timing === "within-month") notes.push("一個月內開始");
+    else if (answers.timing === "exploring") notes.push("只係了解階段");
+  }
+
+  const rolePts: Record<Role, number> = { owner: 25, manager: 20, researcher: 10, other: 0 };
+  if (answers.role) {
+    score += rolePts[answers.role];
+    if (answers.role === "owner" || answers.role === "manager") notes.push("有決策權");
+    else if (answers.role === "researcher") notes.push("需要向上匯報");
+  }
+
+  if (answers.goal === "project") {
+    score += 15;
+    notes.push("已有明確項目");
+  } else if (answers.goal === "growth" || answers.goal === "ops") {
+    score += 10;
+  }
+  if (answers.base && /integrat|multi|improve|large|rebuild/.test(answers.base)) {
+    score += 5;
+  }
+
+  score = Math.max(0, Math.min(100, score));
+  const grade: LeadGrade = score >= 70 ? "A" : score >= 45 ? "B" : "C";
+  return { score, grade, notes };
 }

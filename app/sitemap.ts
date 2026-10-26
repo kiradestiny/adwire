@@ -22,16 +22,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const LEGAL_LAST_UPDATED    = '2025-01-01'  // 法律條款未變更（誠實值：內容確實未改）
   const PORTFOLIO_LAST_UPDATED = '2026-09-24' // 2026-09-24 見證資料匿名化（16 個案例）
   const SERVICE_LAST_UPDATED_2026_09_24 = '2026-09-24' // 2026-09-24 P1：title／H1／keywords 對準搜尋量
-  const ASSESSMENT_LAST_UPDATED = '2026-10-15' // 2026-10-15 新增 /start/ 需求評估短問卷
+  const ASSESSMENT_LAST_UPDATED = '2026-10-26' // 2026-10-26 /start/ 問卷改版（角色題、結果頁直接留資料）
+  const SERVICE_PAGES_REDESIGN = '2026-10-25'   // 2026-10-25 五個服務頁改版（PR #6）
+  const PORTFOLIO_REVAMP       = '2026-10-25'   // 2026-10-25 成功案例改版（PR #3–#5）
+  const HUB_REFRESH            = '2026-10-26'   // 2026-10-26 首頁、服務總覽、Blog 列表版面重整
+  const TRUST_PAGES_ADDED      = '2026-10-24'   // 2026-10-24 新增技術棧／交付／安全／保固頁
+  const CASE_FIGURES_UPDATE    = '2026-10-26'   // 2026-10-26 廣告、社媒頁改用真實案例數字
 
   // 逐頁 lastmod 覆寫：只對「確實於該日改動過」的頁面設新日期。
   // 唔可以全站一齊推日期 —— Google 對 lastmod 的信任建基於準確性，
   // 造假日期會令整個 sitemap 的 lastmod 被忽略。
   const SERVICE_PAGE_LAST_UPDATED: Record<string, string> = {
-    '/services/ads/':    SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港廣告公司／每投 $1 廣告費，帶回 $8.5」
-    '/services/seo/':    SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港 SEO 公司／Google 排名 × GEO」
-    '/services/system/': SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「CRM 系統 與 App 開發／由系統化開始數碼轉型」
-    '/services/web/':    SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港網頁設計公司／打造高轉換率的獲客官網」
+    '/services/ads/':    CASE_FIGURES_UPDATE, // 2026-10-26 平均數字換成真實案例數字
+    '/services/social/': CASE_FIGURES_UPDATE,
+    '/services/seo/':    SERVICE_PAGES_REDESIGN,
+    '/services/system/': SERVICE_PAGES_REDESIGN,
+    '/services/web/':    SERVICE_PAGES_REDESIGN,
+    '/services/ai/':     SERVICE_PAGES_REDESIGN,
+    '/services/ai-agency/': SERVICE_PAGES_REDESIGN,
     '/services/video/':  SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港影片製作公司／抓住黃金 3 秒」
   }
 
@@ -41,25 +49,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // [FIX #6] 首頁改用 '/' → 生成 https://adwire.com.hk/（含 trailing slash）
       // 與 .htaccess 301 最終 canonical URL 一致，避免 GSC 將兩者視為不同頁面
       url: '/',                        // 首頁：新增 FAQ Section、ComparisonTable、Schema
-      lastModified: SITE_LAST_UPDATED,
+      lastModified: HUB_REFRESH,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: '/services/',
-      lastModified: SERVICE_LAST_UPDATED,
+      lastModified: HUB_REFRESH,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: '/portfolio/',
-      lastModified: PORTFOLIO_LAST_UPDATED,
+      lastModified: PORTFOLIO_REVAMP,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: '/blog/',                    // Blog：新增 4 篇 2026 年深度文章
-      lastModified: BLOG_LAST_UPDATED,
+      lastModified: HUB_REFRESH,
       changeFrequency: 'weekly',
       priority: 0.85,
     },
@@ -110,10 +118,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 2b. 採購／技術評估頁（2026-10-24 新增，供企業 IT 與採購審閱）
   const trustRoutes: RouteConfig[] = [
-    { url: '/tech-stack/', lastModified: SERVICE_LAST_UPDATED },
-    { url: '/delivery/',   lastModified: SERVICE_LAST_UPDATED },
-    { url: '/security/',   lastModified: SERVICE_LAST_UPDATED },
-    { url: '/warranty/',   lastModified: SERVICE_LAST_UPDATED },
+    { url: '/tech-stack/', lastModified: TRUST_PAGES_ADDED },
+    { url: '/delivery/',   lastModified: TRUST_PAGES_ADDED },
+    { url: '/security/',   lastModified: TRUST_PAGES_ADDED },
+    { url: '/warranty/',   lastModified: TRUST_PAGES_ADDED },
   ].map((route) => ({
     ...route,
     changeFrequency: 'monthly' as RouteConfig['changeFrequency'],
