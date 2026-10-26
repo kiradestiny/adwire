@@ -48,6 +48,8 @@ const MIN_DWELL_MS = 2500;
 const RATE_WINDOW_S = 60;
 const RATE_MAX = 3;
 const DEDUPE_TTL_S = 600;
+/** 郵件診斷紀錄保留 7 日 */
+const DIAG_TTL_S = 60 * 60 * 24 * 7;
 
 const ALLOWED_ORIGINS = new Set([
   "https://adwire.com.hk",
@@ -65,10 +67,15 @@ function cors(origin: string | null): Record<string, string> {
   };
 }
 
-function json(body: Record<string, unknown>, status = 200, origin: string | null = null): Response {
+function json(
+  body: Record<string, unknown>,
+  status = 200,
+  origin: string | null = null,
+  extra: Record<string, string> = {},
+): Response {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { "Content-Type": "application/json; charset=utf-8", ...cors(origin) },
+    headers: { "Content-Type": "application/json; charset=utf-8", ...cors(origin), ...extra },
   });
 }
 
@@ -143,12 +150,138 @@ async function rateLimited(kv: KVNamespace | undefined, ip: string): Promise<boo
   return false;
 }
 
+/**
+ * 去重查詢 —— 唯讀，唔會寫入任何狀態。
+ * 只有 Resend 真正接受咗封郵件之後，才由 markSent() 寫入去重標記；
+ * 否則「寄信失敗（缺 key／非 2xx／網絡錯誤）之後重試」會被錯誤當成重複而回報假成功。
+ */
 async function isDuplicate(kv: KVNamespace | undefined, fingerprint: string): Promise<boolean> {
   if (!kv) return false;
-  const key = `dup:${fingerprint}`;
-  if (await kv.get(key)) return true;
-  await kv.put(key, "1", { expirationTtl: DEDUPE_TTL_S });
-  return false;
+  try {
+    return Boolean(await kv.get(`dup:${fingerprint}`));
+  } catch (e) {
+    // KV 查詢失敗唔應該阻止真客提交（fail-open，交由其他防護補位）
+    console.error("[send-mail] dedupe lookup failed", stringifyError(e));
+    return false;
+  }
+}
+
+/** 寄信被接受之後才寫入去重標記；呼叫端必須自行包 try/catch（標記失敗唔可以當寄信失敗）。 */
+async function markSent(kv: KVNamespace | undefined, fingerprint: string): Promise<void> {
+  if (!kv) return;
+  await kv.put(`dup:${fingerprint}`, "1", { expirationTtl: DEDUPE_TTL_S });
+}
+
+/** 將已知秘密（API key 等）從任何字串中移除，避免寫入日誌時洩漏。 */
+function maskSecrets(input: string, secrets: Array<string | undefined>): string {
+  let out = input;
+  for (const s of secrets) {
+    if (s && s.length >= 6) out = out.split(s).join("[redacted]");
+  }
+  return out;
+}
+
+/** 將未知 thrown 值安全轉成字串（避免 [object Object]）。 */
+function stringifyError(e: unknown): string {
+  return e instanceof Error ? e.message : String(e);
+}
+
+// ── 安全持久化郵件診斷 ────────────────────────────────────────────────────────
+//
+// 目的：當寄信失敗（缺設定／供應商非 2xx／網絡），管理員可憑 requestId 追查根因。
+// 安全原則：
+//   - 診斷只包含「階段／結果／安全碼／供應商狀態／已遮罩嘅供應商訊息」，
+//     絕對唔會寫入提交表單內容（姓名／電話／IP／UA／訊息）或任何秘密。
+//   - 供應商回覆可能回顯 from/reply_to（即提交者電郵）或 API key；
+//     寫入前會用 email/Bearer/re_ 規則及「已知提交字串」一併遮罩。
+//   - 秘密（API key、Turnstile secret）亦會被移除。
+//
+// KV 限制：同一 key 每秒最多 1 次寫入。整個請求只會喺「終端結果」寫一次
+// `maildiag:<uuid>`（中間階段只留喺記憶體），唔會先 put 再更新同一 key（否則 429）。
+
+interface MailDiagnosticEvent {
+  at: string;
+  stage: string;
+  outcome: string;
+  code: string;
+}
+
+interface MailDiagnostic {
+  requestId: string;
+  createdAt: string;
+  updatedAt: string;
+  stage: string;
+  outcome: "pending" | "accepted" | "failed";
+  code: string;
+  source: "assessment" | "contact";
+  providerStatus: number | null;
+  providerErrorName?: string;
+  providerErrorMessage?: string;
+  providerEmailId?: string;
+  events: MailDiagnosticEvent[];
+}
+
+/** 以「已知字串」清單遮蔽（適用於秘密及提交者 PII；minLen 避免過度遮蔽短字串）。 */
+function maskStrings(input: string, values: Array<string | undefined>, minLen = 3): string {
+  let out = input;
+  for (const v of values) {
+    if (v && v.length >= minLen) out = out.split(v).join("[redacted]");
+  }
+  return out;
+}
+
+/** 診斷用文字清洗：移除秘密／已知提交字串、Bearer 及 re_ token、電郵、電話。 */
+function redactDiagnostic(input: string, values: Array<string | undefined>): string {
+  let out = maskStrings(input, values, 2);
+  out = out.replace(/\bBearer\s+\S+/gi, "Bearer [redacted]");
+  out = out.replace(/\bre_[A-Za-z0-9_\-]{6,}\b/g, "[redacted]");
+  out = out.replace(/[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}/g, "[email]");
+  out = out.replace(/\b(?:\+?852[\s\-]?)?[2-9]\d{3}[\s\-]?\d{4}\b/g, "[phone]");
+  return out;
+}
+
+/** 從供應商錯誤 body 安全解析 name／message（非 JSON 時用原文），並遮罩敏感內容。 */
+function parseProviderError(
+  detail: string,
+  values: Array<string | undefined>,
+): { name: string; message: string } {
+  let name = "provider_error";
+  let message = detail;
+  try {
+    const j = JSON.parse(detail) as Record<string, unknown>;
+    if (typeof j.name === "string" && j.name) name = j.name;
+    else if (typeof j.error === "string" && j.error) name = j.error;
+    if (typeof j.message === "string" && j.message) message = j.message;
+    else if (typeof j.error_description === "string" && j.error_description) message = j.error_description;
+    else if (typeof j.error === "string" && j.error) message = j.error;
+  } catch {
+    /* 非 JSON：保留原文（稍後遮罩） */
+  }
+  return {
+    name: redactDiagnostic(name, values).slice(0, 120),
+    message: redactDiagnostic(message, values).slice(0, 500),
+  };
+}
+
+/**
+ * 寫入「終端」診斷紀錄（每次請求恰一次）。
+ * best-effort：寫入失敗只記 console，唔可以影響寄信結果（唔可以 throw）。
+ */
+async function finalizeDiagnostic(
+  kv: KVNamespace | undefined,
+  diag: MailDiagnostic,
+  patch: Partial<MailDiagnostic>,
+): Promise<void> {
+  Object.assign(diag, patch);
+  diag.updatedAt = new Date().toISOString();
+  diag.events.push({ at: diag.updatedAt, stage: diag.stage, outcome: diag.outcome, code: diag.code });
+  if (!kv) return;
+  try {
+    await kv.put(`maildiag:${diag.requestId}`, JSON.stringify(diag), { expirationTtl: DIAG_TTL_S });
+  } catch (e) {
+    // 診斷係輔助性副作用：寫入失敗唔可以令已寄出／已處理變成失敗。
+    console.error("[send-mail] diag write failed (best-effort)", stringifyError(e));
+  }
 }
 
 function buildEmail(f: {
@@ -294,6 +427,25 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
     return json({ success: true, message: "已收到，我們會盡快回覆。" }, 200, origin);
   }
 
+  // ── 郵件診斷：通過所有防護後、config/寄信檢查前，先產生 requestId ──
+  // 診斷只喺記憶體組裝；KV 同一 key 每秒最多 1 次寫入，故整個請求只在終端結果
+  // 寫一次 `maildiag:<uuid>`（避免先 put 再 update 同一 key 造成 429）。
+  const requestId = crypto.randomUUID();
+  const diagSource: "assessment" | "contact" = source === "assessment" ? "assessment" : "contact";
+  const diagNow = new Date().toISOString();
+  const diag: MailDiagnostic = {
+    requestId,
+    createdAt: diagNow,
+    updatedAt: diagNow,
+    stage: "received",
+    outcome: "pending",
+    code: "pending",
+    source: diagSource,
+    providerStatus: null,
+    events: [{ at: diagNow, stage: "received", outcome: "pending", code: "guards_passed" }],
+  };
+  const requestHeaders = { "X-Request-ID": requestId };
+
   const { subject, html } = buildEmail({
     name, phone, email, service, company, companySite, budget, timeline,
     systemInfo, message, ip, ua, country, source, leadGrade, leadNotes,
@@ -301,6 +453,7 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
 
   const record = {
     receivedAt: new Date().toISOString(),
+    requestId,
     name, phone, email, service, company, companySite, budget, timeline,
     systemInfo, message, ip, country, ua, source, leadGrade, leadNotes,
   };
@@ -319,17 +472,41 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
   const apiKey = env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("[send-mail] RESEND_API_KEY 未設定，無法寄信");
+    await finalizeDiagnostic(env.ENQUIRIES, diag, {
+      stage: "config",
+      outcome: "failed",
+      code: "missing_config",
+      providerStatus: null,
+    });
     return json(
-      { success: false, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
+      { success: false, code: "missing_config", requestId, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
       503,
       origin,
+      requestHeaders,
     );
   }
+
+  const secrets = [apiKey, env.TURNSTILE_SECRET];
+  // 供應商錯誤／例外可能回顯提交內容（from/reply_to 電郵、公司、IP 等）或秘密；
+  // 將所有已知提交字串一併納入診斷遮罩，避免診斷紀錄洩漏 PII。
+  const redactValues: Array<string | undefined> = [
+    ...secrets, email, name, phoneDigits, company, companySite, systemInfo, message, ip, ua,
+  ];
+
+  let providerStatus: number | null = null;
+  let providerEmailId: string | undefined;
 
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        // 刻意唔用 Resend Idempotency-Key：指紋只涵蓋 name|email|message，
+        // 但 payload 仲有 service／budget／timeline／UA／IP／評級等；同一個 key
+        // 配唔同 payload 會被 Resend 當 409 Conflict，將「合法重試或稍後嘅新提交」
+        // 變成假失敗。重複提交已由 KV 內容去重處理，唔需要再加一層帶風險嘅 header。
+      },
       body: JSON.stringify({
         from: env.MAIL_FROM || "ADWire Website <website@adwire.com.hk>",
         to: [env.MAIL_TO || "info@adwire.com.hk"],
@@ -338,23 +515,69 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
         html,
       }),
     });
+    providerStatus = res.status;
     if (!res.ok) {
       const detail = await res.text();
-      console.error("[send-mail] Resend error", res.status, detail.slice(0, 300));
+      console.error("[send-mail] Resend error", res.status, maskSecrets(detail, secrets).slice(0, 300));
+      const parsed = parseProviderError(detail, redactValues);
+      await finalizeDiagnostic(env.ENQUIRIES, diag, {
+        stage: "provider",
+        outcome: "failed",
+        code: "provider_error",
+        providerStatus,
+        providerErrorName: parsed.name,
+        providerErrorMessage: parsed.message,
+      });
       return json(
-        { success: false, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
+        { success: false, code: "provider_error", requestId, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
         502,
         origin,
+        requestHeaders,
       );
     }
+
+    // 供應商 2xx：已接受。安全解析供應商 email id（如 body 為 JSON）。
+    // 注意：這只代表供應商「已接受」，唔等於「已送達」，所以唔會標示 Delivered。
+    try {
+      const data = (await res.json()) as { id?: unknown };
+      if (data && typeof data.id === "string") providerEmailId = data.id.slice(0, 200);
+    } catch {
+      /* body 唔係 JSON：安全忽略，唔影響已接受狀態 */
+    }
+    await finalizeDiagnostic(env.ENQUIRIES, diag, {
+      stage: "sent",
+      outcome: "accepted",
+      code: "ok",
+      providerStatus,
+      providerEmailId,
+    });
   } catch (e) {
-    console.error("[send-mail] Resend fetch failed", e);
+    console.error("[send-mail] Resend fetch failed", maskSecrets(stringifyError(e), secrets));
+    // 保留真正失敗原因（已遮罩秘密／PII、唔含 stack）供管理員診斷。
+    const errName = e instanceof Error ? e.name : "Error";
+    await finalizeDiagnostic(env.ENQUIRIES, diag, {
+      stage: "network",
+      outcome: "failed",
+      code: "network_error",
+      providerStatus: null,
+      providerErrorName: redactDiagnostic(errName, redactValues).slice(0, 120),
+      providerErrorMessage: redactDiagnostic(stringifyError(e), redactValues).slice(0, 500),
+    });
     return json(
-      { success: false, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
+      { success: false, code: "network_error", requestId, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
       502,
       origin,
+      requestHeaders,
     );
   }
 
-  return json({ success: true, message: "已收到，我們會盡快回覆。" }, 200, origin);
+  // 只有 Resend 真正接受咗封郵件，才寫入去重標記。
+  // 寫入失敗唔可以將「已寄出」變成「失敗」—— 寄信係權威副作用，KV 只係輔助。
+  try {
+    await markSent(env.ENQUIRIES, fingerprint);
+  } catch (e) {
+    console.error("[send-mail] dedupe mark failed", maskSecrets(stringifyError(e), secrets));
+  }
+
+  return json({ success: true, requestId, message: "已收到，我們會盡快回覆。" }, 200, origin, requestHeaders);
 };

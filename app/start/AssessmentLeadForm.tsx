@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Loader2, ShieldCheck } from "lucide-react";
 import { isConfirmedSubmission, markFormSubmitted } from "@/lib/form-submission";
+import { formatSubmitFailure } from "@/lib/mail-error";
 import type { LeadScore, PrefillPayload } from "@/lib/assessment";
 
 const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || "/send-mail.php";
@@ -144,7 +145,7 @@ export default function AssessmentLeadForm({
           turnstileToken,
         }),
       });
-      let result: { success: boolean; message?: string };
+      let result: { success: boolean; message?: string; code?: string; requestId?: string };
       try {
         result = JSON.parse(await response.text());
       } catch {
@@ -155,7 +156,8 @@ export default function AssessmentLeadForm({
         router.push("/thank-you/");
         return;
       }
-      throw new Error(result.message || "發送失敗，請稍後再試。");
+      // 失敗：保留後端 message；只有 allowlist code ＋ 合法 UUID requestId 才附參考編號。
+      throw new Error(formatSubmitFailure(result, "發送失敗，請稍後再試。"));
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : "發送失敗，請直接電郵至 info@adwire.com.hk");
       setShake((n) => n + 1);

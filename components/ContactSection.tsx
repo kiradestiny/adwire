@@ -21,6 +21,7 @@ import {
   safeStorageRemove,
   safeStorageWrite,
 } from "@/lib/form-submission";
+import { formatSubmitFailure } from "@/lib/mail-error";
 
 /**
  * 表單送出端點。
@@ -609,7 +610,7 @@ export default function ContactSection({
       });
 
       const text = await response.text();
-      let result: { success: boolean; message: string };
+      let result: { success: boolean; message: string; code?: string; requestId?: string };
       try {
         result = JSON.parse(text);
       } catch {
@@ -632,7 +633,8 @@ export default function ContactSection({
           startClientCooldown();
         }
 
-        throw new Error(result.message || "發送失敗，請稍後再試。");
+        // 失敗：保留後端 message；只有 allowlist code ＋ 合法 UUID requestId 才附參考編號。
+        throw new Error(formatSubmitFailure(result, "發送失敗，請稍後再試。"));
       }
     } catch (error: unknown) {
       const message =

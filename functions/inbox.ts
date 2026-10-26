@@ -28,6 +28,54 @@ interface PagesContext {
   env: Env;
 }
 
+/** 只接受 RFC 4122 格式 UUID，避免以 requestId 參數探測任意 KV key。 */
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function safeParse(raw: string): Record<string, unknown> | null {
+  try {
+    return JSON.parse(raw) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 診斷 JSON 端點（只喺 Basic Auth 之後呼叫）。
+ * 只讀 `maildiag:` 紀錄（寄信時已遮罩 PII／秘密），回應 no-store + noindex。
+ * KV list 為 eventually consistent，以 prefix 列出時可能短暫滯後；
+ * 以 requestId 直接 get 則即時準確，故 requestId 查詢為準。
+ * 每個 UUID key 每秒最多 1 寫，admin 列表上限 200 已足夠事件規模。
+ */
+async function diagnosticsResponse(requestIdParam: string | null, kv: KVNamespace): Promise<Response> {
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store, max-age=0",
+    "X-Robots-Tag": "noindex, nofollow",
+    "X-Frame-Options": "DENY",
+  };
+
+  if (requestIdParam) {
+    if (!UUID_RE.test(requestIdParam)) {
+      return new Response(JSON.stringify({ success: false, error: "invalid_request_id" }), { status: 400, headers });
+    }
+    const raw = await kv.get(`maildiag:${requestIdParam}`);
+    const one = raw ? safeParse(raw) : null;
+    const diagnostics = one ? [one] : [];
+    return new Response(JSON.stringify({ success: true, count: diagnostics.length, diagnostics }), { headers });
+  }
+
+  const listing = await kv.list({ prefix: "maildiag:", limit: 200 });
+  const keys = listing.keys.map((k) => k.name);
+  const diagnostics: Array<Record<string, unknown>> = [];
+  for (const key of keys.slice(0, 200)) {
+    const raw = await kv.get(key);
+    const d = raw ? safeParse(raw) : null;
+    if (d) diagnostics.push(d);
+  }
+  diagnostics.sort((a, b) => String(b.createdAt ?? "").localeCompare(String(a.createdAt ?? "")));
+  return new Response(JSON.stringify({ success: true, count: diagnostics.length, diagnostics }), { headers });
+}
+
 interface Lead {
   receivedAt: string;
   name: string;
@@ -105,6 +153,12 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
 
   if (!env.ENQUIRIES) {
     return new Response("KV 未綁定", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+  }
+
+  // 診斷 JSON：只喺 Basic Auth 之後提供，支援可選 requestId UUID 過濾。
+  const url = new URL(request.url);
+  if (url.searchParams.get("diagnostics") === "1") {
+    return diagnosticsResponse(url.searchParams.get("requestId"), env.ENQUIRIES);
   }
 
   const listing = await env.ENQUIRIES.list({ prefix: "enq:", limit: 200 });
