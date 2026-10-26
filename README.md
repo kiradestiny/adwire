@@ -1,10 +1,15 @@
 # ADWire Agency — 官方網站
 
+> **接手／部署前先讀：[寄信事故交接及未完成事項](docs/mail-handoff.md)。**
+> 2026-10-26：正式前台現於 Cloudflare Pages `adwire-site`。寄信修復在 `fix/mail-diagnostics-20261026`，尚未合併舊 `main`。**唔好部署舊 main、刪查詢／KV／Secret／監察，亦唔好 GET→PATCH 整份 Cloudflare 設定。** 詳情及未驗收項目以交接文件為準，開工先唯讀核對現況。
+>
+> 下文 SiteGround 部署流程屬既有／歷史路徑，工作流仍存在，唔代表現時正式前台部署方式；唔好為咗統一文件而刪 workflow 或改 DNS。
+
 香港數碼增長方案供應商 [adwire.com.hk](https://adwire.com.hk) 的網站原始碼。
-Next.js（App Router）靜態匯出，部署至 **SiteGround** 共享主機。
+Next.js（App Router）靜態匯出；現時正式前台使用 **Cloudflare Pages**，另保留既有 SiteGround 系統。
 
 > ⚠️ **本專案不是部署到 Vercel。** 舊版本的 README 是 `create-next-app` 預設模板，
-> 內容已過時並可能誤導。實際部署方式見下文。
+> 內容已過時並可能誤導。現時正式部署及安全限制先讀上方交接文件；以下保留歷史系統說明。
 
 ---
 
