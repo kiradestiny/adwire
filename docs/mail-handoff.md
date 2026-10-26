@@ -2,9 +2,9 @@
 
 > 整理日期：2026-10-26 15:26（香港時間）。下列係已保存嘅驗證紀錄，唔係保證外部系統永遠維持同一狀態。接手時先唯讀核對，唔好先部署、清理、輪換 key 或刪資料。
 >
-> **STATUS：2026-10-26 用戶已明確確認成功收到真實問卷 email，寄信故障嘅收信驗收已通過。後續新要求係優化 email 閱讀版面；目前只批准先做預覽，未批准部署新版設計。**
+> **STATUS：2026-10-26 用戶已明確確認成功收到真實問卷 email，寄信故障嘅收信驗收已通過。後續 email 閱讀版面及防護已完成預覽／測試；用戶最新「上線啦」已批准部署，部署結果另記。**
 >
-> **本機新預覽工作另見 `docs/mail-email-preview.md`，分支 `feat/mail-readability-security-preview`。新 email／防護改動未獲准部署，唔好將本機 `out/` 當成已批准正式版。**
+> **本機新預覽工作另見 `docs/mail-email-preview.md`，分支 `feat/mail-readability-security-preview`。新 email／防護已獲部署授權；仍要核對指定 commit、重建、讀回 canonical 同 runtime checks，唔可誤用舊 main／舊 out。**
 >
 > **最危險嘅遺漏：修復尚未合併到 GitHub `main`。直接部署舊 `main` 會倒退。**
 

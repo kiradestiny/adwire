@@ -1,9 +1,9 @@
 /**
- * lib/mail-email.ts — ADWire 交易郵件渲染器（PREVIEW-ONLY）
+ * lib/mail-email.ts — ADWire 交易郵件渲染器
  *
  * 用途：由 send-mail handler 收集到嘅 lead 欄位，渲染成一封對收件人好用嘅
  * HTML 交易郵件。本模組 import 時零副作用；渲染器係純函數，唔會寄信或寫 KV。
- * 本機 handler 已接駁此模板並保留多行 message；本輪尚未獲准部署。
+ * handler 已接駁此模板並保留多行 message；新版已獲部署授權。
  *
  * 重要：只可對 message 使用多行 normalizer；header 及其他欄位仍需單行清理。
  * 預覽核准唔代表可以改寫既有 outbox 已 frozen 嘅 payload。

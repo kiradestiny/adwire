@@ -4,9 +4,10 @@
 
 - 用戶於 2026-10-26 明確確認已收到真實問卷 email，原寄信故障嘅收信驗收完成。
 - 用戶其後批准：參考舊 PHP 通知信直排版面，補強真人驗證及內容風險提示，**先本機測試／預覽，之後再確認上線**。
-- 本輪工作分支：`feat/mail-readability-security-preview`。**本文件／預覽唔代表正式站已更新，亦唔授權部署。**
+- **最新授權：2026-10-26 用戶明確表示「上線啦」，已批准部署呢個新版；部署結果及正式收信驗收須另行讀回記錄，唔可由授權推斷已成功。**
+- 本輪工作分支：`feat/mail-readability-security-preview`。保留原分支名追溯，但唔再只限本機預覽。
 - 原已部署寄信修復仍在 `fix/mail-diagnostics-20261026`，歷史正式 deployment `8270c757-f3f8-4e4b-b3a0-18423d2b72b4`。開工先核對實際 canonical，唔好相信舊 snapshot 就直接部署。
-- 本機 `out/` 已因驗證而重建，可能含未批准上線嘅前端變更。**唔好順手 `wrangler pages deploy out`。** 不改 DNS、供應商、Secret 或排程；不刪客戶／待寄／診斷資料。
+- 部署前重新 build、核對來源 commit、正式環境及 runtime health。唔從舊 main 部署；不改 DNS、供應商、Secret 或排程，不刪客戶／待寄／診斷資料。
 
 ## 問卷有冇改？
 
@@ -14,7 +15,7 @@
 
 兩個前台表單只有驗證重試技術修正：捕獲各自 widget ID、提交失敗後清掉已消耗 token 並 reset 該 widget，保留全部已填資料。唔喺成功跳轉後 reset，唔 reset 其他 widget，唔新增 CAPTCHA bypass。前台最低填表時間維持 Contact 4 秒、Assessment 3 秒。
 
-## 已在本機實作，尚未部署
+## 已實作內容（部署狀態另記）
 
 | 項目 | 本機改動 |
 |---|---|
@@ -56,4 +57,4 @@
 - `deliverables/mail-email-preview/adwire-email-v2.html`：純郵件 HTML。
 - 聯絡資料、IP、公司都係示範；需求摘要由原 `classify`／`buildPrefill`／`leadScore` 產生。
 - 預覽無實際 CAPTCHA 提交，所以真人驗證如實顯示尚未驗證；內容風險可以由純規則對示範內容計算，唔冒充真人驗證結果。
-- 本輪先交用戶確認版面及新防護範圍；**未有後續明確部署授權，唔部署、唔寄新版真實測試信。**
+- 用戶已確認部署。部署後先核對 canonical／health／無寄信副作用嘅負向驗證，再請用戶完成一次真實 CAPTCHA 問卷收信驗收。唔用 probe 冒充新版真實表單 email。
