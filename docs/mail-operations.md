@@ -155,13 +155,17 @@ Cloudflare Pages 專案 `adwire-site` 嘅已知部署：
 |---|---|
 | `59991421-01a5-4b03-a0fe-9072c2cc5320` | 較早生產部署；曾受寄信缺 key 事故影響，**不是已驗證健康版本** |
 | `d3219ee4-e48e-4d03-a565-72465aac6e2d` | 診斷＋去重修復生產部署（2026-10-26 13:36 HK） |
-| `e160261a`（preview） | 對應 preview |
+| `e160261a`（preview） | 診斷版預覽；唔係第三個 production rollback 版本 |
+| `f656c848`（production） | 三層保護首次正式驗收捉到 `turnstileSecret=false`；唔係已知健康版本 |
+| `8270c757-f3f8-4e4b-b3a0-18423d2b72b4`（production） | 2026-10-26 最後保存嘅正式版：實際 health 五項全 true、provider probe accepted；本人問卷收信驗收仍未確認 |
+
+以上包含唔同用途嘅歷史 deployment，唔係可互換嘅 rollback 清單。完整 source／Worker snapshot 及未完成工作見 `docs/mail-handoff.md`。
 
 Git 對應：`main` = `b1488a6`；診斷/去重修復 = `5b09ef9`
 （branch `fix/mail-diagnostics-20261026`）。
 
 回滾做法（Cloudflare Dashboard → Workers & Pages → `adwire-site` → Deployments）
-只選已驗證良好部署並 **Rollback**；舊版本未必有 `/inbox?mailops=health`，而部署 rollback 亦不等於 Secret 已恢復。上述兩個歷史部署唔可當作寄信正常證據；回滾後仍須驗證 runtime 設定及實際寄信。
+只選已驗證良好部署並 **Rollback**；舊版本未必有 `/inbox?mailops=health`，而部署 rollback 亦不等於 Secret 已恢復。曾有缺設定嘅歷史部署唔可當作寄信正常證據；回滾後仍須驗證 runtime 設定及實際寄信。
 
 ---
 

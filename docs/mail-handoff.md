@@ -52,6 +52,8 @@
 | `mailoutbox:` | 不可變 frozen provider payload；30 日 TTL |
 | `mailoutboxstate:` | `pending` / `accepted` / `manual_review`；30 日 TTL |
 | `mailcontrol:retry-cursor` | 持久分頁游標；移除會破壞公平掃描，唔好清除 |
+| `dup:<fingerprint>` | provider accepted 後嘅去重標記，600 秒 TTL；唔清除來強行重送 |
+| `rl:<ip>` | 每 IP 提交限流計數，60 秒 TTL；唔清除來繞過限流 |
 | 監察 KV `WATCH_STATE` | `a9234393e2a74fc1b128e7b84875719c`，title `adwire-mail-watchdog-state` |
 | `alert:<kind>` | 只放運維 metadata；唔放客戶資料，唔好清空作測試 |
 
@@ -114,8 +116,9 @@
 - [ ] **非空 key 唔等於 key 有效**：health 檢查 Secret 存在及 KV 讀取，唔會驗 Resend key 權限／停用狀態；cron 冇定時真寄 probe。無效但非空嘅 key，通常要真實寄信／重試或明確 probe 才知。
 - [ ] **告警失敗嘅限流缺口**：現時 AgentMail 發送失敗仍寫 active／lastAt，同類告警可能被抑制約一小時；恢復通知亦未保證失敗後重送。未修正，唔聲稱告警永不漏報。
 - [ ] **Worker 自身缺設定有缺口**：部分缺 binding／AgentMail key 情況只記 log，唔一律建立 incident。要額外改善時先測試再獲准部署，唔好為交接順手改正式行為。
-- [ ] **HTTP200 唔等於監察健康**：`runWatch.ok` 主要表示執行完成，有 incident 時仍可 true；公開 `/` 回 ready 亦唔係端到端驗收。必須讀 `incidents`、`healthStatus`、`alertsFailed`、retry `errors`／`storageError`。
+- [ ] **HTTP200 唔等於監察健康**：`runWatch.ok` 主要表示執行完成，有 incident 時仍可 true；公開 `/` 回 ready 亦唔係端到端驗收。必須讀 `incidents`、`healthStatus`、`alertsFailed`、`retry.errors`。Backend `/inbox?mailops=retry` 有 `storageError`；已保存嘅真實 watchdog `/run` JSON 亦透傳為 **`retry.storageError`（唔係頂層）**。唔假設每個版本都有此欄；仍要處理 `retry_storage_error`／`retry_cursor_error` 錯誤碼。
 - [ ] **Build 有既有 API fallback warnings**：SiteGround API 可能回 HTML／captcha 而唔係 JSON。Webpack build exit0 唔等於所有外部內容成功拉取，部署前要檢查實際產物，唔盲目隱藏 warning。
+- [ ] **Turnstile 現有 fail-open 缺口**：`functions/send-mail.php.ts` 只有 Secret 存在先執行 server verification；缺 Secret 時跳過。`verifyTurnstile` 遇 non-2xx／network exception 回 `unknown`，handler 只阻擋 `fail`，所以 `unknown` 仍可繼續。前端 widget 唔等於 server positive verification。呢點未修正；唔好聲稱每條 outbox 都已有成功 Siteverify 結果，亦唔好用呢條路徑測試或繞過 CAPTCHA。後續應另訂 fail-closed 方案及服務不可用嘅錯誤處理，再測試／批准部署。
 - [ ] **GitHub Actions 呢條新 gate 未以真實 workflow run 做完驗收**：本機 CLI／實際部署已驗證，唔將此等同 CI 已跑過。
 
 ## 8. 接手驗證方法及界線
