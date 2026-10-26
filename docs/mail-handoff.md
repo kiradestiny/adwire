@@ -2,9 +2,9 @@
 
 > 整理日期：2026-10-26 15:26（香港時間）。下列係已保存嘅驗證紀錄，唔係保證外部系統永遠維持同一狀態。接手時先唯讀核對，唔好先部署、清理、輪換 key 或刪資料。
 >
-> **STATUS：2026-10-26 用戶已明確確認成功收到真實問卷 email，寄信故障嘅收信驗收已通過。後續 email 閱讀版面及防護已完成預覽／測試；用戶最新「上線啦」已批准部署，部署結果另記。**
+> **STATUS：2026-10-26 用戶已明確確認成功收到真實問卷 email，寄信故障嘅收信驗收已通過。後續新版 email／真人驗證防護已獲「上線啦」授權並正式部署，canonical `7baa6554-9fa0-4643-bdcc-9297f0bbd162`，source `13039a3f838b983be253ec6671f5bae05d53f0fa`；runtime smoke 通過，新版真實收信仍待用戶驗收。**
 >
-> **本機新預覽工作另見 `docs/mail-email-preview.md`，分支 `feat/mail-readability-security-preview`。新 email／防護已獲部署授權；仍要核對指定 commit、重建、讀回 canonical 同 runtime checks，唔可誤用舊 main／舊 out。**
+> **本機新預覽工作另見 `docs/mail-email-preview.md`，分支 `feat/mail-readability-security-preview`。新 email／防護已部署；版本化證據見 `deliverables/mail-email-preview/production-release.json`，仍唔可誤用舊 main／舊 out。**
 >
 > **最危險嘅遺漏：修復尚未合併到 GitHub `main`。直接部署舊 `main` 會倒退。**
 
@@ -27,7 +27,8 @@
 | 監察 Worker runtime 修正 | `d4ac548ac8c7223a824f77488c532557e4480392` |
 | `origin/main`（2026-10-26 15:26 fetch 核對） | `b1488a63d7d2e0d4f365ed0f65723d56875148cd`，未包含上述修復 |
 | 正式 Pages project | `adwire-site`，正式網址 `https://adwire.com.hk` |
-| 正式 Pages deployment | `8270c757-f3f8-4e4b-b3a0-18423d2b72b4`，source `ffcf86660f0b103ba0b13ef1ac686aa5027b2901` |
+| 正式 Pages deployment | `7baa6554-9fa0-4643-bdcc-9297f0bbd162`，source `13039a3f838b983be253ec6671f5bae05d53f0fa`（已讀回） |
+| 上一個可回退部署 | `8270c757-f3f8-4e4b-b3a0-18423d2b72b4`，source `ffcf86660f0b103ba0b13ef1ac686aa5027b2901`，冇刪除 |
 | 獨立 Worker | `adwire-mail-watchdog`，`https://adwire-mail-watchdog.qewethf.workers.dev` |
 | Worker version | `4e34de92-6236-4d5f-a32d-0bc94710db86` |
 | Cron | `*/5 * * * *`（Cloudflare UTC，每五分鐘；排程 API 已讀回） |
@@ -120,7 +121,7 @@
 - [ ] **Worker 自身缺設定有缺口**：部分缺 binding／AgentMail key 情況只記 log，唔一律建立 incident。要額外改善時先測試再獲准部署，唔好為交接順手改正式行為。
 - [ ] **HTTP200 唔等於監察健康**：`runWatch.ok` 主要表示執行完成，有 incident 時仍可 true；公開 `/` 回 ready 亦唔係端到端驗收。必須讀 `incidents`、`healthStatus`、`alertsFailed`、`retry.errors`。Backend `/inbox?mailops=retry` 有 `storageError`；已保存嘅真實 watchdog `/run` JSON 亦透傳為 **`retry.storageError`（唔係頂層）**。唔假設每個版本都有此欄；仍要處理 `retry_storage_error`／`retry_cursor_error` 錯誤碼。
 - [ ] **Build 有既有 API fallback warnings**：SiteGround API 可能回 HTML／captcha 而唔係 JSON。Webpack build exit0 唔等於所有外部內容成功拉取，部署前要檢查實際產物，唔盲目隱藏 warning。
-- [ ] **Turnstile 現有 fail-open 缺口**：`functions/send-mail.php.ts` 只有 Secret 存在先執行 server verification；缺 Secret 時跳過。`verifyTurnstile` 遇 non-2xx／network exception 回 `unknown`，handler 只阻擋 `fail`，所以 `unknown` 仍可繼續。前端 widget 唔等於 server positive verification。呢點未修正；唔好聲稱每條 outbox 都已有成功 Siteverify 結果，亦唔好用呢條路徑測試或繞過 CAPTCHA。後續應另訂 fail-closed 方案及服務不可用嘅錯誤處理，再測試／批准部署。
+- [x] **Turnstile 原 fail-open 缺口已由新版修正及部署**：正式 source `13039a3` 改為 positive server verification 先可寄／入 outbox；missing／unavailable 喺本機測試 fail-closed，正式 invalid token 回400，health 全 true。**以下只係舊版歷史描述，唔代表最新 runtime**：`functions/send-mail.php.ts` 只有 Secret 存在先執行 server verification；缺 Secret 時跳過。`verifyTurnstile` 遇 non-2xx／network exception 回 `unknown`，handler 只阻擋 `fail`，所以 `unknown` 仍可繼續。前端 widget 唔等於 server positive verification。舊缺口已由本輪 fail-closed 方案修正，但既有 frozen outbox 冇補做驗證，唔可倒推歷史紀錄全部已通過 Siteverify；唔好恢復舊 fail-open 路徑測試或繞過 CAPTCHA。
 - [ ] **GitHub Actions 呢條新 gate 未以真實 workflow run 做完驗收**：本機 CLI／實際部署已驗證，唔將此等同 CI 已跑過。
 
 ## 8. 接手驗證方法及界線

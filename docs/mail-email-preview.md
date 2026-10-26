@@ -1,5 +1,15 @@
 # Email 閱讀版面及表單防護：本機預覽交接
 
+## 正式部署結果
+
+- 正式 canonical：`7baa6554-9fa0-4643-bdcc-9297f0bbd162`，source `13039a3f838b983be253ec6671f5bae05d53f0fa`。
+- API 讀回 production／success／commit_dirty=false；五項 runtime checks 全 true。
+- 正式 `/start/`、`/contact/` 及新 JS/CSS 200，資產 bytes 同 build 完全相同；已清快取並讀回新 route bundle。
+- 正式負向驗證：hostile Origin403、JSON null400、無效 Turnstile token400；未登入 health401。無真實 CAPTCHA token、冇 probe／重試／測試寄信，冇建立測試查詢。
+- 新版真實通知收件及 Gmail／Outlook 外觀仍待用戶做一次真實表單驗收；唔同舊版已收信驗收混為一談。
+- 冇修改 DNS、secret、供應商、收件人、KV binding、Worker 或排程；冇刪資料。舊 `8270c757` deployment 保留可回退。
+- 證據：`deliverables/mail-email-preview/production-release.json`。
+
 ## 授權及版本邊界
 
 - 用戶於 2026-10-26 明確確認已收到真實問卷 email，原寄信故障嘅收信驗收完成。
@@ -40,7 +50,7 @@
 
 尚存界線：ENQUIRIES binding 存在唔等於每次 enq 寫入必定成功；原 enq backup 寫入依然 best-effort，provider accepted 唔保證 KV 全部成功。現有 KV eventual consistency／非 transaction／TTL 保留期亦冇變。不能承諾 exactly-once 或永久備份。
 
-## 實際驗證紀錄及未驗證項目
+## 本機階段驗證及限制（正式 smoke 另見頂部）
 
 - 真實 repo 代碼＋mock 外部 Turnstile／Resend API，冇替代 helper module、冇向正式表單提交。
 - `npm test` 完整本機 suite exit0；`npm run build -- --webpack` exit0；`tsc --noEmit --incremental false` exit0。
