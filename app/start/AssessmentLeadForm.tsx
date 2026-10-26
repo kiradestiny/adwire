@@ -16,6 +16,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Loader2, ShieldCheck } from "lucide-react";
 import { isConfirmedSubmission, markFormSubmitted } from "@/lib/form-submission";
 import { formatSubmitFailure } from "@/lib/mail-error";
+import { resetTurnstileAfterFailure } from "@/lib/turnstile-retry";
 import type { LeadScore, PrefillPayload } from "@/lib/assessment";
 
 const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || "/send-mail.php";
@@ -24,6 +25,7 @@ const MIN_FORM_FILL_MS = 3_000;
 
 type TurnstileApi = {
   render: (el: HTMLElement, options: Record<string, unknown>) => string;
+  reset: (widgetId?: string) => void;
 };
 const turnstileApi = () => (window as unknown as { turnstile?: TurnstileApi }).turnstile;
 
@@ -48,6 +50,8 @@ export default function AssessmentLeadForm({
   const boxRef = useRef<HTMLDivElement | null>(null);
   const tokenRef = useRef("");
   const failedRef = useRef(false);
+  /** render() 回傳嘅 widget id，用於失敗後「精準 reset」呢一個 widget */
+  const widgetIdRef = useRef<string | null>(null);
 
   useEffect(() => {
     startedAt.current = Date.now();
@@ -59,11 +63,19 @@ export default function AssessmentLeadForm({
       const api = turnstileApi();
       if (!boxRef.current || !api) return;
       try {
-        api.render(boxRef.current, {
+        widgetIdRef.current = api.render(boxRef.current, {
           sitekey: TURNSTILE_SITE_KEY,
-          callback: (t: string) => { tokenRef.current = t; },
+          callback: (t: string) => {
+            tokenRef.current = t;
+            // 新 token 一到 = widget 已恢復可用 → 清走之前嘅失敗標記
+            failedRef.current = false;
+          },
           "expired-callback": () => { tokenRef.current = ""; },
-          "error-callback": () => { failedRef.current = true; },
+          "error-callback": () => {
+            failedRef.current = true;
+            // widget 出錯 → token 已失效，唔可以留低被下一次提交重用
+            tokenRef.current = "";
+          },
         });
       } catch {
         failedRef.current = true;
@@ -122,6 +134,8 @@ export default function AssessmentLeadForm({
 
     setSubmitting(true);
     setSubmitError(null);
+    // 成功確認旗標：只有真正收到 lead 才為 true → 確保成功跳轉路徑永不 reset Turnstile。
+    let submissionConfirmed = false;
     try {
       const turnstileToken = await waitForToken();
       const note = values.note.trim();
@@ -152,6 +166,7 @@ export default function AssessmentLeadForm({
         throw new Error("伺服器回應格式錯誤，請稍後再試，或直接 WhatsApp 我們。");
       }
       if (isConfirmedSubmission({ httpOk: response.ok, success: result.success })) {
+        submissionConfirmed = true;
         markFormSubmitted();
         router.push("/thank-you/");
         return;
@@ -159,6 +174,12 @@ export default function AssessmentLeadForm({
       // 失敗：保留後端 message；只有 allowlist code ＋ 合法 UUID requestId 才附參考編號。
       throw new Error(formatSubmitFailure(result, "發送失敗，請稍後再試。"));
     } catch (err) {
+      // 只有「未確認成功」嘅失敗（伺服器／網絡／回應格式）才 reset，
+      // 令重試可以攞到全新 token（舊 token 一次性、300 秒，重用必敗）。
+      // 成功路徑（上面 submissionConfirmed = true 再 return）唔會行到呢度。
+      if (!submissionConfirmed) {
+        resetTurnstileAfterFailure({ token: tokenRef, failed: failedRef }, widgetIdRef.current, turnstileApi());
+      }
       setSubmitError(err instanceof Error ? err.message : "發送失敗，請直接電郵至 info@adwire.com.hk");
       setShake((n) => n + 1);
     } finally {

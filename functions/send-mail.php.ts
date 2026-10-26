@@ -14,7 +14,8 @@
  *   6. 輸入長度／格式驗證。
  *
  * 刻意「唔移植」的部分（會在 README 註明）：
- *   - IP 信譽／ASN／isp 查詢、垃圾評分模型：需要外部 API，維護成本高於效益。
+ *   - 外部 IP reputation API、ISP/VPN 分類及多窗口計數未移植；本機新版本只用
+ *     可信 Cloudflare ASN metadata 同保守內容旗標，唔冒充完整舊風險模型。
  *   - MySQL enquiries 表：改用 KV 存副本（30 日），後台 enquiries.php 暫時唔會見到新 lead。
  *     → 這點必須讓客戶知道，直至後台搬到 D1 或恢復 PHP。
  */
@@ -28,6 +29,14 @@ import {
   type OutboxRecord,
   type OutboxState,
 } from "../lib/mail-runtime.ts";
+import { buildMailEmail } from "../lib/mail-email.ts";
+import {
+  normalizeMultiline,
+  validateSubmissionEnvelope,
+  verifyHumanToken,
+  collectNetworkMetadata,
+  evaluateSubmissionRisk,
+} from "../lib/form-security.ts";
 
 interface Env {
   /** Resend API key（Secret） */
@@ -114,7 +123,10 @@ async function parseBody(request: Request): Promise<Record<string, unknown>> {
   const ct = (request.headers.get("content-type") || "").toLowerCase();
   if (ct.includes("application/json")) {
     try {
-      return (await request.json()) as Record<string, unknown>;
+      const parsed: unknown = await request.json();
+      return parsed !== null && typeof parsed === "object" && !Array.isArray(parsed)
+        ? parsed as Record<string, unknown>
+        : {};
     } catch {
       return {};
     }
@@ -128,26 +140,6 @@ async function parseBody(request: Request): Promise<Record<string, unknown>> {
     return out;
   }
   return {};
-}
-
-async function verifyTurnstile(token: string, secret: string, ip: string): Promise<"ok" | "fail" | "unknown"> {
-  try {
-    const form = new FormData();
-    form.append("secret", secret);
-    form.append("response", token);
-    if (ip) form.append("remoteip", ip);
-    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-      method: "POST",
-      body: form,
-    });
-    if (!res.ok) return "unknown";
-    const data = (await res.json()) as { success?: boolean };
-    return data.success ? "ok" : "fail";
-  } catch {
-    // 驗證服務不可用時，唔可以靜默放行，但亦唔應該令真客完全交唔到表。
-    // 交由 Turnstile 前端 widget 本身的把關 + honeypot + 速率限制補位。
-    return "unknown";
-  }
 }
 
 /** 60 秒內每 IP 最多 3 次 */
@@ -294,73 +286,46 @@ async function finalizeDiagnostic(
   }
 }
 
-function buildEmail(f: {
-  name: string; phone: string; email: string; service: string; company: string;
-  companySite: string; budget: string; timeline: string; systemInfo: string;
-  message: string; ip: string; ua: string; country: string;
-  source: string; leadGrade: string; leadNotes: string;
-}): { subject: string; html: string } {
-  // 需求評估（/start/）嚟嘅 lead 喺標題標明評級，方便收件箱一眼排優先次序
-  const tag = f.source === "assessment"
-    ? `【需求評估${f.leadGrade ? `・${f.leadGrade} 級` : ""}】`
-    : "【新客戶查詢】";
-  const subject = `${tag}${f.name} - ${f.service}${f.budget && f.budget !== "未指定" ? ` - ${f.budget}` : ""}`;
+/**
+ * 驗證／風險／網絡 metadata —— 由 handler 計算，附於郵件尾段與 lead 副本。
+ * 純資料：無秘密、無供應商原始 body、無 PII 新增。
+ */
+interface SecurityState {
+  verification: "verified" | "unavailable" | "not_checked";
+  risk: { level: "low" | "review"; score: number | null; reasons: string[] };
+  network: { asn: number | null; organization: string; country: string };
+}
 
+/**
+ * 追加於郵件尾部的安全摘要。只作提示：
+ *   - 唔會自動刪除／隔離任何 lead；
+ *   - 唔會改動或懲罰 lead 評級；
+ *   - review 級別只以「待人工確認」字眼標示，交人手判斷。
+ */
+function buildSecurityHtml(security: SecurityState): string {
   const rows: Array<[string, string]> = [
-    ...(f.source === "assessment"
-      ? ([["來源", "網站需求評估問卷（/start/）"], ["潛在客戶評級", f.leadGrade ? `${f.leadGrade} 級${f.leadNotes ? `（${f.leadNotes}）` : ""}` : ""]] as Array<[string, string]>)
-      : []),
-    ["姓名", f.name],
-    ["電話", f.phone],
-    ["電郵", f.email],
-    ["公司／品牌", f.company],
-    ["公司網站", f.companySite],
-    ["感興趣服務", f.service],
-    ["預算區間", f.budget],
-    ["預計開始", f.timeline],
-    ["現有系統／技術", f.systemInfo],
-  ].filter(([, v]) => v && v !== "未指定") as Array<[string, string]>;
-
-  const rowsHtml = rows
+    [
+      "人機驗證",
+      security.verification === "verified"
+        ? "已驗證"
+        : security.verification === "unavailable"
+          ? "未可用（fail-closed）"
+          : "未檢查",
+    ],
+    ["內容風險", security.risk.level === "review" ? "待人工確認" : "低"],
+    ["風險分數", security.risk.score === null ? "—" : String(security.risk.score)],
+    ["風險原因", security.risk.reasons.length ? security.risk.reasons.join("、") : "—"],
+    ["網絡 ASN", security.network.asn === null ? "—" : `AS${security.network.asn}`],
+    ["網絡機構", security.network.organization || "—"],
+    ["地區", security.network.country || "—"],
+  ];
+  const inner = rows
     .map(
-      ([k, v]) => `<tr>
-      <td style="padding:10px 14px;background:#f7f9fc;border-bottom:1px solid #e8edf5;color:#5b6b84;width:150px;vertical-align:top;font-size:13px">${escapeHtml(k)}</td>
-      <td style="padding:10px 14px;border-bottom:1px solid #e8edf5;color:#1a1f36;font-size:14px">${escapeHtml(v).replace(/\n/g, "<br>")}</td>
-    </tr>`,
+      ([k, v]) =>
+        `<tr><td style="padding:4px 10px 4px 0;color:#5b6b84;font-size:12px;vertical-align:top;white-space:nowrap">${escapeHtml(k)}</td><td style="padding:4px 0;color:#1a1f36;font-size:12px;vertical-align:top">${escapeHtml(v)}</td></tr>`,
     )
     .join("");
-
-  const html = `<!DOCTYPE html><html lang="zh-Hant"><body style="margin:0;padding:0;background:#f4f6fa;font-family:'Helvetica Neue',Helvetica,Arial,'PingFang TC','Microsoft JhengHei',sans-serif">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6fa;padding:24px 12px">
-    <tr><td align="center">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(15,76,129,.08)">
-        <tr><td style="background:#0f4c81;padding:20px 24px;color:#fff">
-          <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#f5a623;font-weight:700">ADWire Agency</div>
-          <div style="font-size:19px;font-weight:700;margin-top:6px">${f.source === "assessment" ? "需求評估查詢" : "新客戶查詢"}</div>
-        </td></tr>
-        <tr><td style="padding:20px 24px 8px">
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${rowsHtml}</table>
-        </td></tr>
-        ${
-          f.message
-            ? `<tr><td style="padding:16px 24px 4px">
-                <div style="font-size:12px;color:#5b6b84;margin-bottom:6px">訊息</div>
-                <div style="background:#f7f9fc;border-left:3px solid #f5a623;padding:12px 14px;border-radius:0 8px 8px 0;font-size:14px;color:#1a1f36;line-height:1.7">${escapeHtml(f.message).replace(/\n/g, "<br>")}</div>
-              </td></tr>`
-            : ""
-        }
-        <tr><td style="padding:16px 24px 24px">
-          <div style="font-size:11px;color:#8b98ad;line-height:1.7;border-top:1px solid #e8edf5;padding-top:12px">
-            來源：${escapeHtml(f.ip)}${f.country ? " · " + escapeHtml(f.country) : ""}<br>
-            User Agent：${escapeHtml(f.ua)}<br>
-            由 Cloudflare Worker 接收（PHP 版已停用）
-          </div>
-        </td></tr>
-      </table>
-    </td></tr>
-  </table></body></html>`;
-
-  return { subject, html };
+  return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:14px;border-top:1px solid #e8edf5"><tbody>${inner}</tbody></table>`;
 }
 
 export const onRequest = async (context: PagesContext): Promise<Response> => {
@@ -380,14 +345,29 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
 
   const body = await parseBody(request);
 
+  // ── 信封驗證（來源 origin／結構）──
+  // 生產環境只接受精確來源 https://adwire.com.hk 及 https://www.adwire.com.hk；
+  // 未授權嘅 preview Origin 唔放行，避免測試混入正式查詢流程。
+  const envelope = validateSubmissionEnvelope(request, body, Date.now());
+  if (!envelope.ok) {
+    return json(
+      { success: false, code: envelope.code || "invalid_submission", message: envelope.message || "提交無效。" },
+      envelope.status ?? 400,
+      origin,
+    );
+  }
+
   // ── Honeypot：填了就當機械人，回 success 但唔寄信（唔好提示機械人）──
   if (clean(body.website, 100) !== "") {
     return json({ success: true, message: "已收到，我們會盡快回覆。" }, 200, origin);
   }
 
   // ── 最短填表時間 ──
-  const startedAt = Number(body.formStartedAt || 0);
-  if (startedAt > 0 && Date.now() - startedAt < MIN_DWELL_MS) {
+  // 聯絡表單送 ISO 時間字串，需求評估問卷送毫秒數字；兩者都要檢查。
+  const startedAtRaw = body.formStartedAt;
+  const startedAt =
+    typeof startedAtRaw === "number" ? startedAtRaw : Date.parse(String(startedAtRaw ?? ""));
+  if (Number.isFinite(startedAt) && startedAt > 0 && Date.now() - startedAt < MIN_DWELL_MS) {
     return json({ success: false, message: "提交太快，請稍後再試。" }, 400, origin);
   }
 
@@ -400,7 +380,8 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
   const budget = clean(body.budget, MAX.extra);
   const timeline = clean(body.timeline, MAX.extra);
   const systemInfo = clean(body.systemInfo, MAX.extra);
-  const message = clean(body.message, MAX.message);
+  // ── 訊息（只此欄位保留換行；標題／其他欄位清理規則不變）──
+  const message = normalizeMultiline(body.message, MAX.message);
   // 需求評估問卷附帶的內部評級：只接受白名單值，其餘當冇
   const source = clean(body.source, 30) === "assessment" ? "assessment" : "";
   const gradeRaw = clean(body.leadGrade, 2).toUpperCase();
@@ -416,21 +397,46 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
     return json({ success: false, message: errors[0] }, 400, origin);
   }
 
-  // ── Turnstile ──
+  // 查詢儲存係必要保護；缺 binding 唔可以寄咗信先假裝備份存在。
+  if (!env.ENQUIRIES) {
+    return json({ success: false, code: "storage_unavailable", message: "查詢儲存服務暫時不可用，請稍後再試。" }, 503, origin);
+  }
+
+  // ── 人機驗證（fail-closed）──
+  // 驗證服務不可用／缺 secret → 503，絕不靜默放行；token 無效、缺失或網域不符 → 400。
+  // 未通過驗證的請求，唔會呼叫 Resend、唔會寫 enq:／mailoutbox／maildiag。
   const tsToken = clean(body.turnstileToken, 4096);
-  if (env.TURNSTILE_SECRET) {
-    if (!tsToken) {
-      return json({ success: false, message: "請完成人機驗證後再提交。" }, 400, origin);
-    }
-    const verdict = await verifyTurnstile(tsToken, env.TURNSTILE_SECRET, ip);
-    if (verdict === "fail") {
-      return json({ success: false, message: "人機驗證失敗，請重新整理頁面再試。" }, 400, origin);
-    }
+  const human = await verifyHumanToken({
+    token: tsToken,
+    secret: env.TURNSTILE_SECRET,
+    ip,
+    expectedHostname: new URL(origin!).hostname,
+    nowMs: Date.now(),
+  });
+  if (human.status === "unavailable") {
+    console.error("[send-mail] 人機驗證服務不可用，已 fail-closed：", human.reasonCode);
+    return json(
+      { success: false, code: "verification_unavailable", message: "人機驗證服務暫時不可用，請稍後再試。" },
+      503,
+      origin,
+    );
+  }
+  if (human.status === "failed") {
+    return json(
+      { success: false, code: "verification_failed", message: "人機驗證失敗，請重新整理頁面再試。" },
+      400,
+      origin,
+    );
   }
 
   // ── 速率限制 + 去重 ──
-  if (await rateLimited(env.ENQUIRIES, ip)) {
-    return json({ success: false, message: "提交太頻繁，請稍後再試。" }, 429, origin);
+  try {
+    if (await rateLimited(env.ENQUIRIES, ip)) {
+      return json({ success: false, message: "提交太頻繁，請稍後再試。" }, 429, origin);
+    }
+  } catch {
+    // 唔洩漏儲存層原文，亦唔會喺限流／備份狀態不明時繼續寄信。
+    return json({ success: false, code: "storage_unavailable", message: "查詢儲存服務暫時不可用，請稍後再試。" }, 503, origin);
   }
   const fingerprint = await sha256(`${name}|${email}|${message}`.toLowerCase());
   if (await isDuplicate(env.ENQUIRIES, fingerprint)) {
@@ -456,16 +462,34 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
   };
   const requestHeaders = { "X-Request-ID": requestId };
 
-  const { subject, html } = buildEmail({
-    name, phone, email, service, company, companySite, budget, timeline,
-    systemInfo, message, ip, ua, country, source, leadGrade, leadNotes,
+  // ── 內容風險評估（只作標記／通知）──
+  // 通過人機驗證之後才評估；唔會自動刪除／隔離任何 lead，亦唔會改動／懲罰 lead 評級。
+  const risk = evaluateSubmissionRisk({
+    name, phone, email, company, companySite, systemInfo, message, ua,
   });
+  // ── 可信 Cloudflare metadata（只讀 request.cf 及 cf-* header，忽略 body 冒充值）──
+  const network = collectNetworkMetadata(request);
+  const security: SecurityState = {
+    verification: "verified",
+    risk: { level: risk.level, score: risk.score, reasons: risk.reasons },
+    network,
+  };
+
+  // 可讀交易郵件（lib/mail-email.ts）＋ 安全摘要；risk=review 時主旨加「[待確認]」前綴。
+  // 只喺已通過人機驗證之後組裝，未驗證請求根本唔會到達此處。
+  const mail = buildMailEmail({
+    name, phone, email, service, company, companySite, budget, timeline,
+    systemInfo, message, ip, ua, country, source, leadGrade, leadNotes, security,
+  });
+  // 安全狀態由同一 renderer 呈現一次，唔喺 </html> 後追加另一套矛盾摘要。
+  const { subject, html } = mail;
 
   const record = {
     receivedAt: new Date().toISOString(),
     requestId,
     name, phone, email, service, company, companySite, budget, timeline,
     systemInfo, message, ip, country, ua, source, leadGrade, leadNotes,
+    security,
   };
 
   // 先寫 KV（lead 不能只靠 email；寄信失敗時仍然有紀錄）

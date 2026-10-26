@@ -4,6 +4,8 @@
 >
 > **STATUS：2026-10-26 用戶已明確確認成功收到真實問卷 email，寄信故障嘅收信驗收已通過。後續新要求係優化 email 閱讀版面；目前只批准先做預覽，未批准部署新版設計。**
 >
+> **本機新預覽工作另見 `docs/mail-email-preview.md`，分支 `feat/mail-readability-security-preview`。新 email／防護改動未獲准部署，唔好將本機 `out/` 當成已批准正式版。**
+>
 > **最危險嘅遺漏：修復尚未合併到 GitHub `main`。直接部署舊 `main` 會倒退。**
 
 ## 1. 接手第一步（只讀）

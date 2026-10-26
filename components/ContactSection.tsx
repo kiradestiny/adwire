@@ -22,6 +22,7 @@ import {
   safeStorageWrite,
 } from "@/lib/form-submission";
 import { formatSubmitFailure } from "@/lib/mail-error";
+import { resetTurnstileAfterFailure } from "@/lib/turnstile-retry";
 
 /**
  * 表單送出端點。
@@ -291,6 +292,8 @@ export default function ContactSection({
   const turnstileBoxRef = useRef<HTMLDivElement | null>(null);
   const turnstileTokenRef = useRef<string>("");
   const turnstileFailedRef = useRef(false);
+  /** render() 回傳嘅 Turnstile widget id，用於失敗後「精準 reset」呢一個 widget */
+  const turnstileWidgetIdRef = useRef<string | null>(null);
   /** 只初始化一次 Turnstile（按需求才載入，避免每個訪客一入站就下載第三方腳本） */
   const turnstileStartedRef = useRef(false);
   /** 整個查詢區，用於 IntersectionObserver 判斷表單是否接近視口 */
@@ -315,12 +318,20 @@ export default function ContactSection({
     const renderWidget = () => {
       if (!turnstileBoxRef.current || !window.turnstile) return;
       try {
-        window.turnstile.render(turnstileBoxRef.current, {
+        turnstileWidgetIdRef.current = window.turnstile.render(turnstileBoxRef.current, {
           sitekey: TURNSTILE_SITE_KEY,
           theme: "light",
-          callback: (token: string) => { turnstileTokenRef.current = token; },
+          callback: (token: string) => {
+            turnstileTokenRef.current = token;
+            // 新 token 一到 = widget 已恢復可用 → 清走之前嘅失敗標記
+            turnstileFailedRef.current = false;
+          },
           "expired-callback": () => { turnstileTokenRef.current = ""; },
-          "error-callback": () => { turnstileFailedRef.current = true; },
+          "error-callback": () => {
+            turnstileFailedRef.current = true;
+            // widget 出錯 → token 已失效，唔可以留低被下一次提交重用
+            turnstileTokenRef.current = "";
+          },
         });
       } catch {
         turnstileFailedRef.current = true;
@@ -595,6 +606,9 @@ export default function ContactSection({
     setIsSubmitting(true);
     setSubmitError(null);
 
+    // 成功確認旗標：只有真正收到 lead 才為 true，用嚟確保「成功路徑永不 reset Turnstile」。
+    let submissionConfirmed = false;
+
     try {
       // 快速提交時亦要確保 Turnstile 已按需初始化（正常情況接近視口已載入）。
       initTurnstile();
@@ -620,6 +634,7 @@ export default function ContactSection({
       // 只有「HTTP 成功」而且 body `success:true` 才算真正收到 lead
       //（httpOk 但 success:false = 後端評分拒收／429 冷卻，唔可以當成功）。
       if (isConfirmedSubmission({ httpOk: response.ok, success: result.success })) {
+        submissionConfirmed = true;
         startClientCooldown();
         // ✅ 先記錄「已確認成功」再跳轉。
         // 直接寫 sessionStorage 嘅話，一旦 storage 被封鎖（無痕／封 cookie）就會 throw，
@@ -637,6 +652,19 @@ export default function ContactSection({
         throw new Error(formatSubmitFailure(result, "發送失敗，請稍後再試。"));
       }
     } catch (error: unknown) {
+      // 只有「未確認成功」嘅失敗（伺服器／網絡／回應格式）才 reset。
+      // Turnstile token 一次性、300 秒壽命；重用已消耗 token 會令重試必敗，
+      // 所以喺呢度用捕獲嘅精準 widget id reset 返對應 widget，
+      // 令下一次提交可以攞到全新 token。成功路徑（上面 submissionConfirmed = true）
+      // 唔會行到呢一步。
+      if (!submissionConfirmed) {
+        resetTurnstileAfterFailure(
+          { token: turnstileTokenRef, failed: turnstileFailedRef },
+          turnstileWidgetIdRef.current,
+          window.turnstile
+        );
+      }
+
       const message =
         error instanceof Error
           ? error.message

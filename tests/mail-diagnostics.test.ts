@@ -88,6 +88,8 @@ function mockFetch(handler: FetchHandler) {
   const fn = async (url: unknown, init: unknown): Promise<Response> => {
     const u = String(url);
     calls.push({ url: u });
+    // Turnstile siteverify 一律回固定成功（帶正確 hostname）；供應商 mock 只負責 Resend。
+    if (u.includes(TURNSTILE_URL)) return jsonResp(TS_OK);
     return handler(u, init, calls.length - 1);
   };
   return { fn, calls };
@@ -97,7 +99,13 @@ const jsonResp = (body: unknown, status = 200): Response =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } });
 
 const RESEND_URL = "https://api.resend.com/emails";
+const TURNSTILE_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+/** Turnstile siteverify 成功回應（必須帶正確 hostname，否則 fail-closed 會拒絕）。 */
+const TS_OK = { success: true, hostname: "adwire.com.hk", "error-codes": [] as string[] };
+/** 只計「供應商」呼叫（Turnstile siteverify 唔算）。 */
+const resendCalls = (calls: FetchCall[]): FetchCall[] => calls.filter((c) => c.url === RESEND_URL);
 const KEY = "re_test_key_ABC123";
+const TS_SECRET = "ts_test_secret_MD_002";
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 function mkRequest(body: Record<string, unknown> = {}): Request {
@@ -105,6 +113,7 @@ function mkRequest(body: Record<string, unknown> = {}): Request {
     method: "POST",
     headers: {
       "content-type": "application/json",
+      "origin": "https://adwire.com.hk",
       "cf-connecting-ip": "203.0.113.9",
       "cf-ipcountry": "HK",
       "user-agent": "mail-diagnostics-test",
@@ -116,6 +125,7 @@ function mkRequest(body: Record<string, unknown> = {}): Request {
       service: "SEO",
       message: "我想了解 SEO 服務",
       formStartedAt: Date.now() - 10_000,
+      turnstileToken: "turnstile-ok-token",
       ...body,
     }),
   });
@@ -126,6 +136,7 @@ function baseEnv(over: Record<string, unknown> = {}): Record<string, unknown> {
     RESEND_API_KEY: KEY,
     MAIL_TO: "info@adwire.com.hk",
     MAIL_FROM: "ADWire Website <website@adwire.com.hk>",
+    TURNSTILE_SECRET: TS_SECRET,
     ENQUIRIES: mockKV(),
     ...over,
   };
@@ -166,13 +177,13 @@ async function main(): Promise<void> {
     const { fn, calls } = mockFetch(() => jsonResp({ id: "should_not_happen" }));
     const restore = withFetch(fn);
     try {
-      const r = await mod.onRequest({ request: mkRequest({ message: "缺設定情境" }), env: { ENQUIRIES: kv } });
+      const r = await mod.onRequest({ request: mkRequest({ message: "缺設定情境" }), env: { ENQUIRIES: kv, TURNSTILE_SECRET: TS_SECRET } });
       assert.equal(r.status, 503, "缺 key 應回 503");
       const j = (await r.json()) as { success: boolean; code?: string; requestId?: string };
       assert.equal(j.success, false);
       assert.equal(j.code, "missing_config");
       assert.ok(j.requestId && UUID_RE.test(j.requestId), `requestId 應為 UUID：${j.requestId}`);
-      assert.equal(calls.length, 0, "缺 key 唔應該呼叫供應商");
+      assert.equal(resendCalls(calls).length, 0, "缺 key 唔應該呼叫供應商");
 
       const diag = readDiag(kv, j.requestId as string);
       assert.ok(diag, "診斷紀錄應以 maildiag:<uuid> 寫入 KV");
@@ -354,7 +365,7 @@ async function main(): Promise<void> {
       const r = await mod.onRequest({ request: mkRequest({ message: "KV故障情境" }), env: baseEnv({ ENQUIRIES: kv }) });
       assert.equal(r.status, 200, "診斷／KV 寫入失敗唔可以令已寄出變成失敗");
       assert.equal(((await r.json()) as { success: boolean }).success, true);
-      assert.equal(calls.length, 1);
+      assert.equal(resendCalls(calls).length, 1);
       assert.equal(diagPuts(kv), 1, "即使寫入 throw，亦只可嘗試寫一次 maildiag");
     } finally {
       restore();

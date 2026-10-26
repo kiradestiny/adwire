@@ -1,0 +1,9 @@
+{
+  "previewOnly": true,
+  "syntheticContactData": true,
+  "subject": "【需求評估・C 級】示範客戶 - SEO/GEO 搜尋引擎優化 - 尚未確定",
+  "leadGrade": "C",
+  "score": 31,
+  "questionnaireSource": "unchanged lib/assessment.ts",
+  "implementation": "unwired lib/mail-email.ts"
+}

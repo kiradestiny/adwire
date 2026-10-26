@@ -18,7 +18,8 @@
  */
 
 import assert from "node:assert/strict";
-import {
+const runtimeSpecifier = "../lib/mail-runtime.ts";
+const {
   MAIL_PROTECTION_VERSION,
   MAX_ATTEMPTS,
   RETRY_BATCH_LIMIT,
@@ -30,7 +31,7 @@ import {
   outboxKey,
   outboxStateKey,
   runRetryBatch,
-} from "../lib/mail-runtime.ts";
+} = await import(runtimeSpecifier) as typeof import("../lib/mail-runtime");
 
 type PagesFunctionModule = {
   onRequest: (context: { request: Request; env: Record<string, unknown> }) => Promise<Response>;
@@ -129,6 +130,9 @@ function mockFetch(handler: FetchHandler) {
       headers: (i.headers ?? {}) as Record<string, string>,
       body: typeof i.body === "string" ? i.body : String(i.body ?? ""),
     });
+    // Turnstile siteverify 一律回固定成功（帶正確 hostname）；供應商 mock 只負責 Resend。
+    // （inbox retry／probe 唔會呼叫 siteverify，故其 calls.length 計數不受影響。）
+    if (u.includes(TURNSTILE_URL)) return jsonResp(TS_OK);
     return handler(u, init, calls.length - 1);
   };
   return { fn, calls };
@@ -138,7 +142,13 @@ const jsonResp = (body: unknown, status = 200): Response =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } });
 
 const RESEND_URL = "https://api.resend.com/emails";
+const TURNSTILE_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+/** Turnstile siteverify 成功回應（必須帶正確 hostname，否則 fail-closed 會拒絕）。 */
+const TS_OK = { success: true, hostname: "adwire.com.hk", "error-codes": [] as string[] };
+/** 只計「供應商」呼叫（Turnstile siteverify 唔算）。 */
+const resendCalls = (calls: CapturedCall[]): CapturedCall[] => calls.filter((c) => c.url === RESEND_URL);
 const KEY = "re_resilience_key_ABC123";
+const TS_SECRET = "ts_test_secret_MR_003";
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 function withFetch(fn: unknown): () => void {
@@ -154,6 +164,7 @@ function mkRequest(body: Record<string, unknown> = {}, headers: Record<string, s
     method: "POST",
     headers: {
       "content-type": "application/json",
+      "origin": "https://adwire.com.hk",
       "cf-connecting-ip": "203.0.113.9",
       "cf-ipcountry": "HK",
       "user-agent": "mail-resilience-test",
@@ -166,6 +177,7 @@ function mkRequest(body: Record<string, unknown> = {}, headers: Record<string, s
       service: "SEO",
       message: "我想了解 SEO 服務",
       formStartedAt: Date.now() - 10_000,
+      turnstileToken: "turnstile-ok-token",
       ...body,
     }),
   });
@@ -176,6 +188,7 @@ function baseEnv(over: Record<string, unknown> = {}): Record<string, unknown> {
     RESEND_API_KEY: KEY,
     MAIL_TO: "info@adwire.com.hk",
     MAIL_FROM: "ADWire Website <website@adwire.com.hk>",
+    TURNSTILE_SECRET: TS_SECRET,
     ENQUIRIES: mockKV(),
     ...over,
   };
@@ -343,13 +356,13 @@ async function main(): Promise<void> {
     const { fn, calls } = mockFetch(() => jsonResp({ id: "x" }));
     const restore = withFetch(fn);
     try {
-      const r = await mod.onRequest({ request: mkRequest({ message: "A4" }), env: { ENQUIRIES: kv } });
+      const r = await mod.onRequest({ request: mkRequest({ message: "A4" }), env: { ENQUIRIES: kv, TURNSTILE_SECRET: TS_SECRET } });
       assert.equal(r.status, 503);
       const j = (await r.json()) as { success: boolean; code?: string; requestId?: string; queued?: boolean };
       assert.equal(j.success, false);
       assert.equal(j.code, "missing_config");
       assert.equal(j.queued, true, "缺設定亦要保存 frozen payload 待重試");
-      assert.equal(calls.length, 0, "缺 key 唔應該呼叫供應商");
+      assert.equal(resendCalls(calls).length, 0, "缺 key 唔應該呼叫供應商");
       assert.ok(kv._map.get(outboxKey(j.requestId as string)));
     } finally {
       restore();
@@ -372,16 +385,18 @@ async function main(): Promise<void> {
     }
   });
 
-  await t("冇綁定 ENQUIRIES → queued=false，唔可以假成功", async () => {
+  await t("冇綁定 ENQUIRIES → 503 storage_unavailable、唔寄信、零供應商呼叫", async () => {
     const mod = await loadSend();
-    const { fn } = mockFetch(() => new Response("boom", { status: 500 }));
+    const { fn, calls } = mockFetch(() => new Response("boom", { status: 500 }));
     const restore = withFetch(fn);
     try {
-      const r = await mod.onRequest({ request: mkRequest({ message: "A6" }), env: { RESEND_API_KEY: KEY } });
-      assert.equal(r.status, 502);
-      const j = (await r.json()) as { success: boolean; queued?: boolean };
+      const r = await mod.onRequest({ request: mkRequest({ message: "A6" }), env: { RESEND_API_KEY: KEY, TURNSTILE_SECRET: TS_SECRET } });
+      assert.equal(r.status, 503);
+      const j = (await r.json()) as { success: boolean; code?: string; queued?: boolean };
       assert.equal(j.success, false);
-      assert.equal(j.queued, false);
+      assert.equal(j.code, "storage_unavailable", "缺 ENQUIRIES 必須 fail-closed（唔可以寄咗先假裝備份）");
+      assert.equal(j.queued, undefined, "缺儲存 binding 唔應聲稱已排隊");
+      assert.equal(resendCalls(calls).length, 0, "缺儲存 binding 唔應該呼叫供應商");
     } finally {
       restore();
     }
@@ -604,7 +619,7 @@ async function main(): Promise<void> {
       const r1 = await send.onRequest({ request: mkRequest({ message: "E1" }), env: baseEnv({ ENQUIRIES: kv }) });
       const j1 = (await r1.json()) as { requestId: string; code: string };
       assert.equal(j1.code, "network_error");
-      const first = calls[0];
+      const first = resendCalls(calls)[0];
 
       // 初次失敗會排期 5 分鐘後（指數退避）才可自動重試；模擬已過該窗口。
       const stKey = outboxStateKey(j1.requestId);
@@ -636,7 +651,7 @@ async function main(): Promise<void> {
       assert.equal(rj.manualReview, 0);
       assert.deepEqual(rj.errors, []);
 
-      const second = calls[1];
+      const second = resendCalls(calls)[1];
       assert.equal(second.url, RESEND_URL);
       assert.equal(second.body, first.body, "重試必須用完全一樣嘅凍結 payload");
       assert.equal(second.headers["Idempotency-Key"], first.headers["Idempotency-Key"], "重試必須用同一 idempotency key");
