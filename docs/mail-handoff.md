@@ -2,7 +2,7 @@
 
 > 整理日期：2026-10-26 15:26（香港時間）。下列係已保存嘅驗證紀錄，唔係保證外部系統永遠維持同一狀態。接手時先唯讀核對，唔好先部署、清理、輪換 key 或刪資料。
 >
-> **STATUS：2026-10-26 用戶已明確確認成功收到真實問卷 email，寄信故障嘅收信驗收已通過。後續新版 email／真人驗證防護已獲「上線啦」授權並正式部署，canonical `7baa6554-9fa0-4643-bdcc-9297f0bbd162`，source `13039a3f838b983be253ec6671f5bae05d53f0fa`；runtime smoke 通過，新版真實收信仍待用戶驗收。**
+> **STATUS：2026-10-26 用戶已明確確認成功收到真實問卷 email，寄信故障嘅收信驗收已通過。後續新版 email／真人驗證防護已獲「上線啦」授權並正式部署，canonical `7baa6554-9fa0-4643-bdcc-9297f0bbd162`，source `13039a3f838b983be253ec6671f5bae05d53f0fa`；runtime smoke 通過；用戶其後提供 Gmail 截圖，已確認收到新版普通表單通知。用戶指出漏咗 WhatsApp 回覆客戶 button，呢個功能漏項另行修補；唔將收信確認當成全部功能驗收。**
 >
 > **本機新預覽工作另見 `docs/mail-email-preview.md`，分支 `feat/mail-readability-security-preview`。新 email／防護已部署；版本化證據見 `deliverables/mail-email-preview/production-release.json`，仍唔可誤用舊 main／舊 out。**
 >

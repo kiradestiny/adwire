@@ -15,6 +15,8 @@
  *   - 所有使用者資料一律 HTML 轉義；使用者資料永不作為原始 HTML 輸出。
  *   - email 只喺合法時成 mailto；電話只喺合法數字時成 tel；
  *     網站只允許 http(s) URL，避免 javascript:。
+ *   - WhatsApp CTA 只在電話化成合法 wa.me 國際號（純數字、無 query、無預填文字）
+ *     時先出現；無效電話一律唔出按鈕，但保留原本已轉義嘅電話文字。
  *   - 缺／非法 grade 用中性樣式，唔會套用任何等級專屬顏色。
  *   - 保留所有已提供內容（不靜默遺失）；不改寫任何報價／價格，不改評級／問題。
  */
@@ -151,6 +153,65 @@ export function telTarget(phone: string): string | null {
   const compact = v.replace(/[\s\-().]/g, "");
   if (!/^\+?\d{6,20}$/.test(compact)) return null;
   return compact;
+}
+
+/** WhatsApp CTA 連結前綴（官方 FAQ：https://wa.me/<國際號，純數字、無 +>）。 */
+const WA_PREFIX = "https://wa.me/";
+
+/** 明確國際號：7..15 位、首位非 0。 */
+function isIntlDigits(d: string): boolean {
+  return /^[1-9]\d{6,14}$/.test(d);
+}
+
+/**
+ * 合法電話才回傳 **完整 WhatsApp 連結** `https://wa.me/<digits>`；否則 null。
+ * ⚠️ 契約：本函數回傳完整 URL（有別於 mailtoTarget 只回傳地址）。
+ * 依 WhatsApp 官方 FAQ（https://faq.whatsapp.com/5913398998672934）：wa.me 後接
+ * 國際號碼，純數字、無 +、無 query、無預填文字 —— 本函數只產生「開對話」連結。
+ *
+ * 安全規則（唔用寬鬆 non-digit 替換，避免惡意輸入被洗成看似合法）：
+ *   - 只接受：數字、最多一個**置於最前**嘅 +、以及視覺分隔符 空格 - ( ) . ；
+ *   - 任何其他字元（文字／ext／HTML／URL／query／多個 +）→ null；
+ *   - 原始輸入含 CR/LF 或控制字元 → null（唔會被 trim 掩蓋）；
+ *   - 只去外層普通空格；分隔符只喺確認無控制字元後先移除；
+ *   - HK 本地恰好 8 位、首位非 0 → 補 852；既有 852 之 11 位 → 原樣保留；
+ *   - 明確 + 國際 7..15 位、首位非 0 → 原樣保留（即使 8 位都唔會當 HK）；
+ *   - 00 國際前綴 → 去 00 當 +，驗證 7..15 位首位非 0；
+ *   - 裸 9..15 位、首位非 0 → 原樣保留（legacy 相容）；
+ *   - 含糊（裸 7 位）／單一前導 0／位數不符 → null。
+ */
+export function whatsappTarget(phone: string): string | null {
+  const raw = String(phone ?? "");
+  // 原始輸入唔可以有 CR/LF 或任何控制字元（防止注入／隱藏換行）。
+  if (/[\u0000-\u001f\u007f]/.test(raw)) return null;
+  // 只去外層普通空格（唔會去走控制字元 —— 上面已拒絕）。
+  const v = raw.replace(/^ +/, "").replace(/ +$/, "");
+  // 只允許數字、可選前置 +、視覺分隔符（空格／-／( )／.）。
+  if (!/^[0-9+\-(). ]*$/.test(v)) return null;
+  // 最多一個 +，且必須喺最前。
+  if (v.indexOf("+") > 0) return null;
+  if ((v.match(/\+/g) ?? []).length > 1) return null;
+  const compact = v.replace(/[ \-().]/g, "");
+  if (!/^\+?\d+$/.test(compact)) return null;
+
+  const hasPlus = compact.startsWith("+");
+  const digits = hasPlus ? compact.slice(1) : compact;
+
+  // 明確國際：+ 國際 7..15 位、首位非 0 → 原樣保留（唔加 HK 前綴）。
+  if (hasPlus) return isIntlDigits(digits) ? WA_PREFIX + digits : null;
+
+  // 00 國際前綴 → 去 00、當 + 語意處理。
+  if (digits.startsWith("00")) {
+    const rest = digits.slice(2);
+    return isIntlDigits(rest) ? WA_PREFIX + rest : null;
+  }
+  // 單一前導 0（非 00）→ 含糊，唔接受。
+  if (digits.startsWith("0")) return null;
+  // HK 本地：恰好 8 位、首位非 0 → 補 852。
+  if (digits.length === 8) return WA_PREFIX + "852" + digits;
+  // 裸國際 9..15 位（legacy 相容）→ 原樣保留。
+  if (digits.length >= 9 && digits.length <= 15) return WA_PREFIX + digits;
+  return null;
 }
 
 /** 只允許 http(s) 嘅連結目標；其餘（含 javascript:）回傳 null。 */
@@ -356,6 +417,23 @@ function buildNoteBlock(text: string, heading: string): string {
     </td></tr>`;
 }
 
+/**
+ * WhatsApp 回覆 CTA：只有電話化成合法 wa.me 國際號時先出現一個綠色按鈕。
+ * email-safe：table + inline style、同級 `align="center"` 置中；無 JS／svg／flex／新依賴。
+ * 連結只「開對話」，不含任何 query／預填文字。無效電話 → 回傳空字串（唔出按鈕）。
+ */
+function buildWhatsAppCta(f: MailEmailFixture): string {
+  const target = whatsappTarget(f.phone);
+  if (!target) return "";
+  return `<tr><td align="center" style="padding:4px 20px 20px">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="max-width:260px;width:100%;border-collapse:separate">
+        <tr><td align="center" bgcolor="#25D366" style="background:#25D366;border-radius:10px">
+          <a href="${escapeHtml(target)}" style="display:block;padding:14px 20px;font-size:16px;font-weight:700;color:#ffffff !important;text-decoration:none;font-family:'Helvetica Neue',Helvetica,Arial,'PingFang TC','Microsoft JhengHei',sans-serif">WhatsApp 回覆客戶</a>
+        </td></tr>
+      </table>
+    </td></tr>`;
+}
+
 // ── 安全／來源 metadata（誠實渲染；缺值顯示「未提供」／「未評估」）──────────────
 // 契約：本渲染器**唔會**自行推斷風險或網絡性質；只忠實呈現 handler 提供嘅可信欄位。
 // 缺資料 → 「未提供驗證結果」＋「未評估」；永不渲染「正常0分」等捏造結論。
@@ -511,6 +589,8 @@ export function buildMailEmail(f: MailEmailFixture): { subject: string; html: st
     noteBlock = buildNoteBlock(f.message, "客戶訊息");
   }
 
+  // WhatsApp CTA 置於客戶訊息／客人補充之後、安全資訊之前；無效電話則整段省略。
+  const whatsappCta = buildWhatsAppCta(f);
   const securityBlock = buildSecurityBlock(f);
 
   const html = `<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -532,6 +612,7 @@ export function buildMailEmail(f: MailEmailFixture): { subject: string; html: st
         </td></tr>
         ${assessmentBlock}
         ${noteBlock}
+        ${whatsappCta}
         ${securityBlock}
         <tr><td style="padding:16px 20px 20px">${buildFooter(f)}</td></tr>
       </table>

@@ -72,6 +72,9 @@ for (const [name, test] of [
     assert.ok(html.trim().endsWith("</html>"), "No orphan metadata appended after HTML document");
     assert.equal((html.match(/安全與來源資訊/g) ?? []).length, 1);
     assert.ok(html.includes("Example Network"));
+    assert.equal((html.match(/WhatsApp 回覆客戶/g) ?? []).length, 1, "Real handler must retain one follow-up CTA");
+    assert.ok(html.includes('href="https://wa.me/85291234567"'), "CTA must use submitted customer phone, not agency number");
+    assert.ok(html.indexOf("WhatsApp 回覆客戶") < html.indexOf("安全與來源資訊"));
     assert.ok(!subject.startsWith("[待確認]"));
   }],
 ] as Array<[string, () => Promise<void>]>) {

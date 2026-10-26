@@ -37,24 +37,35 @@ type ParseAssessmentMessage = (message: string) => {
   unknownLines: string[];
 } | null;
 
+// 契約：whatsappTarget 回傳**完整 URL**（https://wa.me/<digits>）或 null，
+// 有別於 mailtoTarget（後者只回傳地址）。
+type WhatsappTarget = (phone: string) => string | null;
+
 // ── 模組載入（RED：lib/mail-email.ts 未存在時，整份測試即失敗）──────────────────
 const mailSpecifier: string = ["..", "lib", "mail-email.ts"].join("/");
 const assessmentSpecifier: string = ["..", "lib", "assessment.ts"].join("/");
 
 let buildMailEmail: BuildMailEmail;
 let parseAssessmentMessage: ParseAssessmentMessage;
+let whatsappTarget: WhatsappTarget;
 let assessment: typeof import("../lib/assessment");
 
 try {
   const mod = (await import(mailSpecifier)) as {
     buildMailEmail: BuildMailEmail;
     parseAssessmentMessage: ParseAssessmentMessage;
+    whatsappTarget: WhatsappTarget;
   };
   buildMailEmail = mod.buildMailEmail;
   parseAssessmentMessage = mod.parseAssessmentMessage;
+  whatsappTarget = mod.whatsappTarget;
   assessment = await import(assessmentSpecifier);
-  if (typeof buildMailEmail !== "function" || typeof parseAssessmentMessage !== "function") {
-    throw new Error("buildMailEmail / parseAssessmentMessage 未匯出");
+  if (
+    typeof buildMailEmail !== "function" ||
+    typeof parseAssessmentMessage !== "function" ||
+    typeof whatsappTarget !== "function"
+  ) {
+    throw new Error("buildMailEmail / parseAssessmentMessage / whatsappTarget 未匯出");
   }
 } catch (e) {
   const msg = e instanceof Error ? e.message : String(e);
@@ -522,6 +533,172 @@ await t("security：無 security 時主旨完全不變（[待確認] 僅限 revi
   const { subject } = buildMailEmail(mk({ source: "assessment", leadGrade: "C", message: SUMMARY_LITERAL }));
   assert.equal(subject, "【需求評估・C 級】陳大文 - 成效廣告投放 - HK$10,000 – 30,000");
   assert.ok(!subject.includes("[待確認]"), "C 級（無 security）唔應加 [待確認]");
+});
+
+// ── 13. WhatsApp CTA 助手：官方 wa.me 連結（純數字國際號，無 query）─────────────
+// 契約：whatsappTarget(phone) 回傳**完整 URL**（例：https://wa.me/85291234567）或 null；
+// 有別於 mailtoTarget（只回傳地址）。只接受數字、可選前置 +、以及視覺分隔符。
+const WA = "https://wa.me/";
+
+await t("whatsapp：HK 本地恰好 8 位 → 前綴 852", () => {
+  assert.equal(whatsappTarget("53353313"), `${WA}85253353313`);
+});
+
+await t("whatsapp：HK 本地可帶視覺分隔符 → 仍補 852", () => {
+  for (const raw of ["5335 3313", "5335-3313", "(5335) 3313", "5335.3313"]) {
+    assert.equal(whatsappTarget(raw), `${WA}85253353313`, `輸入 ${raw}`);
+  }
+});
+
+await t("whatsapp：+852 國際格式 → 保留（唔再加 852）", () => {
+  assert.equal(whatsappTarget("+852 9123 4567"), `${WA}85291234567`);
+  assert.equal(whatsappTarget("+85291234567"), `${WA}85291234567`);
+});
+
+await t("whatsapp：裸 852 11 位 → 保留", () => {
+  assert.equal(whatsappTarget("85291234567"), `${WA}85291234567`);
+  assert.equal(whatsappTarget("(852) 9123-4567"), `${WA}85291234567`);
+});
+
+await t("whatsapp：明確 + 國際（+44）及 00 前綴 → 正規化", () => {
+  assert.equal(whatsappTarget("+44 20 7946 0958"), `${WA}442079460958`);
+  assert.equal(whatsappTarget("0044 20 7946 0958"), `${WA}442079460958`);
+  assert.equal(whatsappTarget("004479460958"), `${WA}4479460958`);
+});
+
+await t("whatsapp：明確 + 8 位（非 HK）→ 唔可以擅自補 852", () => {
+  assert.equal(whatsappTarget("+12345678"), `${WA}12345678`);
+});
+
+await t("whatsapp：裸國際 9-15 位（legacy 相容）→ 保留", () => {
+  assert.equal(whatsappTarget("123456789"), `${WA}123456789`);
+  assert.equal(whatsappTarget("123456789012345"), `${WA}123456789012345`);
+});
+
+await t("whatsapp：外層空格可去，但控制字元／CRLF 一律拒絕", () => {
+  assert.equal(whatsappTarget("  +85291234567  "), `${WA}85291234567`);
+  assert.equal(whatsappTarget("+85291234567\r\n"), null);
+  assert.equal(whatsappTarget("+852\t91234567"), null);
+  assert.equal(whatsappTarget("+85291234567\u0007"), null);
+});
+
+await t("whatsapp：文字／分機／HTML／URL／query 一律拒絕", () => {
+  assert.equal(whatsappTarget("call me<script>"), null);
+  assert.equal(whatsappTarget("+85291234567 ext 12"), null);
+  assert.equal(whatsappTarget("https://wa.me/85291234567"), null);
+  assert.equal(whatsappTarget("+85291234567?text=hi"), null);
+  assert.equal(whatsappTarget("9123 4567<script>alert(1)</script>"), null);
+});
+
+await t("whatsapp：多個 +／空值／純符號 → null", () => {
+  assert.equal(whatsappTarget("++85291234567"), null);
+  assert.equal(whatsappTarget("+8529+1234567"), null);
+  assert.equal(whatsappTarget("+"), null);
+  assert.equal(whatsappTarget(""), null);
+  assert.equal(whatsappTarget("   "), null);
+});
+
+await t("whatsapp：位數不足／過長／前導 0 → null", () => {
+  assert.equal(whatsappTarget("9123456"), null); // 裸 7 位：含糊
+  assert.equal(whatsappTarget("091234567"), null); // 單一前導 0
+  assert.equal(whatsappTarget("+123456"), null); // < 7 位
+  assert.equal(whatsappTarget("+1234567890123456"), null); // 16 位 > 15
+  assert.equal(whatsappTarget("1234567890123456"), null); // 裸 16 位
+  assert.equal(whatsappTarget("+0123456789"), null); // + 後前導 0
+  assert.equal(whatsappTarget("00123456"), null); // 00 後不足 7 位
+});
+
+// ── 14. WhatsApp 按鈕：合法電話先出現，位置／顏色／email-safe 契約 ──────────────
+const CTA_TEXT = "WhatsApp 回覆客戶";
+
+await t("CTA：contact 合法電話 → 恰好一個按鈕，href 正確且無 query", () => {
+  const { html } = buildMailEmail(mk({ phone: "+852 9123 4567" }));
+  assert.equal(count(html, CTA_TEXT), 1, "應恰好一個 WhatsApp 按鈕");
+  assert.ok(html.includes(`href="${WA}85291234567"`), "href 應為 wa.me 國際數字（無 +）");
+  assert.ok(!html.includes(`${WA}85291234567?`), "唔可以有 query string");
+  assert.ok(html.includes("#25D366"), "按鈕應為 WhatsApp 綠 #25D366");
+  assert.ok(html.includes("color:#ffffff !important"), "文字應白色且 !important");
+  assert.ok(/font-weight:\s*700/.test(html), "文字應粗體");
+  assert.ok(html.includes("font-size:16px"), "文字 16px");
+  assert.ok(/max-width\s*:\s*260px/.test(html), "按鈕上限 ~260px");
+  const i = html.indexOf(CTA_TEXT);
+  const block = html.slice(Math.max(0, i - 800), i + CTA_TEXT.length);
+  assert.ok(block.includes('align="center"'), "按鈕應置中");
+});
+
+await t("CTA：email-safe（table + inline，無 script/svg/flex）", () => {
+  const { html } = buildMailEmail(mk({ phone: "+852 9123 4567" }));
+  assert.ok(!/<script/i.test(html));
+  assert.ok(!/<svg/i.test(html), "唔可以用 svg");
+  assert.ok(!/display\s*:\s*(grid|flex)/i.test(html));
+  const i = html.indexOf(CTA_TEXT);
+  const seg = html.slice(Math.max(0, i - 900), i);
+  assert.ok(/<table[^>]*role="presentation"/.test(seg), "按鈕應以 table 排版");
+  assert.ok(/<a[^>]*href=/.test(seg), "按鈕應為 <a> 連結");
+});
+
+await t("CTA：位置喺客戶訊息之後、安全資訊之前", () => {
+  const { html } = buildMailEmail(mk({ phone: "+852 9123 4567" }));
+  const iMsg = html.indexOf("客戶訊息");
+  const iCta = html.indexOf(CTA_TEXT);
+  const iSec = html.indexOf("安全與來源資訊");
+  assert.ok(iMsg >= 0 && iCta >= 0 && iSec >= 0, "三個區塊都應存在");
+  assert.ok(iMsg < iCta, "按鈕應喺客戶訊息之後");
+  assert.ok(iCta < iSec, "按鈕應喺安全資訊之前");
+});
+
+await t("CTA：assessment 有客人補充 → 按鈕喺補充之後", () => {
+  const message = `${SUMMARY_LITERAL}\n\n客人補充：想盡快開始`;
+  const { html } = buildMailEmail(mk({ source: "assessment", leadGrade: "A", phone: "53353313", message }));
+  assert.equal(count(html, CTA_TEXT), 1);
+  assert.ok(html.includes(`href="${WA}85253353313"`), "本地 8 位應補 852");
+  assert.ok(html.indexOf("客人補充") < html.indexOf(CTA_TEXT), "按鈕應喺客人補充之後");
+  assert.ok(html.indexOf(CTA_TEXT) < html.indexOf("安全與來源資訊"));
+});
+
+await t("CTA：assessment 無客人補充（note 空）→ 仍出現按鈕", () => {
+  const { html } = buildMailEmail(
+    mk({ source: "assessment", leadGrade: "A", phone: "53353313", message: SUMMARY_LITERAL }),
+  );
+  assert.equal(count(html, CTA_TEXT), 1, "無註解仍要有按鈕");
+  assert.ok(html.includes(`href="${WA}85253353313"`));
+});
+
+await t("CTA：非法／無電話 → 完全唔出 wa.me（唔會用固定代理號頂替）", () => {
+  for (const bad of ["call me<script>", "", "好多字", "+85291234567\r\n"]) {
+    const { html } = buildMailEmail(mk({ phone: bad }));
+    assert.equal(count(html, CTA_TEXT), 0, `非法電話「${bad}」唔應有按鈕`);
+    assert.ok(!html.includes("wa.me"), `非法電話「${bad}」唔應有 wa.me`);
+  }
+});
+
+await t("CTA：非法電話仍保留原始（已轉義）電話文字", () => {
+  const { html } = buildMailEmail(mk({ phone: "call me<script>alert(1)</script>" }));
+  assert.equal(count(html, CTA_TEXT), 0);
+  assert.ok(html.includes("&lt;script&gt;"), "原始電話文字應以轉義純文字保留");
+});
+
+await t("CTA：新增按鈕唔影響既有 tel／email 連結", () => {
+  const { html } = buildMailEmail(mk({ phone: "+852 9123 4567", email: "client@example.com" }));
+  assert.ok(html.includes('href="mailto:client@example.com"'), "email 連結應保留");
+  assert.ok(html.includes('href="tel:+85291234567"'), "tel 連結應保留");
+  assert.equal(count(html, CTA_TEXT), 1);
+});
+
+await t("CTA：風險 review → [待確認] 前綴不變，按鈕照出", () => {
+  const { subject, html } = buildMailEmail(
+    mk({
+      phone: "+852 9123 4567",
+      security: {
+        verification: "verified",
+        risk: { level: "review", score: 30, reasons: ["內容含可疑連結"] },
+        network: { asn: 13335, organization: "Cloudflare, Inc.", country: "HK" },
+      },
+    }),
+  );
+  assert.ok(subject.startsWith("[待確認] "), "review 主旨前綴應不變");
+  assert.ok(html.includes("[待確認]"));
+  assert.equal(count(html, CTA_TEXT), 1);
 });
 
 // ── 結果 ─────────────────────────────────────────────────────────────────────

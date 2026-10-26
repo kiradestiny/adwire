@@ -5,5 +5,5 @@
   "leadGrade": "C",
   "score": 31,
   "questionnaireSource": "unchanged lib/assessment.ts",
-  "implementation": "unwired lib/mail-email.ts"
+  "implementation": "lib/mail-email.ts — WhatsApp CTA regression fix"
 }

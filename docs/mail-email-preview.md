@@ -6,7 +6,7 @@
 - API 讀回 production／success／commit_dirty=false；五項 runtime checks 全 true。
 - 正式 `/start/`、`/contact/` 及新 JS/CSS 200，資產 bytes 同 build 完全相同；已清快取並讀回新 route bundle。
 - 正式負向驗證：hostile Origin403、JSON null400、無效 Turnstile token400；未登入 health401。無真實 CAPTCHA token、冇 probe／重試／測試寄信，冇建立測試查詢。
-- 新版真實通知收件及 Gmail／Outlook 外觀仍待用戶做一次真實表單驗收；唔同舊版已收信驗收混為一談。
+- 用戶已提供新版普通表單通知嘅 Gmail 截圖，確認真實收件及安全／來源欄有顯示；同時指出 WhatsApp 回覆客戶 CTA 遺漏。呢項正另行修補，Gmail 全功能／Outlook 外觀唔當作全部已驗收。
 - 冇修改 DNS、secret、供應商、收件人、KV binding、Worker 或排程；冇刪資料。舊 `8270c757` deployment 保留可回退。
 - 證據：`deliverables/mail-email-preview/production-release.json`。
 
