@@ -604,7 +604,7 @@ export default function StartContent() {
 
         <div className="mt-4 rounded-3xl bg-[#0f4c81] p-5 text-white">
           <p className="font-bold">唔想答題？直接搵我們</p>
-          <p className="mt-1 text-xs text-blue-100">星期一至五 09:00–18:00，由真人同事回覆</p>
+          <p className="mt-1 text-xs text-blue-100">星期一至五 11:00–18:00，由真人同事回覆</p>
           <a
             href={getWhatsAppUrl(waMessage)}
             target="_blank"

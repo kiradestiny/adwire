@@ -178,7 +178,7 @@ export default function ContactContent() {
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-500">星期一至五</span>
-                    <span className="font-medium text-[#0f4c81]">09:00 - 18:00</span>
+                    <span className="font-medium text-[#0f4c81]">11:00 - 18:00</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-500">星期六、日及公眾假期</span>

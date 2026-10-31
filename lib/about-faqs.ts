@@ -21,7 +21,7 @@ import { WHATSAPP_DISPLAY, CONTACT_EMAIL } from "./site-config";
 export const OFFICE_ADDRESS = "香港新界葵芳新都會廣場 2 座 45 樓 4510 室";
 
 /** 辦公時間 */
-export const OFFICE_HOURS = "星期一至五 09:00–18:00";
+export const OFFICE_HOURS = "星期一至五 11:00–18:00";
 
 export interface AboutFaq {
   q: string;
