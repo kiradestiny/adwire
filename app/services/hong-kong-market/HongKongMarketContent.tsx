@@ -8,6 +8,7 @@ import ServiceImage from "@/components/ServiceImage";
 import { motion } from "framer-motion";
 import ServiceTechStack from "@/components/ServiceTechStack";
 import ServiceFit from "@/components/ServiceFit";
+import { getWhatsAppUrl } from "@/lib/site-config";
 import {
   AlertTriangle,
   ArrowRight,
@@ -41,7 +42,7 @@ import {
  *   用具體例子說明香港與內地在用語、消費習慣與平台生態上的差異。
  *   這是最能展示專業判斷、亦最難被競爭對手複製的部分。
  *
- * 圖片：負責人會自行提供，本頁只留位置（見 ImagePlaceholder）。
+ * 圖片：2026-11-01 換成 assets.adwire.com.hk 的 AI 生成實景相（無團隊／辦公室相、無文字標語）。
  */
 
 const painPoints = [
@@ -75,12 +76,61 @@ const painPoints = [
 const localizationExamples = [
   { from: "視頻", to: "影片", why: "香港慣用「影片」，「視頻」是內地用法，一用就露餡" },
   { from: "營銷", to: "推廣／宣傳", why: "香港消費者少用「營銷」，偏商業術語" },
-  { from: "質量", to: "質素", why: "香港用「質素」，「質素」在香港多指物理重量" },
+  { from: "質量", to: "質素", why: "形容品質，香港用「質素」；「質量」在香港多指物理上的重量" },
   { from: "性價比", to: "性價比／抵用", why: "香港更常用「抵」這類口語表達" },
   { from: "親，您好", to: "你好／Hi", why: "內地電商客服的「親」在香港完全不適用" },
   { from: "一鍵下單", to: "立即購買／落單", why: "「落單」才是香港人的講法" },
   { from: "爆款", to: "人氣商品／熱賣", why: "香港對「爆款」的接受度較低，偏內地電商語氣" },
   { from: "粉絲", to: "粉絲／Fans", why: "香港中英夾雜更自然，硬用中文反而生硬" },
+  { from: "包郵", to: "免運費", why: "「包郵」香港人聽得明，但品牌文案用「免運費」更自然" },
+  { from: "加微信", to: "WhatsApp 查詢", why: "香港客人習慣用 WhatsApp 問價及跟進訂單，很少用微信" },
+  { from: "支付寶／微信支付", to: "FPS 轉數快／信用卡／八達通", why: "支付寶 HK、WeChat Pay HK 有人用，但結帳頁要齊香港常用付款方式" },
+  { from: "小程序商城", to: "網站／網店", why: "香港人習慣在網站或 IG 落單，小程序在香港並非主流購物入口" },
+];
+
+/**
+ * 2026-11-01 升級：重點速覽、繁簡英三語摘要（買家多為內地及海外品牌，
+ * 會用簡體或英文搜尋）、首 90 日路線圖、合作方式、WhatsApp CTA。
+ * 圖片換成實景相（無團隊／辦公室相、無文字標語），舊 banner 檔案保留於 public/ 不再引用。
+ */
+const quickFacts = [
+  { q: "服務對象", a: "想進入香港市場的內地及海外品牌，以及剛成立的香港分公司。" },
+  { q: "做甚麼", a: "繁體中文及廣東話語境改寫、Google 搜尋及 AI 搜尋可見度、IG／FB／Threads、Meta／Google 廣告、KOL、WhatsApp 客服設定，以及宣傳合規檢視。" },
+  { q: "第一步", a: "免費品牌診斷：找出現有文案、視覺、渠道在香港需要改的地方，再建議最小可行的起步範圍。" },
+  { q: "時間", a: "本地化調整一般 3–5 週；內容累積與渠道成效通常要 3–6 個月才較穩定。" },
+  { q: "收費", a: "診斷及文案本地化按項目報價；按月服務可參考已公布方案，例如 SEO HK$6,000／月起、廣告代操 HK$4,000／月起（廣告費另計）。" },
+];
+
+const roadmap = [
+  { when: "第 1–2 週", title: "品牌診斷", desc: "檢查現有文案、視覺、價格表達及渠道，列出香港版需要改的地方及合規注意事項。" },
+  { when: "第 3–5 週", title: "本地化與渠道基建", desc: "繁體文案改寫、Google 商家檔案、網站或著陸頁香港版、社交帳號、WhatsApp 客服及追蹤設定。" },
+  { when: "第 6–12 週", title: "上線與測試", desc: "內容發佈、小額廣告測試、KOL 試合作，第一份月報分開列出平台數據及查詢、成交。" },
+  { when: "第 4 個月起", title: "按數據擴展", desc: "保留有效的渠道及訊息，再決定是否加碼廣告、KOL 或線下活動。" },
+];
+
+const engagementModels = [
+  {
+    name: "品牌本地化",
+    tag: "一次性項目",
+    fit: "已有香港團隊執行，只需要把品牌調整到香港版",
+    items: ["品牌名稱、標語及用語檢視", "繁體文案改寫（非翻譯）", "價格、促銷及客服話術建議", "宣傳合規注意事項清單"],
+    wa: "Hello ADWire，我想查詢【品牌香港本地化】。",
+  },
+  {
+    name: "香港落地套裝",
+    tag: "3 個月起",
+    fit: "首次進入香港，需要有人由零建立渠道",
+    items: ["Google 商家檔案及搜尋可見度", "社交帳號開設及每月內容", "WhatsApp 客服及查詢流程", "小額廣告測試及月報"],
+    wa: "Hello ADWire，我想查詢【品牌落地香港】方案。",
+    highlight: true,
+  },
+  {
+    name: "單項委託",
+    tag: "按月或按項目",
+    fit: "只需要其中一項服務",
+    items: ["SEO 及 GEO", "Meta／Google 廣告投放", "KOL 網紅營銷", "拍攝及影片製作"],
+    wa: "Hello ADWire，我想查詢香港市場推廣的單項服務。",
+  },
 ];
 
 const channels = [
@@ -200,10 +250,10 @@ export default function HongKongMarketContent() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              內地及海外品牌進入香港市場
+              內地及海外品牌進軍香港市場
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-[#f5a623]">
-                用香港人的語言與文化落地
+                香港推廣・用香港人的語言落地
               </span>
             </h1>
 
@@ -218,13 +268,15 @@ export default function HongKongMarketContent() {
                 href="#contact"
                 className="bg-cyan-600 text-white px-8 py-4 rounded-full font-bold hover:bg-cyan-500 transition-all shadow-lg shadow-cyan-900/50 flex items-center justify-center gap-2"
               >
-                討論你的香港推廣計劃 <ArrowRight size={18} />
+                免費品牌診斷 <ArrowRight size={18} />
               </a>
               <a
-                href="#localization"
+                href={getWhatsAppUrl("Hello ADWire，我們是準備進入香港市場的品牌，想了解推廣方案。")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white/10 border border-white/25 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-2"
               >
-                看在地化實例
+                <MessageSquare size={18} /> WhatsApp 直接問
               </a>
             </div>
 
@@ -237,13 +289,46 @@ export default function HongKongMarketContent() {
         </div>
       </section>
 
-      {/* 圖片位置 */}
+      {/* 1b. 重點速覽＋繁簡英摘要（GEO：方便 AI 搜尋直接引用；買家多用簡體或英文搜尋） */}
+      <section className="py-14 bg-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+            <div className="bg-[#0f4c81] text-white px-6 py-4">
+              <h2 className="text-lg font-bold">重點速覽：ADWire 的香港市場推廣服務</h2>
+            </div>
+            <dl className="divide-y divide-gray-100">
+              {quickFacts.map((f) => (
+                <div key={f.q} className="grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-1 sm:gap-6 px-6 py-4">
+                  <dt className="font-semibold text-[#0f4c81] text-sm">{f.q}</dt>
+                  <dd className="text-sm text-gray-700 leading-relaxed">{f.a}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            <div lang="zh-Hans" className="bg-slate-50 border border-gray-100 rounded-2xl p-6">
+              <h3 className="font-bold text-[#0f4c81] mb-2 text-sm">简体摘要：内地品牌进入香港市场</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                ADWire 是位于香港葵芳的营销及系统公司，协助内地品牌在香港落地：繁体中文及粤语语境改写、Google 搜索与 AI 搜索可见度、Instagram／Facebook 运营、Meta／Google 广告、香港 KOL 合作及 WhatsApp 客服设定。先免费诊断，再按范围报价。
+              </p>
+            </div>
+            <div lang="en" className="bg-slate-50 border border-gray-100 rounded-2xl p-6">
+              <h3 className="font-bold text-[#0f4c81] mb-2 text-sm">In English: Hong Kong market entry marketing</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                ADWire is a Hong Kong agency helping mainland Chinese and overseas brands launch in Hong Kong: Traditional Chinese and Cantonese copy localisation, Google and AI search visibility, Instagram and Facebook, Meta and Google Ads, local KOLs and WhatsApp customer service. We start with a free brand review, then quote by scope.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ServiceImage
-          src="/services/hong-kong-market/hong-kong-market-connect-skyline.webp"
-          alt="香港市場在地化推廣：協助內地及海外品牌連繫香港市場的本地化宣傳服務"
+          src="https://assets.adwire.com.hk/services/hong-kong-market/causeway-bay-crossing.jpg"
+          alt="香港銅鑼灣黃昏時段的行人過路處，人流、紅色的士及電車，代表內地及海外品牌要打入的香港消費市場"
           caption="香港市場規模不大，但消費者的語言習慣、媒體生態與合規要求與內地及海外都不同 —— 直接把原有文案搬過來，通常在香港行不通。"
-          width={1536}
-          height={512}
+          width={1600}
+          height={900}
+          priority
         />
 
       {/* 2. 痛點 */}
@@ -287,11 +372,11 @@ export default function HongKongMarketContent() {
               最常見的用語落差 —— 每一項都會直接影響香港消費者對品牌的觀感。
             </p>
 <ServiceImage
-          src="/services/hong-kong-market/hong-kong-market-bigger-together.webp"
-          alt="香港品牌在地化推廣：為內地及海外品牌調整語言、內容與媒體策略以迎合香港市場"
-          caption="在地化不是把簡體字轉成繁體字，而是重新處理用語、價格表達、媒體選擇與合規要求。"
-          width={1536}
-          height={512}
+          src="https://assets.adwire.com.hk/services/hong-kong-market/convenience-store-contactless-payment.jpg"
+          alt="香港便利店收銀處，顧客以感應式付款結帳，說明香港的付款習慣與內地不同"
+          caption="在地化不是把簡體字轉成繁體字，而是重新處理用語、價格表達、付款方式、媒體選擇與合規要求。"
+          width={1600}
+          height={900}
         />
           </div>
 
@@ -340,11 +425,11 @@ export default function HongKongMarketContent() {
               按品牌階段與目標客群，選擇合適的渠道組合。以下每一項都可以獨立委託。
             </p>
 <ServiceImage
-          src="/services/hong-kong-market/hong-kong-market-local-insight-ferry.webp"
-          alt="香港市場推廣組合：社交媒體、搜尋廣告、KOL 合作及本地媒體的整合策略"
-          caption="香港市場的推廣組合與內地不同 —— 主要入口是 Google、Instagram 與 Facebook，而不是百度與微信。"
-          width={1536}
-          height={512}
+          src="https://assets.adwire.com.hk/services/hong-kong-market/mtr-whatsapp-message.jpg"
+          alt="香港港鐵車廂內乘客用手機傳送 WhatsApp 訊息，香港人日常查詢及溝通以 WhatsApp 為主"
+          caption="香港市場的推廣組合與內地不同 —— 主要入口是 Google、Instagram 與 Facebook，客人查詢則習慣用 WhatsApp，而不是百度與微信。"
+          width={1600}
+          height={900}
         />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -389,11 +474,11 @@ export default function HongKongMarketContent() {
               品牌落地涉及的不只是宣傳物料，亦包括定價、客服與資料呈現方式的調整。
             </p>
 <ServiceImage
-          src="/services/hong-kong-market/hong-kong-connect-skyline-detail.webp"
-          alt="香港市場推廣交付流程：由市場洞察、策略規劃、執行到成效檢視"
-          caption="交付流程由市場洞察開始 —— 先了解香港客群的實際媒體習慣與消費行為，再決定投放渠道與內容方向。"
-          width={1536}
-          height={512}
+          src="https://assets.adwire.com.hk/services/hong-kong-market/product-launch-kit-flatlay.jpg"
+          alt="品牌進入香港市場的上市物料平鋪：產品包裝、雙語單張、手機及日程表"
+          caption="品牌落地涉及的不只是宣傳物料 —— 包裝標籤、雙語單張、價格表達及上市檔期都要按香港市場調整。"
+          width={1600}
+          height={900}
         />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -451,7 +536,7 @@ export default function HongKongMarketContent() {
       {/* 圖片位置 */}
       <ServiceImage
           src="/services/hong-kong-market/hong-kong-offline-activation-popup.webp"
-          alt="香港線下推廣活動：銅鑼灣街頭品牌快閃展示及產品體驗攤位"
+          alt="香港街頭品牌快閃店及產品體驗攤位，配合線上推廣的線下曝光"
           caption="線上曝光與線下體驗同樣重要 —— 香港消費者習慣在社交平台看到品牌之後，親身到店或到活動現場確認，因此推廣組合要同時覆蓋兩個場景。"
           width={1600}
           height={900}
@@ -464,11 +549,11 @@ export default function HongKongMarketContent() {
             <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">交付流程</h2>
             <p className="text-gray-500">先確認品牌在香港應該呈現成什麼樣子，再決定投放。</p>
 <ServiceImage
-          src="/services/hong-kong-market/hong-kong-local-insight-ferry-detail.webp"
-          alt="香港市場推廣成效檢視：市場分析、受眾洞察、策略規劃及業務增長指標"
+          src="https://assets.adwire.com.hk/services/hong-kong-market/star-ferry-victoria-harbour.jpg"
+          alt="天星小輪橫渡維多利亞港，背景為香港島天際線及太平山"
           caption="成效以當初議定的指標衡量，並分開報告平台數據與業務數據，不用曝光數字代替生意成效。"
-          width={1536}
-          height={512}
+          width={1600}
+          height={900}
         />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -477,6 +562,63 @@ export default function HongKongMarketContent() {
                 <div className="text-3xl font-bold text-[#0f4c81]/15 mb-3">{s.step}</div>
                 <h3 className="font-bold text-[#0f4c81] mb-2">{s.title}</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7b. 首 90 日路線圖 */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">品牌落地香港：首 90 日會做甚麼？</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">每一步都有交付物，你清楚知道預算花在哪裡。</p>
+          </div>
+          <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {roadmap.map((r) => (
+              <li key={r.when} className="border border-gray-100 rounded-2xl p-7 bg-slate-50/60">
+                <p className="text-xs font-bold text-[#f5a623] tracking-wide mb-2">{r.when}</p>
+                <h3 className="font-bold text-[#0f4c81] mb-2">{r.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{r.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 7c. 合作方式 */}
+      <section className="py-24 bg-slate-50" id="engagement">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">三種合作方式</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">可以由一次性的本地化做起，確認方向後才加按月服務。</p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {engagementModels.map((m) => (
+              <div
+                key={m.name}
+                className={`bg-white rounded-2xl p-8 shadow-sm flex flex-col ${m.highlight ? "border-2 border-[#f5a623]" : "border border-gray-100"}`}
+              >
+                <p className="text-xs font-semibold text-[#f5a623] mb-1">{m.tag}</p>
+                <h3 className="text-xl font-bold text-[#0f4c81] mb-2">{m.name}</h3>
+                <p className="text-sm text-gray-500 mb-5">適合：{m.fit}</p>
+                <ul className="space-y-3 mb-6 flex-1">
+                  {m.items.map((x) => (
+                    <li key={x} className="flex gap-3 text-sm text-gray-700 leading-relaxed">
+                      <Check size={16} className="text-[#f5a623] shrink-0 mt-1" />
+                      <span>{x}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={getWhatsAppUrl(m.wa)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-center px-6 py-3 rounded-full font-bold transition-all ${m.highlight ? "bg-[#f5a623] text-white hover:bg-[#e09612]" : "bg-[#0f4c81] text-white hover:bg-[#0a3358]"}`}
+                >
+                  WhatsApp 查詢報價
+                </a>
               </div>
             ))}
           </div>

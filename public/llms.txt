@@ -45,16 +45,16 @@
 
 ## 核心服務：SEO 與 GEO、網站
 - [SEO 與 GEO 優化](https://adwire.com.hk/services/seo/)：技術 SEO、關鍵字及內容規劃、內部連結、AI 搜尋可見度（GEO）。
-  - 已公布方案（單一網站、單一市場，3 個月起，按月預繳）：Starter HK$5,800／月（15 個關鍵字、每月 2 篇內容、2 頁優化）；Growth HK$9,800／月（30 個關鍵字、每月 4 篇、4 頁優化、GEO 可見度追蹤）；Premium HK$16,800／月（50 個關鍵字、每月 6 篇、6 頁優化）。
+  - 已公布方案（單一網站、單一市場，3 個月起，按月預繳）：Starter HK$6,000／月（15 個關鍵字、每月 2 篇內容、2 頁優化）；Growth HK$9,800／月（30 個關鍵字、每月 4 篇、4 頁優化、GEO 可見度追蹤）；Premium HK$16,800／月（50 個關鍵字、每月 6 篇、6 頁優化）。
   - 不保證排名，亦不保證被 AI 引用；一般 3–6 個月開始看到較明顯變化，每月報告工作及數據。
 - [網頁設計及電商開發](https://adwire.com.hk/services/web/)：形象／內容網站 HK$8,000 起（5–8 頁、響應式、基本 SEO 結構、聯絡表單及 WhatsApp 入口）；功能型網站約 HK$10,000 起；電商網站 HK$30,000 以上。
 
 ## 配套服務：數碼營銷及跨境市場
-- [成效廣告投放](https://adwire.com.hk/services/ads/)：Google、Meta、YouTube、LinkedIn。代操費：入門 HK$3,800／月起、進階 HK$8,800／月起；每月廣告預算 HK$50,000 以上按廣告費 15% 計（最低 HK$8,800）。廣告費另計。
+- [成效廣告投放](https://adwire.com.hk/services/ads/)：Google、Meta、YouTube、LinkedIn。代操費：入門 HK$4,000／月起、進階 HK$8,800／月起；每月廣告預算 HK$50,000 以上按廣告費 15% 計（最低 HK$8,800）。廣告費另計。
 - [社交媒體代管](https://adwire.com.hk/services/social/)：IG、Facebook、Threads、LinkedIn、小紅書，HK$8,000／月起。
 - [短視頻製作](https://adwire.com.hk/services/video/)、[KOL 網紅營銷](https://adwire.com.hk/services/kol/)、[商業攝影與影片製作](https://adwire.com.hk/services/production/)。
-- [中國市場推廣](https://adwire.com.hk/services/china-market/)：小紅書、抖音、微信、微博、百度及內地 AI 平台。
-- [香港市場在地化推廣](https://adwire.com.hk/services/hong-kong-market/)：協助內地及海外品牌進入香港。
+- [中國市場推廣](https://adwire.com.hk/services/china-market/)：香港品牌進軍內地。小紅書專業號（企業藍V）開通及代運營、抖音企業號、微信、微博、百度、美團／大眾點評／高德地圖入駐及內地 AI 平台 GEO。合作方式：帳號基建（一次性）、月度代運營、整合推廣；先免費評估先做哪個平台，再按範圍報價。
+- [香港市場在地化推廣](https://adwire.com.hk/services/hong-kong-market/)：協助內地及海外品牌進軍香港。繁體中文及廣東話文案改寫、Google 及 AI 搜尋、IG／FB／Threads、Meta／Google 廣告、香港 KOL、WhatsApp 客服設定及宣傳合規檢視；先免費品牌診斷，再按範圍報價。
 
 ## 客戶及案例
 - 官網列出 52+ 個合作品牌，其中 16 個為可公開查閱的案例：https://adwire.com.hk/portfolio/
@@ -69,7 +69,7 @@
 ## 常見問題
 - ADWire 主要提供甚麼服務？AI 應用與流程自動化、系統及 App 開發為主力，SEO／GEO 為核心，廣告及內容營銷為配套。
 - GEO 是甚麼？GEO（Generative Engine Optimization）是讓品牌資料在 ChatGPT、Perplexity、Google AI 等 AI 回答中容易被正確理解及引用的做法，例如清楚的問答結構、可查證的事實、結構化資料及一致的品牌資料。AI 平台的輸出由平台決定，任何供應商都無法保證一定被提及。
-- 有沒有公開價目？有：SEO 方案 HK$5,800／月起、形象網站 HK$8,000 起、廣告代操 HK$3,800／月起、社媒代管 HK$8,000／月起。其他項目先診斷再報價。
+- 有沒有公開價目？有：SEO 方案 HK$6,000／月起、形象網站 HK$8,000 起、廣告代操 HK$4,000／月起、社媒代管 HK$8,000／月起。其他項目先診斷再報價。
 - 怎樣最快開始？WhatsApp +852 9586 1027，或用 https://adwire.com.hk/start/ 回答約 6 條問題。
 
 最後更新：2026-10-26

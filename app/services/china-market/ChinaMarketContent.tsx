@@ -8,6 +8,7 @@ import ServiceImage from "@/components/ServiceImage";
 import { motion } from "framer-motion";
 import ServiceTechStack from "@/components/ServiceTechStack";
 import ServiceFit from "@/components/ServiceFit";
+import { getWhatsAppUrl } from "@/lib/site-config";
 import {
   ArrowRight,
   BookOpen,
@@ -46,7 +47,7 @@ import {
  *   3. 與站內其他服務頁的分工：本頁只講內地平台專屬部分，
  *      Meta／Google 廣告、香港 KOL、香港社交媒體、拍攝製作、國際 AI 平台 GEO
  *      一律連去既有服務頁，避免兩頁競爭同一組關鍵字。
- *   4. 圖片：負責人會自行提供，本頁只留位置（見 ImagePlaceholder）。
+ *   4. 圖片：2026-11-01 換成 assets.adwire.com.hk 的 AI 生成實景相（無團隊／辦公室相、無虛構數據）。
  */
 
 const painPoints = [
@@ -250,6 +251,86 @@ const metrics = [
 
 const faqs = CHINA_MARKET_FAQS;
 
+/**
+ * 2026-11-01 升級（SEO／GEO／轉換）
+ *
+ * 為何加「小紅書專業號」一節：DataForSEO（Google HK，2026-11-01）顯示
+ * 「中國市場推廣」月搜尋量只有約 10，而「小紅書專業號」約 880、「小紅書企業號」約 170、
+ * 「抖音企業號」約 110、「小紅書推廣」「小紅書廣告」各約 110。香港公司實際搜尋的是
+ * 「點樣開小紅書專業號」，所以本頁直接回答這條問題，再帶出代運營服務。
+ *
+ * 事實口徑：開通流程與所需文件參考小紅書官方企業號認證指南及多份香港公開指南；
+ * 審核費（人民幣 600 元）屬公開指南的共同說法，頁面一律註明「以官方後台當時公布為準」。
+ * 不寫平台用戶數、不寫成效承諾。
+ */
+const quickFacts = [
+  { q: "服務對象", a: "想進入內地市場的香港品牌及中小企（零售、美容、餐飲、教育、專業服務等）。" },
+  { q: "主要平台", a: "小紅書、抖音、微信、百度、美團／大眾點評、高德地圖，以及 DeepSeek、豆包、Kimi 等內地 AI 平台。" },
+  { q: "第一步", a: "免費平台評估：按產品、客群與預算建議先做哪一至兩個平台，不會一開始推銷全套。" },
+  { q: "時間", a: "帳號開通及內容基建一般 3–6 週；內容與自然流量通常要 3–6 個月才較穩定。" },
+  { q: "收費", a: "按平台數目、內容量及是否包含 KOL／投放報價；專業號開通及帳號基建可以單獨委託。" },
+];
+
+const xhsSteps = [
+  {
+    title: "用香港手機號碼註冊新帳號",
+    desc: "建議開一個全新帳號作企業號，不要用私人帳號升級，以免日後交接或人手變動時出問題。",
+  },
+  {
+    title: "選擇企業認證，主體選「境外／港澳台」",
+    desc: "可在 App 內「官方認證／升級專業號」或電腦版專業號平台（pro.xiaohongshu.com）辦理，按指示選擇行業類別。",
+  },
+  {
+    title: "上載認證文件",
+    desc: "一般包括香港商業登記證（BR）及蓋上公司印章的認證申請公函；部分行業需要行業資質，帳號名稱涉及品牌時通常要提供商標註冊證或授權書。",
+  },
+  {
+    title: "繳付審核費，等候審核",
+    desc: "多份公開指南列明認證審核服務費為人民幣 600 元，審核一般需數個工作天。費用及文件要求以小紅書官方後台當時公布為準。",
+  },
+];
+
+const xhsSetup = [
+  "申請前先檢查行業類別及文件，減少被退回重交",
+  "帳號名稱、簡介、主頁按內地用戶的搜尋詞規劃",
+  "首批筆記的選題、封面與文案（按內地語境重寫）",
+  "薯條／聚光廣告帳戶設定與小額測試",
+  "蒲公英平台 KOC／KOL 合作配對",
+  "評論區回覆指引與禁詞清單",
+];
+
+const engagementModels = [
+  {
+    name: "帳號基建",
+    tag: "一次性項目",
+    fit: "自己有人手經營，但想一開始就設定正確",
+    items: ["小紅書專業號／抖音企業號開通", "主頁、簡介及搜尋詞規劃", "內容支柱與首批選題", "禁詞及合規檢查清單"],
+    wa: "Hello ADWire，我想查詢【小紅書專業號開通／帳號基建】。",
+  },
+  {
+    name: "月度代運營",
+    tag: "按月合作",
+    fit: "沒有內地小編，需要有人持續出內容",
+    items: ["每月內容規劃、拍攝及發佈", "評論區經營與口碑維護", "薯條／聚光小額投放", "每月數據報告與調整"],
+    wa: "Hello ADWire，我想查詢【小紅書／抖音代運營】。",
+    highlight: true,
+  },
+  {
+    name: "整合推廣",
+    tag: "按項目",
+    fit: "新品上市、開店或年度推廣",
+    items: ["多平台策略與內容分工", "KOL／KOC 種草 campaign", "騰訊廣告及資訊流投放", "美團／大眾點評／高德入駐"],
+    wa: "Hello ADWire，我想查詢【內地整合推廣】方案。",
+  },
+];
+
+const roadmap = [
+  { when: "第 1–2 週", title: "診斷與平台選擇", desc: "競品筆記及短片分析、目標城市與客群、禁詞與合規檢查，交付平台建議書。" },
+  { when: "第 3–6 週", title: "帳號基建", desc: "專業號／企業號認證、主頁裝修、內容支柱、首批筆記及短片拍攝。" },
+  { when: "第 7–12 週", title: "發佈與加熱", desc: "固定節奏發佈、KOC 種草、薯條／聚光小額測試，第一份月報。" },
+  { when: "第 4 個月起", title: "按數據加碼", desc: "保留有效的內容方向及渠道，再決定是否加 KOL、廣告或第二個平台。" },
+];
+
 export default function ChinaMarketContent() {
   return (
     <div className="min-h-screen bg-white">
@@ -269,17 +350,17 @@ export default function ChinaMarketContent() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              香港品牌進入內地市場
+              小紅書・抖音推廣
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-amber-300 to-[#f5a623]">
-                由策略到落地的推廣方案
+                香港品牌進軍內地市場
               </span>
             </h1>
 
             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-              小紅書、抖音、微信、微博、百度、美團、大眾點評、高德地圖，
+              由小紅書專業號開通、內容種草、抖音短片，到微信、百度、美團／大眾點評入駐，
               以至 DeepSeek、豆包、Kimi 等內地 AI 平台。<br />
-              由平台策略、內容製作、KOL 配合到投放與數據追蹤，按你的產品與預算決定先做哪一步。
+              先免費評估你的產品應該先做哪個平台，再按範圍報價。
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -287,13 +368,15 @@ export default function ChinaMarketContent() {
                 href="#contact"
                 className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-500 transition-all shadow-lg shadow-red-900/50 flex items-center justify-center gap-2"
               >
-                討論你的內地推廣計劃 <ArrowRight size={18} />
+                免費評估先做哪個平台 <ArrowRight size={18} />
               </a>
               <a
-                href="#platforms"
+                href={getWhatsAppUrl("Hello ADWire，我想了解小紅書／內地推廣。")}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white/10 border border-white/25 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-2"
               >
-                查看平台服務
+                <MessageSquare size={18} /> WhatsApp 直接問
               </a>
             </div>
 
@@ -306,14 +389,89 @@ export default function ChinaMarketContent() {
         </div>
       </section>
 
-      {/* 圖片位置：Hero 補充圖（負責人提供） */}
+      {/* 1b. 重點速覽（GEO：AI 搜尋最常直接引用的「一段講清楚」格式） */}
+      <section className="py-14 bg-white border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
+            <div className="bg-[#0f4c81] text-white px-6 py-4">
+              <h2 className="text-lg font-bold">重點速覽：ADWire 的中國市場推廣服務</h2>
+            </div>
+            <dl className="divide-y divide-gray-100">
+              {quickFacts.map((f) => (
+                <div key={f.q} className="grid grid-cols-1 sm:grid-cols-[120px_1fr] gap-1 sm:gap-6 px-6 py-4">
+                  <dt className="font-semibold text-[#0f4c81] text-sm">{f.q}</dt>
+                  <dd className="text-sm text-gray-700 leading-relaxed">{f.a}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+
       <ServiceImage
-          src="/services/china-market/china-market-promotion-platforms.webp"
-          alt="中國市場推廣服務涵蓋的平台：小紅書、抖音、百度、微信公眾號、美團、大眾點評、高德地圖，以及 DeepSeek、豆包、Kimi 等內地 AI 平台"
-          caption="內地消費者的發現路徑分散在不同平台 —— 由小紅書的筆記搜尋、抖音的短視頻推送，到百度的品牌查證與美團的到店轉化，需要按品類與客群決定先做哪幾個。"
+          src="https://assets.adwire.com.hk/services/china-market/xiaohongshu-feed-hong-kong-product.jpg"
+          alt="內地用戶在小紅書瀏覽生活種草筆記，桌上放着香港品牌護膚品及港式奶茶"
+          caption="內地消費者買之前會先上小紅書搜尋筆記 —— 香港品牌要被「搜到」並被信任，先要有專業號、有持續的種草內容，再配合 KOC 口碑。"
           width={1600}
           height={900}
+          priority
         />
+
+      {/* 1c. 小紅書專業號（對準「小紅書專業號」約 880／月 的搜尋） */}
+      <section className="py-24 bg-slate-50" id="xiaohongshu-pro-account">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">香港公司點樣開小紅書專業號（藍 V）？</h2>
+            <p className="text-gray-500 max-w-3xl mx-auto">
+              香港公司可以用商業登記證申請小紅書企業專業號。認證後帳號有官方藍 V 標誌，
+              可以開店、投放薯條及聚光廣告，並透過蒲公英平台與博主合作。以下是一般流程。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            {xhsSteps.map((s, i) => (
+              <div key={s.title} className="bg-white border border-gray-100 rounded-2xl p-7 shadow-sm">
+                <div className="text-3xl font-bold text-[#0f4c81]/15 mb-3">0{i + 1}</div>
+                <h3 className="font-bold text-[#0f4c81] mb-2 leading-snug">{s.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
+              <h3 className="font-bold text-[#0f4c81] mb-5 flex items-center gap-2">
+                <BookOpen size={18} /> 開通之後，我們幫你做好的部分
+              </h3>
+              <ul className="space-y-3">
+                {xhsSetup.map((x) => (
+                  <li key={x} className="flex gap-3 text-sm text-gray-700 leading-relaxed">
+                    <Check size={16} className="text-[#f5a623] shrink-0 mt-1" />
+                    <span>{x}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-white border-l-4 border-[#f5a623] rounded-r-2xl p-8 shadow-sm">
+              <h3 className="font-bold text-[#0f4c81] mb-3">申請前要留意</h3>
+              <ul className="space-y-3 text-sm text-gray-600 leading-relaxed">
+                <li>· 醫療、未獲牌照的金融服務等屬受限或禁入類別，申請前要先確認行業是否可認證。</li>
+                <li>· 帳號名稱與商標不一致時，審核較易被退回，宜先準備商標註冊證或品牌授權書。</li>
+                <li>· 抖音企業號亦接受香港公司申請，但「本地生活」團購、抖音商城等功能一般要求內地主體，要按業務模式安排。</li>
+                <li>· 平台規則會不時更新，以上為一般說明，最終以平台官方後台為準。</li>
+              </ul>
+              <a
+                href={getWhatsAppUrl("Hello ADWire，我想開小紅書專業號，想先了解所需文件。")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-[#0f4c81] hover:text-[#f5a623] transition-colors"
+              >
+                WhatsApp 問開通所需文件 <ArrowRight size={14} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 2. 痛點 */}
       <section className="py-24 bg-slate-50">
@@ -356,8 +514,8 @@ export default function ChinaMarketContent() {
               客戶通常是按「我想打邊個平台」思考，而不是按服務名稱。以下按平台分節說明實際交付內容。
             </p>
 <ServiceImage
-          src="/services/china-market/china-market-strategy-multi-channel-growth.webp"
-          alt="中國市場推廣策略規劃：香港品牌整合小紅書、抖音、微信、百度、美團、高德地圖及內地 AI 搜尋的全域增長方案"
+          src="https://assets.adwire.com.hk/services/china-market/shenzhen-bay-greater-bay-area.jpg"
+          alt="由香港望向深圳灣大橋及深圳天際線，香港品牌進入大灣區及內地市場的第一站"
           caption="我們按客群、預算與產品特性決定先做哪一至兩個平台，而不是一次開齊全部渠道 —— 資源分散是內地推廣最常見的失敗原因。"
           width={1600}
           height={900}
@@ -496,8 +654,8 @@ export default function ChinaMarketContent() {
 
       {/* 圖片位置 */}
       <ServiceImage
-          src="/services/china-market/china-market-content-production-workflow.webp"
-          alt="內地平台內容製作流程：由策略規劃、本地化改寫、拍攝、剪輯、發佈到成效報告"
+          src="https://assets.adwire.com.hk/services/china-market/xiaohongshu-douyin-content-shoot.jpg"
+          alt="小紅書及抖音內容拍攝現場：手機直拍護膚品產品，配合相機與柔光燈同場拍攝圖文筆記及短片"
           caption="同一個內容工廠支援多個平台 —— 一次拍攝可同時產出小紅書圖文筆記、抖音豎屏短視頻及微信公眾號內容，邊際成本遠低於分開製作。"
           width={1600}
           height={900}
@@ -672,12 +830,72 @@ export default function ChinaMarketContent() {
 
       {/* 圖片位置 */}
       <ServiceImage
-          src="/services/china-market/china-market-performance-reporting-dashboard.webp"
-          alt="中國市場推廣成效報告：內容曝光、互動、收藏、KOL 合作表現及百度搜尋指數"
-          caption="內地推廣的成效要分三層看 —— 平台數據（曝光、互動）、搜尋數據（百度收錄、筆記搜尋曝光）與業務數據（查詢、成交、獲客成本）。平台數據不能當成生意成效。圖為報告結構示意。"
+          src="https://assets.adwire.com.hk/services/china-market/shenzhen-street-local-store-queue.jpg"
+          alt="深圳街頭消費者在茶飲店外排隊，用手機地圖及點評 App 搵店，說明美團、大眾點評及高德地圖對實體門店的重要性"
+          caption="內地推廣的成效要分三層看 —— 平台數據（曝光、互動）、搜尋數據（百度收錄、筆記搜尋曝光）與業務數據（查詢、到店、成交）。對有門店的品牌，最後一步往往發生在美團、大眾點評或高德地圖。"
           width={1600}
           height={900}
         />
+
+      {/* 8b. 首 90 日路線圖 */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">首 90 日會做甚麼？</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">以單一平台（例如小紅書）起步為例。每一步都有交付物，你清楚知道錢花在哪裡。</p>
+          </div>
+          <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {roadmap.map((r) => (
+              <li key={r.when} className="border border-gray-100 rounded-2xl p-7 bg-slate-50/60">
+                <p className="text-xs font-bold text-[#f5a623] tracking-wide mb-2">{r.when}</p>
+                <h3 className="font-bold text-[#0f4c81] mb-2">{r.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{r.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 8c. 合作方式 */}
+      <section className="py-24 bg-slate-50" id="engagement">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold text-[#0f4c81] mb-4">三種合作方式</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              內地推廣的費用取決於平台數目、內容量及是否包含 KOL 與廣告費，所以先評估、後報價。
+              以下三種方式可以由小做起。
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {engagementModels.map((m) => (
+              <div
+                key={m.name}
+                className={`bg-white rounded-2xl p-8 shadow-sm flex flex-col ${m.highlight ? "border-2 border-[#f5a623]" : "border border-gray-100"}`}
+              >
+                <p className="text-xs font-semibold text-[#f5a623] mb-1">{m.tag}</p>
+                <h3 className="text-xl font-bold text-[#0f4c81] mb-2">{m.name}</h3>
+                <p className="text-sm text-gray-500 mb-5">適合：{m.fit}</p>
+                <ul className="space-y-3 mb-6 flex-1">
+                  {m.items.map((x) => (
+                    <li key={x} className="flex gap-3 text-sm text-gray-700 leading-relaxed">
+                      <Check size={16} className="text-[#f5a623] shrink-0 mt-1" />
+                      <span>{x}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={getWhatsAppUrl(m.wa)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-center px-6 py-3 rounded-full font-bold transition-all ${m.highlight ? "bg-[#f5a623] text-white hover:bg-[#e09612]" : "bg-[#0f4c81] text-white hover:bg-[#0a3358]"}`}
+                >
+                  WhatsApp 查詢報價
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 9. FAQ */}
       <section className="py-24 bg-slate-50">

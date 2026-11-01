@@ -44,7 +44,7 @@ export const AI_AGENCY_PAGE: ServicePageData = {
       {
         label: "想在 Google 和 AI 搜尋被找到",
         verdict: "fit",
-        answer: "SEO 及 GEO：同一套內容同時爭取搜尋排名及 AI 回答引用，方案 HK$5,800／月起。",
+        answer: "SEO 及 GEO：同一套內容同時爭取搜尋排名及 AI 回答引用，方案 HK$6,000／月起。",
         href: "/services/seo/",
         hrefLabel: "看 SEO 及 GEO",
       },
@@ -125,7 +125,7 @@ export const AI_AGENCY_PAGE: ServicePageData = {
       { title: "維護及支援：按月（可選）", desc: "知識庫更新、監控及小修改。" },
       { title: "第三方費用：由客戶直接支付", desc: "AI 模型 API、平台訂閱及廣告預算，不會混入服務費。" },
     ],
-    note: "已公開起步價：SEO 方案 HK$5,800／月起、形象網站 HK$8,000 起。其他項目先免費診斷再報價。",
+    note: "已公開起步價：SEO 方案 HK$6,000／月起、形象網站 HK$8,000 起。其他項目先免費診斷再報價。",
   },
 
   proof: {

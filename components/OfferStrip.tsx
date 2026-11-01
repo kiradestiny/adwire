@@ -28,7 +28,7 @@ const OFFERS = [
   },
   {
     Icon: Search,
-    tag: "HK$5,800／月起",
+    tag: "HK$6,000／月起",
     title: "SEO＋GEO 方案",
     desc: "同時做 Google 排名及 AI 搜尋可見度；關鍵字數、文章篇數及優化頁數寫明。",
     cta: "睇方案內容",

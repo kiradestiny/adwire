@@ -19,7 +19,7 @@ const coreServices = [
     desc: "技術 SEO、關鍵字及搜尋意圖規劃、內容優化，並將搜尋曝光延伸到 AI 問答搜尋。以曝光、點擊、索引健康及查詢轉換作為量度指標。",
     link: "/services/seo",
     points: ["Technical SEO", "AI 搜尋可見度", "每月成效報告"],
-    offer: "HK$5,800／月起",
+    offer: "HK$6,000／月起",
     main: false,
     color: "bg-cyan-500",
     textColor: "text-cyan-500",

@@ -14,11 +14,15 @@ import { HONG_KONG_MARKET_FAQS } from "@/lib/service-faqs";
  */
 
 export const metadata: Metadata = {
-  title: "香港市場推廣｜品牌在地化落地服務",
+  title: "內地品牌進軍香港市場｜香港推廣及在地化",
   description:
-    "內地及海外品牌進入香港市場的在地化推廣服務：繁體中文與廣東話語境改寫、IG／FB／Threads 社交媒體、Google 搜尋、Meta／Google 廣告、KOL 配合、拍攝製作，以及合規注意事項檢視。",
+    "內地及海外品牌進軍香港：繁體中文及廣東話文案改寫、Google 及 AI 搜尋、IG／FB／Threads、Meta／Google 廣告、香港 KOL、WhatsApp 客服及合規檢視。先免費品牌診斷，再按範圍報價。",
   keywords: [
     "香港市場推廣",
+    "進軍香港市場",
+    "内地品牌进入香港市场",
+    "香港市场推广",
+    "香港推廣",
     "品牌本地化",
     "品牌在地化",
     "香港品牌推廣",
@@ -37,7 +41,7 @@ export const metadata: Metadata = {
     canonical: "/services/hong-kong-market/",
   },
   openGraph: {
-    title: "香港市場推廣｜品牌在地化落地服務",
+    title: "內地品牌進軍香港市場｜香港推廣及在地化",
     description:
       "品牌要打入香港，唔係翻譯成繁體就完成。由用語、語氣、視覺風格、平台選擇到消費習慣，逐項按香港市場調整。",
     url: "https://adwire.com.hk/services/hong-kong-market/",
@@ -55,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "香港市場推廣｜品牌在地化落地 | ADWire Agency",
+    title: "內地品牌進軍香港市場｜香港推廣及在地化 | ADWire Agency",
     description:
       "由繁體中文與廣東話語境改寫、社交媒體、Google 搜尋、廣告投放到 KOL 配合，協助內地及海外品牌在香港落地。",
     images: ["/services/hong-kong-market/og.webp"],
@@ -104,9 +108,23 @@ const serviceSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "KOL 網紅營銷與媒體關係" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "品牌宣傳片與產品攝影製作" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "線下推廣與商場活動配合" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "WhatsApp 客服及查詢流程設定" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "香港合規注意事項檢視" } },
     ],
   },
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://adwire.com.hk/services/hong-kong-market/#webpage",
+  url: "https://adwire.com.hk/services/hong-kong-market/",
+  name: "內地品牌進軍香港市場｜香港推廣及在地化",
+  inLanguage: "zh-HK",
+  datePublished: "2026-09-21",
+  dateModified: "2026-11-01",
+  about: { "@id": "https://adwire.com.hk/services/hong-kong-market/#service" },
+  publisher: { "@id": "https://adwire.com.hk/#organization" },
 };
 
 const breadcrumbSchema = {
@@ -125,6 +143,10 @@ export default function HongKongMarketPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       <FAQJsonLd faqs={HONG_KONG_MARKET_FAQS} />
       <script

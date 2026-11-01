@@ -40,6 +40,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/services/web/':    SERVICE_PAGES_REDESIGN,
     '/services/ai/':     SERVICE_PAGES_REDESIGN,
     '/services/ai-agency/': SERVICE_PAGES_REDESIGN,
+    '/services/china-market/':     '2026-11-01', // 2026-11-01 小紅書專業號、90 日路線圖、合作方式、新圖
+    '/services/hong-kong-market/': '2026-11-01', // 2026-11-01 重點速覽、繁簡英摘要、路線圖、新圖
     '/services/video/':  SERVICE_LAST_UPDATED_2026_09_24, // P1：H1 改為「香港影片製作公司／抓住黃金 3 秒」
   }
 

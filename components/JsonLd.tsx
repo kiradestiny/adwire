@@ -176,7 +176,7 @@ export default function JsonLd() {
         "@type": "ListItem",
         "position": 4,
         "name": "SEO 與 GEO 優化",
-        "description": "Google 搜尋排名及 AI 搜尋可見度；方案 HK$5,800／月起",
+        "description": "Google 搜尋排名及 AI 搜尋可見度；方案 HK$6,000／月起",
         "url": "https://adwire.com.hk/services/seo/"
       },
       {

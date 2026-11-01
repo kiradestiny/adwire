@@ -363,11 +363,11 @@ const TIMING_OPTIONS: QuestionOption[] = [
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const PUBLISHED = {
-  adsManagementSingle: 3800,
+  adsManagementSingle: 4000,
   adsManagementDual: 8800,
   adsEnterpriseMin: 8800,
   adsEnterprisePct: 0.15,
-  seoFrom: 5800,
+  seoFrom: 6000,
   socialFrom: 8000,
 } as const;
 
@@ -378,7 +378,7 @@ export const ADS_ENTERPRISE_SPEND_THRESHOLD = 50000;
  * 依平台數與每月總投入（服務費＋廣告費）推算廣告管理費。
  *
  * 為何不是「純粹睇預算揀套餐」：
- *   - 15,000 水平：單平台 → 標準單平台方案（3,800）；多平台 → 雙平台方案（8,800）。
+ *   - 15,000 水平：單平台 → 標準單平台方案（4,000）；多平台 → 雙平台方案（8,800）。
  *     同一筆預算，因為平台數不同而落在不同方案。
  *   - 50,000 水平：進入企業抽成層（廣告費 15%，最低 HK$8,800／月）。
  *   - 平台數未知時不可臆測，只報最低標準（單平台）。
@@ -416,8 +416,8 @@ export function quoteAdsPlan(input: {
     basis: "single-platform",
     note:
       input.platforms === "unknown"
-        ? "未確定平台數時，以單一平台的標準代操管理費 HK$3,800／月 作參考；廣告媒體費另計。"
-        : "單一平台的標準代操管理費為 HK$3,800／月；廣告媒體費另計。",
+        ? "未確定平台數時，以單一平台的標準代操管理費 HK$4,000／月 作參考；廣告媒體費另計。"
+        : "單一平台的標準代操管理費為 HK$4,000／月；廣告媒體費另計。",
     platformScope: input.platforms,
   };
 }
@@ -493,12 +493,12 @@ function budgetOptions(mode: BudgetMode): QuestionOption[] {
     ];
   }
   if (mode === "monthly-service") {
-    // 起步水平用已公布的 SEO HK$5,800（不是 8,000）。
+    // 起步水平用已公布的 SEO HK$6,000（不是 8,000）。
     return [
       commonNone,
-      { id: "below-floor", label: "每月服務費低於 HK$5,800（例如 HK$3,000 左右）" },
+      { id: "below-floor", label: "每月服務費低於 HK$6,000（例如 HK$3,000 左右）" },
       { id: "undecided", label: "尚未確定，願意先參考已公布的每月服務費" },
-      { id: "at-floor", label: "可接受每月服務費約 HK$5,800 – 15,000（第三方成本另計）" },
+      { id: "at-floor", label: "可接受每月服務費約 HK$6,000 – 15,000（第三方成本另計）" },
       { id: "above-floor", label: "可接受每月服務費 HK$15,000 以上" },
     ];
   }
@@ -708,7 +708,7 @@ function publishedPricing(line: ServiceLineKey): PricingBlock {
       return {
         label: "已公布的廣告代操收費（媒體費另計）",
         lines: [
-          "代操管理費：單一平台 HK$3,800／月；Meta＋Google 雙平台 HK$8,800／月。",
+          "代操管理費：單一平台 HK$4,000／月；Meta＋Google 雙平台 HK$8,800／月。",
           "廣告媒體費：另計，由你直接支付給廣告平台，並非 ADWire 收入。",
           "每月總投入＝代操管理費＋廣告媒體費。",
           "若以廣告費抽成方式計算，企業管理費為廣告費的 15%，最低 HK$8,800／月。",
@@ -718,7 +718,7 @@ function publishedPricing(line: ServiceLineKey): PricingBlock {
       return {
         label: "已公布的 SEO 收費（第三方成本另計）",
         lines: [
-          "SEO 方案由 HK$5,800／月 起（單一網站、單一市場）。",
+          "SEO 方案由 HK$6,000／月 起（單一網站、單一市場）。",
           "3 個月最低服務期，按月預繳。",
           "大型、多語言或大量 SKU 的網站，需要確認範圍後另行報價。",
         ],
