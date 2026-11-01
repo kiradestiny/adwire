@@ -10,7 +10,7 @@
 import type { LucideIcon } from "lucide-react";
 import type { ServiceFaq } from "@/lib/service-faqs";
 
-export type ServicePageKey = "system" | "web" | "seo" | "ai" | "ai-agency";
+export type ServicePageKey = "system" | "web" | "seo" | "ai" | "ai-agency" | "china-market" | "hong-kong-market";
 
 /** 自我檢查的答案：fit = 我哋直接做；maybe = 可以做但要先釐清；other = 建議睇另一頁 */
 export type FitVerdict = "fit" | "maybe" | "other";
@@ -66,7 +66,8 @@ export interface PricingBlock {
 }
 
 export interface ProofItem {
-  href: string;
+  /** 有公開項目頁才填；冇就顯示為唔可以撳的數字卡（例如過往項目數字） */
+  href?: string;
   /** 真實客戶截圖（assets.adwire.com.hk）或留空用數字卡 */
   image?: string;
   title: string;
