@@ -11,8 +11,8 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-10-26",
   "triggers": {
-    // 每 5 分鐘（Cloudflare cron 一律以 UTC 計）
-    "crons": ["*/5 * * * *"]
+    // 每日香港時間 09:00（Cloudflare cron 使用 UTC 01:00）
+    "crons": ["0 1 * * *"]
   },
   "kv_namespaces": [
     {
