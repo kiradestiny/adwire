@@ -201,7 +201,7 @@ async function main() {
   // ── 6 ───────────────────────────────────────────────────────────────────────
   section("6. 廣告價格邊界：HK$15,000 與 HK$50,000");
   {
-    eq("15000 單平台 → 3,800", quoteAdsPlan({ platforms: "single", totalMonthlySpendHKD: 15000 }).managementFeeHKD, PUBLISHED.adsManagementSingle);
+    eq("15000 單平台 → 4,000", quoteAdsPlan({ platforms: "single", totalMonthlySpendHKD: 15000 }).managementFeeHKD, PUBLISHED.adsManagementSingle);
     eq("15000 單平台 basis", quoteAdsPlan({ platforms: "single", totalMonthlySpendHKD: 15000 }).basis, "single-platform");
     eq("15000 多平台 → 8,800", quoteAdsPlan({ platforms: "multi", totalMonthlySpendHKD: 15000 }).managementFeeHKD, PUBLISHED.adsManagementDual);
     eq("15000 多平台 basis", quoteAdsPlan({ platforms: "multi", totalMonthlySpendHKD: 15000 }).basis, "dual-platform");
@@ -217,15 +217,15 @@ async function main() {
     eq("50,000 basis = enterprise", quoteAdsPlan({ platforms: "single", totalMonthlySpendHKD: 50000 }).basis, "enterprise-15pct");
     eq("100,000 → 15% = 15,000", quoteAdsPlan({ platforms: "multi", totalMonthlySpendHKD: 100000 }).managementFeeHKD, 15000);
     eq("門檻常數 = 50,000", ADS_ENTERPRISE_SPEND_THRESHOLD, 50000);
-    eq("15000 平台未知 → 3,800", quoteAdsPlan({ platforms: "unknown", totalMonthlySpendHKD: 15000 }).managementFeeHKD, PUBLISHED.adsManagementSingle);
-    eq("無金額單平台 → 3,800", quoteAdsPlan({ platforms: "single" }).managementFeeHKD, PUBLISHED.adsManagementSingle);
+    eq("15000 平台未知 → 4,000", quoteAdsPlan({ platforms: "unknown", totalMonthlySpendHKD: 15000 }).managementFeeHKD, PUBLISHED.adsManagementSingle);
+    eq("無金額單平台 → 4,000", quoteAdsPlan({ platforms: "single" }).managementFeeHKD, PUBLISHED.adsManagementSingle);
 
     eq("platformsFromBase(ads-multi)=multi", platformsFromBase("ads-multi"), "multi");
     eq("platformsFromBase(ads-single)=single", platformsFromBase("ads-single"), "single");
     eq("platformsFromBase(undefined)=unknown", platformsFromBase(undefined), "unknown");
 
     const lines15s = classify(answersFor("project", "proj-ads", { base: "ads-single", amountHKD: 15000 })).pricing?.lines.join("\n") ?? "";
-    check("15,000 單平台結果含 3,800", lines15s.includes("3,800"));
+    check("15,000 單平台結果含 4,000", lines15s.includes("4,000"));
     check("結果列明媒體費另計", lines15s.includes("媒體費") && lines15s.includes("另計"));
     const lines15m = classify(answersFor("project", "proj-ads", { base: "ads-multi", amountHKD: 15000 })).pricing?.lines.join("\n") ?? "";
     check("15,000 多平台結果含 8,800", lines15m.includes("8,800"));
@@ -237,9 +237,9 @@ async function main() {
   section("7. 只用已公布價目；IT 項目無虛構區間");
   {
     const rAds = classify(answersFor("growth", "ads-low-enquiries"));
-    check("ads 引用 3,800", (rAds.pricing?.lines.join(" ") ?? "").includes("3,800"));
+    check("ads 引用 4,000", (rAds.pricing?.lines.join(" ") ?? "").includes("4,000"));
     const rSeo = classify(answersFor("growth", "seo-visibility"));
-    check("seo 引用 5,800", (rSeo.pricing?.lines.join(" ") ?? "").includes("5,800"));
+    check("seo 引用 6,000", (rSeo.pricing?.lines.join(" ") ?? "").includes("6,000"));
     check("seo 交代 3 個月最低", (rSeo.pricing?.lines.join(" ") ?? "").includes("3 個月"));
     const rSocial = classify(answersFor("project", "proj-social"));
     check("social 引用 8,000", (rSocial.pricing?.lines.join(" ") ?? "").includes("8,000"));

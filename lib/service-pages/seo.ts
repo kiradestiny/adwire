@@ -12,7 +12,7 @@ export const SEO_PAGE: ServicePageData = {
   lead:
     "客人除了 Google，亦開始直接問 ChatGPT、Perplexity 和 Google AI 摘要。我們用同一套內容和技術基礎，同時做好 SEO（搜尋排名）和 GEO（AI 搜尋引用），每月報告清楚交代做了什麼、帶來什麼。",
   promises: [
-    "方案 HK$5,800／月起，關鍵字數、文章篇數、優化頁數寫明",
+    "方案 HK$6,000／月起，關鍵字數、文章篇數、優化頁數寫明",
     "先處理網站技術問題，再做內容及關鍵字",
     "用 Search Console、GA4 數據報告進度，不作排名保證",
   ],
@@ -122,7 +122,7 @@ export const SEO_PAGE: ServicePageData = {
     tiers: [
       {
         name: "Starter",
-        price: "HK$5,800",
+        price: "HK$6,000",
         unit: "／月",
         summary: "剛開始做 SEO 的中小企",
         includes: ["15 個重點關鍵字", "每月 2 篇內容", "每月 2 頁優化", "每月成效報告"],

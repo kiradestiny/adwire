@@ -12,10 +12,15 @@ import { CHINA_MARKET_FAQS } from "@/lib/service-faqs";
  */
 
 export const metadata: Metadata = {
-  title: "中國市場推廣｜小紅書・抖音・微信・百度",
+  title: "小紅書推廣・專業號開通｜香港品牌進軍內地",
   description:
-    "香港品牌進入內地市場的推廣方案：小紅書、抖音、微信、微博、百度收錄、內地廣告投放、KOL／KOC、美團／大眾點評／高德地圖入駐，以及 DeepSeek／豆包／Kimi 的 AI 平台 GEO。按產品與預算決定平台優先次序。",
+    "香港品牌進軍內地：小紅書專業號（藍V）開通、小紅書推廣及代運營、抖音企業號、微信、百度、美團／大眾點評入駐，以及 DeepSeek／豆包 AI 平台 GEO。先免費評估先做哪個平台，再按範圍報價。",
   keywords: [
+    "小紅書專業號",
+    "小紅書企業號",
+    "小紅書專業號申請",
+    "抖音企業號",
+    "小紅書廣告",
     "中國市場推廣",
     "內地推廣",
     "中國市場營銷",
@@ -40,9 +45,9 @@ export const metadata: Metadata = {
     canonical: "/services/china-market/",
   },
   openGraph: {
-    title: "中國市場推廣｜香港品牌進入內地市場",
+    title: "小紅書推廣・專業號開通｜香港品牌進軍內地",
     description:
-      "小紅書、抖音、微信、微博、百度、美團、大眾點評、高德地圖，以及內地 AI 平台 GEO。由平台策略、內容製作、KOL 配合到投放與數據追蹤。",
+      "香港公司點樣開小紅書專業號？由藍V認證、種草內容、抖音短片、KOL 到美團／大眾點評入駐，按你的產品決定先做哪個平台。",
     url: "https://adwire.com.hk/services/china-market/",
     siteName: "ADWire Agency",
     images: [
@@ -58,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "中國市場推廣｜香港品牌進入內地市場 | ADWire Agency",
+    title: "小紅書推廣・專業號開通｜香港品牌進軍內地 | ADWire Agency",
     description:
       "由小紅書、抖音、微信、百度到美團／大眾點評／高德地圖，以及 DeepSeek／豆包／Kimi 的 AI 平台可見度。按產品與預算決定平台優先次序。",
     images: ["/services/china-market/og.webp"],
@@ -99,7 +104,8 @@ const serviceSchema = {
     "@type": "OfferCatalog",
     name: "中國市場推廣服務項目",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "小紅書推廣（專業號、種草筆記、薯條廣告）" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "小紅書專業號（企業藍V）開通與帳號基建" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "小紅書推廣與代運營（種草筆記、薯條／聚光廣告、蒲公英 KOC 合作）" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "抖音推廣（企業號、短視頻、本地生活、商城）" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "微信生態（公眾號、朋友圈廣告、微商城、企業微信）" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "微博運營與新聞稿公關" } },
@@ -113,6 +119,19 @@ const serviceSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "品牌全網營銷（跨渠道整合）" } },
     ],
   },
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://adwire.com.hk/services/china-market/#webpage",
+  url: "https://adwire.com.hk/services/china-market/",
+  name: "小紅書推廣・專業號開通｜香港品牌進軍內地",
+  inLanguage: "zh-HK",
+  datePublished: "2026-09-21",
+  dateModified: "2026-11-01",
+  about: { "@id": "https://adwire.com.hk/services/china-market/#service" },
+  publisher: { "@id": "https://adwire.com.hk/#organization" },
 };
 
 const breadcrumbSchema = {
@@ -131,6 +150,10 @@ export default function ChinaMarketPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       <FAQJsonLd faqs={CHINA_MARKET_FAQS} />
       <script

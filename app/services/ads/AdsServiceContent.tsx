@@ -56,14 +56,14 @@ export default function AdsServiceContent() {
           涵蓋 Meta（Facebook / Instagram）、Google Search（SEM）、YouTube 及 LinkedIn 廣告代操，
           真實案例：美妝新品發佈廣告 8 週內 ROAS 由 2.1 倍提升至 8 倍、獲客成本由 HK$380 降至 HK$95；
           小紅書資訊流廣告 ROAS 由 1.8 倍提升至 4.3 倍；B2B LinkedIn 廣告每月帶來 15 個以上合格詢盤。
-          代操費用：入門方案 HK$3,800/月起，進階方案 HK$8,800/月起；每月廣告預算 HK$50,000 以上者，代操費按廣告費 15% 計算，金額特大者另行報價。
+          代操費用：入門方案 HK$4,000/月起，進階方案 HK$8,800/月起；每月廣告預算 HK$50,000 以上者，代操費按廣告費 15% 計算，金額特大者另行報價。
           聯絡：WhatsApp {WHATSAPP_E164}，電郵 info@adwire.com.hk。
         </p>
         <table>
           <caption>ADWire Agency 成效廣告代操服務方案比較</caption>
           <thead><tr><th>方案</th><th>代操費（HKD/月）</th><th>廣告預算範圍</th><th>管理平台</th><th>適合對象</th></tr></thead>
           <tbody>
-            <tr><td>入門方案</td><td>HK$3,800</td><td>HK$5,000–15,000</td><td>Meta 或 Google（單一）</td><td>剛開始投放廣告的品牌</td></tr>
+            <tr><td>入門方案</td><td>HK$4,000</td><td>HK$5,000–15,000</td><td>Meta 或 Google（單一）</td><td>剛開始投放廣告的品牌</td></tr>
             <tr><td>進階方案</td><td>HK$8,800</td><td>HK$15,000–50,000</td><td>Meta + Google（雙平台）</td><td>有成效廣告基礎的成長企業</td></tr>
             <tr><td>企業方案</td><td>廣告費 15%（最低 HK$8,800）</td><td>HK$50,000+</td><td>Meta/Google/YouTube/LinkedIn</td><td>大型品牌及多平台管理</td></tr>
           </tbody>
@@ -535,7 +535,7 @@ export default function AdsServiceContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <PackageCard 
               name="入門方案"
-              price="HK$3,800"
+              price="HK$4,000"
               period="/ 月"
               description="適合剛開始投放廣告的品牌"
               features={[
@@ -546,7 +546,7 @@ export default function AdsServiceContent() {
                 "Email 支援"
               ]}
               highlight={false}
-              whatsappMsg="Hello ADWire, 我想查詢成效廣告投放的【入門方案】(HK$3,800/月)。"
+              whatsappMsg="Hello ADWire, 我想查詢成效廣告投放的【入門方案】(HK$4,000/月)。"
             />
             <PackageCard 
               name="進階方案"

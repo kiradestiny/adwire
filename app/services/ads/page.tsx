@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "廣告公司 | ADWire Agency 香港",
-    description: "香港成效廣告代操：Google / Meta / YouTube。真實案例：美妝新品 ROAS 由 2.1 升至 8 倍。代操費 HK$3,800/月起。",
+    description: "香港成效廣告代操：Google / Meta / YouTube。真實案例：美妝新品 ROAS 由 2.1 升至 8 倍。代操費 HK$4,000/月起。",
     images: ["/portfolio/global-trade-ads.webp"],
   },
 };
@@ -91,11 +91,11 @@ const serviceSchema = {
       "@type": "Offer",
       name: "廣告代操入門方案",
       description: "適合剛開始投放廣告的品牌。單一平台（Meta 或 Google），每月廣告預算 HK$5K–15K，基本素材製作及月度成效報告。",
-      price: "3800",
+      price: "4000",
       priceCurrency: "HKD",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: "3800",
+        price: "4000",
         priceCurrency: "HKD",
         unitText: "月",
       },
