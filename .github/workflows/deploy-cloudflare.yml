@@ -6,11 +6,22 @@
 #   確認 preview 無問題、DNS 正式切去 Cloudflare 之後，才把 target 改為 production。
 #
 # 需要的 repo secrets：
-#   CLOUDFLARE_API_TOKEN   — 權限：Account > Cloudflare Pages > Edit
-#   CLOUDFLARE_ACCOUNT_ID  — 7a49f4f37736ded280c527873fbee88d
+#   CLOUDFLARE_API_TOKEN     — 權限：Account > Cloudflare Pages > Edit（最小權限）
+#   CLOUDFLARE_ACCOUNT_ID    — 7a49f4f37736ded280c527873fbee88d
+#   MAIL_OPS_TOKEN           — /inbox?mailops=* 診斷/探測端點用（僅 production 部署需要）
 #
 # 需要的 repo variables（Build time 由 Admin API 拉內容，跟 SiteGround 部署一致）：
 #   NEXT_PUBLIC_API_URL / ADMIN_API_KEY
+#
+# ⚠️ 秘密處理不變式（2026-10-26 郵件事故後新增）：
+#   本 workflow 只「部署建置輸出」，永不 GET→PATCH 專案部署設定，永不把遮罩秘密回寫。
+#   任何專案 env_vars 變更一律經 scripts/mail-safe-config.mjs（只送白名單、指定名稱）。
+#   詳見 docs/mail-operations.md。
+#
+# ⚠️ 部署後檢查失敗 = 部署不得聲稱成功：
+#   production 部署後會執行 scripts/mail-readiness.mjs（只讀 health）＋受控 --probe。
+#   若 health 顯示任何 check 為 false（例如秘密未綁定），該 step 會令整個 run 失敗。
+#   即「已部署但唔合格」——請即刻處理並可回滾（見 docs 嘅 rollback 參考）。
 # ─────────────────────────────────────────────────────────────────────────────
 
 name: Deploy to Cloudflare Pages
@@ -26,6 +37,11 @@ on:
         options:
           - preview
           - production
+      probe:
+        description: "（僅 production）部署後執行受控 probe（會令供應商嘗試寄一封探測郵件）"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -38,7 +54,7 @@ jobs:
   deploy:
     name: Build & deploy
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - uses: actions/checkout@v5
@@ -48,14 +64,31 @@ jobs:
           node-version: "22"
           cache: npm
 
+      # 生產部署前必須確認 MAIL_OPS_TOKEN 已備妥，否則之後嘅 readiness/probe 無得跑。
+      # 只檢查「存在」，唔會印出值。
+      - name: 要求 MAIL_OPS_TOKEN（僅 production）
+        if: ${{ github.event.inputs.target == 'production' }}
+        env:
+          MAIL_OPS_TOKEN: ${{ secrets.MAIL_OPS_TOKEN }}
+        run: |
+          if [ -z "${MAIL_OPS_TOKEN}" ]; then
+            echo "::error::MAIL_OPS_TOKEN 未設定。生產部署需要此 repo secret 作部署後 readiness 檢查；已中止。"
+            exit 1
+          fi
+          echo "MAIL_OPS_TOKEN present (length ${#MAIL_OPS_TOKEN}) — value not printed."
+
       - name: Install
         run: npm ci
 
-      - name: Build（含 postbuild 驗證與測試）
+      # ⚠️ 必須用 --webpack：
+      #   本 repo 嘅 next build 預設走 Turbopack，喺現有 next/font/google Lexend 解析上
+      #   會失敗（"next/font/google queries have exactly one entry"），與本次 mail 變更無關。
+      #   Next 16 官方支援 --webpack opt-in，改用 webpack 可完成建置（含 postbuild 測試）。
+      - name: Build（webpack；含 postbuild 驗證與測試）
         env:
           NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
           ADMIN_API_KEY: ${{ secrets.ADMIN_API_KEY }}
-        run: npm run build
+        run: npm run build -- --webpack
 
       - name: Deploy
         env:
@@ -69,3 +102,19 @@ jobs:
             --branch "$BRANCH" \
             --commit-hash "$GITHUB_SHA" \
             --commit-message "$(git log -1 --pretty=%s)"
+
+      # 部署後只讀 readiness：GET /inbox?mailops=health，要求 ok/version/checks 全對。
+      # 失敗 => step 非零退出 => 整個部署 run 標記為失敗（不得聲稱成功）。
+      # 秘密未綁定／版本不符時會在此中止，唔會當部署成功。
+      - name: 部署後 readiness 檢查（僅 production）
+        if: ${{ github.event.inputs.target == 'production' }}
+        env:
+          MAIL_OPS_TOKEN: ${{ secrets.MAIL_OPS_TOKEN }}
+        run: node scripts/mail-readiness.mjs --target https://adwire.com.hk
+
+      # 受控 probe（明確 op-in）：POST /inbox?mailops=probe，只驗證供應商接受，唔聲稱已投遞。
+      - name: 受控 probe（僅 production，需 probe=true）
+        if: ${{ github.event.inputs.target == 'production' && github.event.inputs.probe == 'true' }}
+        env:
+          MAIL_OPS_TOKEN: ${{ secrets.MAIL_OPS_TOKEN }}
+        run: node scripts/mail-readiness.mjs --target https://adwire.com.hk --probe

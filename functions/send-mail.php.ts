@@ -14,10 +14,29 @@
  *   6. 輸入長度／格式驗證。
  *
  * 刻意「唔移植」的部分（會在 README 註明）：
- *   - IP 信譽／ASN／isp 查詢、垃圾評分模型：需要外部 API，維護成本高於效益。
+ *   - 外部 IP reputation API、ISP/VPN 分類及多窗口計數未移植；本機新版本只用
+ *     可信 Cloudflare ASN metadata 同保守內容旗標，唔冒充完整舊風險模型。
  *   - MySQL enquiries 表：改用 KV 存副本（30 日），後台 enquiries.php 暫時唔會見到新 lead。
  *     → 這點必須讓客戶知道，直至後台搬到 D1 或恢復 PHP。
  */
+
+import {
+  deriveIdempotencyKey,
+  providerSend,
+  persistFailedAttempt,
+  computeNextRetryAt,
+  RESEND_URL,
+  type OutboxRecord,
+  type OutboxState,
+} from "../lib/mail-runtime.ts";
+import { buildMailEmail } from "../lib/mail-email.ts";
+import {
+  normalizeMultiline,
+  validateSubmissionEnvelope,
+  verifyHumanToken,
+  collectNetworkMetadata,
+  evaluateSubmissionRisk,
+} from "../lib/form-security.ts";
 
 interface Env {
   /** Resend API key（Secret） */
@@ -48,6 +67,8 @@ const MIN_DWELL_MS = 2500;
 const RATE_WINDOW_S = 60;
 const RATE_MAX = 3;
 const DEDUPE_TTL_S = 600;
+/** 郵件診斷紀錄保留 7 日 */
+const DIAG_TTL_S = 60 * 60 * 24 * 7;
 
 const ALLOWED_ORIGINS = new Set([
   "https://adwire.com.hk",
@@ -65,10 +86,15 @@ function cors(origin: string | null): Record<string, string> {
   };
 }
 
-function json(body: Record<string, unknown>, status = 200, origin: string | null = null): Response {
+function json(
+  body: Record<string, unknown>,
+  status = 200,
+  origin: string | null = null,
+  extra: Record<string, string> = {},
+): Response {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { "Content-Type": "application/json; charset=utf-8", ...cors(origin) },
+    headers: { "Content-Type": "application/json; charset=utf-8", ...cors(origin), ...extra },
   });
 }
 
@@ -97,7 +123,10 @@ async function parseBody(request: Request): Promise<Record<string, unknown>> {
   const ct = (request.headers.get("content-type") || "").toLowerCase();
   if (ct.includes("application/json")) {
     try {
-      return (await request.json()) as Record<string, unknown>;
+      const parsed: unknown = await request.json();
+      return parsed !== null && typeof parsed === "object" && !Array.isArray(parsed)
+        ? parsed as Record<string, unknown>
+        : {};
     } catch {
       return {};
     }
@@ -113,26 +142,6 @@ async function parseBody(request: Request): Promise<Record<string, unknown>> {
   return {};
 }
 
-async function verifyTurnstile(token: string, secret: string, ip: string): Promise<"ok" | "fail" | "unknown"> {
-  try {
-    const form = new FormData();
-    form.append("secret", secret);
-    form.append("response", token);
-    if (ip) form.append("remoteip", ip);
-    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-      method: "POST",
-      body: form,
-    });
-    if (!res.ok) return "unknown";
-    const data = (await res.json()) as { success?: boolean };
-    return data.success ? "ok" : "fail";
-  } catch {
-    // 驗證服務不可用時，唔可以靜默放行，但亦唔應該令真客完全交唔到表。
-    // 交由 Turnstile 前端 widget 本身的把關 + honeypot + 速率限制補位。
-    return "unknown";
-  }
-}
-
 /** 60 秒內每 IP 最多 3 次 */
 async function rateLimited(kv: KVNamespace | undefined, ip: string): Promise<boolean> {
   if (!kv) return false;
@@ -143,81 +152,180 @@ async function rateLimited(kv: KVNamespace | undefined, ip: string): Promise<boo
   return false;
 }
 
+/**
+ * 去重查詢 —— 唯讀，唔會寫入任何狀態。
+ * 只有 Resend 真正接受咗封郵件之後，才由 markSent() 寫入去重標記；
+ * 否則「寄信失敗（缺 key／非 2xx／網絡錯誤）之後重試」會被錯誤當成重複而回報假成功。
+ */
 async function isDuplicate(kv: KVNamespace | undefined, fingerprint: string): Promise<boolean> {
   if (!kv) return false;
-  const key = `dup:${fingerprint}`;
-  if (await kv.get(key)) return true;
-  await kv.put(key, "1", { expirationTtl: DEDUPE_TTL_S });
-  return false;
+  try {
+    return Boolean(await kv.get(`dup:${fingerprint}`));
+  } catch (e) {
+    // KV 查詢失敗唔應該阻止真客提交（fail-open，交由其他防護補位）
+    console.error("[send-mail] dedupe lookup failed", stringifyError(e));
+    return false;
+  }
 }
 
-function buildEmail(f: {
-  name: string; phone: string; email: string; service: string; company: string;
-  companySite: string; budget: string; timeline: string; systemInfo: string;
-  message: string; ip: string; ua: string; country: string;
-  source: string; leadGrade: string; leadNotes: string;
-}): { subject: string; html: string } {
-  // 需求評估（/start/）嚟嘅 lead 喺標題標明評級，方便收件箱一眼排優先次序
-  const tag = f.source === "assessment"
-    ? `【需求評估${f.leadGrade ? `・${f.leadGrade} 級` : ""}】`
-    : "【新客戶查詢】";
-  const subject = `${tag}${f.name} - ${f.service}${f.budget && f.budget !== "未指定" ? ` - ${f.budget}` : ""}`;
+/** 寄信被接受之後才寫入去重標記；呼叫端必須自行包 try/catch（標記失敗唔可以當寄信失敗）。 */
+async function markSent(kv: KVNamespace | undefined, fingerprint: string): Promise<void> {
+  if (!kv) return;
+  await kv.put(`dup:${fingerprint}`, "1", { expirationTtl: DEDUPE_TTL_S });
+}
 
+/** 將已知秘密（API key 等）從任何字串中移除，避免寫入日誌時洩漏。 */
+function maskSecrets(input: string, secrets: Array<string | undefined>): string {
+  let out = input;
+  for (const s of secrets) {
+    if (s && s.length >= 6) out = out.split(s).join("[redacted]");
+  }
+  return out;
+}
+
+/** 將未知 thrown 值安全轉成字串（避免 [object Object]）。 */
+function stringifyError(e: unknown): string {
+  return e instanceof Error ? e.message : String(e);
+}
+
+// ── 安全持久化郵件診斷 ────────────────────────────────────────────────────────
+//
+// 目的：當寄信失敗（缺設定／供應商非 2xx／網絡），管理員可憑 requestId 追查根因。
+// 安全原則：
+//   - 診斷只包含「階段／結果／安全碼／供應商狀態／已遮罩嘅供應商訊息」，
+//     絕對唔會寫入提交表單內容（姓名／電話／IP／UA／訊息）或任何秘密。
+//   - 供應商回覆可能回顯 from/reply_to（即提交者電郵）或 API key；
+//     寫入前會用 email/Bearer/re_ 規則及「已知提交字串」一併遮罩。
+//   - 秘密（API key、Turnstile secret）亦會被移除。
+//
+// KV 限制：同一 key 每秒最多 1 次寫入。整個請求只會喺「終端結果」寫一次
+// `maildiag:<uuid>`（中間階段只留喺記憶體），唔會先 put 再更新同一 key（否則 429）。
+
+interface MailDiagnosticEvent {
+  at: string;
+  stage: string;
+  outcome: string;
+  code: string;
+}
+
+interface MailDiagnostic {
+  requestId: string;
+  createdAt: string;
+  updatedAt: string;
+  stage: string;
+  outcome: "pending" | "accepted" | "failed";
+  code: string;
+  source: "assessment" | "contact";
+  providerStatus: number | null;
+  providerErrorName?: string;
+  providerErrorMessage?: string;
+  providerEmailId?: string;
+  events: MailDiagnosticEvent[];
+}
+
+/** 以「已知字串」清單遮蔽（適用於秘密及提交者 PII；minLen 避免過度遮蔽短字串）。 */
+function maskStrings(input: string, values: Array<string | undefined>, minLen = 3): string {
+  let out = input;
+  for (const v of values) {
+    if (v && v.length >= minLen) out = out.split(v).join("[redacted]");
+  }
+  return out;
+}
+
+/** 診斷用文字清洗：移除秘密／已知提交字串、Bearer 及 re_ token、電郵、電話。 */
+function redactDiagnostic(input: string, values: Array<string | undefined>): string {
+  let out = maskStrings(input, values, 2);
+  out = out.replace(/\bBearer\s+\S+/gi, "Bearer [redacted]");
+  out = out.replace(/\bre_[A-Za-z0-9_\-]{6,}\b/g, "[redacted]");
+  out = out.replace(/[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}/g, "[email]");
+  out = out.replace(/\b(?:\+?852[\s\-]?)?[2-9]\d{3}[\s\-]?\d{4}\b/g, "[phone]");
+  return out;
+}
+
+/** 從供應商錯誤 body 安全解析 name／message（非 JSON 時用原文），並遮罩敏感內容。 */
+function parseProviderError(
+  detail: string,
+  values: Array<string | undefined>,
+): { name: string; message: string } {
+  let name = "provider_error";
+  let message = detail;
+  try {
+    const j = JSON.parse(detail) as Record<string, unknown>;
+    if (typeof j.name === "string" && j.name) name = j.name;
+    else if (typeof j.error === "string" && j.error) name = j.error;
+    if (typeof j.message === "string" && j.message) message = j.message;
+    else if (typeof j.error_description === "string" && j.error_description) message = j.error_description;
+    else if (typeof j.error === "string" && j.error) message = j.error;
+  } catch {
+    /* 非 JSON：保留原文（稍後遮罩） */
+  }
+  return {
+    name: redactDiagnostic(name, values).slice(0, 120),
+    message: redactDiagnostic(message, values).slice(0, 500),
+  };
+}
+
+/**
+ * 寫入「終端」診斷紀錄（每次請求恰一次）。
+ * best-effort：寫入失敗只記 console，唔可以影響寄信結果（唔可以 throw）。
+ */
+async function finalizeDiagnostic(
+  kv: KVNamespace | undefined,
+  diag: MailDiagnostic,
+  patch: Partial<MailDiagnostic>,
+): Promise<void> {
+  Object.assign(diag, patch);
+  diag.updatedAt = new Date().toISOString();
+  diag.events.push({ at: diag.updatedAt, stage: diag.stage, outcome: diag.outcome, code: diag.code });
+  if (!kv) return;
+  try {
+    await kv.put(`maildiag:${diag.requestId}`, JSON.stringify(diag), { expirationTtl: DIAG_TTL_S });
+  } catch (e) {
+    // 診斷係輔助性副作用：寫入失敗唔可以令已寄出／已處理變成失敗。
+    console.error("[send-mail] diag write failed (best-effort)", stringifyError(e));
+  }
+}
+
+/**
+ * 驗證／風險／網絡 metadata —— 由 handler 計算，附於郵件尾段與 lead 副本。
+ * 純資料：無秘密、無供應商原始 body、無 PII 新增。
+ */
+interface SecurityState {
+  verification: "verified" | "unavailable" | "not_checked";
+  risk: { level: "low" | "review"; score: number | null; reasons: string[] };
+  network: { asn: number | null; organization: string; country: string };
+}
+
+/**
+ * 追加於郵件尾部的安全摘要。只作提示：
+ *   - 唔會自動刪除／隔離任何 lead；
+ *   - 唔會改動或懲罰 lead 評級；
+ *   - review 級別只以「待人工確認」字眼標示，交人手判斷。
+ */
+function buildSecurityHtml(security: SecurityState): string {
   const rows: Array<[string, string]> = [
-    ...(f.source === "assessment"
-      ? ([["來源", "網站需求評估問卷（/start/）"], ["潛在客戶評級", f.leadGrade ? `${f.leadGrade} 級${f.leadNotes ? `（${f.leadNotes}）` : ""}` : ""]] as Array<[string, string]>)
-      : []),
-    ["姓名", f.name],
-    ["電話", f.phone],
-    ["電郵", f.email],
-    ["公司／品牌", f.company],
-    ["公司網站", f.companySite],
-    ["感興趣服務", f.service],
-    ["預算區間", f.budget],
-    ["預計開始", f.timeline],
-    ["現有系統／技術", f.systemInfo],
-  ].filter(([, v]) => v && v !== "未指定") as Array<[string, string]>;
-
-  const rowsHtml = rows
+    [
+      "人機驗證",
+      security.verification === "verified"
+        ? "已驗證"
+        : security.verification === "unavailable"
+          ? "未可用（fail-closed）"
+          : "未檢查",
+    ],
+    ["內容風險", security.risk.level === "review" ? "待人工確認" : "低"],
+    ["風險分數", security.risk.score === null ? "—" : String(security.risk.score)],
+    ["風險原因", security.risk.reasons.length ? security.risk.reasons.join("、") : "—"],
+    ["網絡 ASN", security.network.asn === null ? "—" : `AS${security.network.asn}`],
+    ["網絡機構", security.network.organization || "—"],
+    ["地區", security.network.country || "—"],
+  ];
+  const inner = rows
     .map(
-      ([k, v]) => `<tr>
-      <td style="padding:10px 14px;background:#f7f9fc;border-bottom:1px solid #e8edf5;color:#5b6b84;width:150px;vertical-align:top;font-size:13px">${escapeHtml(k)}</td>
-      <td style="padding:10px 14px;border-bottom:1px solid #e8edf5;color:#1a1f36;font-size:14px">${escapeHtml(v).replace(/\n/g, "<br>")}</td>
-    </tr>`,
+      ([k, v]) =>
+        `<tr><td style="padding:4px 10px 4px 0;color:#5b6b84;font-size:12px;vertical-align:top;white-space:nowrap">${escapeHtml(k)}</td><td style="padding:4px 0;color:#1a1f36;font-size:12px;vertical-align:top">${escapeHtml(v)}</td></tr>`,
     )
     .join("");
-
-  const html = `<!DOCTYPE html><html lang="zh-Hant"><body style="margin:0;padding:0;background:#f4f6fa;font-family:'Helvetica Neue',Helvetica,Arial,'PingFang TC','Microsoft JhengHei',sans-serif">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6fa;padding:24px 12px">
-    <tr><td align="center">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(15,76,129,.08)">
-        <tr><td style="background:#0f4c81;padding:20px 24px;color:#fff">
-          <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#f5a623;font-weight:700">ADWire Agency</div>
-          <div style="font-size:19px;font-weight:700;margin-top:6px">${f.source === "assessment" ? "需求評估查詢" : "新客戶查詢"}</div>
-        </td></tr>
-        <tr><td style="padding:20px 24px 8px">
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${rowsHtml}</table>
-        </td></tr>
-        ${
-          f.message
-            ? `<tr><td style="padding:16px 24px 4px">
-                <div style="font-size:12px;color:#5b6b84;margin-bottom:6px">訊息</div>
-                <div style="background:#f7f9fc;border-left:3px solid #f5a623;padding:12px 14px;border-radius:0 8px 8px 0;font-size:14px;color:#1a1f36;line-height:1.7">${escapeHtml(f.message).replace(/\n/g, "<br>")}</div>
-              </td></tr>`
-            : ""
-        }
-        <tr><td style="padding:16px 24px 24px">
-          <div style="font-size:11px;color:#8b98ad;line-height:1.7;border-top:1px solid #e8edf5;padding-top:12px">
-            來源：${escapeHtml(f.ip)}${f.country ? " · " + escapeHtml(f.country) : ""}<br>
-            User Agent：${escapeHtml(f.ua)}<br>
-            由 Cloudflare Worker 接收（PHP 版已停用）
-          </div>
-        </td></tr>
-      </table>
-    </td></tr>
-  </table></body></html>`;
-
-  return { subject, html };
+  return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:14px;border-top:1px solid #e8edf5"><tbody>${inner}</tbody></table>`;
 }
 
 export const onRequest = async (context: PagesContext): Promise<Response> => {
@@ -237,14 +345,29 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
 
   const body = await parseBody(request);
 
+  // ── 信封驗證（來源 origin／結構）──
+  // 生產環境只接受精確來源 https://adwire.com.hk 及 https://www.adwire.com.hk；
+  // 未授權嘅 preview Origin 唔放行，避免測試混入正式查詢流程。
+  const envelope = validateSubmissionEnvelope(request, body, Date.now());
+  if (!envelope.ok) {
+    return json(
+      { success: false, code: envelope.code || "invalid_submission", message: envelope.message || "提交無效。" },
+      envelope.status ?? 400,
+      origin,
+    );
+  }
+
   // ── Honeypot：填了就當機械人，回 success 但唔寄信（唔好提示機械人）──
   if (clean(body.website, 100) !== "") {
     return json({ success: true, message: "已收到，我們會盡快回覆。" }, 200, origin);
   }
 
   // ── 最短填表時間 ──
-  const startedAt = Number(body.formStartedAt || 0);
-  if (startedAt > 0 && Date.now() - startedAt < MIN_DWELL_MS) {
+  // 聯絡表單送 ISO 時間字串，需求評估問卷送毫秒數字；兩者都要檢查。
+  const startedAtRaw = body.formStartedAt;
+  const startedAt =
+    typeof startedAtRaw === "number" ? startedAtRaw : Date.parse(String(startedAtRaw ?? ""));
+  if (Number.isFinite(startedAt) && startedAt > 0 && Date.now() - startedAt < MIN_DWELL_MS) {
     return json({ success: false, message: "提交太快，請稍後再試。" }, 400, origin);
   }
 
@@ -257,7 +380,8 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
   const budget = clean(body.budget, MAX.extra);
   const timeline = clean(body.timeline, MAX.extra);
   const systemInfo = clean(body.systemInfo, MAX.extra);
-  const message = clean(body.message, MAX.message);
+  // ── 訊息（只此欄位保留換行；標題／其他欄位清理規則不變）──
+  const message = normalizeMultiline(body.message, MAX.message);
   // 需求評估問卷附帶的內部評級：只接受白名單值，其餘當冇
   const source = clean(body.source, 30) === "assessment" ? "assessment" : "";
   const gradeRaw = clean(body.leadGrade, 2).toUpperCase();
@@ -273,36 +397,99 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
     return json({ success: false, message: errors[0] }, 400, origin);
   }
 
-  // ── Turnstile ──
+  // 查詢儲存係必要保護；缺 binding 唔可以寄咗信先假裝備份存在。
+  if (!env.ENQUIRIES) {
+    return json({ success: false, code: "storage_unavailable", message: "查詢儲存服務暫時不可用，請稍後再試。" }, 503, origin);
+  }
+
+  // ── 人機驗證（fail-closed）──
+  // 驗證服務不可用／缺 secret → 503，絕不靜默放行；token 無效、缺失或網域不符 → 400。
+  // 未通過驗證的請求，唔會呼叫 Resend、唔會寫 enq:／mailoutbox／maildiag。
   const tsToken = clean(body.turnstileToken, 4096);
-  if (env.TURNSTILE_SECRET) {
-    if (!tsToken) {
-      return json({ success: false, message: "請完成人機驗證後再提交。" }, 400, origin);
-    }
-    const verdict = await verifyTurnstile(tsToken, env.TURNSTILE_SECRET, ip);
-    if (verdict === "fail") {
-      return json({ success: false, message: "人機驗證失敗，請重新整理頁面再試。" }, 400, origin);
-    }
+  const human = await verifyHumanToken({
+    token: tsToken,
+    secret: env.TURNSTILE_SECRET,
+    ip,
+    expectedHostname: new URL(origin!).hostname,
+    nowMs: Date.now(),
+  });
+  if (human.status === "unavailable") {
+    console.error("[send-mail] 人機驗證服務不可用，已 fail-closed：", human.reasonCode);
+    return json(
+      { success: false, code: "verification_unavailable", message: "人機驗證服務暫時不可用，請稍後再試。" },
+      503,
+      origin,
+    );
+  }
+  if (human.status === "failed") {
+    return json(
+      { success: false, code: "verification_failed", message: "人機驗證失敗，請重新整理頁面再試。" },
+      400,
+      origin,
+    );
   }
 
   // ── 速率限制 + 去重 ──
-  if (await rateLimited(env.ENQUIRIES, ip)) {
-    return json({ success: false, message: "提交太頻繁，請稍後再試。" }, 429, origin);
+  try {
+    if (await rateLimited(env.ENQUIRIES, ip)) {
+      return json({ success: false, message: "提交太頻繁，請稍後再試。" }, 429, origin);
+    }
+  } catch {
+    // 唔洩漏儲存層原文，亦唔會喺限流／備份狀態不明時繼續寄信。
+    return json({ success: false, code: "storage_unavailable", message: "查詢儲存服務暫時不可用，請稍後再試。" }, 503, origin);
   }
   const fingerprint = await sha256(`${name}|${email}|${message}`.toLowerCase());
   if (await isDuplicate(env.ENQUIRIES, fingerprint)) {
     return json({ success: true, message: "已收到，我們會盡快回覆。" }, 200, origin);
   }
 
-  const { subject, html } = buildEmail({
-    name, phone, email, service, company, companySite, budget, timeline,
-    systemInfo, message, ip, ua, country, source, leadGrade, leadNotes,
+  // ── 郵件診斷：通過所有防護後、config/寄信檢查前，先產生 requestId ──
+  // 診斷只喺記憶體組裝；KV 同一 key 每秒最多 1 次寫入，故整個請求只在終端結果
+  // 寫一次 `maildiag:<uuid>`（避免先 put 再 update 同一 key 造成 429）。
+  const requestId = crypto.randomUUID();
+  const diagSource: "assessment" | "contact" = source === "assessment" ? "assessment" : "contact";
+  const diagNow = new Date().toISOString();
+  const diag: MailDiagnostic = {
+    requestId,
+    createdAt: diagNow,
+    updatedAt: diagNow,
+    stage: "received",
+    outcome: "pending",
+    code: "pending",
+    source: diagSource,
+    providerStatus: null,
+    events: [{ at: diagNow, stage: "received", outcome: "pending", code: "guards_passed" }],
+  };
+  const requestHeaders = { "X-Request-ID": requestId };
+
+  // ── 內容風險評估（只作標記／通知）──
+  // 通過人機驗證之後才評估；唔會自動刪除／隔離任何 lead，亦唔會改動／懲罰 lead 評級。
+  const risk = evaluateSubmissionRisk({
+    name, phone, email, company, companySite, systemInfo, message, ua,
   });
+  // ── 可信 Cloudflare metadata（只讀 request.cf 及 cf-* header，忽略 body 冒充值）──
+  const network = collectNetworkMetadata(request);
+  const security: SecurityState = {
+    verification: "verified",
+    risk: { level: risk.level, score: risk.score, reasons: risk.reasons },
+    network,
+  };
+
+  // 可讀交易郵件（lib/mail-email.ts）＋ 安全摘要；risk=review 時主旨加「[待確認]」前綴。
+  // 只喺已通過人機驗證之後組裝，未驗證請求根本唔會到達此處。
+  const mail = buildMailEmail({
+    name, phone, email, service, company, companySite, budget, timeline,
+    systemInfo, message, ip, ua, country, source, leadGrade, leadNotes, security,
+  });
+  // 安全狀態由同一 renderer 呈現一次，唔喺 </html> 後追加另一套矛盾摘要。
+  const { subject, html } = mail;
 
   const record = {
     receivedAt: new Date().toISOString(),
+    requestId,
     name, phone, email, service, company, companySite, budget, timeline,
     systemInfo, message, ip, country, ua, source, leadGrade, leadNotes,
+    security,
   };
 
   // 先寫 KV（lead 不能只靠 email；寄信失敗時仍然有紀錄）
@@ -316,45 +503,139 @@ export const onRequest = async (context: PagesContext): Promise<Response> => {
     }
   }
 
+  // 凍結「EXACT 供應商 payload」一次：初次寄信與每次重試都用同一份 JSON 字串
+  // ＋ 同一個由 requestId 導出嘅 Idempotency-Key（唔再用舊嘅局部指紋）。
+  const frozenPayload = JSON.stringify({
+    from: env.MAIL_FROM || "ADWire Website <website@adwire.com.hk>",
+    to: [env.MAIL_TO || "info@adwire.com.hk"],
+    reply_to: email,
+    subject,
+    html,
+  });
+  const idempotencyKey = deriveIdempotencyKey(requestId);
+
+  /**
+   * 初次寄信失敗（config／provider／network）時保存：
+   *   - mailoutbox:<requestId>（不可變 frozen payload，30 日）
+   *   - mailoutboxstate:<requestId>（mutable，pending；每次 terminal 寫一次）
+   * 兩個 key 各寫一次，避免 KV 同一 key 每秒 1 寫上限。
+   * 回傳「真正保存到 KV」與否 —— 只有真確保存才回 queued:true，絕不假報。
+   */
+  const queueFailure = async (code: string, providerStatus: number | null): Promise<boolean> => {
+    const nowIso = new Date().toISOString();
+    const rec: OutboxRecord = {
+      requestId,
+      createdAt: nowIso,
+      idempotencyKey,
+      providerUrl: RESEND_URL,
+      payload: frozenPayload,
+      source: diagSource,
+    };
+    const state: OutboxState = {
+      requestId,
+      createdAt: nowIso,
+      updatedAt: nowIso,
+      status: "pending",
+      attempts: 1,
+      firstAttemptAt: nowIso,
+      lastAttemptAt: nowIso,
+      nextRetryAt: computeNextRetryAt(1, Date.now()),
+      providerStatus,
+      code,
+    };
+    return await persistFailedAttempt(env.ENQUIRIES, rec, state);
+  };
+
   const apiKey = env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("[send-mail] RESEND_API_KEY 未設定，無法寄信");
+    await finalizeDiagnostic(env.ENQUIRIES, diag, {
+      stage: "config",
+      outcome: "failed",
+      code: "missing_config",
+      providerStatus: null,
+    });
+    const queued = await queueFailure("missing_config", null);
     return json(
-      { success: false, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
+      { success: false, code: "missing_config", requestId, queued, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
       503,
       origin,
+      requestHeaders,
     );
   }
 
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from: env.MAIL_FROM || "ADWire Website <website@adwire.com.hk>",
-        to: [env.MAIL_TO || "info@adwire.com.hk"],
-        reply_to: email,
-        subject,
-        html,
-      }),
-    });
-    if (!res.ok) {
-      const detail = await res.text();
-      console.error("[send-mail] Resend error", res.status, detail.slice(0, 300));
+  const secrets = [apiKey, env.TURNSTILE_SECRET];
+  // 供應商錯誤／例外可能回顯提交內容（from/reply_to 電郵、公司、IP 等）或秘密；
+  // 將所有已知提交字串一併納入診斷遮罩，避免診斷紀錄洩漏 PII。
+  const redactValues: Array<string | undefined> = [
+    ...secrets, email, name, phoneDigits, company, companySite, systemInfo, message, ip, ua,
+  ];
+
+  let providerStatus: number | null = null;
+  let providerEmailId: string | undefined;
+
+  // 初次寄信同每次重試都用同一個 idempotency key ＋ 完全一樣嘅 frozen payload。
+  // 供應商本身嘅 idempotency 令並行／重複呼叫安全（我哋唔聲稱 KV 提供 exactly-once）。
+  const result = await providerSend(RESEND_URL, frozenPayload, idempotencyKey, apiKey);
+  providerStatus = result.status;
+
+  if (!result.ok) {
+    if (result.networkError) {
+      console.error("[send-mail] Resend fetch failed", maskSecrets(result.errorDetail, secrets));
+      // 保留真正失敗原因（已遮罩秘密／PII、唔含 stack）供管理員診斷。
+      await finalizeDiagnostic(env.ENQUIRIES, diag, {
+        stage: "network",
+        outcome: "failed",
+        code: "network_error",
+        providerStatus: null,
+        providerErrorName: redactDiagnostic(result.errorName, redactValues).slice(0, 120),
+        providerErrorMessage: redactDiagnostic(result.errorDetail, redactValues).slice(0, 500),
+      });
+      const queued = await queueFailure("network_error", null);
       return json(
-        { success: false, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
+        { success: false, code: "network_error", requestId, queued, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
         502,
         origin,
+        requestHeaders,
       );
     }
-  } catch (e) {
-    console.error("[send-mail] Resend fetch failed", e);
+
+    console.error("[send-mail] Resend error", result.status, maskSecrets(result.errorDetail, secrets).slice(0, 300));
+    const parsed = parseProviderError(result.errorDetail, redactValues);
+    await finalizeDiagnostic(env.ENQUIRIES, diag, {
+      stage: "provider",
+      outcome: "failed",
+      code: "provider_error",
+      providerStatus,
+      providerErrorName: parsed.name,
+      providerErrorMessage: parsed.message,
+    });
+    const queued = await queueFailure("provider_error", providerStatus);
     return json(
-      { success: false, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
+      { success: false, code: "provider_error", requestId, queued, message: "系統暫時未能發送，請直接 WhatsApp 或電郵 info@adwire.com.hk。" },
       502,
       origin,
+      requestHeaders,
     );
   }
 
-  return json({ success: true, message: "已收到，我們會盡快回覆。" }, 200, origin);
+  // 供應商 2xx：已接受（唔等於已送達，故唔會標示 Delivered）。安全解析供應商 email id。
+  providerEmailId = result.emailId;
+  await finalizeDiagnostic(env.ENQUIRIES, diag, {
+    stage: "sent",
+    outcome: "accepted",
+    code: "ok",
+    providerStatus,
+    providerEmailId,
+  });
+
+  // 只有 Resend 真正接受咗封郵件，才寫入去重標記。
+  // 寫入失敗唔可以將「已寄出」變成「失敗」—— 寄信係權威副作用，KV 只係輔助。
+  try {
+    await markSent(env.ENQUIRIES, fingerprint);
+  } catch (e) {
+    console.error("[send-mail] dedupe mark failed", maskSecrets(stringifyError(e), secrets));
+  }
+
+  return json({ success: true, requestId, message: "已收到，我們會盡快回覆。" }, 200, origin, requestHeaders);
 };
