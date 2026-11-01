@@ -132,6 +132,12 @@ node scripts/mail-readiness.mjs --target https://adwire.com.hk --ops-token-file 
 
 1. **生產前必須有 `MAIL_OPS_TOKEN`**：`production` 部署前有一步檢查此 secret 存在
    （只報長度，不印值），缺則**中止整個部署**。
+1b. **生產來源閘（2026-10-31 事故後新增）**：`production` 部署必須由 `main` 分支觸發，
+   而且被部署的 commit 必須已包含於 `origin/main`（`git merge-base --is-ancestor`）。
+   唔符合即中止。事故成因：郵件保護只部署到 production、從未 merge 入 main；之後由 main
+   部署，整份 production 被 main 的舊 code 覆蓋，`/inbox?mailops=*` 消失，watchdog 回報
+   `authfail http_401`。**回滾只能用 Cloudflare Pages 的 rollback（見 §5），唔可以用
+   workflow 部署舊分支／舊 commit。**
 2. **Build**：用 `npm run build -- --webpack`。原因：本 repo `next build` 預設走
    Turbopack，喺現有 `next/font/google` Lexend 解析上會失敗
    （`next/font/google queries have exactly one entry`），**與本次 mail 變更無關**；

@@ -58,6 +58,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+        with:
+          # 需要完整歷史：下面的生產來源閘會用 git 比對 commit 與 origin/main 的關係。
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -89,6 +92,30 @@ jobs:
           NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
           ADMIN_API_KEY: ${{ secrets.ADMIN_API_KEY }}
         run: npm run build -- --webpack
+
+      # ⚠️ 防回歸閘（2026-10-31 事故後新增）：
+      #   事故成因：郵件保護 code 只部署到 production、冇 merge 入 main；之後有人由 main
+      #   部署，整份 production 被 main 的舊 code 覆蓋，/inbox?mailops=* 消失。
+      #   因此 production 部署必須：① 由 main 分支觸發；② 被部署的 commit 必須已在 origin/main。
+      #   要回滾舊版本請用 Cloudflare Pages 的 rollback（見 docs/mail-operations.md），
+      #   唔好用 workflow 部署舊分支／舊 commit。
+      - name: 生產部署來源閘（僅 production）
+        if: ${{ github.event.inputs.target == 'production' }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          echo "deploy source = $GITHUB_SHA"
+          echo "origin/main  = $MAIN_SHA (branch=$GITHUB_REF_NAME)"
+          if [ "$GITHUB_REF_NAME" != "main" ]; then
+            echo "::error::production 部署只可以由 main 分支觸發（現時：$GITHUB_REF_NAME）。請先 merge 入 main。"
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+            echo "::error::$GITHUB_SHA 不在 origin/main 上，拒絕部署（會覆蓋 production 現有版本）。"
+            exit 1
+          fi
+          echo "✅ 來源閘通過：commit 已包含於 origin/main"
 
       - name: Deploy
         env:
