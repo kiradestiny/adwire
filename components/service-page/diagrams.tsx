@@ -13,7 +13,7 @@ import {
   FileSpreadsheet, MessageCircle, Receipt, ShoppingCart, Database, Bell, Users,
   BarChart3, Package, FileText, BookOpen, Bot, Quote, UserCheck, Send, HelpCircle,
   Workflow, Search, Megaphone, ClipboardCheck, Rocket, TrendingUp, Star, Wrench,
-  Sparkles, CheckCircle2,
+  Sparkles, CheckCircle2, Store, Video, Languages, MapPin, Wallet,
 } from "lucide-react";
 import type { ServicePageKey } from "@/lib/service-pages/types";
 
@@ -161,6 +161,46 @@ const AGENCY_COLUMNS: FlowColumn[] = [
   { title: "試點擴大", nodes: [
     { icon: Rocket, label: "小範圍試點" },
     { icon: TrendingUp, label: "有效先擴大" },
+  ]},
+];
+
+// 中國市場：香港品牌 → 內地平台 → 客人搜到、信到、買到
+const CHINA_COLUMNS: FlowColumn[] = [
+  { title: "揀平台", nodes: [
+    { icon: Package, label: "你的產品" },
+    { icon: Users, label: "目標客群" },
+  ]},
+  { title: "帳號基建", nodes: [
+    { icon: BookOpen, label: "小紅書專業號", sub: "藍 V 認證" },
+    { icon: Video, label: "抖音企業號" },
+  ]},
+  { title: "內容種草", nodes: [
+    { icon: FileText, label: "筆記／短片" },
+    { icon: Star, label: "KOC 口碑" },
+  ]},
+  { title: "轉化", nodes: [
+    { icon: MessageCircle, label: "私信查詢" },
+    { icon: Store, label: "到店／成交" },
+  ]},
+];
+
+// 香港市場：同一個品牌 → 香港用語 → 香港渠道 → 查詢
+const HK_COLUMNS: FlowColumn[] = [
+  { title: "品牌診斷", nodes: [
+    { icon: ClipboardCheck, label: "文案、價錢", sub: "合規事項" },
+  ]},
+  { title: "香港用語", nodes: [
+    { icon: Languages, label: "繁體＋廣東話" },
+    { icon: Wallet, label: "FPS／信用卡" },
+  ]},
+  { title: "香港渠道", nodes: [
+    { icon: Search, label: "Google" },
+    { icon: MapPin, label: "Google 地圖" },
+    { icon: Megaphone, label: "IG／FB 廣告" },
+  ]},
+  { title: "客人查詢", nodes: [
+    { icon: MessageCircle, label: "WhatsApp" },
+    { icon: TrendingUp, label: "每月報告" },
   ]},
 ];
 
@@ -321,6 +361,10 @@ export default function ServiceDiagram({ kind, active }: { kind: ServicePageKey;
       return <WebDiagram active={active} />;
     case "seo":
       return <SeoDiagram active={active} />;
+    case "china-market":
+      return <FlowDiagram columns={CHINA_COLUMNS} active={active} />;
+    case "hong-kong-market":
+      return <FlowDiagram columns={HK_COLUMNS} active={active} />;
     default:
       return null;
   }

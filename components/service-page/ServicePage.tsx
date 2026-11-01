@@ -572,6 +572,16 @@ function Pricing({ d, whatsapp }: { d: ServicePageData; whatsapp: string }) {
 
 // ─── 9. 真實案例 ─────────────────────────────────────────────────────
 
+/** 有項目頁就成張卡可以撳；冇（例如過往項目數字）就係普通卡，避免假連結 */
+function ProofCard({ href, children }: { href?: string; children: ReactNode }) {
+  const cls = "group block h-full rounded-3xl bg-white overflow-hidden transition-all";
+  return href ? (
+    <Link href={href} className={`${cls} hover:-translate-y-1.5 hover:shadow-2xl`}>{children}</Link>
+  ) : (
+    <div className={cls}>{children}</div>
+  );
+}
+
 function Proof({ d }: { d: ServicePageData }) {
   return (
     <section id="proof" className="scroll-mt-32 py-16 md:py-24 bg-[#0f4c81] relative overflow-hidden">
@@ -581,10 +591,7 @@ function Proof({ d }: { d: ServicePageData }) {
         <div className="grid md:grid-cols-3 gap-5">
           {d.proof.items.map((p, i) => (
             <motion.div key={p.title} {...fadeUp} transition={{ duration: 0.45, delay: i * 0.08 }} data-mobile-visible="true">
-              <Link
-                href={p.href}
-                className="group block h-full rounded-3xl bg-white overflow-hidden hover:-translate-y-1.5 hover:shadow-2xl transition-all"
-              >
+              <ProofCard href={p.href}>
                 {p.image ? (
                   <div className="aspect-[16/10] overflow-hidden bg-gray-100">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -603,11 +610,13 @@ function Proof({ d }: { d: ServicePageData }) {
                   {p.image && p.stat && (
                     <p className="text-sm"><span className="font-bold text-[#0f4c81]">{p.stat}</span> <span className="text-gray-500">{p.statLabel}</span></p>
                   )}
-                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#0f4c81] mt-2 group-hover:gap-2 transition-all">
-                    查看項目 <ArrowRight size={14} />
-                  </span>
+                  {p.href && (
+                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#0f4c81] mt-2 group-hover:gap-2 transition-all">
+                      查看項目 <ArrowRight size={14} />
+                    </span>
+                  )}
                 </div>
-              </Link>
+              </ProofCard>
             </motion.div>
           ))}
         </div>

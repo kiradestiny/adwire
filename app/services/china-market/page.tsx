@@ -1,164 +1,52 @@
 import type { Metadata } from "next";
-import { WHATSAPP_E164 } from "@/lib/site-config";
 import ChinaMarketContent from "./ChinaMarketContent";
-import FAQJsonLd from "@/components/FAQJsonLd";
+import ServicePageJsonLd from "@/components/service-page/ServicePageJsonLd";
 import { CHINA_MARKET_FAQS } from "@/lib/service-faqs";
+import { CHINA_MARKET_PAGE } from "@/lib/service-pages/china-market";
 
 /**
  * 中國市場推廣 /services/china-market/
- *
- * 2026-09-21 新增。內容來源：中國市場推廣服務一覽_0813（負責人確認可出街）。
- * FAQ 由 lib/service-faqs.ts 單一來源讀取，確保 schema 與頁面可見內容一致。
+ * 2026-09-21 新增；2026-11-01 改用統一服務頁模板（文案見 lib/service-pages/china-market.ts）。
+ * Title 對準實際搜尋量（小紅書專業號、小紅書推廣），而唔係幾乎冇人搜的「中國市場推廣」。
  */
+const PATH = "/services/china-market/";
+const TITLE = "小紅書推廣・專業號開通｜香港品牌進軍內地";
+const DESCRIPTION =
+  "香港品牌進軍內地：小紅書專業號（藍V）開通及代運營、抖音企業號、KOC 種草、大眾點評／美團入駐、微信及內地 AI 平台。先免費評估你的產品應該先做哪個平台，再按範圍報價。";
+const IMAGE = CHINA_MARKET_PAGE.heroImage.src;
 
 export const metadata: Metadata = {
-  title: "小紅書推廣・專業號開通｜香港品牌進軍內地",
-  description:
-    "香港品牌進軍內地：小紅書專業號（藍V）開通、小紅書推廣及代運營、抖音企業號、微信、百度、美團／大眾點評入駐，以及 DeepSeek／豆包 AI 平台 GEO。先免費評估先做哪個平台，再按範圍報價。",
+  title: TITLE,
+  description: DESCRIPTION,
   keywords: [
-    "小紅書專業號",
-    "小紅書企業號",
-    "小紅書專業號申請",
-    "抖音企業號",
-    "小紅書廣告",
-    "中國市場推廣",
-    "內地推廣",
-    "中國市場營銷",
-    "小紅書推廣",
-    "小紅書代運營",
-    "抖音推廣",
-    "微信營銷",
-    "微信公眾號推廣",
-    "百度收錄優化",
-    "內地KOL",
-    "美團開戶",
-    "大眾點評",
-    "高德地圖入駐",
-    "內地AI平台GEO",
-    "DeepSeek 優化",
-    "香港品牌進軍內地",
-    "大灣區推廣",
-    "China Market Promotion Hong Kong",
+    "小紅書專業號", "小紅書企業號", "小紅書推廣", "小紅書代運營", "小紅書廣告", "抖音企業號",
+    "抖音推廣", "大眾點評", "美團商家", "中國市場推廣", "內地推廣", "香港品牌進軍內地", "內地KOL",
   ],
-  authors: [{ name: "ADWire Agency", url: "https://adwire.com.hk" }],
-  alternates: {
-    canonical: "/services/china-market/",
-  },
+  alternates: { canonical: PATH },
   openGraph: {
-    title: "小紅書推廣・專業號開通｜香港品牌進軍內地",
-    description:
-      "香港公司點樣開小紅書專業號？由藍V認證、種草內容、抖音短片、KOL 到美團／大眾點評入駐，按你的產品決定先做哪個平台。",
-    url: "https://adwire.com.hk/services/china-market/",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `https://adwire.com.hk${PATH}`,
     siteName: "ADWire Agency",
-    images: [
-      {
-        url: "/services/china-market/og.webp",
-        width: 1200,
-        height: 630,
-        alt: "ADWire Agency 中國市場推廣服務",
-      },
-    ],
-    locale: "zh_HK",
+    images: [{ url: IMAGE, alt: CHINA_MARKET_PAGE.heroImage.alt }],
     type: "website",
+    locale: "zh_HK",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "小紅書推廣・專業號開通｜香港品牌進軍內地 | ADWire Agency",
-    description:
-      "由小紅書、抖音、微信、百度到美團／大眾點評／高德地圖，以及 DeepSeek／豆包／Kimi 的 AI 平台可見度。按產品與預算決定平台優先次序。",
-    images: ["/services/china-market/og.webp"],
-  },
-};
-
-// ─── JSON-LD ────────────────────────────────────────────────────────────────
-
-const serviceSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": "https://adwire.com.hk/services/china-market/#service",
-  name: "中國市場推廣 (China Market Promotion)",
-  alternateName: "內地市場推廣服務",
-  description:
-    "ADWire Agency 為香港品牌提供進入內地市場的推廣服務，涵蓋小紅書、抖音、微信、微博、百度搜尋、內地廣告投放、內地 KOL／KOC／KOS、美團／大眾點評／高德地圖商戶入駐，以及 DeepSeek／豆包／Kimi 等內地 AI 平台的生成式引擎優化（GEO）。",
-  url: "https://adwire.com.hk/services/china-market/",
-  image: "https://adwire.com.hk/services/china-market/og.webp",
-  // 只引用全站唯一的 Organization 節點（@id），不在同一個 @id 上再次宣告
-  // @type／name／url，避免與 components/JsonLd.tsx 的權威節點衝突。
-  provider: {
-    "@id": "https://adwire.com.hk/#organization",
-  },
-  areaServed: [
-    { "@type": "Country", name: "China" },
-    { "@type": "Place", name: "Greater Bay Area" },
-    { "@type": "Place", name: "Hong Kong" },
-  ],
-  serviceType: "China Market Promotion",
-  category: "Cross-border Marketing",
-  availableChannel: {
-    "@type": "ServiceChannel",
-    serviceUrl: "https://adwire.com.hk/services/china-market/",
-    servicePhone: WHATSAPP_E164,
-    availableLanguage: ["zh-Hant", "zh-Hans", "zh-Yue", "en"],
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "中國市場推廣服務項目",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "小紅書專業號（企業藍V）開通與帳號基建" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "小紅書推廣與代運營（種草筆記、薯條／聚光廣告、蒲公英 KOC 合作）" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "抖音推廣（企業號、短視頻、本地生活、商城）" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "微信生態（公眾號、朋友圈廣告、微商城、企業微信）" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "微博運營與新聞稿公關" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "百度收錄優化與品牌搜尋結果管理" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "內地廣告投放（騰訊廣告、資訊流）" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "內地 KOL／KOC／KOS 管理與合作" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "美團／大眾點評商戶開通與運營" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "高德地圖商家入駐與店鋪頁面運營" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "內地 AI 平台 GEO（DeepSeek／豆包／Kimi）" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "社交媒體代運營與內容製作" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "品牌全網營銷（跨渠道整合）" } },
-    ],
-  },
-};
-
-const webPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://adwire.com.hk/services/china-market/#webpage",
-  url: "https://adwire.com.hk/services/china-market/",
-  name: "小紅書推廣・專業號開通｜香港品牌進軍內地",
-  inLanguage: "zh-HK",
-  datePublished: "2026-09-21",
-  dateModified: "2026-11-01",
-  about: { "@id": "https://adwire.com.hk/services/china-market/#service" },
-  publisher: { "@id": "https://adwire.com.hk/#organization" },
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "首頁", item: "https://adwire.com.hk" },
-    { "@type": "ListItem", position: 2, name: "服務", item: "https://adwire.com.hk/services/" },
-    { "@type": "ListItem", position: 3, name: "中國市場推廣", item: "https://adwire.com.hk/services/china-market/" },
-  ],
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: [IMAGE] },
 };
 
 export default function ChinaMarketPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
-      />
-      <FAQJsonLd faqs={CHINA_MARKET_FAQS} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      <ServicePageJsonLd
+        path={PATH}
+        name="中國市場推廣（小紅書、抖音、大眾點評）"
+        description={DESCRIPTION}
+        serviceType="China Market Promotion"
+        image={IMAGE}
+        crumb={CHINA_MARKET_PAGE.crumb}
+        faqs={CHINA_MARKET_FAQS}
+        areaServed={["Hong Kong", "China", "Greater Bay Area"]}
       />
       <ChinaMarketContent />
     </>

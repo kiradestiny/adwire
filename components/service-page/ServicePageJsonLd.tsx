@@ -15,7 +15,7 @@ export interface ServiceOffer {
 }
 
 export default function ServicePageJsonLd({
-  path, name, description, serviceType, image, crumb, faqs, offers,
+  path, name, description, serviceType, image, crumb, faqs, offers, areaServed,
 }: {
   path: string;
   name: string;
@@ -25,6 +25,8 @@ export default function ServicePageJsonLd({
   crumb: string;
   faqs: ServiceFaq[];
   offers?: ServiceOffer[];
+  /** 預設香港；跨境頁可傳多個地區 */
+  areaServed?: string[];
 }) {
   const url = `${SITE}${path}`;
   const service = {
@@ -37,7 +39,9 @@ export default function ServicePageJsonLd({
     url,
     image,
     provider: { "@id": `${SITE}/#organization` },
-    areaServed: { "@type": "Place", name: "Hong Kong" },
+    areaServed: areaServed?.length
+      ? areaServed.map((n) => ({ "@type": "Place", name: n }))
+      : { "@type": "Place", name: "Hong Kong" },
     availableLanguage: ["zh-Hant", "zh-Yue", "en"],
     ...(offers?.length
       ? {
