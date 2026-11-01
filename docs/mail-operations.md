@@ -175,6 +175,28 @@ Git 對應：`main` = `b1488a6`；診斷/去重修復 = `5b09ef9`
 
 ---
 
+## 5b. AgentMail 憑證（獨立告警通道）
+
+watchdog 只用 AgentMail 寄告警。以下為 2026-11-01 實測狀態，唔係憑記憶：
+
+| 項目 | 實測 |
+| --- | --- |
+| 組織 | `76da08af-47a9-41dd-a8b2-f99a526c6136`，`authentication_type=agent`，`authentication_id=info@adwire.com.hk` |
+| Inbox | `adwire-hermes3099@agentmail.to`（`inbox_limit: 1`） |
+| 現用 key | `am_us_f9bc92…`（`api_key_id 862c5663-…`，2026-09-18 建立，**無 `expires_at`，不會自己過期**） |
+| 驗證狀態 | **`agent_verified: false`** |
+| 限制 | `daily_send_limit: 10`；未驗證 org 只可寄去 attached human（即 `info@adwire.com.hk`） |
+
+**關鍵限制**：未完成 agent verification 時，`POST /v0/api-keys` 回
+`missing_permission — This organization has not completed agent verification, which gates 'api_key_create' at every scope`。
+即 key 遺失／被 revoke 之後，agent **無法自行補一條**。解鎖路徑：`POST /v0/agent/verify`（OTP 寄去 `info@adwire.com.hk`）；若未 attached human 則先 `POST /v0/agent/human`。驗證後權限快取可能滯後最多 5 分鐘。
+
+官方輪換程序：建新 key → 持久化 → 用新 `client_id` 部署並驗證 → `DELETE` 舊 key。重新 sign-up 同一 email 會輪換 org key，舊 key 即廢。
+
+第二個組織 `9d6bab13-948f-4124-b20b-ec8c091278a3`（`adwire-hermes@agentmail.to`，human = `willychung913@gmail.com`）：2026-10-13 記錄的 key 現時 **403 Forbidden（已失效）**。截至 2026-11-01 **無任何啟用中的 cron 使用它**（`AAB Google Ads 每日報告 email`、`ADWire Google Ads 全客戶日報 email` 均已停用），故無即時影響；殘留引用只在 `~/peko_ads/aab_gads_audit_20261013/adwire_report_config.json` 等歷史檔案。要重啟相關功能必須先重新簽發。
+
+---
+
 ## 6. 測試
 
 ```bash
