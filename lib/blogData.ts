@@ -17,6 +17,287 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+
+  {
+    id: 58,
+    slug: "school-ai-solution-hong-kong-guide",
+    title: "學校 AI 方案：中小學 AI 教學工具採購、資助與落地",
+    excerpt:
+      "學校引入 AI 教學工具，最難不是買軟件，而是選對用途、處理學生資料與找到資助。本文整理四類 AI 工具用途、採購與資助路徑、學生資料與私隱要求、供應商評估清單，以及由試點到全校推行的步驟。",
+    date: "2026-11-09",
+    updatedAt: "2026-11-09",
+    image: "/blog/school-ai-solution-hong-kong-guide.webp",
+    category: "AI",
+    readTime: "11 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    tags: ["學校 AI 方案", "AI 教學工具", "教育科技", "學校採購", "優質教育基金", "學生資料私隱"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">學校想引入 AI，最常見的情況是：老師已經在用免費工具，管理層仍未決定政策；或者買了一套平台，用了兩個月就沒人開。問題通常不在工具本身，而在引入之前沒有回答三個問題——用來做甚麼、學生的資料放在哪裡、誰負責跟進。這篇文章由學校角度出發，把這三件事講清楚。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">先定義用途（教學、行政、評核、支援），再談工具。<br>學生個人資料的處理方式，要在採購前寫入規格，而不是上線後補救。<br>由一至兩個科目、一個級別開始試點，六至八星期後才決定是否全校推行。</p>
+        </div>
+
+        <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
+          <img src="/blog/school-ai-solution-hong-kong-guide.webp" alt="香港小學課室內老師與學生使用平板電腦進行 AI 輔助學習活動" title="學校 AI 方案：課堂應用" width="1200" height="680" loading="lazy" decoding="async" class="w-full h-auto" />
+        </figure>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為何學校引入 AI 特別容易停在試用階段</h3>
+
+        <p>商業機構買工具，通常有一個明確的流程要改善；學校買工具，往往同時要滿足教學、行政、家長溝通與資助要求。當這四件事沒有分開處理，工具就會變成「多一個要學的東西」。</p>
+
+        <p>另一個原因是決策鏈長。資訊科技統籌老師提出需求，科主任有意見，行政主任關心資料，校長要考慮資源與風險。如果沒有一份共同語言的文件，每次會議都退回原點。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先分清四類用途，不要一次買齊</h3>
+
+        <div class="overflow-x-auto my-8"><table class="w-full text-sm md:text-base border-collapse">
+          <caption class="text-left text-sm text-gray-500 mb-2">學校 AI 工具的四類用途與實際例子</caption>
+          <thead><tr class="bg-[#0f4c81] text-white"><th class="text-left p-3">用途</th><th class="text-left p-3">實際例子</th><th class="text-left p-3">主要考慮</th></tr></thead>
+          <tbody>
+            <tr class="border-b border-gray-200"><td class="p-3 font-semibold">教學輔助</td><td class="p-3">備課、出題、差異化練習、語言練習</td><td class="p-3">內容準確度、教師可編輯程度</td></tr>
+            <tr class="border-b border-gray-200 bg-gray-50"><td class="p-3 font-semibold">學生學習工具</td><td class="p-3">寫作回饋、口語練習、解題提示</td><td class="p-3">會不會代做、資料收集範圍</td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-semibold">行政流程</td><td class="p-3">通告整理、會議記錄、查詢分類</td><td class="p-3">與現有系統整合、權限控制</td></tr>
+            <tr><td class="p-3 font-semibold">評核與分析</td><td class="p-3">批改輔助、學習數據分析</td><td class="p-3">準確度、可解釋性、家長知情</td></tr>
+          </tbody></table></div>
+
+        <p>實務建議：先揀一類、一個科目、一個級別。四類同時推，等於四條戰線同時缺人。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、資助與預算路徑</h3>
+
+        <p>學校引入 AI 的資源通常來自三個方向：學校本身的資訊科技預算、優質教育基金（QEF）等外部撥款，以及供應商提供的試用或先導計劃。三者要求的文件與時間表完全不同，所以要分開規劃。</p>
+
+        <p><strong>校本預算</strong>最快，但金額有限，適合先做小規模試點與教師培訓。<strong>外部撥款</strong>金額較大，但要寫計劃書、訂立可量度目標與報告期，通常要提前一至兩個學年準備。<strong>供應商試用</strong>門檻最低，但要注意試用期結束後的資料處理與收費安排，不要讓試用變成默認續約。</p>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">採購前要書面確認的六項</p>
+          <ul class="space-y-2 text-gray-700">
+            <li>1. 資料存放地點（香港、內地或海外），以及是否跨境傳輸</li>
+            <li>2. 學生資料的收集範圍、保留期限與刪除方式</li>
+            <li>3. 教師帳戶與學生帳戶的權限設計</li>
+            <li>4. 家長知情與同意機制</li>
+            <li>5. 服務中斷、加價與終止合約時的資料匯出安排</li>
+            <li>6. 供應商有沒有提供本地支援與培訓</li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/school-ai-solution-hong-kong-guide-1.webp" alt="學校資訊科技統籌老師與同事在電腦室討論 AI 學習平台方案" title="學校 AI 方案：供應商評估會議" width="1200" height="680" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">評估重點不是功能數量，而是資料處理與支援安排</figcaption>
+        </figure>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、學生資料與私隱：最容易出問題的一環</h3>
+
+        <p>AI 工具通常會把輸入內容傳到雲端處理，這代表學生的姓名、班別、作業內容甚至相片，有機會離開校內系統。學校在採購前應該要求供應商書面說明：資料傳送到哪裡、保留多久、會不會用於訓練模型、以及是否可以向學校提供刪除證明。</p>
+
+        <p>同時要留意《個人資料（私隱）條例》下的資料保障原則，以及教育局對學生個人資料處理的相關指引。若工具涉及未成年學生，家長的知情與同意安排更需要提前設計，而不是上線後才發通告。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、供應商評估：五條必問問題</h3>
+
+        <p>1. 這個工具解決哪一個具體教學問題？有沒有效果數據，還是只有示範？<br>2. 學生的資料存放在哪裡？会不会用於訓練模型？<br>3. 教師可以編輯 AI 產生的內容嗎？出錯時怎樣修正？<br>4. 如果一年後不再使用，資料怎樣匯出？收費多少？<br>5. 有沒有本地支援？回應時間與培訓安排是怎樣？</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、由試點到全校推行的四步</h3>
+
+        <p><strong>第一步（2 週）：</strong>定義用途與成功指標，例如「中三英文寫作回饋時間由 5 天縮短到 2 天」。<br><strong>第二步（4-6 週）：</strong>一至兩個科目、一個級別試點，同步收集教師與學生回饋。<br><strong>第三步（2 週）：</strong>按試點數據決定擴大、調整或停止；同時完成資料處理與家長溝通。<br><strong>第四步：</strong>全校推行前，先做教師培訓與支援安排，並設定每學期的檢視點。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">常見問題</h3>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">學校應該自己開發 AI 工具，還是買現成平台？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">多數情況應該先買現成平台做試點，因為開發週期長、維護成本高，而且 AI 模型與工具更新很快。只有在現成平台無法滿足特定流程（例如與校內系統深度整合、特殊評核方式）時，才考慮定開發，並在合約寫明資料擁有權與離場安排。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">AI 工具會不會令學生抄襲或不做功課？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">這是學校最常提出的憂慮，但單純禁止通常無效。較實際的做法是調整作業設計（過程記錄、口頭答辯、課堂內完成），並向學生說明可接受的使用方式。工具本身可以設定不直接給答案，只提供提示與回饋，這類設定應該在試點前確認。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">引入 AI 工具的預算大約多少？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">差異很大，取決於使用者數量、功能範圍與是否包含校本設定及培訓。市場上的教師工具多以每位教師或每班計，學生工具多以每位學生計，行政自動化則多數按項目或按用量計。建議先向兩至三間供應商取得同一規格下的報價，並要求分開列明首年費用與續期費用。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">可以用優質教育基金申請 AI 教學項目嗎？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">優質教育基金接受與教學相關的計劃申請，AI 教學應用屬於可考慮範圍，但必須寫清楚教學目標、推行方法、成效量度與可持續性，而不是以「購買工具」為計劃主體。申請前應先查閱基金當期指引與截止日期，並確認項目與校本課程的關係。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">教師需要多少培訓才用得順？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">以試點經驗，兩至三小時的操作培訓足以開始，但真正影響成效的是後續的教學設計支援與同儕分享。建議把培訓分兩層：全體教師的操作入門，以及試點教師的深度工作坊，並在試點期間安排固定檢視會議。</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">延伸閱讀</p>
+          <ul class="space-y-2">
+          <li><a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] hover:underline">優質教育基金申請指南：資格、流程與常見問題</a></li>
+          <li><a href="/blog/school-it-vendor-quotation-guide/" class="text-[#0f4c81] hover:underline">學校報價流程：資助學校採購門檻與供應商比較</a></li>
+          <li><a href="/services/education/" class="text-[#0f4c81] hover:underline">學校及教育機構服務</a></li>
+          <li><a href="/services/ai/" class="text-[#0f4c81] hover:underline">企業 AI 應用開發</a></li>
+          </ul>
+        </div>
+    `,
+  },
+
+  {
+    id: 57,
+    slug: "ngo-tender-procurement-guide",
+    title: "NGO 招標流程：社福機構採購程序、報價文件與供應商評分",
+    excerpt:
+      "NGO 用公帑採購，同一套程序做錯就會被審計質疑。本文拆解社福機構常見的採購方式與金額門檻、報價文件必備項目、供應商評分表、合約與知識產權條款，以及五個最常被忽略的風險。",
+    date: "2026-11-09",
+    updatedAt: "2026-11-09",
+    image: "/blog/ngo-tender-procurement-guide.webp",
+    category: "System Dev",
+    readTime: "12 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    tags: ["NGO 招標", "社福機構採購", "報價文件", "供應商評分", "非牟利機構", "採購程序"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">社福機構採購系統、網站或器材，用的是公帑與捐款，同一套程序做錯，小則要補做文件，大則被審計或資助方質疑。這篇文章由機構內部角度出發，講清楚採購方式點揀、報價文件要寫甚麼、評分表點設計、合約要守住哪幾條，以及五個最常被忽略的風險。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
+          <p class="text-gray-700 leading-relaxed">先確認機構自身的採購政策與資助方的要求，而不是先問供應商報價。<br>金額門檻、報價份數、批核人員與利益申報，全部以機構政策為準。<br>評分表要在邀請報價之前定好，不能收到報價後才調權重。</p>
+        </div>
+
+        <figure class="my-8 rounded-xl overflow-hidden shadow-sm">
+          <img src="/blog/ngo-tender-procurement-guide.webp" alt="社福機構職員在辦公室比對供應商報價文件" title="社福機構採購：報價文件比較" width="1200" height="680" loading="lazy" decoding="async" class="w-full h-auto" />
+        </figure>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">為何 NGO 採購比商業採購更容易出錯</h3>
+
+        <p>商業機構買錯系統，最多是浪費一筆錢；資助機構買錯，問題會延伸到資助協議、服務質素標準與審計報告。原因有三個：</p>
+
+        <p><strong>第一，錢的來源決定了程序。</strong>同一筆支出，用機構儲備、用社署資助、用基金撥款，要求的文件與批核層級可以完全不同。很多機構在採購初期沒有分清，到頭來要補做文件。</p>
+
+        <p><strong>第二，決策人往往不是使用者。</strong>批核的是總幹事或管理委員會，實際用的是前線社工與行政同事。如果需求由一方寫、由另一方批，規格很容易寫得太籠統，令供應商的報價無從比較。</p>
+
+        <p><strong>第三，同一時間只有一兩個人處理。</strong>社福機構的行政人手普遍緊張，採購往往由一位同事兼顧，文件範本沿用多年，條款未必跟得上現在的資料保護與雲端服務要求。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、採購方式與金額門檻：先看機構政策，再看資助方</h3>
+
+        <p>資助學校有教育局統一的採購門檻，但社福機構沒有全港統一的金額表。機構須按自身採購政策、資助方的《資助及服務協議》與廉政公署對受資助機構的指引，自行訂立門檻與批核層級。以下是常見的四種採購方式，實際金額與份數請以你機構現行政策為準。</p>
+
+        <div class="overflow-x-auto my-8"><table class="w-full text-sm md:text-base border-collapse">
+          <caption class="text-left text-sm text-gray-500 mb-2">社福機構常見採購方式（金額門檻以機構自身政策為準）</caption>
+          <thead><tr class="bg-[#0f4c81] text-white"><th class="text-left p-3">採購方式</th><th class="text-left p-3">常見適用情況</th><th class="text-left p-3">文件要求</th><th class="text-left p-3">常見出錯位</th></tr></thead>
+          <tbody>
+            <tr class="border-b border-gray-200"><td class="p-3 font-semibold">直接採購</td><td class="p-3">金額較低、市場選擇單一（例如指定軟件的續期）</td><td class="p-3">報價單、批核記錄、利益申報</td><td class="p-3">沒有做市場比較，被視為未盡採購責任</td></tr>
+            <tr class="border-b border-gray-200 bg-gray-50"><td class="p-3 font-semibold">口頭報價</td><td class="p-3">金額中等、規格簡單</td><td class="p-3">至少兩個口頭報價的書面記錄</td><td class="p-3">只有一個報價，或記錄沒有列明規格</td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-semibold">書面報價</td><td class="p-3">金額較高、需要比較交付內容</td><td class="p-3">邀請書、統一規格表、至少數份書面報價</td><td class="p-3">每間供應商報價範圍不同，無法直接比較</td></tr>
+            <tr><td class="p-3 font-semibold">公開招標</td><td class="p-3">金額高、涉及長期服務或大量使用者</td><td class="p-3">招標文件、評分表、開標記錄、合約</td><td class="p-3">評分準則在開標後才調整</td></tr>
+          </tbody></table></div>
+
+        <p>實務上最常見的問題不是「沒有報價」，而是<strong>每間供應商報價的範圍不同</strong>。A 公司包三年保養、B 公司只包一年、C 公司把資料搬出另外收費，三個總數放在一起比較，等於沒有比較。所以邀請報價時一定要附上同一份規格表與同一份報價表格，要求供應商逐項填寫。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、報價文件必備的八個項目</h3>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <ul class="space-y-2 text-gray-700">
+            <li>1. 需求與範圍：解決甚麼問題、誰使用、現時流程是怎樣</li>
+            <li>2. 功能清單：逐項列出必要與可選功能，避免「大致上」</li>
+            <li>3. 交付物：系統、原始碼、設計檔、文件、培訓、上線支援</li>
+            <li>4. 時間表：里程碑、驗收節點、上線日期與緩衝期</li>
+            <li>5. 費用結構：一次開發費、每年保養費、第三方服務費分開列</li>
+            <li>6. 保養與支援：回應時間、處理時間、服務時間、升級路徑</li>
+            <li>7. 資料擁有權與離場安排：資料歸屬、匯出格式、遷移協助</li>
+            <li>8. 知識產權與使用授權：原始碼、設計、內容與素材的授權範圍</li>
+          </ul>
+        </div>
+
+        <p>第八項最容易被忽略，但對機構影響最深。如果合約沒有寫清楚，系統做完之後，機構可能只有使用權而沒有原始碼，日後想換供應商就要重新開發一次。機構應該在報價階段就問清楚：原始碼會不會交付、以甚麼形式交付、有沒有托管安排。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/ngo-tender-procurement-guide-1.webp" alt="社福機構採購評分會議，職員圍著會議桌比對招標文件與評分表" title="社福機構採購評分會議" width="1200" height="680" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">評分表要在邀請報價之前定好，並在開標前經批核</figcaption>
+        </figure>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、供應商評分表點設計</h3>
+
+        <p>評分表的目的不是為了打分，而是為了讓「點解揀這間」有書面依據。以下六個維度是社福機構最常用的組合，權重可按項目性質調整，但必須在邀請報價前定好並記錄。</p>
+
+        <div class="overflow-x-auto my-8"><table class="w-full text-sm md:text-base border-collapse">
+          <thead><tr class="bg-[#0f4c81] text-white"><th class="text-left p-3">評分維度</th><th class="text-left p-3">評分重點</th><th class="text-left p-3">建議權重</th></tr></thead>
+          <tbody>
+            <tr class="border-b border-gray-200"><td class="p-3 font-semibold">需求符合度</td><td class="p-3">功能清單逐項對應程度，而非「有做過類似項目」</td><td class="p-3">30%</td></tr>
+            <tr class="border-b border-gray-200 bg-gray-50"><td class="p-3 font-semibold">總擁有成本</td><td class="p-3">開發費＋三年保養＋第三方服務費，而非只看首年報價</td><td class="p-3">25%</td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-semibold">同類機構經驗</td><td class="p-3">可核實的社福／教育客戶案例，並可聯絡reference</td><td class="p-3">15%</td></tr>
+            <tr class="border-b border-gray-200 bg-gray-50"><td class="p-3 font-semibold">支援與保養</td><td class="p-3">回應時間、服務時間、是否有本地支援團隊</td><td class="p-3">15%</td></tr>
+            <tr class="border-b border-gray-200"><td class="p-3 font-semibold">資料與合規</td><td class="p-3">資料存放地點、存取控制、離場與匯出安排</td><td class="p-3">10%</td></tr>
+            <tr><td class="p-3 font-semibold">交接與培訓</td><td class="p-3">有沒有文件、培訓與知識轉移，避免被單一供應商鎖定</td><td class="p-3">5%</td></tr>
+          </tbody></table></div>
+
+        <p>一個實用做法：把評分表隨邀請書一併發給供應商，讓他們知道自己會被怎樣評估。這會直接改變他們報價的寫法，減少後期補問與爭議。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、合約要守住的三條</h3>
+
+        <p><strong>資料擁有權：</strong>服務使用者資料、個案紀錄與捐款人資料，必須明確寫明由機構擁有，供應商只可在提供服務期間處理，並在合約終止時按指定格式交回及刪除。</p>
+
+        <p><strong>離場安排：</strong>寫明合約結束時的資料匯出格式、遷移協助時數與收費。沒有這一條，機構每次換供應商都要重新議價，議價能力很低。</p>
+
+        <p><strong>知識產權與授權：</strong>區分「機構擁有的資料」與「供應商的平台程式碼」。如果採用 SaaS，就要寫清楚服務中斷、加價與終止時的處理方式，而不是只看月費。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、五個最常被忽略的風險</h3>
+
+        <p>1. <strong>評分表在開標後才定</strong>——最容易被審計質疑的一項。<br>2. <strong>報價沒有統一分項</strong>——無法比較，最後靠感覺揀。<br>3. <strong>只比較首年費用</strong>——保養費、加價條款、離場費未計入。<br>4. <strong>沒有做利益申報</strong>——供應商與職員或委員有關係時，必須記錄申報與迴避安排。<br>5. <strong>沒有寫驗收標準</strong>——「做完」與「做好」之間沒有定義，尾數與保養期就會拖。</p>
+
+        <h3 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">常見問題</h3>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">NGO 採購一定要公開招標嗎？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">不一定。是否公開招標取決於金額、資助方要求與機構自身採購政策。多數機構會按金額分層：低於某個金額可直接採購，中等金額要口頭或書面報價，高於某個金額才需公開招標。實際門檻請以你機構現行政策及資助協議為準。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">報價份數不足怎麼辦？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">先查機構政策有沒有列明例外情況（例如市場只有少數供應商）。若有例外，必須書面記錄原因並經指定層級批核；若沒有例外條款，就應該重新邀請報價，而不是事後補寫理由。事後補做的文件，在審計時通常不被接受。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">如何避免被單一供應商鎖定？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">在合約寫明資料匯出格式（例如 CSV 或標準資料庫格式）、原始碼或托管安排、以及合約終止時的遷移協助。技術上，優先選擇支援標準匯出與開放 API 的方案，避免資料只能留在單一平台內。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">社福機構採購系統的預算應該怎樣定？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">應以「總擁有成本」而不是「開發費」定預算：一次開發或設定費、每年保養與支援費、第三方服務（短訊、雲端、電子簽署）費用、以及離場與遷移成本。多數機構在第二年才發現保養費佔比高，所以報價時應要求分開列明。</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <h4 class="font-bold text-[#0f4c81] mb-2" itemprop="name">可以只用一個供應商做網站、系統與保養嗎？</h4>
+          <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">可以，但要在合約寫清楚各項目的收費與終止方式，避免日後只加不減。若機構規模較小，單一供應商確實較省管理成本；但關鍵資料的匯出權與離場安排一定要寫入合約，否則議價空間會隨時間消失。</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3">延伸閱讀</p>
+          <ul class="space-y-2">
+          <li><a href="/blog/hong-kong-public-sector-system-procurement-guide/" class="text-[#0f4c81] hover:underline">公共採購系統：政府與資助機構的採購流程</a></li>
+          <li><a href="/blog/school-it-vendor-quotation-guide/" class="text-[#0f4c81] hover:underline">學校報價流程：資助學校採購門檻與供應商比較</a></li>
+          <li><a href="/services/system/" class="text-[#0f4c81] hover:underline">系統及 App 開發服務</a></li>
+          </ul>
+        </div>
+    `,
+  },
   {
     id: 56,
     slug: "migrate-online-store-seo-301",
