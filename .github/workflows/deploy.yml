@@ -14,32 +14,14 @@
 #   - ADMIN_API_KEY        : Admin API 認證 Key
 # ─────────────────────────────────────────────────────────────────────────────
 
-name: Build & Deploy to SiteGround
+name: "Legacy: Build & Deploy to SiteGround (manual)"
 
 on:
-  # 1. 程式碼推送到 main 分支時自動構建
-  push:
-    branches: [main]
-    paths:
-      # 只有這些目錄變更才觸發，避免不必要的構建
-      - 'app/**'
-      - 'components/**'
-      - 'lib/**'
-      - 'public/**'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'next.config.ts'
-      - 'tailwind.config.ts'
-      - 'tsconfig.json'
-      - 'postcss.config.mjs'
-      # 出街前閘門本身（改壞閘門 = 失去防線，故閘門改動亦須跑一次驗證）
-      - 'scripts/**'
-
-  # 2. 後台「發佈更新」按鈕觸發（透過 GitHub API 發送 repository_dispatch）
-  repository_dispatch:
-    types: [rebuild]
-
-  # 3. 允許手動觸發
+  # 2026-11-10 起：adwire.com.hk 正式站已全面由 Cloudflare Pages（project=adwire-site）
+  # 提供，main 分支的自動部署改由 deploy-cloudflare.yml 負責。本 workflow 保留但
+  # 改為只可手動觸發，避免每次 push 都 rsync 一份前端去 SiteGround（該主機現時只
+  # 需要 admin.adwire.com.hk 的 PHP CRM / admin / send-mail.php）。
+  # 需要手動出舊版前端時，仍然可以用 Actions → Run workflow。
   workflow_dispatch:
 
 # 避免同時多個部署衝突
