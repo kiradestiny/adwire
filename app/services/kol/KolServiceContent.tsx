@@ -82,9 +82,9 @@ export default function KolServiceContent() {
             </span>
             
             <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
-              用對的 KOL<br/>
+              KOL 推廣收費<br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5a623] to-pink-500">
-                將口碑轉化為銷量
+                按層級與平台計算的網紅營銷服務費
               </span>
             </h1>
             

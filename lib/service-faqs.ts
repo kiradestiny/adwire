@@ -146,6 +146,11 @@ export const AUTOMATION_FAQS: ServiceFaq[] = [
 // 來源：原 ProductionServiceContent.tsx 的 FAQItem（只補 schema）
 export const PRODUCTION_FAQS: ServiceFaq[] = [
   {
+    question: "影片製作公司報價大約多少？",
+    answer:
+      "香港市場沒有統一標準價。一般企業宣傳片（半日拍攝、單一版本、基本後期）市場觀察區間約 HK$10,000–50,000；需要多場景、多演員、動畫或特效，可到 HK$50,000–200,000。實際報價由拍攝日數、團隊人數、場景、後期與授權範圍決定，建議要求逐項列明，而不是只比較一個總數。",
+  },
+  {
     question: "拍攝需要提前多久預約？",
     answer:
       "建議至少提前 2-3 週預約，以便我們有充足的時間進行前期策劃、場地協調和團隊調度。如果是大型活動或旺季，建議提前 1 個月以上。",

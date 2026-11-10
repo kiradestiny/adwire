@@ -4,8 +4,8 @@ import FAQJsonLd from "@/components/FAQJsonLd";
 import { PRODUCTION_FAQS } from "@/lib/service-faqs";
 
 export const metadata: Metadata = {
-  title: "商業攝影與影片製作｜企業宣傳片",
-  description: "企業宣傳片、活動錄影、商業攝影、訪問及 Podcast 製作。列明拍攝時數、成品數量、修圖張數、交檔格式及使用權範圍。",
+  title: "影片製作公司｜企業影片製作報價、流程與交付",
+  description: "企業影片製作公司：宣傳片、產品片、活動錄影、訪問及 Podcast 製作。列明報價區間、拍攝日數、交付版本、修改輪數及使用權範圍。",
   alternates: {
     canonical: "/services/production/",
   },

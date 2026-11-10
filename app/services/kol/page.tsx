@@ -5,9 +5,9 @@ import FAQJsonLd from "@/components/FAQJsonLd";
 import { KOL_FAQS } from "@/lib/service-faqs";
 
 export const metadata: Metadata = {
-  title: "KOL 網紅營銷｜數據驅動配對",
+  title: "KOL 推廣收費｜網紅營銷服務費與配對流程",
   description:
-    "按品牌定位、受眾及預算配對 KOL 層級，由篩選、內容監修到觸及、互動及轉化追蹤。清楚說明不同層級 KOL 的分工與適用場景。",
+    "KOL 推廣收費如何計算？按 Nano 到 Mega 五個層級、平台與內容形式說明服務費結構，並列明篩選、內容監修、發佈與成效追蹤的實際分工。",
   keywords: [
     "KOL 網紅營銷香港",
     "Influencer Marketing HK",

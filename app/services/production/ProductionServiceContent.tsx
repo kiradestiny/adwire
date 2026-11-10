@@ -39,8 +39,8 @@ export default function ProductionServiceContent() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
-              商業攝影與影片製作<br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">產品圖、情境圖、企業宣傳片</span>
+              影片製作公司<br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">企業影片製作報價、流程與交付</span>
             </h1>
             
             <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">

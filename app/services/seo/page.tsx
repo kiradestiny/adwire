@@ -5,7 +5,7 @@ import { SEO_FAQS } from "@/lib/service-faqs";
 import { SEO_PAGE } from "@/lib/service-pages/seo";
 
 const PATH = "/services/seo/";
-const TITLE = "香港 SEO 公司｜SEO + GEO 方案 HK$6,000 起";
+const TITLE = "香港 SEO 公司｜GEO 收費、月費方案 HK$6,000 起";
 const DESCRIPTION =
   "客人搜尋你的服務只找到對手，AI 搜尋亦沒提過你？ADWire 同時做 SEO 及 GEO：先修技術問題，再做關鍵字及內容。方案 HK$6,000／月起，每月報告列明工作及數據。";
 const IMAGE = "https://assets.adwire.com.hk/services/seo-google-and-ai-search.jpg";
