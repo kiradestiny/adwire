@@ -33,6 +33,12 @@
 /blog/video-production-hong-kong-guide-2026/  /blog/video-production-hong-kong-guide/  301
 /blog/xiaohongshu-marketing-hong-kong-guide-2026/  /blog/xiaohongshu-marketing-hong-kong-guide/  301
 
+# 舊 WordPress sitemap（Bing 後台仍然掛住，已 404 或錯型別）→ 統一跳去現行 sitemap
+# 必須放在下面的 /post-* 之前：Pages 由上下順序匹配，最先命中者勝。
+/sitemap_index.xml  /sitemap.xml  301
+/page-sitemap.xml   /sitemap.xml  301
+/post-sitemap.xml   /sitemap.xml  301
+
 # 舊 WordPress 路徑
 /privacy-policy/  /privacy/  301
 /thankyou/  /contact/  301

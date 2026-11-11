@@ -5,6 +5,22 @@ export const dynamic = 'force-static'
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = 'https://adwire.com.hk'
 
+  // 非公開、不應被索引的路徑。集中一份，四個規則組共用，避免日後只改一處。
+  // /inbox　　→ Basic auth 保護的內部郵件操作台，未登入回 401，回應無 <head>。
+  // /crm/　　 → 301 去 admin 子網域，該處回 202 防爬挑戰頁，回應亦無 <head>。
+  // 兩者都會令 Bing SEO 報告報「在網頁標頭區段中遺失說明」，實際是非公開端點，
+  // 正確做法是封鎖而不是補 meta description。
+  const disallowPaths = [
+    // 補上 trailing slash，與 .htaccess 301 跳轉一致
+    '/thank-you/',
+    // 排除 PHP mailer 腳本
+    '/send-mail.php',
+    // Admin 後台（不需要被搜尋引擎索引）
+    '/admin/',
+    '/crm/',
+    '/inbox',
+  ]
+
   return {
     rules: [
       // ------------------------------------------------------------------
@@ -14,12 +30,8 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
-          // 補上 trailing slash，與 .htaccess 301 跳轉一致
-          '/thank-you/',
-          // 排除 PHP mailer 腳本
-          '/send-mail.php',
-          // Admin 後台（不需要被搜尋引擎索引）
-          '/admin/',
+          // 清單見上方 disallowPaths
+          ...disallowPaths,
           // ⚠️ 千萬不要再加 '/_next/'。
           // 2026-03 版曾加入 Disallow: /_next/（當時註解為「節省 crawl budget」），
           // 但該目錄同時存放 CSS 與所有 JS bundle：封鎖之後 Googlebot 無法取得
@@ -38,12 +50,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'AdsBot-Google',
         allow: '/',
-        disallow: ['/thank-you/', '/send-mail.php', '/admin/'],
+        disallow: [...disallowPaths],
       },
       {
         userAgent: 'AdsBot-Google-Mobile',
         allow: '/',
-        disallow: ['/thank-you/', '/send-mail.php', '/admin/'],
+        disallow: [...disallowPaths],
       },
       // ------------------------------------------------------------------
       // AI 搜尋／回答引擎：明確開放
@@ -60,7 +72,7 @@ export default function robots(): MetadataRoute.Robots {
         .map((userAgent) => ({
           userAgent,
           allow: '/',
-          disallow: ['/thank-you/', '/send-mail.php', '/admin/'],
+          disallow: [...disallowPaths],
         })),
     ],
     // 兩個 sitemap：頁面 + 客戶品牌圖（image sitemap）
