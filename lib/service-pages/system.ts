@@ -44,7 +44,7 @@ export const SYSTEM_PAGE: ServicePageData = {
         label: "有新產品構思，想先做 MVP 測試市場",
         verdict: "fit",
         answer:
-          "先做最小可行產品（MVP），只包含驗證構思所需的核心功能，盡快取得真實用戶反饋，再決定下一步。我們曾為初創企業在 3 個月內完成 App MVP。",
+          "先做最小可行產品（MVP），只包含驗證構思所需的核心功能，盡快取得真實用戶回饋，再決定下一步。我們曾為初創企業在 3 個月內完成 App MVP。",
       },
       {
         label: "想做一個給客人用的 App（預約、會員、落單）",

@@ -171,7 +171,7 @@ export const CHINA_MARKET_PAGE: ServicePageData = {
   faqs: CHINA_MARKET_FAQS,
 
   related: [
-    { href: "/services/hong-kong-market/", title: "香港市場推廣（反方向）", desc: "內地及海外品牌進軍香港，用香港人的語言落地。" },
+    { href: "/services/hong-kong-market/", title: "香港市場推廣（反方向）", desc: "內地及海外品牌進軍香港，用香港人的語言落實。" },
     { href: "/services/kol/", title: "KOL 網紅營銷（香港）", desc: "香港本地 KOL 合作，與內地 KOC 種草分開規劃。" },
     { href: "/services/production/", title: "商業攝影及影片製作", desc: "一次拍攝，同時出小紅書圖文及抖音直片。" },
     { href: "/services/seo/", title: "SEO 及 GEO（國際平台）", desc: "Google、ChatGPT 等國際平台的搜尋可見度。" },

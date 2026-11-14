@@ -22,7 +22,7 @@ export default function ProcessSection() {
     {
       icon: Rocket,
       title: "精準執行與投放",
-      description: "分階段開發系統及 AI 工具，同步執行 SEO、KOL、短視頻及廣告投放，每階段都有可檢查的交付物。",
+      description: "分階段開發系統及 AI 工具，同步執行 SEO、KOL、短片及廣告投放，每階段都有可檢查的交付物。",
       color: "purple"
     },
     {
@@ -77,7 +77,7 @@ export default function ProcessSection() {
                     {step.description}
                   </p>
 
-                  {/* 移動端箭頭 */}
+                  {/* 手機版箭頭 */}
                   {index < steps.length - 1 && (
                     <div className="lg:hidden mt-8 text-gray-300">
                       <ArrowRight className="w-6 h-6 rotate-90" />

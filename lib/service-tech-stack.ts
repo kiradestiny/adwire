@@ -60,7 +60,7 @@ export const SERVICE_TECH: Record<string, ServiceTechSpec> = {
   ai: {
     title: "技術規格與系統整合",
     intro:
-      "AI 專案最常見的失敗原因不是模型不夠好，而是資料接不上、無人維護。以下列明我們的技術選型與落地方式。",
+      "AI 專案最常見的失敗原因不是模型不夠好，而是資料接不上、無人維護。以下列明我們的技術選型與落實方式。",
     stack: ["Python", "FastAPI", "LLM API（OpenAI／Claude）", "RAG", "pgvector", "Pinecone", "OCR", "Whisper", "Docker", "私有化部署"],
     rows: [
       { layer: "應用層", use: "Python + FastAPI", why: "AI 生態最完整，模型與工具鏈更新最快", integrate: "以 API 形式提供，你現有系統只需呼叫一個 endpoint" },
@@ -138,7 +138,7 @@ export const SERVICE_TECH: Record<string, ServiceTechSpec> = {
   healthcare: {
     title: "技術規格與診所系統整合",
     intro:
-      "診所系統涉及病人資料與排班，落地時最常撞牆的是「同現有流程打交」。以下列明我們的處理方式。",
+      "診所系統涉及病人資料與排班，落實時最常撞牆的是「同現有流程打交」。以下列明我們的處理方式。",
     stack: ["預約系統", "PDPO 合規", "WhatsApp 提醒", "POS / 收費", "權限審計", "資料加密"],
     rows: [
       { layer: "預約與排班", use: "線上預約 + 前台排班表 + 醫生時段管理", why: "減少電話往返與 no-show", integrate: "可接現有電話流程，線上線下共用同一時段表" },
@@ -149,13 +149,13 @@ export const SERVICE_TECH: Record<string, ServiceTechSpec> = {
   },
 
   "china-market": {
-    title: "技術規格與跨境落地",
+    title: "技術規格與跨境落實",
     intro:
       "進入內地市場最常低估的是「技術合規」與「平台生態」。以下列明實際需要的技術條件。",
     stack: ["小紅書", "抖音", "微信公眾號", "微信小程序", "ICP 備案", "跨境支付", "中國 CDN"],
     rows: [
       { layer: "平台帳號與內容", use: "小紅書／抖音／微信公眾號企業號營運", why: "內地用戶決策主要發生在這三個平台", integrate: "與你香港現有內容團隊共用素材，本地化改寫" },
-      { layer: "落地載體", use: "微信小程序或獨立站（需 ICP 備案）", why: "沒有備案，內地訪問會非常慢或不穩定", integrate: "香港主站可保留，另建內地版，資料分開存放" },
+      { layer: "落實載體", use: "微信小程序或獨立站（需 ICP 備案）", why: "沒有備案，內地訪問會非常慢或不穩定", integrate: "香港主站可保留，另建內地版，資料分開存放" },
       { layer: "金流", use: "微信支付／支付寶（需內地主體或合作方案）", why: "內地用戶幾乎不用信用卡結帳", integrate: "如未有內地主體，先做查詢與預約，不做線上收款" },
       { layer: "速度與合規", use: "中國節點 CDN、內容審核流程", why: "跨境訪問延遲與內容合規是兩個獨立風險", integrate: "可先做品牌曝光，驗證需求後才投入備案與小程序" },
     ],
@@ -164,7 +164,7 @@ export const SERVICE_TECH: Record<string, ServiceTechSpec> = {
   "hong-kong-market": {
     title: "技術規格與本地化整合",
     intro:
-      "內地或海外品牌來港，最常忽略的是支付、語言與本地平台習慣。以下列明技術落地方式。",
+      "內地或海外品牌來港，最常忽略的是支付、語言與本地平台習慣。以下列明技術落實方式。",
     stack: ["繁體中文 SEO", "Google HK", "FPS / PayMe", "HKTVmall", "WhatsApp", "多語系"],
     rows: [
       { layer: "網站與語言", use: "繁體中文（港式用語）+ 英文雙語架構，hreflang 標記", why: "香港用戶對簡體字與內地用語敏感，直接影響信任", integrate: "可保留原有品牌視覺，只重做內容與結構" },

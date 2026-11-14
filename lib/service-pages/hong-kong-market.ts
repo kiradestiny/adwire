@@ -17,7 +17,7 @@ export const HONG_KONG_MARKET_PAGE: ServicePageData = {
   key: "hong-kong-market",
   crumb: "香港市場推廣",
   eyebrow: "內地及海外品牌來港",
-  h1: ["內地及海外品牌進軍香港", "用香港人的語言同渠道落地"],
+  h1: ["內地及海外品牌進軍香港", "用香港人的語言同渠道落實"],
   lead:
     "香港客人用 Google 搵資料、喺 Instagram 同 Facebook 認識品牌、用 WhatsApp 查詢，同內地完全唔同。我們幫品牌把文案改寫成地道香港用語，建立 Google、社交媒體、廣告及 WhatsApp 客服，令香港客人第一眼就覺得你係「識香港」的品牌。",
   promises: [
@@ -88,7 +88,7 @@ export const HONG_KONG_MARKET_PAGE: ServicePageData = {
   },
 
   how: {
-    title: "品牌點樣喺香港落地",
+    title: "品牌點樣喺香港落實",
     intro: "同一套品牌，換成香港的語言同渠道。示意圖會跟住步驟變化：",
     steps: [
       { title: "品牌診斷：找出要改的地方", desc: "檢查文案、視覺、價錢表達及合規事項，列出香港版需要調整的部分。" },

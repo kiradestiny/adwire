@@ -80,7 +80,7 @@ const otherServices = [
   },
   {
     icon: Smartphone,
-    title: "短視頻製作",
+    title: "短片製作",
     desc: "劇本、拍攝及剪輯；列明腳本、拍攝日數、剪輯版本、字幕及交片時間。",
     link: "/services/video",
     group: "marketing",
@@ -144,7 +144,7 @@ const otherServices = [
   {
     icon: Building2,
     title: "香港市場在地化推廣",
-    desc: "內地及海外品牌來港：由用語轉換、內容重寫到媒體與 KOL 選擇，用香港的語言與文化落地，而不是把原有文案直接搬過來。",
+    desc: "內地及海外品牌來港：由用語轉換、內容重寫到媒體與 KOL 選擇，用香港的語言與文化落實，而不是把原有文案直接搬過來。",
     link: "/services/hong-kong-market",
     group: "cross",
     color: "text-teal-600",
@@ -174,7 +174,7 @@ const item = {
 };
 
 export default function Services() {
-  // 2026-09-24：初始 true —— 手機默認展開「其他服務」，令內容喺 SSR HTML
+  // 2026-09-24：初始 true —— 手機預設展開「其他服務」，令內容喺 SSR HTML
   // 就可見（唔再係 opacity:0;height:0）。用戶仍可撳掣收起。
   const [showAll, setShowAll] = useState(true);
 
@@ -270,7 +270,7 @@ export default function Services() {
         </motion.div>
 
         {/* 2. 其他服務：按類別分組（全部保留）
-            2026-09-24：手機默認展開（showAll 初始 true）+ initial={false}，
+            2026-09-24：手機預設展開（showAll 初始 true）+ initial={false}，
             避免 SSR HTML 寫死 opacity:0;height:0 令手機及 AI crawler 睇唔到。 */}
         <div className="flex items-center gap-4 mb-6">
           <h3 className="text-lg font-bold text-gray-900 shrink-0">配套服務</h3>

@@ -8,6 +8,7 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, User, Tag, ArrowRight, Home, ChevronRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import ShareButton from "@/components/ShareButton";
+import BlogServiceStrip from "@/components/BlogServiceStrip";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { buildSrcSet } from "@/lib/imageVariants";
@@ -506,9 +507,12 @@ export default async function BlogPost({
             </div>
 
             {/* 文章目錄（H2/H3 anchor）*/}
-            <TableOfContents toc={toc} />
+                        <TableOfContents toc={toc} />
 
-            {/* 文章內容（已注入 heading id、目錄 anchor 及中段 CTA）*/}
+                        {/* 服務條：把 blog 流量接到對應服務頁（2026-11-14）*/}
+                        <BlogServiceStrip topic={topicOf(post.category)} />
+
+                        {/* 文章內容（已注入 heading id、目錄 anchor 及中段 CTA）*/}
             <div
               className="article-prose max-w-none mb-16"
               dangerouslySetInnerHTML={{ __html: contentHtml }}
@@ -634,7 +638,7 @@ export default async function BlogPost({
                   </div>
                 </div>
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                  香港軟件、AI 及數碼增長方案供應商，專注把業務需求轉化為可落地的系統與搜尋增長方案。已服務 52 個香港品牌，累積 16 個可公開查閱案例。
+                  香港軟件、AI 及數碼增長方案供應商，專注把業務需求轉化為可落實的系統與搜尋增長方案。已服務 52 個香港品牌，累積 16 個可公開查閱案例。
                 </p>
                 <div className="flex gap-2">
                   <ShareButton title={post.title} />

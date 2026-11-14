@@ -204,7 +204,7 @@ const SERVICE_LINK_MAP: { match: RegExp; links: ServiceLink[] }[] = [
   {
     match: /AI Technology|AI|人工智能|模型/i,
     links: [
-      { name: "企業 AI 應用開發與系統整合", href: "/services/ai/", reason: "本文討論的 AI 應用類型及落地流程" },
+      { name: "企業 AI 應用開發與系統整合", href: "/services/ai/", reason: "本文討論的 AI 應用類型及落實流程" },
       { name: "企業流程自動化", href: "/services/automation/", reason: "AI 之外仍需處理的規則式流程自動化" },
       { name: "企業系統與 App 開發", href: "/services/system/", reason: "AI 應用需要連接的內部系統及資料來源" },
     ],
@@ -218,10 +218,10 @@ const SERVICE_LINK_MAP: { match: RegExp; links: ServiceLink[] }[] = [
     ],
   },
   {
-    match: /Social Media|社交|短視頻|影片|KOL/i,
+    match: /Social Media|社交|短片|影片|KOL/i,
     links: [
       { name: "社交媒體代管服務", href: "/services/social/", reason: "本文討論的內容企劃及社群經營工作" },
-      { name: "短視頻製作", href: "/services/video/", reason: "短片由腳本到剪輯的實際交付內容" },
+      { name: "短片製作", href: "/services/video/", reason: "短片由腳本到剪輯的實際交付內容" },
       { name: "成效廣告投放服務", href: "/services/ads/", reason: "付費曝光與自然內容的配合方式" },
     ],
   },

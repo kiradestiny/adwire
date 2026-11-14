@@ -89,7 +89,7 @@ export default function VideoServiceContent() {
       <section className="py-20 bg-[#0a0a0a] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">為什麼你的短視頻營銷總是「滑過即逝」？</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">為什麼你的短片營銷總是「滑過即逝」？</h2>
             <p className="text-gray-400 text-lg">在這個注意力稀缺的年代，平庸的影片等於無效營銷。</p>
           </div>
 
@@ -118,13 +118,13 @@ export default function VideoServiceContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <span className="text-purple-400 font-bold tracking-wider uppercase text-sm mb-2 block">Our Services</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">不只是短視頻製作，更是品牌資產</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">不只是短片製作，更是品牌資產</h2>
             <p className="text-gray-400 text-lg">針對不同營銷目的，提供量身定制的影像解決方案。</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ServiceCard 
-              title="病毒式短視頻 (Viral Shorts)"
+              title="病毒式短片 (Viral Shorts)"
               desc="專攻 IG Reels, TikTok, YouTube Shorts。節奏快、娛樂性強，最適合快速取得流量和年輕客群。"
               tags={['9:16 豎屏', '快節奏', '原生感']}
               icon={Zap}
@@ -373,7 +373,7 @@ export default function VideoServiceContent() {
       </section>
       <section className="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#0f4c81]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16">數據話你知：短視頻營銷是必須的</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-16">數據話你知：短片營銷是必須的</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <StatCard 
@@ -418,7 +418,7 @@ export default function VideoServiceContent() {
         </div>
       </section>
 
-      <ContactSection defaultService="短視頻製作" />
+      <ContactSection defaultService="短片製作" />
       
       <Footer />
     </div>

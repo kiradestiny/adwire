@@ -22,7 +22,7 @@ import { getWhatsAppUrl } from "@/lib/site-config";
 import { SERVICE_FIT } from "@/lib/service-fit";
 import { SERVICE_DEEP_DIVE } from "@/lib/service-deep-dive";
 import { SERVICE_TECH } from "@/lib/service-tech-stack";
-import type { FitOption, ServicePageData } from "@/lib/service-pages/types";
+import type { FitOption, MarketRates, ServicePageData } from "@/lib/service-pages/types";
 
 const NAVY = "#0f4c81";
 const GOLD = "#f5a623";
@@ -499,12 +499,60 @@ function Compare({ d }: { d: ServicePageData }) {
 
 // ─── 8. 收費 ─────────────────────────────────────────────────────────
 
+/**
+ * 香港市場收費行情（2026-11）
+ *
+ * 為何要有：AI Overview 同 Google 答「幾多錢」時，用嘅係「項目 × 市場區間」嘅
+ * 真表格，唔係散句。div 扮表格機器抽唔到行／列關係，所以呢度用真 <table>、
+ * caption 同 th scope="row"，令「項目 ↔ 價錢」可以被逐行讀出。
+ * 所有市場數字必須來自公開可查資料，並列明更新月份；ADWire 自身價位由 tiers 提供。
+ */
+function MarketRatesTable({ m }: { m: MarketRates }) {
+  return (
+    <motion.div {...fadeUp} data-mobile-visible="true" className="mb-10 md:mb-12">
+      <h3 className="text-lg md:text-xl font-bold text-[#0f4c81] mb-2">{m.title}</h3>
+      <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-5 max-w-3xl">{m.intro}</p>
+      <div className="overflow-x-auto rounded-2xl border border-gray-200">
+        <table className="w-full text-sm md:text-base border-collapse min-w-[520px]">
+          <caption className="sr-only">
+            {m.title}——{m.marketLabel}與{m.adwireLabel}對照，資料更新至{m.updated}
+          </caption>
+          <thead>
+            <tr className="bg-[#0f4c81] text-white">
+              <th scope="col" className="text-left font-semibold px-4 md:px-5 py-3">項目</th>
+              <th scope="col" className="text-left font-semibold px-4 md:px-5 py-3">{m.marketLabel}</th>
+              <th scope="col" className="text-left font-semibold px-4 md:px-5 py-3">{m.adwireLabel}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {m.rows.map((r) => (
+              <tr key={r.item} className="border-t border-gray-100 even:bg-gray-50/60 align-top">
+                <th scope="row" className="text-left font-semibold text-gray-900 px-4 md:px-5 py-3.5">
+                  {r.item}
+                  {r.note && <span className="block text-xs font-normal text-gray-500 mt-1">{r.note}</span>}
+                </th>
+                <td className="px-4 md:px-5 py-3.5 text-gray-700">{r.market}</td>
+                <td className="px-4 md:px-5 py-3.5 font-semibold text-[#0f4c81]">{r.adwire ?? "另議"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-4 text-xs md:text-sm text-gray-500 leading-relaxed">
+        {m.disclaimer}（{m.source}，資料更新：{m.updated}）
+      </p>
+    </motion.div>
+  );
+}
+
 function Pricing({ d, whatsapp }: { d: ServicePageData; whatsapp: string }) {
   const p = d.pricing;
   return (
     <section id="pricing" className="scroll-mt-32 py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHead eyebrow="Pricing" title={p.title} intro={p.intro} />
+
+        {p.marketRates && <MarketRatesTable m={p.marketRates} />}
 
         {p.tiers && (
           <div className="grid md:grid-cols-3 gap-5 mb-12">

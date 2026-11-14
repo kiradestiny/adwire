@@ -68,7 +68,7 @@ export const portfolioCases: PortfolioCase[] = [
     slug: "cafe-reels-viral",
     title: "隱世 Cafe 爆紅實錄",
     category: "KOL & Video",
-    displayCategory: "KOL x 短視頻",
+    displayCategory: "KOL x 短片",
     industry: "餐飲 F&B",
     duration: "4 週",
     services: ["Reels 製作", "Micro-Influencer 合作", "社交媒體策略"],
@@ -108,8 +108,8 @@ export const portfolioCases: PortfolioCase[] = [
     accentColor: "#f43f5e",
     tags: ["Reels", "TikTok", "F&B"],
     image: "/portfolio/cafe-reels.webp",
-    alt: "隱世 Cafe 爆紅實錄 - KOL x 短視頻 成功案例 Hong Kong",
-    seoTitle: "隱世 Cafe 爆紅實錄 | Reels 短視頻 KOL 營銷",
+    alt: "隱世 Cafe 爆紅實錄 - KOL x 短片 成功案例 Hong Kong",
+    seoTitle: "隱世 Cafe 爆紅實錄 | Reels 短片 KOL 營銷",
     seoDescription:
       "深水埗隱世 Cafe 透過 3 條劇情 Reels + 5 位微網紅同步爆發，首週播放 180K+，每週新增 30+ 桌客源。全程預算低於 HK$5,000，ROI 超越傳統廣告 10 倍。",
   },
@@ -581,20 +581,20 @@ export const portfolioCases: PortfolioCase[] = [
       "香港放貸機構透過 ADWire 度身訂造 CRM 系統，行政時間節省 50%，審批週期從 3 天縮至 4 小時，逾期率下降 35%，全面符合香港放債人條例要求。",
   },
 
-  // ─── 11. 美食短視頻 ───────────────────────────────────────
+  // ─── 11. 美食短片 ───────────────────────────────────────
   {
     id: 11,
     slug: "yummy-food-reels",
-    title: "食品品牌爆款短視頻",
+    title: "食品品牌爆款短片",
     category: "KOL & Video",
     displayCategory: "Food Content",
     industry: "食品 Food & Beverage",
     duration: "6 週",
-    services: ["短視頻策略", "拍攝製作", "TikTok 優化", "IG Reels", "趨勢分析"],
+    services: ["短片策略", "拍攝製作", "TikTok 優化", "IG Reels", "趨勢分析"],
     shortDescription:
       "製作一系列 15 秒極速美食製作短片，節奏明快，成功吸引年輕族群轉發，平均每條短片達 100k+ 觀看次數。",
     fullDescription:
-      "一個由家庭主婦創辦的香港本地醬料品牌，以阿媽秘方為賣點，產品質素受身邊朋友一致好評，但缺乏規模化的品牌曝光渠道，IG 追蹤者長期停留在 300 人以下。ADWire 為其策劃系列化美食短視頻計劃，以極速美食製作為核心賣點打入 TikTok 及 IG Reels 演算法推薦流。",
+      "一個由家庭主婦創辦的香港本地醬料品牌，以阿媽秘方為賣點，產品質素受身邊朋友一致好評，但缺乏規模化的品牌曝光渠道，IG 追蹤者長期停留在 300 人以下。ADWire 為其策劃系列化美食短片計劃，以極速美食製作為核心賣點打入 TikTok 及 IG Reels 演算法推薦流。",
     challenge:
       "品牌完全無網上知名度，預算極有限（HK$15,000 以內）；內容同質化嚴重，難以在大量美食帳號中突圍；需要同時在 TikTok 及 IG 兩個平台起效，且目標受眾不同（TK 偏向年輕族群，IG 偏向 25-35 歲主婦）。",
     solution:
@@ -606,11 +606,11 @@ export const portfolioCases: PortfolioCase[] = [
     resultMetrics: [
       { label: "最高單片觀看", value: "380K", description: "TikTok 爆款短片", highlight: true },
       { label: "IG 粉絲增長", value: "+2,771%", description: "從 310 至 8,900", highlight: true },
-      { label: "官網流量", value: "+430%", description: "短視頻帶動直接流量", highlight: false },
+      { label: "官網流量", value: "+430%", description: "短片帶動直接流量", highlight: false },
       { label: "醬料銷量提升", value: "+280%", description: "6 週對比前 6 週", highlight: false },
     ],
     processSteps: [
-      { phase: "第 1 週", title: "內容策略制定", description: "競爭對手短視頻分析，目標受眾研究，確定「懶人料理神器」定位及 12 個食譜主題。" },
+      { phase: "第 1 週", title: "內容策略制定", description: "競爭對手短片分析，目標受眾研究，確定「懶人料理神器」定位及 12 個食譜主題。" },
       { phase: "第 2-3 週", title: "首批拍攝（6條）", description: "集中拍攝日安排，測試不同拍攝角度與燈光設定，確立品牌視覺風格。" },
       { phase: "第 3-4 週", title: "發佈測試與演算法學習", description: "每 2-3 天發佈一條，監控各條片的演算法表現，分析高互動元素。" },
       { phase: "第 5-6 週", title: "優化與規模化", description: "根據數據調整拍攝風格，製作後 6 條強化版，集中複製爆款元素。" },
@@ -627,10 +627,10 @@ export const portfolioCases: PortfolioCase[] = [
     accentColor: "#f59e0b",
     tags: ["Viral Video", "Foodie", "TikTok"],
     image: "/portfolio/yummy-food-reels.webp",
-    alt: "美食短視頻 TikTok IG Reels 爆款 100K 觀看 香港 成功案例",
-    seoTitle: "美食短視頻爆款案例 | TikTok 380K 觀看",
+    alt: "美食短片 TikTok IG Reels 爆款 100K 觀看 香港 成功案例",
+    seoTitle: "美食短片爆款案例 | TikTok 380K 觀看",
     seoDescription:
-      "香港本地醬料品牌透過 ADWire 短視頻策略，6 週製作 12 條 Reels，最高單片 380K 觀看，IG 粉絲增長 2771%，醬料銷量提升 280%。",
+      "香港本地醬料品牌透過 ADWire 短片策略，6 週製作 12 條 Reels，最高單片 380K 觀看，IG 粉絲增長 2771%，醬料銷量提升 280%。",
   },
 
   // ─── 12. Global Trade B2B ─────────────────────────────────
@@ -819,7 +819,7 @@ export const portfolioCases: PortfolioCase[] = [
     ],
     processSteps: [
       { phase: "第 1-2 週", title: "平台審計與策略重定", description: "分析現有廣告帳戶數據，拆解失敗原因，研究競品成功廣告內容，制定「偽種草廣告」方法論。" },
-      { phase: "第 2-4 週", title: "素材大量產製", description: "30+ 組偽種草素材製作，涵蓋圖文筆記式、短視頻評測式兩大格式，配合問題解決型及生活方式型兩個方向。" },
+      { phase: "第 2-4 週", title: "素材大量產製", description: "30+ 組偽種草素材製作，涵蓋圖文筆記式、短片評測式兩大格式，配合問題解決型及生活方式型兩個方向。" },
       { phase: "第 4-6 週", title: "A/B 測試與爆款識別", description: "同步測試所有素材，以最低日預算識別高效創意，搜尋廣告同步啟動，雙線並行。" },
       { phase: "第 6-8 週", title: "規模化與持續優化", description: "集中預算於爆款素材，開放更廣受眾，持續優化出價策略，建立素材迭代機制。" },
     ],
@@ -924,7 +924,7 @@ export function getRelatedCases(slug: string, limit = 3): PortfolioCase[] {
 /** Portfolio 分類列表 */
 export const portfolioCategories = [
   { id: "All", label: "全部案例" },
-  { id: "KOL & Video", label: "KOL 與短視頻" },
+  { id: "KOL & Video", label: "KOL 與短片" },
   { id: "Ads & Automation", label: "廣告與自動化" },
   { id: "SEO & Web", label: "網站與 SEO" },
   { id: "System & App", label: "系統與 App" },

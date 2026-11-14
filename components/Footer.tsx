@@ -11,7 +11,7 @@ import { WHATSAPP_DISPLAY, getWhatsAppUrl } from "@/lib/site-config";
  *      2026-10-10 負責人確認公開公司頁為 https://www.linkedin.com/company/adwirehk/
  *      llms.txt 一向用的是正確版本，兩者現已一致。
  *   2. 服務列表由「10 項平鋪」改為「四大業務線分組」，Software／AI／SEO 排在
- *      Digital Marketing 之前（原本 KOL／短視頻行先），與新定位一致。
+ *      Digital Marketing 之前（原本 KOL／短片行先），與新定位一致。
  *   3. 更新過時標籤：
  *      · /services/automation/ 「營銷自動化」→「企業流程自動化及 RPA」
  *        （該頁早已擴展至一般營運流程，不止營銷）
@@ -59,7 +59,7 @@ const SERVICE_GROUPS: { group: string; links: { name: string; href: string }[] }
     links: [
       { name: "成效廣告投放", href: "/services/ads" },
       { name: "社交媒體管理", href: "/services/social" },
-      { name: "短視頻製作", href: "/services/video" },
+      { name: "短片製作", href: "/services/video" },
       { name: "KOL 網紅營銷", href: "/services/kol" },
       { name: "商業攝影", href: "/services/production" },
     ],

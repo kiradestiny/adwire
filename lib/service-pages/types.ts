@@ -55,11 +55,37 @@ export interface PriceTier {
   highlight?: boolean;
 }
 
+export interface MarketRateRow {
+  /** 行標題（用 <th scope="row"> 輸出，方便機器抽取「項目→價錢」關係） */
+  item: string;
+  /** 香港市場公開參考價（綜合公開資料，非任何一間公司報價） */
+  market: string;
+  /** ADWire 自身價位；留空表示不適用 */
+  adwire?: string;
+  /** 補充說明（週期／適用對象） */
+  note?: string;
+}
+
+export interface MarketRates {
+  title: string;
+  intro: string;
+  /** 第一欄固定為「項目」，其後為市場參考與 ADWire 欄 */
+  marketLabel: string;
+  adwireLabel: string;
+  rows: MarketRateRow[];
+  /** 資料來源與更新月份，必須真實 */
+  source: string;
+  updated: string;
+  disclaimer: string;
+}
+
 export interface PricingBlock {
   title: string;
   intro: string;
   /** 有公開起步價的服務才填（web／seo） */
   tiers?: PriceTier[];
+  /** 香港市場收費行情（真 <table>，供人同 AI 抽取） */
+  marketRates?: MarketRates;
   /** 影響報價的因素（所有服務都有） */
   factors: { title: string; desc: string }[];
   note?: string;

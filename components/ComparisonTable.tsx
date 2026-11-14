@@ -29,7 +29,7 @@ const rows: ComparisonRow[] = [
     diy: "no",
   },
   {
-    feature: "短視頻製作 (Reels / TikTok)",
+    feature: "短片製作 (Reels / TikTok)",
     adwire: "yes",
     traditional: "partial",
     diy: "partial",

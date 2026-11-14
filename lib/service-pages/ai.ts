@@ -142,7 +142,7 @@ export const AI_PAGE: ServicePageData = {
   },
 
   process: {
-    title: "AI 落地流程",
+    title: "AI 落實流程",
     intro: "先試點、再擴大；每一步都有明確交付物，用議定的指標量度。",
     steps: [
       { title: "流程盤點", desc: "找出最耗人手、最值得做的流程，評估資料是否齊備。", duration: "1–2 星期" },

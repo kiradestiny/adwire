@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "GEO 生成式引擎優化",
     "KOL 網紅營銷",
     "AI 營銷策略",
-    "短視頻營銷",
+    "短片營銷",
     "Facebook 廣告投放",
     "Google Ads 香港",
     "自動化營銷",

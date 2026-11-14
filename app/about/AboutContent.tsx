@@ -171,7 +171,7 @@ export default function AboutContent() {
             <p className="text-base md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-light">
               <strong className="font-semibold text-white">ADWire Agency Limited</strong>
               是一間總部位於香港葵芳的軟件及數碼增長公司，提供軟件開發、AI 應用與工作流程自動化、
-              SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻與 KOL 等數碼營銷服務。
+              SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短片與 KOL 等數碼營銷服務。
               由需求分析、開發交付到上線後的持續改善，我們與客戶一起處理實際的營運與增長問題。
             </p>
 
@@ -221,7 +221,7 @@ export default function AboutContent() {
           公司提供五條服務線：軟件開發（企業網站、電商網站、Web App、CRM／ERP 及內部工具、
           Mobile App 與 MVP、API 及系統整合）、AI 與自動化（AI 應用開發、企業知識庫、
           工作流程自動化、WhatsApp 及 CRM 自動化）、SEO／GEO 搜尋優化、
-          跨境營銷（香港與內地雙向），以及數碼營銷（成效廣告、社交媒體代管、短視頻製作、
+          跨境營銷（香港與內地雙向），以及數碼營銷（成效廣告、社交媒體代管、短片製作、
           KOL 網紅營銷及商業攝影）。至今已服務 {PROOF.clientsServed} 家香港及大灣區企業，
           公開精選案例共 {PROOF.featuredCases} 個，客戶以中小企業為主，
           亦包括連鎖品牌及金融機構。服務對象為香港及大灣區企業、品牌及中小企業。

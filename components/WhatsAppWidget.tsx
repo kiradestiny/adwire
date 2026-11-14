@@ -33,7 +33,7 @@ export default function WhatsAppWidget() {
   const getWhatsAppMessage = (path: string): string => {
     if (path.includes("/services/kol"))        return "Hello ADWire, 我想了解更多關於 KOL 網紅營銷的服務！";
     if (path.includes("/services/ads"))        return "Hello ADWire, 我想了解更多關於成效廣告投放的服務！";
-    if (path.includes("/services/video"))      return "Hello ADWire, 我想了解更多關於短視頻製作的服務！";
+    if (path.includes("/services/video"))      return "Hello ADWire, 我想了解更多關於短片製作的服務！";
     if (path.includes("/services/seo"))        return "Hello ADWire, 我想了解更多關於 SEO/GEO 搜尋優化的服務！";
     if (path.includes("/services/social"))     return "Hello ADWire, 我想了解更多關於社交媒體管理的服務！";
     if (path.includes("/services/system"))     return "Hello ADWire, 我想了解更多關於系統開發與自動化的服務！";

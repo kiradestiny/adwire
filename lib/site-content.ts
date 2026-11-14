@@ -126,7 +126,7 @@ export const SERVICE_LINES: ServiceLine[] = [
     children: [
       { name: "成效廣告投放", href: "/services/ads/" },
       { name: "社交媒體代管", href: "/services/social/" },
-      { name: "短視頻製作", href: "/services/video/" },
+      { name: "短片製作", href: "/services/video/" },
       { name: "KOL 網紅營銷", href: "/services/kol/" },
       { name: "商業攝影", href: "/services/production/" },
     ],

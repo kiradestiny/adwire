@@ -53,7 +53,7 @@ const QUICK_INTENTS = [
   { label: "網站／Shopify", terms: ["網站", "shopify", "網店", "landing", "web"] },
   { label: "廣告投放", terms: ["廣告", "ads", "roas"] },
   { label: "社交媒體", terms: ["社交", "專頁", "instagram", "facebook", "reels"] },
-  { label: "KOL／短片", terms: ["kol", "短視頻", "影片", "reels", "拍攝", "攝影"] },
+  { label: "KOL／短片", terms: ["kol", "短片", "影片", "reels", "拍攝", "攝影"] },
 ] as const;
 
 const SEARCH_EXAMPLES = ["Shopify", "醫美", "SEO", "WhatsApp", "貸款", "KOL"];

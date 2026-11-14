@@ -15,7 +15,7 @@ export default function JsonLd() {
       "width": 533,
       "height": 173
     },
-    "description": "ADWire Agency Limited 提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻及 KOL 等數碼營銷服務，以香港市場為主。",
+    "description": "ADWire Agency Limited 提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短片及 KOL 等數碼營銷服務，以香港市場為主。",
     // 實體消歧義（2026-10-10）：Google AI 曾把本公司與同名／近名機構撈亂，並虛構出中文名「愛德廣告代理有限公司」。
     // 客戶確認：本公司只有英文註冊名稱，並無中文名稱。以下欄位用於向搜尋引擎明確標示唯一實體。
     "disambiguatingDescription": "在香港註冊的軟件開發及數碼營銷公司，註冊英文名稱為 ADWire Agency Limited（並無中文註冊名稱），官方網站為 adwire.com.hk，服務對象為香港及大灣區企業。",
@@ -92,7 +92,7 @@ export default function JsonLd() {
       "addressRegion": "New Territories",
       "addressCountry": "HK"
     },
-    "description": "ADWire Agency Limited 提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短視頻及 KOL 等數碼營銷服務，以香港市場為主。",
+    "description": "ADWire Agency Limited 提供企業網站及系統開發、AI 應用與工作流程自動化、SEO／GEO 搜尋優化，以及成效廣告、社交媒體、短片及 KOL 等數碼營銷服務，以香港市場為主。",
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": 22.3578,
@@ -203,7 +203,7 @@ export default function JsonLd() {
       {
         "@type": "ListItem",
         "position": 8,
-        "name": "短視頻製作",
+        "name": "短片製作",
         "description": "Reels、Shorts、抖音及小紅書直式短片策劃與製作",
         "url": "https://adwire.com.hk/services/video/"
       },

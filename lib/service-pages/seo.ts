@@ -119,6 +119,43 @@ export const SEO_PAGE: ServicePageData = {
   pricing: {
     title: "SEO 方案及收費",
     intro: "以單一網站、單一市場為基準，3 個月起，按月預繳。每個方案都寫明關鍵字數、文章篇數及優化頁數。",
+    marketRates: {
+      title: "香港 SEO 收費行情（2026 年 11 月）",
+      intro:
+        "搵 SEO 公司之前，最實際嘅一步係先知道香港市場大概收幾多。下表整理香港 SEO 服務商嘅公開報價區間，同時列出 ADWire 喺同一區間嘅位置，你可以直接比較。",
+      marketLabel: "香港市場參考價",
+      adwireLabel: "ADWire 方案",
+      rows: [
+        {
+          item: "入門月費方案",
+          note: "單一網站、關鍵字數量較少",
+          market: "HK$3,900–8,000／月",
+          adwire: "HK$6,000／月（Starter，15 個關鍵字）",
+        },
+        {
+          item: "標準月費方案",
+          note: "香港中小企最常見嘅落點",
+          market: "HK$8,000–18,000／月",
+          adwire: "HK$9,800／月（Growth，30 個關鍵字）",
+        },
+        {
+          item: "高競爭行業／大型企業方案",
+          note: "多市場、多語系或競爭激烈行業",
+          market: "HK$18,000–40,000／月",
+          adwire: "HK$16,800／月（Premium，50 個關鍵字）",
+        },
+        {
+          item: "按關鍵字計費",
+          note: "逐個字報價，適合極少量關鍵字",
+          market: "HK$200–18,000／關鍵字／月",
+          adwire: "不適用——我們以方案計，不逐字收費",
+        },
+      ],
+      disclaimer:
+        "市場數字為綜合香港多間 SEO 服務商公開資料嘅參考區間，並非任何一間公司嘅正式報價，亦不代表佢哋一定提供相同範圍。實際收費視網站現況、行業競爭及工作範圍而定",
+      source: "綜合香港 SEO 服務商公開報價",
+      updated: "2026 年 11 月",
+    },
     tiers: [
       {
         name: "Starter",
@@ -187,6 +224,7 @@ export const SEO_PAGE: ServicePageData = {
     { href: "/blog/seo-vs-geo/", title: "SEO 與 GEO 的分別", desc: "兩者如何分工，以及為何應該一併規劃。" },
     { href: "/blog/hong-kong-seo-geo-guide/", title: "香港 SEO 實施指南", desc: "中英混用、地區訊號及用字差異的處理方法。" },
     { href: "/blog/how-to-choose-seo-company-hong-kong/", title: "點揀 SEO 公司", desc: "簽約前應該問清楚的問題。" },
+    { href: "/blog/aeo-answer-engine-optimization-hong-kong/", title: "AEO 係咩？", desc: "解答引擎優化的定義、與 SEO／GEO 的分別及量度方法。" },
   ],
 
   finalCta: {

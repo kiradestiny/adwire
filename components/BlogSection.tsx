@@ -23,7 +23,7 @@ export default function BlogSection({ posts }: BlogSectionProps) {
               最新營銷洞察
             </h2>
             <p className="text-lg text-gray-600">
-              分享最前沿的 AI 技術、SEO 策略及短視頻趨勢，助你在數位時代保持領先。
+              分享最前沿的 AI 技術、SEO 策略及短片趨勢，助你在數位時代保持領先。
             </p>
           </div>
           <Link 

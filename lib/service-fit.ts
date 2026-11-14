@@ -182,7 +182,7 @@ export const SERVICE_FIT: Record<string, ServiceFit> = {
   "hong-kong-market": {
     headline: "最適合：內地或海外品牌要進入香港市場，需要本地化而非直接翻譯。",
     suitable: [
-      "已有品牌與產品，需要香港市場落地",
+      "已有品牌與產品，需要香港市場落實",
       "需要繁體中文（港式用語）內容與本地 SEO",
       "要接香港支付（FPS／PayMe）與物流",
       "需要 WhatsApp 客服而非微信",

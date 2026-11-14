@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   keywords: [
     "香港數碼營銷",
     "KOL 網紅營銷",
-    "短視頻製作",
+    "短片製作",
     "SEO 優化",
     "GEO 優化",
     "Generative Engine Optimization",
@@ -53,7 +53,7 @@ const faqs = [
   {
     question: "ADWire Agency 提供哪些數碼營銷服務？",
     answer:
-      "ADWire 提供五條主要服務線：Software Development（企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合）、AI & Automation（AI 應用、企業知識庫、工作流程自動化、系統整合）、SEO & GEO（技術 SEO、內容與關鍵字規劃、AI 搜尋能見度及成效量度）、Digital Marketing（Google／Meta 廣告、社交媒體代管、短視頻製作、KOL 網紅營銷及商業攝影），以及 Cross-border Marketing（香港品牌進入內地市場，或內地及海外品牌進入香港市場）。可先到服務範疇頁按需求查看對應服務。",
+      "ADWire 提供五條主要服務線：Software Development（企業網站、Web App、CRM／ERP 相關系統、手機 App、MVP 及 API 整合）、AI & Automation（AI 應用、企業知識庫、工作流程自動化、系統整合）、SEO & GEO（技術 SEO、內容與關鍵字規劃、AI 搜尋能見度及成效量度）、Digital Marketing（Google／Meta 廣告、社交媒體代管、短片製作、KOL 網紅營銷及商業攝影），以及 Cross-border Marketing（香港品牌進入內地市場，或內地及海外品牌進入香港市場）。可先到服務範疇頁按需求查看對應服務。",
   },
   {
     question: "什麼是 GEO (Generative Engine Optimization)？與 SEO 有何分別？",
@@ -71,9 +71,9 @@ const faqs = [
       "ADWire 會按每個項目，在香港及大灣區物色合適的 KOL，類別涵蓋美妝、科技、飲食、親子、旅遊等。我們會根據品牌定位、目標受眾及預算配對 KOL 組合，並檢查受眾地區、互動質素與假粉跡象。整個流程包括：KOL 篩選與背景審核、合作內容策略制定、製作監督與品質把關、數據追蹤（觸及率、互動率、轉換率），確保每次 KOL 合作都能帶來真實的品牌價值。",
   },
   {
-    question: "短視頻製作需要多長時間？包含哪些服務？",
+    question: "短片製作需要多長時間？包含哪些服務？",
     answer:
-      "一般短視頻製作（15-60 秒）從拍攝到完成剪輯約需 3-7 個工作天。ADWire 的短視頻製作服務包括：腳本策劃與創意發想、現場拍攝（香港各區均可上門服務）、專業剪輯與特效後製、字幕製作（繁中/英）及多平台格式優化（Reels 9:16、YouTube Shorts、TikTok 等）。如需配合 KOL 拍攝或品牌故事片，時間和費用將依項目規模另議。",
+      "一般短片製作（15-60 秒）從拍攝到完成剪輯約需 3-7 個工作天。ADWire 的短片製作服務包括：腳本策劃與創意發想、現場拍攝（香港各區均可上門服務）、專業剪輯與特效後製、字幕製作（繁中/英）及多平台格式優化（Reels 9:16、YouTube Shorts、TikTok 等）。如需配合 KOL 拍攝或品牌故事片，時間和費用將依項目規模另議。",
   },
   {
     question: "成效廣告投放的最低預算是多少？如何計費？",

@@ -343,7 +343,7 @@ export default function KolServiceContent() {
             />
             <ServiceCard 
               title="大型品牌宣傳 (Branding)"
-              desc="與頭部 KOL (Top-tier) 合作，拍攝高質感的形象大片或短視頻。利用其強大號召力，瞬間提升品牌知名度與形象。"
+              desc="與頭部 KOL (Top-tier) 合作，拍攝高質感的形象大片或短片。利用其強大號召力，瞬間提升品牌知名度與形象。"
               tags={["形象大片", "直播帶貨", "品牌大使"]}
               icon={Star}
               color="bg-orange-50 text-orange-600"
@@ -390,7 +390,7 @@ export default function KolServiceContent() {
                 <TechPoint 
                   icon={TrendingUp}
                   title="過往表現追蹤"
-                  desc="我們擁有自家數據庫，記錄 KOL 過往合作的 Engagement Rate 及轉化成效，避開「有量無效」的雷區。"
+                  desc="我們擁有自家資料庫，記錄 KOL 過往合作的 Engagement Rate 及轉化成效，避開「有量無效」的雷區。"
                 />
                 <TechPoint 
                   icon={Megaphone}

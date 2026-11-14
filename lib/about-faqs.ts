@@ -31,7 +31,7 @@ export interface AboutFaq {
 export const ABOUT_FAQS: AboutFaq[] = [
   {
     q: "ADWire Agency 是一間什麼公司？",
-    a: "ADWire Agency 是一間以香港為基地的軟件及數碼增長公司，提供五條服務線：軟件開發（企業網站、Web App、度身訂造系統、CRM／ERP 及 API 整合）、AI 與自動化（AI 應用、企業知識庫、工作流程及 WhatsApp／CRM 自動化）、SEO／GEO 搜尋優化、跨境營銷（香港與內地雙向），以及數碼營銷（成效廣告、社交媒體、短視頻、KOL 及商業攝影）。",
+    a: "ADWire Agency 是一間以香港為基地的軟件及數碼增長公司，提供五條服務線：軟件開發（企業網站、Web App、度身訂造系統、CRM／ERP 及 API 整合）、AI 與自動化（AI 應用、企業知識庫、工作流程及 WhatsApp／CRM 自動化）、SEO／GEO 搜尋優化、跨境營銷（香港與內地雙向），以及數碼營銷（成效廣告、社交媒體、短片、KOL 及商業攝影）。",
   },
   {
     q: "ADWire 與一般市場營銷公司有什麼分別？",
@@ -39,7 +39,7 @@ export const ABOUT_FAQS: AboutFaq[] = [
   },
   {
     q: "ADWire 提供哪些服務？",
-    a: "分為五條服務線：(1) 軟件開發 — 企業網站、電商、Web App、CRM／ERP、手機 App 及 API 整合；(2) AI 與自動化 — AI 應用開發、企業知識庫、流程自動化、WhatsApp 及 CRM 自動化；(3) SEO／GEO — 技術 SEO、內容及關鍵字規劃、AI 搜尋能見度；(4) 跨境營銷 — 香港品牌進入內地市場，以及內地或海外品牌進入香港市場；(5) 數碼營銷 — 成效廣告、社交媒體代管、短視頻製作、KOL 網紅營銷及商業攝影。",
+    a: "分為五條服務線：(1) 軟件開發 — 企業網站、電商、Web App、CRM／ERP、手機 App 及 API 整合；(2) AI 與自動化 — AI 應用開發、企業知識庫、流程自動化、WhatsApp 及 CRM 自動化；(3) SEO／GEO — 技術 SEO、內容及關鍵字規劃、AI 搜尋能見度；(4) 跨境營銷 — 香港品牌進入內地市場，以及內地或海外品牌進入香港市場；(5) 數碼營銷 — 成效廣告、社交媒體代管、短片製作、KOL 網紅營銷及商業攝影。",
   },
   {
     q: "ADWire 主要服務哪些行業？",

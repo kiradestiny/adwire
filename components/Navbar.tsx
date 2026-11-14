@@ -66,7 +66,7 @@ const serviceGroups: {
     links: [
       { name: "成效廣告投放",       href: "/services/ads",        emoji: "📈", badge: null },
       { name: "社交媒體管理",       href: "/services/social",     emoji: "📱", badge: null },
-      { name: "短視頻製作",         href: "/services/video",      emoji: "🎬", badge: null },
+      { name: "短片製作",         href: "/services/video",      emoji: "🎬", badge: null },
       { name: "KOL 網紅營銷",       href: "/services/kol",        emoji: "🌟", badge: null },
       { name: "商業攝影",           href: "/services/production", emoji: "📷", badge: null },
     ],

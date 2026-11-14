@@ -153,7 +153,7 @@ const pillars = [
       },
       {
         id: "video",
-        title: "短視頻製作",
+        title: "短片製作",
         icon: Smartphone,
         content:
           "直式短片（Reels、Shorts、抖音、小紅書）的策劃、拍攝與剪輯。一次拍攝可產出多少條素材，會在報價階段講清楚，而不是按條計。",
@@ -196,11 +196,11 @@ const allServices = [
   { name: "診所及醫療機構方案", outcome: "預約、病歷紀錄、收費對賬與資料合規相關系統", link: "/services/healthcare/", group: "industry", best: "診所、醫療中心及醫務行政團隊" },
   { name: "成效廣告投放", outcome: "Google 及 Meta 廣告投放與受眾素材測試", link: "/services/ads/", group: "marketing", best: "需要短期內取得流量與查詢" },
   { name: "社交媒體管理與代管", outcome: "內容企劃、視覺設計、社群互動與月報", link: "/services/social/", group: "marketing", best: "沒有內部內容團隊" },
-  { name: "短視頻製作", outcome: "直式短片的策劃、拍攝、剪輯與交付", link: "/services/video/", group: "marketing", best: "需要穩定產出短片素材" },
+  { name: "短片製作", outcome: "直式短片的策劃、拍攝、剪輯與交付", link: "/services/video/", group: "marketing", best: "需要穩定產出短片素材" },
   { name: "KOL 與網紅營銷", outcome: "KOL 篩選、議價、簡報與成效歸因", link: "/services/kol/", group: "marketing", best: "需要第三方口碑與曝光" },
   { name: "商業攝影與影片製作", outcome: "產品攝影、企業影片、活動攝錄與後期", link: "/services/production/", group: "marketing", best: "需要品牌影像素材" },
   { name: "中國市場推廣", outcome: "小紅書、抖音、微信、百度等渠道與內地 GEO", link: "/services/china-market/", group: "cross", best: "香港品牌要進入內地市場" },
-  { name: "香港市場在地化推廣", outcome: "為內地及海外品牌做香港落地與本地化內容", link: "/services/hong-kong-market/", group: "cross", best: "內地或海外品牌要進入香港" },
+  { name: "香港市場在地化推廣", outcome: "為內地及海外品牌做香港落實與本地化內容", link: "/services/hong-kong-market/", group: "cross", best: "內地或海外品牌要進入香港" },
 ];
 
 type ServiceGroup = "ai" | "seo" | "industry" | "marketing" | "cross";
@@ -638,7 +638,7 @@ export default function ServicesContent() {
                 alt: "香港市場在地化推廣：協助內地及海外品牌進入香港市場的本地化宣傳服務",
                 w: 1536, h: 512,
                 title: "香港市場在地化推廣（內地及海外品牌來港）",
-                desc: "由用地轉換、內容重寫到媒體與 KOL 選擇，協助品牌用香港的語言與文化落地，而不是把內地或海外文案直接搬過來。",
+                desc: "由用地轉換、內容重寫到媒體與 KOL 選擇，協助品牌用香港的語言與文化落實，而不是把內地或海外文案直接搬過來。",
               },
             ].map((c, i) => (
               <motion.div key={c.href} data-mobile-visible="true" {...fadeUp(i * 0.1)}>

@@ -152,7 +152,7 @@ function MarqueeRow({ brands, duration, reverse = false, paused, offset }: {
   paused: boolean;
   offset: number;
 }) {
-  // 複製 4 份以確保在大屏幕上無縫滾動（CSS translateX(-50%) 對應 2 份寬度）。
+  // 複製 4 份以確保在大螢幕上無縫滾動（CSS translateX(-50%) 對應 2 份寬度）。
   // 只有第 1 份交給輔助技術讀出，其餘 3 份標 aria-hidden，讀屏每個品牌只讀一次。
   const copies = [...brands, ...brands, ...brands, ...brands];
 

@@ -59,7 +59,7 @@ const MODULES = [
   { label: "SEO／GEO", Icon: Search, color: "#34d399" },
 ] as const;
 
-// chip 用固定闊度（佔容器 %），令唔同屏幕闊度都唔會凸出界
+// chip 用固定闊度（佔容器 %），令唔同螢幕闊度都唔會凸出界
 const IN_W = 0.235;
 const OUT_W = 0.265;
 const IN_X = W * IN_W;          // 輸入 chip 右邊錨點

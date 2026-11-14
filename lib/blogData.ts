@@ -19,9 +19,264 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
 
   {
+    id: 59,
+    slug: "hong-kong-agency-types-how-to-choose",
+    title: "香港廣告公司有四類：跨國集團、數碼營銷、製作公司、專項顧問，分別適合邊種客？",
+    excerpt:
+      "搵 agency 之前，先分清楚香港四類供應商做嘅嘢完全唔同：跨國廣告集團（4As）、綜合數碼營銷公司、網頁及影片製作公司、專項顧問（SEO／GEO、系統及 AI）。本文用一張表講清各自嘅交付、收費模式同最適合邊種客，再加五條問題，三十秒知道你要邊一類。",
+    date: "2026-11-14",
+    updatedAt: "2026-11-14",
+    category: "Ads Strategy",
+    readTime: "9 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/hong-kong-agency-types-how-to-choose.webp",
+    tags: ["廣告公司", "Marketing Agency", "香港", "4As", "SEO 公司", "揀代理", "收費比較"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">搜「香港廣告公司」，出嚟嘅結果由跨國集團到一人工作室都有，全部都叫自己「廣告公司」。但佢哋做嘅嘢、收費方式、適合邊種客，其實完全唔同。呢篇唔會排邊間好——排名嘅嘢日日變，而且最貴嗰間唔等於最適合你。呢篇幫你分清四類供應商，等你知自己要買嘅究竟係邊一種服務。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">香港嘅「廣告公司」大致分四類：<strong>跨國廣告集團（行內慣稱 4As）</strong>做品牌策略同大眾媒體，最低消費高，適合有年度預算嘅大品牌；<strong>綜合數碼營銷公司</strong>做社交媒體、廣告投放同內容，按月收費，適合想持續有人打理網上曝光嘅中小企；<strong>網頁及影片製作公司</strong>按項目交貨，適合需要一個網站或一條片嘅公司；<strong>專項顧問</strong>（SEO／GEO、系統及 AI 開發）解決「客人搵唔到你」或「查到但接唔住」嘅問題。<strong>大部分香港中小企真正需要嘅係第二類或第四類，唔係第一類。</strong></p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>「廣告公司」唔係一個工種，係四種完全唔同嘅生意模式</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>4As 係業界組織（香港廣告商會，1957 年成立），會員主要係跨國廣告集團嘅香港子公司</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>按月收費同按項目收費係兩種邏輯：前者買「持續有人做」，後者買「一件交付物」</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>廣告費（Media Buy）同服務費一定分開計，混淆係最常見嘅預算失控原因</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>規模唔夠、未有回覆查詢嘅人手，就算請最貴嘅 agency 都唔會有效</span></li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/hong-kong-agency-types-how-to-choose-1.webp" alt="圖示：香港四類廣告及營銷供應商——跨國廣告集團、綜合數碼營銷公司、製作公司、專項顧問" title="圖示：香港四類廣告及營銷供應商" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">四類供應商嘅分工：由大眾曝光、持續營運、單次交付，到解決「搵唔到」同「接唔住」</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、四類供應商，做嘅嘢完全唔同</h2>
+        <p>先睇一張表。呢張表唔係排名，係「你做緊邊種生意、缺緊邊種能力」嘅對照表。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">類別</th><th class="px-4 py-3 text-left">典型規模</th><th class="px-4 py-3 text-left">主要交付</th><th class="px-4 py-3 text-left">收費模式</th><th class="px-4 py-3 text-left">最適合</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">跨國廣告集團（4As）</td><td class="px-4 py-3">幾十至幾百人，分 account、creative、media、production</td><td class="px-4 py-3">品牌策略、大眾媒體（電視、戶外、平面）、大型創意製作</td><td class="px-4 py-3">月費 retainer 加製作費，入場門檻高</td><td class="px-4 py-3">有年度市場預算、要建立大眾品牌認知嘅企業</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">綜合數碼營銷公司（digital agency）</td><td class="px-4 py-3">10–50 人，一個團隊兼做多個客</td><td class="px-4 py-3">社交媒體營運、廣告投放、內容製作、KOL 配對、月報</td><td class="px-4 py-3">月費，廣告費另計</td><td class="px-4 py-3">想持續有人打理網上曝光、但無意自組 in-house 團隊嘅中小企</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">網頁及影片製作公司</td><td class="px-4 py-3">3–20 人，設計同製作主導</td><td class="px-4 py-3">網站、短片、宣傳片、攝影、平面設計</td><td class="px-4 py-3">按項目報價，一次性</td><td class="px-4 py-3">已有清晰定位，只係差一個載體（網站／影片）去講</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">專項顧問（SEO／GEO、系統及 AI）</td><td class="px-4 py-3">3–20 人，技術同策略主導</td><td class="px-4 py-3">搜尋排名、AI 引用、CRM／ERP、流程自動化、AI 應用</td><td class="px-4 py-3">SEO 按月；系統及 AI 按項目</td><td class="px-4 py-3">已經有品牌同網站，但「客人搵唔到你」或「查到但接唔住」</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>順帶講清一個香港常見嘅誤會：<strong>「4As」唔係一種服務類型，係一個業界組織</strong>。香港廣告商會（The Association of Accredited Advertising Agents of Hong Kong，簡稱 HK4As）1957 年成立，會員約二十多間，主要係跨國廣告集團嘅香港子公司，入會對營業額同客戶數目有要求。所以「4As 公司」實際上等於「規模最大嗰批、多數係跨國集團背景」嘅廣告公司，唔係一個獨立嘅服務品種。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/hong-kong-agency-types-how-to-choose-2.webp" alt="圖表：按月收費與按項目收費的分別——服務費與媒體費必須分開計算" title="圖表：按月收費與按項目收費的分別" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">按月收費買「持續有人做」，按項目收費買「一件交付物」；兩者都唔包含媒體費</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、價錢差幾遠？市場公開區間對照</h2>
+        <p>以下係香港市場嘅公開參考區間，唔係任何一間公司嘅正式報價。睇嘅時候重點唔係「邊個平」，而係「呢個價位通常包咩、唔包咩」。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">服務</th><th class="px-4 py-3 text-left">香港市場參考</th><th class="px-4 py-3 text-left">收費邏輯</th><th class="px-4 py-3 text-left">最常被漏計嘅部分</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3">SEO／GEO 月費</td><td class="px-4 py-3">約 HK$3,900–30,000／月，中小企常見 HK$8,000–18,000</td><td class="px-4 py-3">按關鍵字數量、文章篇數、頁面優化數量</td><td class="px-4 py-3">網站技術修復、內容由誰撰寫</td></tr>
+              <tr><td class="px-4 py-3">廣告代操</td><td class="px-4 py-3">約 HK$4,000／月起，或按廣告費百分比抽成</td><td class="px-4 py-3">按帳戶數量、平台數目、廣告預算規模</td><td class="px-4 py-3">素材製作、廣告費（Media Buy）本身</td></tr>
+              <tr><td class="px-4 py-3">網頁設計</td><td class="px-4 py-3">套版約 HK$3,000–20,000；客製約 HK$20,000–60,000</td><td class="px-4 py-3">按頁數、功能、設計定制度、系統整合</td><td class="px-4 py-3">網域、主機、SSL、上線後維護</td></tr>
+              <tr><td class="px-4 py-3">影片製作</td><td class="px-4 py-3">企業宣傳片約 HK$10,000–50,000；多場景特效可更高</td><td class="px-4 py-3">按拍攝日數、團隊人數、後期複雜度</td><td class="px-4 py-3">演員、場地、授權（whitelisting）、修改輪次</td></tr>
+              <tr><td class="px-4 py-3">KOL 推廣</td><td class="px-4 py-3">Nano 約 HK$500–3,000／帖；Micro 約 HK$3,000–15,000；Mid-tier 約 HK$15,000–50,000</td><td class="px-4 py-3">按粉絲量級、平台、內容形式、使用權</td><td class="px-4 py-3">授權用於廣告投放、線下出席</td></tr>
+              <tr><td class="px-4 py-3">系統／App 開發</td><td class="px-4 py-3">按功能清單報價，同一名稱可以差幾倍</td><td class="px-4 py-3">按功能模組、系統整合數目、資料遷移量</td><td class="px-4 py-3">需求分析、測試、培訓、上線後保養</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-sm text-gray-500 leading-relaxed">市場數字為綜合香港多間服務商公開資料嘅參考區間，並非任何一間公司嘅正式報價，亦不代表包含相同範圍。實際收費視範圍、行業競爭及交付要求而定。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、五條問題，三十秒知道你要邊類</h2>
+        <ol class="list-decimal pl-6 space-y-3 my-6">
+          <li><strong>你缺嘅係「有人識你」，定「有人搵到你」？</strong>前者係品牌曝光（第一類或第二類），後者係搜尋能見度（第四類）。兩者嘅工作完全唔同，唔可以互相代替。</li>
+          <li><strong>你已經有網站未？有冇人查詢？</strong>如果網站已經有人查詢，你需要嘅係放大（第二或第四類）；如果完全冇查詢，問題可能喺網站本身，唔係喺廣告。</li>
+          <li><strong>你要嘅係「一次性交付」，定「每月持續」？</strong>要一個網站或者一條片，係按項目；要每月有人寫文章、調廣告、追排名，係按月服務。</li>
+          <li><strong>你嘅客係主動搜尋你，定係被廣告撞到？</strong>專業服務、B2B、單價高嘅生意，多數靠搜尋同口碑；快速消費品、價格敏感嘅品類，多數靠投放。</li>
+          <li><strong>你嘅預算係五位數字定六位數字？</strong>五位數字通常足夠做 SEO 月費或一個形象網站；六位數字以上先至值得考慮大型製作同多平台投放。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、幾時唔應該請 agency</h2>
+        <p>呢一節唔會令你開心，但會幫你省錢。以下四種情況，請 agency 通常都唔會有效果：</p>
+        <ul class="list-disc pl-6 space-y-2 my-6">
+          <li><strong>你未確定賣咩、賣俾邊個。</strong>任何宣傳只會放大混亂。先定客群同價值，再談推廣。</li>
+          <li><strong>你冇人回覆查詢。</strong>廣告同 SEO 都會帶來查詢，但如果三日後才回覆，效果等於零。呢個問題唔係 agency 可以幫你解決。</li>
+          <li><strong>你只想「買一個網站」，但唔打算改任何流程。</strong>網站係載體，唔係策略。流程唔改，網站只會變成一個靚嘅宣傳單張。</li>
+          <li><strong>預算細到無法完成一次完整測試。</strong>廣告同 SEO 都要跑夠時間先有數據。預算太散，每一項都「未夠數」，最後乜都判斷唔到。</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、常見問題</h2>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">廣告公司同 marketing agency 有咩分別？</h3>
+        <p>在香港嘅用法，兩者高度重疊。「廣告公司」歷史上指做創意同媒體嘅代理商；「marketing agency」或「數碼營銷公司」多數指做社交媒體、投放、內容同數據嘅公司。真正嘅分別唔在名，而在收費模式同交付：按月收費嘅係持續營運，按項目嘅係一次性交付。簽約前問清楚「每月你會交咩」比問「你係邊類公司」實際。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">4As 係咩？中小企係唔係一定要用？</h3>
+        <p>4As 指香港廣告商會（HK4As），1957 年成立嘅業界組織，會員約二十多間，主要係跨國廣告集團嘅香港子公司。佢係一個組織，唔係一種服務類型。中小企唔一定要用——4As 公司嘅強項係大眾媒體同大型創意製作，最低消費同流程都係為大品牌設計；如果你的客人主要透過 Google 或 AI 搜尋搵供應商，投放同搜尋優化會直接得多。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">可唔可以同時請兩間 agency？</h3>
+        <p>可以，而且好常見，但一定要分清界線：例如一間做廣告投放，另一間做 SEO 同網站。最常出事嘅係兩間都「順手」改同一個網站或同一個廣告帳戶，結果冇人講得清楚邊個改動造成咩結果。做法係書面寫明：邊個擁有廣告帳戶、邊個有網站後台權限、報告用邊套數字。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">點知一間 agency 係唔係真係做過？</h3>
+        <p>睇三樣：一、有冇公開、可撳入去嘅案例頁（唔係只有 logo）；二、案例有冇寫明做咗咩、做幾久、用咩指標；三、可唔可以講出你所在行業嘅具體難處。只講「我們服務過 XX 品牌」但講唔出做咗咩，通常代表佢只係參與過其中一小部分。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">收費最平係唔係最好？</h3>
+        <p>唔係，但最貴都唔等於最好。同一個價位可以有完全唔同嘅交付範圍：一個 HK$8,000 嘅網站可以包 8 頁、技術 SEO 同手機版，亦可以只係套版加 3 張圖。正確做法係要求分項報價，比較「同等範圍下嘅總成本」，而唔係比較一個總數。簽約前亦要問清楚：修改幾多輪、上線後保養包咩、網站同廣告帳戶係唔係用你公司名義開。</p>
+
+        <div class="bg-[#0f4c81] text-white rounded-2xl p-6 md:p-8 my-10">
+          <p class="text-lg md:text-xl font-bold mb-2">睇完仍然唔確定自己需要邊一類？</p>
+          <p class="text-blue-100 leading-relaxed mb-5">可以直接 WhatsApp 講你嘅行業、現有網站同想解決嘅問題。我們會先答你「需唔需要請 agency」，如果係你自己可以處理嘅，會直接講。</p>
+          <a href="/services/" class="inline-flex items-center gap-2 bg-[#f5a623] text-[#0f4c81] px-6 py-3 rounded-full font-bold">睇我們嘅服務範圍 →</a>
+        </div>
+    `,
+  },
+
+  {
+    id: 60,
+    slug: "aeo-answer-engine-optimization-hong-kong",
+    title: "AEO 係咩？三個意思要分清：AI 搜尋優化、香港海關認證、美股代號",
+    excerpt:
+      "搜「AEO」會見到三種完全唔同嘅嘢：Answer Engine Optimization（解答引擎優化）、香港海關嘅認可經濟營運商認證、以及美國 Eagle Outfitters 嘅股票代號。本文逐個拆解三個意思，再講香港企業做 AEO（AI 搜尋優化）實際要做咩、點量度，同 SEO／GEO 有咩分別。",
+    date: "2026-11-14",
+    updatedAt: "2026-11-14",
+    category: "SEO & AI",
+    readTime: "8 min read",
+    imageColor: "from-[#0f4c81] to-slate-800",
+    image: "/blog/aeo-answer-engine-optimization-hong-kong.webp",
+    tags: ["AEO", "Answer Engine Optimization", "GEO", "AI 搜尋", "SEO", "AI Overview"],
+    content: `
+        <p class="lead text-xl text-gray-600 mb-8">「AEO」呢三個字母，喺 Google 搜尋同時代表三種完全唔同嘅嘢。如果你係做市場推廣嘅，搜到一半見到海關認證或者股票資料，好容易就會放棄。呢篇一次講清三個意思，然後集中講香港企業真正關心嗰個：Answer Engine Optimization，即係點樣令 AI 搜尋引擎答問題時引用你。</p>
+
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
+          <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
+          <p class="text-gray-700 leading-relaxed">AEO 有三個意思：<strong>一、Answer Engine Optimization（解答引擎優化）</strong>——針對 ChatGPT、Perplexity、Google AI Overview 等「直接答問題」嘅引擎做優化；<strong>二、Authorized Economic Operator（認可經濟營運商）</strong>——香港海關 2012 年推出嘅供應鏈安全認證，主要對象係物流、貿易、製造業；<strong>三、American Eagle Outfitters 嘅美股代號</strong>。做市場推廣講嘅 AEO，九成九係第一個意思。佢同 SEO、GEO 係同一個範疇嘅三個層次，唔係三樣互相替代嘅嘢。</p>
+        </div>
+
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
+          <p class="font-bold text-[#0f4c81] mb-3 text-lg">📌 重點摘要</p>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>AEO（Answer Engine Optimization）＝令 AI 答問題時引用你，重點係「答案」而唔係「排名」</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>同一個字喺香港仲代表海關嘅認可經濟營運商認證，同市場推廣完全無關</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>AI Overview 已經出現喺大部分商業查詢上，但唔會引用排第 20 名嘅頁面</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>AI 要嘅係「一句結論加一個數字」，唔係一段修飾語</span></li>
+            <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>任何人都唔可以保證被 AI 引用，只能量度同改善機會</span></li>
+          </ul>
+        </div>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/aeo-answer-engine-optimization-hong-kong-1.webp" alt="圖示：AEO 三個意思——解答引擎優化、香港海關認可經濟營運商、美股代號" title="圖示：AEO 三個意思" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">同一個縮寫，三種完全唔同嘅用途，搜尋時要先分清語境</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、AEO 三個意思</h2>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">意思</th><th class="px-4 py-3 text-left">領域</th><th class="px-4 py-3 text-left">你會見到嘅內容</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">Answer Engine Optimization<br/>解答引擎優化</td><td class="px-4 py-3">數碼營銷</td><td class="px-4 py-3">AI 搜尋、ChatGPT 引用、AI Overview 優化、SEO 公司服務介紹</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">Authorized Economic Operator<br/>認可經濟營運商</td><td class="px-4 py-3">海關及物流</td><td class="px-4 py-3">香港海關認證、供應鏈安全、通關便利、互認安排、AEO 名單</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">American Eagle Outfitters</td><td class="px-4 py-3">美國股市</td><td class="px-4 py-3">股票代號 AEO、股價、財報、時裝零售</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>如果你做市場推廣，只需要理第一個。第二個係香港海關 2012 年 4 月推出嘅「香港認可經濟營運商計劃」，屬自願參與、免費嘅認證制度，對象係參與國際供應鏈嘅企業（製造商、進出口商、貨運代理、貨倉營運商等），分兩級認證，通過後可獲減少海關查驗同優先清關。呢個認證同網站宣傳完全冇關係，唔好因為搜到佢而以為「AEO 唔關我事」。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">二、AEO、SEO、GEO 有咩分別</h2>
+        <p>三者係同一個範疇嘅三個層次，唔係三個可以互相替代嘅方案。用一句講：SEO 爭「排第幾」，AEO 爭「有冇被答出嚟」，GEO 爭「有冇被引用同推薦」。</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">比較項目</th><th class="px-4 py-3 text-left">SEO</th><th class="px-4 py-3 text-left">AEO</th><th class="px-4 py-3 text-left">GEO</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">目標</td><td class="px-4 py-3">喺搜尋結果頁排前，帶來點擊</td><td class="px-4 py-3">成為 AI 答案入面嘅直接答案</td><td class="px-4 py-3">被 AI 引用、提及甚至推薦</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">成功指標</td><td class="px-4 py-3">排名、曝光、點擊、查詢</td><td class="px-4 py-3">答案有冇用你嘅段落、有冇出你嘅數字</td><td class="px-4 py-3">引用次數、提及次數、品牌描述是否正確</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">見效時間</td><td class="px-4 py-3">3–6 個月</td><td class="px-4 py-3">同排名同步，甚至更慢</td><td class="px-4 py-3">2–3 個月開始有變化</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">前提</td><td class="px-4 py-3">技術健康、內容對題</td><td class="px-4 py-3">頁面本身要被索引、要排得前</td><td class="px-4 py-3">有第三方提及同可核實嘅資料</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>要留意一個現實：<strong>AI 引用池基本上同前 10 名重疊</strong>。我們 2026 年 11 月用 20 條香港商業查詢實測，AI Overview 引用嘅來源絕大部分係當時排前 10 嘅頁面。所以「排 20 名以外但想被 AI 引用」係不切實際嘅期望——AEO 唔會取代 SEO，佢係建喺 SEO 之上。</p>
+
+        <figure class="blog-figure my-10">
+          <img src="/blog/figures/aeo-answer-engine-optimization-hong-kong-2.webp" alt="圖表：SEO、AEO、GEO 三個層次——排名、直接答案、引用與推薦" title="圖表：SEO、AEO、GEO 三個層次" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100" />
+          <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">SEO 爭排名，AEO 爭被答出嚟，GEO 爭被引用同推薦</figcaption>
+        </figure>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">三、香港企業做 AEO，實際要做五件事</h2>
+
+        <ol class="list-decimal pl-6 space-y-3 my-6">
+          <li><strong>先確認頁面被索引、排得前。</strong>呢一步冇得跳。如果目標頁排 30 名，寫幾多 FAQ 都唔會令 AI 引用你。先用 Search Console 睇實際排名，唔好靠感覺。</li>
+          <li><strong>每個頁面第一句就答問題。</strong>AI 抽答案係抽一句，唔係抽一段。把「我們提供專業的…服務，多年來致力於…」改成「香港網頁設計費用一般由 HK$3,000 至 HK$60,000，視乎套版或客製」。結論先講，修飾後講。</li>
+          <li><strong>用真表格講價錢同比較。</strong>AI 答「幾多錢」時，用嘅係「項目 × 價錢區間」嘅表格。用 div 砌出嚟嘅「表格」畫面靚，但機器讀唔到行同列嘅關係，等於冇寫。</li>
+          <li><strong>問題要寫成客人真正嘅問法。</strong>「價錢如何計算」唔係客人講法，「整一個網站要幾多錢？」才是。可以用 Search Console 嘅查詢報告，篩出含「幾錢、邊間、點解、係咩」嘅真實查詢，直接用嗰句做 FAQ 標題。</li>
+          <li><strong>補 FAQPage 結構化資料。</strong>令問題同答案一一對應，機器知道邊段係答案。但唔好 expect 會出富媒體結果——Google 已經收窄咗 FAQ 顯示，呢個做法嘅價值在於令 AI 理解你嘅問答關係。</li>
+        </ol>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">四、點量度 AEO 有冇效</h2>
+        <p>三個指標，要分開記錄，唔可以混算，亦唔可以相加：</p>
+
+        <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
+          <table class="w-full text-sm">
+            <thead class="bg-[#0f4c81] text-white">
+              <tr><th class="px-4 py-3 text-left">指標</th><th class="px-4 py-3 text-left">點計</th><th class="px-4 py-3 text-left">注意</th></tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr><td class="px-4 py-3 font-semibold">AI Overview 引用率</td><td class="px-4 py-3">固定 20 條查詢，逐條查有冇出現你嘅域名</td><td class="px-4 py-3">單次快照會波動，最少每月同一組題目重測</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">AI 提及率</td><td class="px-4 py-3">在 ChatGPT／Perplexity 問同一組問題，計品牌被提及次數</td><td class="px-4 py-3">被提及唔等於被推薦，正面同負面要分開</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">AI 轉介流量</td><td class="px-4 py-3">GA4 睇 chatgpt.com、perplexity.ai 等來源</td><td class="px-4 py-3">大量轉介會被瀏覽器擋掉 referrer，數字一定偏低</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>最重要嘅一句：<strong>冇人可以保證被 AI 引用</strong>。AI 平台嘅輸出由平台自己決定，供應商只能改善條件，唔可以承諾結果。任何講「保證 AI 一定會推薦你」嘅，都可以直接跳過。</p>
+
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、常見問題</h2>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">AEO 同 GEO 係唔係同一樣嘢？</h3>
+        <p>大致重疊，但重點唔同。AEO 講「成為答案」——你嘅內容被抽入去回答；GEO 講「被引用同推薦」——包括域名被列做來源、品牌被提及。實務上兩者一齊做，因為做法九成相同：清楚嘅結論、可核實嘅數字、結構化嘅問答、真表格。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">做 AEO 需唔需要重寫網站？</h3>
+        <p>通常唔需要。大部分情況只需要三件事：把現有頁面嘅第一段改成「結論先行」、把散句整理成真表格、補上 FAQ 同結構化資料。真正要重寫嘅，係技術上做唔到（例如加唔到 schema、載入太慢、內容更新唔到）嘅網站。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">香港海關嘅 AEO 認證同市場推廣嘅 AEO 有冇關係？</h3>
+        <p>完全冇關係。海關嘅 AEO 係供應鏈安全認證，講通關便利同互認安排；市場推廣嘅 AEO 係解答引擎優化。兩者只係撞名。如果你係物流或貿易公司，兩個都要理，但要分開兩條線處理。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">AEO 幾時開始見到效果？</h3>
+        <p>一般 2–3 個月開始見到變化，但比排名更難量化。原因係 AI 回答本身會波動，同一條問題今日引用你、下個月可能換人。所以量度嘅重點唔係「有冇百分百出現」，而係「同一組題目嘅出現率有冇上升」。</p>
+
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-6 mb-2">AI 唔提我，係唔係因為我網站做得差？</h3>
+        <p>唔一定。常見原因有五個：頁面未被索引、排得太後、內容冇可直接抽取嘅結論、缺少結構化資料、或者品牌喺第三方完全冇提及。逐個排查，唔好一嚟就重做網站。</p>
+
+        <div class="bg-[#0f4c81] text-white rounded-2xl p-6 md:p-8 my-10">
+          <p class="text-lg md:text-xl font-bold mb-2">想知你嘅品牌喺 AI 搜尋出現幾多次？</p>
+          <p class="text-blue-100 leading-relaxed mb-5">ADWire 嘅 SEO／GEO 方案按月收費，由 HK$6,000 起，每月報告會列出固定題目嘅 AI 引用情況同排名變化。可以先做一次免費現況檢查。</p>
+          <a href="/services/seo/" class="inline-flex items-center gap-2 bg-[#f5a623] text-[#0f4c81] px-6 py-3 rounded-full font-bold">睇 SEO／GEO 服務詳情 →</a>
+        </div>
+    `,
+  },
+
+  {
     id: 58,
     slug: "school-ai-solution-hong-kong-guide",
-    title: "學校 AI 方案：中小學 AI 教學工具採購、資助與落地",
+    title: "學校 AI 方案：中小學 AI 教學工具採購、資助與落實",
     excerpt:
       "學校引入 AI 教學工具，最難不是買軟件，而是選對用途、處理學生資料與找到資助。本文整理四類 AI 工具用途、採購與資助路徑、學生資料與私隱要求、供應商評估清單，以及由試點到全校推行的步驟。",
     date: "2026-11-09",
@@ -67,7 +322,7 @@ export const blogPosts: BlogPost[] = [
 
         <p>學校引入 AI 的資源通常來自三個方向：學校本身的資訊科技預算、優質教育基金（QEF）等外部撥款，以及供應商提供的試用或先導計劃。三者要求的文件與時間表完全不同，所以要分開規劃。</p>
 
-        <p><strong>校本預算</strong>最快，但金額有限，適合先做小規模試點與教師培訓。<strong>外部撥款</strong>金額較大，但要寫計劃書、訂立可量度目標與報告期，通常要提前一至兩個學年準備。<strong>供應商試用</strong>門檻最低，但要注意試用期結束後的資料處理與收費安排，不要讓試用變成默認續約。</p>
+        <p><strong>校本預算</strong>最快，但金額有限，適合先做小規模試點與教師培訓。<strong>外部撥款</strong>金額較大，但要寫計劃書、訂立可量度目標與報告期，通常要提前一至兩個學年準備。<strong>供應商試用</strong>門檻最低，但要注意試用期結束後的資料處理與收費安排，不要讓試用變成預設續約。</p>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">採購前要書面確認的六項</p>
@@ -727,7 +982,7 @@ export const blogPosts: BlogPost[] = [
               <tr><td class="px-4 py-3 font-semibold">SEO 與內容</td><td class="px-4 py-3">有限控制</td><td class="px-4 py-3">較好，但受主題限制</td><td class="px-4 py-3">完全控制</td></tr>
               <tr><td class="px-4 py-3 font-semibold">資料擁有權</td><td class="px-4 py-3">平台內，可匯出</td><td class="px-4 py-3">平台內，可匯出</td><td class="px-4 py-3">完全在你手上</td></tr>
               <tr><td class="px-4 py-3 font-semibold">獨特流程</td><td class="px-4 py-3">需平台支援或客製報價</td><td class="px-4 py-3">需 App 或 Plus 方案</td><td class="px-4 py-3">按你流程設計</td></tr>
-              <tr><td class="px-4 py-3 font-semibold">離開成本</td><td class="px-4 py-3">中（資料可帶走）</td><td class="px-4 py-3">中高（App 投資難帶走）</td><td class="px-4 py-3">低（源碼在你手）</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">離開成本</td><td class="px-4 py-3">中（資料可帶走）</td><td class="px-4 py-3">中高（App 投資難帶走）</td><td class="px-4 py-3">低（原始碼在你手）</td></tr>
             </tbody>
           </table>
         </div>
@@ -1327,7 +1582,7 @@ export const blogPosts: BlogPost[] = [
             <li>會交付哪些文件？有沒有測試與驗收？</li>
             <li>設計有幾多輪修改？超出怎樣計？</li>
             <li>上線後保固幾長？保養怎樣收費？</li>
-            <li>源碼、網域、hosting 登記在誰名下？</li>
+            <li>原始碼、網域、hosting 登記在誰名下？</li>
             <li>付款節點与交付物怎樣掛鈎？</li>
           </ol>
         </div>
@@ -1342,7 +1597,7 @@ export const blogPosts: BlogPost[] = [
         </ul>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、便宜不等於划算</h2>
-        <p>一個 HK$8,000 但用模板硬改、無文件、無保養嘅網站，兩年後想加功能，通常要重做。相反，一個報價高但結構清楚、源碼交付、有文件嘅網站，第二、三年只需要加功能而唔需要重來。<strong>比較報價時，要比較三年總成本，唔係第一年支出。</strong></p>
+        <p>一個 HK$8,000 但用模板硬改、無文件、無保養嘅網站，兩年後想加功能，通常要重做。相反，一個報價高但結構清楚、原始碼交付、有文件嘅網站，第二、三年只需要加功能而唔需要重來。<strong>比較報價時，要比較三年總成本，唔係第一年支出。</strong></p>
 
         <div class="bg-[#0f4c81]/[0.04] border border-[#0f4c81]/15 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-2">下一步</p>
@@ -1685,7 +1940,7 @@ export const blogPosts: BlogPost[] = [
           </ol>
         </div>
         <p>第 4 段最容易被略過，但它才是管理層真正要的答案。沒有明確建議的 POC 報告，通常會被歸類為「有趣但未ready」，然後被無限期擱置。</p>
-        <p class="mt-8 text-gray-700 leading-relaxed">POC 之後要正式落地，可參考「<a href="/services/ai/" class="text-[#0f4c81] font-semibold underline">AI 解決方案</a>」頁內的整合方式與資料處理安排。</p>
+        <p class="mt-8 text-gray-700 leading-relaxed">POC 之後要正式落實，可參考「<a href="/services/ai/" class="text-[#0f4c81] font-semibold underline">AI 解決方案</a>」頁內的整合方式與資料處理安排。</p>
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3">相關服務與資源</p>
@@ -1826,7 +2081,7 @@ export const blogPosts: BlogPost[] = [
             <li>改一次版面，你期望是幾小時還是幾星期？</li>
             <li>有沒有人可以處理更新、備份、安全警示？</li>
             <li>未來兩年會不會加多語言、多地區、會員或預約功能？</li>
-            <li>如果供應商消失，你能否取回全部源碼與資料？</li>
+            <li>如果供應商消失，你能否取回全部原始碼與資料？</li>
           </ol>
         </div>
         <p>如果第 1、4 題的答案是「編輯自己改」「冇人管技術」，WordPress 通常更合適。如果第 2、3、5 題涉及系統整合與高變動，自建會更省長期成本。</p>
@@ -2097,7 +2352,7 @@ export const blogPosts: BlogPost[] = [
     slug: "system-rescue-takeover-checklist",
     title: "系統爛尾點救？接手舊系統前的完整 checklist（2026）",
     excerpt:
-      "系統爛尾、vendor 失聯、源碼混亂是香港中小企常見情況。本文列明接手前必須拿到的七樣東西、三種救援路線（穩定化／局部重寫／重建）、如何判斷值不值得救，以及避免再次爛尾的合約條款。",
+      "系統爛尾、vendor 失聯、原始碼混亂是香港中小企常見情況。本文列明接手前必須拿到的七樣東西、三種救援路線（穩定化／局部重寫／重建）、如何判斷值不值得救，以及避免再次爛尾的合約條款。",
     date: "2026-10-24",
     updatedAt: "2026-10-24",
     image: "/blog/system-rescue-takeover-checklist.webp",
@@ -2106,7 +2361,7 @@ export const blogPosts: BlogPost[] = [
     imageColor: "from-[#0f4c81] to-slate-800",
     tags: ["系統爛尾", "接手舊系統", "技術診斷", "vendor 倒閉", "外判風險", "系統重寫"],
     content: `
-        <p class="lead text-xl text-gray-600 mb-8">系統爛尾、vendor 倒閉、開發人員離職、接手後發現源碼混亂——這在香港中小企與學校機構並不罕見。這篇不是講「我們幾叻」，而是講清楚：接手一個爛尾系統前，你應該先拿什麼、判斷什麼、以及哪三種情況下其實不值得救。</p>
+        <p class="lead text-xl text-gray-600 mb-8">系統爛尾、vendor 倒閉、開發人員離職、接手後發現原始碼混亂——這在香港中小企與學校機構並不罕見。這篇不是講「我們幾叻」，而是講清楚：接手一個爛尾系統前，你應該先拿什麼、判斷什麼、以及哪三種情況下其實不值得救。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">決策摘要（30 秒）</p>
@@ -2121,7 +2376,7 @@ export const blogPosts: BlogPost[] = [
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先判斷：值不值得救</h2>
         <p>救援的成本差異可以極大，關鍵在第一天就判斷清楚。以下五個訊號，出現三個以上，就要認真考慮重建而非修補。</p>
         <ul class="space-y-2 my-6">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>源碼沒有版本控制（沒有 Git），改動靠複製檔案</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>原始碼沒有版本控制（沒有 Git），改動靠複製檔案</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>沒有資料庫結構文件，欄位命名無規律（例如 field1、field2）</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>核心功能依賴已停止維護的框架或套件</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>沒有測試，任何改動都可能弄壞其他功能</span></li>
@@ -2132,7 +2387,7 @@ export const blogPosts: BlogPost[] = [
         <p>這份清單可以直接拿去問前 vendor 或離職同事。拿不到，就代表你沒有真正擁有這個系統。</p>
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <ol class="space-y-2 list-decimal list-inside text-gray-700">
-            <li>源碼與完整 Git 歷史（不只是最後一版壓縮檔）</li>
+            <li>原始碼與完整 Git 歷史（不只是最後一版壓縮檔）</li>
             <li>資料庫完整匯出（含結構與資料），以及最近一次可還原的備份</li>
             <li>伺服器／雲端帳戶的擁有權或管理員權限</li>
             <li>網域、DNS、SSL 憑證的註冊商帳戶</li>
@@ -2159,7 +2414,7 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、如何避免再次爛尾</h2>
         <ul class="space-y-2 my-6">
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>合約要寫明源碼交付時間點，並放在<strong>你名下</strong>的 repo</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>合約要寫明原始碼交付時間點，並放在<strong>你名下</strong>的 repo</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>每兩週要看得到可運作的版本，不接受「做完才給你看」</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>伺服器與網域一開始就登記在公司名下，不用 vendor 的帳戶</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span>付款與里程碑掛鈎，尾數不少於一成半</span></li>
@@ -2228,9 +2483,9 @@ export const blogPosts: BlogPost[] = [
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、常見問題</h2>
         <div class="space-y-4 my-6">
           <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">前供應商不肯交出源碼怎麼辦？</p>
+          <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">前供應商不肯交出原始碼怎麼辦？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">先看合約是否列明源碼與帳號擁有權。實務上，如果資料與網域在你手上，即使沒有源碼，仍然可以重建；最壞情況是重寫，但不能接受的是資料被扣住。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">先看合約是否列明原始碼與帳號擁有權。實務上，如果資料與網域在你手上，即使沒有原始碼，仍然可以重建；最壞情況是重寫，但不能接受的是資料被扣住。</p>
           </div>
         </div>
           <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -2364,7 +2619,7 @@ export const blogPosts: BlogPost[] = [
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、三個壓價陷阱</h2>
         <ul class="space-y-2 my-6">
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>先接後加。</strong>用低價接單，開發途中逐項加錢。合約要寫明變更流程。</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>不交源碼。</strong>便宜是因為你日後只能繼續用他。簽約就要寫明交付。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>不交原始碼。</strong>便宜是因為你日後只能繼續用他。簽約就要寫明交付。</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>無測試無文件。</strong>省下的工時，日後由你或下一個 vendor 付。</span></li>
         </ul>
 
@@ -2381,7 +2636,7 @@ export const blogPosts: BlogPost[] = [
             <tbody class="divide-y divide-gray-100">
               <tr><td class="px-4 py-3 font-semibold">功能模組清單</td><td class="px-4 py-3">逐項列出功能與驗收標準</td><td class="px-4 py-3">日後爭議「這個算不算在內」</td></tr>
               <tr><td class="px-4 py-3 font-semibold">整合清單</td><td class="px-4 py-3">要接的第三方系統與責任方</td><td class="px-4 py-3">上線前才發現要額外報價</td></tr>
-              <tr><td class="px-4 py-3 font-semibold">交付文件</td><td class="px-4 py-3">源碼、文件、部署指引、帳號移交</td><td class="px-4 py-3">離場時被扣住資產</td></tr>
+              <tr><td class="px-4 py-3 font-semibold">交付文件</td><td class="px-4 py-3">原始碼、文件、部署指引、帳號移交</td><td class="px-4 py-3">離場時被扣住資產</td></tr>
               <tr><td class="px-4 py-3 font-semibold">里程碑與付款</td><td class="px-4 py-3">每階段交付什麼、付多少</td><td class="px-4 py-3">一次過付款，風險全在你身上</td></tr>
               <tr><td class="px-4 py-3 font-semibold">範圍變更機制</td><td class="px-4 py-3">加功能的計價方式與審批流程</td><td class="px-4 py-3">中途加價無法判斷是否合理</td></tr>
               <tr><td class="px-4 py-3 font-semibold">保固期與範圍</td><td class="px-4 py-3">幾個月、包什麼、不包什麼</td><td class="px-4 py-3">上線後每個問題都變成收費項目</td></tr>
@@ -2406,7 +2661,7 @@ export const blogPosts: BlogPost[] = [
             <li>哪些是「假設你已有」而我其實沒有的？（主機、設計、內容、帳號）</li>
             <li>第三方服務的年費由誰付？大約多少？</li>
             <li>如果中途我要加一個功能，怎樣計價？</li>
-            <li>交付時我會拿到什麼？源碼是否完整？部署文件是否包括？</li>
+            <li>交付時我會拿到什麼？原始碼是否完整？部署文件是否包括？</li>
             <li>上線後誰負責修 bug？保固幾個月？範圍是什麼？</li>
             <li>如果項目延期，責任如何劃分？</li>
             <li>如果我們合作結束，資料與帳號怎樣移交？</li>
@@ -2456,7 +2711,7 @@ export const blogPosts: BlogPost[] = [
           <ol class="space-y-2 list-decimal list-inside text-gray-700">
             <li><strong>列出三份報價的「假設」。</strong>例如：是否假設你提供設計？是否假設主機已存在？是否假設內容由你提供？把缺項補上估算，總數往往會反轉。</li>
             <li><strong>對齊功能數量。</strong>把三份的功能清單並排，刪去只有一方提供的項目，再比較。</li>
-            <li><strong>看交付物。</strong>有沒有源碼、文件、部署指引、測試環境？這些沒有列出的，日後要另外付費。</li>
+            <li><strong>看交付物。</strong>有沒有原始碼、文件、部署指引、測試環境？這些沒有列出的，日後要另外付費。</li>
             <li><strong>看保固與變更機制。</strong>保固三個月與十二個月，實際價值相差很大。</li>
           </ol>
         </div>
@@ -2592,9 +2847,9 @@ export const blogPosts: BlogPost[] = [
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>知識不在你身上。</strong>系統怎樣運作、為什麼這樣設計，只存在於供應商腦中。</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>排期不由你控制。</strong>你是眾多客戶之一，急事不一定優先。</span></li>
           <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>需求翻譯失真。</strong>業務語言轉成技術規格，中間每一次轉手都會流失資訊。</span></li>
-          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>離場成本。</strong>如果沒有源碼與文件，換供應商等於重新開始。</span></li>
+          <li class="flex items-start"><span class="text-[#f5a623] mr-2 mt-1">▸</span><span><strong>離場成本。</strong>如果沒有原始碼與文件，換供應商等於重新開始。</span></li>
         </ul>
-        <p>這些風險可以透過合約與流程降低：要求源碼交付、要求文件、要求每階段可試用、保留內部一位懂業務的對接人。</p>
+        <p>這些風險可以透過合約與流程降低：要求原始碼交付、要求文件、要求每階段可試用、保留內部一位懂業務的對接人。</p>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、混合模式：最常見的現實答案</h2>
         <p>大部分成長中的公司，最終會落在混合模式：</p>
@@ -2605,7 +2860,7 @@ export const blogPosts: BlogPost[] = [
           </div>
           <div class="border-l-4 border-[#0f4c81] pl-4">
             <p class="font-semibold text-gray-800">外判負責交付能力</p>
-            <p class="text-gray-700">設計、開發、測試、上線由外部團隊執行，按里程碑交付，並要求文件與源碼移交。</p>
+            <p class="text-gray-700">設計、開發、測試、上線由外部團隊執行，按里程碑交付，並要求文件與原始碼移交。</p>
           </div>
           <div class="border-l-4 border-[#0f4c81] pl-4">
             <p class="font-semibold text-gray-800">保留一位技術顧問角色</p>
@@ -2630,7 +2885,7 @@ export const blogPosts: BlogPost[] = [
           <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <p class="font-bold text-[#0f4c81] mb-2 text-sm" itemprop="name">外判會不會比較沒有保障？</p>
           <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">保障來自合約條款與交付機制，不是來自「是不是自己人」。要求源碼、文件、分段驗收與保固，比有沒有全職員工更實際。</p>
+            <p class="text-gray-600 text-sm leading-relaxed" itemprop="text">保障來自合約條款與交付機制，不是來自「是不是自己人」。要求原始碼、文件、分段驗收與保固，比有沒有全職員工更實際。</p>
           </div>
         </div>
           <div class="border border-gray-200 rounded-xl p-5 mt-4" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -2664,7 +2919,7 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">十、外判合約一定要寫的五條</h2>
         <ol class="space-y-3 my-6 list-decimal list-inside text-gray-700">
-          <li><strong>源碼與知識產權歸屬。</strong>付款完成後，源碼應完整交付並歸你所有。</li>
+          <li><strong>原始碼與知識產權歸屬。</strong>付款完成後，原始碼應完整交付並歸你所有。</li>
           <li><strong>帳號擁有權。</strong>網域、主機、雲端、金流、短訊服務，全部要以你公司名義註冊。</li>
           <li><strong>交付文件清單。</strong>環境設定、部署步驟、第三方服務清單、資料結構說明。</li>
           <li><strong>保固範圍與期限。</strong>什麼算 bug（免費修），什麼算新需求（另行報價）。</li>
@@ -2966,7 +3221,7 @@ export const blogPosts: BlogPost[] = [
         <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">先問性質，再決定交給哪一層，比盲目上工具有效</figcaption>
         </figure>
 
-        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、實際可以落地的自動化場景</h2>
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">五、實際可以落實的自動化場景</h2>
         <p>講完限制與分工，回到最實際的問題：一個香港的廣告團隊，今日可以用 API 自動化做到哪些具體事情？以下場景，是投入產出比最高、也最容易驗證成效的起點。</p>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
@@ -2988,7 +3243,7 @@ export const blogPosts: BlogPost[] = [
         <p>這些場景有一個共同的導入原則：<strong>由只讀做起</strong>。自動化報表與異常偵測只需要讀取權限，即使 API 權限只是 Limited 或 Basic，也已經可以運作，而且不涉及任何帳戶改動，風險最低。等到流程穩定、團隊對數據有信心之後，才逐步加入寫入操作，並為每一個寫入動作設計人工覆核點。</p>
 
         <figure class="blog-figure my-10">
-        <img src="/blog/figures/ai-manage-meta-google-ads-16.webp" alt="圖示：可落地的廣告自動化場景，由只讀的報表與異常偵測到寫入的批量操作" title="可落地的自動化場景" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <img src="/blog/figures/ai-manage-meta-google-ads-16.webp" alt="圖示：可落實的廣告自動化場景，由只讀的報表與異常偵測到寫入的批量操作" title="可落實的自動化場景" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
         <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">由只讀起步、逐步加入寫入，是風險最低的導入次序</figcaption>
         </figure>
 
@@ -3205,7 +3460,7 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/jev-ai-decision-model.webp",
     tags: ["Jev", "TypeSafe AI", "決策型 AI 模型", "System One", "world model"],
     content: `
-        <p class="lead text-xl text-gray-600 mb-8">Jev 是 TypeSafe AI 於 2026 年 9 月推出的決策型人工智能模型，屬於該公司稱為「System One Model」的新模型類別。它不生成文字、不寫句子，而是接收一段「狀態」（state）與一個有型別的提問，回傳一個有型別的決策、校準機率與信心分數，供軟件直接使用。本文從技術原理、三種提問原語、成本與速度、第三方實測準確度、市場全景（與 OpenAI Decisions API 及世界模型路線的比較），到企業落地場景與限制逐一說明，並釐清 Jev 與 Meta 的 JEPA 是兩件完全不同的事。</p>
+        <p class="lead text-xl text-gray-600 mb-8">Jev 是 TypeSafe AI 於 2026 年 9 月推出的決策型人工智能模型，屬於該公司稱為「System One Model」的新模型類別。它不生成文字、不寫句子，而是接收一段「狀態」（state）與一個有型別的提問，回傳一個有型別的決策、校準機率與信心分數，供軟件直接使用。本文從技術原理、三種提問原語、成本與速度、第三方實測準確度、市場全景（與 OpenAI Decisions API 及世界模型路線的比較），到企業落實場景與限制逐一說明，並釐清 Jev 與 Meta 的 JEPA 是兩件完全不同的事。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
@@ -3612,13 +3867,13 @@ export const blogPosts: BlogPost[] = [
     `,
   },
 
-  // ─── AI 系列：香港中小企由 Copilot 到 AI Agent 的效率提升與落地實務 ───
+  // ─── AI 系列：香港中小企由 Copilot 到 AI Agent 的效率提升與落實實務 ───
   {
     id: 42,
     slug: "ai-sme-productivity-hong-kong",
-    title: "AI 提升工作效率：香港中小企 Copilot 與 AI Agent 落地指南",
+    title: "AI 提升工作效率：香港中小企 Copilot 與 AI Agent 落實指南",
     excerpt:
-      "香港中小企如何用 AI 提升工作效率？本文以生產力局、金管局與政府統計處的一手調查數據，說明本地企業的實際使用情況與常見誤讀，比較輔助型工具與人工智能代理的分工，整理由選擇工序、量度成效到設計人工覆核點的實作路線，並查核四項政府資助計劃的最新狀態，以及解釋工具買回來為何不等於落地。",
+      "香港中小企如何用 AI 提升工作效率？本文以生產力局、金管局與政府統計處的一手調查數據，說明本地企業的實際使用情況與常見誤讀，比較輔助型工具與人工智能代理的分工，整理由選擇工序、量度成效到設計人工覆核點的實作路線，並查核四項政府資助計劃的最新狀態，以及解釋工具買回來為何不等於落實。",
     date: "2026-10-15",
     updatedAt: "2026-10-15",
     category: "AI Technology",
@@ -3627,7 +3882,7 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/ai-sme-productivity-hong-kong.webp",
     tags: ["AI 提升工作效率", "Microsoft 365 Copilot", "AI Agent", "香港中小企", "數碼轉型", "AI 自動化"],
     content: `
-        <p class="lead text-xl text-gray-600 mb-8">香港中小企想用 AI 提升工作效率，通常會由 Microsoft 365 Copilot 這類「輔助個人」的工具入手，再逐步走到 AI Agent 這類「執行跨系統流程」的方案。本文用一手調查數據講清楚香港企業實際的 AI 使用情況，比較 Copilot 類工具與 AI Agent 的分工，整理由選工序、量度成效到設計人工覆核點的實作路線，並查核 TVP、DTSSP、BUD 與 NITTP 四項政府資助的最新狀態，最後說明為何工具買回來不等於落地。</p>
+        <p class="lead text-xl text-gray-600 mb-8">香港中小企想用 AI 提升工作效率，通常會由 Microsoft 365 Copilot 這類「輔助個人」的工具入手，再逐步走到 AI Agent 這類「執行跨系統流程」的方案。本文用一手調查數據講清楚香港企業實際的 AI 使用情況，比較 Copilot 類工具與 AI Agent 的分工，整理由選工序、量度成效到設計人工覆核點的實作路線，並查核 TVP、DTSSP、BUD 與 NITTP 四項政府資助的最新狀態，最後說明為何工具買回來不等於落實。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>
@@ -3676,7 +3931,7 @@ export const blogPosts: BlogPost[] = [
 
         <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">調查數字怎麼讀：受訪比例不等於市場採用率</h3>
         <p>上表的百分比全部屬於「受訪者比例」。以生產力局該項調查為例，樣本約 800 間企業，而行業涵蓋金融、製造、零售與專業服務，而據媒體引述發布會資料，其中約 43% 屬 200 人以上規模；換言之，結果較能反映中大型企業的情況，未必等同全港中小企整體的分布。同樣，金管局的調查對象是認可機構與金融機構，屬於受監管、資源較充足的行業，其採納比例不宜直接搬到餐飲、零售或工程等行業。</p>
-        <p>另一個常見誤讀，是把「曾經使用」與「已嵌入流程」混為一談。同類調查顯示，多數企業仍主要把 AI 用於高重複性或行政性工作，離「全面釋放 AI 潛能」尚有距離；生產力局的調查亦指出，企業在深化應用時面對的五大挑戰依次為缺乏 AI 專才與培訓、數據私隱與安全顧慮、難以與現有系統整合、員工抗拒或準備不足，以及成本壓力。這五項正好對應本文後半部分的落地條件。</p>
+        <p>另一個常見誤讀，是把「曾經使用」與「已嵌入流程」混為一談。同類調查顯示，多數企業仍主要把 AI 用於高重複性或行政性工作，離「全面釋放 AI 潛能」尚有距離；生產力局的調查亦指出，企業在深化應用時面對的五大挑戰依次為缺乏 AI 專才與培訓、數據私隱與安全顧慮、難以與現有系統整合、員工抗拒或準備不足，以及成本壓力。這五項正好對應本文後半部分的落實條件。</p>
 
         <figure class="blog-figure my-10">
         <img src="/blog/figures/ai-sme-productivity-hong-kong-3.webp" alt="會議室內管理層圍繞調查報告討論數字的場景" title="管理層解讀調查數字" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
@@ -3820,7 +4075,7 @@ export const blogPosts: BlogPost[] = [
         <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">兩者並非互相替代，而是流程上的先後</figcaption>
         </figure>
 
-        <p>要把 Agent 落地，至少要滿足三個技術條件。第一，流程本身已經標準化：如果同一件事每次做法都不同，Agent 無從跟隨。第二，涉及的系統有可用接口：不少中小企的舊系統或自建工具未必提供應用程式介面，需要先補上中間層。第三，有明確的停止條件與覆核點：Agent 必須知道在什麼情況下停止並交由人接手，而不是自行猜測。</p>
+        <p>要把 Agent 落實，至少要滿足三個技術條件。第一，流程本身已經標準化：如果同一件事每次做法都不同，Agent 無從跟隨。第二，涉及的系統有可用接口：不少中小企的舊系統或自建工具未必提供應用程式介面，需要先補上中間層。第三，有明確的停止條件與覆核點：Agent 必須知道在什麼情況下停止並交由人接手，而不是自行猜測。</p>
 
         <figure class="blog-figure my-10">
         <img src="/blog/figures/ai-sme-productivity-hong-kong-12.webp" alt="流程圖：客戶查詢經 AI Agent 串接多個系統並回到人手確認的路徑" title="Agent 串接流程示意" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
@@ -3979,22 +4234,22 @@ export const blogPosts: BlogPost[] = [
         </figure>
 
         <div class="bg-blue-50 border-l-4 border-[#0f4c81] p-5 rounded-r-xl my-8">
-          <p class="font-bold text-[#0f4c81] mb-2">資助不等於落地</p>
+          <p class="font-bold text-[#0f4c81] mb-2">資助不等於落實</p>
           <p class="text-blue-900 text-sm leading-relaxed">資助只解決資金部分。即使成功取得資助，流程設計、系統整合、權限安排與員工訓練仍要有人負責。把資助金額當成項目可行性證明的想法，往往導致系統上線後無人使用。</p>
         </div>
 
         <figure class="blog-figure my-10">
         <img src="/blog/figures/ai-sme-productivity-hong-kong-23.webp" alt="香港公司會議室內團隊討論資助與項目分工的場景" title="資助只是項目一部分" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
-        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">資金到位只是起點，落地仍要靠人與流程</figcaption>
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">資金到位只是起點，落實仍要靠人與流程</figcaption>
         </figure>
 
-        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、為何需要專業團隊協助落地</h2>
-        <p>市場上的 AI 工具本身並不難買。真正決定成敗的，是工具與公司現有流程之間的落差。以下整理五個最常見的落地缺口，以及自行處理與交由專業團隊處理的分別。</p>
+        <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">八、為何需要專業團隊協助落實</h2>
+        <p>市場上的 AI 工具本身並不難買。真正決定成敗的，是工具與公司現有流程之間的落差。以下整理五個最常見的落實缺口，以及自行處理與交由專業團隊處理的分別。</p>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
           <table class="w-full text-sm">
             <thead class="bg-[#0f4c81] text-white">
-              <tr><th class="px-4 py-3 text-left">落地缺口</th><th class="px-4 py-3 text-left">自行處理的常見結果</th><th class="px-4 py-3 text-left">專業團隊切入點</th></tr>
+              <tr><th class="px-4 py-3 text-left">落實缺口</th><th class="px-4 py-3 text-left">自行處理的常見結果</th><th class="px-4 py-3 text-left">專業團隊切入點</th></tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
               <tr><td class="px-4 py-3">流程盤點</td><td class="px-4 py-3">直接購買工具，之後才發現對不上現有工序</td><td class="px-4 py-3">先梳理工序、輸入輸出與例外情況，再決定自動化範圍</td></tr>
@@ -4007,16 +4262,16 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <figure class="blog-figure my-10">
-        <img src="/blog/figures/ai-sme-productivity-hong-kong-24.webp" alt="香港顧問團隊與客戶在會議室梳理業務流程的場景" title="落地缺口與切入點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-24.webp" alt="香港顧問團隊與客戶在會議室梳理業務流程的場景" title="落實缺口與切入點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
         <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">最大的落差不在工具，而在流程與權限的安排</figcaption>
         </figure>
 
-        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">五個落地環節</h3>
+        <h3 class="text-xl font-bold text-[#0f4c81] mt-8 mb-3">五個落實環節</h3>
         <p>具體而言，一個完整的導入過程通常包含五個環節。第一是<strong>流程盤點</strong>：把工序逐步寫下來，標明輸入、輸出、例外情況與現時耗時。第二是<strong>系統整合</strong>：確認資料來源、需要哪些接口、由誰維護；這一步往往是工時最集中的部分。第三是<strong>權限設計</strong>：按職責重整檔案與系統權限，確保 AI 的存取範圍與使用者權責一致。第四是<strong>員工訓練</strong>：不只教操作，更要教判斷——什麼情況下不可信任輸出、什麼內容不可輸入。第五是<strong>持續維護</strong>：定期檢視成效與例外個案，隨業務變化調整流程。</p>
         <p>這五個環節之中，第一與第二項最難自行完成，因為它們需要跨越部門、動用系統與技術知識，而日常營運本身已經佔用大部分人力。這正是不少公司即使已購入授權，實際使用率仍然偏低的原因。</p>
 
         <figure class="blog-figure my-10">
-        <img src="/blog/figures/ai-sme-productivity-hong-kong-25.webp" alt="流程圖：由流程盤點、系統整合、權限設計、員工訓練到持續維護的五個落地環節" title="五個落地環節" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <img src="/blog/figures/ai-sme-productivity-hong-kong-25.webp" alt="流程圖：由流程盤點、系統整合、權限設計、員工訓練到持續維護的五個落實環節" title="五個落實環節" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
         <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">五個環節缺一，項目通常會停在「已購入但沒有人用」的狀態</figcaption>
         </figure>
 
@@ -4623,7 +4878,7 @@ export const blogPosts: BlogPost[] = [
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">一、先分清「校本需求」與「技術方案」</h2>
         <p>學校推行 AI 項目最常見的失誤，是次序顛倒：先被供應商示範打動，覺得某套工具「很厲害」，再倒過來為它找用途。這樣做通常導致兩個結果——買了用不著的工具，或者發現工具無法接駁學校現有系統。正確次序是先講清楚校本需求，再談技術方案。</p>
-        <p>「校本需求」講的是學校要解決什麼問題、涉及哪些使用者、現有流程痛在哪裡、成功如何量度；「技術方案」講的是用什麼工具、什麼模型、什麼架構去落地。兩者混為一談，就會出現「為 AI 而 AI」的項目。以下表格區分兩者。</p>
+        <p>「校本需求」講的是學校要解決什麼問題、涉及哪些使用者、現有流程痛在哪裡、成功如何量度；「技術方案」講的是用什麼工具、什麼模型、什麼架構去落實。兩者混為一談，就會出現「為 AI 而 AI」的項目。以下表格區分兩者。</p>
 
         <div class="overflow-x-auto my-8 rounded-xl shadow-sm border border-gray-200">
           <table class="w-full text-sm">
@@ -4892,12 +5147,12 @@ export const blogPosts: BlogPost[] = [
         </div>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">總結</h2>
-        <p>學校做 AI 項目，技術本身通常不是最大難關，難的是次序與管治：先有清楚的校本需求盤點，才有合理的技術選型；先有私隱與風險控制，才談得上規模化推展。對中小學而言，最務實的路徑是——<strong>先分清需求與方案，用先導驗證降低風險，為高風險輸出入工覆核，並把資料擁有權與遷移安排寫進合約</strong>。掌握這幾點，校本 AI 項目才能落地而非停留在示範階段。</p>
-        <p>若學校希望由需求盤點、技術選型、私隱評估到專案驗收一併處理，可參考我們的<a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校及教育數碼方案</a>、<a href="/services/ai/" class="text-[#0f4c81] font-bold hover:underline">人工智能應用服務</a>，以及<a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請指南</a>，了解由資助申請到系統落地的完整流程。</p>
+        <p>學校做 AI 項目，技術本身通常不是最大難關，難的是次序與管治：先有清楚的校本需求盤點，才有合理的技術選型；先有私隱與風險控制，才談得上規模化推展。對中小學而言，最務實的路徑是——<strong>先分清需求與方案，用先導驗證降低風險，為高風險輸出入工覆核，並把資料擁有權與遷移安排寫進合約</strong>。掌握這幾點，校本 AI 項目才能落實而非停留在示範階段。</p>
+        <p>若學校希望由需求盤點、技術選型、私隱評估到專案驗收一併處理，可參考我們的<a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校及教育數碼方案</a>、<a href="/services/ai/" class="text-[#0f4c81] font-bold hover:underline">人工智能應用服務</a>，以及<a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請指南</a>，了解由資助申請到系統落實的完整流程。</p>
 
         <figure class="blog-figure my-10">
-        <img src="/blog/figures/school-ai-project-hong-kong-11.webp" alt="圖示：校本 AI 項目落地的三個關鍵控制點，包括需求盤點、風險與私隱控制、資料擁有權與遷移安排" title="校本 AI 項目三個關鍵控制點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
-        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">掌握需求、控制風險、保障資料擁有權，項目才能落地</figcaption>
+        <img src="/blog/figures/school-ai-project-hong-kong-11.webp" alt="圖示：校本 AI 項目落實的三個關鍵控制點，包括需求盤點、風險與私隱控制、資料擁有權與遷移安排" title="校本 AI 項目三個關鍵控制點" width="1024" height="576" loading="lazy" decoding="async" class="w-full h-auto rounded-2xl border border-gray-100">
+        <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">掌握需求、控制風險、保障資料擁有權，項目才能落實</figcaption>
         </figure>
 
         <div class="border-t border-gray-200 mt-10 pt-6 text-sm text-gray-500">
@@ -5112,7 +5367,7 @@ export const blogPosts: BlogPost[] = [
         <figcaption class="mt-3 text-sm text-gray-500 text-center leading-relaxed">經常性津貼、QEF 與「智」啟學教各有分工，同一項開支不可重複申請</figcaption>
         </figure>
 
-        <p>如欲進一步了解資助申請的細節，可參閱 <a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請攻略</a>，或參考 <a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校數碼項目服務</a> 了解由資助到落地的流程。</p>
+        <p>如欲進一步了解資助申請的細節，可參閱 <a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請攻略</a>，或參考 <a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校數碼項目服務</a> 了解由資助到落實的流程。</p>
 
         <h2 class="text-2xl font-bold text-[#0f4c81] mt-10 mb-4">六、安裝、培訓與上線後維護</h2>
         <p>設備送到學校只是開始，之後的安裝、驗收、培訓與維護才決定設備能否長期運作。</p>
@@ -5213,7 +5468,7 @@ export const blogPosts: BlogPost[] = [
 
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8">
           <p class="font-bold text-[#0f4c81] mb-3 text-lg">需要協助規劃 STEAM 教室的設備與採購？</p>
-          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供學校數碼項目的技術與採購支援，由設備清單、相容性與空間評估，到採購文件、資助申請支援及上線後維護安排，可以協助學校由需求盤點到落地一併處理。</p>
+          <p class="text-gray-700 leading-relaxed mb-3">ADWire 提供學校數碼項目的技術與採購支援，由設備清單、相容性與空間評估，到採購文件、資助申請支援及上線後維護安排，可以協助學校由需求盤點到落實一併處理。</p>
           <p><a href="/services/education/" class="text-[#0f4c81] font-bold hover:underline">學校數碼項目服務</a>　·　<a href="/blog/qef-application-guide-hong-kong-schools/" class="text-[#0f4c81] font-bold hover:underline">優質教育基金申請攻略</a></p>
         </div>
 
@@ -5250,7 +5505,7 @@ export const blogPosts: BlogPost[] = [
     image: "/blog/digital-education-tools-hong-kong-schools.webp",
     tags: ["數字教育", "教育科技", "系統整合", "單一登入", "學生資料私隱", "學校採購", "eClass"],
     content: `
-        <p class="lead text-xl text-gray-600 mb-8">香港學校引入數字教育工具時，最常見的困難並非「有沒有工具可用」，而是「這套工具能否與現有系統整合、資料能否互通、日後由誰維護」。教育局已要求學校把數字教育納入學校發展計劃，加上「『智』啟學教」等撥款陸續到位，學校在短期內要作出大量採購與技術決定。本文只從技術與落地角度出發，說明數字教育工具的分類、評估維度、與現有平台的共存方式、學生資料保護要求，以及採購與維護要考慮的事項，協助學校資訊科技統籌人員把選擇的標準講清楚。</p>
+        <p class="lead text-xl text-gray-600 mb-8">香港學校引入數字教育工具時，最常見的困難並非「有沒有工具可用」，而是「這套工具能否與現有系統整合、資料能否互通、日後由誰維護」。教育局已要求學校把數字教育納入學校發展計劃，加上「『智』啟學教」等撥款陸續到位，學校在短期內要作出大量採購與技術決定。本文只從技術與落實角度出發，說明數字教育工具的分類、評估維度、與現有平台的共存方式、學生資料保護要求，以及採購與維護要考慮的事項，協助學校資訊科技統籌人員把選擇的標準講清楚。</p>
 
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-[#0f4c81] p-6 rounded-r-xl my-8">
           <p class="font-bold text-[#0f4c81] mb-2 text-lg">💡 最直接答案</p>

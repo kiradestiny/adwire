@@ -52,7 +52,7 @@ function PortfolioJsonLd() {
     "@type": "CollectionPage",
     name: "成功案例 Portfolio — ADWire Agency",
     description:
-      "ADWire Agency 的完整成功案例集。涵蓋 KOL 營銷、短視頻製作、SEO 優化、數碼廣告、自動化系統及 App 開發等多個行業的真實成效案例。",
+      "ADWire Agency 的完整成功案例集。涵蓋 KOL 營銷、短片製作、SEO 優化、數碼廣告、自動化系統及 App 開發等多個行業的真實成效案例。",
     url: "https://adwire.com.hk/portfolio/",
     publisher: {
       "@type": "Organization",
@@ -89,7 +89,7 @@ function PortfolioJsonLd() {
     },
     about: [
       { "@type": "Thing", name: "KOL 網紅營銷" },
-      { "@type": "Thing", name: "短視頻製作" },
+      { "@type": "Thing", name: "短片製作" },
       { "@type": "Thing", name: "SEO 搜尋引擎優化" },
       { "@type": "Thing", name: "數碼廣告投放" },
       { "@type": "Thing", name: "企業流程自動化及 RPA" },

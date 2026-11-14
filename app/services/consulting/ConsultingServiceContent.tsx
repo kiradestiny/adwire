@@ -51,7 +51,7 @@ import {
  * 顧問服務頁內容
  *
  * 定位：ADWire 不只是執行代工，而是「開發顧問 ＋ AI 顧問」，
- * 協助香港企業把 AI 與系統真正落地。
+ * 協助香港企業把 AI 與系統真正落實。
  *
  * ⚠️ 資助計劃資料以官方一手來源核對（工貿署、創新科技署、數碼港及立法會書面答覆），
  *    查核日期見頁內標示；已停止或已截止的計劃會如實標明，不作「現正接受申請」的誤導。
@@ -242,7 +242,7 @@ const whyUs = [
   },
   {
     icon: Handshake,
-    title: "顧問＋落地一條龍",
+    title: "顧問＋落實一條龍",
     desc: "由診斷、選型到開發交付由同一團隊跟進，避免「顧問說一套、執行做另一套」的落差。",
   },
 ];
@@ -296,7 +296,7 @@ export default function ConsultingServiceContent() {
         "首次約 30 分鐘的診斷會議免費，用來判斷問題是否值得推進及建議方向。其後的工序盤點、方案書及後續顧問工作會按範圍報價，並在方案書中列明交付物與時間表。我們不會在未講清楚範圍與收費前開始收費工作。",
     },
     {
-      question: "你們會只顧問、不負責落地嗎？",
+      question: "你們會只顧問、不負責落實嗎？",
       answer:
         "兩者都可以。你可以只採用顧問部分，由內部或第三方團隊執行；亦可以由我們一併負責開發與整合，避免顧問與執行之間的落差。合作模式會在方案階段講清楚，不會含糊地把你綁死在單一選項。",
     },
@@ -328,7 +328,7 @@ export default function ConsultingServiceContent() {
         {
         question: "IT 顧問實際上做啲咩？",
         answer:
-          "三件事：診斷（現有系統與流程哪裡出現瓶頸）、選型（幾個可行方案的成本、風險與取捨）、以及落地監督（確保執行方按範圍與標準交付）。顧問不代替開發，而是確保你買到真正需要的東西，並在出現爭議時有技術依據。",
+          "三件事：診斷（現有系統與流程哪裡出現瓶頸）、選型（幾個可行方案的成本、風險與取捨）、以及落實監督（確保執行方按範圍與標準交付）。顧問不代替開發，而是確保你買到真正需要的東西，並在出現爭議時有技術依據。",
       },
       {
         question: "顧問同開發公司有咩分別？",
@@ -353,7 +353,7 @@ export default function ConsultingServiceContent() {
 
       <ServiceJsonLd
         name="企業 AI 與系統導入顧問服務"
-        description="ADWire 提供企業 AI 與系統導入顧問服務，包括 AI 導入、系統選型、系統整合、流程自動化、開發及資助計劃顧問。由免費診斷、工序盤點、方案報價到 PoC 與正式交付，協助香港企業把 AI 與系統真正落地。"
+        description="ADWire 提供企業 AI 與系統導入顧問服務，包括 AI 導入、系統選型、系統整合、流程自動化、開發及資助計劃顧問。由免費診斷、工序盤點、方案報價到 PoC 與正式交付，協助香港企業把 AI 與系統真正落實。"
         url="https://adwire.com.hk/services/consulting/"
         image="https://adwire.com.hk/services/services-overview-diagnosis-workflow.webp"
       />
@@ -382,14 +382,14 @@ export default function ConsultingServiceContent() {
                 AI 與系統導入顧問
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f5a623] to-amber-300">
-                  由診斷、選型到落地
+                  由診斷、選型到落實
                 </span>
               </h1>
 
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
                 ADWire 不只是執行代工，而是你的開發顧問與 AI 顧問。
                 <br />
-                我們熟悉不同 AI 模型、懂得如何為企業優化與落地，
+                我們熟悉不同 AI 模型、懂得如何為企業優化與落實，
                 <br />
                 協助你由診斷、選型、整合到交付，把構思變成可運作的系統。
               </p>
@@ -437,7 +437,7 @@ export default function ConsultingServiceContent() {
                 <div className="flex items-center gap-2 mb-5 pb-4 border-b border-slate-700">
                   <Compass size={18} className="text-[#f5a623]" />
                   <span className="text-sm font-semibold text-slate-300">
-                    顧問診斷 · 由構思到落地
+                    顧問診斷 · 由構思到落實
                   </span>
                 </div>
                 <div className="space-y-3">
@@ -454,7 +454,7 @@ export default function ConsultingServiceContent() {
                 </div>
                 <div>
                   <div className="text-xs text-gray-500 font-bold">合作模式</div>
-                  <div className="text-lg font-bold">顧問＋落地</div>
+                  <div className="text-lg font-bold">顧問＋落實</div>
                 </div>
               </div>
             </motion.div>
@@ -483,7 +483,7 @@ export default function ConsultingServiceContent() {
               企業常見的處境
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-              這些情況往往不是單一工具可以解決，而是需要先診斷、後落地。若你正遇到其中幾項，顧問工作通常能幫上忙。
+              這些情況往往不是單一工具可以解決，而是需要先診斷、後落實。若你正遇到其中幾項，顧問工作通常能幫上忙。
             </p>
           </div>
 
@@ -512,7 +512,7 @@ export default function ConsultingServiceContent() {
               顧問服務範疇
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-              覆蓋由 AI 導入到系統落地的六個環節，可按你的實際情況單獨或組合使用。
+              覆蓋由 AI 導入到系統落實的六個環節，可按你的實際情況單獨或組合使用。
             </p>
           </div>
 
@@ -663,7 +663,7 @@ export default function ConsultingServiceContent() {
               為什麼是 ADWire
             </h2>
             <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-              顧問的價值在於判斷與落地，而不是紙上談兵。以下幾點是我們與一般建議的分別。
+              顧問的價值在於判斷與落實，而不是紙上談兵。以下幾點是我們與一般建議的分別。
             </p>
           </div>
 
@@ -771,7 +771,7 @@ export default function ConsultingServiceContent() {
               icon={Brain}
               href="/blog/ai-solution-hong-kong-enterprise-guide"
               title="香港企業 AI 化完全指南"
-              desc="由場景選擇到落地步驟，說明企業導入 AI 的常見次序與陷阱。"
+              desc="由場景選擇到落實步驟，說明企業導入 AI 的常見次序與陷阱。"
             />
             <RelatedCard
               icon={LineChart}
