@@ -33,7 +33,22 @@ export function topicKey(slug: string): string {
  * 注意：此規則必須同 .htaccess / _redirects 的 301 方向保持一致，
  * 兩者任何一方改動都要同步（有測試覆蓋）。
  */
+/**
+ * 明確的別名表：主題相同但字根不同（topicKey 無法自動歸併）的 slug。
+ *
+ * 2026-11-26：`hong-kong-web-design-pricing-2026` 與
+ * `hong-kong-web-design-pricing-guide` 都是「香港網頁設計收費」，
+ * GSC 90 日內分別有 51 及 518 次曝光。負責人決定保留 guide 版本，
+ * 因此把另一篇指向 guide：canonical 指向 guide、不進 sitemap、
+ * public/_redirects 同時 301。要改方向只需改這一行。
+ */
+const SLUG_ALIASES: Record<string, string> = {
+  "hong-kong-web-design-pricing-2026": "hong-kong-web-design-pricing-guide",
+};
+
 export function resolveCanonicalSlug(slug: string, allSlugs: string[]): string {
+  const alias = SLUG_ALIASES[slug];
+  if (alias && allSlugs.includes(alias)) return alias;
   const key = topicKey(slug);
   if (!key) return slug;
 
@@ -61,4 +76,9 @@ export function resolveCanonicalSlug(slug: string, allSlugs: string[]): string {
 /** 此 slug 是否就是它所屬主題的代表版本 */
 export function isCanonicalSlug(slug: string, allSlugs: string[]): boolean {
   return resolveCanonicalSlug(slug, allSlugs) === slug;
+}
+
+/** 給 sitemap／建置用的別名清單（測試與檢查腳本可讀） */
+export function canonicalAliases(): Record<string, string> {
+  return { ...SLUG_ALIASES };
 }

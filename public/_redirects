@@ -64,6 +64,12 @@
 /%E5%85%A8%E8%83%BD-marketing-%E6%9C%8D%E5%8B%99  /services/  301
 # <<< NO-SLASH-VARIANTS <<<
 
+# 同題文章收斂（2026-11-26 決定：保留 guide 版本）
+# /blog/hong-kong-web-design-pricing-2026/ 與 …pricing-guide/ 同為「香港網頁設計收費」，
+# GSC 90 日內分別 51 及 518 次曝光。方向必須同 lib/blog-canonical.ts 的 SLUG_ALIASES 一致。
+/blog/hong-kong-web-design-pricing-2026/  /blog/hong-kong-web-design-pricing-guide/  301
+/blog/hong-kong-web-design-pricing-2026  /blog/hong-kong-web-design-pricing-guide/  301
+
 # 舊 WordPress sitemap（Bing 後台仍然掛住，已 404 或錯型別）→ 統一跳去現行 sitemap
 # 必須放在下面的 /post-* 之前：Pages 由上下順序匹配，最先命中者勝。
 /sitemap_index.xml  /sitemap.xml  301
