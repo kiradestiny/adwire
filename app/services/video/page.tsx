@@ -5,8 +5,10 @@ import FAQJsonLd from "@/components/FAQJsonLd";
 import { VIDEO_FAQS } from "@/lib/service-faqs";
 
 export const metadata: Metadata = {
-  title: "影片製作公司｜短片・宣傳片・廣告製作",
-  description: "短片、企業宣傳片、產品廣告及活動紀錄的策劃、拍攝及後期製作。列明腳本、拍攝日數、剪輯版本、字幕、平台比例及交片時間。",
+  // 2026-11-26：與 /services/production/ 同時以「影片製作公司」為 Title，兩頁自我競爭。
+  // 短片（直式、社交平台、短秒數）歸此頁，企業影片／商業攝影歸 /services/production/。
+  title: "短片製作公司｜Reels・TikTok・廣告短片拍攝",
+  description: "短片製作公司：直式 Reels、TikTok、產品廣告及活動短片的策劃、拍攝及後期。列明腳本、拍攝日數、剪輯版本、字幕、平台比例及交片時間。",
   keywords: ["影片製作公司", "拍片公司", "宣傳片製作", "短片製作", "Reels 拍攝", "短片拍攝", "企業宣傳片", "香港影片製作", "Video Production HK", "Viral Shorts"],
   alternates: {
     canonical: "/services/video/",

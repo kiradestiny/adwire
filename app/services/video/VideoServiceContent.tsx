@@ -40,7 +40,7 @@ export default function VideoServiceContent() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight">
-              香港影片製作公司<br/>
+              香港短片製作公司<br/>
               抓住 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">黃金 3 秒</span>，讓短片被看完、被分享
             </h1>
             
